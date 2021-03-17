@@ -62,7 +62,7 @@ test.it('Checking can\'t take off when bad weather', function(){
 })
 
 test.it('Checking can\'t land when bad weather', function(){
-    let airport = new Airport(5, true);
+    let airport = new Airport(undefined, true);
     let result = airport.land('my plane');
     test.assertEquals(result, badweatherlandmessage);
 })
