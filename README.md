@@ -44,3 +44,14 @@ I want to instruct the airport to land a plane
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+
+### User Story 2
+```
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+```
+| Object | Properties | Message | Context | Output |
+| ------ | ---------- | ------- | ------- | ------ |
+| Airport | capacity @Int | get capacity() | capacity as constructor parameter with default value. Getter to return value | @Int |
+|  |  |  | negative Int passed to constructor | @Error |
