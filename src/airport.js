@@ -1,6 +1,11 @@
 class Airport {
-  // here's a starting point for you
-
+  constructor() {
+      this.landingArea = [];
+  }
+  land(plane){
+      this.landingArea.push(plane);
+      return this.landingArea;
+  }
 }
 
 module.exports = Airport;
