@@ -14,13 +14,17 @@ class Airport {
     return this._capacity;
   }
 
-  land(plane) {
-    if(plane.flying === false) return "Cannot land plane, it is not flying"
-    plane.flying = false;
-    this._hanger.push(plane);
-    return this._hanger;
+  isFull() {
+    return this._hanger.length >= this.capacity
   }
 
+  land(plane) {
+    if(plane.flying === false) return "Cannot land plane, it is not flying";
+    if(this.isFull()) return "Cannot land yet, the hangar is full";
+    plane.flying = false;
+    this._hanger.push(plane);
+    return `Successful landing, ${plane.id} is now in the hangar`;
+  }
 }
 
 module.exports = Airport;
