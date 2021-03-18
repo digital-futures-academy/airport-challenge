@@ -5,7 +5,7 @@ const Airport = require('../src/airport');
 let plane, plane2, plane3, airport, result, output;
 
 // Story 1 Refactored:
-test.describe('Testing airport.land() function', () => {
+test.describe('User Story 1: Testing airport.land() function', () => {
     test.it('plane added to hanger', () => {
         plane = new Plane('PL1');
         airport = new Airport();
@@ -29,7 +29,7 @@ test.describe('Testing airport.land() function', () => {
 
 
 // Story 2 Refactored
-test.describe('Story 2: testing airport._capacity input and getter', () => {
+test.describe('Story 2: Testing airport._capacity input and getter', () => {
     test.it('default value of capacity is correct', () => {
         airport = new Airport();
         
@@ -62,45 +62,34 @@ test.describe('Story 2: testing airport._capacity input and getter', () => {
 })
 
 
-// Story 3
-console.log(`Testing airport.isFull() and airport.land()`)
+// Story 3 Refactored
 
-console.log(`   Test 1: isFull() returns false when hangar.length < capacity`)
-plane = new Plane('PL1');
-airport = new Airport(2);
-airport.land(plane);
+test.describe(`Story 3: Testing airport.isFull() and airport.land() work together`, () => {
+    test.it('isFull() returns false when hangar.length < capacity', () => {
+        plane = new Plane('PL1');
+        airport = new Airport();
+        airport.land(plane);
 
-result = test.assertEquals(airport.isFull(), false);
-if(result) console.log(`   Passed`);
-else console.log(`   Failed - expected false and got ${result}`);
+        test.expect(airport.isFull()).toEqual(false);
+    })
 
+    test.it('isFull() returns true when hangar.length === capacity', () => {
+        plane2 = new Plane('PL2');
+        airport.land(plane2);
 
-console.log(`   Test 2: isFull() returns true when hangar.length === capacity`)
-plane2 = new Plane('PL2');
-airport.land(plane2);
+        test.expect(airport.isFull()).toEqual(true);
+    })
 
-result = test.assertEquals(airport.isFull(), true);
-if(result) console.log(`   Passed`);
-else console.log(`   Failed - expected true and got ${result}`);
+    test.it('.land() does not land a plane when isFull() is true', () => {
+        plane3 = new Plane('PL3');
+        
+        test.expect(airport.land(plane3)).toEqual("Cannot land yet, the hangar is full");
+    })
 
+    test.it('.land() success when isFull() is false', () => {
+        airport = new Airport();
+        plane = new Plane('PL1');
 
-
-console.log(`   Test 3: .land() does not land the plane because isFull() is true`);
-plane3 = new Plane('PL3');
-
-output = airport.land(plane3);
-
-result = test.assertEquals(output, "Cannot land yet, the hangar is full");
-if(result) console.log(`   Passed`);
-else console.log(`   Failed - expected true and got ${result}`);
-
-console.log(`   Test 4: .land() works returns success when isFull() is false`);
-airport = new Airport();
-plane = new Plane('PL1');
-
-output = airport.land(plane);
-
-result = test.assertEquals(output, `Successful landing, ${plane.id} is now in the hangar`);
-let result2 = test.assertEquals(airport.hanger.length, 1);
-if(result && result2) console.log(`   Passed`);
-else console.log(`   Failed - expected true and got ${result}`);
+        test.expect(airport.land(plane)).toEqual(`Successful landing, ${plane.id} is now in the hangar`);
+    })
+})

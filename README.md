@@ -55,3 +55,19 @@ I would like a default airport capacity that can be overridden as appropriate
 | ------ | ---------- | ------- | ------- | ------ |
 | Airport | capacity @Int | get capacity() | capacity as constructor parameter with default value. Getter to return value | @Int |
 |  |  |  | negative Int passed to constructor | @Error |
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### User Story 3
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+| Object | Properties | Message | Context | Output |
+| ------ | ---------- | ------- | ------- | ------ |
+| Airport |  | isFull() | if hangar[].length is equal to capacity | @Boolean true |
+|  |  |  | if hangar[].length < capacity | @Boolean false |
+|  |  | .land(@plane) | isFull | @String cannot land yet, the hangar is full |
+|  |  |  | !isFull | @String Successful landing, ${plane} is now in the hangar |
