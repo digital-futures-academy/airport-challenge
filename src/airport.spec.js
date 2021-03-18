@@ -29,6 +29,7 @@ result = check(expected, actual)
 console.log(result)
 
 
+
 //TEST CASE 3 
 console.log('Checks if the plane is at the airport')
 //1.Setup
@@ -42,6 +43,7 @@ console.log(actual)
 //3.Verify
 result = check(expected, actual)
 console.log(result)
+
 
 
 //TEST CASE 4
@@ -58,15 +60,33 @@ result = check(expected, actual)
 console.log(result)
 
 
+
 //TEST CASE 5 
 console.log('Checks if airport is full')
 //1.Setup
-airport = new Airport()
+airport = new Airport()  
 airport.toLand('plane1')
 airport.toLand('plane2')
 airport.toLand('plane3')
 airport.toLand('plane4')
 expected = 'The airport is full'
+//2.Execute
+actual = airport.toLand('plane5')
+//3.Verify
+result = check(expected, actual)
+console.log(result)
+
+
+
+//TEST CASE 6 
+console.log('Checks if the default capacity can be overridden')
+//1.Setup
+airport = new Airport('designer')    //Checks whether the system designer is present so the default capacity can be changed when it's appropriate
+airport.toLand('plane1')
+airport.toLand('plane2')
+airport.toLand('plane3')
+airport.toLand('plane4')
+expected = 'The capacity of the airport has been increased by 2 additional slots.'
 //2.Execute
 actual = airport.toLand('plane5')
 //3.Verify

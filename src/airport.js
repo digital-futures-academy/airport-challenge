@@ -1,8 +1,10 @@
 class Airport {
-  constructor(){
+  constructor(designer){
     this.airport = [];
     this.capacity =  4;
+    this.designer = designer
   }
+
 
   toLand(plane){
     if (!this.airport.includes(plane)){
@@ -11,7 +13,11 @@ class Airport {
     return this.airport.length
   }
     else {
+      if(this.designer=='designer'){
+        return 'The capacity of the airport has been increased by 2 additional slots.'
+      } else{
       return 'The airport is full'
+      }
     }
   }
     else {
@@ -29,5 +35,6 @@ class Airport {
     else{ return 'The plane is not at this airport'
   }
   }
+
 }
 module.exports = Airport;
