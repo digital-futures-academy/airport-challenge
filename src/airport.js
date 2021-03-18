@@ -1,16 +1,24 @@
 class Airport {
   constructor(){
     this.airport = [];
+    this.capacity =  4;
   }
+
   toLand(plane){
     if (!this.airport.includes(plane)){
+      if(this.airport.length < this.capacity){
     this.airport.push(plane)
     return this.airport.length
   }
     else {
-      return 'This plane has already landed.'
+      return 'The airport is full'
     }
   }
+    else {
+      return 'This plane has already landed'
+    }
+  }
+
 
   toTakeOff(plane){
     if(this.airport.includes(plane)){
@@ -22,5 +30,4 @@ class Airport {
   }
   }
 }
-
 module.exports = Airport;

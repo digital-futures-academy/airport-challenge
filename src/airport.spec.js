@@ -35,9 +35,10 @@ console.log('Checks if the plane is at the airport')
 airport = new Airport()
 airport.toLand('plane1')
 airport.toLand('plane2')
-expected = 'This plane has already landed.'
+expected = 'This plane has already landed'
 //2.Execute
 actual = airport.toLand('plane2')
+console.log(actual)
 //3.Verify
 result = check(expected, actual)
 console.log(result)
@@ -46,6 +47,7 @@ console.log(result)
 //TEST CASE 4
 console.log('Checks if the plane is at the airport')
 //1.Setup
+airport = new Airport()
 airport.toLand('plane1')
 airport.toLand('plane2')
 expected = 'The plane is not at this airport'
@@ -55,5 +57,20 @@ actual = airport.toTakeOff('plane3')
 result = check(expected, actual)
 console.log(result)
 
+
+//TEST CASE 5 
+console.log('Checks if airport is full')
+//1.Setup
+airport = new Airport()
+airport.toLand('plane1')
+airport.toLand('plane2')
+airport.toLand('plane3')
+airport.toLand('plane4')
+expected = 'The airport is full'
+//2.Execute
+actual = airport.toLand('plane5')
+//3.Verify
+result = check(expected, actual)
+console.log(result)
 
 
