@@ -14,3 +14,46 @@ let result = check(expected, actual)
 console.log(result)
 
 
+
+//TEST CASE 2
+console.log('Checks if the toTakeOff() method works')
+//1.Setup
+airport = new Airport()
+airport.toLand('plane1')
+airport.toLand('plane2')
+expected = 1
+//2.Execute
+actual = airport.toTakeOff('plane1')
+//3.Verify
+result = check(expected, actual)
+console.log(result)
+
+
+//TEST CASE 3 
+console.log('Checks if the plane is at the airport')
+//1.Setup
+airport = new Airport()
+airport.toLand('plane1')
+airport.toLand('plane2')
+expected = 'This plane has already landed.'
+//2.Execute
+actual = airport.toLand('plane2')
+//3.Verify
+result = check(expected, actual)
+console.log(result)
+
+
+//TEST CASE 4
+console.log('Checks if the plane is at the airport')
+//1.Setup
+airport.toLand('plane1')
+airport.toLand('plane2')
+expected = 'The plane is not at this airport'
+//2.Execute
+actual = airport.toTakeOff('plane3')
+//3. Verify
+result = check(expected, actual)
+console.log(result)
+
+
+
