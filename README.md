@@ -71,3 +71,20 @@ I want to prevent landing when the airport is full
 |  |  |  | if hangar[].length < capacity | @Boolean false |
 |  |  | .land(@plane) | isFull | @String cannot land yet, the hangar is full |
 |  |  |  | !isFull | @String Successful landing, ${plane} is now in the hangar |
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### User Story 4
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+
+| Object | Properties | Message | Context | Output |
+| ------ | ---------- | ------- | ------- | ------ |
+| Airport |  | takeOff(@plane) | plane in hangar takes off | @Array[planes] |
+|  |  |  | plane already flying, cannot take off | @String This plane is already in flight, cannot take off |
+|  |  |  | plane not in this airport's hangar | @String This plane is not at this airport, cannot take off |
+| Plane |  |  | successful take off, plane.isFlying is set to true | @Boolean true |

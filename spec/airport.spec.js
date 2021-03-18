@@ -2,7 +2,7 @@ const test = require('mousinho-testlibrary-mse-2103/src/library');
 const Plane = require('../src/plane');
 const Airport = require('../src/airport');
 
-let plane, plane2, plane3, airport, result, output;
+let plane, plane2, plane3, airport, result, output, airport2;
 
 // Story 1 Refactored:
 test.describe('User Story 1: Testing airport.land() function', () => {
@@ -21,9 +21,8 @@ test.describe('User Story 1: Testing airport.land() function', () => {
     test.it('cannot land plane if plane.flying is already false', () => {
         plane = new Plane('PL1', false);
         airport = new Airport();
-        output = airport.land(plane);
 
-        test.expect(output).toEqual("Cannot land plane, it is not flying");
+        test.expect(airport.land(plane)).toEqual("Cannot land plane, it is not flying");
     })
 })
 
@@ -93,3 +92,43 @@ test.describe(`Story 3: Testing airport.isFull() and airport.land() work togethe
         test.expect(airport.land(plane)).toEqual(`Successful landing, ${plane.id} is now in the hangar`);
     })
 })
+
+
+// User Story 4
+console.log(`User Story 4: Testing airport.takeOff()`);
+
+console.log(`   Test 1: .takeOff(plane) confirms take off`)
+airport = new Airport();
+plane = new Plane('PL1');
+airport.land(plane);
+result = airport.takeOff(plane)
+
+if(test.assertEquals(result, `Successful take off, ${plane.id} is in the air`)) console.log(`   Passed`);
+else console.log(`   Failed - expected true and got false`);
+
+console.log(`   Test 2: .takeOff(plane) removes plane from hangar`);
+if(test.assertEquals(airport.hanger.length, 0)) console.log(`   Passed`);
+else console.log(`   Failed - expected 0 and got ${airport.hanger.length}`);
+
+
+console.log(`   Test 3: .takeOff(plane) changes plane.flying from false to true`);
+if(test.assertEquals(plane.flying, true)) console.log(`   Passed`);
+else console.log(`   Failed - expected true and got false`);
+
+
+console.log(`   Test 4: plane is already flying, cannot take off`);
+airport = new Airport();
+plane = new Plane('PL1');
+result = airport.takeOff(plane);
+
+if(test.assertEquals(result, `Cannot take off, ${plane.id} is already in the air`)) console.log(`   Passed`);
+else console.log(`   Failed - expected true and got false`)
+
+
+console.log(`   Test 5: plane is not in hangar before take off`);
+airport = new Airport();
+plane = new Plane('PL1', false);
+result = airport.takeOff(plane);
+
+if(test.assertEquals(result, `Cannot take off, ${plane.id} is not at this airport`)) console.log(`   Passed`);
+else console.log(`   Failed - expected true and got false`);

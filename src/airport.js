@@ -19,11 +19,19 @@ class Airport {
   }
 
   land(plane) {
-    if(plane.flying === false) return "Cannot land plane, it is not flying";
+    if(!plane.flying) return "Cannot land plane, it is not flying";
     if(this.isFull()) return "Cannot land yet, the hangar is full";
     plane.flying = false;
     this._hanger.push(plane);
     return `Successful landing, ${plane.id} is now in the hangar`;
+  }
+
+  takeOff(plane) {
+    if(plane.flying) return `Cannot take off, ${plane.id} is already in the air`;
+    if(!this._hanger.includes(plane)) return `Cannot take off, ${plane.id} is not at this airport`
+    this._hanger.splice(this._hanger.indexOf(plane), 1);
+    plane.flying = true;
+    return `Successful take off ${plane.id} is in the air`;
   }
 }
 
