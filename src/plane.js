@@ -1,6 +1,10 @@
 class Plane{
     constructor(model){
-        this.model=model
+        this._model=model
+    }
+
+    get model() {
+        return this._model
     }
 }
 

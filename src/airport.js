@@ -1,30 +1,48 @@
 class Airport {
     constructor(name, maxCapacity=5){
-        this._hanger=[]
         this.name=name
+        this._hanger=[]
         this._maxCapacity=maxCapacity
     }
-    isFull(){
-        return this.maxCapacity===this._hanger.length
+
+    hangerFull(){
+        return this._maxCapacity===this._hanger.length
     }
+
     get maxCapacity(){
         return this._maxCapacity
+    }
+
+    setMaxCapacity(input){
+        if (typeof(input)=='number'){
+            this._maxCapacity=input
+            return `Maximum airport capacity updated to ${this.maxCapacity}.`
+        } else {
+            return 'Maximum capacity not updated. Please input an integer.'
+        }
     }
 
     get hanger(){
         return this._hanger
     }
-    addPlane(plane){
-        if (!this.isFull()){
+
+    landing(plane){
+        if (!this.hangerFull()){
             this._hanger.push(plane)
+            return `${plane.model} landed at airport.`
+        } else {
+            return `${plane.model} could not land, maximum airport capacity reached.`
         }
     }
-    removePlane(plane){
+
+   takeOff(plane){
         let index=this._hanger.indexOf(plane)
         if (index!==-1){
             this._hanger.splice(index,1)
-        } else{return 'plane not in hanger'}
-     }
+        } else {
+            return `${plane.model} not in hanger.`
+        }
+   }
 }
 
 module.exports = Airport;

@@ -1,67 +1,68 @@
-const assertEquals=require('./../test.js')
+const test=require('./../test.js')
 const Airport = require('./../src/airport.js')
 const Plane = require('./../src/plane.js')
 
-let plane1, plane2, plane3, airport
-
-//PART 1
-//SETUP
-plane1= new Plane('747')
-airport = new Airport('Heathrow')
-
-//EXECUTE
-airport.addPlane(plane1)
-
-//VERIFY
-console.log(assertEquals(airport.hanger[0], plane1))
-
-//PART 2
-//SETUP
-airport = new Airport('Gatwick', 7)
-
-//EXECUTE
-
-//VERIFY
-console.log(assertEquals(7, airport.maxCapacity))
-
-//PART 3
-//SETUP
-airport = new Airport('Gatwick', 2)
-plane1= new Plane('747')
-plane2=new Plane ('Concorde')
-plane3=new Plane ('737')
-
-//EXECUTE
-airport.addPlane(plane1)
-airport.addPlane(plane2)
-airport.addPlane(plane3)
-
-//VERIFY
-console.log(assertEquals(airport.hanger.length, 2))
+var plane1, plane2, plane3, airport
 
 
-//PART 4
-//SETUP
-airport = new Airport('Luton')
+test.it('Check that planes lands at airport.', function(){
+    //SETUP
+    plane1= new Plane('Boeing 747')
+    airport = new Airport('Heathrow', 4)
 
-//EXECUTE
-airport.addPlane(plane1)
-airport.addPlane(plane2)
-airport.removePlane(plane1)
+    //EXECUTE
+    console.log(airport.landing(plane1))
 
-//VERIFY
-console.log(assertEquals(airport.hanger[0], plane2))
-console.log(assertEquals(airport.hanger.length, 1))
+    //VERIFY
+    test.assertEquals(airport.hanger[0], plane1)
+})
 
 
-//PART 5
-//SETUP
-airport = new Airport('Luton')
+test.it('Check that maximum airport capacity can be updated.', function(){
+    //SETUP
 
-//EXECUTE
-airport.addPlane(plane1)
-airport.addPlane(plane2)
-let result=airport.removePlane(plane3)
+    //EXECUTE
+    console.log(airport.setMaxCapacity(2))
 
-//VERIFY
-console.log(assertEquals('plane not in hanger', result))
+    //VERIFY
+    test.assertEquals(2, airport.maxCapacity)
+})
+
+test.it('Check that plane cannot land when airport is at maximum capacity', function(){
+    //SETUP
+    plane2=new Plane ('Concorde')
+    plane3=new Plane ('Lancaster Bomber')
+
+    //EXECUTE
+    console.log(airport.landing(plane2))
+    console.log(airport.landing(plane3))
+
+    //VERIFY
+    test.assertEquals(airport.hanger.length, 2)
+})
+
+test.it('Check that plane departs airport.', function(){
+    //SETUP
+
+    //EXECUTE
+    airport.takeOff(plane1)
+
+    //VERIFY
+    test.assertEquals(airport.hanger[0], plane2 )
+    test.assertEquals(airport.hanger.length, 1 )
+})
+
+test.it('Check that a plane is present at the airport before departure', function(){
+    //SETUP
+
+    //EXECUTE
+    let result=airport.takeOff(plane3)
+    console.log(result)
+
+    //VERIFY
+    test.assertEquals('Lancaster Bomber not in hanger.', result)
+
+})
+
+
+
