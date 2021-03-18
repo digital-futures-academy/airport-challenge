@@ -1,15 +1,20 @@
 class Airport {
     constructor(airport_capacity = 2, stormy = false){
         this.airport_capacity = airport_capacity;
-        this.current_planes = [];
+        this._current_planes = [];
         this.stormy = stormy;
     }
   
     land(plane_name){
         if(!this.stormy){
             if(this.isfull()){
-                this.current_planes.push(plane_name);
-                return this.current_planes;
+                if(!this.avoidConfusion(plane_name)){
+                    this._current_planes.push(plane_name);
+                    return this._current_planes;
+                }
+                else{
+                    return 'Plane has already Landed.';
+                }
             }
             else{
                 return 'Airport is currently full';
@@ -21,7 +26,7 @@ class Airport {
     }
   
     isfull(){
-        if(this.current_planes.length < this.airport_capacity){
+        if(this._current_planes.length < this.airport_capacity){
             return true;
         }
         return false;
@@ -30,9 +35,9 @@ class Airport {
     takeoff(plane_name){
         if(!this.stormy){
             if(this.avoidConfusion(plane_name)){
-                let index = this.current_planes.indexOf(plane_name);
-                this.current_planes.splice(index, 1);
-                return this.current_planes;
+                let index = this._current_planes.indexOf(plane_name);
+                this._current_planes.splice(index, 1);
+                return this._current_planes;
             }
             else{
                 return 'This plane if not currently here';
@@ -44,18 +49,22 @@ class Airport {
     }
 
     avoidConfusion(plane_name){
-        if(this.current_planes.includes(plane_name)){
+        if(this._current_planes.includes(plane_name)){
             return true;
         }
         return false;
     }
 
-    isStormy(stromy){
-        this.stormy = stromy;
+    isStormy(stormy){
+        this.stormy = stormy;
     }
 
     currentAmountOfPlanes(){
-        return this.current_planes.length;
+        return this._current_planes.length;
+    }
+
+    get current_planes(){
+        return this._current_planes;
     }
 }
 

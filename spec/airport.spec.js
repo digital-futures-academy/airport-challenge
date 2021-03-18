@@ -1,11 +1,11 @@
 const test = require('../test_framwork');
 const Airport = require('../src/airport');
-const { assertEquals } = require('../test_framwork');
 
 const fullmessage = 'Airport is currently full';
 const notheremessage = 'This plane if not currently here';
 const badweathertakeoffmessage = 'Bad weather unable to take off'; 
 const badweatherlandmessage = 'Bad weather unable to land';
+const alreadylanded = 'Plane has already Landed.';
 
 console.log('Check land function works');
 
@@ -24,6 +24,13 @@ test.it('Checking it is adding the correct string', function(){
     let result = airport.land('my plane');
 
     test.assertEquals(result.includes('my plane'), true);
+})
+
+test.it('Checking can\'t land already landed plane', function(){
+    let airport = new Airport();
+    airport.land('my plane')
+    let result = airport.land('my plane');
+    test.assertEquals(result, alreadylanded);
 })
 
 console.log('Check if airport is full');
@@ -74,5 +81,14 @@ test.it('Check current amount of planes at airport', function(){
     airport.land('my plane');
     airport.land('your plane');
     let result = airport.currentAmountOfPlanes();
-    assertEquals(result, 2);
+    test.assertEquals(result, 2);
+})
+
+test.it('Checking that only landed planes are displayed', function(){
+    let airport = new Airport();
+    let result1 = airport.current_planes;
+    test.assertEquals(result1.length, 0);
+    airport.land('my plane');
+    let result2 = airport.current_planes;
+    test.assertEquals(result2.includes('my plane'), true);
 })
