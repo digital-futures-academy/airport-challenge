@@ -1,4 +1,4 @@
-There is an already created airport.js file in source folder but if feel like making your own go ahead you will just need to change the require in the airport.spec.js file.
+There is an already created airport.js file in source folder but if feel like making your own go ahead you will just need to change the require in the airport.spec.js file. Test 3 deals with already landed planes, test 4 deals with landing when the airport is full. Test 5 and 6 deal with taking off a plane and it no longer being in the airport and not being able to take off a plane that isn't there. Test 7 and 8 deal with being unable to land or takeoff in bad weather. Test 10 checks that when you call for the list of planes it only shows the ones landed.  
 
 Airport Challenge
 =================

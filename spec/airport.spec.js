@@ -92,3 +92,5 @@ test.it('Checking that only landed planes are displayed', function(){
     let result2 = airport.current_planes;
     test.assertEquals(result2.includes('my plane'), true);
 })
+
+test.print();
