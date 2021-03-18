@@ -1,5 +1,5 @@
 class Airport {
-    constructor(airport_capacity = 2, stormy = false){
+    constructor(airport_capacity = 20, stormy = false){
         this.airport_capacity = airport_capacity;
         this._current_planes = [];
         this.stormy = stormy;

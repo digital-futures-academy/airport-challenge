@@ -36,7 +36,7 @@ test.it('Checking can\'t land already landed plane', function(){
 console.log('Check if airport is full');
 
 test.it('Checking I can\'t land when it is full', function(){
-    let airport = new Airport();
+    let airport = new Airport(2, undefined);
     airport.land('my plane');
     airport.land('your plane');
 
