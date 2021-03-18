@@ -1,12 +1,20 @@
+let LandingTakeoff=require('./landingTakeoff.js')
+
 class Airport {
-    constructor(name, maxCapacity=5){
+    constructor(name, maxCapacity=5, isStormy=false){
         this.name=name
         this._hanger=[]
         this._maxCapacity=maxCapacity
+        this._isStormy=isStormy
+        this.landingTakeoff = new LandingTakeoff()
     }
 
-    hangerFull(){
+    isHangerFull(){
         return this._maxCapacity===this._hanger.length
+    }
+
+    get hanger(){
+        return this._hanger
     }
 
     get maxCapacity(){
@@ -22,27 +30,22 @@ class Airport {
         }
     }
 
-    get hanger(){
-        return this._hanger
+    setIsStormy(input){
+        if (typeof(input)=='boolean'){
+            this._isStormy=input
+            return `Stormy weather: £{this._isStormy}.`
+        } else {
+            return `Please pass in true of false.`
+        }
     }
 
     landing(plane){
-        if (!this.hangerFull()){
-            this._hanger.push(plane)
-            return `${plane.model} landed at airport.`
-        } else {
-            return `${plane.model} could not land, maximum airport capacity reached.`
-        }
+        return this.landingTakeoff.landing(plane, this._hanger, this._isStormy, this.isHangerFull())
     }
 
-   takeOff(plane){
-        let index=this._hanger.indexOf(plane)
-        if (index!==-1){
-            this._hanger.splice(index,1)
-        } else {
-            return `${plane.model} not in hanger.`
-        }
-   }
+    takeOff(plane){
+        return this.landingTakeoff.takeOff(plane, this._hanger, this._isStormy)
+    }
 }
 
 module.exports = Airport;

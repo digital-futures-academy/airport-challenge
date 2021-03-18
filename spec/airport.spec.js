@@ -5,7 +5,7 @@ const Plane = require('./../src/plane.js')
 var plane1, plane2, plane3, airport
 
 
-test.it('Check that planes lands at airport.', function(){
+test.it('Check that plane lands at airport.', function(){
     //SETUP
     plane1= new Plane('Boeing 747')
     airport = new Airport('Heathrow', 4)
@@ -64,5 +64,26 @@ test.it('Check that a plane is present at the airport before departure', functio
 
 })
 
+test.it('Check that stormy weather prevents landing.', function(){
+    //SETUP
+    console.log(airport.setIsStormy(true))
 
+    //EXECUTE
+    console.log(airport.landing(plane1))
+
+    //VERIFY
+    test.assertEquals(airport.hanger.length, 1)
+
+})
+
+test.it('Check that stormy weather prevents take off.', function(){
+    //SETUP
+
+    //EXECUTE
+    console.log(airport.takeOff(plane2))
+
+    //VERIFY
+    test.assertEquals(airport.hanger.length, 1)
+
+})
 
