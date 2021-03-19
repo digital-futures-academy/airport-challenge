@@ -17,7 +17,7 @@ test.it('Checking the array is same length', function(){
     test.assertEquals(result.length, 1);
 })
 
-test.it('Checking it is adding the correct string', function(){
+test.it('Checking it is adding the correct plane', function(){
     let airport = new Airport();
 
 
@@ -35,7 +35,7 @@ test.it('Checking can\'t land already landed plane', function(){
 
 console.log('Check if airport is full');
 
-test.it('Checking I can\'t land when it is full', function(){
+test.it('Checking I can\'t land when airport is full', function(){
     let airport = new Airport(2, undefined);
     airport.land('my plane');
     airport.land('your plane');
@@ -45,14 +45,14 @@ test.it('Checking I can\'t land when it is full', function(){
 
 console.log('Take off function');
 
-test.it('Checking if it is taking off and no longer there', function(){
+test.it('Checking if plane is taking off and is no longer there', function(){
     let airport = new Airport();
     airport.land('my plane');
     let result = airport.takeoff('my plane');
     test.assertEquals(result.includes('my plane'), false);
 })
 
-test.it('Checking that can\'t take off a plane that isn\'t there', function(){
+test.it('Checking that can\'t take off a plane that isn\'t landed at airport', function(){
     let airport = new Airport();
     let result = airport.takeoff('my plane');
     test.assertEquals(result, notheremessage);
