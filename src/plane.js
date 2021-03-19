@@ -1,6 +1,15 @@
 class Plane{
-    constructor(model){
+    constructor(model, isFlying=false){
         this._model=model
+        this._isFlying=isFlying
+    }
+
+    set isFlying(input) {
+        this._isFlying=input
+    }
+
+    get isFlying(){
+        return this._isFlying
     }
 
     get model() {

@@ -7,7 +7,7 @@ var plane1, plane2, plane3, airport
 
 test.it('Check that plane lands at airport.', function(){
     //SETUP
-    plane1= new Plane('Boeing 747')
+    plane1= new Plane('Boeing 747', true)
     airport = new Airport('Heathrow', 4)
 
     //EXECUTE
@@ -30,8 +30,8 @@ test.it('Check that maximum airport capacity can be updated.', function(){
 
 test.it('Check that plane cannot land when airport is at maximum capacity', function(){
     //SETUP
-    plane2=new Plane ('Concorde')
-    plane3=new Plane ('Lancaster Bomber')
+    plane2=new Plane ('Concorde', true)
+    plane3=new Plane ('Lancaster Bomber', true)
 
     //EXECUTE
     console.log(airport.landing(plane2))
@@ -45,7 +45,7 @@ test.it('Check that plane departs airport.', function(){
     //SETUP
 
     //EXECUTE
-    airport.takeOff(plane1)
+    console.log(airport.takeOff(plane1))
 
     //VERIFY
     test.assertEquals(airport.hanger[0], plane2 )

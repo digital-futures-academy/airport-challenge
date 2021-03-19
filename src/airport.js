@@ -33,7 +33,8 @@ class Airport {
     setIsStormy(input){
         if (typeof(input)=='boolean'){
             this._isStormy=input
-            return `Stormy weather: £{this._isStormy}.`
+            if (this._isStormy){return 'Stormy weather forecast!'}
+            else {return 'Calm weather forecast'}
         } else {
             return `Please pass in true of false.`
         }
