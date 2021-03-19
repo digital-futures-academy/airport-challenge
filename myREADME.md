@@ -1,5 +1,6 @@
 ## User Stories to Domain Models
 
+### Acceptance Criteria
 #### 1.
 ```
 As an air traffic controller
@@ -63,3 +64,41 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | Airport     |  | takeOff(plane) | Check if plane is in the airport | String  |
 | | | land(plane) | Check if plane has already landed| String|
 | Plane  |    |    |   |             |
+
+
+### Extended Criteria
+
+#### 1. 
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+|Objects      | Properties | Messages    | Context     | Output      |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Weather|  |  weather()|  |  String|
+| Airport |  | takeOff(plane) | if weather stormy, cant take off |  String|
+
+
+#### 2.
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+|Objects      | Properties | Messages    | Context     | Output      |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Airport | Boolean |  badWeather()|  |  true/ false|
+|  |  String| landPlane(plane) | if weather stormy, cant land |  String|
+
+
+#### 3.
+```
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```
+|Objects      | Properties | Messages    | Context     | Output      |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Airport | Hangar - Array | landPlane(plane) |  |  Array|
+| Plane |  Boolean|  isFlying() |  |  False |
