@@ -31,7 +31,7 @@ class Airport {
     if(!this._hanger.includes(plane)) return `Cannot take off, ${plane.id} is not at this airport`
     this._hanger.splice(this._hanger.indexOf(plane), 1);
     plane.flying = true;
-    return `Successful take off ${plane.id} is in the air`;
+    return `Successful take off, ${plane.id} is in the air`;
   }
 }
 
