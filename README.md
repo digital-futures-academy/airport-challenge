@@ -84,7 +84,23 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 | Object | Properties | Message | Context | Output |
 | ------ | ---------- | ------- | ------- | ------ |
-| Airport |  | takeOff(@plane) | plane in hangar takes off | @Array[planes] |
+| Airport |  | takeOff(@plane) | plane in hangar takes off | @String confirming take off |
 |  |  |  | plane already flying, cannot take off | @String This plane is already in flight, cannot take off |
 |  |  |  | plane not in this airport's hangar | @String This plane is not at this airport, cannot take off |
 | Plane |  |  | successful take off, plane.isFlying is set to true | @Boolean true |
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### User Story 5
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+
+| Object | Properties | Message | Context | Output |
+| ------ | ---------- | ------- | ------- | ------ |
+| Airport |  | land() | plane has already landed at this airport | @String "That plane has already landed" |
+|  |  |  | plane has landed at a different airport | @String "That plane has already landed at a different airport"|
+|  |  | takeOff() | Plane not in this airport hangar | @String This plane is not at this airport, cannot take off |

@@ -1,7 +1,7 @@
 class Plane {
-    constructor(id, flying = true) {
+    constructor(id) {
         this._id = id;
-        this._flying = flying;
+        this._flying = true;
     }
 
     get id() {

@@ -19,10 +19,12 @@ test.describe('User Story 1: Testing airport.land() function', () => {
     })
 
     test.it('cannot land plane if plane.flying is already false', () => {
-        plane = new Plane('PL1', false);
+        plane = new Plane('PL1');
         airport = new Airport();
+        airport2 = new Airport();
+        airport.land(plane);
 
-        test.expect(airport.land(plane)).toEqual("Cannot land plane, it is not flying");
+        test.expect(airport2.land(plane)).toEqual(`Cannot land ${plane.id}, it has already landed at a different airport`);
     })
 })
 
@@ -121,8 +123,41 @@ test.describe('User Story 4: Testing airport.takeoff()', () => {
 
     test.it('plane is not in hangar before take off', () => {
         airport = new Airport();
-        plane = new Plane('PL1', false);
+        airport2 = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
 
-        test.expect(airport.takeOff(plane)).toEqual(`Cannot take off, ${plane.id} is not at this airport`);
+        test.expect(airport2.takeOff(plane)).toEqual(`Cannot take off, ${plane.id} is not at this airport`);
     })
 })
+
+// User Story 5
+console.log(`Story 5: Testing edge cases for airport.takeOff() and airport.land()`)
+
+console.log(`   Test 1: .land(plane) that has already landed at this airport`);
+airport = new Airport();
+plane = new Plane('PL1');
+airport.land(plane);
+result = airport.land(plane);
+if(test.assertEquals(result, `Cannot land ${plane.id}, it is already in this airport's hangar`)) console.log(`   Passed`);
+else console.log(`   Failed - expected true and got false`);
+
+console.log(`   Test 2: .land(plane) when plane has already landed at a different airport`);
+airport = new Airport();
+airport2 = new Airport();
+plane = new Plane('PL1');
+airport.land(plane);
+result = airport2.land(plane);
+
+if(test.assertEquals(result, `Cannot land ${plane.id}, it has already landed at a different airport`)) console.log(`   Passed`);
+else console.log(`   Failed - expected true and got false`);
+
+console.log(`   Test 3: .takeOff(plane) when the plane is not at this airport`);
+airport = new Airport();
+airport2 = new Airport();
+plane = new Plane('PL1');
+airport.land(plane);
+result = airport2.takeOff(plane);
+
+if(test.assertEquals(result, `Cannot take off, ${plane.id} is not at this airport`)) console.log(`   Passed`);
+else console.log(`   Failed - expected true and got false`);
