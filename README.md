@@ -1,6 +1,6 @@
 ## Lewis Bensted Airport Challenge
-####Introduction
-This programme is designed to control the flow of aeroplanes at a an airport. Classes have been
+#### Introduction
+This programme is designed to control the flow of aeroplanes at an airport. Classes have been
 written for both the planes and the airport which contain methods for determining whether the plane can land or not.
 
 
