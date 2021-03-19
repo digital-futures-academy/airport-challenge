@@ -1,5 +1,6 @@
 const test = require('../test_framwork');
 const Airport = require('../src/airport');
+const { assertEquals } = require('../test_framwork');
 
 const fullmessage = 'Airport is currently full';
 const notheremessage = 'This plane if not currently here';
@@ -93,4 +94,14 @@ test.it('Checking that only landed planes are displayed', function(){
     test.assertEquals(result2.includes('my plane'), true);
 })
 
+console.log('Mutiple airports');
+
+test.it('Mutiple airports and checking planes are in correct airport', function(){
+    let airport1 = new Airport();
+    let airport2 = new Airport();
+    airport1.land('my plane');
+    airport2.land('your plane');
+    let result = airport2.current_planes;
+    test.assertEquals(result.includes('my plane'), false);
+})
 test.print();
