@@ -36,5 +36,14 @@ const testAirport = () => {
     test.assertEquals(actualOutput, 'sorry cannot land plane')
     })
   
+  test.it("returns plane location after takeOff", function () {
+    // setup test case #1
+      let blaiseDiagne = new Airport()
+      let plane4 = new Plane()
+    // execute test case #1
+      let actualOutput = blaiseDiagne.takeOff(plane4)
+    // verify test case #1
+    test.assertEquals(actualOutput, 'plane has left airport')
+    })
 }
 module.exports = testAirport
