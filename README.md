@@ -31,11 +31,16 @@ How to use
 
 
 -------------------------------------------------
--- approach @Ed for test framework 
+Functional Representation Domain Model 
+---
+
 | Object | Properties | Message | Context | Output 
 |----------|-------------|-------------|-----------|----------
-|Airport | destination@str| landPlane |  | @str ' Plane has landed'
-
---include functional representation domain model
-
-
+|Airport | plane@str| landPlane |  | @str ' you are free to land'
+|Airport | plane@str| landPlane | dont land, airport full |  'Sorry you cannot land plane yet'@str
+|Airport | defaultCapacity@int| changeDefaultCapacity |  | defaultCapacity@int
+|Airport | currentCapacity@int| isAirportFull| airport full  | 'Sorry airport is full plane cannot land'@ str
+|Airport | plane@str| isAirportFull | airport not full  | ' you are free to land' @str
+|Airport | location@str| takeOff | location = airport |  ' plane still in airport'@str
+|Airport | location@str| takeOff | location != airport |  'Plane is no longer at airport'@str
+|Airport | location@str| takeOff | plane takeOff already | 'Sorry you cannot take off again'@ str
