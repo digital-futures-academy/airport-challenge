@@ -15,5 +15,14 @@ const testAirport = () => {
     test.assertEquals(actualOutput, 'you are free to land' + plane)
   })
 
+    test.it("returns an airport capacity which overrides default ", function () {
+    // setup test case #1
+      let heathrow = new Airport()
+      heathrow.changeCapacity(400)
+    // execute test case #1
+    let actualOutput = 400
+    // verify test case #1
+    test.assertEquals(actualOutput,400)
+  })
 }
 module.exports = testAirport
