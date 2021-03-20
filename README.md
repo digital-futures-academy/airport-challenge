@@ -32,6 +32,9 @@ How to use
 
 -------------------------------------------------
 -- approach @Ed for test framework 
+| Object | Properties | Message | Context | Output 
+|----------|-------------|-------------|-----------|----------
+|Airport | destination@str| landPlane |  | @str ' Plane has landed'
 
 --include functional representation domain model
 
