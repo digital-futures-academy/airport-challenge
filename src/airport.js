@@ -16,6 +16,18 @@ class Airport {
     }
   }
 
+  takeOffPlane(Plane){
+    if (this.planeList.includes(Plane.planename)){
+      for(let i = 0; i < this.planeList.length; i++){ 
+        if ( this.planeList[i] === Plane.planename) { 
+            this.planeList.splice(i, 1); 
+        }
+    }
+    Plane.isPlaneLanded = false
+    return `${Plane.planename} has taken off from ${this.airportname}`
+    }
+  }
+
   changeCapacity(number){
     this.airportCapacity = number
   }
