@@ -1,0 +1,1 @@
+spec1 = require('./spec/test1.spec')
