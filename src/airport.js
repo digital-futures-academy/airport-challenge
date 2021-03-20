@@ -25,10 +25,10 @@ class Airport {
       if (!this.airport.includes(plane)){
         return `${plane} has already taken off`
       } else {
-      let index = this.airport.indexOf(this.plane);
+      let index = this.airport.indexOf(plane);
       this.airport.splice(index, 1);
-      console.log(`${plane} has left the airport`);
-      return this.airport 
+      console.log(`${plane} has left the airport`)
+      return this.airport
     }
   }
 }
