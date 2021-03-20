@@ -1,11 +1,18 @@
-1. Clone this repository down to your local machine
-2. The test-framework has been created in the test_framework.js file but feel free to add to it if you like.
-3. The instructions for what you are meant to be doing in this challenge are in the instructions.md file. 
-4. Within the airport.spec.js file it contains the current testcases if you feel it is missing some testcases. Please get in contact and I will create more.
-5. There is an already created airport.js file that will pass all the current tests. However, if you feel like creating your own just go into the source file and make your own file.
-6. If you do make your own file you will need to change the airport.spec.js file and change the require to your own file.
-7. To check it passes test you should cd into the airport-challenge directory and run node spec/airport.spec.js or use npm test.
+## Instructions
 
+For the specifications and how to clone and install it on your local machine please go to [Instructions](https://github.com/namcap1/airport-challenge/blob/main/instructions.md). Scroll down to the steps and follow those instructions. 
 
-Edge Cases:
-Test 3, Test 4, Test 5, Test 6, Test 7, Test 8, Test 10 and Test 11.  
+For the Criteria also go to that link and scroll down to the criteria.
+
+## Information
+
+There is a custom made test-framework in [Test-Framework](https://github.com/namcap1/airport-challenge/blob/main/test_framwork.js) please feel free to change it.
+
+There are four different spec files that rigirously test the criteria [Airport.spec](https://github.com/namcap1/airport-challenge/blob/main/spec/airport.spec.js), [Plane.spec](https://github.com/namcap1/airport-challenge/blob/main/spec/plane.spec.js), [Weather.spec](https://github.com/namcap1/airport-challenge/blob/main/spec/weather.spec.js) and [Combined.spec](https://github.com/namcap1/airport-challenge/blob/main/spec/combined.spec.js). 
+
+The criteria has been seperated into 3 different classes across 3 different files [Airport](https://github.com/namcap1/airport-challenge/blob/main/src/airport.js), [Plane](https://github.com/namcap1/airport-challenge/blob/main/src/plane.js) and 
+[Weather](https://github.com/namcap1/airport-challenge/blob/main/src/weather.js). These pass all the current tests in the spec but please have a go at creating your own within the source file. Feel free to change the spec tests or the source code as your see fit
+
+## How to Test
+
+It is currently set up in the [SpecRunner] (https://github.com/namcap1/airport-challenge/blob/main/specRunner.js) to be able to run the named spec files using npm test. But you can also use node spec/filename to run individual spec files.

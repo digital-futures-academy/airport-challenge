@@ -1,70 +1,47 @@
-class Airport {
-    constructor(airport_capacity = 20, stormy = false){
-        this.airport_capacity = airport_capacity;
-        this._current_planes = [];
-        this.stormy = stormy;
+class Airport{
+    constructor(airportCapacity = 20){
+        this.airportCapacity = airportCapacity;
+        this._hanger = [];
     }
-  
-    land(plane_name){
-        if(!this.stormy){
-            if(this.isfull()){
-                if(!this.avoidConfusion(plane_name)){
-                    this._current_planes.push(plane_name);
-                    return this._current_planes;
-                }
-                else{
-                    return 'Plane has already Landed.';
-                }
+
+    land(plane, stormy, cls){
+        if(!stormy){
+            if(!this.isFull()){
+                this._hanger.push(plane);
+                cls.flying = false;
+                return this._hanger;
             }
             else{
-                return 'Airport is currently full';
+                return 'Airport is full unable to land.';
             }
         }
         else{
-            return 'Bad weather unable to land';
+            return 'Bad Weather unable to land.';
         }
-    }
-  
-    isfull(){
-        if(this._current_planes.length < this.airport_capacity){
-            return true;
-        }
-        return false;
     }
 
-    takeoff(plane_name){
-        if(!this.stormy){
-            if(this.avoidConfusion(plane_name)){
-                let index = this._current_planes.indexOf(plane_name);
-                this._current_planes.splice(index, 1);
-                return this._current_planes;
+    takeoff(plane, stormy, cls){
+        if(!stormy){
+            if(this._hanger.includes(plane)){
+                let index = this._hanger.indexOf(plane);
+                this._hanger.splice(index, 1);
+                cls.flying = true;
+                return this._hanger;
             }
             else{
-                return 'This plane if not currently here';
+                return 'Plane is not in the airport';
             }
         }
         else{
-            return 'Bad weather unable to take off';
+            return 'Bad Weather unable to takeoff';
         }
     }
 
-    avoidConfusion(plane_name){
-        if(this._current_planes.includes(plane_name)){
-            return true;
+    isFull(){
+        if(this._hanger.length < this.airportCapacity){
+            return false;
         }
-        return false;
-    }
-
-    isStormy(stormy){
-        this.stormy = stormy;
-    }
-
-    currentAmountOfPlanes(){
-        return this._current_planes.length;
-    }
-
-    get current_planes(){
-        return this._current_planes;
+        return true;
     }
 }
 
