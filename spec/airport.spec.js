@@ -14,21 +14,24 @@ let actualOutput = airport.land(input)
 // 1. verify
 let result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
-//console.log(result)
 
 // 2. setup
-input = 2 
+input = 4 
 expectedOutput = input
+
 // 2. execute
 actualOutput = airport.override(input)
 
 // 2. verify
 result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
+// console.log(actualOutput)
 
 // 3. setup
-input = 'plane 1'
+input = 'plane 4'
 expectedOutput = `Airport is full. Cannot land ${input}`
+
+airport.land('plane 1') && airport.land('plane 2') && airport.land('plane 3')
 
 // 3. execute 
 actualOutput = airport.land(input)
@@ -37,9 +40,8 @@ actualOutput = airport.land(input)
 result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
 
-
 // 4. setup
-input = 'plane 2'
+input = 'plane 4'
 expectedOutput = [] && `${input} has left the airport`
 
 // 4. execute
@@ -49,9 +51,8 @@ actualOutput = airport.takeOff(input)
 result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
 
-
 // 5. setup
-input = 'plane 3'
+input = 'plane 5'
 expectedOutput = `${input} has already landed`
 
 // 5. execute
@@ -62,7 +63,7 @@ result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
 
 // 6. setup
-input = 'plane 4'
+input = 'plane 6'
 expectedOutput = `${input} has already taken off`
 
 // 6. execute
