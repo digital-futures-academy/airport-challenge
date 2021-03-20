@@ -7,9 +7,14 @@ class Airport{
     land(plane, stormy, cls){
         if(!stormy){
             if(!this.isFull()){
-                this._hanger.push(plane);
-                cls.flying = false;
-                return this._hanger;
+                if(cls._flying){
+                    this._hanger.push(plane);
+                    cls.flying = false;
+                    return this._hanger;
+                }
+                else{
+                    return 'Plane is already landed';
+                }
             }
             else{
                 return 'Airport is full unable to land.';
@@ -23,10 +28,15 @@ class Airport{
     takeoff(plane, stormy, cls){
         if(!stormy){
             if(this._hanger.includes(plane)){
-                let index = this._hanger.indexOf(plane);
-                this._hanger.splice(index, 1);
-                cls.flying = true;
-                return this._hanger;
+                if(!cls._flying){
+                    let index = this._hanger.indexOf(plane);
+                    this._hanger.splice(index, 1);
+                    cls.flying = true;
+                    return this._hanger;
+                }
+                else{
+                    return 'Plane called same thing but not landed at this airport';
+                }
             }
             else{
                 return 'Plane is not in the airport';

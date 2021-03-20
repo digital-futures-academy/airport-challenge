@@ -7,6 +7,8 @@ const fullMess = 'Airport is full unable to land.';
 const badWeatherMess = 'Bad Weather unable to land.';
 const planeNotLandedMess = 'Plane is not in the airport';
 const badWeather2Mess = 'Bad Weather unable to takeoff';
+const alreadyLanded = 'Plane is already landed';
+const sameNamenotSamePlane = 'Plane called same thing but not landed at this airport';
 
 console.log('Landing a plane');
 
@@ -45,6 +47,15 @@ test.it('Can\'t Land in bad weather', function(){
     test.assertEquals(result, badWeatherMess);
 });
 
+test.it('Already Landed', function(){
+    let airport = new Airport();
+    let plane = new Plane('Boeing 247');
+    let weather = new Weather();
+    airport.land(plane._plane, weather._stormy, plane);
+    let result = airport.land(plane._plane, weather._stormy, plane);
+    test.assertEquals(result, alreadyLanded);
+});
+
 console.log('Takeoff');
 
 test.it('Can takeoff a landed plane', function(){
@@ -81,6 +92,16 @@ test.it('Can\'t take off a plane in bad weather', function(){
     weather.stormy = true;
     let result = airport.takeoff(plane._plane, weather._stormy, plane);
     test.assertEquals(result, badWeather2Mess);
+});
+
+test.it('Can\'t take off plane with same name but not same plane', function(){
+    let airport = new Airport();
+    let plane = new Plane('Boeing 247');
+    let plane2 = new Plane('Boeing 247');
+    let weather = new Weather();
+    airport.land(plane._plane, weather._stormy, plane);
+    let result = airport.takeoff(plane2._plane, weather._stormy, plane2);
+    test.assertEquals(result, sameNamenotSamePlane);
 });
 
 console.log('Planes in airport');

@@ -15,4 +15,4 @@ The criteria has been seperated into 3 different classes across 3 different file
 
 ## How to Test
 
-It is currently set up in the [SpecRunner] (https://github.com/namcap1/airport-challenge/blob/main/specRunner.js) to be able to run the named spec files using npm test. But you can also use node spec/filename to run individual spec files.
+It is currently set up in the [SpecRunner](https://github.com/namcap1/airport-challenge/blob/main/specRunner.js) to be able to run the named spec files using npm test. But you can also use node spec/filename to run individual spec files.
