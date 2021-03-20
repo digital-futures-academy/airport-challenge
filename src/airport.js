@@ -1,16 +1,27 @@
 class Airport {
   constructor() {
-  this.capacity= 300
-}
-  landPlane = (plane) => {
-    return 'you are free to land' + plane
+    this.defaultCapacity = 300
+    this.currentCapacity = 200
   }
-  changeCapacity = (capacity) => {
-    this.capacity = capacity
-    return this.capacity
+  isAirportFull = () => {
+    if ( this.currentCapacity >= this.defaultCapacity) {
+      return true
+    } else {
+      return false
+    }
+  }
+  landPlane = (plane) => {
+    if (this.isAirportFull()) {
+     return 'sorry cannot land plane'
+    } else {
+      return 'you are free to land' + plane
+    }
+  }
+  changeDefaultCapacity = (capacity) => {
+    this.defaultCapacity = capacity
+    return this.defaultCapacity 
   }
 }
 module.exports = Airport;
-// let gatwick = new Airport()
 
-// console.log(gatwick.landPlane('falcon7x'))
+ 
