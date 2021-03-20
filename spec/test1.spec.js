@@ -2,12 +2,12 @@ AssertEquals = require('../src/test-framework')
 Airport = require('../src/airport')
 Plane = require('../src/plane')
 let testFramework = new AssertEquals()
-let heathrow = new Airport('heathrow')
-let boeing747 = new Plane('boeing747')
+let heathrow = new Airport('Heathrow')
+let boeing747 = new Plane('Boeing747')
 
 console.log('Tests on landPlane() - 1a - Can Airport land a Plane? (Does landPlane() produce correct string?)')
 //Set-up
-let expectedOutput1a = 'boeing747 has landed at heathrow'
+let expectedOutput1a = 'Boeing747 has landed at Heathrow'
 //Execute
 let actualOutput1a = heathrow.landPlane(boeing747)
 //Validate
@@ -16,7 +16,7 @@ console.log(result1a)
 
 console.log('1b - Does landed Plane get added to Airport list? (Does this.planeList receive plane?)' )
 //Set-up
-let expectedOutput1b = ['boeing747']
+let expectedOutput1b = ['Boeing747']
 //Execute
 let actualOutput1b = heathrow.planeList
 //Validate
