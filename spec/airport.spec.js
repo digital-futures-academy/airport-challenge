@@ -25,7 +25,6 @@ actualOutput = airport.override(input)
 // 2. verify
 result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
-// console.log(actualOutput)
 
 // 3. setup
 input = 'plane 4'
@@ -35,28 +34,24 @@ airport.land('plane 1') && airport.land('plane 2') && airport.land('plane 3')
 
 // 3. execute 
 actualOutput = airport.land(input)
-// console.log(actualOutput)
 
 // 3. verify
 result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
 
-// console.log(airport)
-
 // 4. setup
 input = 'plane 1'
-expectedOutput = ['plane 0', 'plane 2', 'plane 3'] // && `${input} has left the airport`
+expectedOutput = ['plane 0', 'plane 2', 'plane 3']
 
 // 4. execute
 actualOutput = airport.takeOff(input)
-console.log(actualOutput)
 
 // 4. verify
 result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
 
 // 5. setup
-input = 'plane 5'
+input = 'plane 2'
 expectedOutput = `${input} has already landed`
 
 // 5. execute
@@ -67,7 +62,7 @@ result = assertEquals(expectedOutput, actualOutput)
 console.log(result)
 
 // 6. setup
-input = 'plane 6'
+input = 'plane 1'
 expectedOutput = `${input} has already taken off`
 
 // 6. execute

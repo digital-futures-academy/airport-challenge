@@ -33,10 +33,4 @@ class Airport {
   }
 }
 
-// let airport = new Airport()
-
-// let result = airport.land('plane 0') && airport.land('plane 1') && airport.land('plane 2') && airport.land('plane 3')
-// console.log(result)
-
-
 module.exports = Airport
