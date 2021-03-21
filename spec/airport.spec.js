@@ -13,3 +13,10 @@ console.log('Testing if airport capacity can be overriden');
 airport = new Airport(20);
 result = airport.capacity;
 console.log(assertEquals(result, 20));
+
+console.log('Testing to see if we can land planes if airport is full');
+airport = new Airport(3)
+for(let i = 0; i < 4; i++){
+    result = airport.landPlane(plane);
+}
+console.log(assertEquals(result, 'cannot land plane - aiport is full'));
