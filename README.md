@@ -11,11 +11,12 @@
 | | | Airport(String) | Full |String@'Sorry this airport is full you can't land here' |
 | | | | Already Landed | String@'Can't land a plane that's already landed' |
 | | | Capacity | | Integer |
-| | | Weather | | String |
-| | TakeOff()| Weather | | String |
+| | | Weather | Stormy | String@'Cannot land in stormy weather' |
+| | TakeOff()| Weather | Stormy | String@'Cannot take off in stormy weather' |
 | | | Airport(String) | | Array |
 | | | Airport(String) | Does not Exist | String@'Plane not at this airport' |
 | | | | Already Taken Off | String@'Can't let a plane take off that's already taken off'|
-| Weather | Weather | | | String |
-| Plane | Status| Status | TakenOff | String |
+| Weather | | Conditions()| Acceptable | String |
+| | | | Stormy | String |
+| Plane | | Status | TakenOff | String |
 | | | Status | Landed | String |

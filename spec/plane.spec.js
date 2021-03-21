@@ -1,7 +1,6 @@
-const SystemDesigner = require('../src/systemDesigner');
 const Plane = require('../src/plane');
-const Weather = require('../src/weather');
 const Airport = require('../src/airport');
+const Weather = require('../src/weather');
 
 test = require('./test-framework');
 
@@ -20,10 +19,12 @@ test.it('Prevent asking the airport to let planes take-off which are not at the 
 // test 2    
 // Setup
 let plane2 = new Plane;
-let testAirport2 = new Airport
+let testAirport2 = new Airport;
+let day4 = new Weather();
+day4.cond = 0.5;
 
-testAirport2.land(plane2)
-testAirport2.takeOff(plane2)
+testAirport2.land(plane2, day4);
+testAirport2.takeOff(plane2, day4);
 
 test.it('Prevent asking the airport to let planes take-off which are not at the airport 2', function() {
     // Execute, Verify
@@ -32,18 +33,18 @@ test.it('Prevent asking the airport to let planes take-off which are not at the 
 
 // test 3   
 // Setup
-let testAirport3 = new Airport
+let testAirport3 = new Airport;
 
 test.it('Prevent asking the airport to let planes take-off which have taken off at a different airport', function() {
     // Execute, Verify
-    test.expect(testAirport3.takeOff(plane2)).toEqual("Can't let a plane take off that's already taken off");
+    test.expect(testAirport3.takeOff(plane2, day4)).toEqual("Can't let a plane take off that's already taken off");
 })
 
 // test 4    
 // Setup
 let plane3 = new Plane;
 
-testAirport3.land(plane3)
+testAirport3.land(plane3, day4);
 
 test.it("Prevent asking the airport to land a plane that's already landed", function() {
     // Execute, Verify
@@ -52,9 +53,9 @@ test.it("Prevent asking the airport to land a plane that's already landed", func
 
 // test 5    
 // Setup
-let testAirport4 = new Airport
+let testAirport4 = new Airport;
 
 test.it("Prevent asking the airport to land a plane that's already landed at a different airport", function() {
     // Execute, Verify
-    test.expect(testAirport4.land(plane3)).toEqual("Can't land a plane that's already landed");
+    test.expect(testAirport4.land(plane3, day4)).toEqual("Can't land a plane that's already landed");
 })
