@@ -3,7 +3,11 @@ class Airport {
     this.capacity = capacity;
     this.planeHangar = [];
   }
-  landPlane(plane){
+
+landPlane(plane){
+  if(this.planeHangar.includes(plane)){
+    return 'cannot land plane as it is already in the hangar';
+  }
     if(this.fullAirport()){
       return 'cannot land plane - aiport is full';
     } else {
@@ -12,6 +16,7 @@ class Airport {
     return this.planeHangar;
   }
 }
+ 
 takeOff(plane){
   if(this.planeHangar.includes(plane)){
   let planeIndex = this.planeHangar.indexOf(plane);
