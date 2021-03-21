@@ -13,10 +13,14 @@ class Airport {
   }
 }
 takeOff(plane){
+  if(this.planeHangar.includes(plane)){
   let planeIndex = this.planeHangar.indexOf(plane);
   this.planeHangar.splice(planeIndex,1);
   plane.isFlying;
   return this.planeHangar;
+} else {
+    return 'cannot takeoff plane that is not in the hangar';
+  }
 }
   fullAirport(){
     if(this.capacity === this.planeHangar.length){
@@ -26,6 +30,5 @@ takeOff(plane){
       }
     }
   }
-
-
+  
 module.exports = Airport;
