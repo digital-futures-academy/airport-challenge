@@ -31,6 +31,14 @@ For each user story in this airport challenge, I have taken these steps:
 - Commited my work.
 - Refactored the tests using my custom test library `mousinho-testlibrary-mse-2103`.
 - Committed my work.
+
+<p>&nbsp;</p>
+
+### Progress Blockers
+- Main progress blocker was with the extension
+    - deciding where to implement plane.addToAirport so that a plane cannot have landed without being in an airport
+    - How to override Math.random() for unit testing
+
 <p>&nbsp;</p>
 
 
@@ -115,7 +123,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
-## Extension
+### Extension
 
 ```
 As an air traffic controller
@@ -144,3 +152,123 @@ Planes that have landed must be at an airport
 |  |  |  | isFlying is false | @String, cannot remove from airport, plane is still grounded | ✅ |
 |  |  | land() | Edit to call addToAirport(), therefore a plane cannot land without being in an airport  | Check previous user Story tests are still working for landing() and takeoff() | ✅ |
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Simple Test Layout
+``` js
+// Source code
+    land(plane) {
+        if(this.landingCheck(plane) !== true) return this.landingCheck(plane);
+        this._hangar.push(plane);
+        plane.land();
+        return this._hangar;
+    }
+
+    landingCheck(plane) {
+        if(this._hangar.includes(plane)) return `Cannot land ${plane.id}, it is already in this airport's hangar`;
+        if(!plane.flying) return `Cannot land ${plane.id}, it has already landed at a different airport`;
+        if(this.isFull()) return 'Cannot land yet, the hangar is full';
+        if(isStormy()) return `Cannot land ${plane.id} in stormy weather`;
+        return true;
+    }
+
+// Spec Code
+test.describe('User Story 1: Testing airport.land() function', () => {
+    test.it('plane added to hangar', () => {
+        plane = new Plane('PL1');
+        airport = new Airport();
+
+        test.expect(airport.land(plane).includes(plane)).toEqual(true);
+    })
+
+    test.it('plane.flying is set to false', () => {
+        test.expect(plane.flying).toEqual(false);
+    })
+
+    test.it('cannot land plane if plane.flying is already false', () => {
+        plane = new Plane('PL1');
+        airport = new Airport();
+        airport2 = new Airport();
+
+        airport.land(plane);
+
+        test.expect(airport2.land(plane)).toEqual(`Cannot land ${plane.id}, it has already landed at a different airport`);
+    })
+})
+```
+Test Output:
+```
+User Story 1: Testing airport.land() function
+   Test: plane added to hangar
+        ✅ Succeeded
+   Test: plane.flying is set to false
+        ✅ Succeeded
+   Test: cannot land plane if plane.flying is already false
+        ✅ Succeeded
+```
+
+## Stub test
+``` js
+// Test Code
+test.describe('Extension: testing airport.takeOff() and airport.land() in different weather conditions', () => {
+    test.it('.land() when weather is clear', () => {
+        mockMath.random = () => 0.5;
+        global.Math = mockMath;
+
+        airport = new Airport();
+        plane = new Plane('PL1');
+        test.expect(airport.land(plane)[0]).toEqual(plane);
+        global.Math = returnMath;
+    })
+
+    test.it('.land() when weather is stormy', () => {
+        mockMath.random = () => 0.1;
+        global.Math = mockMath;
+
+        airport = new Airport();
+        plane = new Plane('PL1');
+        test.expect(airport.land(plane)).toEqual(`Cannot land ${plane.id} in stormy weather`);
+        global.Math = returnMath;
+    })
+
+    test.it('.takeOff() when weather is clear', () => {
+        mockMath.random = () => 0.5;
+        global.Math = mockMath;
+
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
+        test.expect(!airport.takeOff(plane).includes(plane)).toEqual(true);
+        global.Math = returnMath;
+    })
+
+    test.it('.takeOff() when weather is stormy', () => {
+        mockMath.random = () => 0.5;
+        global.Math = mockMath;
+
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
+
+        mockMath.random = () => 0.1;
+        global.Math = mockMath;
+
+        test.expect(airport.takeOff(plane)).toEqual(`${plane.id} cannot take off in stormy weather`);
+        global.Math = returnMath;
+    })
+})
+```
+
+Test Output:
+```
+Extension: testing airport.takeOff() and airport.land() in different weather conditions
+   Test: .land() when weather is clear
+        ✅ Succeeded
+   Test: .land() when weather is stormy
+        ✅ Succeeded
+   Test: .takeOff() when weather is clear
+        ✅ Succeeded
+   Test: .takeOff() when weather is stormy
+        ✅ Succeeded
+```

@@ -1,7 +1,7 @@
 class Plane {
     constructor(id, flying = true, _inAirport = false) {
         this._id = id;
-        this._flying = flying
+        this._flying = flying;
         this._inAirport = _inAirport;
     }
 
