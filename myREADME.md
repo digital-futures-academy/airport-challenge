@@ -1,5 +1,18 @@
-## User Stories to Domain Models
+## Introduction
+This programme is designed to simulate an airport from which planes can take off and land. Seperate classes have been written for the airport, plane and weather conditions and they all work together to ensure that planes can land and take off successfully. I have also written my own test-framework which can be seen in 'test-framework.js', which ensures that the programme is running smoothly. 
 
+## Usage
+In order to run the tests on this programme, first clone the repository and then input 'node spec/specRunner.js' into your terminal.
+
+The weather is controlled by the Weather class which has a random number generator as its input. If the random number generator generates a number between 10 and 25, the weather will be stormy, which means planes are not able to take off or land, otherwise it is sunny. In the  Airport class, landPlane() and takeOff() methods take weather as one of their inputs. In order to override this for the test cases, when creating an new insance of weather input a number larger than 25 to enforce sunny weather and ensure that planes can take off and land. For example:
+```js
+let weather = new Weather(27);
+```
+
+
+
+## User Stories to Domain Models
+Here I have included the domain models which I have created from the user stories and which I then turned into tests for my programme. 
 ### Acceptance Criteria
 #### 1.
 ```
@@ -22,7 +35,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 |Objects      | Properties | Messages      | Context     | Output      |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Airport     | Constructor(int)| get capacity()| Standard capacity = 40|  int  |
+| Airport     | Constructor(int)| get capacity()| Standard capacity = 3|  int  |
 | | | | Has the capacity been changed? | int|
 | Plane  |    |    |   |             |
 

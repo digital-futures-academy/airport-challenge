@@ -1,5 +1,6 @@
 class Airport {
-    constructor(capacity = 3){
+    constructor(name, capacity = 3){
+        this.name = name;
         this.hangar = [];
         this._capacity = capacity;
         this.isFull = false;
@@ -12,21 +13,21 @@ class Airport {
     landPlane(plane, weather){
         if(weather.generateWeather() === 'Sunny') {
             if(this.hangar.includes(plane)){
-                return 'This plane has already landed';
+                return `${plane} has already landed`;
             }
 
             if(this.checkIfFull()){
-                return 'Sorry, unable to land as airport is full';
+                return `Sorry, ${plane.name} unable to land as airport is full`;
             }
             this.hangar.push(plane);
             return this.hangar;
         } else {
-            return 'Can not land because weather is stormy';
+            return `${plane.name} can not land because weather is stormy`;
         }
     }
 
     checkIfFull(){
-        if(this.hangar.length >= this.capacity){
+        if(this.hangar.length >= this._capacity){
             this.isFull = true;
         }
         return this.isFull;
@@ -39,10 +40,10 @@ class Airport {
                 plane.isFlying();
                 return `Plane ${plane.name}, has departed.`;
             } else {
-                return 'This plane is not in the aiport';
+                return `Plane ${plane.name} is not in the aiport`;
             }
         } else {
-            return 'Can not take off because weather is stormy';
+            return `${plane.name} can not take off because weather is stormy`;
         }
     }
 
