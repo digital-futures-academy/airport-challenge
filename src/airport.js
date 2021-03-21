@@ -1,36 +1,34 @@
-const Plane = require("./plane")
-
 class Airport {
-  constructor() {
-    this.defaultCapacity = 300
-    this.currentCapacity = 200
-    this.location = {
-      'airport': 'plane has landed',
-      'notInAirport': 'plane has left airport'
+    constructor() {
+        this.defaultCapacity = 300;
+        this.currentCapacity = 200;
+        this.location = {
+            airport: "landed",
+            notInAirport: "left airport",
+        };
     }
-  }
-  isAirportFull = () => {
-    if ( this.currentCapacity >= this.defaultCapacity) {
-      return true
-    } else {
-      return false
+    isAirportFull() {
+        if (this.currentCapacity >= this.defaultCapacity) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  }
-  landPlane = (plane) => {
-    if (this.isAirportFull()) {
-     return 'sorry cannot land plane'
-    } else {
-      return 'you are free to land' + plane
+    changeDefaultCapacity(capacity) {
+        this.defaultCapacity = capacity;
+        return this.defaultCapacity;
     }
-  }
-  changeDefaultCapacity = (capacity) => {
-    this.defaultCapacity = capacity
-    return this.defaultCapacity 
-  }
-takeOff = (plane) => {
-   return this.location['notInAirport']
-  }
+
+    landPlane(plane) {
+        if (this.isAirportFull()) {
+            return "sorry cannot land plane";
+        } else {
+            return "you are free to land" + plane;
+        }
+    }
+    takeOff(plane) {
+        return `${plane} has ${this.location["notInAirport"]}`;
+    }
 }
+
 module.exports = Airport;
-
-

@@ -1,5 +1,7 @@
-Airport Challenge
+# Airport Challenge
 =================
+
+In this challenge the goal was to fulfill the acceptance criteria described below to enable an air traffic controller and system designer to successfully control the flow of planes travellling to and from different airports. 
 
 ```
          ______
@@ -13,23 +15,25 @@ Airport Challenge
 
 ```
 
-Intro
----------
-
-
-How it works
-----------
-
-
-How to Install
+## Installation
 -------
+Clone the repo to local machine 
+```
+git clone https://github.com/ndowkunda/airport-challenge.git
+```
 
-
-How to use
-
+## Usage
 -------
-
-
+run tests
+```
+node specRunner 
+```
+or 
+```
+npm test 
+```
+![Running tests in VS code terminal](./npm-test.gif)
+## Approach
 -------------------------------------------------
 Functional Representation Domain Model 
 ---
