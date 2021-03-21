@@ -7,12 +7,15 @@
 | Object | Messages | Properties | Context | Output |
 |---------------------------|----------|-------------------|------------------|-------------------------|
 | System Designer | overrideCapacity() | Capacity | | Integer |
-| Airport Traffic Controller| Land() | Destination(String) | Not Full | Array |
-| | | Destination(String) | Full |String@'Sorry this airport is full you can't land here' |
+| Airport Traffic Controller| Land() | Airport(String) | Not Full | Array |
+| | | Airport(String) | Full |String@'Sorry this airport is full you can't land here' |
+| | | | Already Landed | String@'Can't land a plane that's already landed' |
 | | | Capacity | | Integer |
 | | | Weather | | String |
 | | TakeOff()| Weather | | String |
-| | | Destination(String) | Exists | Array |
-| | | Destination(String) | Does not Exist | String@'Plane not at this airport' |
+| | | Airport(String) | | Array |
+| | | Airport(String) | Does not Exist | String@'Plane not at this airport' |
+| | | | Already Taken Off | String@'Can't let a plane take off that's already taken off'|
 | Weather | Weather | | | String |
-| Plane | Status| Status | | String |
+| Plane | Status| Status | TakenOff | String |
+| | | Status | Landed | String |
