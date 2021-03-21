@@ -1,5 +1,4 @@
 const test = require('mousinho-testlibrary-mse-2103/src/library');
-const Airport = require('../src/airport');
 const Plane = require('../src/plane');
 
 let plane;
