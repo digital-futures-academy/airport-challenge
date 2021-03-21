@@ -1,9 +1,9 @@
-How to Run Programme
+How to run programme
 
  -Fork this repo, and clone to your local machine
  -npm install to install project dependencies
  
- Programme Behavious
+Programme Behaviours
 
  -There are 3 classes in programme (Airport,Plane,Weather) - although user should only need to use/view Airport and Plane (classes need "requiring" if running programme)
 
@@ -39,33 +39,33 @@ How to Run Programme
  All these scenarios will return an informative string showing reason for refusal
 
 
- To run test suite simply run
+To run test suite simply run
    node.specRunner.js
 
 
 My Domain Model for Task
 
-| Object | Properties | Message | Output |
-| :------------: |:---------------:| :-----:| :------: |
-| Aiport | Land Plane | landPlane() | array,boolean,string |
-| Aiport | Planes in Airport | this.planeList | array |
-| Aiport | Airport Capacity | this.airportCapacity | number |
-| Aiport | Change Capacity | changeCapacity() | number |
-| Aiport | Prevent Landing | if statement in landPlane() | string |
-| Aiport | Take Off Plane | takeOffPlane()| array,boolean,string |
-| Aiport | Don't Land if Landed | if statement in landPlane() | string |
-| Aiport | Don't Take Off if not there | if statement in takeOffPlane() | string |
-| Plane | Plane's landed status| this.isPlaneLanded | boolean |
-| Plane | Where is plane landed | this.planeIsLandedHere | string |
+| Object | Properties                  | Message                        | Output               |
+| :----: | :-------------------------: | :----------------------------: | :------------------: |
+| Aiport | Land Plane                  | landPlane()                    | array,boolean,string |
+| Aiport | Planes in Airport           | this.planeList                 | array                |
+| Aiport | Airport Capacity            | this.airportCapacity           | number               |
+| Aiport | Change Capacity             | changeCapacity()               | number               |
+| Aiport | Prevent Landing             | if statement in landPlane()    | string               |
+| Aiport | Take Off Plane              | takeOffPlane()                 | array,boolean,string |
+| Aiport | Don't Land if Landed        | if statement in landPlane()    | string               |
+| Aiport | Don't Take Off if not there | if statement in takeOffPlane() | string               |
+| Plane  | Plane's landed status       | this.isPlaneLanded             | boolean              |
+| Plane  | Where is plane landed       | this.planeIsLandedHere         | string               |
 
 Extension elements
 
-| Object | Properties | Message | Output |
-| :------------: |:---------------:| :-----:| :------: |
-| Aiport | Prevent Take Off if stormy | if statement in takeOffPlane() | string |
-| Aiport | Prevent Landing if stormy | if statement in landPlane() | string |
-| Weather | Weather scale for storminess | this.storminess | number |
-| Aiport | Specific weather.storminess for each airport | this.storminess | number |
+| Object  | Properties                                   | Message                        | Output |
+| :-----: |:--------------------------------------------:| :-----------------------------:| :----: |
+| Aiport  | Prevent Take Off if stormy                   | if statement in takeOffPlane() | string |
+| Aiport  | Prevent Landing if stormy                    | if statement in landPlane()    | string |
+| Weather | Weather scale for storminess                 | this.storminess                | number |
+| Aiport  | Specific weather.storminess for each airport | this.storminess                | number |
 
 
 
