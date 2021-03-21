@@ -26,8 +26,8 @@ class Airport {
             return "you are free to land" + plane;
         }
     }
-    takeOff(plane) {
-        return `${plane} has ${this.location["notInAirport"]}`;
+    takeOff() {
+        return this.location["notInAirport"];
     }
 }
 

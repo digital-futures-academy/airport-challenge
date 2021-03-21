@@ -15,6 +15,8 @@ const testAirport = () => {
      test.assertEquals(actualOutput, 'you are free to land' + plane)
    })
 
+  console.log("Airport#changeDefaultCapacity()")
+
     test.it("returns an airport capacity which overrides default ", function () {
     // setup test case #2
       let heathrow = new Airport()
@@ -25,6 +27,8 @@ const testAirport = () => {
     test.assertEquals(actualOutput,400)
     })
   
+  console.log("Airport#landPlane()")
+
   test.it("returns plane will not land if airport capacity is above max capacity ", function () {
     // setup test case #3
       let banjulInt = new Airport()
@@ -34,8 +38,10 @@ const testAirport = () => {
     let actualOutput = banjulInt.landPlane(plane3)
     // verify test case #3
     test.assertEquals(actualOutput, 'sorry cannot land plane')
-    })
+  })
   
+  console.log("Airport#takeOff()")
+
   test.it("returns plane location after takeOff", function () {
     // setup test case #4
       let blaiseDiagne = new Airport()
@@ -43,7 +49,7 @@ const testAirport = () => {
     // execute test case #4
       let actualOutput = blaiseDiagne.takeOff(plane4)
     // verify test case #4
-    test.assertEquals(actualOutput, 'plane has left airport')
+    test.assertEquals(actualOutput, 'left airport')
   })
   
 }
