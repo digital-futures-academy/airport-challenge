@@ -3,10 +3,20 @@
 
 <p>&nbsp;</p>
 
-## How to install this project
-- insert install instructions
+## Quick start
+```
+$ git clone git@github.com:AntMousinho/mousinho-airport-challenge.git
+npm install
+```
 
 <p>&nbsp;</p>
+
+## To run tests
+```
+node specRunner.js
+# or
+npm test
+```
 
 ## Approach
 From the previous test framework workshops I had begun to develop my own test library, `mousinho-testlibrary-mse-2103`,  for use on other projects. 
@@ -43,7 +53,6 @@ I want to instruct the airport to land a plane
 |  |  | set flying() |  |  |
 
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 
 ### User Story 2
 ```
@@ -56,7 +65,6 @@ I would like a default airport capacity that can be overridden as appropriate
 | Airport | capacity @Int | get capacity() | capacity as constructor parameter with default value. Getter to return value | @Int |
 |  |  |  | negative Int passed to constructor | @Error |
 
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 ### User Story 3
@@ -72,7 +80,6 @@ I want to prevent landing when the airport is full
 |  |  | .land(@plane) | isFull | @String cannot land yet, the hangar is full |
 |  |  |  | !isFull | @String Successful landing, ${plane} is now in the hangar |
 
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 ### User Story 4
@@ -104,3 +111,36 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | Airport |  | land() | plane has already landed at this airport | @String "That plane has already landed" |
 |  |  |  | plane has landed at a different airport | @String "That plane has already landed at a different airport"|
 |  |  | takeOff() | Plane not in this airport hangar | @String This plane is not at this airport, cannot take off |
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Extension
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```
+| Object | Properties | Message | Context | Output | Done |
+| - | - | - | - | - | - |
+| Airport |  | takeOff(plane) | weather is clear | @Array[plane] | ✅ |
+|  |  |  | weather is stormy | @String cannot take off due to weather conditions | ✅ |
+|  |  | land(plane) | weather is clear | @Array[plane] | ✅ |
+|  |  |  | weather is stormy | @String cannot land plane due to weather conditions | ✅ |
+|  |  | countAirplanes() | this._hangar.length | @Number | ✅ |
+| plane | inAirport | get inAirport() | when flying | @Boolean false | ✅ |
+|  |  | addToAirport | isFlying is false, change inAirport to true | @Boolean this._inAirport | ✅ |
+|  |  |  | isFlying is true | @String cannot add to hangar, plane is currently in the air | ✅ |
+|  |  | removeFromAirport | isFlying is true, change inAirport to false | @Boolean this._inAirport | ✅ |
+|  |  |  | isFlying is false | @String, cannot remove from airport, plane is still grounded | ✅ |
+|  |  | land() | Edit to call addToAirport(), therefore a plane cannot land without being in an airport  | Check previous user Story tests are still working for landing() and takeoff() | ✅ |
+

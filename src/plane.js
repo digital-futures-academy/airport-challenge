@@ -1,7 +1,8 @@
 class Plane {
-    constructor(id) {
+    constructor(id, flying = true, _inAirport = false) {
         this._id = id;
-        this._flying = true;
+        this._flying = flying
+        this._inAirport = _inAirport;
     }
 
     get id() {
@@ -12,8 +13,32 @@ class Plane {
         return this._flying;
     }
 
-    set flying(boolean) {
-        this._flying = boolean;
+    get inAirport() {
+        return this._inAirport;
+    }
+
+    land() {
+        this._flying = false;
+        this.addToAirport();
+        return this._flying;
+    }
+
+    takeOff() {
+        this._flying = true;
+        this.removeFromAirport();
+        return this._flying;
+    }
+
+    addToAirport() {
+        if(this._flying) return `Cannot add to hangar, ${this._id} is currently in the air`;
+        this._inAirport = true;
+        return this._inAirport;
+    }
+
+    removeFromAirport() {
+        if(!this._flying) return `Cannot remove from hangar, ${this._id} is still grounded`;
+        this._inAirport = false;
+        return this._inAirport;
     }
 }
 

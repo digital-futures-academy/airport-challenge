@@ -1,47 +1,55 @@
+const { isStormy } = require('./weather');
+
 class Airport {
   constructor(capacity = 2) {
     if(typeof capacity !== 'number' || capacity < 0 || capacity % 2 !== 0) {
       throw new Error("Hangar capacity must be a positive integer");
     } else this._capacity = capacity;
-    this._hanger = [];
+    this._hangar = [];
   }
 
-  get hanger() {
-    return this._hanger;
+  get hangar() {
+    return this._hangar;
   }
 
   get capacity() {
     return this._capacity;
   }
 
+  countPlanes() {
+    return this._hangar.length;
+  }
+
   isFull() {
-    return this._hanger.length >= this.capacity
+    return this._hangar.length >= this.capacity
   }
 
   land(plane) {
     if(this.landingCheck(plane) !== true) return this.landingCheck(plane);
-    plane.flying = false;
-    this._hanger.push(plane);
-    return `Successful landing, ${plane.id} is now in the hangar`;
+    this._hangar.push(plane);
+    plane.land();
+    return this._hangar;
   }
 
   landingCheck(plane) {
-    if(this._hanger.includes(plane)) return `Cannot land ${plane.id}, it is already in this airport's hangar`;
+    if(this._hangar.includes(plane)) return `Cannot land ${plane.id}, it is already in this airport's hangar`;
     if(!plane.flying) return `Cannot land ${plane.id}, it has already landed at a different airport`;
     if(this.isFull()) return "Cannot land yet, the hangar is full";
+    if(isStormy()) return `Cannot land ${plane.id} in stormy weather`
     return true;
   }
 
   takeOff(plane) {
     if(this.takeOffCheck(plane) !== true) return this.takeOffCheck(plane);
-    this._hanger.splice(this._hanger.indexOf(plane), 1);
-    plane.flying = true;
+    this._hangar.splice(this._hangar.indexOf(plane), 1);
+    plane.takeOff()
     return `Successful take off, ${plane.id} is in the air`;
   }
 
   takeOffCheck(plane) {
     if(plane.flying) return `Cannot take off, ${plane.id} is already in the air`;
-    if(!this._hanger.includes(plane)) return `Cannot take off, ${plane.id} is not at this airport`;
+    if(!this._hangar.includes(plane)) return `Cannot take off, ${plane.id} is not at this airport`;
+    if(isStormy()) return `${plane.id} cannot take off in stormy weather`;
     return true;
   }
 }

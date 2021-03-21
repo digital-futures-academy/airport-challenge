@@ -1,17 +1,35 @@
 const test = require('mousinho-testlibrary-mse-2103/src/library');
 const Plane = require('../src/plane');
 const Airport = require('../src/airport');
+const mockMath = Object.create(global.Math);
+const returnMath = Object.create(global.Math);
 
 let plane, plane2, plane3, airport, result, output, airport2;
 
+mockMath.random = () => 0.5;
+global.Math = mockMath;
+
+// Testing Airport getters
+test.describe('Testing Airport class getters', () => {
+    test.it('get capacity() returns capacity field', () => {
+        airport = new Airport();
+        test.expect(airport.capacity).toEqual(2);
+    })
+
+    test.it('get hangar', () => {
+        plane = new Plane('PL1');
+        airport.land(plane);
+        test.expect(airport.hangar[0]).toEqual(plane);
+    })
+})
+
 // Story 1 Refactored:
 test.describe('User Story 1: Testing airport.land() function', () => {
-    test.it('plane added to hanger', () => {
+    test.it('plane added to hangar', () => {
         plane = new Plane('PL1');
         airport = new Airport();
-        result = airport.land(plane);
 
-        test.expect(airport.hanger.includes(plane)).toEqual(true);
+        test.expect(airport.land(plane).includes(plane)).toEqual(true);
     })
 
     test.it('plane.flying is set to false', () => {
@@ -22,6 +40,7 @@ test.describe('User Story 1: Testing airport.land() function', () => {
         plane = new Plane('PL1');
         airport = new Airport();
         airport2 = new Airport();
+
         airport.land(plane);
 
         test.expect(airport2.land(plane)).toEqual(`Cannot land ${plane.id}, it has already landed at a different airport`);
@@ -69,6 +88,7 @@ test.describe(`Story 3: Testing airport.isFull() and airport.land() work togethe
     test.it('isFull() returns false when hangar.length < capacity', () => {
         plane = new Plane('PL1');
         airport = new Airport();
+
         airport.land(plane);
 
         test.expect(airport.isFull()).toEqual(false);
@@ -76,6 +96,7 @@ test.describe(`Story 3: Testing airport.isFull() and airport.land() work togethe
 
     test.it('isFull() returns true when hangar.length === capacity', () => {
         plane2 = new Plane('PL2');
+
         airport.land(plane2);
 
         test.expect(airport.isFull()).toEqual(true);
@@ -91,7 +112,7 @@ test.describe(`Story 3: Testing airport.isFull() and airport.land() work togethe
         airport = new Airport();
         plane = new Plane('PL1');
 
-        test.expect(airport.land(plane)).toEqual(`Successful landing, ${plane.id} is now in the hangar`);
+        test.expect(airport.land(plane)[0]).toEqual(plane);
     })
 })
 
@@ -106,8 +127,8 @@ test.describe('User Story 4: Testing airport.takeoff()', () => {
         test.expect(airport.takeOff(plane)).toEqual(`Successful take off, ${plane.id} is in the air`);
     })
 
-    test.it('takeOff(plane) removes plan from airport hangar', () => {
-        test.expect(!airport.hanger.includes(plane)).toEqual(true);
+    test.it('takeOff(plane) removes plane from airport hangar', () => {
+        test.expect(!airport.hangar.includes(plane)).toEqual(true);
     })
 
     test.it('takeOff(plane) changes plane.flying from false to true', () => {
@@ -150,34 +171,70 @@ test.describe(`Story 5: testing edge cases for airport.takeOff() and airport.lan
     })
 })
 
+// Extension - testing weather systems and count
+test.describe('Extension: testing airport.takeOff() and airport.land() in different weather conditions', () => {
+    test.it('.land() when weather is clear', () => {
+        mockMath.random = () => 0.5;
+        global.Math = mockMath;
 
+        airport = new Airport();
+        plane = new Plane('PL1');
+        test.expect(airport.land(plane)[0]).toEqual(plane);
+        global.Math = returnMath;
+    })
 
-// console.log(`Story 5: Testing edge cases for airport.takeOff() and airport.land()`)
+    test.it('.land() when weather is stormy', () => {
+        mockMath.random = () => 0.1;
+        global.Math = mockMath;
 
-// console.log(`   Test 1: .land(plane) that has already landed at this airport`);
-// airport = new Airport();
-// plane = new Plane('PL1');
-// airport.land(plane);
-// result = airport.land(plane);
-// if(test.assertEquals(result, `Cannot land ${plane.id}, it is already in this airport's hangar`)) console.log(`   Passed`);
-// else console.log(`   Failed - expected true and got false`);
+        airport = new Airport();
+        plane = new Plane('PL1');
+        test.expect(airport.land(plane)).toEqual(`Cannot land ${plane.id} in stormy weather`);
+        global.Math = returnMath;
+    })
 
-// console.log(`   Test 2: .land(plane) when plane has already landed at a different airport`);
-// airport = new Airport();
-// airport2 = new Airport();
-// plane = new Plane('PL1');
-// airport.land(plane);
-// result = airport2.land(plane);
+    test.it('.takeOff() when weather is clear', () => {
+        mockMath.random = () => 0.5;
+        global.Math = mockMath;
 
-// if(test.assertEquals(result, `Cannot land ${plane.id}, it has already landed at a different airport`)) console.log(`   Passed`);
-// else console.log(`   Failed - expected true and got false`);
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
+        test.expect(!airport.takeOff(plane).includes(plane)).toEqual(true);
+        global.Math = returnMath;
+    })
 
-// console.log(`   Test 3: .takeOff(plane) when the plane is not at this airport`);
-// airport = new Airport();
-// airport2 = new Airport();
-// plane = new Plane('PL1');
-// airport.land(plane);
-// result = airport2.takeOff(plane);
+    test.it('.takeOff() when weather is stormy', () => {
+        mockMath.random = () => 0.5;
+        global.Math = mockMath;
 
-// if(test.assertEquals(result, `Cannot take off, ${plane.id} is not at this airport`)) console.log(`   Passed`);
-// else console.log(`   Failed - expected true and got false`);
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
+
+        mockMath.random = () => 0.1;
+        global.Math = mockMath;
+
+        test.expect(airport.takeOff(plane)).toEqual(`${plane.id} cannot take off in stormy weather`);
+        global.Math = returnMath;
+    })
+})
+
+test.describe('Testing count airplanes in hangar', () => {
+    test.it('countPlanes() returns number of planes in airport', () => {
+        mockMath.random = () => 0.5;
+        global.Math = mockMath;
+
+        airport = new Airport(4);
+        plane = new Plane('PL1');
+        plane2 = new Plane('PL2');
+        plane3 = new Plane('PL3');
+        airport.land(plane);
+        airport.land(plane2);
+        airport.land(plane3);
+
+        test.expect(airport.countPlanes()).toEqual(3);
+
+        global.Math = returnMath;
+    })
+})
