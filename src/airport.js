@@ -1,11 +1,18 @@
+const Weather = require("./weather");
+
 class Airport {
   constructor(name){
     this.airportname = name;
     this.planeList = [];
     this.airportCapacity = 1
+    this.weather = new Weather
+    this.storminess = this.weather.storminess
   }
 
   landPlane(Plane){
+    if(this.storminess >= 10){
+      return `Storms are at a ${this.storminess} level - too dangerous to land`
+    }
     if(Plane.planeIsLandedHere !== 'Nowhere'){
       return `Cannot land ${Plane.planename} as already landed at ${Plane.planeIsLandedHere}`
     }
@@ -21,6 +28,9 @@ class Airport {
   }
 
   takeOffPlane(Plane){
+    if(this.storminess >= 10){
+      return `Storms are at a ${this.storminess} level - too dangerous to take off`
+    }
     if (Plane.planeIsLandedHere === this.airportname){
       for(let i = 0; i < this.planeList.length; i++){ 
         if ( this.planeList[i] === Plane.planename) { 

@@ -3,6 +3,7 @@ Airport = require('../src/airport')
 Plane = require('../src/plane')
 let testFramework = new AssertEquals()
 let heathrow = new Airport('Heathrow')
+heathrow.storminess = 1
 let boeing747 = new Plane('Boeing747')
 
 console.log('Tests on landPlane() - 1a - Can Airport land a Plane? (Does landPlane() produce correct string?)')

@@ -3,6 +3,7 @@ Airport = require('../src/airport')
 Plane = require('../src/plane')
 let testFramework = new AssertEquals()
 let heathrow = new Airport('Heathrow')
+heathrow.storminess = 1
 let boeing747 = new Plane('Boeing747')
 let concorde = new Plane('Concorde')
 let spitfire = new Plane('Spitfire')
