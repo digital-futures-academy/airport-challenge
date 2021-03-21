@@ -28,4 +28,10 @@ planeTwo = new Plane('Plane Two');
 airport.landPlane(planeTwo);
 result = airport.takeOff(planeTwo);
 console.log(assertEquals(result.length, 0));
+
+console.log('Testing to see if blocked from taking off airport that does not exist');
+airport = new Airport();
+planeThree = new Plane('Plane Three');
+result = airport.takeOff(planeThree);
+console.log(assertEquals(result, 'cannot takeoff plane that is not in the hangar'));
  
