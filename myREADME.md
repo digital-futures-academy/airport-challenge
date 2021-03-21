@@ -101,8 +101,8 @@ I want to prevent landing when weather is stormy
 ```
 |Objects      | Properties | Messages    | Context     | Output      |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Airport | Boolean |  badWeather()|  |  true/ false|
-|  |  String| landPlane(plane) | if weather stormy, cant land |  String|
+| Weather |  |  weather()|  |  string|
+| Airport|  String| landPlane(plane) | if weather stormy, cant land |  String|
 
 
 #### 3.
