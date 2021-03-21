@@ -13,3 +13,17 @@ Approach
 --------
 My approach to this challenge was to extract the requirements of the user from the user stories provided and create a domain model to map out the foundations of the testing process. I created one class (Airport()) with three methods (land(), takeOff() and override()) that would carry out the users' requirements. 
 
+**Instructing the airport to land planes A, B and C:**
+![screenshot](screenshots/Screenshot%202021-03-21%20at%2009.52.14.png)
+
+**Instructing the airport to let plane B take off and confirming it has left:**
+![screenshot](screenshots/Screenshot%202021-03-21%20at%2009.58.02.png)
+
+**Trying to land a plane that is already at the airport:**
+![screenshot](screenshots/Screenshot%202021-03-21%20at%2009.58.51.png)
+
+**Instructing the airport to let plane B take off when it has already left:**
+![screenshot](screenshots/Screenshot%202021-03-21%20at%2010.00.30.png)
+
+**Overriding airport capacity to be 2 and trying to land a third plane:**
+![screenshot](screenshots/Screenshot%202021-03-21%20at%2010.04.35.png)
