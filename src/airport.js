@@ -7,7 +7,7 @@ class Airport {
 
   override(newCapacity){
       this.capacity = newCapacity
-        return this.capacity
+        return this.capacity && `This airport's capacity is ${newCapacity}`
       }    
 
   land(plane){
@@ -27,8 +27,7 @@ class Airport {
       } else {
       let index = this.airport.indexOf(plane);
       this.airport.splice(index, 1);
-      console.log(`${plane} has left the airport`)
-      return this.airport
+      return this.airport && `${plane} has left the airport`
     }
   }
 }

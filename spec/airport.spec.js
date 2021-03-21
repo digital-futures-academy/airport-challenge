@@ -3,10 +3,10 @@ const assertEquals = require('../test-framework.js')
 
 const testAirport = () => {
 
-let airport = new Airport()
 // 1. setup
 let input = 'plane 0'
 let expectedOutput = [input]
+let airport = new Airport(input)
 
 // 1. execute
 let actualOutput = airport.land(input)
@@ -17,7 +17,7 @@ console.log(result)
 
 // 2. setup
 input = 4 
-expectedOutput = input
+expectedOutput = input && `This airport's capacity is ${input}`
 
 // 2. execute
 actualOutput = airport.override(input)
@@ -41,7 +41,7 @@ console.log(result)
 
 // 4. setup
 input = 'plane 1'
-expectedOutput = ['plane 0', 'plane 2', 'plane 3']
+expectedOutput = ['plane 0', 'plane 2', 'plane 3'] && `${input} has left the airport`
 
 // 4. execute
 actualOutput = airport.takeOff(input)
