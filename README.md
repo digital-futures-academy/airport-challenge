@@ -209,7 +209,32 @@ User Story 1: Testing airport.land() function
 ```
 
 ## Stub test
+Needed to control Math.random within the isStormy function so I can predict test output
 ``` js
+// Source Code
+// In weather.js
+const isStormy = () => {
+    const randomNumber = Math.random();
+    if(randomNumber >= 0.2) return false;
+    return true;
+};
+
+// in airport.js Airport class
+    land(plane) {
+        if(this.landingCheck(plane) !== true) return this.landingCheck(plane);
+        this._hangar.push(plane);
+        plane.land();
+        return this._hangar;
+    }
+
+    landingCheck(plane) {
+        if(this._hangar.includes(plane)) return `Cannot land ${plane.id}, it is already in this airport's hangar`;
+        if(!plane.flying) return `Cannot land ${plane.id}, it has already landed at a different airport`;
+        if(this.isFull()) return 'Cannot land yet, the hangar is full';
+        if(isStormy()) return `Cannot land ${plane.id} in stormy weather`;
+        return true;
+    }
+
 // Test Code
 test.describe('Extension: testing airport.takeOff() and airport.land() in different weather conditions', () => {
     test.it('.land() when weather is clear', () => {
