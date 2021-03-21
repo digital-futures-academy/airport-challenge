@@ -35,3 +35,9 @@ planeThree = new Plane('Plane Three');
 result = airport.takeOff(planeThree);
 console.log(assertEquals(result, 'cannot takeoff plane that is not in the hangar'));
  
+console.log('Testing to see if blocked from landing a plane already in the hangar');
+aiport = new Airport();
+planeFour = new Plane('Plane Four');
+result = airport.landPlane(planeFour);
+result = airport.landPlane(planeFour);
+console.log(assertEquals(result, 'cannot land plane as it is already in the hangar'));
