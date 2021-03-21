@@ -1,3 +1,2 @@
-spec = require('./spec/airport.spec');
-
-spec();
+require('./spec/airport.spec');
+require('./spec/system-designer.spec')
