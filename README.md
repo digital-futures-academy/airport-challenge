@@ -21,7 +21,7 @@ My approach to this challenge was to extract the requirements of the user from t
 ![screenshot](screenshots/Screenshot%202021-03-21%20at%2009.58.02.png)
 
 
-**Trying to land a plane that is already at the airport:**
+**Trying to land a plane that is already at the airport:**                        
 ![screenshot](screenshots/Screenshot%202021-03-21%20at%2009.58.51.png)
 
 
