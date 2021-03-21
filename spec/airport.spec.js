@@ -9,14 +9,23 @@ let plane = new Plane('Plane One');
 let result = airport.landPlane(plane);
 console.log(assertEquals(result.length, 1));
 
+
 console.log('Testing if airport capacity can be overriden');
 airport = new Airport(20);
 result = airport.capacity;
 console.log(assertEquals(result, 20));
 
-console.log('Testing to see if we can land planes if airport is full');
-airport = new Airport(3)
+console.log('Testing to see if we cannot land planes if airport is full');
+airport = new Airport(2);
 for(let i = 0; i < 4; i++){
     result = airport.landPlane(plane);
 }
 console.log(assertEquals(result, 'cannot land plane - aiport is full'));
+
+console.log('Testing to see if the plane has taken off');
+airport = new Airport();
+planeTwo = new Plane('Plane Two');
+airport.landPlane(planeTwo);
+result = airport.takeOff(planeTwo);
+console.log(assertEquals(result.length, 0));
+ 
