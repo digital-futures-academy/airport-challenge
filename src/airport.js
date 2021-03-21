@@ -12,6 +12,11 @@ class Airport {
       return "Sorry this airport is full you can't land here";
     }
   }
+
+  takeOff(plane){
+    this.landingArea.splice(this.landingArea.indexOf(plane), 1);
+    return this.landingArea;
+  }
 }
 
 module.exports = Airport;

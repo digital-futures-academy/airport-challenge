@@ -47,3 +47,30 @@ test.it('Allowing planes to land up to the full airport capacity', function() {
     // Execute, Verify
     test.expect(JSON.stringify(Stansted.land('planeE012'))).toEqual(JSON.stringify(['planeE008','planeE009','planeE010','planeE011','planeE012']));
 })
+
+// User Story 4
+
+console.log('\x1b[4m%s\x1b[0m', 'User Story 4');    
+// test 1
+// Setup
+let Luton = new Airport();
+
+Luton.land('planeE013');
+
+test.it('Instruct the airport to let a plane take off', function() {
+    // Execute, Verify
+    test.expect(JSON.stringify(Luton.takeOff('planeE013'))).toEqual(JSON.stringify([]));
+})
+    
+// test 2
+// Setup
+let Manchester = new Airport();
+
+Manchester.land('planeE014');
+Manchester.land('planeE015');
+Manchester.land('planeE016');
+
+test.it('Instruct the airport to let a plane take off out of a collection of planes landed', function() {
+    // Execute, Verify
+    test.expect(JSON.stringify(Manchester.takeOff('planeE015'))).toEqual(JSON.stringify(['planeE014','planeE016']));
+})
