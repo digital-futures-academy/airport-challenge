@@ -4,7 +4,7 @@ class Airport {
     this.planeHangar = [];
   }
   landPlane(plane){
-    if(this.fullAirport){
+    if(this.fullAirport()){
       return 'cannot land plane - aiport is full';
     } else {
     plane.isFlying = false;
@@ -12,13 +12,20 @@ class Airport {
     return this.planeHangar;
   }
 }
+takeOff(plane){
+  let planeIndex = this.planeHangar.indexOf(plane);
+  this.planeHangar.splice(planeIndex,1);
+  plane.isFlying;
+  return this.planeHangar;
+}
   fullAirport(){
-    if(capacity === this.planeHangar.length){
+    if(this.capacity === this.planeHangar.length){
       return true 
-      } else {
+      } else { 
         return false;
       }
     }
-}
+  }
+
 
 module.exports = Airport;
