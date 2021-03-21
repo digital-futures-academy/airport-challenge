@@ -6,6 +6,10 @@ const assertEquals = require('../test-framework');
 console.log('Test to see if the airport can land a plane.')
 let airport = new Airport();
 let plane = new Plane('Plane One');
-
 let result = airport.landPlane(plane);
 console.log(assertEquals(result.length, 1));
+
+console.log('Testing if airport capacity can be overriden');
+airport = new Airport(20);
+result = airport.capacity;
+console.log(assertEquals(result, 20));
