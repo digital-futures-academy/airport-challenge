@@ -28,11 +28,7 @@ takeOff(plane){
   }
 }
   fullAirport(){
-    if(this.capacity === this.planeHangar.length){
-      return true 
-      } else { 
-        return false;
-      }
+    return this.capacity === this.planeHangar.length
     }
   }
   
