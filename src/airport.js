@@ -1,4 +1,4 @@
-const Weather = require('./weather')
+const Weather = require('./weather');
 
 class Airport {
     constructor(capacity = 2, weather = new Weather()) {
