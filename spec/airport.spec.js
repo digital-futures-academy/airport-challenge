@@ -5,15 +5,16 @@ const Plane = require('../src/plane.js')
 console.log("Airport#landPlane()")
 
 const testAirport = () => {
- test.it("returns a string that plane has landed", function () {
-  //   // setup test case #1
-     let gatwick = new Airport()
-     let plane = new Plane()
-     // execute test case #1
-     let actualOutput = gatwick.landPlane(plane)
-     // verify test case #1
-     test.assertEquals(actualOutput, 'you are free to land' + plane)
-   })
+  test.it("returns an array containing a plane", function () {
+    //   // setup test case #1
+    let gatwick = new Airport();
+    let input = 'plane 1';
+    // execute test case #1
+    let expectedOutput = [input];
+    let actualOutput = gatwick.land(input);
+    // verify test case #1
+    test.assertEquals(JSON.stringify(actualOutput),(JSON.stringify(expectedOutput)));
+})
 
   console.log("Airport#changeDefaultCapacity()")
 
