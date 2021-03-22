@@ -53,7 +53,7 @@ Test.it('4.1 Confirming that plane has taken off', () => {
 
     airport.landPlane(plane, weather);
 
-    Test.expect(airport.takeOff(plane, weather)).toBe(`Plane ${plane.name}, has departed.`);
+    Test.expect(airport.takeOff(plane, weather)).toBe(`Plane ${plane.name} has departed.`);
 
 });
 
@@ -73,7 +73,7 @@ Test.it('5.1 Check that you can not take off if plane is not in airport', () => 
     let plane = new Plane('FR5212');
     let weather = new Weather(27);
 
-    Test.expect(airport.takeOff(plane, weather)).toBe(`Plane ${plane.name} is not in the aiport`);
+    Test.expect(airport.takeOff(plane, weather)).toBe(`Can not take off, ${plane.name} is already in the air`);
 });
 
 Test.it('5.2 Check that you can not land plane which has already landed', () => {
