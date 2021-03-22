@@ -23,28 +23,29 @@
 
 # How to use
 
-To create a new Airport use the Airport class.
+-To create a new Airport use the Airport class.
 
-To create a new Plane use the Plane class.
+-To create a new Plane use the Plane class.
 
-To create Weather which is necessary to land or take off a plane, use the Weather Class. This randomly generates Weather that is either 'stormy' or 'acceptable' for flying.
+-To create Weather which is necessary to land or take off a plane, use the Weather Class. This randomly generates Weather that is either 'stormy' or 'acceptable' for flying.
 
-To increase Airport capacity create a System Designer using SystemDesigner class.
+-To increase Airport capacity create a System Designer using SystemDesigner class.
 Then use:
 
-``systemDesigner.overrideCapacity(airport, size)``
+```systemDesigner.overrideCapacity(airport, size)```
 
 To land a Plane use:
 
-``airport.land(plane, weather)``
+```airport.land(plane, weather)```
 
 Remembering that if the 'weather' is 'stormy', the Plane has already 'landed' or the Airport is 'full', this won't be possible.
 
 To take off a plane use:
 
-``airport.takeOff(plane, weather)``
+```airport.takeOff(plane, weather)```
 
 Remembering that if the Weather is 'stormy', the Plane has already 'takenOff' or the Plane is not at that Airport, this won't be possible.
 
 To check the status of a Plane use:
-``console.log(plane.status)``
+
+```console.log(plane.status)```
