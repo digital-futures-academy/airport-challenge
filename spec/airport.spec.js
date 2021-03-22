@@ -16,16 +16,16 @@ const testAirport = () => {
     test.assertEquals(JSON.stringify(actualOutput),(JSON.stringify(expectedOutput)));
 })
 
-  console.log("Airport#changeDefaultCapacity()")
+  console.log("Airport#change default capacity")
 
     test.it("returns an airport capacity which overrides default ", function () {
     // setup test case #2
       let heathrow = new Airport()
-      heathrow.changeDefaultCapacity(400)
+      heathrow.capacity = 20
     // execute test case #2
-      let actualOutput = 400
+      let actualOutput = heathrow.capacity
     // verify test case #2
-    test.assertEquals(actualOutput,400)
+    test.assertEquals(actualOutput,20)
     })
   
   console.log("Airport#landPlane()")

@@ -1,5 +1,6 @@
 class Airport {
-    constructor() {
+    constructor(capacity = 10) {
+        this.capacity = capacity
         this.airport = [];
 
     }
