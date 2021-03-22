@@ -17,9 +17,13 @@ console.log(assertEquals(result, 20));
 
 console.log('Testing to see if we cannot land planes if airport is full');
 airport = new Airport(2);
-for(let i = 0; i < 4; i++){
-    result = airport.landPlane(plane);
-}
+let capPlane = new Plane('cap');
+let capPlane2 = new Plane('capTwo');
+let capPlane3 = new Plane('capThree');
+
+airport.landPlane(capPlane);
+airport.landPlane(capPlane2);
+result = airport.landPlane(capPlane3);
 console.log(assertEquals(result, 'cannot land plane - aiport is full'));
 
 console.log('Testing to see if the plane has taken off');
