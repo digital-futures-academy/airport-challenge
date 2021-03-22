@@ -1,7 +1,6 @@
 const assertEquals = require('../test-framework')
 // const result = require('../test-framework')
 let Airport = require('../src/airport')
-let Plane = require('../src/plane')
 
 console.log('Test0 - to land plane')
  // T setup
