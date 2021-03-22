@@ -4,11 +4,14 @@ This programme is designed to simulate an airport from which planes can take off
 ## Usage
 In order to run the tests on this programme, first clone the repository and then input 'node spec/specRunner.js' into your terminal.
 
-The weather is controlled by the Weather class which has a random number generator as its input. If the random number generator generates a number between 10 and 25, the weather will be stormy, which means planes are not able to take off or land, otherwise it is sunny. In the  Airport class, landPlane() and takeOff() methods take weather as one of their inputs. In order to override this for the test cases, when creating an new insance of weather input a number larger than 25 to enforce sunny weather and ensure that planes can take off and land. For example:
+The weather is controlled by the Weather class which has a random number generator as its input in the constructor. If the random number generator generates a number between 10 and 25, the weather will be stormy, which means planes are not able to take off or land, otherwise it is sunny. In the  Airport class, `landPlane()` and `takeOff()` methods take weather as one of their inputs. In order to override this for the test cases, when creating an new insance of weather input a number larger than 25 to enforce sunny weather and ensure that planes can take off and land. For example:
 ```js
 let weather = new Weather(27);
 ```
-
+The airport capacity has also been set to 3 as a default input in the constructor of the Airport class. In order to change the capacity of an airport, input a desired capacity when creating a new instance of the Airport class. For example:
+```js
+let airport = new Airport('Heathrow', 20);
+```
 
 
 ## User Stories to Domain Models
@@ -37,7 +40,6 @@ I would like a default airport capacity that can be overridden as appropriate
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | Airport     | Constructor(int)| get capacity()| Standard capacity = 3|  int  |
 | | | | Has the capacity been changed? | int|
-| Plane  |    |    |   |             |
 
 
 #### 3.
@@ -50,7 +52,6 @@ I want to prevent landing when the airport is full
 |Objects      | Properties | Messages      | Context     | Output      |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | Airport     |  isFull = Boolean| landPlane(plane) |Check if airport is full before landing plane |  String |
-| Plane  |    |    |   |             |
 
 
 #### 4.
@@ -63,7 +64,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 |Objects      | Properties | Messages    | Context     | Output      |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | Airport     |  Airport array| takeOff(plane) | Check that plane is no longer in airport|  Array |
-| Plane  |    |    |   |             |
+| Plane  |  Boolean  |   isFlying() |   |   True/false  |
 
 #### 5.
 ```
@@ -76,7 +77,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | Airport     |  | takeOff(plane) | Check if plane is in the airport | String  |
 | | | land(plane) | Check if plane has already landed| String|
-| Plane  |    |    |   |             |
 
 
 ### Extended Criteria
