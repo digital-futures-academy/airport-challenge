@@ -6,7 +6,7 @@ test = require('./test-framework');
 
 // User story 5
 
-console.log('\x1b[4m%s\x1b[0m', 'User Story 5')    
+console.log('\x1b[4m%s\x1b[0m', 'User Story 5');    
 // test 1
 // Setup
 let plane = new Plane;
@@ -29,7 +29,7 @@ testAirport2.takeOff(plane2, day4);
 test.it('Prevent asking the airport to let planes take-off which are not at the airport 2', function() {
     // Execute, Verify
     test.expect(plane2.status).toEqual('takenOff');
-})
+});
 
 // test 3   
 // Setup
@@ -38,7 +38,7 @@ let testAirport3 = new Airport;
 test.it('Prevent asking the airport to let planes take-off which have taken off at a different airport', function() {
     // Execute, Verify
     test.expect(testAirport3.takeOff(plane2, day4)).toEqual("Can't let a plane take off that's already taken off");
-})
+});
 
 // test 4    
 // Setup
@@ -49,7 +49,7 @@ testAirport3.land(plane3, day4);
 test.it("Prevent asking the airport to land a plane that's already landed", function() {
     // Execute, Verify
     test.expect(plane3.status).toEqual('landed');
-})
+});
 
 // test 5    
 // Setup
@@ -58,4 +58,4 @@ let testAirport4 = new Airport;
 test.it("Prevent asking the airport to land a plane that's already landed at a different airport", function() {
     // Execute, Verify
     test.expect(testAirport4.land(plane3, day4)).toEqual("Can't land a plane that's already landed");
-})
+});
