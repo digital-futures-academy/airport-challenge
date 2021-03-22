@@ -1,8 +1,8 @@
 class airport{
     constructor(){
-        this.hanger = [];
+        this.hanger = ['bowing 43-80'];
         this._stormy = Math.floor(Math.random() * 100);
-        this.capacity = 4;
+        this.capacity = 3;
     }
 
     get maxplanes(){
@@ -11,19 +11,20 @@ class airport{
     get viewplanes(){
         return this.hanger;
     }
-    get airportstatus(){
+    airportstatus(){
         return `there are currently ${this.hanger.length} planes at the airport`;
     }
-    set stormy(weather){
+    stormy(weather){
         if (typeof weather === 'number'){
             this._stormy = weather;
+            return 'weather status set';
         } else {
-            console.log('stormy must be a number');
+            return'stormy must be a number';
         }
     }
-    set setcapacity(max){
+    setcapacity(max){
         this.capacity = max;
-        console.log(`the max capacity of the airport has been set to ${max}`);
+        return `the max capacity of the airport has been set to ${max}`;
     }
     maxcapacity(){
         return this.hanger.length  >= this.capacity;
@@ -56,7 +57,7 @@ class airport{
             return 'there is no such plane at this airport and so cannot take off';
         }else{
             this.hanger.splice[pos,1] = 0;
-            return `${plane} 43-80 has taken off successfully and is no longer in the airport`;
+            return `${plane} has taken off successfully and is no longer in the airport`;
         }
     }
     
