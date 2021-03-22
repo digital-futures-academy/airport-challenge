@@ -1,11 +1,12 @@
-const isStormy = require('./weather');
+const Weather = require('./weather')
 
 class Airport {
-    constructor(capacity = 2) {
+    constructor(capacity = 2, weather = new Weather()) {
         if(typeof capacity !== 'number' || capacity < 0 || capacity % 2 !== 0) {
             throw new Error('Hangar capacity must be a positive integer');
         } else this._capacity = capacity;
         this._hangar = [];
+        this._weather = weather;
     }
 
     get hangar() {
@@ -35,7 +36,7 @@ class Airport {
         if(this._hangar.includes(plane)) return `Cannot land ${plane.id}, it is already in this airport's hangar`;
         if(!plane.flying) return `Cannot land ${plane.id}, it has already landed at a different airport`;
         if(this.isFull()) return 'Cannot land yet, the hangar is full';
-        if(isStormy()) return `Cannot land ${plane.id} in stormy weather`;
+        if(this._weather.isStormy()) return `Cannot land ${plane.id} in stormy weather`;
         return true;
     }
 
@@ -49,7 +50,7 @@ class Airport {
     takeOffCheck(plane) {
         if(plane.flying) return `Cannot take off, ${plane.id} is already in the air`;
         if(!this._hangar.includes(plane)) return `Cannot take off, ${plane.id} is not at this airport`;
-        if(isStormy()) return `${plane.id} cannot take off in stormy weather`;
+        if(this._weather.isStormy()) return `${plane.id} cannot take off in stormy weather`;
         return true;
     }
 }

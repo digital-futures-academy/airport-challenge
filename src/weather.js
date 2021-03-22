@@ -1,7 +1,9 @@
-const isStormy = () => {
-    const randomNumber = Math.random();
-    if(randomNumber >= 0.2) return false;
-    return true;
-};
+class Weather {
+    isStormy() {
+        const randomNumber = Math.random();
+        if(randomNumber >= 0.2) return false;
+        return true;
+    }
+}
 
-module.exports = isStormy;
+module.exports = Weather;
