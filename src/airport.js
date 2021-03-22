@@ -48,10 +48,7 @@ class Airport{
     }
 
     isFull(){
-        if(this._hanger.length < this.airportCapacity){
-            return false;
-        }
-        return true;
+        return !(this._hanger.length < this.airportCapacity);
     }
 }
 
