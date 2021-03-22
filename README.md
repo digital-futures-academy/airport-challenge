@@ -49,3 +49,7 @@ Remembering that if the Weather is 'stormy', the Plane has already 'takenOff' or
 To check the status of a Plane use:
 
 ```console.log(plane.status)```
+
+To check a Plane is at an Airport use:
+
+```console.log(Airport.landingArea.includes(Plane))```
