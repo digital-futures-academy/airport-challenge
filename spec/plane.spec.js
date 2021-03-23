@@ -10,14 +10,18 @@ test.describe('Testing Plane class getters and setters', () => {
     })
 
     test.it('get flying() returns plane._flying field', () => {
+        plane = new Plane('testID')
         test.expect(plane.flying).toEqual(true);
     })
 
     test.it('plane.land() changes the plane.flying to false', () => {
+        plane = new Plane('testID')
         test.expect(plane.land()).toEqual(false);
     })
 
     test.it('plane.takeOff() changes plane.flying to true', () => {
+        plane = new Plane('testID')
+        plane.land();
         test.expect(plane.takeOff()).toEqual(true);
     })
 

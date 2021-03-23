@@ -9,7 +9,8 @@
   "author": "dearshrewdwit",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
+    "eslint": "^7.22.0",
+    "jasmine": "^3.7.0"
   },
   "dependencies": {
     "mousinho-testlibrary-mse-2103": "^1.0.2"

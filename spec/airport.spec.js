@@ -33,6 +33,9 @@ test.describe('User Story 1: Testing airport.land() function', () => {
     })
 
     test.it('plane.flying is set to false', () => {
+        plane = new Plane('PL1');
+        airport = new Airport();
+        airport.land(plane)
         test.expect(plane.flying).toEqual(false);
     })
 
@@ -96,7 +99,10 @@ test.describe(`Story 3: Testing airport.isFull() and airport.land() work togethe
 
     test.it('isFull() returns true when hangar.length === capacity', () => {
         plane2 = new Plane('PL2');
+        plane = new Plane('PL1');
+        airport = new Airport();
 
+        airport.land(plane);
         airport.land(plane2);
 
         test.expect(airport.isFull()).toEqual(true);
@@ -104,6 +110,12 @@ test.describe(`Story 3: Testing airport.isFull() and airport.land() work togethe
 
     test.it('.land() does not land a plane when isFull() is true', () => {
         plane3 = new Plane('PL3');
+        plane2 = new Plane('PL2');
+        plane = new Plane('PL1');
+        airport = new Airport();
+
+        airport.land(plane);
+        airport.land(plane2);
         
         test.expect(airport.land(plane3)).toEqual("Cannot land yet, the hangar is full");
     })
@@ -128,10 +140,20 @@ test.describe('User Story 4: Testing airport.takeoff()', () => {
     })
 
     test.it('takeOff(plane) removes plane from airport hangar', () => {
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
+        airport.takeOff(plane)
+
         test.expect(!airport.hangar.includes(plane)).toEqual(true);
     })
 
     test.it('takeOff(plane) changes plane.flying from false to true', () => {
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
+        airport.takeOff(plane)
+
         test.expect(plane.flying).toEqual(true);
     })
 
@@ -162,11 +184,18 @@ test.describe(`Story 5: testing edge cases for airport.takeOff() and airport.lan
     })
 
     test.it(`.land(plane) when plane has already landed at a different airport`, () => {
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
         airport2 = new Airport();
         test.expect(airport2.land(plane)).toEqual(`Cannot land ${plane.id}, it has already landed at a different airport`);
     })
 
     test.it(`.takeOff(plane) when the plane is not at this airport`, () => {
+        airport = new Airport();
+        plane = new Plane('PL1');
+        airport.land(plane);
+        airport2 = new Airport();
         test.expect(airport2.takeOff(plane)).toEqual(`Cannot take off, ${plane.id} is not at this airport`)
     })
 })
