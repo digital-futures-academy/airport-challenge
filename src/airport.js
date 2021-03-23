@@ -16,12 +16,15 @@ class Airport {
         } else {
             return "sorry cannot land plane";
         }
-       
     }
-   
-    // takeOff() {
-    //     return this.location["notInAirport"];
-    // }
-}
+    takeOff(plane) {
+        if (!plane.isFlying) {
+             this.airport.splice(this.airport.indexOf(plane), 1);
+             return 'left airport';
+        } 
+        }
+        
+     }
+
 
 module.exports = Airport;

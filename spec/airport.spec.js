@@ -1,5 +1,6 @@
 const test = require('../spec/test-framework.js')
 const Airport = require('../src/airport.js')
+const Plane = require('../src/plane.js')
 
 console.log("Airport#landPlane()")
 
@@ -43,12 +44,17 @@ const testAirport = () => {
   
   console.log("Airport#takeOff()")
 
-  test.it("returns plane location after takeOff", function () {
+  test.it("returns plane has taken off and left airport", function () {
     // setup test case #4
-      let blaiseDiagne = new Airport()
+    let blaiseDiagne = new Airport()
+    let plane4 = new Plane('falcon7x')
+     blaiseDiagne.land('plane 5')
+    let input = plane4;
+    blaiseDiagne.land(input.name);
     // execute test case #4
-      let actualOutput = blaiseDiagne.takeOff(plane4)
+      let actualOutput = blaiseDiagne.takeOff(input.name)
     // verify test case #4
+    console.log(blaiseDiagne.airport)
     test.assertEquals(actualOutput, 'left airport')
   })
   
