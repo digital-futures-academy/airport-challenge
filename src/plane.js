@@ -25,8 +25,8 @@ class Plane {
 
     addToAirport(){
         if(this.flying){
-            return `${this.name} is currently in the air.` 
-        };
+            return `${this.name} is currently in the air.`;
+        }
         this._isInAirport = true;
         return this._isInAirport;
 
@@ -34,8 +34,8 @@ class Plane {
 
     removeFromAirport(){
         if(!this.flying){
-            return `${this.name} is still grounded at airport.`
-        };
+            return `${this.name} is still grounded at airport.`;
+        }
         this._isInAirport = false;
         return this._isInAirport;
     }
