@@ -46,17 +46,31 @@ const testAirport = () => {
 
   test.it("returns plane has taken off and left airport", function () {
     // setup test case #4
-    let blaiseDiagne = new Airport()
+    let cityAirport = new Airport()
     let plane4 = new Plane('falcon7x')
-     blaiseDiagne.land('plane 5')
+    cityAirport.land('plane 5')
     let input = plane4;
-    blaiseDiagne.land(input.name);
+    cityAirport.land(input.name);
     // execute test case #4
-      let actualOutput = blaiseDiagne.takeOff(input.name)
+      let actualOutput = cityAirport.takeOff(input.name)
     // verify test case #4
-    console.log(blaiseDiagne.airport)
     test.assertEquals(actualOutput, 'left airport')
+})
+  
+    test.it("returns prevention of plane flying twice", function () {
+    // setup test case #5
+      let manchesterAirport = new Airport()
+      let plane6 = new Plane('greyEagle');
+      manchesterAirport.land(plane6.name);
+      manchesterAirport.takeOff(plane6.name);
+      manchesterAirport.takeOff(plane6.name);
+    // execute test case #5
+      let actualOutput = manchesterAirport.takeOff(plane6.name);
+    // verify test case #5
+      test.assertEquals(actualOutput, `sorry ${plane6.name} has already taken off`);
   })
   
+  
 }
+
 module.exports = testAirport
