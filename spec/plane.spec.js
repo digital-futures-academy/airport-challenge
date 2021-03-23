@@ -47,14 +47,4 @@ test.describe('Testing addToAirport and removeFromAirport functions', () => {
         plane = new Plane('PL1');
         test.expect(plane.addToAirport()).toEqual(`Cannot add to hangar, ${plane.id} is currently in the air`)
     })
-
-    test.it('plane.removeFromAirport() changes inAirport to false when plane is flying', () => {
-        plane = new Plane('PL1', true, true);
-        test.expect(plane.removeFromAirport()).toEqual(false);
-    })
-
-    test.it('plane.removeFromAirport() returns string when plane is on the ground', () => {
-        plane = new Plane('PL1', false, true);
-        test.expect(plane.removeFromAirport()).toEqual(`Cannot remove from hangar, ${plane.id} is still grounded`);
-    })
 })
