@@ -13,8 +13,10 @@ class Airport {
         if (!this.isAirportFull()) {
             this.airport.push(plane);
             return this.airport;
+        } else if (this.airport.includes(plane)){
+            return `sorry ${plane}has already landed`;
         } else {
-            return "sorry cannot land plane";
+            return `sorry ${plane}cannot be landed, airport full`;
         }
     }
     takeOff(plane) {

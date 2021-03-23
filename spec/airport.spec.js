@@ -39,7 +39,7 @@ const testAirport = () => {
     // execute test case #3
     let actualOutput = banjulInt.land(input);
     // verify test case #3
-    test.assertEquals(actualOutput, 'sorry cannot land plane');
+    test.assertEquals(actualOutput,`sorry ${input}cannot be landed, airport full`);
   })
   
   console.log("Airport#takeOff()")
@@ -69,7 +69,19 @@ const testAirport = () => {
     // verify test case #5
       test.assertEquals(actualOutput, `sorry ${plane6.name} has already taken off`);
   })
+  console.log("Airport#landPlane()")
   
+     test.it("returns prevention of plane landing twice", function () {
+    // setup test case #6
+      let lyddAirport = new Airport()
+      let plane7 = new Plane('mosquito');
+      lyddAirport.land(plane7.name);
+      lyddAirport.land(plane7.name);
+    // execute test case #6
+      let actualOutput = lyddAirport.land(plane7.name);
+    // verify test case #6
+      test.assertEquals(actualOutput, `sorry ${plane7.name}has already landed`);
+  })
   
 }
 
