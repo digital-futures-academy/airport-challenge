@@ -1,41 +1,48 @@
+const Plane = require('./plane.js');
+
 class Airport {
-    constructor(designer){
-        this.airport = [];
-        this.capacity =  4;
-        this.designer = designer;
+    constructor(capacity= 3){
+        this.hangar = [];
+        this.capacity = capacity; 
     }
 
     toLand(plane){
-        if (!this.airport.includes(plane)){
-            if(this.isFull()){
-                this.airport.push(plane);
-                return this.airport.length;
-            }
-            else {
-                if(this.designer=='designer'){
-                    this.capacity += 2;
-                    return 'The capacity of the airport has been increased by 2 additional slots.';
-                } else{
-                    return 'The airport is full';
+        if (!this.hangar.includes(plane)){
+            if (!this.isFull()){
+                if(plane.intheAir){
+                    this.hangar.push(plane);
+                    plane.toLand();
+                    return `This ${plane} has landed at this aiport.`;
+                }
+                else{
+                    return `This ${plane} is already at another aiport.`;
                 }
             }
+            else {
+                return 'You cannot land. This airport is full.';
+            }
+    
         }
         else {
-            return 'This plane has already landed';
+            return `Sorry, this ${plane} is already at the airport.`;
         }
     }
 
     toTakeOff(plane){
-        if(this.airport.includes(plane)){
-            let index = this.airport.indexOf(plane);
-            this.airport.splice(index, 1);
-            return this.airport.length;
+        if(this.hangar.includes(plane)){
+            plane.toTakeOff();
+            const index = this.hangar.indexOf(plane);
+            this.hangar.splice(index, 1);
+            return `This ${plane} has taken off from this aiport.`;
         }
-        else { return 'The plane is not at this airport';
+        else {
+            return `This ${plane} is not at the airport.`;
         }
     }
+
+
     isFull(){
-        return this.airport.length < this.capacity;
+        return this.hangar.length >= this.capacity;
     }
 }
 module.exports = Airport;
