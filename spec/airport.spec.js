@@ -1,12 +1,11 @@
 const test = require('../spec/test-framework.js')
 const Airport = require('../src/airport.js')
-const Plane = require('../src/plane.js')
 
 console.log("Airport#landPlane()")
 
 const testAirport = () => {
   test.it("returns an array containing a plane", function () {
-    //   // setup test case #1
+     // setup test case #1
     let gatwick = new Airport();
     let input = 'plane 1';
     // execute test case #1
@@ -30,15 +29,16 @@ const testAirport = () => {
   
   console.log("Airport#landPlane()")
 
-  test.it("returns plane will not land if airport capacity is above max capacity ", function () {
+  test.it("returns plane not landing as airport is full", function () {
     // setup test case #3
-      let banjulInt = new Airport()
-      let plane3 = new Plane()
+    let banjulInt = new Airport();
+    banjulInt.land('plane 3');
+    banjulInt.land('plane 4');
+    let input = 'plane 5';
     // execute test case #3
-    banjulInt.currentCapacity = 500
-    let actualOutput = banjulInt.landPlane(plane3)
+    let actualOutput = banjulInt.land(input);
     // verify test case #3
-    test.assertEquals(actualOutput, 'sorry cannot land plane')
+    test.assertEquals(actualOutput, 'sorry cannot land plane');
   })
   
   console.log("Airport#takeOff()")
@@ -46,7 +46,6 @@ const testAirport = () => {
   test.it("returns plane location after takeOff", function () {
     // setup test case #4
       let blaiseDiagne = new Airport()
-      let plane4 = new Plane()
     // execute test case #4
       let actualOutput = blaiseDiagne.takeOff(plane4)
     // verify test case #4

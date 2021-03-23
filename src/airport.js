@@ -1,24 +1,22 @@
 class Airport {
-    constructor(capacity = 10) {
-        this.capacity = capacity
+    constructor(capacity = 2) {
+        this.capacity = capacity;
         this.airport = [];
 
     }
    
-    // isAirportFull() {
-    //     if (this.currentCapacity >= this.defaultCapacity) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
-    // changeDefaultCapacity(capacity) {
-    //     this.defaultCapacity = capacity;
-    //     return this.defaultCapacity;
-    // }
+    isAirportFull() {
+        return (this.airport.length >= this.capacity);
+    }
+
     land(plane) {
-        this.airport.push(plane);
-        return this.airport;
+        if (!this.isAirportFull()) {
+            this.airport.push(plane);
+            return this.airport;
+        } else {
+            return "sorry cannot land plane";
+        }
+       
     }
    
     // takeOff() {
