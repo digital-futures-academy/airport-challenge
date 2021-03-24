@@ -9,6 +9,16 @@
   "author": "dearshrewdwit",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
-  }
+    "eslint": "^7.22.0",
+    "jasmine": "^3.7.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawaveys/airport-challenge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sawaveys/airport-challenge/issues"
+  },
+  "homepage": "https://github.com/sawaveys/airport-challenge#readme"
 }
