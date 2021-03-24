@@ -13,6 +13,11 @@ Airport Challenge
 
 ```
 
+Screen Recordings
+-----------------
+
+Part 1 - https://youtu.be/W0jo-vzygw8
+
 Instructions
 ---------
 
