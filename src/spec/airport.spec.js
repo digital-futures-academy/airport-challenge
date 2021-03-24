@@ -1,19 +1,22 @@
 const Airport = require('../airport.js');
 const Plane = require('../plane.js');
+const Weather = require('../weather.js');
 
 describe('Checking planes\' movements', function(){
     it('Checks if the toLand() method works', function(){
         let airport = new Airport();
         let plane = new Plane();
-        airport.toLand(plane);
+        let weather = new Weather();
+        airport.toLand(plane, weather);
         expect(airport.hangar.length).toBe(1);
 
     });
     it('Checks if you get an error message when try to land a plane which is already at the same hangar', function(){
         airport = new Airport();
         plane = new Plane();
-        airport.toLand(plane);
-        let result = airport.toLand(plane);
+        weather = new Weather();
+        airport.toLand(plane,weather);
+        let result = airport.toLand(plane,weather);
         expect(result).toBe(`Sorry, this ${plane} is already at the airport.`);
     });
 
@@ -21,9 +24,10 @@ describe('Checking planes\' movements', function(){
         airport = new Airport();
         plane = new Plane();
         let plane2 = new Plane();
-        airport.toLand(plane);
-        airport.toLand(plane2);
-        airport.toTakeOff(plane2);
+        weather = new Weather();
+        airport.toLand(plane, weather);
+        airport.toLand(plane2, weather);
+        airport.toTakeOff(plane2, weather);
         expect(airport.hangar.length).toBe(1);
 
     });
@@ -31,9 +35,10 @@ describe('Checking planes\' movements', function(){
         airport = new Airport();
         plane = new Plane();
         let plane2 = new Plane();
-        airport.toLand(plane);
-        airport.toLand(plane2);
-        result = airport.toTakeOff(plane2);
+        weather = new Weather();
+        airport.toLand(plane, weather);
+        airport.toLand(plane2, weather);
+        result = airport.toTakeOff(plane2, weather);
         expect(result).toBe(`This ${plane} has taken off from this aiport.`);
     });
 
@@ -41,8 +46,9 @@ describe('Checking planes\' movements', function(){
         airport = new Airport();
         plane = new Plane();
         plane2 = new Plane ();
-        airport.toLand(plane);
-        result = airport.toTakeOff(plane2);
+        weather = new Weather();
+        airport.toLand(plane, weather);
+        result = airport.toTakeOff(plane2, weather);
         expect(result).toBe(`This ${plane} is not at the airport.`);
     });
  
@@ -56,10 +62,11 @@ describe('Checks the capacity of the airport', function(){
         airport = new Airport();
         plane = new Plane();
         plane2 = new Plane();
-        let plane3 = new Plane();
-        airport.toLand(plane);
-        airport.toLand(plane2);
-        airport.toLand(plane3);
+        plane3 = new Plane();
+        weather = new Weather();
+        airport.toLand(plane,weather);
+        airport.toLand(plane2,weather);
+        airport.toLand(plane3,weather);
         expect(airport.isFull()).toBe(true);
     });
 
@@ -68,9 +75,10 @@ describe('Checks the capacity of the airport', function(){
         plane = new Plane();
         plane2 = new Plane();
         let plane3 = new Plane();
-        airport.toLand(plane);
-        airport.toLand(plane2);
-        airport.toLand(plane3);
+        weather = new Weather();
+        airport.toLand(plane,weather);
+        airport.toLand(plane2,weather);
+        airport.toLand(plane3, weather);
         expect(airport.isFull()).toBe(false);
 
     });
@@ -80,10 +88,11 @@ describe('Checks the capacity of the airport', function(){
         plane2 = new Plane();
         let plane3 = new Plane();
         let plane4 = new Plane();
-        airport.toLand(plane);
-        airport.toLand(plane2);
-        airport.toLand(plane3);
-        result = airport.toLand(plane4);
+        weather = new Weather();
+        airport.toLand(plane,weather);
+        airport.toLand(plane2,weather);
+        airport.toLand(plane3,weather);
+        result = airport.toLand(plane4,weather);
         expect(result).toBe('You cannot land. This airport is full.');
     });
 });
@@ -94,10 +103,25 @@ describe('Checks edge cases', function(){
         airport = new Airport();
         let airport2 = new Airport();
         plane = new Plane();
-        airport.toLand(plane);
-        result = airport2.toLand(plane);
+        weather = new Weather();
+        airport.toLand(plane,weather);
+        result = airport2.toLand(plane,weather);
         expect(result).toBe(`This ${plane} is already at another aiport.`);
     });
+    it('Checks if airport prevents plane from landing when weather is stormy', function(){
+        airport = new Airport();
+        plane = new Plane();
+        weather = new Weather('stormy');
+        result = airport.toLand(plane, weather);
+        expect(result).toBe('The plane cannot land because the weather is stormy.');
+    });
+    it('Checks if airport prevents plane from taking off when weather is stormy.', function(){
+        airport = new Airport();
+        plane = new Plane();
+        weather = new Weather();
+        airport.toLand(plane,weather);
+        weather2 = new Weather('stormy');
+        result = airport.toTakeOff(plane, weather2);
+        expect(result).toBe('The plane cannot take off because the weather is stormy.');
+    });
 });
-
-
