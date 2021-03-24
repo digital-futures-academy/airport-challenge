@@ -1,7 +1,10 @@
+const weather = require(('./weather'));
+
 class Airport {
-  constructor(capacity = 10) {
+  constructor(capacity = 10) { //weather = new Weather()) {
     this.capacity = capacity;
     this.planeHangar = [];
+    this.weather = weather;
   }
 
 landPlane(plane){
@@ -9,8 +12,9 @@ landPlane(plane){
     return 'cannot land plane as it is already in the hangar';
   }
     if(this.fullAirport()){
-      return 'cannot land plane - aiport is full';
-    } else {
+      return 'cannot land plane - airport is full';
+    } 
+    else {
     plane.isFlying = false;
     this.planeHangar.push(plane);
     return this.planeHangar;
