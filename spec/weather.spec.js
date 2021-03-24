@@ -2,8 +2,8 @@ const Weather=require('./../src/weather.js')
 
 let weather
 
-describe('Suite to check functionality of Weather Class', function(){
-    it('Check that class is created with correct weather status.', function(){
+describe('Check functionality of Weather Class', function(){
+    it('Check that class is created with correct weather status', function(){
         weather=new Weather(true)
         expect(weather._isStormy).toBeTrue()
     })

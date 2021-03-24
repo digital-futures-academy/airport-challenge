@@ -2,8 +2,8 @@ const Plane=require('./../src/plane.js')
 
 let plane
 
-describe('Suite to check functionality of Plane class', function(){
-    it('Check that class is created with correct flying status.', function(){
+describe('Check functionality of Plane class', function(){
+    it('Check that class is created with correct flying status', function(){
         plane=new Plane('Lancaster Bomber', true)
         expect(plane._isFlying).toBeTrue()
     })

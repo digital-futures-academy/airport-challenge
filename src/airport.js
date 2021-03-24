@@ -18,7 +18,7 @@ class Airport {
 
     landing(plane, weather){
         if (!plane._isFlying) {
-            throw new Error('Plane is already landed.')
+            throw new Error('Plane is already on the ground.')
         } else if (weather._isStormy){
             throw new Error('Plane could not land due to stormy weather.')
         } else {
