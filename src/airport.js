@@ -1,43 +1,57 @@
   // here's a starting point for you
   class Airport {
-  constructor(airportCapacity = 3){
+  constructor(){
     this.planes  = []
-    this.airportCapacity = airportCapacity
+    this.airportCapacity = 3
+    this.landedElsewhere = false
+    this.isStormy = false
   }
 
-  land(plane) {
-    if(this.isFull()) {
+land(plane) {
+    if(this.planes.length >= this.airportCapacity) {
       return 'Airport full do not land'
-    } else {
-    this.planes.push(plane)
-    return this.planes  
+    } else if(!this.planes.includes(plane) && this.landedElsewhere === true) {
+        return 'Plane already landed elsewhere'
+    } else if(this.planes.includes(plane)) {
+         return 'Weather too stormy to land'
+    } else { 
+      this.planes.push(plane)
+        return this.planes  
     }
   } 
 
-  isFull() {
-    if(this.planes.length >= this.airportCapacity) {
-      console.log('Airport full do not land')
-      return true
-    } else {
-      // console.log('Airport capacity not reached, please land')
-      return false
-  }
-}
-
 remove(plane) {
-      let index = this.planes.indexOf(plane)
+  if(this.planes.includes(plane)
+  ) {let index = this.planes.indexOf(plane)
       this.planes.splice(index, 1)
-      return this.planes 
+          return this.planes  
+    } 
   }
 
-  check(allPlanes) {
-    if(allPlanes === this.planes) {
-      return true
+isLanded(plane) {
+    if(this.planes.includes(plane)) {
+      return 'Plane already landed'
     } else {
-      return false
+      return 'Please land'
     }
   }
+
+notHere(plane) {
+    if(!this.planes.includes(plane)) {
+      return 'Plane is not here to take off'
+    } else {
+      return 'Please take off'
+    }
+  }
+
+changeCapacity(num){
+    this.airportCapacity = num
+      return (`The airport capacity has been changed to ${num}`)
+  }
+
+  countPlanes(){
+    return this.planes.length
+  }
 }
 
-
-module.exports = Airport; 
+module.exports = Airport;
