@@ -1,20 +1,23 @@
-Airport = require('./airport.js')
-
 class Airplane {
-  status = "";
 
-  static hasLanded() {
-    this.status = "landed"
+  constructor() {
+    this.status = false;
   }
 
-  hasTakenOff() {
-    this.status = "taken off"
+  land() {
+    this.status = true;
+    return this.status
+  }
+
+  takeoff() {
+    this.status = false;
+    return this.status
+  }
+
+  isLanded() {
+    return this.status
   }
 
 }
 
 module.exports = Airplane
-//let newAirplane = new Airplane
-//let newAirport = new Airport
-
-//newAirport.land(newAirplane)

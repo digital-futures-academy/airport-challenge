@@ -1,22 +1,19 @@
-Weather = require('./weather.js')
-Airplane = require('./airplane-class.js')
-
 class Airport {
 
-  constructor() {
+  constructor(maxCapacity=5) {
     this.airplaneArr = [];
-    this.maxCapacity = 5;
+    this.maxCapacity = maxCapacity;
   }
 
   checkIfFull() {
-    if (this.airplaneArr.length === 5) {
+    if (this.airplaneArr.length === this.maxCapacity) {
       return true
     } else {
       return false
     }
   }
 
-checkIfAtAirport(airplane){
+checkIfAtAirport(airplane) {
   if (this.airplaneArr.includes(airplane)) {
     return true
   } else {
@@ -24,41 +21,41 @@ checkIfAtAirport(airplane){
   }
 }
 
-  land(airplane) {
+  land(airplane, WeatherClass, currentweather) {
+    const weatherToday = new WeatherClass()
     if (this.checkIfFull()) {
       return 'airport at full capacity'
-    } else {
-      if (this.airplaneArr.includes(airplane)) {
+    } else if (this.airplaneArr.includes(airplane)) {
         return 'airplane already at airport'
+      } else if (airplane.status) {
+        return 'this plane has already landed'
+      } else if (weatherToday.checkIfStormy(currentweather) === 'stormy') {
+        return 'weather too stormy to land'
       } else {
-        if (Weather.checkIfStormy() === "sunny") {
           this.airplaneArr.push(airplane)
-          //Airplane.hasLanded()
+          airplane.land()
           return 'landed'
         }
       }
-    }
-  }
 
-  takeoff(airplane) {
-    if (this.airplaneArr.includes(airplane)) {
-      let index = this.airplaneArr.indexOf(airplane)
-      this.airplaneArr.splice(index, 1)
-      return 'plane taken off'
-    } else {
+  takeoff(airplane, WeatherClass, currentweather) {
+    const weatherToday = new WeatherClass()
+    if (weatherToday.checkIfStormy(currentweather) === 'stormy') {
+      return 'weather too stormy to takeoff'
+    } else if (this.airplaneArr.includes(airplane) === false) {
       return 'airplane not at airport'
+      } else if (airplane.status === false) {
+        return 'this plane has already taken off'
+      } else {
+        const index = this.airplaneArr.indexOf(airplane)
+        this.airplaneArr.splice(
+index,
+1
+)
+        airplane.takeoff()
+        return 'plane taken off'
     }
   }
-
-  changeCapacity(newCapacity) {
-    this.maxCapacity = newCapacity
-    return this.maxCapacity
-  }
-
 }
-
-//let exampleAirport = new Airport()
-//console.log(exampleAirport.land("airplane1"))
-//console.log(exampleAirport.takeoff("airplane1"))
 
 module.exports = Airport;

@@ -1,25 +1,34 @@
-function randomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
 class Weather {
 
-  constructor(integer1, integer2) {
-    //this.integer1 = integer1;
-    this.randomNumber = 0;
+  constructor(integer1=1, integer2=2) {
+    this.integer1 = integer1;
+    this.integer2 = integer2;
+
   }
 
-  static checkIfStormy(integer1=1, integer2=1) {
-    this.randomNumber = randomInteger(integer1, integer2)
-    if (this.randomNumber % 2 != 0) {
-      return "sunny"
+  randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  checkIfStormy(currentweather) {
+   if (currentweather === 'stormy') {
+      this.integer1 = 2;
+      this.integer2 = 2;
+    } else if (currentweather === 'sunny') {
+      this.integer1 = 1;
+      this.integer2 = 1;
+    }
+    const randomNumber = this.randomInteger(
+this.integer1,
+this.integer2
+)
+    if (randomNumber !== 2) {
+      return 'sunny'
     } else {
-      return "stormy"
+      return 'stormy'
     }
   }
-
-
 }
+
 
 module.exports = Weather
