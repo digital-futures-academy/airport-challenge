@@ -2,7 +2,7 @@ const Weather = require('./weather');
 
 class Airport {
     constructor(capacity = 2, weather = new Weather()) {
-        if(typeof capacity !== 'number' || capacity < 0 || capacity % 2 !== 0) {
+        if(!Number.isInteger(capacity) || capacity < 0) {
             throw new Error('Hangar capacity must be a positive integer');
         } else this._capacity = capacity;
         this._hangar = [];
