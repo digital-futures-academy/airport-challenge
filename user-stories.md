@@ -59,3 +59,17 @@ Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|list of planes|takeOff()|new list of planes
 ||leftAirport()|boolean
+
+User Story 5 <br>
+As an air traffic controller <br>
+To avoid confusion <br>
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+Nouns|Verbs
+---|---
+Airport|prevent asking
+
+Objects|Properties|Messages|Output
+---|---|---|---
+Airport|list of planes|takeOff()|string 
+||landPlane()|string

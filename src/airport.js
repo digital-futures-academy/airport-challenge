@@ -6,13 +6,18 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (this.planes.length < this.capacity) {
-      this.planes.push(plane);
-    } else {
-      console.log('Abort landing! The airport is full!')
+      let boo = this.inAirport(plane)
+      if (boo === true) {
+        console.log('This plane has already landed!')
+      } else {
+        if (this.planes.length < this.capacity) {
+          this.planes.push(plane._name);
+        } else {
+          console.log('Abort landing! The airport is full!')
+        }
+      }
+      return this.planes
     }
-    return this.planes
-  };
 
   capacityOverride(num) {
     this.capacity = num
@@ -20,17 +25,23 @@ class Airport {
   }
 
   takeOff(plane) {
-    this.planes.splice(plane, 1)
+    let boo = this.inAirport(plane)
+    if (boo === false) {
+      console.log('This plane has already taken off!')
+    } else {let index = this.planes.indexOf(plane._name)
+    this.planes.splice(index, 1)
+  }
     return this.planes
   }
 
   inAirport(plane) {
-    if (plane in this.planes) {
+    if (this.planes.includes(plane._name)) {
       return true
     } else {
       return false
     }
   }
 }
+
 
 module.exports = Airport;
