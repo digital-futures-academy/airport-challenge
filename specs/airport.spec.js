@@ -1,4 +1,5 @@
 const assertEquals = require('./../test-framework.js');
+const Airport = require('./../src/airport.js');
 
 // Test to see whether a plane can land at an airport
 
