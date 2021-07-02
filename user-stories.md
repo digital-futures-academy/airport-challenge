@@ -41,4 +41,21 @@ airport|prevent landing
 
 Objects|Properties|Messages|Output
 ---|---|---|---
-Airport|list of planes|abortLanding()|list of planes
+Airport|list of planes|landPlane()|list of planes
+|||string
+
+User Story 4 <br>
+As an air traffic controller <br>
+So I can get passengers on the way to their destination <br>
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport <br>
+
+Nouns|Verbs
+---|---
+Airport|take off
+Plane|confirm
+
+
+Objects|Properties|Messages|Output
+---|---|---|---
+Airport|list of planes|takeOff()|new list of planes
+Plane|name|leftAirport()|boolean

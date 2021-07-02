@@ -47,3 +47,26 @@ result = airport3.landPlane(plane4);
 
 //3.Verify
 console.log(assertEquals(result.length, 3))
+
+//------------------------------------------------------------------------------
+
+//Fourth test
+console.log('Does take off decrease planes in airport? Can we confirm plane has left?')
+//1. Set up
+let airport4 = new Airport();
+let planeA = {}
+let planeB = {}
+let planeC = {}
+airport4.landPlane(planeA);
+airport4.landPlane(planeB);
+airport4.landPlane(planeC);
+
+//2. Execute
+resultA = airport4.takeOff(planeC);
+resultB = airport4.inAirport(planeC);
+
+//3. Verify
+console.log(assertEquals(resultA.length, 2));
+console.log(assertEquals(resultB, false));
+
+//------------------------------------------------------------------------------

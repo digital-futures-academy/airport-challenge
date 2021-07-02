@@ -18,6 +18,19 @@ class Airport {
     this.capacity = num
     return this.capacity
   }
+
+  takeOff(plane) {
+    this.planes.splice(plane, 1)
+    return this.planes
+  }
+
+  inAirport(plane) {
+    if (plane in this.planes) {
+      return true
+    } else {
+      return false
+    }
+  }
 }
 
 module.exports = Airport;
