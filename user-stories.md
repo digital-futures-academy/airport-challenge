@@ -58,4 +58,4 @@ Plane|confirm
 Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|list of planes|takeOff()|new list of planes
-Plane|name|leftAirport()|boolean
+||leftAirport()|boolean
