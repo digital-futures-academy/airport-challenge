@@ -6,9 +6,13 @@ class Airport {
   }
 
   landPlane(plane) {
-    this.planes.push(plane);
+    if (this.planes.length < this.capacity) {
+      this.planes.push(plane);
+    } else {
+      console.log('Abort landing! The airport is full!')
+    }
     return this.planes
-  }
+  };
 
   capacityOverride(num) {
     this.capacity = num

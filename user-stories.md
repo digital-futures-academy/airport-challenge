@@ -29,3 +29,16 @@ Airport capacity|overridden
 Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|capacity|capacityOverride()|new capacity
+
+User Story 3 <br>
+As an air traffic controller <br>
+To ensure safety <br>
+I want to prevent landing when the airport is full <br>
+
+Nouns|Verbs
+---|---
+airport|prevent landing
+
+Objects|Properties|Messages|Output
+---|---|---|---
+Airport|list of planes|abortLanding()|list of planes
