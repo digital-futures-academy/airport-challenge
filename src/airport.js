@@ -7,7 +7,15 @@ class Airport {
   }
 
   land (plane) {
-     this.planes.push(plane)
+    if (this.planes.length < this.capacity) {
+      this.planes.push(plane)
+      return "The plane has landed."
+    }
+    else {
+      return "Sorry, unable to land, the aiport is full."
+    }
+
+     
   }
 
   changeCapacity(newCapacity){
