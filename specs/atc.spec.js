@@ -1,11 +1,14 @@
 const Airport = require("../src/airport.js");
 const Plane = require("../src/plane.js");
+const AirTrafficController = require("../src/atc.js");
 
 let heathrow, gatwick, plane, planeFlying, atc
 
+console.log("\x1b[35m", "--- Start of AirTrafficController Class Tests ---")
+
 //---------------------------------------
 // Test to check a flying plane can not takeOff()
-    console.log("Test to check a plane that is flying is ")
+console.log("\x1b[0m","Test to check a plane that is flying is ")
 // Setup
 planeFlying = new Plane('Delta', 'flying');
 airport = new Airport();
@@ -29,6 +32,11 @@ atc = new AirTrafficController();
 
 heathrow.land(plane);
 
+console.log(heathrow);
+console.log(gatwick);
+console.log(plane);
+console.log(atc);
+
 //Execute 
 atc.queryTakeOff(plane, airport);
 
@@ -45,3 +53,6 @@ console.log(planeLanded);
 //Verify 
 console.log(`Landed planes do not land again: ${assertEquals(airport.land(planeLanded), "The plane, American, you are trying to land has already landed")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
+// -------------------------------------
+
+console.log("\x1b[35m", "--- End of AirTrafficController Class Tests ---")
