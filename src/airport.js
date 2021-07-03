@@ -1,4 +1,4 @@
-const Plane = require("./plane");
+//const Plane = require("./plane");
 
 class Airport {
   // here's a starting point for you
@@ -8,12 +8,14 @@ class Airport {
     this.capacity = 20; 
   }
 
-  land (plane) {
-    if (this.planes.length < this.capacity) {
-      this.planes.push(plane)
+  land (plane) {   
+    if (plane.flyingStatus === 'landed'){
+      return "Sorry, that plane is already landed."
+    } else if (this.planes.length < this.capacity) {
+      plane.flyingStatus = 'landed';
+      this.planes.push(plane);
       return "The plane has landed."
-    }
-    else {
+    } else {
       return "Sorry, unable to land, the aiport is full."
     }
   }
@@ -23,31 +25,17 @@ class Airport {
   }
 
   takeOff(plane){  
-    //console.log(this.planes)
-    //console.log(this.planes[0].name)
-    //console.log(this.planes[0].flyingStatus);
-    //console.log(this.planes);
-    //console.log(`The index of the plane in the planes array is ${this.planes.indexOf(plane)}`);
+      const takeOffPlane = this.planes[this.planes.indexOf(plane)];
 
-    const takeOffPlane = this.planes[this.planes.indexOf(plane)];
+      this.planes.splice(this.planes.indexOf(plane), 1);
 
-    const check = takeOffPlane instanceof Plane;
-    console.log(check);
+      console.log(takeOffPlane)
+      console.log(takeOffPlane.name)
 
-    this.planes.splice(this.planes.indexOf(plane),1);
-  
-    //console.log(this.planes)
+      return `Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.`
 
-    //console.log(`takeOffPlane: ${takeOffPlane}`);
-    //console.log(`takeOffPlane.name: ${takeOffPlane.name}`);
-
-    //console.log(`Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.`)
-
-    return `Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.` 
-
-
+    }
+    
   }
-
-}
 
 module.exports = Airport;

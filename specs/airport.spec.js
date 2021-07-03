@@ -44,7 +44,9 @@ console.log(`The airport capacity has been overridden to ${airport.capacity}: ${
 console.log("Testing the full condition on land() method");
 //Setup 
 airport = new Airport();
-plane = new Plane('Ryanair','flying');
+plane1 = new Plane('Ryanair','flying');
+plane2 = new Plane('EasyJet', 'flying');
+
 newCapacity = 1;
 airport.changeCapacity(newCapacity);
 console.log(`The current airport capacity is: ${airport.capacity}`);
@@ -53,17 +55,18 @@ console.log(`The current airport capacity is: ${airport.capacity}`);
 
 //Verify
 // Land a plane in an empty Airport
-console.log(`Plane can land if airport has capacity: ${assertEquals("The plane has landed.", airport.land(plane))}`)
+console.log(`Plane can land if airport has capacity: ${assertEquals("The plane has landed.", airport.land(plane1))}`)
 // Land a plane in a full Airport
-console.log(`Plane cannot land if airport is full: ${assertEquals("Sorry, unable to land, the aiport is full.", airport.land(plane))}\n`)
+console.log(`Plane cannot land if airport is full: ${assertEquals("Sorry, unable to land, the aiport is full.", airport.land(plane2))}\n`)
 
 // ---------------------------------------
 // Test takeOff() method  
 // Subtest 1 -- Planes Array
 console.log("Testing the takeOff() method");
+console.log("Testing if a plane can land and then take off")
 //Setup 
 airport = new Airport();
-plane = new Plane('Qantas','landed');
+plane = new Plane('Qantas','flying');
 
 console.log(`The current airport capacity is: ${airport.capacity}`);
 airport.land(plane); 
@@ -73,13 +76,14 @@ airport.takeOff(plane);
 
 //Verify
 // Land a plane in an empty Airport
-console.log(`The planes array is empty: ${assertEquals(airport.planes.length, 0)}`)
+console.log(`The planes array is empty: ${assertEquals(airport.planes.length, 0)} \n`)
 
 // Subtest 2 -- Confirmation Message
+console.log("Testing a confirmation message is returned after take off.")
 //Setup 
 airport = new Airport();
 plane1 = new Plane('Delta','flying');
-plane2 = new Plane('American', 'landed');
+plane2 = new Plane('American', 'flying');
 
 airport.land(plane1);
 airport.land(plane2);
