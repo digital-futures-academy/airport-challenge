@@ -14,12 +14,18 @@ class Airport {
     else {
       return "Sorry, unable to land, the aiport is full."
     }
-
-     
   }
 
   changeCapacity(newCapacity){
     this.capacity = newCapacity; 
+  }
+
+  takeOff(plane){   
+    const takeOffPlane = this.planes.splice(this.planes.indexOf(plane),1); 
+
+    return `Plane ${takeOffPlane} has taken off. There are now ${this.planes.length} planes.` 
+
+
   }
 
 }

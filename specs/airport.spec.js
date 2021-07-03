@@ -14,7 +14,6 @@ console.log(`Created instance of Airport class ${airport instanceof Airport}`);
 
 //Execute
 airport.land(plane);
-console.log(airport.planes);
 
 //Verify
 console.log(`The length of the planes array is equal to one: ${assertEquals(airport.planes.length, 1)}`);
@@ -32,7 +31,8 @@ console.log(`The default airport capacity is: ${airport.capacity}`);
 airport.changeCapacity(newCapacity);
 
 //Verify
-console.log(`The airport capacity has been overridden to ${airport.capacity}: ${assertEquals(airport.capacity, newCapacity)}`);
+console.log(`The airport capacity has been overridden to ${airport.capacity}: ${assertEquals(airport.capacity, newCapacity)}\n`);
+
 // ---------------------------------------
 // Test for full airport - Land() 
 console.log("Testing the full condition on land() method");
@@ -40,7 +40,7 @@ console.log("Testing the full condition on land() method");
 airport = new Airport();
 newCapacity = 1;
 airport.changeCapacity(newCapacity);
-console.log(`The current airport capacity is: ${airport.capacity}\n`);
+console.log(`The current airport capacity is: ${airport.capacity}`);
 
 //Execute (No new methods were added)
 
@@ -48,7 +48,7 @@ console.log(`The current airport capacity is: ${airport.capacity}\n`);
 // Land a plane in an empty Airport
 console.log(`Plane can land if airport has capacity: ${assertEquals("The plane has landed.", airport.land(plane))}`)
 // Land a plane in a full Airport
-console.log(`Plane cannot land if airport is full: ${assertEquals("Sorry, unable to land, the aiport is full.", airport.land(plane))}`)
+console.log(`Plane cannot land if airport is full: ${assertEquals("Sorry, unable to land, the aiport is full.", airport.land(plane))}\n`)
 
 // ---------------------------------------
 // Test takeOff() method  
@@ -66,10 +66,9 @@ airport.takeOff(plane);
 
 //Verify
 // Land a plane in an empty Airport
-console.log(`The planes array is empty: ${assertEquals(aiport.planes.length, 0)}`)
+console.log(`The planes array is empty: ${assertEquals(airport.planes.length, 0)}`)
 
 // Subtest 2 -- Confirmation Message
-console.log("Testing the takeOff() method");
 //Setup 
 airport = new Airport();
 plane1 = 'Delta';
@@ -82,6 +81,6 @@ airport.land(plane2);
 
 //Verify
 // Land a plane in an empty Airport
-console.log(`Correct confirmation message returned ${assertEquals(airport.takeOff(plane1),"Plane Delta has taken off. There are now 1 planes.")}`)
+console.log(`Correct confirmation message returned: ${assertEquals(airport.takeOff(plane1),"Plane Delta has taken off. There are now 1 planes.")}`)
 
 // ---------------------------------------
