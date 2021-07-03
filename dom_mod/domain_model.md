@@ -40,3 +40,20 @@ Our table in part 1 is now updated as follows:
 | Plane | | | |
 |Airport | planes @ array | land(@ plane) | None |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
+
+---
+### Part 3
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+We shall change the output of land() to return a string if the airport is full. The condition for an airport to be full is if the current length of the planes array is equal to the airport.capacity property.  
+
+|Objects|Properties| Messages| Output|
+|---| --- | ---| --- |
+| Plane | | | |
+|Airport | planes @ array | land(@ plane) | @ String |  
+| |capacity @ number | changeCapacity(@ number)| @ String|
