@@ -51,3 +51,37 @@ console.log(`Plane can land if airport has capacity: ${assertEquals("The plane h
 console.log(`Plane cannot land if airport is full: ${assertEquals("Sorry, unable to land, the aiport is full.", airport.land(plane))}`)
 
 // ---------------------------------------
+// Test takeOff() method  
+// Subtest 1 -- Planes Array
+console.log("Testing the takeOff() method");
+//Setup 
+airport = new Airport();
+plane = 'Test plane';
+
+console.log(`The current airport capacity is: ${airport.capacity}\n`);
+airport.land(plane); 
+
+//Execute (No new methods were added)
+airport.takeOff(plane);
+
+//Verify
+// Land a plane in an empty Airport
+console.log(`The planes array is empty: ${assertEquals(aiport.planes.length, 0)}`)
+
+// Subtest 2 -- Confirmation Message
+console.log("Testing the takeOff() method");
+//Setup 
+airport = new Airport();
+plane1 = 'Delta';
+plane2 = 'American'
+
+airport.land(plane1);
+airport.land(plane2);
+
+//Execute (No new methods were added)
+
+//Verify
+// Land a plane in an empty Airport
+console.log(`Correct confirmation message returned ${assertEquals(airport.takeOff(plane1),"Plane Delta has taken off. There are now 1 planes.")}`)
+
+// ---------------------------------------

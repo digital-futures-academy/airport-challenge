@@ -57,3 +57,20 @@ We shall change the output of land() to return a string if the airport is full. 
 | Plane | | | |
 |Airport | planes @ array | land(@ plane) | @ String |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
+
+### Part 4 
+
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+
+A new method takeOff() is defined which will allow a plane contained with the planes array to be removed. It could then return a string confirmation to the user that the plane has taken off. However, this string confirmation could be satisfied without the plane actually taking off. Therefore instead we shall check the planes array in the airport no longer contains the string of the plane that has taken off, and return a descriptive string that contains the current length of the planes array and the plane that has taken off. This approach may be confusing as a test is not strictly a unit test. 
+
+|Objects|Properties| Messages| Output|
+|---| --- | ---| --- |
+| Plane | | | |
+|Airport | planes @ array | land(@ plane) | @ String |  
+| |capacity @ number | changeCapacity(@ number)| @ String|
+| | |takeOff(@ plane [@planes])| @String|
