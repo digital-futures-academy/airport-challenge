@@ -2,7 +2,8 @@
 
 class Airport {
   // here's a starting point for you
-  constructor(){
+  constructor(name){
+    this.name = name;
     this.planes = [];
     // Default capacity is 20. 
     this.capacity = 20; 

@@ -98,5 +98,6 @@ We have introduced a flying property to the plane object. The planes array will 
 |Airport | planes @ array | land(@ plane) | @ String |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
 | | |takeOff(@ plane [@planes])| @String|
+| |name @ String| | |
 
 Should I put a context line in my table?

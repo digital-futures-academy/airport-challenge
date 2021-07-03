@@ -11,7 +11,7 @@ console.log("\x1b[35m","--- Start of Airport Class Tests ---")
 // Land() Method Test -------------------
 console.log("\x1b[0m","Test to check if a plane can land in an airport");
 //Setup 
-airport = new Airport();
+airport = new Airport('Heathrow');
 plane = new Plane('testPlane','flying');
 console.log(`The plane name is ${plane.name} with a flying status of ${plane.flyingStatus}`);
 
@@ -30,7 +30,7 @@ console.log(`The planes array contains the testPlane ${assertEquals(airport.plan
 console.log("Test to check the default capacity has been initialised andchangeCapacity() can overide the number contained in the capacity property");
 //Setup 
 newCapacity = 10;
-airport = new Airport();
+airport = new Airport('Gatwick');
 console.log(`The default airport capacity is: ${airport.capacity}`);
 
 //Execute
@@ -43,7 +43,7 @@ console.log(`The airport capacity has been overridden to ${airport.capacity}: ${
 // Test for full airport - Land() 
 console.log("Testing the full condition on land() method");
 //Setup 
-airport = new Airport();
+airport = new Airport('Heathrow');
 plane1 = new Plane('Ryanair','flying');
 plane2 = new Plane('EasyJet', 'flying');
 
@@ -65,7 +65,7 @@ console.log(`Plane cannot land if airport is full: ${assertEquals("Sorry, unable
 console.log("Testing the takeOff() method");
 console.log("Testing if a plane can land and then take off")
 //Setup 
-airport = new Airport();
+airport = new Airport('Kuala Lumpa');
 plane = new Plane('Qantas','flying');
 
 console.log(`The current airport capacity is: ${airport.capacity}`);
@@ -81,7 +81,7 @@ console.log(`The planes array is empty: ${assertEquals(airport.planes.length, 0)
 // Subtest 2 -- Confirmation Message
 console.log("Testing a confirmation message is returned after take off.")
 //Setup 
-airport = new Airport();
+airport = new Airport("Chicago O' Hare");
 plane1 = new Plane('Delta','flying');
 plane2 = new Plane('American', 'flying');
 

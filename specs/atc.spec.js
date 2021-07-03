@@ -32,7 +32,7 @@ atc = new AirTrafficController();
 atc.queryTakeOff(plane, airport);
 
 //Verify 
-console.log(`Flying planes do not take off: ${assertEquals(atc.queryTakeOff(planeFlying), "The plane, Delta, you are trying to take off is already flying")}`);
+console.log(`Flying planes do not take off: ${assertEquals(atc.queryTakeOff(plane,airport), "The plane, Delta, you are trying to take off is already flying")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 0)}\n`);
 
 
