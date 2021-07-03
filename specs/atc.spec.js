@@ -1,3 +1,4 @@
+const assertEquals = require("../testing-framework.js");
 const Airport = require("../src/airport.js");
 const Plane = require("../src/plane.js");
 const AirTrafficController = require("../src/atc.js");
@@ -11,14 +12,18 @@ console.log("\x1b[35m", "--- Start of AirTrafficController Class Tests ---")
 console.log("\x1b[0m","Test to check a plane that is flying is ")
 // Setup
 planeFlying = new Plane('Delta', 'flying');
-airport = new Airport();
+airport = new Airport('Amsterdam Schipol');
 atc = new AirTrafficController();
 
+//console.log(airport);
+//console.log(airport.name);
+//console.log(airport.planes);
+
 //Execute 
-atc.queryTakeOff(planeFlying);
+atc.queryTakeOff(planeFlying,airport);
 
 //Verify 
-console.log(`Flying planes do not take off: ${assertEquals(atc.queryTakeOff(planeFlying), "The plane, Delta, you are trying to take off is already flying")}`);
+console.log(`Flying planes do not take off: ${assertEquals(atc.queryTakeOff(planeFlying,airport), "The plane, Delta, you are trying to take off is already flying")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 0)}\n`);
 
 // Multiple Airports Tests

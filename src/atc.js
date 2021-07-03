@@ -2,6 +2,8 @@
 class AirTrafficController{
 
     queryTakeOff(plane,airport){    
+        console.log(airport);
+        
         if (airport.planes.includes(plane)) {
             return "Ready for take off!"
         }
