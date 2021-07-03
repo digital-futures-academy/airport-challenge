@@ -21,20 +21,19 @@ console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.p
 // Multiple Airports Tests
 console.log("Test to check a plane landed in a another airport can not take off from the current airport")
 // Setup
-heathrow = new Airport();
-gatwick = new Airport();
+heathrow = new Airport('Heathrow');
+gatwick = new Airport('Gatwick');
 plane = new Plane('Lufthansa', 'flying');
-airport.land(plane);
 
 atc = new AirTrafficController();
+
+heathrow.land(plane);
 
 //Execute 
 atc.queryTakeOff(plane, airport);
 
 //Verify 
-console.log(`Flying planes do not take off: ${assertEquals(atc.queryTakeOff(plane,airport), "The plane, Delta, you are trying to take off is already flying")}`);
-console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 0)}\n`);
-
+console.log("Take off request invalid:" + assertEquals(atc.queryTakeOff(plane, airport), `The plane ${plane.name} is not located at ${heathrow.name}, take off request invalid.`));
 
 // Test to check a not flying plane can not land() again. 
 console.log("Test to check a plane that is landed can not use the land() method")
