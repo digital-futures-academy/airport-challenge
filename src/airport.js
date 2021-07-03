@@ -9,9 +9,7 @@ class Airport {
   }
 
   land (plane) {   
-    if (plane.flyingStatus === 'landed'){
-      return "Sorry, that plane is already landed."
-    } else if (this.planes.length < this.capacity) {
+   if (this.planes.length < this.capacity) {
       plane.flyingStatus = 'landed';
       this.planes.push(plane);
       return "The plane has landed."

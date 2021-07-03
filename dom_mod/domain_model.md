@@ -91,6 +91,8 @@ We have introduced a flying property to the plane object. The planes array will 
 
 |Objects|Properties| Messages| Output|
 |---| --- | ---| --- |
+| Air Traffic Controller | | queryTakeOff(plane, airport)| |
+| | |queryLanded(plane, airport)| |
 | Plane | name @ String | | |
 | | flyingStatus @ String | | | 
 |Airport | planes @ array | land(@ plane) | @ String |  

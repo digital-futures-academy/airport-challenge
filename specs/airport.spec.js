@@ -97,28 +97,7 @@ console.log(airport.takeOff(plane2));
 // Land a plane in an empty Airport
 console.log(`Correct confirmation message returned: ${assertEquals(airport.takeOff(plane1), "Plane Delta has taken off. There are now 0 planes.")} \n`)
 
-// ---------------------------------------
-// Test to check a flying plane can not takeOff()
-console.log("Test to check a plane that is flying can not use the takeOff() method")
-// Setup
-planeFlying = new Plane('Delta','flying'); 
-//Execute 
-airport.takeOff(planeFlying);
-//Verify 
-console.log(`Flying planes do not take off: ${assertEquals(airport.takeOff(planeFlying),"The plane, Delta, you are trying to take off is already flying")}`);
-console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length,0)}\n`);
-
-// Test to check a not flying plane can not land() again. 
-console.log("Test to check a plane that is landed can not use the land() method")
-// Setup
-planeLanded = new Plane('American', 'landed');
-//Execute 
-console.log(planeLanded);
-
-//Verify 
-console.log(`Landed planes do not land again: ${assertEquals(airport.land(planeLanded), "The plane, American, you are trying to land has already landed")}`);
-console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
-
+// 
 //-------------------------------------
 console.log("\x1b[35m","--- End of Airport Class Tests ---");
 console.log("\x1b[0m",'');
