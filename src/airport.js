@@ -1,3 +1,5 @@
+const Plane = require("./plane");
+
 class Airport {
   // here's a starting point for you
   constructor(){
@@ -20,10 +22,28 @@ class Airport {
     this.capacity = newCapacity; 
   }
 
-  takeOff(plane){   
-    const takeOffPlane = this.planes.splice(this.planes.indexOf(plane),1); 
+  takeOff(plane){  
+    //console.log(this.planes)
+    //console.log(this.planes[0].name)
+    //console.log(this.planes[0].flyingStatus);
+    //console.log(this.planes);
+    //console.log(`The index of the plane in the planes array is ${this.planes.indexOf(plane)}`);
 
-    return `Plane ${takeOffPlane} has taken off. There are now ${this.planes.length} planes.` 
+    const takeOffPlane = this.planes[this.planes.indexOf(plane)];
+
+    const check = takeOffPlane instanceof Plane;
+    console.log(check);
+
+    this.planes.splice(this.planes.indexOf(plane),1);
+  
+    //console.log(this.planes)
+
+    //console.log(`takeOffPlane: ${takeOffPlane}`);
+    //console.log(`takeOffPlane.name: ${takeOffPlane.name}`);
+
+    //console.log(`Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.`)
+
+    return `Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.` 
 
 
   }

@@ -15,10 +15,10 @@ We want to create an aiport class that contains a property planes that may be st
 
 |Objects|Properties| Messages| Output|
 |---| --- | ---| --- |
-| Plane | | | |
+| Plane | name @ String | | |
 |Airport | planes @ array | land( @ plane) | None |  
 
-At the moment don't need a plane object, as there are no properties or methods associated with it and it doesn't need to be outputted directly, I think. 
+We don't need a plane object initially, but it was added retroactively during part 5.  
 
 ---
 ### Part 2
@@ -37,9 +37,11 @@ Our table in part 1 is now updated as follows:
 
 |Objects|Properties| Messages| Output|
 |---| --- | ---| --- |
-| Plane | | | |
+| Plane | name @ String| | |
 |Airport | planes @ array | land(@ plane) | None |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
+
+The plane object is unmodified and we do not need to change our previous tests. 
 
 ---
 ### Part 3
@@ -54,7 +56,7 @@ We shall change the output of land() to return a string if the airport is full. 
 
 |Objects|Properties| Messages| Output|
 |---| --- | ---| --- |
-| Plane | | | |
+| Plane | name @ String | | |
 |Airport | planes @ array | land(@ plane) | @ String |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
 
@@ -70,7 +72,7 @@ A new method takeOff() is defined which will allow a plane contained with the pl
 
 |Objects|Properties| Messages| Output|
 |---| --- | ---| --- |
-| Plane | | | |
+| Plane | name @ String | | |
 |Airport | planes @ array | land(@ plane) | @ String |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
 | | |takeOff(@ plane [@planes])| @String|
@@ -89,7 +91,10 @@ We have introduced a flying property to the plane object. The planes array will 
 
 |Objects|Properties| Messages| Output|
 |---| --- | ---| --- |
-| Plane | flyingStatus @ String | | |
+| Plane | name @ String | | |
+| | flyingStatus @ String | | | 
 |Airport | planes @ array | land(@ plane) | @ String |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
 | | |takeOff(@ plane [@planes])| @String|
+
+Should I put a context line in my table?
