@@ -1,8 +1,11 @@
 // Load in the class file
 const Airport = require("../src/airport.js");
+const Plane = require("../src/plane.js");
+
 const assertEquals = require("../testing-framework.js");
 
-let airport, plane, newCapacity 
+let airport, plane, newCapacity;
+let planeFlying, planeLanded;
 
 // Land() Method Test -------------------
 console.log("Test to check if a plane can land in an airport");
@@ -84,3 +87,24 @@ airport.land(plane2);
 console.log(`Correct confirmation message returned: ${assertEquals(airport.takeOff(plane1),"Plane Delta has taken off. There are now 1 planes.")}`)
 
 // ---------------------------------------
+// Test to check a flying plane can not takeOff()
+console.log("Test to check a plane that is flying can not use the takeOff() method")
+// Setup
+planeFlying = new Plane('Delta','flying'); 
+//Execute 
+planeFlying.takeOff(); 
+//Verify 
+console.log(`Flying planes do not take off: ${assertEquals(planeFlying.takeOff(),"The plane, Delta, you are trying to take off is already flying")}`);
+console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length,0)}`);
+
+// Test to check a not flying plane can not land() again. 
+console.log("Test to check a plane that is landed can not use the land() method")
+// Setup
+planeLanded = new Plane('American', 'landed');
+//Execute 
+planeLanded.land();
+//Verify 
+console.log(`Landed planes do not land again: ${assertEquals(planeFlying.takeOff(), "The plane, American, you are trying to land has already landed")}`);
+console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
+
+//-------------------------------------

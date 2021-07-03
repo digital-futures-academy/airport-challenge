@@ -74,3 +74,22 @@ A new method takeOff() is defined which will allow a plane contained with the pl
 |Airport | planes @ array | land(@ plane) | @ String |  
 | |capacity @ number | changeCapacity(@ number)| @ String|
 | | |takeOff(@ plane [@planes])| @String|
+
+### Part 5 
+
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+
+We need to modify land(), takeOff() and the structure of the planes array. We could introduce a plane class with the property of being flying or not. We could store the information of the plane as an object literal instead of an array. Which approach would ensure our program is less tightly coupled? May be easiest to store plane as an object literal so we only have one class??
+
+We have introduced a flying property to the plane object. The planes array will now look like an array of object literals [{name: flyingTag}]. But could I not just write this as an object literal? Also as a plane is now a separate object, if we are thinking in terms of object orientated programming it would be better to have its own class. I will have to run tests to see which is the best implementation. 
+
+|Objects|Properties| Messages| Output|
+|---| --- | ---| --- |
+| Plane | flyingStatus @ String | | |
+|Airport | planes @ array | land(@ plane) | @ String |  
+| |capacity @ number | changeCapacity(@ number)| @ String|
+| | |takeOff(@ plane [@planes])| @String|
