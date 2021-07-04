@@ -101,5 +101,25 @@ console.log(`Planes can not land in stormy weather: ${assertEquals(atc.queryLand
     "As the weather is stormy, the plane, Air France, is not permitted to land")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 0)}`);
 // -------------------------------------
+console.log('')
+console.log('Test landing IS permitted in fine weather')
+// Setup
+airport = new Airport('Charles de Gaulle');
+plane = new Plane('Air France', 'flying');
+atc = new AirTrafficController();
+weather = 'fine'
+
+//Execute 
+console.log(atc.queryLanding(plane,airport,weather));
+
+//Verify 
+console.log(`Planes can land fine weather: ${assertEquals(airport.land(plane, airport),
+    "The plane has landed.")}`);
+console.log(`Planes in the airport is equal to one: ${assertEquals(airport.planes.length, 1)}`);
+// -------------------------------------
+
+
+
+
 
 console.log("\x1b[35m", "--- End of AirTrafficController Class Tests ---")
