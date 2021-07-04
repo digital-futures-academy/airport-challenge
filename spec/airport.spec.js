@@ -7,15 +7,15 @@ let assertEquals = require('../test-framework.js')
 //First test
 console.log('Does landing a plane add 1 plane to the airport')
 //1. Set up
-let airport = new Airport();
-airport.weather = 50;
-let plane = new Plane('Emirates');
+let jfk = new Airport();
+jfk.weather = 50;
+let emirates = new Plane('Emirates');
 
 //2. Execute
-let result = airport.landPlane(plane);
+let result1 = jfk.landPlane(emirates);
 
 //3. Verify
-console.log(assertEquals(result.length, 1));
+console.log(assertEquals(result1.length, 1));
 
 //------------------------------------------------------------------------------
 
@@ -27,111 +27,111 @@ heathrow.weather = 50;
 
 
 //2. Execute
-let capac = heathrow.capacity
+let result2a = heathrow.capacity
 
 //3. Verify
-console.log(assertEquals(capac, 100));
+console.log(assertEquals(result2a, 100));
 
 
 console.log('Can the capacity be overridden to 200?')
 //1. Set up
-let airport2 = new Airport();
-airport2.weather = 50;
+let gatwick = new Airport();
+gatwick.weather = 50;
 
 
 //2. Execute
-result = airport2.capacityOverride(200);
+let result2b = gatwick.capacityOverride(200);
 
 //3. Verify
-console.log(assertEquals(result, 200));
+console.log(assertEquals(result2b, 200));
 
 //------------------------------------------------------------------------------
 
 //Third test
 console.log('Does trying to add too many planes return an error');
 //1. Set up
-let airport3 = new Airport();
-airport3.weather = 50;
+let frankfurt = new Airport();
+frankfurt.weather = 50;
 
-let plane1 = new Plane('Emirates')
-let plane2 = new Plane('Etihad')
-let plane3 = new Plane('British Airways')
-let plane4 = new Plane('Qantas')
-airport3.landPlane(plane1);
-airport3.landPlane(plane2);
-airport3.landPlane(plane3);
-airport3.capacityOverride(3);
+let ryanair = new Plane('Ryanair')
+let etihad = new Plane('Etihad')
+let ba = new Plane('British Airways')
+let qantas = new Plane('Qantas')
+frankfurt.landPlane(ryanair);
+frankfurt.landPlane(etihad);
+frankfurt.landPlane(ba);
+frankfurt.capacityOverride(3);
 
 //2.Execute
-result = airport3.landPlane(plane4);
+result3 = frankfurt.landPlane(qantas);
 
 //3.Verify
-console.log(assertEquals(result, 'Abort landing! The airport is full!'))
+console.log(assertEquals(result3, 'Abort landing! The airport is full!'))
 
 //------------------------------------------------------------------------------
 
 //Fourth test
 console.log('Does take off decrease planes in airport? Can we confirm plane has left?')
 //1. Set up
-let airport4 = new Airport();
-airport4.weather = 50;
+let atlanta = new Airport();
+atlanta.weather = 50;
 
-let planeA = new Plane('Emirates')
-let planeB = new Plane('British Airways')
-let planeC = new Plane('Qantas')
+let jet2 = new Plane('jet2')
+let easyJet = new Plane('easyJet')
+let airFrance = new Plane('Air France')
 
-airport4.landPlane(planeA);
-airport4.landPlane(planeB);
-airport4.landPlane(planeC);
+atlanta.landPlane(jet2);
+atlanta.landPlane(easyJet);
+atlanta.landPlane(airFrance);
 
 //2. Execute
-let resultA = airport4.takeOff(planeC);
-let resultB = airport4.inAirport(planeC);
+let result4a = atlanta.takeOff(airFrance);
+let result4b = atlanta.inAirport(airFrance);
 
 //3. Verify
-console.log(assertEquals(resultA.length, 2));
-console.log(assertEquals(resultB, false));
+console.log(assertEquals(result4a.length, 2));
+console.log(assertEquals(result4b, false));
 
 //------------------------------------------------------------------------------
 
 //Fifth test
 console.log('Does trying to land an already landed plane return an error? Same for take off?');
 //1. Set up
-let airport5 = new Airport();
-airport5.weather = 50;
+let dubai = new Airport();
+dubai.weather = 50;
 
-let plane01 = new Plane('United')
-let plane02 = new Plane('Lufthansa')
-let plane03 = new Plane('American Airlines')
-airport5.landPlane(plane01);
-airport5.landPlane(plane02);
-airport5.landPlane(plane03);
-airport5.takeOff(plane03);
+let turkishAirlines = new Plane('Turkish Airlines')
+let lufthansa = new Plane('Lufthansa')
+let aa = new Plane('American Airlines')
+dubai.landPlane(turkishAirlines);
+dubai.landPlane(lufthansa);
+dubai.landPlane(aa);
+dubai.takeOff(aa);
 
 //2. Execute
-const result1 = airport5.landPlane(plane01);
-const result2 = airport5.takeOff(plane03);
+const result5a = dubai.landPlane(turkishAirlines);
+const result5b = dubai.takeOff(aa);
 
 //3. Verify
-console.log(assertEquals(result1, 'This plane has already landed!'));
-console.log(assertEquals(result2, 'This plane has already taken off!'));
+console.log(assertEquals(result5a, 'This plane has already landed!'));
+console.log(assertEquals(result5b, 'This plane has already taken off!'));
 
 //------------------------------------------------------------------------------
 //Sixth Test
 console.log('Does trying to take off a plane during stormy weather return an error?')
 //1. Set up
-let airport6 = new Airport();
-airport6.weather = 3
-let firstPlane = new Plane('Emirates');
-let secondPlane = new Plane('British Airways');
-airport6.landPlane(firstPlane);
-airport6.landPlane(secondPlane);
+let newark = new Airport();
+newark.weather = 3
+let airCanada = new Plane('Air Canada');
+let southwestAirlines = new Plane('Southwest Airlines');
+newark.landPlane(airCanada);
+newark.landPlane(southwestAirlines);
 
 //2. Execute
-const answer = airport6.takeOff(firstPlane);
+const result6 = newark.takeOff(airCanada);
 
 //3. Verify
-console.log(assertEquals(answer, "It's too stormy! No planes can take off!"));
+console.log(assertEquals(result6, "It's too stormy! No planes can take off!"));
 
 //------------------------------------------------------------------------------
 //Seventh Test
@@ -139,18 +139,17 @@ console.log('Does trying to land a plane during stormy weather return an error?'
 //1. Set up
 let lax = new Airport();
 lax.weather = 3
-let emirates = new Plane('Emirates');
-let ba = new Plane('British Airways');
-let sa = new Plane('Singapore Airlines')
-lax.landPlane(emirates);
-lax.landPlane(ba);
+let airChina = new Plane('Air China');
+let cathayPacific = new Plane('Cathay Pacific');
+let singaporeAirlines = new Plane('Singapore Airlines')
+lax.landPlane(airChina);
+lax.landPlane(cathayPacific);
 
 //2. Execute
-const result6 = lax.landPlane(sa);
-console.log(result6)
+const result7 = lax.landPlane(singaporeAirlines);
 
 //3. Verify
-console.log(assertEquals(result6, "It's too stormy! No planes can land!"));
+console.log(assertEquals(result7, "It's too stormy! No planes can land!"));
 
 //------------------------------------------------------------------------------
 
@@ -158,17 +157,17 @@ console.log(assertEquals(result6, "It's too stormy! No planes can land!"));
 console.log('Does trying to land a plane that has landed elsewhere return an error?')
 
 //1.Set up
-let gatwick = new Airport();
-gatwick.weather = 50;
-let aeroplane = new Plane('Virgin Atlantic');
-gatwick.landPlane(aeroplane);
+let stansted = new Airport();
+stansted.weather = 50;
+let flybe = new Plane('Flybe');
+stansted.landPlane(flybe);
 let manchester = new Airport();
 manchester.weather = 50;
 
 //2. Execute
-let message = manchester.landPlane(aeroplane);
+let resultE1 = manchester.landPlane(flybe);
 
 //3. Verify
-console.log(assertEquals(message, 'This plane has already landed!'));
+console.log(assertEquals(resultE1, 'This plane has already landed!'));
 
 //------------------------------------------------------------------------------

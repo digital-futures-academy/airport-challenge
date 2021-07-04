@@ -7,10 +7,10 @@ console.log('Creating and accessing a plane named Emirates');
 let emirates = new Plane('Emirates');
 
 //2. Execute
-result = emirates._name
+let result1 = emirates._name
 
 //3. Verify
-console.log(assertEquals(result, 'Emirates'));
+console.log(assertEquals(result1, 'Emirates'));
 
 //------------------------------------------------------------------------------
 
