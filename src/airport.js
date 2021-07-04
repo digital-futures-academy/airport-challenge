@@ -15,9 +15,17 @@ class Airport {
      return plane;
   }
 
+  takeOff(plane){
+    let index = this.plane.indexOf(plane);
+     return this.plane.splice(index, 1);
+  }
+
   isFull(){
     // console.log(this.capacity.length)
     return this.plane.length >= this.capacity
+  }
+  isThere(plane){
+    return this.plane.includes(plane)
   }
 }
 
