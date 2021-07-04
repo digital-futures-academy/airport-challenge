@@ -121,3 +121,29 @@ I want to prevent landing when weather is stormy.
 Object|Properties|Messages|Output
 ---|---|---|---
 Airport|weather|landPlane(plane)|string
+
+## Example test
+#### Test code
+```js
+//First test
+console.log('Does landing a plane add 1 plane to the airport?')
+//1. Set up
+let jfk = new Airport();
+jfk.weather = 50;
+let emirates = new Plane('Emirates');
+
+//2. Execute
+let result1a = jfk.landPlane(emirates);
+let result1b = emirates._landed;
+
+//3. Verify
+console.log(assertEquals(result1a.length, 1));
+console.log(assertEquals(result1b, true))
+```
+
+#### Output
+```
+Does landing a plane add 1 plane to the airport?
+true
+true
+```
