@@ -16,4 +16,4 @@ From there I began the process of creating a useful test case in compliance with
 
 At the start I thought to myself that alongside the Airport class, I would also like to have a plane class that allows me to create instances of planes that I can store in an airport. Step 1 was to create some test requirements that would work for such a plane class:
 
-![PlaneTest]C:\Users\Neokrieger\Challenges\airport-challenge\CodeSnippets\PlaneTest.PNG
+![PlaneTest](https://github.com/Neokrieger/airport-challenge/tree/main/CodeSnippets/PlaneTest.png)
