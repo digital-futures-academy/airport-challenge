@@ -16,14 +16,23 @@ class Airport {
   }
 
   takeOff(plane){
+    if (this.isThere(plane)){
     let index = this.plane.indexOf(plane);
-     return this.plane.splice(index, 1);
+    this.plane.splice(index, 1);
+     if (this.isThere(plane)){
+       return 0;
+     }
+     else console.log(`${plane} is no longer in the airport`) 
+    }
+    else
+    console.log('Sorry this plane is not in the airport.')
   }
 
   isFull(){
     // console.log(this.capacity.length)
     return this.plane.length >= this.capacity
   }
+
   isThere(plane){
     return this.plane.includes(plane)
   }

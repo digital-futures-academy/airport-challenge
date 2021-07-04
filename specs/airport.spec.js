@@ -91,3 +91,30 @@ actualResult = airport.plane.length
 // Verify
 
 console.log(assertEquals(expectedResult, actualResult));
+
+//-----------------------------------------------------------------------
+
+// Test5 - Test to check whether we can confirm a plane is no longer in the airport
+
+console.log('\nTest to see whether a plane can take off:')
+
+// Setup
+
+airport = new Airport()
+expectedResult = 2;
+plane1 = 'FlyBe'
+plane2 = 'TUI'
+plane3 = 'RyanAir' 
+
+// Execute
+
+airport.land(plane1);
+airport.land(plane2);
+airport.land(plane3);
+airport.takeOff(plane2);
+
+actualResult = airport.plane.length
+
+// Verify
+
+console.log(assertEquals(expectedResult, actualResult));
