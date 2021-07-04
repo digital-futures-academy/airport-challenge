@@ -52,6 +52,7 @@ console.log('Does trying to add too many planes return an error');
 //1. Set up
 let frankfurt = new Airport();
 frankfurt.weather = 50;
+frankfurt.capacityOverride(3);
 
 let ryanair = new Plane('Ryanair')
 let etihad = new Plane('Etihad')
@@ -60,7 +61,7 @@ let qantas = new Plane('Qantas')
 frankfurt.landPlane(ryanair);
 frankfurt.landPlane(etihad);
 frankfurt.landPlane(ba);
-frankfurt.capacityOverride(3);
+
 
 //2.Execute
 result3 = frankfurt.landPlane(qantas);
@@ -121,14 +122,15 @@ console.log(assertEquals(result5b, 'This plane has already taken off!'));
 console.log('Does trying to take off a plane during stormy weather return an error?')
 //1. Set up
 let newark = new Airport();
-newark.weather = 3
 let airCanada = new Plane('Air Canada');
 let southwestAirlines = new Plane('Southwest Airlines');
 newark.landPlane(airCanada);
 newark.landPlane(southwestAirlines);
+newark.weather = 3;
+
 
 //2. Execute
-const result6 = newark.takeOff(airCanada);
+let result6 = newark.takeOff(airCanada);
 
 //3. Verify
 console.log(assertEquals(result6, "It's too stormy! No planes can take off!"));
@@ -171,3 +173,22 @@ let resultE1 = manchester.landPlane(flybe);
 console.log(assertEquals(resultE1, 'This plane has already landed!'));
 
 //------------------------------------------------------------------------------
+
+//Edge case 2
+console.log('Does trying to takeff a plane from the wrong airport return an error?')
+
+//1. Set up
+let birmingham = new Airport();
+birmingham.weather = 50;
+let tui = new Plane('tui');
+birmingham.landPlane(tui);
+let glasgow = new Airport();
+glasgow.weather = 50;
+let finnair = new Plane('Finnair');
+glasgow.landPlane(finnair);
+
+//2. Execute
+resultE2 = glasgow.takeOff(tui);
+
+//3. Verify
+console.log(assertEquals(resultE2, 'This plane is not in this airport!'))

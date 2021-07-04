@@ -27,14 +27,16 @@ class Airport {
   }
 
   takeOff(plane) {
-    let boo = plane.hasLanded()
-    if (this.weather <= 5) {
-      return "It's too stormy! No planes can take off!"
-    } else if (boo === false) {
-      return 'This plane has already taken off!'
-    } else {let index = this.planes.indexOf(plane._name)
-    this.planes.splice(index, 1)
-    plane.takeOff()
+    if (plane.hasLanded() === false) {
+        return 'This plane has already taken off!'
+    } else if (this.inAirport(plane) === false) {
+        return 'This plane is not in this airport!'
+    } else if (this.weather <= 5) {
+        return "It's too stormy! No planes can take off!"
+    } else {
+      let index = this.planes.indexOf(plane._name)
+      this.planes.splice(index, 1)
+      plane.takeOff()
     }
     return this.planes
   }
