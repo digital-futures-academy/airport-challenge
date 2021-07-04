@@ -4,11 +4,11 @@ class Airport{
         this.planes = [];  
     }
     setCapacity(capacity){
-        if (capacity < this.planes.length){
-            return 'More planes than capacity';
-        }
-        else if(capacity < 0){
+        if(capacity < 1){
             return 'Cannot have less than one plane';
+        }
+        else if (capacity < this.planes.length){
+            return 'More planes than capacity';
         }
         else{
             this._capacity = capacity; 
@@ -24,6 +24,16 @@ class Airport{
         }
         else{
             this.planes.push(plane); 
+            return this.planes; 
+        }
+    }
+
+    takeOff(plane){
+        if (!this.planes.includes(plane)){
+            return 'Plane not present in airport'; 
+        }
+        else{
+            this.planes.splice(this.planes.indexOf(plane), 1); 
             return this.planes; 
         }
     }

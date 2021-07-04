@@ -25,13 +25,16 @@ test.it('Take off', () => {
 });
 
 test.it('Plane not in Airport', () => {
-    return test.assertEquals(heathrow.takeOff('Plane50', 'Plane not Present in airport')); 
+    return test.assertEquals(heathrow.takeOff('Plane50'), 'Plane not present in airport'); 
 }); 
 
-heathrow.capacity = 3; 
+heathrow.setCapacity(3); 
+heathrow.land('Plane3');
+
 test.it('Adding Capacity' , () =>{
-    return test.assertEquals(heathrow.land('Plane3')[2], 'Plane3'); 
+    return test.assertEquals(heathrow.land('Plane4')[2], 'Plane4'); 
 }); 
+
 
 test.it('Reduce Capacity Fail', () => {
     return test.assertEquals(heathrow.setCapacity(2), 'More planes than capacity'); 
