@@ -51,6 +51,22 @@ actualResult = airport.land(plane);
 result = assertEquals(actualResult, expectedResult);
 console.log(`Result: ${result}`);
 
+//-----------------------------------------------------------------------
+
+console.log('\nTest 4: Instruct the airport to let a plane take off and confirm that it has left the airport');
+
+//Set up
+expectedResult = 'Ryanair airport has received the request to let the Boeing 737-800 plane take off\nThe plane has left the airport';
+
+//Execute
+plane = new Plane('Boeing 737-800', 'Copenhagen', false, true, true);
+airport = new Airport('Ryanair', false);
+actualResult = airport.takenOff(plane);
+
+//Verify
+result = assertEquals(actualResult, expectedResult);
+console.log(`Result: ${result}`);
+
 
 
 

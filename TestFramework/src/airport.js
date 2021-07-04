@@ -17,6 +17,12 @@ class Airport {
         this._airportCapacity = capacity;
         return `${this._name} airport capacity is now ${this._airportCapacity}`;
     }
+
+    takenOff(plane) {
+        let firstMessage = `Ryanair airport has received the request to let the ${plane._name} plane take off`;
+        let secMessage = 'The plane has left the airport';
+        return firstMessage + '\n' + secMessage;
+    }
 }
 
 module.exports = Airport;
