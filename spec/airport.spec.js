@@ -16,3 +16,16 @@ output = ["Plane A"]
 //console.log("Land")
 console.log(assertEquals(result.length, 1))
 console.log(assertEquals(result, output))
+
+
+//Test 2
+console.log("Test to see if airport can be increased")
+//setup
+airport = new Airport(40)
+input = 60
+output = 100
+//execute
+result = airport.overrideCapacity(input) 
+//console.log(result)
+//verify
+console.log(assertEquals(result, output))

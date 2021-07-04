@@ -8,8 +8,8 @@ airport      plane@string      landPlane()     plane @string
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
-Object       Properties        Messages        Output
-airport
+Object       Properties        Messages            Output
+airport      capacity()       increaseCapacity()   airport.capacity()
 
 
 As an air traffic controller
