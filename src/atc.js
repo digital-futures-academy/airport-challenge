@@ -2,8 +2,6 @@
 class AirTrafficController{
 
     queryTakeOff(plane,airport){    
-        console.log(airport.planes)
-        
         if (airport.planes.includes(plane)) {
             airport.planes[airport.planes.indexOf(plane)].flyingStatus = 'take off'
             console.log(airport.planes)
@@ -15,6 +13,10 @@ class AirTrafficController{
         else {
             return `The plane ${plane.name} is not located at ${airport.name}, take off request invalid.`
         }
+    }
+
+    queryLanded(plane, airport) {
+        
     }
 }   
 

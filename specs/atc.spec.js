@@ -51,12 +51,16 @@ console.log('')
 // Test to check a not flying plane can not land() again. 
 console.log("Test to check a plane that is landed can not use the land() method")
 // Setup
-planeLanded = new Plane('American', 'landed');
+airport = new Airport('Munich');
+plane = new Plane('American', 'flying');
+atc = new AirTrafficController();
+
 //Execute 
-console.log(planeLanded);
+atc.queryLanded(plane,airport);
+airport.land(plane);
 
 //Verify 
-console.log(`Landed planes do not land again: ${assertEquals(airport.land(planeLanded), "The plane, American, you are trying to land has already landed")}`);
+console.log(`Landed planes do not land again: ${assertEquals(atc.queryLanded(plane,airport), "The plane, American, you are trying to land has already landed")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------
 
