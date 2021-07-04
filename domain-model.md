@@ -1,7 +1,8 @@
 # Domain Models
 
-## Story 1 
+## Acceptance Criteria 
 
+### Story 1 
 ``` 
 As an air traffic controller
 So I can get passengers to a destination
@@ -12,4 +13,15 @@ Nouns|Verbs
 ---|---
 plane|land
 airport|
+
+### Story 2 
+```
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+```
+
+Nouns|Verbs 
+---|-- 
+airport|overridden 
 
