@@ -8,7 +8,7 @@ It aims to simulate an airport from which planes can take off and land.
 ## To install the project
 To install the project, use the following commands in the terminal:
 ```
-$ git clone git@github.com:b7rch4/airport-challenge.git <br>
+$ git clone git@github.com:b7rch4/airport-challenge.git
 
 npm install
 ```
