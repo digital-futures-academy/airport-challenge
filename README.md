@@ -1,11 +1,11 @@
 Airport Challenge
 =================
-# airport-challenge-GW
+# airport-challenge
 The first challenge of the Digital Futures Academy, this is my implementation of code to fulfill the given User Stories. Airport related.
 
 ## Quick start
 ```
-$ git clone git@github.com:grantwhiteman/airport-challenge-GW.git
+$ git clone git@github.com:grantwhiteman/airport-challenge.git
 npm install
 ```
 
