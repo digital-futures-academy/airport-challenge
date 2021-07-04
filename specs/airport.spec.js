@@ -63,13 +63,12 @@ console.log(`Plane cannot land if airport is full: ${assertEquals("Sorry, unable
 // Test takeOff() method  
 // Subtest 1 -- Planes Array
 console.log("Testing the takeOff() method");
-console.log("Testing if a plane can land and then take off")
+console.log("Testing if a plane can take off")
 //Setup 
 airport = new Airport('Kuala Lumpa');
-plane = new Plane('Qantas','flying');
+plane = new Plane('Qantas','take off');
 
 console.log(`The current airport capacity is: ${airport.capacity}`);
-airport.land(plane); 
 
 //Execute (No new methods were added)
 airport.takeOff(plane);
@@ -82,20 +81,14 @@ console.log(`The planes array is empty: ${assertEquals(airport.planes.length, 0)
 console.log("Testing a confirmation message is returned after take off.")
 //Setup 
 airport = new Airport("Chicago O' Hare");
-plane1 = new Plane('Delta','flying');
-plane2 = new Plane('American', 'flying');
-
-airport.land(plane1);
-airport.land(plane2);
-
-//Execute
-console.log(airport.takeOff(plane2));
+plane1 = new Plane('Delta','take off');
+plane2 = new Plane('American', 'landed');
 
 //Execute (No new methods were added)
 
 //Verify
 // Land a plane in an empty Airport
-console.log(`Correct confirmation message returned: ${assertEquals(airport.takeOff(plane1), "Plane Delta has taken off. There are now 0 planes.")} \n`)
+console.log(`Correct confirmation message returned: ${assertEquals(airport.takeOff(plane1), "Plane Delta has taken off. There are now 1 planes.")} \n`)
 
 // 
 //-------------------------------------

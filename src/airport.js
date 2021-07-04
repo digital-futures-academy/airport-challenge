@@ -24,15 +24,17 @@ class Airport {
   }
 
   takeOff(plane){  
-      const takeOffPlane = this.planes[this.planes.indexOf(plane)];
+    const planeBay = this.planes.indexOf(plane); 
+    const takeOffPlane = this.planes[planeBay];
 
-      this.planes.splice(this.planes.indexOf(plane), 1);
+      //console.log(takeOffPlane)
 
-      console.log(takeOffPlane)
-      console.log(takeOffPlane.name)
+      if (takeOffPlane.flyingStatus === 'take off'){
+        this.planes.splice(planeBay, 1);
 
-      return `Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.`
-
+        return `Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.`
+      }
+      
     }
     
   }
