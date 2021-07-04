@@ -79,3 +79,63 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+1.Object
+Airport and plane
+
+1.Properties
+[planes]---- name
+
+1.Methods
+landPlane()
+
+1.Output
+"plane has landed"
+Now I go spec
+
+2.Object
+Airport and plane
+// I will only add the new properties and so on
+
+2.Properties
+Capacity and override cap of airport
+
+2.Method
+get cap()
+overrideCap()
+
+2.Output
+gives me cap
+and overrides cap
+
+3.Object
+Airport 
+
+3.Properties
+Full cap
+
+3.Method
+isFull()
+
+3.Output
+"Cannot land plane as airport is full"
+
+4.Object
+Airport
+
+4.Properties
+Check plane is not in the airport once it has left.
+
+4.Method
+takeOff()
+
+5.Object
+Airport
+
+5.Properties
+ensure a plane is in the airport or not
+
+5.Method
+add these properties to landPlane()
+and takeOff()
+
