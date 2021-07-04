@@ -13,3 +13,28 @@ result = emirates._name
 console.log(assertEquals(result, 'Emirates'));
 
 //------------------------------------------------------------------------------
+
+//Test 2
+console.log('Landing a plane changes landed status to true');
+//1. Set Up
+let delta = new Plane('Delta');
+
+//2. Execute
+delta.land();
+
+//3. Verify
+console.log(assertEquals(delta._landed, true))
+
+//------------------------------------------------------------------------------
+
+//Test 3
+console.log('Take off changes landed status to false');
+//1. Set up
+let united = new Plane('United');
+united.land();
+
+//2. Execute
+united.takeOff();
+
+//3. Verify
+console.log(assertEquals(united._landed, false))

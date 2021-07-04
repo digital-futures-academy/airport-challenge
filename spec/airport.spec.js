@@ -33,7 +33,7 @@ let capac = heathrow.capacity
 console.log(assertEquals(capac, 100));
 
 
-console.log('Can the capacity be overriden to 200?')
+console.log('Can the capacity be overridden to 200?')
 //1. Set up
 let airport2 = new Airport();
 airport2.weather = 50;
