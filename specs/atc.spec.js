@@ -66,10 +66,11 @@ console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.p
 // -------------------------------------
 console.log('')
 console.log("Weather Conditions Tests")
+console.log('Test no take off permitted in stormy weather')
 // Setup
 airport = new Airport('Munich');
 plane = new Plane('American', 'flying');
-atc = new AirTrafficController('stormy');
+atc = new AirTrafficController();
 let weather = 'fine'
 
 console.log(atc.queryLanded(plane, airport));
@@ -77,13 +78,30 @@ console.log(airport.land(plane));
 
 //Execute 
 weather = 'stormy'
-airport.takeOff(plane);
+console.log(airport.takeOff(plane));
 
 //Verify 
 console.log(`Planes can not take off in stormy weather: ${assertEquals(atc.queryTakeOff(plane, airport, weather),
     "As the weather is stormy, the plane, American, is not permitted to take off")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------
+console.log('')
+console.log('Test no landing permitted in stormy weather')
+// Setup
+airport = new Airport('Charles de Gaulle');
+plane = new Plane('Air France', 'flying');
+atc = new AirTrafficController();
+weather = 'stormy'
+
+//Execute 
+console.log(airport.land(plane));
+
+//Verify 
+console.log(`Planes can not land in stormy weather: ${assertEquals(atc.queryLanded(plane, airport, weather),
+    "As the weather is stormy, the plane, Air France, is not permitted to land")}`);
+console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 0)}`);
+// -------------------------------------
+
 
 
 

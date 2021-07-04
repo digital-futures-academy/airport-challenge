@@ -35,6 +35,8 @@ class Airport {
             this.planes.splice(planeBay, 1);
 
             return `Plane ${takeOffPlane.name} has taken off. There are now ${this.planes.length} planes.`;
+        } else {
+            return "Sorry unavailable for take off."
         }
       
     }
