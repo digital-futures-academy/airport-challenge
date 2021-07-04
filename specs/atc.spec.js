@@ -37,16 +37,16 @@ atc = new AirTrafficController();
 
 heathrow.land(plane);
 
-console.log(heathrow);
-console.log(gatwick);
-console.log(plane);
-console.log(atc);
+// console.log(heathrow);
+// console.log(gatwick);
+// console.log(plane);
+// console.log(atc);
 
 //Execute 
-atc.queryTakeOff(plane, airport);
 
 //Verify 
-console.log("Take off request invalid:" + assertEquals(atc.queryTakeOff(plane, airport), `The plane ${plane.name} is not located at ${heathrow.name}, take off request invalid.`));
+console.log("Take off request invalid:" + assertEquals(atc.queryTakeOff(plane, gatwick), `The plane ${plane.name} is not located at ${gatwick.name}, take off request invalid.`));
+console.log('')
 
 // Test to check a not flying plane can not land() again. 
 console.log("Test to check a plane that is landed can not use the land() method")

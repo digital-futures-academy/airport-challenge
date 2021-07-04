@@ -5,6 +5,7 @@ class AirTrafficController{
         console.log(airport);
         
         if (airport.planes.includes(plane)) {
+            airport.plane.flyingStatus = 'take off'
             return "Ready for take off!"
         }
         else if (plane.flyingStatus === 'flying') {
