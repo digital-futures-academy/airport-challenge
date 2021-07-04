@@ -13,10 +13,10 @@ class Airport {
             console.log(`${plane.name} is is currently not in the air`);
         }
         else if (this.port.length < this.size) {
-            if (this.port.includes(plane)) {
-                console.log(`${plane.name} is already present at port`);
-            }
-            else {
+            //if (this.port.includes(plane)) {
+                //console.log(`${plane.name} is already present at port`);
+            //}
+            //else {
                 if (this.state === 'Sunny') {
                     this.port.push(plane);
                     console.log(`${plane.name} successfully landed`);
@@ -26,7 +26,7 @@ class Airport {
                 else {
                     console.log('Unable to land due to Stormy conditions');
                 }
-            }
+            //}
         }
         else {
             console.log('Airport at maximum capacity');
