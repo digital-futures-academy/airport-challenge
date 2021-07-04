@@ -45,9 +45,9 @@ console.log('\nIs the airport full?');
 // Setup
 
 changableCapacity = 2;
-plane1 = 'FlyBe'
-plane2 = 'TUI'
-plane3 = 'RyanAir' 
+plane1 = 'FlyBe';
+plane2 = 'TUI';
+plane3 = 'RyanAir'; 
 airport = new Airport(changableCapacity);
 
 // Execute 
@@ -75,9 +75,9 @@ console.log('\nTest to see whether a plane can take off:')
 
 airport = new Airport()
 expectedResult = 2;
-plane1 = 'FlyBe'
-plane2 = 'TUI'
-plane3 = 'RyanAir' 
+plane1 = 'FlyBe';
+plane2 = 'TUI';
+plane3 = 'RyanAir'; 
 
 // Execute
 
@@ -86,7 +86,7 @@ airport.land(plane2);
 airport.land(plane3);
 airport.takeOff(plane2);
 
-actualResult = airport.plane.length
+actualResult = airport.plane.length;
 
 // Verify
 
@@ -96,15 +96,15 @@ console.log(assertEquals(expectedResult, actualResult));
 
 // Test5 - Test to check whether we can confirm a plane is no longer in the airport
 
-console.log('\nTest to see whether a plane can take off:')
+console.log('\nTest to see whether a plane can take off:');
 
 // Setup
 
-airport = new Airport()
+airport = new Airport();
 expectedResult = 2;
-plane1 = 'FlyBe'
-plane2 = 'TUI'
-plane3 = 'RyanAir' 
+plane1 = 'FlyBe';
+plane2 = 'TUI';
+plane3 = 'RyanAir'; 
 
 // Execute
 
@@ -113,7 +113,28 @@ airport.land(plane2);
 airport.land(plane3);
 airport.takeOff(plane2);
 
-actualResult = airport.plane.length
+actualResult = airport.plane.length;
+
+// Verify
+
+console.log(assertEquals(expectedResult, actualResult));
+
+//-----------------------------------------------------------------------
+
+// Test6 - Test to check whether a plane is prevented from landing if it's already in the airport
+
+console.log('\nTest to see whether a plane is already in the airport:');
+
+// Setup
+
+airport = new Airport();
+expectedResult = 0;
+plane1 = 'FlyBe';
+airport.land(plane1);
+
+// Execute
+
+actualResult = airport.land(plane1);
 
 // Verify
 

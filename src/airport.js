@@ -6,12 +6,15 @@ class Airport {
 
   land(plane){
     if(this.isFull() === true){
-      console.log('Sorry the airport is full and so this plane cannot land.')
+      console.log('Sorry the airport is full and so this plane cannot land.');
       return 0;
     } 
+    else if (this.isThere(plane)){
+        console.log('Sorry, this plane has already landed in the airport and so cannot land again.');
+        return 0;
+    }
     else
     this.plane.push(plane);
-    // console.log(this.plane);
      return plane;
   }
 
@@ -22,19 +25,18 @@ class Airport {
      if (this.isThere(plane)){
        return 0;
      }
-     else console.log(`${plane} is no longer in the airport`) 
+     else console.log(`${plane} is no longer in the airport`);
     }
     else
-    console.log('Sorry this plane is not in the airport.')
+    console.log('Sorry this plane is not in the airport.');
   }
 
   isFull(){
-    // console.log(this.capacity.length)
-    return this.plane.length >= this.capacity
+    return this.plane.length >= this.capacity;
   }
 
   isThere(plane){
-    return this.plane.includes(plane)
+    return this.plane.includes(plane);
   }
 }
 
