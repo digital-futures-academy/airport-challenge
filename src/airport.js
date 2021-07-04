@@ -10,12 +10,18 @@ class Airport {
     }
 
     land (plane) {   
-        if (this.planes.length < this.capacity) {
-            plane.flyingStatus = 'landed';
-            this.planes.push(plane);
-            return 'The plane has landed.';
-        } else {
-            return 'Sorry, unable to land, the aiport is full.';
+        if (plane.flyingStatus === 'landing'){
+
+            if (this.planes.length < this.capacity) {
+                plane.flyingStatus = 'landed';
+                this.planes.push(plane);
+                return 'The plane has landed.';
+            } else {
+                return 'Sorry, unable to land, the aiport is full.';
+            }
+
+         } else {
+            return 'Sorry, that plane can not land at this time'
         }
     }
 
@@ -26,10 +32,6 @@ class Airport {
     takeOff(plane){  
         const planeBay = this.planes.indexOf(plane); 
         const takeOffPlane = this.planes[planeBay];
-
-        console.log(planeBay);
-        console.log(takeOffPlane);
-    
 
         if (takeOffPlane.flyingStatus === 'take off'){
             this.planes.splice(planeBay, 1);

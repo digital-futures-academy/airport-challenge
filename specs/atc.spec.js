@@ -56,11 +56,11 @@ plane = new Plane('American', 'flying');
 atc = new AirTrafficController();
 
 //Execute 
-console.log(atc.queryLanded(plane,airport));
+console.log(atc.queryLanding(plane,airport));
 console.log(airport.land(plane));
 
 //Verify 
-console.log(`Landed planes do not land again: ${assertEquals(atc.queryLanded(plane,airport), 
+console.log(`Landed planes do not land again: ${assertEquals(atc.queryLanding(plane,airport), 
     "The plane, American, you are trying to land has has already landed")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------
@@ -73,7 +73,7 @@ plane = new Plane('American', 'flying');
 atc = new AirTrafficController();
 let weather = 'fine'
 
-console.log(atc.queryLanded(plane, airport));
+console.log(atc.queryLanding(plane, airport));
 console.log(airport.land(plane));
 
 //Execute 
@@ -97,12 +97,9 @@ weather = 'stormy'
 console.log(airport.land(plane));
 
 //Verify 
-console.log(`Planes can not land in stormy weather: ${assertEquals(atc.queryLanded(plane, airport, weather),
+console.log(`Planes can not land in stormy weather: ${assertEquals(atc.queryLanding(plane, airport, weather),
     "As the weather is stormy, the plane, Air France, is not permitted to land")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 0)}`);
 // -------------------------------------
-
-
-
 
 console.log("\x1b[35m", "--- End of AirTrafficController Class Tests ---")

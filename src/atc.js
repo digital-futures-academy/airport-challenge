@@ -18,10 +18,14 @@ class AirTrafficController{
         }
     }
 
-    queryLanded(plane, airport) {
-        if (airport.planes.includes(plane)) {
+    queryLanding(plane, airport, weather = 'fine') {
+        if (weather === 'stormy') {
+            return `As the weather is stormy, the plane, ${plane.name}, is not permitted to land`
+        }
+        else if (airport.planes.includes(plane)) {
             return `The plane, ${plane.name}, you are trying to land has has already landed`;
         } else {
+            plane.flyingStatus = 'landing';
             return 'Ready for landing!';
         }
 
