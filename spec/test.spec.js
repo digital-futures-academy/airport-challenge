@@ -4,7 +4,7 @@ class Test{
     }
     it(testName, testFunction){
         console.log(testName); 
-        console.log(testFunction); 
+        console.log(testFunction()); 
         console.log(); 
     }
 }
