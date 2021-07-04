@@ -134,6 +134,25 @@ const answer = airport6.takeOff(firstPlane);
 console.log(assertEquals(answer, "It's too stormy! No planes can take off!"));
 
 //------------------------------------------------------------------------------
+//Seventh Test
+console.log('Does trying to land a plane during stormy weather return an error?')
+//1. Set up
+let lax = new Airport();
+lax.weather = 3
+let emirates = new Plane('Emirates');
+let ba = new Plane('British Airways');
+let sa = new Plane('Singapore Airlines')
+lax.landPlane(emirates);
+lax.landPlane(ba);
+
+//2. Execute
+const result6 = lax.landPlane(sa);
+console.log(result6)
+
+//3. Verify
+console.log(assertEquals(result6, "It's too stormy! No planes can land!"));
+
+//------------------------------------------------------------------------------
 
 //Edge cases
 console.log('Does trying to land a plane that has landed elsewhere return an error?')

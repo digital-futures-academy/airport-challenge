@@ -8,15 +8,17 @@ class Airport {
 
   landPlane(plane) {
       let boo = plane.hasLanded()
-      if (boo === true) {
+      if (this.weather <= 5) {
+        return "It's too stormy! No planes can land!"
+      } else if (boo === true) {
         return 'This plane has already landed!'
       } else if (this.planes.length < this.capacity) {
           this.planes.push(plane._name)
-          plane.land();
+          plane.land()
+          return this.planes
       } else {
           return 'Abort landing! The airport is full!'
         }
-      return this.planes
     }
 
   capacityOverride(num) {

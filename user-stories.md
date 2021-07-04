@@ -86,4 +86,17 @@ weather|prevent takeoff
 
 Object|Properties|Messages|Output
 ---|---|---|---
-Airport|weather|abortTakeOff()|list of planes
+Airport|weather|takeOff(plane)|string
+
+User Story 7 <br>
+As an air traffic controller <br>
+To ensure safety <br>
+I want to prevent landing when weather is stormy <br>
+
+Nouns|Verbs
+---|---
+weather|prevent takeoff
+
+Object|Properties|Messages|Output
+---|---|---|---
+Airport|weather|landPlane(plane)|string
