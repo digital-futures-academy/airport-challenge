@@ -5,14 +5,14 @@ let input, output, airport, result
 
 //Test 1
 console.log("Test to see if airport lands plane")
-//setup 1 item
+//setup 
 airport = new Airport()
 input = ["Plane A"]
-//execute 1 item
+//execute
 result = airport.landPlane(["Plane A"])
 output = ["Plane A"]
 //console.log(result)
-//verify 1 item
-//console.log("Can add one item")
-//console.log(assertEquals(total.length, 1))
+//verify
+//console.log("Land")
+console.log(assertEquals(result.length, 1))
 console.log(assertEquals(result, output))

@@ -1,12 +1,13 @@
 class Airport {
   constructor() {
-    this.hanger = [];
+    this.runway = [];
+    this.capacity = this.capacity;
     
   }
 
   landPlane(plane) {
-    this.hanger.push(plane);
-    return this.hanger;
+    this.runway.push(plane);
+    return this.runway;
     
     }
 }
