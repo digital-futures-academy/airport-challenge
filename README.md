@@ -97,7 +97,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|list of planes|takeOff()|string
-||landPlane()|string
+Airport|list of planes|landPlane()|string
 Plane|landed|hasLanded()|boolean
 
 #### Extension 1
