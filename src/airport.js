@@ -67,8 +67,6 @@ class Airport {
             this.state = 'Stormy'; console.log('The weather is Stormy');
         }
     }
-
-
 }
 
 module.exports = Airport;

@@ -10,4 +10,10 @@ First step of my approach was to createa simple test framework that compares 2 v
 
 ADD MODEL
 
-This gave me a solid overview of the sort of properties and methods that I would need to create in order to convert the user requirements into code. 
+This gave me a solid overview of the sort of properties and methods that I would need to create in order to convert the user requirements into code.
+
+From there I began the process of creating a useful test case in compliance with my domain model and then write source code to pass the test case. Once passed I would move on to creating a new test case and this process was repeated until the project fulfilled the full user requirements.
+
+At the start I thought to myself that alongside the Airport class, I would also like to have a plane class that allows me to create instances of planes that I can store in an airport. Step 1 was to create some test requirements that would work for such a plane class:
+
+![PlaneTest]CodeSnippets/PlaneTest.PNG
