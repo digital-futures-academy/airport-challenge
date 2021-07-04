@@ -64,23 +64,23 @@ console.log(`Landed planes do not land again: ${assertEquals(atc.queryLanded(pla
     "The plane, American, you are trying to land has has already landed")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------
-
+console.log('')
 console.log("Weather Conditions Tests")
-// Test to check a not flying plane can not land() again. 
-console.log("Test to check a plane that is landed can not use the land() method")
 // Setup
 airport = new Airport('Munich');
 plane = new Plane('American', 'flying');
-atc = new AirTrafficController();
+atc = new AirTrafficController('stormy');
+let weather = 'fine'
 
-console.log(atc.queryLanded(plane, airport,'fine'));
+console.log(atc.queryLanded(plane, airport));
 console.log(airport.land(plane));
 
 //Execute 
+weather = 'stormy'
 airport.takeOff(plane);
 
 //Verify 
-console.log(`Planes can not take off in stormy weather: ${assertEquals(atc.queryTakeOff(plane, airport,weather),
+console.log(`Planes can not take off in stormy weather: ${assertEquals(atc.queryTakeOff(plane, airport, weather),
     "As the weather is stormy, the plane, American, is not permitted to take off")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------

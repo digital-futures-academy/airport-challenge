@@ -1,8 +1,11 @@
 //Air Traffic Controller Class
 class AirTrafficController{
 
-    queryTakeOff(plane,airport){    
-        if (airport.planes.includes(plane)) {
+    queryTakeOff(plane,airport,weather = 'fine'){ 
+        if (weather === 'stormy'){
+            return `As the weather is stormy, the plane, ${plane.name}, is not permitted to take off`
+        }    
+        else if (airport.planes.includes(plane)) {
             airport.planes[airport.planes.indexOf(plane)].flyingStatus = 'take off';
             console.log(airport.planes);
             return 'Ready for take off!';
