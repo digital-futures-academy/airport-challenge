@@ -1,67 +1,117 @@
 Airport Challenge
 =================
+# airport-challenge-GW
+The first challenge of the Digital Futures Academy, this is my implementation of code to fulfill the given User Stories. Airport related.
 
+## Quick start
 ```
-         ______
-        __\____\___
-=  = ==(____DFA____)
-           \_____\__________________,-~~~~~~~`-.._
-          /     o o o o o o o o o o o o o o o o  |\_
-          `~-.__       __..----..__                  )
-                `---~~\___________/------------`````
-                =  ===(_________)
-
+$ git clone git@github.com:grantwhiteman/airport-challenge-GW.git
+npm install
 ```
 
-Instructions
----------
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by 9am Monday morning, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
 
-Steps
--------
+## To run tests
+```
+node specRunner.js
+# or
+npm test
+```
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`
+## Method
+- Create domain models (table/use case diagram)
+- Write a failing test to show expected output
+- Write source code to pass the test
 
-Task
------
+## Skills to practise
+- Creating domain models to help convert user stories to code
+- Test-driven development, test first (using setup/execute/verify)
+- Debugging using informative log statements
+- Loose coupling/encapsulation
 
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+## Reflection
 
-#### Acceptance Criteria
+### Went well
+
+- Always wrote tests with the end in mind
+- Source code was good, implementing classes and functions in a loosely-coupled way
+- Rarely got stuck with code implementation
+- Completed extended criteria
+- Utilised multiple domain models
+
+### Areas for improvement
+
+- I would have liked to practise more console.logging useful information, reverted a bit to logging 'I'm here' and specific values without context
+- tests were definitely too weak, could have been improved to show more definitively that the code had the expected output
+- Would have preferred to have more constructors
+- Domain models could have been more extensive
+- Classes should probably have getters
+- I didn't like the implementation of the instructTakeOff and instructLand methods, the if else statements were clumsy and might not even be acceptable
+
+<p>&nbsp;</p>
+
+## Domain models
+
+### User Story 1
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+```
+|Object|Properties|Messages|Output| 
+|---|---|---|---|
+|Airport|   |instructToLandPlane()|land plane @string|
 
+### User Story 2
+```
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+```
 
+|Object|Properties|Messages|Output|
+|---|---|---|---|
+|Airport|capacity @number|defineCapacity()|new capacity @number|
+
+### User Story 3
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+```
 
+|Object|Properties|Messages|Output|
+|---|---|---|---|
+|Plane|safeToLand @boolean|land()||
+
+### User Story 4
+```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
 
+|Object|Properties|Messages|Output|
+|---|---|---|---|
+|Airport|safeToTakeOff @boolean|takeOff()|takenOff @boolean|
+
+### User Story 5
+```
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
 
-#### Extended Acceptance Criteria
+|Object|Properties|Messages|Output|
+|---|---|---|---|
+|Airport|safeToTakeOff @boolean|checkPlaneAtAirport()|takenOff @boolean|
+
+
+
+## Extended Acceptance Criteria
+
+### User Story 1 & 2
 ```
 As an air traffic controller
 To ensure safety
@@ -70,12 +120,47 @@ I want to prevent takeoff when weather is stormy
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+```
 
+|Object|Properties|Messages|Output|
+|---|---|---|---|
+|Airport||checkWeather()|weather @string|
+
+### User Story 3
+
+```
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 ```
+|Object|Properties|Messages|Output|
+|---|---|---|---|
+|Airport|hangar @array[plane.name@string]|add to hangar (push)|hangar @array including plane|
+|Plane|name @string|||
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+```
+UML Use Case Diagram
+```
+<img src="Airport-miro.png" alt="Markdown Monster icon"/>
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+## Example test:
+```
+global.Math.random = () => 0.4
+let plane, airport, expectedOutput, actualOutput
+
+//setup
+console.log('instruct airport to take off plane')
+airport = new Airport()
+plane = new Plane()
+expectedOutput = true
+//execute
+airport.instructTakeOff(plane)
+actualOutput = plane.inAir
+//verify
+console.log(assertEquals(actualOutput, expectedOutput) ? 'Success' : 'Fail')
+```
+## Output
+```
+instruct airport to take off plane
+Success
+```
