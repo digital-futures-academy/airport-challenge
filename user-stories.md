@@ -41,8 +41,7 @@ airport|prevent landing
 
 Objects|Properties|Messages|Output
 ---|---|---|---
-Airport|list of planes|landPlane()|list of planes
-|||string
+Airport|capacity|landPlane()|string
 
 User Story 4 <br>
 As an air traffic controller <br>
@@ -58,7 +57,7 @@ Plane|confirm
 Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|list of planes|takeOff()|new list of planes
-||leftAirport()|boolean
+Plane|landed|takeOff()|boolean
 
 User Story 5 <br>
 As an air traffic controller <br>
@@ -73,6 +72,7 @@ Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|list of planes|takeOff()|string
 ||landPlane()|string
+Plane|landed|hasLanded()|boolean
 
 Extended Acceptance Criteria <br>
 User Story 6 <br>
