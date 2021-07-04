@@ -1,29 +1,46 @@
+## Introduction
+```
 This JavaScript library was created to demonstrate skills I have learned during Module 1 of the Digital Futures Academy Modern Software Engineering course.
 
+It aims to simulate an airport from which planes can take off and land.
+```
+
 ## To install the project
+To install the project, use the following commands in the terminal:
 ```
 $ git clone git@github.com:b7rch4/airport-challenge.git <br>
 
 npm install
 ```
 
-## In order to run the tests
+## Running the tests
+To run tests, use the following commands in the terminal:
 ```
 node specRunner.js
 or
 npm test
 ```
+When creating a new airport a random number generator is used to give a number between 1 and 100, which simulates the weather conditions at that airport. <br>
+If the number is less than 5, the weather will be stormy, otherwise it will be sunny. <br>
+In order to snub random behaviour when conducting tests, the weather at the airport was set manually:
+```js
+airport.weather = 50;
+```
+
 ## Method
 ```
 I began by creating a simple test framework, test-framework.js, which contains a function to determine whether two inputs are equal.
+
 I then used the given User Stories to develop a Domain Model (shown below), from which potential source code could be visualised.
+
 I then focused on test driving my code, writing a series of failing tests within the airport.spec.js and plane.spec.js files.
+
 Source code was then written to pass these tests.
 ```
 
 ## Domain Models
 
-### User Story 1
+#### User Story 1
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -35,7 +52,7 @@ Objects|Properties|Messages|Output
 Airport|list of planes|landPlane()|new list of planes
 Plane|landed|land()|boolean
 
-### User Story 2
+#### User Story 2
 ```
 User Story 2
 As the system designer
@@ -47,7 +64,7 @@ Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|capacity|capacityOverride()|new capacity
 
-### User Story 3
+#### User Story 3
 ```
 As an air traffic controller
 To ensure safety
@@ -58,7 +75,7 @@ Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|capacity|landPlane()|string
 
-### User Story 4
+#### User Story 4
 ```
 As an air traffic controller
 So I can get passengers on the way to their destination
@@ -70,7 +87,7 @@ Objects|Properties|Messages|Output
 Airport|list of planes|takeOff()|new list of planes
 Plane|landed|takeOff()|boolean
 
-### User Story 5
+#### User Story 5
 ```
 As an air traffic controller
 To avoid confusion
@@ -83,7 +100,7 @@ Airport|list of planes|takeOff()|string
 ||landPlane()|string
 Plane|landed|hasLanded()|boolean
 
-### Extension 1
+#### Extension 1
 ```
 As an air traffic controller
 To ensure safety
@@ -94,7 +111,7 @@ Object|Properties|Messages|Output
 ---|---|---|---
 Airport|weather|takeOff(plane)|string
 
-### Extension 2
+#### Extension 2
 ```
 As an air traffic controller
 To ensure safety
