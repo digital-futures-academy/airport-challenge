@@ -6,7 +6,7 @@
 
 ## To run tests: 
 
-- either run 'node specreunner.js' or 'npm test'
+- either run 'node specRunner.js' or 'npm test'
 
 
 ## My approach:
