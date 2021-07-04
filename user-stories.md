@@ -13,13 +13,13 @@ Plane|land
 Objects|Properties|Messages|Output
 ---|---|---|---
 Airport|list of planes|landPlane()|new list of planes
-Plane|name|
+Plane|landed|land()|boolean
 
 
 
 User Story 2 <br>
-As the system designer
-So that the software can be used for many different airports
+As the system designer <br>
+So that the software can be used for many different airports <br>
 I would like a default airport capacity that can be overridden as appropriate
 
 Nouns|Verbs

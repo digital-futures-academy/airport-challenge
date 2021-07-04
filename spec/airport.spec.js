@@ -12,10 +12,12 @@ jfk.weather = 50;
 let emirates = new Plane('Emirates');
 
 //2. Execute
-let result1 = jfk.landPlane(emirates);
+let result1a = jfk.landPlane(emirates);
+let result1b = emirates._landed;
 
 //3. Verify
-console.log(assertEquals(result1.length, 1));
+console.log(assertEquals(result1a.length, 1));
+console.log(assertEquals(result1b, true))
 
 //------------------------------------------------------------------------------
 
@@ -72,7 +74,7 @@ console.log(assertEquals(result3, 'Abort landing! The airport is full!'))
 //------------------------------------------------------------------------------
 
 //Fourth test
-console.log('Does take off decrease planes in airport? Can we confirm plane has left?')
+console.log('Does take off decrease planes in airport? Can we confirm plane has left the airport?')
 //1. Set up
 let atlanta = new Airport();
 atlanta.weather = 50;
@@ -88,10 +90,12 @@ atlanta.landPlane(airFrance);
 //2. Execute
 let result4a = atlanta.takeOff(airFrance);
 let result4b = atlanta.inAirport(airFrance);
+let result4c = airFrance._landed
 
 //3. Verify
 console.log(assertEquals(result4a.length, 2));
 console.log(assertEquals(result4b, false));
+console.log(assertEquals(result4c, false))
 
 //------------------------------------------------------------------------------
 
@@ -103,15 +107,15 @@ dubai.weather = 50;
 
 let turkishAirlines = new Plane('Turkish Airlines')
 let lufthansa = new Plane('Lufthansa')
-let aa = new Plane('American Airlines')
+let americanAirlines = new Plane('American Airlines')
 dubai.landPlane(turkishAirlines);
 dubai.landPlane(lufthansa);
-dubai.landPlane(aa);
-dubai.takeOff(aa);
+dubai.landPlane(americanAirlines);
+dubai.takeOff(americanAirlines);
 
 //2. Execute
 const result5a = dubai.landPlane(turkishAirlines);
-const result5b = dubai.takeOff(aa);
+const result5b = dubai.takeOff(americanAirlines);
 
 //3. Verify
 console.log(assertEquals(result5a, 'This plane has already landed!'));
