@@ -1,6 +1,7 @@
 // Load in the class file
 const Airport = require("../src/airport.js");
 const Plane = require("../src/plane.js");
+const AirTrafficController = require("../src/atc");
 
 const assertEquals = require("../testing-framework.js");
 
@@ -66,7 +67,11 @@ console.log("Testing the takeOff() method");
 console.log("Testing if a plane can take off")
 //Setup 
 airport = new Airport('Kuala Lumpa');
-plane = new Plane('Qantas','take off');
+plane = new Plane('Qantas','flying');
+atc = new AirTrafficController();
+
+airport.land(plane);
+console.log(atc.queryTakeOff(plane,airport));
 
 console.log(`The current airport capacity is: ${airport.capacity}`);
 
@@ -81,13 +86,18 @@ console.log(`The planes array is empty: ${assertEquals(airport.planes.length, 0)
 console.log("Testing a confirmation message is returned after take off.")
 //Setup 
 airport = new Airport("Chicago O' Hare");
-plane1 = new Plane('Delta','take off');
-plane2 = new Plane('American', 'landed');
+plane1 = new Plane('Delta','flying');
+plane2 = new Plane('American', 'flying');
+atc = new AirTrafficController();
+
+airport.land(plane1);
+airport.land(plane2);
+
+console.log(atc.queryTakeOff(plane1, airport));
 
 //Execute (No new methods were added)
 
 //Verify
-// Land a plane in an empty Airport
 console.log(`Correct confirmation message returned: ${assertEquals(airport.takeOff(plane1), "Plane Delta has taken off. There are now 1 planes.")} \n`)
 
 // 

@@ -2,10 +2,11 @@
 class AirTrafficController{
 
     queryTakeOff(plane,airport){    
-        console.log(airport);
+        console.log(airport.planes)
         
         if (airport.planes.includes(plane)) {
-            airport.plane.flyingStatus = 'take off'
+            airport.planes[airport.planes.indexOf(plane)].flyingStatus = 'take off'
+            console.log(airport.planes)
             return "Ready for take off!"
         }
         else if (plane.flyingStatus === 'flying') {

@@ -27,7 +27,9 @@ class Airport {
     const planeBay = this.planes.indexOf(plane); 
     const takeOffPlane = this.planes[planeBay];
 
-      //console.log(takeOffPlane)
+    console.log(planeBay)
+    console.log(takeOffPlane)
+    
 
       if (takeOffPlane.flyingStatus === 'take off'){
         this.planes.splice(planeBay, 1);
