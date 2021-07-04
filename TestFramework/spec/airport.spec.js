@@ -67,6 +67,20 @@ actualResult = airport.takenOff(plane);
 result = assertEquals(actualResult, expectedResult);
 console.log(`Result: ${result}`);
 
+//-----------------------------------------------------------------------
 
+console.log('\nTest 5: Disable take off requests for planes that are not at the airport');
+
+//Set up
+expectedResult = 'Airbus A330-200 is not present at the airport therefore a take off request to Tenerife cannot be sent';
+
+//Execute
+plane = new Plane('Airbus A330-200', 'Tenerife', false, false, true);
+airport = new Airport('Jet2', false);
+actualResult = airport.takenOff(plane);
+
+//Verify
+result = assertEquals(actualResult, expectedResult);
+console.log(`Result: ${result}`);
 
 

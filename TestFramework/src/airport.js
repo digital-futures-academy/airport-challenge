@@ -11,7 +11,7 @@ class Airport {
         } else {
             return `${this._name} airport is full therefore the plane cannot be landed.`;
         }
-    }   
+    }
 
     airportCapacity(capacity) {
         this._airportCapacity = capacity;
@@ -19,9 +19,13 @@ class Airport {
     }
 
     takenOff(plane) {
-        let firstMessage = `Ryanair airport has received the request to let the ${plane._name} plane take off`;
-        let secMessage = 'The plane has left the airport';
-        return firstMessage + '\n' + secMessage;
+        if (plane._atAirport === true) {
+            let firstMessage = `Ryanair airport has received the request to let the ${plane._name} plane take off`;
+            let secMessage = 'The plane has left the airport';
+            return firstMessage + '\n' + secMessage;
+        } else {
+            return `${plane._name} is not present at the airport therefore a take off request to ${plane._destination} cannot be sent`
+        }
     }
 }
 
