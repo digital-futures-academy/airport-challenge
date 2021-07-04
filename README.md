@@ -15,7 +15,8 @@ I began by reading the user stories and creating a domain model from those. I th
 
 There is a folder named 'Screenshot Evidence' containing screenshots of me interacting with my program after each failing and passing test.
 
-|---|---|---|---|
+## Domain Model
+
 |Object|Properties|Message|Output|
 |------|----------|-------|------|
 |Airport| @Array  | Land()| @string|
