@@ -12,7 +12,7 @@ expectedResult = 'Boeing 777-300 plane has just landed.';
 
 //Execute
 plane = new Plane('Boeing 777-300', 'Malaysia', false, true, false);
-airport = new Airport('British Airways');
+airport = new Airport('British Airways', false);
 actualResult = airport.land(plane); 
 
 //Verify
@@ -28,12 +28,29 @@ expectedResult = 'British Airways airport capacity is now 296';
 
 //Execute
 plane = new Plane('Boeing 777-300', 'Malaysia', false, true, true);
-airport = new Airport('British Airways');
+airport = new Airport('British Airways', false);
 actualResult = airport.airportCapacity(296);
 
 //Verify
 result = assertEquals(actualResult, expectedResult);
 console.log(`Result: ${result}`);
+
+//-----------------------------------------------------------------------
+
+console.log('\nTest 3: Prevent landing when the airport is full');
+
+//Set up
+expectedResult = 'Ryanair airport is full therefore the plane cannot be landed.';
+
+//Execute
+plane = new Plane('Airbus A320', 'Copenhagen', false, true, false);
+airport = new Airport('Ryanair', true);
+actualResult = airport.land(plane);
+
+//Verify
+result = assertEquals(actualResult, expectedResult);
+console.log(`Result: ${result}`);
+
 
 
 
