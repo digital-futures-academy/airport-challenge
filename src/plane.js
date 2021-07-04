@@ -1,7 +1,7 @@
- class Plane {
-  constructor() {
+class Plane {
+    constructor() {
     
-  }
+    }
  
 }
 module.exports = Plane;
