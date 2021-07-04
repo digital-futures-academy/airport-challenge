@@ -8,6 +8,7 @@ let assertEquals = require('../test-framework.js')
 console.log('Does landing a plane add 1 plane to the airport')
 //1. Set up
 let airport = new Airport();
+airport.weather = 50;
 let plane = new Plane('Emirates');
 
 //2. Execute
@@ -21,7 +22,9 @@ console.log(assertEquals(result.length, 1));
 //Second Test
 console.log('Does the airport have a default capacity of 100?');
 //1. Set up
-let heathrow = new Airport()
+let heathrow = new Airport();
+heathrow.weather = 50;
+
 
 //2. Execute
 let capac = heathrow.capacity
@@ -33,6 +36,8 @@ console.log(assertEquals(capac, 100));
 console.log('Can the capacity be overriden to 200?')
 //1. Set up
 let airport2 = new Airport();
+airport2.weather = 50;
+
 
 //2. Execute
 result = airport2.capacityOverride(200);
@@ -46,6 +51,8 @@ console.log(assertEquals(result, 200));
 console.log('Does trying to add too many planes return an error, and keep the list the same');
 //1. Set up
 let airport3 = new Airport();
+airport3.weather = 50;
+
 let plane1 = new Plane('Emirates')
 let plane2 = new Plane('Etihad')
 let plane3 = new Plane('British Airways')
@@ -67,6 +74,8 @@ console.log(assertEquals(result.length, 3))
 console.log('Does take off decrease planes in airport? Can we confirm plane has left?')
 //1. Set up
 let airport4 = new Airport();
+airport4.weather = 50;
+
 let planeA = new Plane('Emirates')
 let planeB = new Plane('British Airways')
 let planeC = new Plane('Qantas')
@@ -92,6 +101,8 @@ console.log(assertEquals(resultC, true));
 console.log('Does trying to land an already landed plane return an error? Same for take off?');
 //1. Set up
 let airport5 = new Airport();
+airport5.weather = 50;
+
 let plane01 = new Plane('United')
 let plane02 = new Plane('Lufthansa')
 let plane03 = new Plane('American Airlines')
@@ -124,3 +135,23 @@ const answer = airport6.takeOff(firstPlane);
 
 //3. Verify
 console.log(assertEquals(answer.length, 2));
+
+//------------------------------------------------------------------------------
+//Edge cases
+console.log('Does trying to land a plane that has landed elsewhere return an error?')
+
+//1.Set up
+let gatwick = new Airport();
+gatwick.weather = 50;
+let aeroplane = new Plane('Virgin Atlantic');
+gatwick.landPlane(aeroplane);
+let manchester = new Airport();
+manchester.weather = 50;
+
+//2. Execute
+let message = manchester.landPlane(aeroplane);
+
+//3. Verify
+console.log(assertEquals(message.length, 0));
+
+//------------------------------------------------------------------------------
