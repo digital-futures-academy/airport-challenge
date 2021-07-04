@@ -24,7 +24,7 @@ console.log(`Result: ${result}`);
 console.log('\nTest 2: Default airport capacity that can be overridden as appropriate');
 
 //Set up
-expectedResult = 'British Airways airport capacity is now 296';
+expectedResult = 'British Airways airport capacity is now 296.';
 
 //Execute
 plane = new Plane('Boeing 777-300', 'Malaysia', false, true, true);
@@ -56,7 +56,7 @@ console.log(`Result: ${result}`);
 console.log('\nTest 4: Instruct the airport to let a plane take off and confirm that it has left the airport');
 
 //Set up
-expectedResult = 'Ryanair airport has received the request to let the Boeing 737-800 plane take off\nThe plane has left the airport';
+expectedResult = 'Ryanair airport has received the request to let the Boeing 737-800 plane take off\nThe plane has left the airport.';
 
 //Execute
 plane = new Plane('Boeing 737-800', 'Copenhagen', false, true, true);
@@ -72,7 +72,7 @@ console.log(`Result: ${result}`);
 console.log('\nTest 5: Disable take off requests for planes that are not at the airport');
 
 //Set up
-expectedResult = 'Airbus A330-200 is not present at the airport therefore a take off request to Tenerife cannot be sent';
+expectedResult = 'Airbus A330-200 is not present at the airport therefore a take off request to Tenerife cannot be sent.';
 
 //Execute
 plane = new Plane('Airbus A330-200', 'Tenerife', false, false, true);
@@ -83,4 +83,19 @@ actualResult = airport.takenOff(plane);
 result = assertEquals(actualResult, expectedResult);
 console.log(`Result: ${result}`);
 
+//-----------------------------------------------------------------------
+
+console.log('\nTest 6: Request to land a plane that has already landed');
+
+//Set up
+expectedResult = 'Boeing 737-300 has already landed therefore the request to land it has been denied.';
+
+//Execute
+plane = new Plane('Boeing 737-300', 'Naples', false, true, true);
+airport = new Airport('Jet2', false);
+actualResult = airport.land(plane);
+
+//Verify
+result = assertEquals(actualResult, expectedResult);
+console.log(`Result: ${result}`);
 
