@@ -17,12 +17,15 @@ $ node specRunner.js
 The file specRunner.js is a independent testing suite that requests each of the  individual spec files contained within the `./specs` folder. 
 
 ## Methodology 
-- The strategy for creating the domain models for each user story may be found in the folder *./dom_model*. 
-- Sequence Diagrams were created using [lucidchart][https://www.lucidchart.com/pages/]
-- Test code was written based on current domain model for each part. 
-- Source code was then written to pass failing tests at each stage in the software development lifecycle.  
+- Created a domain model for the first user story 
+- Test code was written based on current domain model for each user story. 
+- Source code was then written to pass failing tests at each stage in the software development lifecycle. 
+- Updated the domain model as I repeated the process for the next user story 
 
 ## Structure
+All files associated with domain modelling may be found in `./dom_model`.
+The extended criteria was covered in a separate file labelled `domain-model-extended.md`. 
+
 All source code is contained with the `./src` folder, which contains three class files:
 ```
 - plane.js
