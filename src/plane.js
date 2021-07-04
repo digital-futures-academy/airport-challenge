@@ -1,24 +1,24 @@
 class Plane {
-  constructor(name) {
-    this._name = name,
-    this._landed = false
-  }
-
-  hasLanded() {
-    if (this._landed === false) {
-      return false
-    } else {
-      return true
+    constructor(name) {
+        this._name = name,
+        this._landed = false;
     }
-  }
 
-  land() {
-    this._landed = true
-  }
+    hasLanded() {
+        if (this._landed === false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
-  takeOff() {
-    this._landed = false
-  }
+    land() {
+        this._landed = true;
+    }
+
+    takeOff() {
+        this._landed = false;
+    }
 }
 
-module.exports = Plane
+module.exports = Plane;
