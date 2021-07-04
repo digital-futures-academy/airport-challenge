@@ -1,11 +1,11 @@
-let assertEquals = require('../../test-framework');
-let Airport = require('../src/airport');
-let Plane = require('../src/plane');
+const assertEquals = require('../../test-framework');
+const Airport = require('../src/airport');
+const Plane = require('../src/plane');
 
 let plane, airport;
 let expectedResult, actualResult, result;
 
-console.log('Test 1: Instruct the airport to land a plane');
+console.log('\nTest 1: Instruct the airport to land a plane');
 
 //Set up
 expectedResult = 'Boeing 777-300 plane has just landed.';
