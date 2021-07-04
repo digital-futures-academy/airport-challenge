@@ -7,11 +7,10 @@ class Airport {
   }
 
   landPlane(plane) {
-      let boo = plane.hasLanded()
-      if (this.weather <= 5) {
-        return "It's too stormy! No planes can land!"
-      } else if (boo === true) {
-        return 'This plane has already landed!'
+      if (plane.hasLanded() === true) {
+          return 'This plane has already landed!'
+      } else if (this.weather <= 5) {
+          return "It's too stormy! No planes can land!"
       } else if (this.planes.length < this.capacity) {
           this.planes.push(plane._name)
           plane.land()
