@@ -140,6 +140,25 @@ let result1b = emirates._landed;
 console.log(assertEquals(result1a.length, 1));
 console.log(assertEquals(result1b, true))
 ```
+#### Source code
+```js
+class Airport {
+  landPlane(plane) {
+      if (plane.hasLanded() === true) {
+          return 'This plane has already landed!';
+      } else if (this.weather <= 5) {
+          return 'It\'s too stormy! No planes can land!';
+      } else if (this.planes.length < this.capacity) {
+          this.planes.push(plane._name);
+          plane.land();
+          return this.planes;
+      } else {
+          return 'Abort landing! The airport is full!';
+      }
+  }
+}
+```
+
 
 #### Output
 ```
