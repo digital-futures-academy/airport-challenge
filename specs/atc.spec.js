@@ -56,11 +56,12 @@ plane = new Plane('American', 'flying');
 atc = new AirTrafficController();
 
 //Execute 
-atc.queryLanded(plane,airport);
-airport.land(plane);
+console.log(atc.queryLanded(plane,airport));
+console.log(airport.land(plane));
 
 //Verify 
-console.log(`Landed planes do not land again: ${assertEquals(atc.queryLanded(plane,airport), "The plane, American, you are trying to land has already landed")}`);
+console.log(`Landed planes do not land again: ${assertEquals(atc.queryLanded(plane,airport), 
+    "The plane, American, you are trying to land has has already landed")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------
 

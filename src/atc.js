@@ -16,7 +16,12 @@ class AirTrafficController{
     }
 
     queryLanded(plane, airport) {
-        
+        if (airport.planes.includes(plane)) {
+            return `The plane, ${plane.name}, you are trying to land has has already landed`
+        } else {
+            return 'Ready for landing!'
+        }
+
     }
 }   
 
