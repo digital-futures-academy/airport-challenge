@@ -48,7 +48,7 @@ console.log(assertEquals(result, 200));
 //------------------------------------------------------------------------------
 
 //Third test
-console.log('Does trying to add too many planes return an error, and keep the list the same');
+console.log('Does trying to add too many planes return an error');
 //1. Set up
 let airport3 = new Airport();
 airport3.weather = 50;
@@ -66,7 +66,7 @@ airport3.capacityOverride(3);
 result = airport3.landPlane(plane4);
 
 //3.Verify
-console.log(assertEquals(result.length, 3))
+console.log(assertEquals(result, 'Abort landing! The airport is full!'))
 
 //------------------------------------------------------------------------------
 
@@ -87,13 +87,10 @@ airport4.landPlane(planeC);
 //2. Execute
 let resultA = airport4.takeOff(planeC);
 let resultB = airport4.inAirport(planeC);
-let resultC = airport4.inAirport(planeB);
-
 
 //3. Verify
 console.log(assertEquals(resultA.length, 2));
 console.log(assertEquals(resultB, false));
-console.log(assertEquals(resultC, true));
 
 //------------------------------------------------------------------------------
 
@@ -116,8 +113,8 @@ const result1 = airport5.landPlane(plane01);
 const result2 = airport5.takeOff(plane03);
 
 //3. Verify
-console.log(assertEquals(result1.length, 2));
-console.log(assertEquals(result2.length, 2));
+console.log(assertEquals(result1, 'This plane has already landed!'));
+console.log(assertEquals(result2, 'This plane has already taken off!'));
 
 //------------------------------------------------------------------------------
 //Sixth Test
@@ -134,9 +131,10 @@ airport6.landPlane(secondPlane);
 const answer = airport6.takeOff(firstPlane);
 
 //3. Verify
-console.log(assertEquals(answer.length, 2));
+console.log(assertEquals(answer, "It's too stormy! No planes can take off!"));
 
 //------------------------------------------------------------------------------
+
 //Edge cases
 console.log('Does trying to land a plane that has landed elsewhere return an error?')
 
@@ -152,6 +150,6 @@ manchester.weather = 50;
 let message = manchester.landPlane(aeroplane);
 
 //3. Verify
-console.log(assertEquals(message.length, 0));
+console.log(assertEquals(message, 'This plane has already landed!'));
 
 //------------------------------------------------------------------------------
