@@ -22,6 +22,19 @@ I would like a default airport capacity that can be overridden as appropriate
 ```
 
 Nouns|Verbs 
----|-- 
+---|--- 
 airport|overridden 
+
+### Story 3
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+Nouns|Verbs 
+airport|prevent 
+
+
+
 
