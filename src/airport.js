@@ -2,7 +2,8 @@ class Airport {
   // here's a starting point for you
   constructor() {
     this.planes = [],
-    this.capacity = 100
+    this.capacity = 100,
+    this.weather = Math.floor((Math.random() * 100) + 1);
   }
 
   landPlane(plane) {
@@ -26,11 +27,15 @@ class Airport {
 
   takeOff(plane) {
     let boo = this.inAirport(plane)
+    if (this.weather <= 5) {
+      console.log("It's too stormy! No planes can take off!")
+    } else {
     if (boo === false) {
       console.log('This plane has already taken off!')
     } else {let index = this.planes.indexOf(plane._name)
     this.planes.splice(index, 1)
   }
+}
     return this.planes
   }
 
@@ -41,7 +46,7 @@ class Airport {
       return false
     }
   }
-}
+};
 
 
 module.exports = Airport;

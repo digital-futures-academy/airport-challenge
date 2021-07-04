@@ -2,6 +2,8 @@ let Airport = require('../src/airport.js')
 let Plane = require('../src/plane.js')
 let assertEquals = require('../test-framework.js')
 
+//------------------------------------------------------------------------------
+
 //First test
 console.log('Does landing a plane add 1 plane to the airport')
 //1. Set up
@@ -16,8 +18,19 @@ console.log(assertEquals(result.length, 1));
 
 //------------------------------------------------------------------------------
 
-//Second test
-console.log('Does changing the capcity give 200')
+//Second Test
+console.log('Does the airport have a default capacity of 100?');
+//1. Set up
+let heathrow = new Airport()
+
+//2. Execute
+let capac = heathrow.capacity
+
+//3. Verify
+console.log(assertEquals(capac, 100));
+
+
+console.log('Can the capacity be overriden to 200?')
 //1. Set up
 let airport2 = new Airport();
 
@@ -61,11 +74,9 @@ let planeC = new Plane('Qantas')
 airport4.landPlane(planeA);
 airport4.landPlane(planeB);
 airport4.landPlane(planeC);
-console.log(airport4.planes);
 
 //2. Execute
 let resultA = airport4.takeOff(planeC);
-console.log(airport4.planes)
 let resultB = airport4.inAirport(planeC);
 let resultC = airport4.inAirport(planeB);
 
@@ -96,3 +107,20 @@ const result2 = airport5.takeOff(plane03);
 //3. Verify
 console.log(assertEquals(result1.length, 2));
 console.log(assertEquals(result2.length, 2));
+
+//------------------------------------------------------------------------------
+//Sixth Test
+console.log('Does trying to take off a plane during stormy weather return an error?')
+//1. Set up
+let airport6 = new Airport();
+airport6.weather = 3
+let firstPlane = new Plane('Emirates');
+let secondPlane = new Plane('British Airways');
+airport6.landPlane(firstPlane);
+airport6.landPlane(secondPlane);
+
+//2. Execute
+const answer = airport6.takeOff(firstPlane);
+
+//3. Verify
+console.log(assertEquals(answer.length, 2));

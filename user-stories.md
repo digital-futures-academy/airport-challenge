@@ -71,5 +71,19 @@ Airport|prevent asking
 
 Objects|Properties|Messages|Output
 ---|---|---|---
-Airport|list of planes|takeOff()|string 
+Airport|list of planes|takeOff()|string
 ||landPlane()|string
+
+Extended Acceptance Criteria <br>
+User Story 6 <br>
+As an air traffic controller <br>
+To ensure safety <br>
+I want to prevent takeoff when weather is stormy <br>
+
+Nouns|Verbs
+---|---
+weather|prevent takeoff
+
+Object|Properties|Messages|Output
+---|---|---|---
+Airport|weather|abortTakeOff()|list of planes
