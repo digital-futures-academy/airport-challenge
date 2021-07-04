@@ -26,9 +26,11 @@ class Airport {
        return 0;
      }
      else console.log(`${plane} is no longer in the airport`);
+     return 0;
     }
     else
-    console.log('Sorry this plane is not in the airport.');
+    console.log('Sorry this plane is not in the airport and so cannot take off.');
+    return 0;
   }
 
   isFull(){

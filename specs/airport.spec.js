@@ -139,3 +139,24 @@ actualResult = airport.land(plane1);
 // Verify
 
 console.log(assertEquals(expectedResult, actualResult));
+
+//-----------------------------------------------------------------------
+
+// Test7 - Test to check whether a plane is prevented from taking off if it's not in the airport
+
+console.log('\nTest to see whether a plane is prevented from taking off if it is not in the airport:');
+
+// Setup
+
+airport = new Airport();
+expectedResult = 0;
+plane1 = 'FlyBe';
+
+
+// Execute
+
+actualResult = airport.takeOff(plane1);
+
+// Verify
+
+console.log(assertEquals(expectedResult, actualResult));
