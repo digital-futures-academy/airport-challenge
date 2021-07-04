@@ -1,6 +1,6 @@
 const assertEquals = require('./../test-framework.js');
 const Airport = require('./../src/airport.js');
-let airport, plane1, actualResult, changableCapacity;
+let airport, plane1, actualResult, changableCapacity, plane2, plane3;
 
 // Test1 - Test to see whether a plane can land at an airport
 console.log('\nWill the plane land at the airport?');
@@ -36,3 +36,30 @@ actualResult = airport.capacity;
 
 console.log(assertEquals(changableCapacity, actualResult));
 console.log(`Capacity is ${actualResult}`);
+
+//-----------------------------------------------------------------------
+
+// Test3 - Test to check whether the airport is full or not
+
+console.log('\nIs the airport full?');
+// Setup
+
+changableCapacity = 2;
+plane1 = 'FlyBe'
+plane2 = 'TUI'
+plane3 = 'RyanAir' 
+airport = new Airport(changableCapacity);
+
+// Execute 
+
+airport.land(plane1);
+airport.land(plane2);
+airport.land(plane3);
+
+
+actualResult = airport.plane.length;
+
+// Verify 
+
+console.log(assertEquals(changableCapacity, actualResult));
+console.log(`Capacity is ${changableCapacity}`);
