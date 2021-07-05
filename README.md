@@ -31,9 +31,13 @@ This made use a test class written in [another file](spec/test.spec.js). These t
 ### Airport Class
 The final step was to create the [Airport](src/airport.js) class. This was done based on the expected value of the [tests](spec/test.spec.js). 
 
-## Screenshot of Tests
+### Extended Criteria 
+To complete the entended criteria, I followed the same method, updating the [domain model](domain-model.md), the [tests](spec/test.spec.js) and the [airport class](spec/airport.spec.js). 
+
+## Screenshots of Tests
+
+### Accepted Tests
 ![Screenshot of test](test_screenshot.png)
 
-
-
-
+### Extended Tests 
+![Extended Screenshot](test_screenshot.png) 
