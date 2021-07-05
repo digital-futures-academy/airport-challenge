@@ -73,7 +73,7 @@ console.log(airport.takeOff(plane));
 
 //Verify 
 console.log(`Planes can not take off in stormy weather: ${assertEquals(atc.queryTakeOff(plane, airport, weather),
-    "As the weather is stormy, the plane, American, is not permitted to take off")}`);
+    "As the weather is stormy, that operation is not permitted.")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------
 console.log('')
@@ -89,7 +89,7 @@ console.log(airport.land(plane));
 
 //Verify 
 console.log(`Planes can not land in stormy weather: ${assertEquals(atc.queryLanding(plane, airport, weather),
-    "As the weather is stormy, the plane, Air France, is not permitted to land")}`);
+    "As the weather is stormy, that operation is not permitted.")}`);
 console.log(`Planes in the airport remained unmodified: ${assertEquals(airport.planes.length, 0)}`);
 // -------------------------------------
 console.log('')

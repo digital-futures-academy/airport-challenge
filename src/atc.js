@@ -1,17 +1,19 @@
 //Air Traffic Controller Class
 class AirTrafficController{
 
-    queryTakeOff(plane,airport,weather = 'fine'){ 
-        if (weather === 'stormy'){
-            return `As the weather is stormy, the plane, ${plane.name}, is not permitted to take off`
-        }    
-        else if (airport.planes.includes(plane)) {
+    find(plane,airport){
+        return airport.find(plane) != - 1;
+    }
 
-            // Move the first part of this code as a method in the airport class
+    checkWeather(weather){
+        if (weather === 'stormy') {
+            return `As the weather is stormy, that operation is not permitted.`}
+    }
 
-            // Move the second part to a method in the plane class which modifies its own internal state. 
-            airport.planes[airport.planes.indexOf(plane)].flyingStatus = 'take off';
-    
+    queryTakeOff(plane, airport, weather = 'fine'){ 
+        this.checkWeather(weather);
+        if (this.find(plane, airport)) {
+            airport.planes[airport.find(plane)].takeOff()
             return 'Ready for take off!';
         }
         else if (plane.flyingStatus === 'flying') {
@@ -23,15 +25,11 @@ class AirTrafficController{
     }
 
     queryLanding(plane, airport, weather = 'fine') {
-        if (weather === 'stormy') {
-            return `As the weather is stormy, the plane, ${plane.name}, is not permitted to land`
-        }
-        // Write a method in airport.js that checks if a plane exists in its internal planes array property.
-        else if (airport.planes.includes(plane)) {
+        this.checkWeather(weather);
+        if (this.find(plane,airport)) {
             return `The plane, ${plane.name}, you are trying to land has has already landed`;
-        } else {
-            // The flying status of the plane should be set internally by the plane. The internal method should then be called by the atc class. 
-            plane.flyingStatus = 'landing';
+        } else { 
+            plane.landing()
             return 'Ready for landing!';
         }
 
