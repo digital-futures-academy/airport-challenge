@@ -1,7 +1,7 @@
 class Airport {
     constructor(name, full) {
         this._name = name;
-        this._airportCapacity = 249; //airport operates a fleet of 249 aircraft
+        this._airportCapacity = 249; //airport operates a fleet of 249 aircraft by default
         this._full = full;
     }
 

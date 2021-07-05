@@ -5,11 +5,13 @@ module.exports = {
     'es2021': true,
   },
   'extends': [
-    'google',
+      'google',
+      'eslint:recommended'
   ],
   'parserOptions': {
     'ecmaVersion': 12,
   },
-  'rules': {
-  },
+    'rules': {
+        "quotes": ["warn", "single"]
+    }
 };
