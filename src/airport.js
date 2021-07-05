@@ -3,7 +3,6 @@ class Airport {
         this.runway = [];
         this.capacity = capacity || 50;
         this.total = 0;
-    
     }
 
     landPlane(plane) {
@@ -20,7 +19,6 @@ class Airport {
             }
             return this.runway;
         }
-      
     }
   
   
@@ -47,12 +45,12 @@ class Airport {
                 return `${plane} has taken off and is no longer in the airport`;
             }
             else if (!this.airportChecker(plane[i])) { 
-                return `${plane} cannot take off, it is not in the airport`
+                return `${plane} cannot take off, it is not in the airport`;
             }
             else {
-            const index = this.runway.indexOf(plane);
-            this.runway.splice(index, 1);
-            this.total--;
+                const index = this.runway.indexOf(plane);
+                this.runway.splice(index, 1);
+                this.total--;
             }
             return this.runway;
         }
@@ -65,13 +63,8 @@ class Airport {
         else {
             return false;
         }
-    
     }
 }
       
 
 module.exports = Airport;
-
-// let airport = new Airport(2)
-// airport = airport.landPlane("plane1")
-// console.log(airport)
