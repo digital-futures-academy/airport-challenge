@@ -55,10 +55,10 @@ plane js - temporary instance of Plane
 
 ![plane js - temporary instance of Plane](https://user-images.githubusercontent.com/17404715/124434280-98385580-dd6b-11eb-965a-fec4f350fab8.PNG)
 
-(eslintrc.js) - added eslint:recommended and a rule for single quotes
+eslintrc.js - added eslint:recommended and a rule for single quotes
 
 ![( eslintrc js) - added eslint recommended and a rule for single quotes](https://user-images.githubusercontent.com/17404715/124434394-be5df580-dd6b-11eb-92cb-0283484c3629.PNG)
 
-airport js - running eslint (without extending to google within  eslintrc js
+Running eslint on airport.js (without extending to google within eslintrc.js)
 
 ![airport js - running eslint (without extending to google within  eslintrc js)](https://user-images.githubusercontent.com/17404715/124434641-08df7200-dd6c-11eb-8ac7-97b09539db32.png)
