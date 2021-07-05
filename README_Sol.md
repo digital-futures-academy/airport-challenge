@@ -3,6 +3,7 @@
 ## Installing Project
 
 $ git clone <https://github.com/breeshidy/airport-challenge>
+
 npm install
 
 ## To run tests
