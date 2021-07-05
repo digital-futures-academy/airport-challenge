@@ -32,25 +32,33 @@ Sequence diagram: https://miro.com/app/board/o9J_l8UKtaw=/
 Screenshots
 ---------
 Results of running specRunner js (after writing all source and test code)
+
 ![Results of running specRunner js (after writing all source and test code)](https://user-images.githubusercontent.com/17404715/124434201-7ccd4a80-dd6b-11eb-957f-c219121353c2.PNG)
 
 Results of running plane spec js and airport spec js (after writing all source and test code)
+
 ![Results of running plane spec js and airport spec js (after writing all source and test code)](https://user-images.githubusercontent.com/17404715/124434214-80f96800-dd6b-11eb-8ba9-6be6705a65b9.PNG)
 
 Running airport js - logging the temporary instance of Airport
+
 ![Running airport js - logging the temporary instance of Airport](https://user-images.githubusercontent.com/17404715/124434236-88207600-dd6b-11eb-9404-61902bffa844.PNG)
 
 airport js - temporary instance of Airport
+
 ![airport js - temporary instance of Airport](https://user-images.githubusercontent.com/17404715/124434248-8ce52a00-dd6b-11eb-8a2e-0ff84aaf1b8a.PNG)
 
 Running plane js - logging the temporary instance of Plane
+
 ![Running plane js - logging the temporary instance of Plane](https://user-images.githubusercontent.com/17404715/124434267-9373a180-dd6b-11eb-9e1e-599e606026fe.PNG)
 
 plane js - temporary instance of Plane
+
 ![plane js - temporary instance of Plane](https://user-images.githubusercontent.com/17404715/124434280-98385580-dd6b-11eb-965a-fec4f350fab8.PNG)
 
 (eslintrc.js) - added eslint recommended and a rule for single quote
+
 ![( eslintrc js) - added eslint recommended and a rule for single quotes](https://user-images.githubusercontent.com/17404715/124434394-be5df580-dd6b-11eb-92cb-0283484c3629.PNG)
 
 airport js - running eslint (without extending to google within  eslintrc js
+
 ![airport js - running eslint (without extending to google within  eslintrc js)](https://user-images.githubusercontent.com/17404715/124434641-08df7200-dd6c-11eb-8ac7-97b09539db32.png)
