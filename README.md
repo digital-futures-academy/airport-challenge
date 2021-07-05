@@ -15,12 +15,12 @@ With each user story, I created Domain models which indicicate what my output sh
 Progress Blockers
 My main progress blocker was getting the code to work. As this has been a common block amongst other challenges such as the Bagel challenge, i will need to find out whats wrong in order to work efficiently in future.
 
-User Story 1
+# User Story 1
 Objects      Properties	       Messages	         Output
 Airport	hangar@Array	Land(plane)	     @Array[@planes]
 Plane	Items @Array[@Item]	addItem(@String)	 @Item[item]
 
-User Story 2
+# User Story 2
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
@@ -31,7 +31,7 @@ Objects      Properties	       Messages	         Output
 Airport	  capacity	
 	                      @
 
-User Story 3
+# User Story 3
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
@@ -41,7 +41,7 @@ Airport		           Airport full	     @Boolean TRUE
 		               Space available    @Boolean FALSE
 
 
-User Story 4
+# User Story 4
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
@@ -51,7 +51,7 @@ Objects      Properties	       Messages	         Output
 Airport	takeOff(@plane)	@String      confirmed take off
 		          No take off, plane flying	     @
 
-User Story 5
+# User Story 5
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
