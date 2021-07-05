@@ -13,69 +13,28 @@ Airport Challenge
 
 ```
 
-Instructions
+Installation Of The project
 ---------
+Use the https link for this project to clone it, via version control, to an IDE or code editor of your choice, for e.g. Visual Studio or Visual Studio Code. Make sure you can successfully open all the files stored within the root folder (airport-challenge) of the cloned project.
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by 9am Monday morning, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
+Running Tests
+---------
+Open your terminal (bash command line is also fine) and use the cd command to navigate to the root folder of the project. From there, type the following command: node specRunner.js then press enter to run all the test cases that operate within plane.spec.js and airport.spec.js which are both stored in the spec folder. The results will be displayed on your terminal, each result set will consist of the name of the test as well as true (passed the test) or false (failed the test). Feel free to browse the files within the spec folder to inspect the test-based code.
 
-Steps
--------
+Approaching The Problem
+---------
+My initial approach was to produce a representation of each user story via extracting relevant nouns and verbs (divided between air traffic controller and system designer) as well as continuously updating the current representation according to the user story I was working on at the time. This proved to be fruitful because after completing that, I used it to develop a functional representation table to further clarify the behaviours of the objects and include their properties. As a result, I gained a much clearer understanding of how the objects were going to operate, the data they can access, and the data they will store. Following this, I used Miro to create a sequence diagram which is based on the functional representation. As part of the domain model, a sequence diagram is vital for illustrating the various data flows between the components of the program and thus greatly aids with speeding up the implementation stage because the code you develop is based on it instead of from scratch without a point of reference. Additionally, you are much less likely to be confused or make errors assuming that the diagram and tables are sensible. After completing the sequence diagram, I moved onto development (via Visual Studio) to structure my folders and files and used the diagram and representation tables to implement the required source code logic and test code which utilises the assertEquals function as the test framework. Furthermore, I made sure to stage, commit and push my changes to the remote repository after applying each user story (evidencing test-driven development) and/or making noteworthy updates such as installing and configuring ESLint for my project. It can be used to avoid bugs and improve the overall quality of code by reporting patterns found within code.
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`
+[Representation of user stories.docx](https://github.com/thekosiguy/airport-challenge/files/6762520/Representation.of.user.stories.docx)
+Link to the sequence diagram: https://miro.com/app/board/o9J_l8UKtaw=/
 
-Task
------
-
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
-
-#### Acceptance Criteria
-```
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
-
-As the system designer
-So that the software can be used for many different airports
-I would like a default airport capacity that can be overridden as appropriate
-
-As an air traffic controller
-To ensure safety
-I want to prevent landing when the airport is full
-
-As an air traffic controller
-So I can get passengers on the way to their destination
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
-
-As an air traffic controller
-To avoid confusion
-I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-```
-
-#### Extended Acceptance Criteria
-```
-As an air traffic controller
-To ensure safety
-I want to prevent takeoff when weather is stormy
-
-As an air traffic controller
-To ensure safety
-I want to prevent landing when weather is stormy
-
-As an air traffic controller
-To count planes easily
-Planes that have landed must be at an airport
-```
-
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
-
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+Screenshots
+---------
+![Results of running specRunner js (after writing all source and test code)](https://user-images.githubusercontent.com/17404715/124434201-7ccd4a80-dd6b-11eb-957f-c219121353c2.PNG)
+![Results of running plane spec js and airport spec js (after writing all source and test code)](https://user-images.githubusercontent.com/17404715/124434214-80f96800-dd6b-11eb-8ba9-6be6705a65b9.PNG)
+![Running airport js - logging the temporary instance of Airport](https://user-images.githubusercontent.com/17404715/124434236-88207600-dd6b-11eb-9404-61902bffa844.PNG)
+![airport js - temporary instance of Airport](https://user-images.githubusercontent.com/17404715/124434248-8ce52a00-dd6b-11eb-8a2e-0ff84aaf1b8a.PNG)
+![Running plane js - logging the temporary instance of Plane](https://user-images.githubusercontent.com/17404715/124434267-9373a180-dd6b-11eb-9e1e-599e606026fe.PNG)
+![plane js - temporary instance of Plane](https://user-images.githubusercontent.com/17404715/124434280-98385580-dd6b-11eb-965a-fec4f350fab8.PNG)
+![( eslintrc js) - added eslint recommended and a rule for single quotes](https://user-images.githubusercontent.com/17404715/124434394-be5df580-dd6b-11eb-92cb-0283484c3629.PNG)
+![airport js - running eslint (without extending to google within  eslintrc js)](https://user-images.githubusercontent.com/17404715/124434641-08df7200-dd6c-11eb-8ac7-97b09539db32.png)
