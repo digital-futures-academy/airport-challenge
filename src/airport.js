@@ -7,14 +7,19 @@ class Airport {
     }
 
     landPlane(plane) {
-        if (this.airportCapacity()) {
-            return `Do not land ${plane}`;
+        for (let i = 0; i < plane.length; i++) {
+            if (this.airportChecker(plane[i])) {
+                return `${plane} is in the airport`;
+            }
+            if (this.airportCapacity()) {
+                return `Airport is full. Do not land ${plane}`;
+            }
+            else {
+                this.runway.push(plane[i]);
+                this.total++;
+            }
+            return this.runway;
         }
-        else {
-            this.runway.push(plane);
-            this.total++;
-        }
-        return this.runway;
       
     }
   
@@ -36,7 +41,26 @@ class Airport {
         }
     }
 
+    takeOff(plane) {
+        for (let i = 0; i < plane.length; i++) {
+            if (this.airportChecker(plane[i])) {
+                return `${plane} has taken off and is no longer in the airport`;
+            }
+            const index = this.runway.indexOf(plane);
+            this.runway.splice(index, 1);
+            return this.runway;
+        }
+    }
     
+    airportChecker(plane) {
+        if (this.runway.includes(plane)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    
+    }
 }
       
 
