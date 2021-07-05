@@ -40,9 +40,8 @@ airport.add(plane);
 //airport.add("capacity increased");
 
 //verify
-console.log("Capacity increased")
+console.log("Capacity can be increased")
 
-//console.log(plane.plane.includes("land"));
 
 //console.log(compare(airport.airport.length, 1));
 
@@ -60,5 +59,7 @@ let plane = new Plane()
 console.log(airport.airport.length <= airport.max)
 
 //TEST 4 Let plane take off & confirm its no longer in airport
+
+
 
 //TEST 5 Prevent asking airport to let planes take off that are not at airport/ land plane thats already landed

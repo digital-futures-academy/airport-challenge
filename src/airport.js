@@ -3,6 +3,7 @@ class Airport {
 
   constructor() { 
     this.airport = []
+    this.plane = []
   }
 //1 Land plane
   land(plane){
@@ -13,8 +14,13 @@ class Airport {
 
   //2 Expand default capacity
  
-  if (this.airport.length) === this.max {
-    console.log('Default capacity expanded')
+  changeCapacity (plane) {
+  this.max = plane
+  console.log('Default capacity expanded')
+} 
+
+  //if (this.airport.length) === this.max {
+  // console.log('Default capacity expanded')
   }
   else (this.airport.push(plane)) {
     console.log("land plane");
@@ -35,8 +41,12 @@ add(plane);
 remove(plane); 
   for (let i = 0; i < this.airport.length; i++) {
       if (this.plane[i] === plane) this.plane.splice(i, 1);
-  } 
-//5 prevention
+   
+  console.log("Plane has taken off and is longer at airport");
+} else {
+    console.log("Plane is still at airport");
+  }
+  //5 prevention
     
 
 }

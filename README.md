@@ -1,3 +1,66 @@
+
+deerangan-airport-challenge uses Test Driven Development to test Javascript code as a means of demonstrating my learning towards Digital Futures Modern Software Engineering course.
+
+Quick start
+$ git clone https://github.com/Deerangan/airport-challenge.git
+
+
+To run tests
+node specRunner.js
+
+Approach
+
+With each user story, I created Domain models which indicicate what my output should look like. I used Test Driven Development to follow the steps of setup, execute and verify. I added code to my JS files located in the SRC to pass the tests. Once finished, I pushed the work back into my repository. 
+
+Progress Blockers
+My main progress blocker was getting the code to work. As this has been a common block amongst other challenges such as the Bagel challenge, i will need to find out whats wrong in order to work efficiently in future.
+
+User Story 1
+Objects      Properties	       Messages	         Output
+Airport	hangar@Array	Land(plane)	     @Array[@planes]
+Plane	Items @Array[@Item]	addItem(@String)	 @Item[item]
+
+User Story 2
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+
+
+Objects      Properties	       Messages	         Output
+
+Airport	  capacity	
+	                      @
+
+User Story 3
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+
+Objects      Properties	       Messages	         Output
+Airport		           Airport full	     @Boolean TRUE
+		               Space available    @Boolean FALSE
+
+
+User Story 4
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+
+Objects      Properties	       Messages	         Output
+Airport	takeOff(@plane)	@String      confirmed take off
+		          No take off, plane flying	     @
+
+User Story 5
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+Objects      Properties	       Messages	         Output
+Airport		              Land()	     @String ‘Plane ‘
+	                   Different airport     @String ‘Plane has landed in a different airport’
+			
+
 Airport Challenge
 =================
 
