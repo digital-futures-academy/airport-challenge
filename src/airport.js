@@ -9,7 +9,7 @@ class Airport {
     landPlane(plane) {
         for (let i = 0; i < plane.length; i++) {
             if (this.airportChecker(plane[i])) {
-                return `${plane} is in the airport`;
+                return `${plane} is already in the airport`;
             }
             if (this.airportCapacity()) {
                 return `Airport is full. Do not land ${plane}`;
@@ -46,8 +46,14 @@ class Airport {
             if (this.airportChecker(plane[i])) {
                 return `${plane} has taken off and is no longer in the airport`;
             }
+            else if (!this.airportChecker(plane[i])) { 
+                return `${plane} cannot take off, it is not in the airport`
+            }
+            else {
             const index = this.runway.indexOf(plane);
             this.runway.splice(index, 1);
+            this.total--;
+            }
             return this.runway;
         }
     }
