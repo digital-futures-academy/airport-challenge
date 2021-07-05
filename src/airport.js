@@ -1,19 +1,34 @@
-//const Plane = require("./plane");
-
 class Airport {
-    // here's a starting point for you
-    constructor(name){
-        this.name = name;
-        this.planes = [];
-        // Default capacity is 20. 
-        this.capacity = 20; 
+    constructor(name,capacity = 20){
+        this._name = name;
+        this._planes = []; 
+        this._capacity = capacity; 
+    }
+
+    // Getters
+    get name () {
+        return this._name;
+    }
+    get planes () {
+        return this._planes;
+    }
+    get capacity () {
+        return this._capacity;
+    }
+    // Setters 
+    set capacity (newCapacity) {
+        this._capacity = newCapacity; 
     }
 
     land (plane) {   
         if (plane.flyingStatus === 'landing'){
 
+            // Should introduce an internal method that checks if the airport is full.
+
             if (this.planes.length < this.capacity) {
+                // The flying status internal property shouuld be set by the plane class. 
                 plane.flyingStatus = 'landed';
+                // The above line should be amended to call the internal method contained in the plane class. 
                 this.planes.push(plane);
                 return 'The plane has landed.';
             } else {
@@ -23,10 +38,6 @@ class Airport {
          } else {
             return 'Sorry, that plane can not land at this time'
         }
-    }
-
-    changeCapacity(newCapacity){
-        this.capacity = newCapacity; 
     }
 
     takeOff(plane){  

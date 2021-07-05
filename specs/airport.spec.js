@@ -6,7 +6,6 @@ const AirTrafficController = require("../src/atc");
 const assertEquals = require("../testing-framework.js");
 
 let airport, plane, newCapacity;
-let planeFlying, planeLanded;
 
 console.log("\x1b[35m","--- Start of Airport Class Tests ---")
 // Land() Method Test -------------------
@@ -28,14 +27,14 @@ console.log(`The length of the planes array is equal to one: ${assertEquals(airp
 console.log(`The planes array contains the testPlane ${assertEquals(airport.planes[0].name, 'testPlane')}\n`);
 // ---------------------------------------
 // Capacity Test -------------------
-console.log("Test to check the default capacity has been initialised andchangeCapacity() can overide the number contained in the capacity property");
+console.log("Test initialisation of a default capacity, getter and setter");
 //Setup 
 newCapacity = 10;
 airport = new Airport('Gatwick');
 console.log(`The default airport capacity is: ${airport.capacity}`);
 
 //Execute
-airport.changeCapacity(newCapacity);
+airport.capacity = newCapacity;
 
 //Verify
 console.log(`The airport capacity has been overridden to ${airport.capacity}: ${assertEquals(airport.capacity, newCapacity)}\n`);
@@ -49,7 +48,7 @@ plane1 = new Plane('Ryanair','landing');
 plane2 = new Plane('EasyJet', 'landing');
 
 newCapacity = 1;
-airport.changeCapacity(newCapacity);
+airport.capacity = newCapacity;
 console.log(`The current airport capacity is: ${airport.capacity}`);
 
 //Execute (No new methods were added)

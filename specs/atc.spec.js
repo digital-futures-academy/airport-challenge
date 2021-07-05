@@ -15,10 +15,6 @@ planeFlying = new Plane('Delta', 'flying');
 airport = new Airport('Amsterdam Schipol');
 atc = new AirTrafficController();
 
-//console.log(airport);
-//console.log(airport.name);
-//console.log(airport.planes);
-
 //Execute 
 atc.queryTakeOff(planeFlying,airport);
 
@@ -36,11 +32,6 @@ plane = new Plane('Lufthansa', 'flying');
 atc = new AirTrafficController();
 
 heathrow.land(plane);
-
-// console.log(heathrow);
-// console.log(gatwick);
-// console.log(plane);
-// console.log(atc);
 
 //Execute 
 
@@ -117,9 +108,5 @@ console.log(`Planes can land fine weather: ${assertEquals(airport.land(plane, ai
     "The plane has landed.")}`);
 console.log(`Planes in the airport is equal to one: ${assertEquals(airport.planes.length, 1)}`);
 // -------------------------------------
-
-
-
-
 
 console.log("\x1b[35m", "--- End of AirTrafficController Class Tests ---")
