@@ -8,6 +8,7 @@ test.it("Test1 - Testing that we can land planes", () => {
 	let actualOutput, expectedOutput;
 	let airport = new Airport();
 	let plane = new Plane();
+	airport.weather = "sunny";
 	expectedOutput = [plane];
 
 	// Step2 - Act
