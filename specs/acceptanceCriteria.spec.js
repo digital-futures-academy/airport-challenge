@@ -78,3 +78,18 @@ test.it("Test5a - Testing that planes not at airport cannot takeoff", () => {
 	// Step3 - Assert
 	test.assertEquals(actualOutput, expectedOutput);
 })
+
+test.it("Test5b - Testing that planes at airport cannot land", () => {
+	// Step1 - Arrange
+	let expectedOutput, actualOutput;
+	let plane = new Plane();
+	let airport = new Airport();
+	airport.parkingLot = [plane];
+	expectedOutput = "Not possible: Plane is at airport";
+
+	// Step2 - Act
+	actualOutput = airport.landPlane(plane);
+
+	// Step3 - Assert
+	test.assertEquals(actualOutput, expectedOutput);
+})
