@@ -37,9 +37,10 @@ test.it("Test2 - Testing that we can override default airport capacity", () => {
 test.it("Test3 - Testing that we can prevent landing when airport is full", () => {
 	// Step1 - Arrange
 	let actualOutput, expectedOutput;
-	let plane = new Plane();
+	let plane1 = new Plane();
+	let plane2 = new Plane();
 	let airport = new Airport(2);
-	airport.parkingLot = [plane, plane];
+	airport.parkingLot = [plane1, plane2];
 	expectedOutput = true;
 
 	// Step2 - Act
