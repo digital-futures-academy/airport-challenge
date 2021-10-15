@@ -15,6 +15,5 @@ test.it("Test6 - Testing that we can prevent takeoff when weather is 'stormy'", 
 	actualOutput = airport.takeOff(plane);
 
 	// Assert
-	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
-
+	test.assertEquals(actualOutput, expectedOutput);
 })
