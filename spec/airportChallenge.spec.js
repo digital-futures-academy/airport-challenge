@@ -158,3 +158,27 @@ test.it('9 - Check if airport removes specific plane from plane array', () => {
 });
 
 
+
+test.it('10 - Check if airplane array does not decrease by 1 if plane that is not in airport is removed', () => {
+
+  let expectedOutput;
+  let result;
+
+  let heathrow = new Airport([], 50);
+  let boeing1 = new Airplane('boeing747-1');
+  let boeing2 = new Airplane('boeing747-2');
+  let boeing3 = new Airplane('boeing747-3');
+  let boeing4 = new Airplane('boeing747-4');
+
+  heathrow.landPlane(boeing1);
+  heathrow.landPlane(boeing2);
+  heathrow.landPlane(boeing3);
+
+  heathrow.setFlying(boeing4);
+
+
+  expectedOutput = false;
+  result = heathrow.currentPlanes.includes(boeing4);
+  console.log(result);
+  test.assertEquals(expectedOutput, result);
+});
