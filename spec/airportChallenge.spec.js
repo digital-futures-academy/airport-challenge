@@ -7,9 +7,9 @@ test.it('Check if airport can land plane', () => {
   let expectedOutput;
   let result;
 
-  let jfk = new Airport();
+  let heathrow = new Airport();
   let spitFire1 = new Airplane('spitFire1');
-  jfk.landPlane(spitFire1)
+  heathrow.landPlane(spitFire1)
 
 
   expectedOutput = 'landed';
@@ -17,17 +17,16 @@ test.it('Check if airport can land plane', () => {
   test.assertEquals(expectedOutput, result);
 })
 
-// test.it('Check if airport planes array increases by one after landing a plane', () => {
+test.it('Check if airport planes array increases by one after landing a plane', () => {
 
-//   let expectedOutput;
-//   let result;
+  let expectedOutput;
+  let result;
 
-//   let jfk = new Airport();
-//   let spitFire1 = new Airplane('spitFire1');
-//   jfk.landPlane(spitFire1)
+  let heathrow = new Airport();
+  let boeing1 = new Airplane('boeing747-1');
+  heathrow.landPlane(boeing1);
 
-
-//   expectedOutput = 1;
-//   result = jfk.currentPlanes.length;
-//   test.assertEquals(expectedOutput, result);
-// })
+  expectedOutput = 1;
+  result = heathrow.currentPlanes.length;
+  test.assertEquals(expectedOutput, result);
+})
