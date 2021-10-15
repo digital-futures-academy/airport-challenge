@@ -73,9 +73,10 @@
 >To ensure safety,
 >I want to prevent takeoff when weather is stormy
 
-| Object | Properties | Message | Context | Output |
-| ------ | ---------- | ------- | ------- | ------ |
-|        |            |         |         |        |
+| Object  | Properties             | Message              | Context               | Output         |
+| ------- | ---------------------- | -------------------- | --------------------- | -------------- |
+| Airport | stormyWeather @boolean | checkForBadWeather() | weather is stormy     | @boolean true  |
+|         |                        |                      | weather is not stormy | @boolean false |
 
 
 ### Criteria 7
@@ -83,9 +84,10 @@
 >To ensure safety,
 >I want to prevent landing when weather is stormy
 
-| Object | Properties | Message | Context | Output |
-| ------ | ---------- | ------- | ------- | ------ |
-|        |            |         |         |        |
+| Object  | Properties             | Message              | Context               | Output         |
+| ------- | ---------------------- | -------------------- | --------------------- | -------------- |
+| Airport | stormyWeather @boolean | checkForBadWeather() | weather is stormy     | @boolean true  |
+|         |                        |                      | weather is not stormy | @boolean false |
 
 
 ### Criteria 8
@@ -93,6 +95,8 @@
 >To count planes easily,
 >Planes that have landed must be at an airport
 
-| Object | Properties | Message | Context | Output |
-| ------ | ---------- | ------- | ------- | ------ |
-|        |            |         |         |        |
+| Object  | Properties            | Message                   | Context                           | Output         |
+| ------- | --------------------- | ------------------------- | --------------------------------- | -------------- |
+| Plane   | landedStatus @boolean | checkIfAtAirport()        | landed                            | @boolean true  |
+|         |                       |                           | not landed                        | @boolean false |
+| Airport | planes.length @number | numberOfPlanesAtAirport() | counts how many planes are landed | @number        |
