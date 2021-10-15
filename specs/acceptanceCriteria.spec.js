@@ -48,3 +48,18 @@ test.it("Test3 - Testing that we can prevent landing when airport is full", () =
 	// Step3 - Assert
 	test.assertEquals(actualOutput, expectedOutput);
 })
+
+test.it("Test4 - Testing that we can get planes to take off and confirm they are no longer in the airport", () => {
+	// Step1 - Arrange
+	let expectedOutput, actualOutput;
+	let plane = new Plane();
+	let airport = new Airport();
+	airport.parkingLot = [plane];
+	expectedOutput = [];
+
+	// Step2 - Act
+	actualOutput = airport.takeOff(plane);
+
+	// Step3 - Assert
+	test.assertEquals(actualOutput, expectedOutput);
+})
