@@ -317,27 +317,34 @@ test.it('16 - With 2 airports, if plane that is in airport-1 is set to land by a
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('17 - Weather class has weather property', () => {
+test.it('17 - Weather class has weather status property', () => {
   let expectedOutput;
   let result;
-
-  let weather = new Weather('stormy');
-
-  expectedOutput = 'stormy';
-  result = weather.weather;
+  expectedOutput = 'sunny';
+  result = Weather.status;
   console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('18 - Weather class is randomly outputting a weather string', () => {
+test.it('18 - If stormy, airport plane array does not increase by 1 if attempting to land a plane', () => {
   let expectedOutput;
   let result;
 
-  expectedOutput = 'stormy';
-  result = Weather.status();
+  let heathrow = new Airport([], 50);
+  Weather.status = 'sunny';
+  let airbus1 = new Airplane('airbus-1');
+  heathrow.landPlane(airbus1, Weather.status);
+
+  let boeing1 = new Airplane('boeing747-1');
+  Weather.status = 'stormy'
+  heathrow.landPlane(boeing1, Weather.status);
+
+
+  expectedOutput = 1;
+  result = heathrow.currentPlanes.length;
 
   console.log(result);
-
+  console.log(heathrow);
   test.assertEquals(expectedOutput, result);
 
 });

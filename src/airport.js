@@ -4,8 +4,8 @@ class Airport {
     this.currentPlanes = airplanes;
     this.capacity = capacity;
   }
-  landPlane(plane) {
-    if (this.checkIfFull() === false && this.currentPlanes.includes(plane) === false && plane.status === 'flying' && weather.weather === 'sunny') {
+  landPlane(plane, weather = 'sunny') {
+    if (this.checkIfFull() === false && this.currentPlanes.includes(plane) === false && plane.status === 'flying' && weather === 'sunny') {
       plane.status = 'landed';
       this.currentPlanes.push(plane);
     }
