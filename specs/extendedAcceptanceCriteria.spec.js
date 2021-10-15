@@ -40,12 +40,13 @@ test.it("Test8 - Testing that all landed planes are at an airport'", () => {
 	let plane = new Plane();
 	let airport = new Airport();
 	airport.weather = "sunny";
-	expectedOutput = [plane];
+	airport.landPlane(plane);
+	expectedOutput = true;
 
 	// Act
-	actualOutput = airport.landPlane(plane);
+	actualOutput = plane.isAtAirport(airport);
 
 	// Assert
 	// seems like js cannot compare arrays for identity
-	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
+	test.assertEquals(actualOutput, expectedOutput);
 })
