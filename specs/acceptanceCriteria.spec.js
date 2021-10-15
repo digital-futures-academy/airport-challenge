@@ -1,5 +1,6 @@
 const Airport = require('../src/airport');
 const assertEquals = require('../test-framework');
+const Plane = require('../src/Plane');
 
 // Test1
 console.log("Test1 - Testing that we can land planes");
@@ -8,7 +9,7 @@ let actualOutput, expectedOutput, result;
 
 let airport = new Airport();
 let plane = new Plane();
-expectedOutput = ['plane'];
+expectedOutput = [plane];
 
 // Step2 - Act
 actualOutput = airport.landPlane(plane);
