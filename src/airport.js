@@ -18,9 +18,10 @@ class Airport {
 
   takeOff(plane) {
     let index = this.parkingLot.indexOf(plane);
-    if (index !== -1) {
-      this.parkingLot.splice(index, 1);
+    if (index === -1) {
+      return "Not possible: Plane is not at airport";
     }
+    this.parkingLot.splice(index, 1);
     return this.parkingLot;
   }
 }
