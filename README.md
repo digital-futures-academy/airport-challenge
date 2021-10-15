@@ -1,4 +1,4 @@
-Initial challenge readme - for updated readme please go to ('./readme/airport README.md')
+**Initial challenge readme - for updated readme please go to [this file](readme/airport%20README.md)**
 
 Airport Challenge
 =================
