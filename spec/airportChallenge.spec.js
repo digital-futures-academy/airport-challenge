@@ -45,3 +45,19 @@ test.it('Check if airport adds specific plane to its array after landing plane',
   console.log(result);
   test.assertEquals(expectedOutput, result);
 })
+
+test.it('Check if airport capacity can be modified', () => {
+
+  let expectedOutput;
+  let result;
+  let input;
+
+  let heathrow = new Airport();
+  let boeing1 = new Airplane('boeing747-1');
+
+  input = 11;
+  expectedOutput = 11;
+  result = heathrow.capacity = input;
+  console.log(result);
+  test.assertEquals(expectedOutput, result);
+})

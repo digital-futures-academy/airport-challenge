@@ -1,6 +1,7 @@
 class Airport {
-  constructor(airplanes = []) {
+  constructor(airplanes = [], capacity = 10) {
     this.currentPlanes = airplanes
+    this.capacity = capacity
   }
   landPlane(plane) {
     plane.status = 'landed';
