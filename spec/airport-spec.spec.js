@@ -26,3 +26,15 @@ test.it("Criteria 2 - allow override of default airport capacity.", () => {
 
     test.assertEquals(actualOutput, expectedOutput);
 });
+
+
+test.it("Criteria 3 - prevent a plane from landing when the airport is full.", () => {
+    planes = ['EasyJet', 'JumboJet', 'Airbus'];
+    airport = new Airport(planes, 3);
+
+    airport.landPlane('PassengerJet');
+    let expectedOutput = 3;
+    let actualOutput = airport.planes.length;
+
+    test.assertEquals(actualOutput, expectedOutput);
+});
