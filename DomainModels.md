@@ -31,7 +31,7 @@
 | Object  | Properties      | Message         | Context       | Output         |
 | ------- | --------------- | --------------- | ------------- | -------------- |
 | Airport | status @boolean | isAirportFull() | it's full     | @boolean true  |
-|         |                 | isAirportFull() | it's not full | @boolean false |
+|         |                 |                 | it's not full | @boolean false |
 
 
 ### Criteria 4
@@ -44,7 +44,7 @@
 | ------- | ------------- | ----------------------- | ------------------------- | -------------- |
 | Airport | planes @Array | takeOff(plane)          | remove plane from airport | @Array[@Plane] |
 |         |               | isPlaneAtAirport(plane) | is at airport             | @boolean true  |
-|         |               | isPlaneAtAirport(plane) | is not at airport         | @boolean false |
+|         |               |                         | is not at airport         | @boolean false |
 
 
 ### Criteria 5
