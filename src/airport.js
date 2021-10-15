@@ -1,6 +1,4 @@
 class Airport {
-  // here's a starting point for you
-
   constructor(airport = []) {
     this.airport = airport;
   }
@@ -11,6 +9,9 @@ class Airport {
       if (this.isAirportFull() === false) {
         if (this.isPlaneInAirport() === false) {
           this.airport.push(planes[i]);
+        }
+        else {
+          console.log(`${planes[i]} is already in the airport.`);
         }
       }
       else {
@@ -23,9 +24,9 @@ class Airport {
 
   planeTakeoff(planes) {
     result = true;
-    for (let i = planes.length - 1; i >= 0; i--) {
+    for (let i = 0; i < planes.length; i++) {
       if (this.airport.indexOf(planes) === -1) {
-        console.log(`This ${planes[i]} is not in the airport.`);
+        console.log(`${planes[i]} is not in the airport.`);
         result = false;
       }
       else {
@@ -48,7 +49,7 @@ class Airport {
 
   }
 
-  isAirportFull(airport) {
+  isAirportFull() {
     if (this.airport.length >= this.maxCapacity) {
       return true;
     }
@@ -64,6 +65,7 @@ class Airport {
   }
 
   isPlaneInAirport(plane) {
+    
     if (this.airport.indexOf(plane) === -1) {
       return false;
     }

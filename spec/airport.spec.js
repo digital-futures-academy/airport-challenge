@@ -78,7 +78,7 @@ actualOutput = airport.isPlaneInAirport(plane);
 
 //Assert
 result = assertEquals(actualOutput, expectedOutput);
-console.log(airport);
+airport.printAirport();
 console.log(result);
 
 
@@ -88,7 +88,7 @@ console.log("Test 5, prevent asking the airport to let planes take-off which are
 airport = new Airport();
 plane = new Plane();
 
-plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane'];
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane', 'Concorde'];
 expectedOutput = false;
 
 //Act
@@ -98,3 +98,6 @@ actualOutput = airport.planeTakeoff(['U-2 spy plane']);
 //Assert
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
+
+
+//TEST 6
