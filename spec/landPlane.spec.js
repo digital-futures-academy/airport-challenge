@@ -2,7 +2,9 @@ const assertEquals = require('./test-framework');
 const Airport = require('../src/airport');
 const Plane = require('../src/Plane');
 
-let input, expectedOutput, actualOutput, result;
+console.log('--- PLANE LANDING TESTS ---');
+
+let expectedOutput, result;
 
 // Test 1 - Test that landing a plane adds a plane to the list of landed planes
 console.log('Test 1 - Test that landing a plane adds a plane to the list of landed planes');

@@ -1,7 +1,6 @@
 class Airport {
   // here's a starting point for you
-  constructor(maxCapacity = 500) {
-    this.maxCapacity = maxCapacity;
+  constructor() {
     this.planes = [];
   }
   landPlane(plane) {
