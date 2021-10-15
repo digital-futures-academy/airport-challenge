@@ -25,7 +25,8 @@ let actualOutput;
 // Check planes can only take off if weather is sunny
 // Check planes can only be counted if landed at airport
 // Check planes cannot have the same planeID
-
+// Check planes cannot land at two airports without taking off first
+// Check planes cannot take off from two aiports without landing first
 
 // Plane
 // Check if plane has landed
@@ -58,8 +59,8 @@ test.it('TEST 1: Check that planes can land', () => {
 
 // TEST 2
 test.it('TEST 2: Check airport is full', () => {
-  airport = new Airport(capacity = 1);
-  plane = new Plane();
+  airport = new Airport();
+  plane = new Plane(planeID = '002');
 
   expectedOutput = true;
 
@@ -77,14 +78,16 @@ test.it('TEST 3: Check that a full airport prevents landing', () => {
   // ARRANGE
   airport = new Airport();
   plane = new Plane();
+  plane2 = new Plane(planeID = '002');
 
   // landing the first plane so that isFull = true
   airport.landPlane(plane);
 
-  expectedOutput = 'Plane cannot land';
+  expectedOutput = 1;
 
   // ACT
-  actualOutput = airport.landPlane(plane);
+  airport.landPlane(plane2);
+  actualOutput = airport.currentNoOfPlanes;
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
@@ -112,20 +115,32 @@ test.it('TEST 4: Check that planes can take off, reducing currentNoOfPlanes by 1
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}`);
+  console.log(`	${result}
+`);
 
 });
 
 // TEST 5
-test.it('Check that planes can only land if they are not at the Airport', () => {
+test.it('TEST 5: Check that planes can only land if they are not at the Airport', () => {
 
-  airport = new Airport();
-  plane1 = new Plane(planeID = 001);
+  // ARRANGE
+  airport = new Airport(airportName = 'Gatwick', capacity = 2);
+  plane1 = new Plane(planeID = '001');
+  plane2 = new Plane(planeID = '002');
 
-  expectedOutput = 'Plane has landed';
+  expectedOutput = 2;
 
-  actualOutput = airport.landPlane(plane1);
+  // ACT
+  // Landing plane1 and plane2 for the first time
+  airport.landPlane(plane1.planeID);
+  airport.landPlane(plane2.planeID);
 
+  // Trying to land plane2 for a secondTime
+  airport.landPlane(plane2.planeID);
+
+  actualOutput = airport.currentNoOfPlanes;
+
+  // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-
+  console.log(`	${result}`);
 });

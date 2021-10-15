@@ -1,14 +1,14 @@
 
 class Airport {
   // here's a starting point for you
-  location;
+  airportName;
   capacity;
   currentNoOfPlanes;
   isFull;
   planeList;
 
-  constructor(location = 'Earth', capacity = 1, currentNoOfPlanes = 0, isFull = false, planeList = []) {
-    this.location = location;
+  constructor(airportName = 'Earth', capacity = 1, currentNoOfPlanes = 0, isFull = false, planeList = []) {
+    this.airportName = airportName;
     this.capacity = capacity;
     this.isFull = isFull;
     this.planeList = planeList;
@@ -16,20 +16,19 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (!this.isFull) {
-      this.planeList.push(plane);
-      this.currentNoOfPlanes = this.planeList.length;
-      return 'Plane has landed';
 
-    } else {
-      return 'Plane cannot land';
+    let index = this.planeList.indexOf(plane.planeID);
+
+    if (index === -1) {
+
+      if (!this.isFull) {
+        this.planeList.push(plane);
+        this.currentNoOfPlanes = this.planeList.length;
+      }
     }
 
-    if (this.currentNoOfPlanes <= this.capacity) {
-      this.isFull = true;
-    } else {
-      this.isFull = false;
-    }
+    this.checkIsFull();
+
   }
 
   takeOff(plane) {
@@ -46,6 +45,16 @@ class Airport {
       } else {
         return 'Plane cannot take off because it doesn\'t exist';
       }
+    }
+
+    this.checkIsFull();
+  }
+
+  checkIsFull() {
+    if (this.currentNoOfPlanes >= this.capacity) {
+      this.isFull = true;
+    } else {
+      this.isFull = false;
     }
   }
 
