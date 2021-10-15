@@ -4,12 +4,15 @@ class Airport {
     this.capacity = capacity;
   }
   landPlane(plane) {
-    if (this.checkIfFull() === false) {
+    if (this.checkIfFull() === false && this.currentPlanes.includes(plane) === false) {
       plane.status = 'landed';
       this.currentPlanes.push(plane);
     }
-    else {
+    else if (this.checkIfFull() === true) {
       console.log(`Airport reached maximum capacity at ${this.capacity} planes `)
+    }
+    else if (this.currentPlanes.includes(plane) === true) {
+      console.log(`Plane is already at ${this.constructor.name}`);
     }
   }
   checkIfFull() {
