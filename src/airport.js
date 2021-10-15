@@ -1,11 +1,12 @@
 class Airport {
   // here's a starting point for you
-  parkingLot = [];
+  parkingLot;
   capacity;
   randomNum;
   weather;
 
   constructor(newCapacity = 5) {
+    this.parkingLot = [];
     this.capacity = newCapacity;
     this.randomNum = Math.round(Math.random());
     this.weather = ["sunny", "stormy"][this.randomNum];

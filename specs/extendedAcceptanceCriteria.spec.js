@@ -15,6 +15,7 @@ test.it("Test6 - Testing that we can prevent takeoff when weather is 'stormy'", 
 	actualOutput = airport.takeOff(plane);
 
 	// Assert
+	// seems like js cannot compare arrays for identity
 	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
 })
 
@@ -47,6 +48,5 @@ test.it("Test8 - Testing that all landed planes are at an airport'", () => {
 	actualOutput = plane.isAtAirport(airport);
 
 	// Assert
-	// seems like js cannot compare arrays for identity
 	test.assertEquals(actualOutput, expectedOutput);
 })
