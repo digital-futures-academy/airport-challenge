@@ -38,3 +38,15 @@ test.it("Criteria 3 - prevent a plane from landing when the airport is full.", (
 
     test.assertEquals(actualOutput, expectedOutput);
 });
+
+
+test.it("Criteria 4 - instruct the airport to let a plane take off and confirm it is no longer at the airport.", () => {
+    planes = ['EasyJet', 'JumboJet', 'Airbus', 'PassengerJet'];
+    airport = new Airport(planes);
+
+    airport.takeOff(planes[1]);
+
+    let expectedOutput = false;
+    let actualOutput = airport.isPlaneAtAirport(planes[1]);
+    test.assertEquals(actualOutput, expectedOutput);
+});
