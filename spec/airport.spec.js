@@ -1,6 +1,7 @@
 const Airport = require('../src/airport');
+const Plane = require('../src/plane');
 
-let airport, item, expectedOutput;
+let airport, plane, expectedOutput;
 
 //Arrange
 airport = new Airport();
