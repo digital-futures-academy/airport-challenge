@@ -4,7 +4,7 @@ const Plane = require('../src/Plane');
 
 console.log('--- PLANE TAKE OFF TESTS ---');
 
-let expectedOutput, result;
+let expectedOutput, actualOutput, result;
 
 // Test 1 - Test to see that the planes list length reduces when a plane takes off
 console.log('Test 1 - Test to see that the planes list length reduces when a plane takes off');
@@ -34,4 +34,22 @@ airport.landPlane(plane3);
 airport.allowTakeOff(plane2);
 // Assert
 result = assertEquals(airport.planes.length, expectedOutput);
+console.log(result);
+
+// Test 3 - Test to confirm that a plane has taken off is no longer at the airport
+console.log('Test to confirm that a plane has taken off is no longer at the airport');
+// Arrange 
+airport = new Airport();
+plane1 = new Plane();
+plane2 = new Plane();
+plane3 = new Plane();
+expectedOutput = false;
+// Act
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.allowTakeOff(plane2);
+actualOutput = airport.checkIfLanded(plane2)
+// Assert
+result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
