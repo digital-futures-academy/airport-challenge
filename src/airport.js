@@ -27,6 +27,10 @@ class Airport {
       return false;
     }
   }
+
+  allowTakeOff(plane) {
+    this.planes.pop(plane);
+  }
 }
 
 module.exports = Airport;
