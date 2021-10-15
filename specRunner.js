@@ -1,0 +1,1 @@
+require('./spec/airport-spec.spec.js');
