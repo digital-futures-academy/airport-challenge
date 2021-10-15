@@ -3,6 +3,10 @@ const test = {
 		if (actual !== expected) throw new Error("Test failed");
 	},
 
+	assertNotEquals(actual, expected) {
+		if (actual === expected) throw new Error("Test failed");
+	},
+
 	it(testMessage, testFunc) {
 		try {
 			testFunc();
