@@ -10,17 +10,17 @@ const test = {
 
   it(str, testFunc) {
     try {
-      console.log(str);
+      console.log('\x1b[32m%s\x1b[0m', `	${str}`);
       testFunc();
     } catch (err) {
-      console.log(str);
+      console.log('\x1b[31m%s\x1b[0m', `	${str}`);
       console.error(err.message);
       console.log(err.stack);
     }
   },
 
   xit(str) {
-    console.log('TEST SKIPPED: ${str}');
+    console.log('\x1b[31m%s\x1b[0m', `	TEST SKIPPED: ${str}`);
   }
 
 };
