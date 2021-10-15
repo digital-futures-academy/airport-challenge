@@ -18,8 +18,7 @@ test.it("Criteria 1 - land a plane.", () => {
 
 
 test.it("Criteria 2 - allow override of default airport capacity.", () => {
-    airport = new Airport(planes);
-    airport.defaultCapacity = 6;
+    airport = new Airport(planes, 6);
 
     airport.updateDefaultAirportCapacity(10);
     let expectedOutput = 10;
