@@ -34,6 +34,23 @@ class Airport {
     this.defaultCapacity = value;
     this.#updateAirportStatus();
   }
+
+  takeOff(plane) {
+    if (this.isPlaneAtAirport(plane)) {
+      const index = this.planes.indexOf(plane);
+      if (index > -1) {
+        this.planes.splice(index, 1);
+      }
+    }
+    this.#updateAirportStatus();
+  }
+
+  isPlaneAtAirport(plane) {
+    if (this.planes.includes(plane)) {
+      return true;
+    }
+    return false;
+  }
 }
 
 module.exports = Airport;
