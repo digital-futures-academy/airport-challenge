@@ -2,10 +2,10 @@ const assertEquals = require("./test-framework");
 
 
 
-// Test 1- Is plane
+// Test 1- Is plane landed?
 let airport, plane, expectedOutput, result;
 airport = new airport();
-plane = new Plane();
+plane = landedPlane();
 expectedOutput = 1
 airport.addPlane(plane);
 result = assertEquals(airport.planes.length, expectedOutput)
