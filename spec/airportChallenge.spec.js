@@ -292,4 +292,28 @@ test.it('15 - With 2 airports, if plane that is in airport-1 is set to land by a
   test.assertEquals(expectedOutput, result);
 });
 
+test.it('16 - With 2 airports, if plane that is in airport-1 is set to land by airport-2, airport-2s array length is not changed', () => {
+
+  let expectedOutput;
+  let result;
+
+  let heathrow = new Airport([], 50);
+  let jfk = new Airport([], 40);
+  let boeing1 = new Airplane('boeing747-1');
+  let boeing2 = new Airplane('boeing747-2');
+  let airbus1 = new Airplane('airbus-1');
+  let airbus2 = new Airplane('airbus-2');
+
+  heathrow.landPlane(boeing1);
+  heathrow.landPlane(boeing2);
+  jfk.landPlane(airbus1);
+  jfk.landPlane(airbus2);
+
+  heathrow.landPlane(airbus1);
+
+  expectedOutput = 2;
+  result = heathrow.currentPlanes.length
+  console.log(heathrow);
+  test.assertEquals(expectedOutput, result);
+});
 
