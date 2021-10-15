@@ -1,7 +1,7 @@
 class Airport {
 
   planes;
-  defaultCapacity = 5;
+  defaultCapacity;
   status = false;
 
   constructor(planes = [], defaultCapacity = 10) {
@@ -32,6 +32,7 @@ class Airport {
 
   updateDefaultAirportCapacity(value = int) {
     this.defaultCapacity = value;
+    this.#updateAirportStatus();
   }
 }
 
