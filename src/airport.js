@@ -4,17 +4,48 @@ class Airport {
   constructor(airport = []) {
     this.airport = airport;
   }
-
+  maxCapacity = 10;
 
   landPlane(plane) {
-    this.airport.push(plane);
-    return this.airport.length;
+    if (this.isAirportFull() === false) {
+      this.airport.push(plane);
+      console.log(this.airport);
+      return true;
+    }
+    else {
+      console.log(this.airport, 'This airport is full');
+      return false;
+    }
   }
   
-  capacity(num) {
-    this.airport.length = num;
-    console.log(this.airport.length);
+  changeCapacity(num) {
+    if (num < this.airport.length) {
+      console.log('ERROR: Capacity lower than number of planes currently in airport');
+      return false;
+      
+    }
+    else {
+      this.maxCapacity = num;
+      console.log(this.airport);
+      return true;
+    }
+
+  }
+
+  isAirportFull(airport) {
+    if (this.airport.length >= this.maxCapacity) {
+      console.log(airport.length);
+      return true;
+    }
+    return false;
+  }
+
+  getCurrentCapacity() {
     return this.airport.length;
+  }
+
+  getMaxCapacity() {
+    return this.maxCapacity;
   }
 
 }
