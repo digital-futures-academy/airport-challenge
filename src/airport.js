@@ -1,6 +1,10 @@
 class Airport {
-  // here's a starting point for you
-
+  constructor(airplanes = []) {
+    this.currentPlanes = airplanes
+  }
+  landPlane(plane) {
+    plane.status = 'landed';
+  }
 }
 
 module.exports = Airport;
