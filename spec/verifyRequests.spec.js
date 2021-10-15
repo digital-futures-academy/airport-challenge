@@ -18,4 +18,19 @@ airport.landPlane(plane1);
 airport.allowTakeOff(plane2);
 // Assert
 result = assertEquals(airport.planes.length, expectedOutput);
-console.log(result)
+console.log(result);
+
+// Test 2 - Test to check that a request for a plane to land which has already landed can't be made
+console.log('Test 2 - Test to check that a request for a plane to land which has already landed can\'t be made');
+// Arrange
+airport = new Airport();
+plane1 = new Plane();
+plane2 = new Plane();
+expectedOutput = 2;
+// Act
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane1);
+// Assert
+result = assertEquals(airport.planes.length, expectedOutput);
+console.log(result);

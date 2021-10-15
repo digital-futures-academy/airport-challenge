@@ -29,8 +29,12 @@ class Airport {
   }
 
   allowTakeOff(plane) {
-    let index = this.planes.indexOf(plane);
-    this.planes.splice(index, 1);
+    if (this.checkIfLanded()) {
+      let index = this.planes.indexOf(plane);
+      this.planes.splice(index, 1);
+    } else {
+      console.log('Plane isn\'t at this airport');
+    }
   }
 
   checkIfLanded(plane) {
