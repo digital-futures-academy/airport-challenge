@@ -53,3 +53,18 @@ actualOutput = airport.checkIfLanded(plane2);
 // Assert
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
+
+// Test 4 - Test to confirm that a plane that hasn't taken off is still at the airport
+console.log('Test to confirm that a plane that hasn\'t taken off is still at the airport');
+// Arrange
+airport = new Airport();
+plane1 = new Plane();
+plane2 = new Plane();
+expectedOutput = true;
+// Act
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+actualOutput = airport.checkIfLanded(plane2);
+// Assert
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
