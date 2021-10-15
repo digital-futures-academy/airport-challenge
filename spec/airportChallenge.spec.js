@@ -44,7 +44,6 @@ test.it('3 - Check if airport adds specific plane to its array after landing pla
   input = boeing1;
   expectedOutput = true;
   result = heathrow.currentPlanes.includes(input);
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -61,7 +60,6 @@ test.it('4 - Check if airport capacity can be modified', () => {
   heathrow.capacity = input;
   result = heathrow.capacity;
 
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -75,7 +73,6 @@ test.it('5 - Check if airport capacity is full when planes array equals capacity
 
   expectedOutput = true;
   result = heathrow.checkIfFull();
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -91,7 +88,6 @@ test.it('6 - Check if airport plane array does not increase by 1 when airport is
 
   expectedOutput = 50;
   result = heathrow.currentPlanes.length;
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -108,7 +104,6 @@ test.it('7 - Check if airport plane array does increase by 1 when airport is NOT
 
   expectedOutput = 50;
   result = heathrow.currentPlanes.length;
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -131,7 +126,6 @@ test.it('8 - Check if airport plane array decreases by 1 when airport takes off 
 
   expectedOutput = 2;
   result = heathrow.currentPlanes.length;
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -153,7 +147,6 @@ test.it('9 - Check if airport removes specific plane from plane array when airpo
 
   expectedOutput = false;
   result = heathrow.currentPlanes.includes(boeing2);
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -175,7 +168,6 @@ test.it('10 - Check if airplane is flying when airport takes off plane', () => {
 
   expectedOutput = 'flying';
   result = boeing2.status
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -200,7 +192,6 @@ test.it('11 - Check if airplane array does not decrease by 1 if plane that is no
 
   expectedOutput = 3;
   result = heathrow.currentPlanes.length = 3
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -224,7 +215,6 @@ test.it('12 - Check if airplane array does not increase by 1 if plane that is al
 
   expectedOutput = 4;
   result = heathrow.currentPlanes.length
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -250,7 +240,6 @@ test.it('13 - With 2 airports, if plane that is in airport-1 is set to take off 
 
   expectedOutput = 2;
   result = jfk.currentPlanes.length
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -276,7 +265,30 @@ test.it('14 - With 2 airports, if plane that is in airport-1 is set to take off 
 
   expectedOutput = 2;
   result = heathrow.currentPlanes.length
-  console.log(heathrow);
+  test.assertEquals(expectedOutput, result);
+});
+
+test.it('15 - With 2 airports, if plane that is in airport-1 is set to land by airport-2, airport-1s array length is not changed', () => {
+
+  let expectedOutput;
+  let result;
+
+  let heathrow = new Airport([], 50);
+  let jfk = new Airport([], 40);
+  let boeing1 = new Airplane('boeing747-1');
+  let boeing2 = new Airplane('boeing747-2');
+  let airbus1 = new Airplane('airbus-1');
+  let airbus2 = new Airplane('airbus-2');
+
+  heathrow.landPlane(boeing1);
+  heathrow.landPlane(boeing2);
+  jfk.landPlane(airbus1);
+  jfk.landPlane(airbus2);
+
+  heathrow.landPlane(airbus1);
+
+  expectedOutput = 2;
+  result = jfk.currentPlanes.length
   test.assertEquals(expectedOutput, result);
 });
 
