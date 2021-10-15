@@ -134,3 +134,4 @@ test.it('8 - Check if airport plane array decreases by 1 when a plane takes off'
   console.log(result);
   test.assertEquals(expectedOutput, result);
 });
+

@@ -34,6 +34,10 @@
 | Airport  | capacity `@number`, currentPlanes`@array` | checkIfFull(), landPlane(), setFlying() | `@number`, `@Boolean` |
 | Weather  | weather`@string`                          |                                         | `@string`             |
 
+<br><br>
+
+## User Stories
+
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane

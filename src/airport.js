@@ -20,6 +20,9 @@ class Airport {
       return false;
     }
   }
+  setFlying(plane) {
+    this.currentPlanes = this.currentPlanes.filter(planes => planes !== plane)
+  };
 }
 
 module.exports = Airport;
