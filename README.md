@@ -50,6 +50,7 @@ Solution
 | --------------- | --------------- | --------------- | --------------- | --------------- |
 | Airport         | planes @Array   | landPlane(plane)| Land plane at airport | @Array[@plane] |
 |  Plane          |planeID @int         |Constructor(planeID)| Add Plane to the Airport | @int     | 
+|                 | isPlaneFlying @ boolean | isPlaneFlying()| Check to land plane |@boolean|
 
 
 
