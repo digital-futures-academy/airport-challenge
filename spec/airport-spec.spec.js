@@ -50,3 +50,16 @@ test.it("Criteria 4 - instruct the airport to let a plane take off and confirm i
     let actualOutput = airport.isPlaneAtAirport('JumboJet');
     test.assertEquals(actualOutput, expectedOutput);
 });
+
+
+test.it("Criteria 5 - prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed.", () => {
+    planes = ['EasyJet', 'JumboJet', 'Airbus', 'PassengerJet'];
+    airport = new Airport(planes);
+
+    airport.landPlane('Airbus');
+    airport.takeOff('TestPlane');
+
+    let expectedOutput = 4;
+    let actualOutput = airport.planes.length;
+    test.assertEquals(actualOutput, expectedOutput);
+});
