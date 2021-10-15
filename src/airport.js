@@ -28,6 +28,9 @@ class Airport {
     if (index === -1) {
       return "Not possible: Plane is not at airport";
     }
+    if (this.weather === "stormy") {
+      return this.parkingLot;
+    }
     this.parkingLot.splice(index, 1);
     return this.parkingLot;
   }
