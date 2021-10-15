@@ -8,6 +8,9 @@ class Airport {
   }
 
   landPlane(plane) {
+    if (this.parkingLot.includes(plane)) {
+      return "Not possible: Plane is at airport";
+    }
     this.parkingLot.push(plane);
     return this.parkingLot;
   }
