@@ -3,7 +3,6 @@ const test = require('../test-framework.js');
 
 let airport, planes = new Array();
 
-
 test.it("Criteria 1 - land a plane.", () => {
     //Setup (Arrange)
     airport = new Airport(planes);
@@ -15,4 +14,16 @@ test.it("Criteria 1 - land a plane.", () => {
 
     //Verify (Assert)
     test.assertEquals(actualOutput, expectedOutput);
-})
+});
+
+
+test.it("Criteria 2 - allow override of default airport capacity.", () => {
+    airport = new Airport(planes);
+    airport.defaultCapacity = 6;
+
+    airport.updateDefaultAirportCapacity(10);
+    let expectedOutput = 10;
+    let actualOutput = airport.defaultCapacity;
+
+    test.assertEquals(actualOutput, expectedOutput);
+});
