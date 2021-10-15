@@ -11,6 +11,10 @@ class Airport {
     this.parkingLot.push(plane);
     return this.parkingLot;
   }
+
+  isFull() {
+    return this.parkingLot.length === this.capacity;
+  }
 }
 
 module.exports = Airport;
