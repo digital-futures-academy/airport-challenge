@@ -22,7 +22,9 @@ class Airport {
 
   landPlane(plane) {
     if (!this.status && (this.planes.length + 1) <= this.defaultCapacity) {
-      this.planes.push(plane);
+      if (!this.isPlaneAtAirport(plane)) {
+        this.planes.push(plane);
+      }
       this.#updateAirportStatus();
     }
     else {
