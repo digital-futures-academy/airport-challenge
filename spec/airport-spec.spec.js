@@ -47,6 +47,6 @@ test.it("Criteria 4 - instruct the airport to let a plane take off and confirm i
     airport.takeOff(planes[1]);
 
     let expectedOutput = false;
-    let actualOutput = airport.isPlaneAtAirport(planes[1]);
+    let actualOutput = airport.isPlaneAtAirport('JumboJet');
     test.assertEquals(actualOutput, expectedOutput);
 });
