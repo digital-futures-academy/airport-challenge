@@ -4,7 +4,7 @@
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
   "scripts": {
-    "test": "./utils/node specRunner.js"
+    "test": "node ./utils/specRunner.js"
   },
   "author": "dearshrewdwit",
   "license": "ISC",
