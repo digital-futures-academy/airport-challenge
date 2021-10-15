@@ -11,7 +11,7 @@ console.log('Test 1, plane landing in airport:')
 airport = new Airport();
 plane = new Plane();
 
-plane = 'Boeing 747';
+plane = ['Boeing 747'];
 expectedOutput = 1;
 
 //Act
@@ -36,6 +36,7 @@ actualOutput = airport.getMaxCapacity();
 
 //Assert
 result = assertEquals(actualOutput, expectedOutput);
+console.log(airport);
 console.log(result);
 
 module.export = Airport.spec;
@@ -47,12 +48,52 @@ console.log('Test 3, prevent landing when the airport is full:')
 airport = new Airport();
 plane = new Plane();
 
-plane = 'Boeing 747';
-airport.changeCapacity(10);
-expectedOutput = true;
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane'];
+airport.changeCapacity(2);
+
+expectedOutput = false;
 
 //Act
 actualOutput = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(actualOutput, expectedOutput);
+console.log(airport);
+console.log(result);
+
+
+//TEST 4
+console.log('Test 4, check if a plane has left the airport:')
+//Arrange
+airport = new Airport();
+plane = new Plane();
+
+plane = ['Boeing 747'];
+airport.landPlane(plane);
+expectedOutput = false;
+airport.planeTakeoff(plane);
+
+//Act
+actualOutput = airport.isPlaneInAirport(plane);
+
+//Assert
+result = assertEquals(actualOutput, expectedOutput);
+console.log(airport);
+console.log(result);
+
+
+//TEST 5
+console.log("Test 5, prevent asking the airport to let planes take-off which are not in the airport, or land a plane that's already landed:");
+//Arrange
+airport = new Airport();
+plane = new Plane();
+
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane'];
+expectedOutput = false;
+
+//Act
+airport.landPlane(plane);
+actualOutput = airport.planeTakeoff(['U-2 spy plane']);
 
 //Assert
 result = assertEquals(actualOutput, expectedOutput);
