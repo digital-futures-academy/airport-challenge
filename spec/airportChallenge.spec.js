@@ -200,33 +200,32 @@ test.it('11 - Check if airplane array does not decrease by 1 if plane that is no
   heathrow.setFlying(boeing4);
 
 
-  expectedOutput = false;
-  result = heathrow.currentPlanes.includes(boeing4);
+  expectedOutput = 3;
+  result = heathrow.currentPlanes.length = 3
   console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
+test.it('12 - Check if airplane array does not increase by 1 if plane that is in airport is set to land', () => {
 
-// test.it('10 - Check if airplane array outputs log if plane that is not array is attempted to be removed', () => {
+  let expectedOutput;
+  let result;
 
-//   let expectedOutput;
-//   let result;
+  let heathrow = new Airport([], 50);
+  let boeing1 = new Airplane('boeing747-1');
+  let boeing2 = new Airplane('boeing747-2');
+  let boeing3 = new Airplane('boeing747-3');
+  let boeing4 = new Airplane('boeing747-4');
 
-//   let heathrow = new Airport([], 50);
-//   let boeing1 = new Airplane('boeing747-1');
-//   let boeing2 = new Airplane('boeing747-2');
-//   let boeing3 = new Airplane('boeing747-3');
-//   let boeing4 = new Airplane('boeing747-4');
+  heathrow.landPlane(boeing1);
+  heathrow.landPlane(boeing2);
+  heathrow.landPlane(boeing3);
+  heathrow.landPlane(boeing4);
 
-//   heathrow.landPlane(boeing1);
-//   heathrow.landPlane(boeing2);
-//   heathrow.landPlane(boeing3);
+  heathrow.landPlane(boeing2);
 
-//   heathrow.setFlying(boeing4);
-
-
-//   expectedOutput = false;
-//   result = heathrow.currentPlanes.includes(boeing4);
-//   console.log(result);
-//   test.assertEquals(expectedOutput, result);
-// });
+  expectedOutput = 4;
+  result = heathrow.currentPlanes.length
+  console.log(result);
+  test.assertEquals(expectedOutput, result);
+});
