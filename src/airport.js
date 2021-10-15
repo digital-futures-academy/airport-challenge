@@ -1,14 +1,31 @@
 class Airport {
-    constructor(listPlanes = []) {
+    constructor(listPlanes = [], maxCapacity = 10) {
         this.planes = listPlanes;
+        this.maxCapacity = maxCapacity;
+    }
+
+    setMaxCapacity(capacity) {
+        this.maxCapacity = capacity;
+    }
+
+    getMaxCapacity() {
+        return this.maxCapacity;
+    }
+
+    getCurrentCapacity() {
+        return this.planes.length;
     }
 
     landPlane(plane) {
         const indx = this.findPlane(plane);
-        if (indx === -1) {
+        if (indx === -1 && !this.isAirportFull()) {
             this.planes.push(plane);
         } else {
-            console.log('Plane is already at airport');
+            if (this.isAirportFull()) {
+                console.log("airport is full")
+            } else {
+                console.log('Plane is already at airport');
+            }
         }
     }
 
@@ -26,7 +43,11 @@ class Airport {
     }
 
     isPlaneInAirport(plane) {
-        return this.planes.indexOf(plane) === -1 ? false : true;
+        return this.planes.indexOf(plane) !== -1;
+    }
+
+    isAirportFull() {
+        return this.planes.length === this.maxCapacity;
     }
 }
 
