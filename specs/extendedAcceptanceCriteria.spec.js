@@ -46,5 +46,6 @@ test.it("Test8 - Testing that all landed planes are at an airport'", () => {
 	actualOutput = airport.landPlane(plane);
 
 	// Assert
+	// seems like js cannot compare arrays for identity
 	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
 })
