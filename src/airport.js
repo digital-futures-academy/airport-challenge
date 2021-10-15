@@ -1,10 +1,11 @@
+
 class Airport {
   constructor(airplanes = [], capacity = 10) {
     this.currentPlanes = airplanes;
     this.capacity = capacity;
   }
   landPlane(plane) {
-    if (this.checkIfFull() === false && this.currentPlanes.includes(plane) === false && plane.status === 'flying') {
+    if (this.checkIfFull() === false && this.currentPlanes.includes(plane) === false && plane.status === 'flying' && weather.weather === 'sunny') {
       plane.status = 'landed';
       this.currentPlanes.push(plane);
     }
@@ -27,6 +28,9 @@ class Airport {
     this.currentPlanes = this.currentPlanes.filter(planes => planes !== plane)
     plane.status = 'flying';
   };
+  checkWeather(weather) {
+    return weather.weather;
+  }
 }
 
 module.exports = Airport;

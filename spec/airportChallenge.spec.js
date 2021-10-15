@@ -329,17 +329,30 @@ test.it('17 - Weather class has weather property', () => {
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('18 - If weather is stormy, length of airport airplane array does not increase if flying plane tries to land', () => {
+test.it('18 - Weather class is randomly outputting a weather string', () => {
   let expectedOutput;
   let result;
 
-  let weather = new Weather('stormy');
-  let heathrow = new Airport([], 50);
-  let boeing1 = new Airplane('boeing747-1');
-  heathrow.landPlane(boeing1);
+  expectedOutput = 'stormy';
+  result = Weather.status();
 
-  expectedOutput = 0;
-  result = heathrow.currentPlanes.length;
   console.log(result);
+
   test.assertEquals(expectedOutput, result);
+
 });
+
+// test.it('18 - If weather is stormy, length of airport airplane array does not increase if flying plane tries to land', () => {
+//   let expectedOutput;
+//   let result;
+
+//   let weather = new Weather('stormy');
+//   let heathrow = new Airport([], 50);
+//   let boeing1 = new Airplane('boeing747-1');
+//   heathrow.landPlane(boeing1);
+
+//   expectedOutput = 0;
+//   result = heathrow.currentPlanes.length;
+//   console.log(result);
+//   test.assertEquals(expectedOutput, result);
+// });
