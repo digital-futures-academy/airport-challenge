@@ -1,8 +1,10 @@
 class Airport {
   // here's a starting point for you
+  parkingLot = [];
 
-  landPlane() {
-
+  landPlane(plane) {
+    this.parkingLot.push(plane);
+    return this.parkingLot;
   }
 }
 

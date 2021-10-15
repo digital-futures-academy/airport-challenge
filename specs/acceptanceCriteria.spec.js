@@ -1,4 +1,4 @@
-const Airport = require('../src/airport');
+const Airport = require('../src/Airport');
 const assertEquals = require('../test-framework');
 const Plane = require('../src/Plane');
 
@@ -15,5 +15,6 @@ expectedOutput = [plane];
 actualOutput = airport.landPlane(plane);
 
 // Step3 - Assert
-result = assertEquals(actualOutput, expectedOutput);
+// seems like js cannot compare arrays for identity
+result = assertEquals(actualOutput.toString(), expectedOutput.toString());
 console.log(result);
