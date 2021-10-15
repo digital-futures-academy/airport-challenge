@@ -1,5 +1,6 @@
 const Airport = require('../src/airport');
 const Plane = require('../src/plane');
+const assertEquals = require('../test-framework/test-framework');
 
 let airport, plane, expectedOutput;
 
@@ -13,6 +14,7 @@ expectedOutput = 1;
 airport.landPlane(plane);
 
 //Assert
-result = test.assertEquals(airport.length, expectedOutput);
+result = assertEquals(airport.length, expectedOutput);
+console.log(result);
 
 module.export = Airport.spec;
