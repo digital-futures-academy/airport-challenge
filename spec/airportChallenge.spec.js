@@ -317,3 +317,13 @@ test.it('16 - With 2 airports, if plane that is in airport-1 is set to land by a
   test.assertEquals(expectedOutput, result);
 });
 
+test.it('17 - Weather class has weather property', () => {
+  let expectedOutput;
+  let result;
+
+  let weather = new Weather('stormy');
+
+  expectedOutput = 'stormy';
+  result = weather.weather;
+  test.assertEquals(expectedOutput, result);
+})
