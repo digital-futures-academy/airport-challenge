@@ -2,7 +2,7 @@ const test = require('../test-framework');
 const Airport = require('../src/Airport');
 const Airplane = require('../src/Airplane');
 
-test.it('Check if airport can land plane', () => {
+test.it('1 - Check if airport can land plane', () => {
 
   let expectedOutput;
   let result;
@@ -17,7 +17,7 @@ test.it('Check if airport can land plane', () => {
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('Check if airport planes array increases by one after landing a plane', () => {
+test.it('2 - Check if airport planes array increases by one after landing a plane', () => {
 
   let expectedOutput;
   let result;
@@ -31,7 +31,7 @@ test.it('Check if airport planes array increases by one after landing a plane', 
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('Check if airport adds specific plane to its array after landing plane', () => {
+test.it('3 - Check if airport adds specific plane to its array after landing plane', () => {
 
   let expectedOutput;
   let result;
@@ -40,13 +40,14 @@ test.it('Check if airport adds specific plane to its array after landing plane',
   let boeing1 = new Airplane('boeing747-1');
   heathrow.landPlane(boeing1);
 
-  expectedOutput = boeing1;
-  result = heathrow.currentPlanes[heathrow.currentPlanes.length - 1];
+  input = boeing1;
+  expectedOutput = true;
+  result = heathrow.currentPlanes.includes(input);
   console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('Check if airport capacity can be modified', () => {
+test.it('4 - Check if airport capacity can be modified', () => {
 
   let expectedOutput;
   let result;
@@ -63,7 +64,7 @@ test.it('Check if airport capacity can be modified', () => {
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('Check if airport capacity is full when planes array equals capacity', () => {
+test.it('5 - Check if airport capacity is full when planes array equals capacity', () => {
 
   let expectedOutput;
   let result;
@@ -77,13 +78,30 @@ test.it('Check if airport capacity is full when planes array equals capacity', (
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('Check if airport plane array does not increase by 1 when airport is full', () => {
+test.it('6 - Check if airport plane array does not increase by 1 when airport is full', () => {
 
   let expectedOutput;
   let result;
 
   let heathrow = new Airport(undefined, 50);
   heathrow.currentPlanes.length = 50;
+  let boeing1 = new Airplane('boeing747-1');
+  heathrow.landPlane(boeing1);
+
+  expectedOutput = 50;
+  result = heathrow.currentPlanes.length
+  console.log(result);
+  test.assertEquals(expectedOutput, result);
+});
+
+
+test.it('7 - Check if airport plane array does increase by 1 when airport is NOT full', () => {
+
+  let expectedOutput;
+  let result;
+
+  let heathrow = new Airport(undefined, 50);
+  heathrow.currentPlanes.length = 49;
   let boeing1 = new Airplane('boeing747-1');
   heathrow.landPlane(boeing1);
 
