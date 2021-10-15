@@ -18,6 +18,7 @@ class Airport {
     if (this.weather === "stormy") {
       return this.parkingLot;
     }
+    this.parkingLot.push(plane);
     return `${plane}, please get ready for landing!`;
   }
 
