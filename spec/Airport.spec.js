@@ -12,7 +12,8 @@ let actualOutput;
 
 // TEST CASES
 // X Check that planes can land
-// Check that airport is full and prevent landing
+// X Check that airport is full
+// Check that a full aiport prevents landing
 // Check that airport capacity can be overridden
 // Check weather status
 // Check that when plane takes off it is no longer at Airport
@@ -26,7 +27,6 @@ let actualOutput;
 test.it('Check that planes can land', () => {
   // arrange
   airport = new Airport();
-  weather = new Weather();
   plane = new Plane();
 
   expectedOutput = 1;
@@ -44,7 +44,29 @@ test.it('Check that planes can land', () => {
 
 // TEST 2
 test.it('Check airport is full', () => {
-  airport = new Airport();
-  weather = new Weather();
+  airport = new Airport(capacity = 1);
   plane = new Plane();
+
+  expectedOutput = true;
+
+  airport.landPlane(plane);
+
+  actualOutput = airport.isFull;
+
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(result);
+});
+
+// TEST 3
+test.it('Check that a full airport prevents landing', () => {
+  // ARRANGE
+  airport = new Airport();
+  plane = new Plane();
+
+  expectedOutput = 'Plane cannot land';
+
+  // ACT
+
+  // ASSERT
+
 });
