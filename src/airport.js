@@ -15,6 +15,9 @@ class Airport {
     if (this.parkingLot.includes(plane)) {
       return "Not possible: Plane is at airport";
     }
+    if (this.weather === "stormy") {
+      return this.parkingLot;
+    }
     this.parkingLot.push(plane);
     return this.parkingLot;
   }
