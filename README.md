@@ -1,3 +1,5 @@
+Initial challenge readme - for updated readme please go to ('./readme/airport README.md')
+
 Airport Challenge
 =================
 
