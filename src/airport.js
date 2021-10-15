@@ -29,7 +29,13 @@ class Airport {
   }
 
   allowTakeOff(plane) {
-    this.planes.pop(plane);
+    let index = this.planes.indexOf(plane);
+    this.planes.splice(index, 1);
+  }
+
+  checkIfLanded(plane) {
+    let index = this.planes.indexOf(plane);
+    return index === -1 ? false : true;
   }
 }
 

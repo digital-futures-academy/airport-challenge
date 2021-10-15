@@ -49,7 +49,7 @@ airport.landPlane(plane1);
 airport.landPlane(plane2);
 airport.landPlane(plane3);
 airport.allowTakeOff(plane2);
-actualOutput = airport.checkIfLanded(plane2)
+actualOutput = airport.checkIfLanded(plane2);
 // Assert
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
