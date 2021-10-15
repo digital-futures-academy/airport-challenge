@@ -4,6 +4,7 @@ class Airport {
   }
   landPlane(plane) {
     plane.status = 'landed';
+    this.currentPlanes.push(plane);
   }
 }
 
