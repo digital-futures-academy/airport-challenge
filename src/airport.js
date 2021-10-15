@@ -15,6 +15,14 @@ class Airport {
   isFull() {
     return this.parkingLot.length === this.capacity;
   }
+
+  takeOff(plane) {
+    let index = this.parkingLot.indexOf(plane);
+    if (index !== -1) {
+      this.parkingLot.splice(index, 1);
+    }
+    return this.parkingLot;
+  }
 }
 
 module.exports = Airport;

@@ -61,5 +61,5 @@ test.it("Test4 - Testing that we can get planes to take off and confirm they are
 	actualOutput = airport.takeOff(plane);
 
 	// Step3 - Assert
-	test.assertEquals(actualOutput, expectedOutput);
+	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
 })
