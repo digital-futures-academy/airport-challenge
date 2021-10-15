@@ -1,7 +1,7 @@
 const test = require('../test-framework');
 const Airport = require('../src/Airport');
 const Airplane = require('../src/Airplane');
-
+const Weather = require('../src/Weather');
 test.it('1 - Check if airport can land plane', () => {
 
   let expectedOutput;
@@ -325,5 +325,21 @@ test.it('17 - Weather class has weather property', () => {
 
   expectedOutput = 'stormy';
   result = weather.weather;
+  console.log(result);
   test.assertEquals(expectedOutput, result);
-})
+});
+
+test.it('18 - If weather is stormy, length of airport airplane array does not increase if flying plane tries to land', () => {
+  let expectedOutput;
+  let result;
+
+  let weather = new Weather('stormy');
+  let heathrow = new Airport([], 50);
+  let boeing1 = new Airplane('boeing747-1');
+  heathrow.landPlane(boeing1);
+
+  expectedOutput = 0;
+  result = heathrow.currentPlanes.length;
+  console.log(result);
+  test.assertEquals(expectedOutput, result);
+});
