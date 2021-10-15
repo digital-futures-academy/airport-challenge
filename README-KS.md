@@ -7,3 +7,6 @@ Steps
 4. Tests will output in the terminal as green text with "Passed" if they have passed, and red text with "Failed" if there has been a failure, at the start of the outputs.
 5. [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`
 
+
+How I approached the problem
+-----------------------------
