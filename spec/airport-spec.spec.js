@@ -10,7 +10,8 @@ airport = new Airport(planes);
 let expectedOutput = 1;
 
 //Execute (Act)
-let actualOutput = airport.landPlane('EasyJet');
+airport.landPlane('EasyJet');
+let actualOutput = airport.planes.length;
 
 //Verify (Assert)
 let result = assertEquals(actualOutput, expectedOutput);
