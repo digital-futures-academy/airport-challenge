@@ -13,7 +13,8 @@ let actualOutput;
 // TEST CASES
 // X Check that planes can land
 // X Check that airport is full
-// Check that a full aiport prevents landing
+// X Check that a full aiport prevents landing
+// Check that planes that take off are removed from currentNoOfPlanes
 // Check that airport capacity can be overridden
 // Check weather status
 // Check that when plane takes off it is no longer at Airport
@@ -63,10 +64,16 @@ test.it('Check that a full airport prevents landing', () => {
   airport = new Airport();
   plane = new Plane();
 
+  // landing the first plane so that isFull = true
+  airport.landPlane(plane);
+
   expectedOutput = 'Plane cannot land';
 
   // ACT
+  actualOutput = airport.landPlane(plane);
 
   // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(result);
 
 });

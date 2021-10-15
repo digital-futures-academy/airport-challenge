@@ -16,6 +16,8 @@ class Airport {
   landPlane(plane) {
     if (!this.isFull) {
       this.currentNoOfPlanes += 1;
+    } else {
+      return 'Plane cannot land';
     }
 
     if (this.currentNoOfPlanes <= this.capacity) {
