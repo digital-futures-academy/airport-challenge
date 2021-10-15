@@ -33,35 +33,88 @@ Steps
 4. Run your tests using `npm test` or `node specRunner.js`
 5. [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`
 
-Task
+Task - 1
 -----
 
 We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
 
 #### Acceptance Criteria
+**AC - 1**
 ```
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+```
+Solution 
+| Objects         |Properties       |Messages         | Context         |Output           |
+| --------------- | --------------- | --------------- | --------------- | --------------- |
+| Airport         | planes @Array   | landPlane(plane)| Land plane at airport | @Array[@plane] |
+|  Plane          |planeID @int         |Constructor(planeID)| Add Plane to the Airport | @int     | 
 
+
+
+**AC - 2**
+```
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+```
+Solution 
+| Objects         |Properties       |Messages         | Context         |Output           |
+| --------------- | --------------- | --------------- | --------------- | --------------- |
+| Airport         | planes @Array   | landPlane(plane)| Land plane at airport | @Array[@plane] |
+|                 |capacity @ Int   |getAirportCapacity() |Airport capacity      |@int            |
+|  Plane          |planeID @int         |Constructor(planeID)| Add Plane to the Airport | @int     | 
 
+**AC - 3**
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+```
+Solution 
+| Objects         |Properties       |Messages         | Context         |Output           |
+| --------------- | --------------- | --------------- | --------------- | --------------- |
+| Airport         | planes @Array   | landPlane(plane)| Land plane at airport | @Array[@plane] |
+|                 |capacity @ Int   |getAirportCapacity() |Airport capacity      |@int            |
+|                 |isAirportFull @ Boolean| isAirportFull()    |Check if airport is full and prevent landing|@String either can land or cannot land based on airport capacity|
+|  Plane          |planeID @int         |Constructor(planeID)| Add Plane to the Airport | @int     | 
 
+**AC - 4**
+```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+Solution 
+| Objects         |Properties       |Messages         | Context         |Output           |
+| --------------- | --------------- | --------------- | --------------- | --------------- |
+| Airport         | planes @Array   | landPlane(plane)| Land plane at airport | @Array[@plane] |
+|                 |capacity @ Int   |getAirportCapacity() |Airport capacity      |@int            |
+|                 |isAirportFull @ Boolean| isAirportFull()    |Check if airport is full and prevent landing|@String either can land or cannot land based on airport capacity|
+|                 |takeOff @String|takeOff(plane)|Instruct take off and check plane no longer at airport|@String print instruction @ int 1 to take off and send confirmation, 0 to not takeOff|
+|  Plane          |planeID @int         |Constructor(planeID)| Add Plane to the Airport | @int     |
+|                 |hasPlaneTakenOff @ Boolean|hasPlaneTakenOff(planeID)|check plane no longer at airport|@boolean|
 
+**AC - 5**
+```
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
+Solution 
+| Objects         |Properties       |Messages         | Context         |Output           |
+| --------------- | --------------- | --------------- | --------------- | --------------- |
+| Airport         | planes @Array   | landPlane(plane)| Land plane at airport | @Array[@plane] |
+|                 | plane @boolean| doesPlaneExist(plane)|Check if plane already exist on the airport to prevent landing| @boolean/@String print message|
+|                 |capacity @ Int   |getAirportCapacity() |Airport capacity      |@int            |
+|                 |isAirportFull @ Boolean| isAirportFull()    |Check if airport is full and prevent landing|@String either can land or cannot land based on airport capacity|
+|                 |takeOff @String|takeOff(plane)|Instruct take off and check plane no longer at airport|@String print instruction @ int 1 to take off and send confirmation, 0 to not takeOff|
+|                 |plane @boolean| doesPlaneExist(plane)|Check if plane is at the airport (it’s for planes that are not at the airport to prevent takeOff)|@boolean/String message|
+|  Plane          |planeID @int         |Constructor(planeID)| Add Plane to the Airport | @int     |
+|                 |hasPlaneTakenOff @ Boolean|hasPlaneTakenOff(planeID)|check plane no longer at airport|@boolean|
 
-#### Extended Acceptance Criteria
+#### Task - 2 Extended Acceptance Criteria
 ```
 As an air traffic controller
 To ensure safety
