@@ -15,3 +15,14 @@ expectedOutput = 1000;
 // Assert
 result = assertEquals(airport.maxCapacity, expectedOutput);
 console.log(result);
+
+// Test 2 - Test that the default capacity given can be overridden 
+console.log('Test 2 - Test that the default capacity given can be overridden');
+// Arrange
+airport = new Airport(700);
+expectedOutput = 900;
+// Act
+airport.overrideCapacity(900);
+// Assert
+result = assertEquals(airport.maxCapacity, expectedOutput);
+console.log(result);
