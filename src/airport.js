@@ -7,7 +7,7 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (!this.checkIfFull()) {
+    if (!this.checkIfFull() && !this.checkIfLanded(plane)) {
       this.planes.push(plane);
     }
   }
@@ -32,8 +32,6 @@ class Airport {
     if (this.checkIfLanded()) {
       let index = this.planes.indexOf(plane);
       this.planes.splice(index, 1);
-    } else {
-      console.log('Plane isn\'t at this airport');
     }
   }
 
