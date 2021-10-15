@@ -22,12 +22,12 @@ test.it("Test1 - Testing that we can land planes", () => {
 test.it("Test2 - Testing that we can override default airport capacity", () => {
 	// Step1 - Arrange
 	let actualOutput, expectedOutput;
-	let defaultCapacity = 5;
-	let airport = new Airport(10);
-	expectedOutput = defaultCapacity;
+	let airport1 = new Airport();
+	let airport2 = new Airport(10);
+	expectedOutput = airport1.capacity;
 
 	// Step2 - Act
-	actualOutput = airport.capacity;
+	actualOutput = airport2.capacity;
 
 	// Step3 - Assert
 	test.assertNotEquals(actualOutput, expectedOutput);
