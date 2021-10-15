@@ -4,7 +4,9 @@ class Airport {
     this.maxCapacity = maxCapacity;
     this.planes = [];
   }
-  landPlane() { }
+  landPlane(plane) {
+    this.planes.push(plane);
+  }
 }
 
 module.exports = Airport;
