@@ -54,6 +54,7 @@ test.it("Test4 - Testing that we can get planes to take off and confirm they are
 	let expectedOutput, actualOutput;
 	let plane = new Plane();
 	let airport = new Airport();
+	airport.weather = "sunny";
 	airport.parkingLot = [plane];
 	expectedOutput = [];
 
