@@ -1,7 +1,7 @@
 class Airplane {
-  constructor(name, status) {
+  constructor(name, status = 'flying') {
     this.name = name;
-    this.status = 'flying';
+    this.status = status;
   }
 
 }

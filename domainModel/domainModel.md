@@ -9,14 +9,14 @@
 
 **Messages**
 
-- setLand(), setFlying()
+- landPlane(), setFlying()
 - checkIfFull(`@number`)
   
 **Properties**
 
 - name `@String`
 - status `@String`
-- maxCapacity `@number`
+- capacity `@number`
 - currentPlanes`@array`
 - weather`@string`  
 
@@ -28,11 +28,11 @@
   
 <br><br>
 
-| Objects  | Properties                                   | Messages                                         | Output                |
-| -------- | -------------------------------------------- | ------------------------------------------------ | --------------------- |
-| Airplane | name `@string`, status`@string`              |                                                  | `@string`             |
-| Airport  | maxCapacity `@number`, currentPlanes`@array` | checkIfFull(`@number`), landPlane(), setFlying() | `@number`, `@Boolean` |
-| Weather  | weather`@string`                             |                                                  | `@string`             |
+| Objects  | Properties                                | Messages                                | Output                |
+| -------- | ----------------------------------------- | --------------------------------------- | --------------------- |
+| Airplane | name `@string`, status`@string`           |                                         | `@string`             |
+| Airport  | capacity `@number`, currentPlanes`@array` | checkIfFull(), landPlane(), setFlying() | `@number`, `@Boolean` |
+| Weather  | weather`@string`                          |                                         | `@string`             |
 
 As an air traffic controller
 So I can get passengers to a destination
