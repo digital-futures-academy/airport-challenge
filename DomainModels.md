@@ -1,3 +1,7 @@
+# Domain Models
+
+## Acceptance Criteria
+
 ### Criteria 1
 
 >As an air traffic controller,
@@ -59,3 +63,36 @@
 |         |                       |                            | prevented     | @boolean false |
 | Plane   | landedStatus @boolean | checkIfAtAirport()         | landed        | @boolean true  |
 |         |                       |                            | not landed    | @boolean false |
+
+
+## Extended Acceptance Criteria
+
+### Criteria 6
+
+>As an air traffic controller,
+>To ensure safety,
+>I want to prevent takeoff when weather is stormy
+
+| Object | Properties | Message | Context | Output |
+| ------ | ---------- | ------- | ------- | ------ |
+|        |            |         |         |        |
+
+
+### Criteria 7
+>As an air traffic controller,
+>To ensure safety,
+>I want to prevent landing when weather is stormy
+
+| Object | Properties | Message | Context | Output |
+| ------ | ---------- | ------- | ------- | ------ |
+|        |            |         |         |        |
+
+
+### Criteria 8
+>As an air traffic controller,
+>To count planes easily,
+>Planes that have landed must be at an airport
+
+| Object | Properties | Message | Context | Output |
+| ------ | ---------- | ------- | ------- | ------ |
+|        |            |         |         |        |
