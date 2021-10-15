@@ -1,1 +1,1 @@
-require('./src/airport');
+require('./spec/airportChallenge.spec');
