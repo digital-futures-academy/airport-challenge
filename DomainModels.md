@@ -19,7 +19,7 @@
 
 | Object  | Properties              | Message                        | Context                 | Output  |
 | ------- | ----------------------- | ------------------------------ | ----------------------- | ------- |
-| Airport | defaultCapacity @string | updateDefaultAirportCapacity() | update default capacity | @number |
+| Airport | defaultCapacity @number | updateDefaultAirportCapacity() | update default capacity | @number |
 
 
 ### Criteria 3
@@ -57,5 +57,5 @@
 | ------- | --------------------- | -------------------------- | ------------- | -------------- |
 | Airport | allowTakeOff @boolean | allowTakeOff(landedStatus) | not prevented | @boolean true  |
 |         |                       |                            | prevented     | @boolean false |
-| Plane   | landedStatus @string  | checkIfAtAirport()         | landed        | @boolean true  |
+| Plane   | landedStatus @boolean | checkIfAtAirport()         | landed        | @boolean true  |
 |         |                       |                            | not landed    | @boolean false |
