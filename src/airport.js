@@ -39,7 +39,7 @@ class Airport {
       return this.parkingLot;
     }
     this.parkingLot.splice(index, 1);
-    return this.parkingLot;
+    return `${plane}, please get ready for takeoff!`;
   }
 }
 
