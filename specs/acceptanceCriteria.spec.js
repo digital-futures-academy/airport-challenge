@@ -80,7 +80,6 @@ test.it("Test4 - Testing that we can get planes to take off", () => {
 	actualOutput = airport.takeOff(plane);
 
 	// Step3 - Assert
-	// seems like js cannot compare arrays for identity
 	test.assertEquals(actualOutput, expectedOutput);
 })
 
