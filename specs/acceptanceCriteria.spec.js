@@ -67,7 +67,7 @@ test.it("Test3b - Testing that we can prevent landing when airport is full", () 
 	test.assertEquals(actualOutput, expectedOutput);
 })
 
-test.it("Test4 - Testing that we can get planes to take off and confirm they are no longer in the airport", () => {
+test.it("Test4 - Testing that we can get planes to take off", () => {
 	// Step1 - Arrange
 	let expectedOutput, actualOutput;
 	let plane = new Plane();
@@ -82,6 +82,24 @@ test.it("Test4 - Testing that we can get planes to take off and confirm they are
 	// Step3 - Assert
 	// seems like js cannot compare arrays for identity
 	test.assertEquals(actualOutput, expectedOutput);
+})
+
+test.it("Test4b - Testing that we can confirm they are no longer in the airport", () => {
+	// Step1 - Arrange
+	let expectedOutput, actualOutput;
+	let plane = new Plane();
+	let airport = new Airport();
+	airport.weather = "sunny";
+	airport.parkingLot = [plane];
+	expectedOutput = [];
+
+	// Step2 - Act
+	airport.takeOff(plane);
+	actualOutput = airport.parkingLot;
+
+	// Step3 - Assert
+	// seems like js cannot compare arrays for identity
+	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
 })
 
 test.it("Test5a - Testing that planes not at airport cannot takeoff", () => {
