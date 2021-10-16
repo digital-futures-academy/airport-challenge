@@ -5,19 +5,19 @@ const test = require('../test-framework');
 test.it("EdgeCase1: Testing that planes can only take off from airports they are in", () => {
 	// Assign
 	let expectedOutput, actualOutput;
-	let airport1 = new Airport();
-	let airport2 = new Airport();
+	let heathrow = new Airport('heathrow');
+	let frankfurt = new Airport('frankfurt');
 	let plane = new Plane();
 
-	airport1.weather = "sunny";
-	airport2.weather = "sunny";
-	airport1.parkingLot = [plane];
-	airport2.parkingLot = [];
+	heathrow.weather = "sunny";
+	frankfurt.weather = "sunny";
+	heathrow.parkingLot = [plane];
+	frankfurt.parkingLot = [];
 
-	expectedOutput = `Not possible: ${plane} is not at airport2`;
+	expectedOutput = `Not possible: ${plane} is not at ${frankfurt}`;
 
 	// Act
-	actualOutput = airport2.takeOff(plane);
+	actualOutput = frankfurt.takeOff(plane);
 
 	// Assert
 	test.assertEquals(actualOutput, expectedOutput);
