@@ -4,6 +4,7 @@ class Airport {
     this.maxCapacity = maxCapacity;
     this.currentCapacity = 0;
     this.planes = [];
+    Math.random() >= 0.5 ? this.safeWeather = true : this.safeWeather = false;
   }
 
   landPlane(plane) {
@@ -29,7 +30,7 @@ class Airport {
   }
 
   allowTakeOff(plane) {
-    if (this.checkIfLanded()) {
+    if (this.checkIfLanded(plane)) {
       let index = this.planes.indexOf(plane);
       this.planes.splice(index, 1);
     }
@@ -38,6 +39,10 @@ class Airport {
   checkIfLanded(plane) {
     let index = this.planes.indexOf(plane);
     return index === -1 ? false : true;
+  }
+
+  setSafeWeather(condition) {
+    condition ? this.safeWeather = true : this.safeWeather = false;
   }
 }
 
