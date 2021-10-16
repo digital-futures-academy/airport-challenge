@@ -59,10 +59,10 @@ test.it("Test3b - Testing that we can prevent landing when airport is full", () 
 	let actualOutput, expectedOutput;
 	let plane1 = new Plane();
 	let plane2 = new Plane();
-	let airport = new Airport(1);
+	let airport = new Airport(1, 'airport');
 	airport.parkingLot = [plane1];
 
-	expectedOutput = `${plane2} is unable to land: Airport capacity is full`;
+	expectedOutput = `${plane2} is unable to land: ${airport.name} capacity is full`;
 
 	// Step2 - Act
 	actualOutput = airport.landPlane(plane2);
@@ -113,6 +113,7 @@ test.it("Test5a - Testing that planes not at airport cannot takeoff", () => {
 	let plane = new Plane();
 	let airport = new Airport('airport');
 	airport.parkingLot = [];
+	airport.weather = "sunny";
 
 	expectedOutput = `Not possible: ${plane} is not at ${airport.name}`;
 
@@ -128,6 +129,7 @@ test.it("Test5b - Testing that planes at airport cannot land", () => {
 	let expectedOutput, actualOutput;
 	let plane = new Plane();
 	let airport = new Airport('airport');
+	airport.weather = "sunny";
 	airport.parkingLot = [plane];
 
 	expectedOutput = `Not possible: ${plane} is at ${airport.name}`;
