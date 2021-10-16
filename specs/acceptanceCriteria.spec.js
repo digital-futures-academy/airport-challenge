@@ -111,10 +111,10 @@ test.it("Test5a - Testing that planes not at airport cannot takeoff", () => {
 	// Step1 - Arrange
 	let expectedOutput, actualOutput;
 	let plane = new Plane();
-	let airport = new Airport();
+	let airport = new Airport('airport');
 	airport.parkingLot = [];
 
-	expectedOutput = `Not possible: ${plane} is not at airport`;
+	expectedOutput = `Not possible: ${plane} is not at ${airport.name}`;
 
 	// Step2 - Act
 	actualOutput = airport.takeOff(plane);
@@ -127,10 +127,10 @@ test.it("Test5b - Testing that planes at airport cannot land", () => {
 	// Step1 - Arrange
 	let expectedOutput, actualOutput;
 	let plane = new Plane();
-	let airport = new Airport();
+	let airport = new Airport('airport');
 	airport.parkingLot = [plane];
 
-	expectedOutput = `Not possible: ${plane} is at airport`;
+	expectedOutput = `Not possible: ${plane} is at ${airport.name}`;
 
 	// Step2 - Act
 	actualOutput = airport.landPlane(plane);
