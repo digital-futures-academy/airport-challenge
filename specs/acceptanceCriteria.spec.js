@@ -9,6 +9,7 @@ test.it("Test1 - Testing that we can land planes", () => {
 	let airport = new Airport();
 	let plane = new Plane();
 	airport.weather = "sunny";
+
 	expectedOutput = `${plane}, please get ready for landing!`;
 
 	// Step2 - Act
@@ -24,6 +25,7 @@ test.it("Test2 - Testing that we can override default airport capacity", () => {
 	let actualOutput, expectedOutput;
 	let airport1 = new Airport();
 	let airport2 = new Airport(10);
+
 	expectedOutput = airport1.capacity;
 
 	// Step2 - Act
@@ -41,6 +43,7 @@ test.it("Test3a - Testing that we can check if the airport is full", () => {
 	let plane2 = new Plane();
 	let airport = new Airport(2);
 	airport.parkingLot = [plane1, plane2];
+
 	expectedOutput = true;
 
 	// Step2 - Act
@@ -58,6 +61,7 @@ test.it("Test3b - Testing that we can prevent landing when airport is full", () 
 	let plane2 = new Plane();
 	let airport = new Airport(1);
 	airport.parkingLot = [plane1];
+
 	expectedOutput = `${plane2} is unable to land: Airport capacity is full`;
 
 	// Step2 - Act
@@ -74,6 +78,7 @@ test.it("Test4a - Testing that we can get planes to take off", () => {
 	let airport = new Airport();
 	airport.weather = "sunny";
 	airport.parkingLot = [plane];
+
 	expectedOutput = `${plane}, please get ready for takeoff!`;
 
 	// Step2 - Act
@@ -90,6 +95,7 @@ test.it("Test4b - Testing that we can confirm they are no longer in the airport"
 	let airport = new Airport();
 	airport.weather = "sunny";
 	airport.parkingLot = [plane];
+
 	expectedOutput = [];
 
 	// Step2 - Act
@@ -107,6 +113,7 @@ test.it("Test5a - Testing that planes not at airport cannot takeoff", () => {
 	let plane = new Plane();
 	let airport = new Airport();
 	airport.parkingLot = [];
+
 	expectedOutput = `Not possible: ${plane} is not at airport`;
 
 	// Step2 - Act
@@ -122,6 +129,7 @@ test.it("Test5b - Testing that planes at airport cannot land", () => {
 	let plane = new Plane();
 	let airport = new Airport();
 	airport.parkingLot = [plane];
+
 	expectedOutput = `Not possible: ${plane} is at airport`;
 
 	// Step2 - Act

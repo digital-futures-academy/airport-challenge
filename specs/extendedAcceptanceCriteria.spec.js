@@ -9,6 +9,7 @@ test.it("Test6 - Testing that we can prevent takeoff when weather is 'stormy'", 
 	let airport = new Airport();
 	airport.parkingLot = [plane];
 	airport.weather = "stormy";
+
 	expectedOutput = [plane];
 
 	// Act
@@ -26,6 +27,7 @@ test.it("Test7 - Testing that we can prevent landing when weather is 'stormy'", 
 	let airport = new Airport();
 	airport.parkingLot = [];
 	airport.weather = "stormy";
+
 	expectedOutput = [];
 
 	// Act
@@ -42,6 +44,7 @@ test.it("Test8 - Testing that all landed planes are at an airport", () => {
 	let airport = new Airport();
 	airport.weather = "sunny";
 	airport.landPlane(plane);
+
 	expectedOutput = true;
 
 	// Act
