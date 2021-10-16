@@ -67,7 +67,7 @@ test.it("Test3b - Testing that we can prevent landing when airport is full", () 
 	test.assertEquals(actualOutput, expectedOutput);
 })
 
-test.it("Test4 - Testing that we can get planes to take off", () => {
+test.it("Test4a - Testing that we can get planes to take off", () => {
 	// Step1 - Arrange
 	let expectedOutput, actualOutput;
 	let plane = new Plane();

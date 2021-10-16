@@ -35,7 +35,7 @@ test.it("Test7 - Testing that we can prevent landing when weather is 'stormy'", 
 	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
 })
 
-test.it("Test8 - Testing that all landed planes are at an airport'", () => {
+test.it("Test8 - Testing that all landed planes are at an airport", () => {
 	// Assign
 	let actualOutput, expectedOutput;
 	let plane = new Plane();
