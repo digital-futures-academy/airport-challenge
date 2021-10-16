@@ -27,6 +27,7 @@ class Airport {
 
         this.planeList.push(plane);
         this.currentNoOfPlanes = this.planeList.length;
+        plane.currentLocation = this.airportName;
 
         this.checkIsFull();
 
@@ -64,8 +65,8 @@ class Airport {
       if (planeIndex > -1) {
 
         this.planeList.splice(planeIndex, 1);
-
         this.currentNoOfPlanes = this.planeList.length;
+        plane.currentLocation = 'flying';
 
         this.checkIsFull();
 

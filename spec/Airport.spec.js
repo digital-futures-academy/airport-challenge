@@ -23,11 +23,13 @@ let actualOutput;
 // TEST 8 Prevent landing if the weather is stormy
 // TEST 9 Prevent take off if weather is stormy
 // TEST 10 Check that planes that have landed are at an airport
-// TEST 11 Check to count planes correctly
+// TEST 11 Check that when planes take off they aren't at an airport
+// TEST 12 Check to count planes correctly
 
 // EDGE CASES
-// TEST 12 Check status of plane is correct with its other properties
-// TEST 13 Check planes can't take off if the airport is empty
+// TEST 13 Check status of plane is correct with its other properties
+// TEST 14 Check planes can't take off if the airport is empty
+// TEST 15 Check that when planes are flying, they aren't at an airport
 
 // Airport
 // Check that planes only take off if they are at the Airport
@@ -258,9 +260,31 @@ test.it('TEST 9: Prevent take off if weather is stormy', () => {
   `);
 });
 
+// TEST 10
+test.it('TEST 10: Check that planes that have landed are at an airport', () => {
+
+  // ARRANGE
+  airport = new Airport(airportName = 'Gatwick');
+  plane1 = new Plane('001');
+  weather = new Weather();
+
+  expectedOutput = 'Gatwick';
+
+  // ACT
+  airport.landPlane(plane1, weather);
+
+  actualOutput = plane1.currentLocation;
+
+  // ASSERT
+
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+  `);
+
+});
 //
 
-// TEST 13
+// TEST 14
 test.it('TEST 13: Check that planes cannot take off if airport is empty', () => {
 
   // ARRANGE
