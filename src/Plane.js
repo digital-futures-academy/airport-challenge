@@ -23,6 +23,12 @@ class Plane {
         }
         return status;
     }
+
+    generatePlaneID() {
+        let array = [777, 737, 380, 350, 340, 787, 330, 320, 747];
+        let rand = array[Math.floor(Math.random()*array.length)]
+        return rand;
+    }
 }
 
 module.exports = Plane;

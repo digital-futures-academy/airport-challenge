@@ -1,6 +1,7 @@
 const Plane = require('../src/Plane');
 const Test = require('../test-framework/test-framework');
 
+/** AC - 1 */
 Test.it('Check plane flying status when landed', () => {
 
     let plane;

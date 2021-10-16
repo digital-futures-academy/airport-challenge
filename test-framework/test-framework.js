@@ -2,7 +2,7 @@ const Test = {
     
     assertEquals (expectedValue, actualValue)  {
         if (expectedValue !== actualValue) {
-            throw new Error("Returned Values don't match");
+            throw new Error(`ExpectedValue = ${expectedValue}`);
         } else {
             return expectedValue === actualValue;
         }
