@@ -10,6 +10,9 @@
 ## How to run the tests
 --------------------------------------
 - Run tests using `npm test` or `node specRunner`
+- All tests are disabled by default
+- To enable a test, go to the relevant file in the `specs` directory and change `test.xit` to `test.it`
+- To disable a test, change `test.xit` to `test.it`
 
 ### **Acceptance Criteria**
 --------------------------------------
@@ -39,6 +42,7 @@ To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
 ### **Extended Criteria**
+--------------------------------------
 
 **User Story 6**
 As an air traffic controller
@@ -56,6 +60,7 @@ To count planes easily
 Planes that have landed must be at an airport
 
 ### **Edge Cases**
+--------------------------------------
 
 **EdgeCase1**
 Planes can only take off from airports they are in
@@ -88,7 +93,7 @@ This was the domain model that I came up with before I began to write the tests.
   |         | randomNum@Int    | takeOff(@Plane)       | @String, @Array |
   |         | weather@String   |                       |                 |
 
-This was my revised domain model.
+This was another provisional domain model.
 
 ## Domain Model - a final pass
 
@@ -101,25 +106,25 @@ This was my revised domain model.
   |         | weather@String   |                       |                 |
   |         | name@String      |                       |                 |
 
-My final domain model
+This was what my domain model ended up looking like.
 
 ## How I approached the challenge
 --------------------------------------
 
 I first read through the user stories and came up with a rough domain model before starting to write my first test. Then I wrote one test for each user story. 
 
-For user story 2, I made use of the Airport class constructor to allow the user to override the airport capacity.
+For user story 2, I made use of the airport class constructor to allow the user to override the airport capacity.
 
 For user story 5, I used two unit tests: one to ensure that already landed planes cannot land, and the other to ensure that planes not at the airport cannot take off. 
 
 For user stories 6 and 7, I initally thought of creating a separate class to model the weather since there is no intuitive connection between airports and the weather. But then I realised that it would be simpler to model the weather as a property of the airport class. Although it seemed strange at first glance, I realised this was reasonable after all. This is because only the local weather at the same location as the airport will be relevant for determining whether a plane can land or take off. 
 
-I also ran into a problem with isolating my unit tests, because the test for `landPlane()` had two failing conditions, namely, when either the weather is stormy or the plane that we're telling to land is already at the airport. This meant that my test for user story 1 would occasionally fail due to the weather being set to stormy. To fix this, I overrode the weather property within the test so that it would ignore the weather.
+I also ran into a problem with isolating my unit tests, because the test for `landPlane()` had two failing conditions, namely, when either the weather is stormy or the plane that we're telling to land is already at the airport. This meant that my test for user story 1 would occasionally fail due to the weather being randomly set to stormy. To fix this, I overrode the weather property within the test so that it would ignore the weather. This problem cropped up in a few of my other tests as well.
 
-Another difficulty I faced was when I started writing the test case for user story 8. Unlike the previous tests, this one passed right off the bat. I realised that the reason was because my test for user story 1 already covered this test. I wrote the test for user story 1 in a way that modeled the `landPlane(plane)` method by adding the plane that was instructed to land to an array which modeled the capacity at an airport. This naturally ensured that all landed planes are at some airport. And so any code which passed the test for user story 1 would also pass the test for user story 8. But this was more than what user story 1 was looking for and TDD is all about writing the minimum code to pass a test. Yet this was precisely the mistake I had made - my test for user story 1 wasn't simple enough, it led me to write code that would pass test 1 and a test for another user story. 
+Another difficulty I faced was when I started writing the test case for user story 8. Unlike the previous tests, this one passed right off the bat. I realised that the reason was because my test for user story 1 already covered this test. I wrote the test for user story 1 in a way that modeled the `landPlane(@plane)` method by adding the plane that was instructed to land to an array which modeled the capacity at an airport. This naturally ensured that all landed planes are at some airport. And so any code which passed the test for user story 1 would also pass the test for user story 8. But this was more than what user story 1 was looking for and TDD is all about writing the minimum code to pass a test. Yet this was precisely the mistake I had made - my test for user story 1 wasn't simple enough, it led me to write code that would pass test 1 and a test for another user story. 
 
 Luckily, I was able to avert having to make significant changes. I deleted test 8 and refactored test 1 (the test for user story 1) and ensured that it would fail before writing code that passed test 1. Then I wrote a failing test 8 which actually turned out to be what I initially wrote for test 1. Finally, I refactored the source code so that test 8 was also passing.
 
-My final step was to go through the main user stories and refactor them if needed and then to write some unit tests for the mentioned edge cases and check if I had adequately accounted for them.
+My final step was to go through the main user stories and refactor them if needed and then to write some unit tests for the mentioned edge cases and check if I had adequately accounted for them. I ended up breaking down test 3 and test 4 into smaller subtests. 
 
-I finished by tiding everything up and documenting my approach to the challenge in this README file.
+I finished by proofreading my code and tiding everything up and documenting my approach to the challenge in this README file.
