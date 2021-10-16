@@ -1,10 +1,18 @@
 class Plane {
     
 
-    constructor(planeID) {
-        this.planeID = planeID;
-        this.isPlaneFlying = true;
+    constructor(planeID, isPlaneFlying) {
+        this._planeID = planeID;
+        this._isPlaneFlying = isPlaneFlying;
 
+    }
+
+    get isPlaneFlying() {
+        return this._isPlaneFlying;
+    }
+
+    get planeID() {
+        return this._planeID;
     }
 }
 
