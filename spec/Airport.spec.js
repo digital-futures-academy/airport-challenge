@@ -132,7 +132,7 @@ test.it('TEST 4: Check that planes can take off, reducing currentNoOfPlanes by 1
   airport.landPlane(plane, weather);
 
   // ACT
-  airport.takeOff(plane);
+  airport.takeOff(plane, weather);
 
   actualOutput = airport.currentNoOfPlanes;
 
@@ -182,7 +182,7 @@ test.it('TEST 6: Check planes can only take off if they are at the aiport', () =
   // ACT
   airport.landPlane(plane1, weather);
 
-  actualOutput = airport.takeOff(plane2);
+  actualOutput = airport.takeOff(plane2, weather);
   //console.log(actualOutput);
 
   // ASSERT
@@ -235,6 +235,29 @@ test.it('TEST 8: Prevent landing if weather is stormy', () => {
 `);
 });
 
+// TEST 9
+test.it('TEST 9: Prevent take off if weather is stormy', () => {
+
+  // ARRANGE
+  airport = new Airport();
+  plane1 = new Plane();
+  weather = new Weather();
+
+  expectedOutput = 'Plane cannot take off, weather is stormy';
+
+  // ACT
+
+  weather.weatherReport = 'stormy';
+
+  actualOutput = airport.takeOff(plane1, weather);
+
+  // ASSERT
+
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+  `);
+});
+
 //
 
 // TEST 13
@@ -248,7 +271,7 @@ test.it('TEST 13: Check that planes cannot take off if airport is empty', () => 
   expectedOutput = 'Plane cannot take off, airport is empty';
 
   // ACT
-  actualOutput = airport.takeOff(plane1);
+  actualOutput = airport.takeOff(plane1, weather);
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
