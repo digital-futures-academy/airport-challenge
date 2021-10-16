@@ -13,8 +13,11 @@ class Airport {
   }
 
   landPlane(plane) {
+    if (this.isFull()) {
+      return `${plane} is unable to land: Airport capacity is full`;
+    }
     if (this.parkingLot.includes(plane)) {
-      return "Not possible: Plane is at airport";
+      return `Not possible: ${plane} is at airport`;
     }
     if (this.weather === "stormy") {
       return this.parkingLot;
