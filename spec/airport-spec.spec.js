@@ -86,3 +86,17 @@ test.it("Criteria 6 - prevent take-off when weather is stormy.", () => {
     let actualOutput = airport.planes.length;
     test.assertEquals(actualOutput, expectedOutput);
 });
+
+
+test.it("Criteria 7 - prevent landing when weather is stormy.", () => {
+    planes = ['EasyJet', 'PassengerJet'];
+    airport = new Airport(planes);
+
+    airport.stormyWeather = true;
+
+    airport.landPlane('Airbus');
+
+    let expectedOutput = 2;
+    let actualOutput = airport.planes.length;
+    test.assertEquals(actualOutput, expectedOutput);
+});
