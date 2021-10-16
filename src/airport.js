@@ -36,7 +36,12 @@ class Airport {
   landPlane(plane) {
     if (!this.status && (this.planes.length + 1) <= this.defaultCapacity) {
       if (!this.isPlaneAtAirport(plane)) {
-        this.planes.push(plane);
+        if (!this.stormyWeather) {
+          this.planes.push(plane);
+        }
+        else {
+          console.log("Plane is unable to land due to stormy weather.");
+        }
       }
       this.#updateAirportStatus();
     }
