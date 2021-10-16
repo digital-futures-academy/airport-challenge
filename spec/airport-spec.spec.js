@@ -1,4 +1,5 @@
 const Airport = require('../src/airport.js');
+const Plane = require('../src/plane.js');
 const test = require('../test-framework.js');
 
 let airport, planes = new Array();
@@ -98,5 +99,19 @@ test.it("Criteria 7 - prevent landing when weather is stormy.", () => {
 
     let expectedOutput = 2;
     let actualOutput = airport.planes.length;
+    test.assertEquals(actualOutput, expectedOutput);
+});
+
+
+test.it("Criteria 8 - to count planes easily, planes that have landed must be at an airport.", () => {
+    planes[0] = new Plane("EasyJet", true);
+    planes[1] = new Plane("Airbus", true);
+    planes[2] = new Plane("Concord", false);
+
+    airport = new Airport(planes);
+    airport.stormyWeather = false;
+
+    let expectedOutput = 2;
+    let actualOutput = airport.numberOfPlanesAtAirport();;
     test.assertEquals(actualOutput, expectedOutput);
 });
