@@ -58,7 +58,7 @@ Planes that have landed must be at an airport
 ### **Edge Cases**
 
 **EdgeCase1**
-Planes can only take off from airports they are in.
+Planes can only take off from airports they are in
 
 **EdgeCase2**
 Planes that are already flying cannot be in an airport
@@ -88,7 +88,20 @@ This was the domain model that I came up with before I began to write the tests.
   |         | randomNum@Int    | takeOff(@Plane)       | @String, @Array |
   |         | weather@String   |                       |                 |
 
-This was the domain model that I ended up following.
+This was my revised domain model.
+
+## Domain Model - a final pass
+
+  | Objects | Properties       | Methods               | Outputs         |
+  | ------- | ---------------- | --------------------- | --------------- |
+  | Plane   |                  | isAtAirport(@Airport) | @Boolean        |
+  | Airport | parkingLot@Array | landPlane(@Plane)     | @String, @Array |
+  |         | capacity@Int     | isFull()              | @Boolean        |
+  |         | randomNum@Int    | takeOff(@Plane)       | @String, @Array |
+  |         | weather@String   |                       |                 |
+  |         | name@String      |                       |                 |
+
+My final domain model
 
 ## How I approached the challenge
 --------------------------------------
