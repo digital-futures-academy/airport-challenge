@@ -34,7 +34,7 @@ test.it("Test2 - Testing that we can override default airport capacity", () => {
 })
 
 // Test3
-test.it("Test3 - Testing that we can prevent landing when airport is full", () => {
+test.it("Test3a - Testing that we can check if the airport is full", () => {
 	// Step1 - Arrange
 	let actualOutput, expectedOutput;
 	let plane1 = new Plane();
@@ -45,6 +45,23 @@ test.it("Test3 - Testing that we can prevent landing when airport is full", () =
 
 	// Step2 - Act
 	actualOutput = airport.isFull();
+
+	// Step3 - Assert
+	test.assertEquals(actualOutput, expectedOutput);
+})
+
+// Test3b
+test.it("Test3b - Testing that we can prevent landing when airport is full", () => {
+	// Step1 - Arrange
+	let actualOutput, expectedOutput;
+	let plane1 = new Plane();
+	let plane2 = new Plane();
+	let airport = new Airport(1);
+	airport.parkingLot = [plane1];
+	expectedOutput = `${plane2} is unable to land: airport capacity is full`;
+
+	// Step2 - Act
+	actualOutput = airport.landPlane(plane2);
 
 	// Step3 - Assert
 	test.assertEquals(actualOutput, expectedOutput);
