@@ -54,7 +54,7 @@ test.it(`Check that the airport can land another plane to make the total capacit
 
     //--Check if landing another plane change the capacity to 2 and both planes are in the airport --
 
-    let airport, expectedOutput, result;
+    let airport, expectedOutput;
 
     //ARRANGE/SETUP
     airport = new Airport();
@@ -67,10 +67,40 @@ test.it(`Check that the airport can land another plane to make the total capacit
     airport.landPlane(klm);
 
     //console.log(airport.planes.length);
-    expectedOutput = 2;
 
     //ASSERT/VERIFY
 
     return test.assertEquals(airport.planes.length, expectedOutput);
 
 });
+
+test.it(`Prevent landing when the airport is full `, function () {
+
+    //--Check if landing another plane change the capacity to 2 and both planes are in the airport --
+
+    let airport, expectedOutput, result;
+
+    //ARRANGE/SETUP
+    airport = new Airport();
+    klm = new Plane('klm');
+    boeng737 = new Plane('boeng737');
+    ka = new Plane('ka');
+    expectedOutput = `Airport is Full no landing`;
+
+
+
+    //ACT/EXECUTE
+    airport.landPlane(boeng737);
+    airport.landPlane(klm);
+
+    //console.log(airport.planes.length);
+
+    result = airport.landPlane(ka);
+    //console.log(result);
+
+    //ASSERT/VERIFY
+
+    return test.assertEquals(result, expectedOutput);
+
+});
+
