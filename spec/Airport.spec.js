@@ -25,11 +25,12 @@ let actualOutput;
 // TEST 10 Check that planes that have landed are at an airport
 // TEST 11 Check that when planes take off they aren't at an airport
 // TEST 12 Check to count planes correctly
+// TEST 13 Check that weather randomly generates
 
 // EDGE CASES
-// TEST 13 Check status of plane is correct with its other properties
-// TEST 14 Check planes can't take off if the airport is empty
-// TEST 15 Check that when planes are flying, they aren't at an airport
+// TEST 14 Check status of plane is correct with its other properties
+// TEST 15 Check planes can't take off if the airport is empty
+// TEST 16 Check that when planes are flying, they aren't at an airport
 
 // Airport
 // Check that planes only take off if they are at the Airport
@@ -63,7 +64,7 @@ test.it('TEST 1: Check that planes can land', () => {
 
   // act
 
-  airport.landPlane(plane, weather);
+  airport.landPlane(plane);
 
   // assert
 
@@ -84,10 +85,10 @@ test.it('TEST 2: Check airport is full', () => {
 
   // Landing the first plane to fill up the airport
   // ...It's not a very big airport, okay?
-  airport.landPlane(plane1, weather);
+  airport.landPlane(plane1);
 
   // Landing the second plane
-  airport.landPlane(plane2, weather);
+  airport.landPlane(plane2);
 
   actualOutput = airport.isFull;
 
@@ -105,12 +106,12 @@ test.it('TEST 3: Check that a full airport prevents landing', () => {
   weather = new Weather();
 
   // landing the first plane so that isFull = true
-  airport.landPlane(plane, weather);
+  airport.landPlane(plane);
 
   expectedOutput = 1;
 
   // ACT
-  airport.landPlane(plane2, weather);
+  airport.landPlane(plane2);
   actualOutput = airport.currentNoOfPlanes;
 
   // ASSERT
@@ -131,10 +132,10 @@ test.it('TEST 4: Check that planes can take off, reducing currentNoOfPlanes by 1
   expectedOutput = 0; // currentNoOfPlanes = 0
 
   // landing the first plane so it can take off
-  airport.landPlane(plane, weather);
+  airport.landPlane(plane);
 
   // ACT
-  airport.takeOff(plane, weather);
+  airport.takeOff(plane);
 
   actualOutput = airport.currentNoOfPlanes;
 
@@ -158,11 +159,11 @@ test.it('TEST 5: Check that planes can only land if they are not at the Airport'
 
   // ACT
   // Landing plane1 and plane2 for the first time
-  airport.landPlane(plane1, weather);
-  airport.landPlane(plane2, weather);
+  airport.landPlane(plane1);
+  airport.landPlane(plane2);
 
   // Trying to land plane2 for a secondTime
-  actualOutput = airport.landPlane(plane2, weather);
+  actualOutput = airport.landPlane(plane2);
   //console.log(actualOutput);
 
   // ASSERT
@@ -182,9 +183,9 @@ test.it('TEST 6: Check planes can only take off if they are at the aiport', () =
   expectedOutput = 'Plane is not at airport';
 
   // ACT
-  airport.landPlane(plane1, weather);
+  airport.landPlane(plane1);
 
-  actualOutput = airport.takeOff(plane2, weather);
+  actualOutput = airport.takeOff(plane2);
   //console.log(actualOutput);
 
   // ASSERT
@@ -229,7 +230,7 @@ test.it('TEST 8: Prevent landing if weather is stormy', () => {
   expectedOutput = 'Plane cannot land, weather is stormy';
 
   // ACT
-  actualOutput = airport.landPlane(plane1, weather);
+  actualOutput = airport.landPlane(plane1, weather.weatherReport);
 
   // ASSERT
   test.assertEquals(expectedOutput, actualOutput);
@@ -251,7 +252,7 @@ test.it('TEST 9: Prevent take off if weather is stormy', () => {
 
   weather.weatherReport = 'stormy';
 
-  actualOutput = airport.takeOff(plane1, weather);
+  actualOutput = airport.takeOff(plane1, weather.weatherReport);
 
   // ASSERT
 
@@ -271,9 +272,10 @@ test.it('TEST 10: Check that planes that have landed are at an airport', () => {
   expectedOutput = 'Gatwick';
 
   // ACT
-  airport.landPlane(plane1, weather);
+  airport.landPlane(plane1, weather.weatherReport);
 
   actualOutput = plane1.currentLocation;
+  //console.log(actualOutput);
 
   // ASSERT
 
@@ -282,10 +284,88 @@ test.it('TEST 10: Check that planes that have landed are at an airport', () => {
   `);
 
 });
-//
 
-// TEST 14
-test.it('TEST 13: Check that planes cannot take off if airport is empty', () => {
+// TEST 11 Check that when planes take off they aren't at an airport
+test.it('TEST 11: Check that when planes take off they aren\'t at an airport', () => {
+
+  // ARRANGE
+  airport = new Airport(airportName = 'Gatwick');
+  plane1 = new Plane('001');
+  weather = new Weather();
+
+  expectedOutput = 'flying';
+
+  // ACT
+  airport.landPlane(plane1);
+  airport.takeOff(plane1);
+
+  actualOutput = plane1.currentLocation;
+  //console.log(actualOutput);
+
+  // ASSERT
+
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+  `);
+
+});
+
+// TEST 12 Check to count planes correctly
+test.it('TEST 12: Check to count planes correctly', () => {
+
+  // ARRANGE
+  airport = new Airport();
+  plane1 = new Plane(planeID = '001');
+  plane2 = new Plane(planeID = '002');
+  plane3 = new Plane(planeID = '003');
+  plane4 = new Plane(planeID = '004');
+  plane5 = new Plane(planeID = '005');
+  plane6 = new Plane(planeID = '006');
+
+  airport.capacity = 4;
+
+  expectedOutput = 3;
+
+  // ACT
+  airport.landPlane(plane1); // 1
+  airport.landPlane(plane2); // 2
+  airport.landPlane(plane3); // 3
+  airport.takeOff(plane1); // 2
+  airport.takeOff(plane2); // 1
+  airport.landPlane(plane4); // 2
+  airport.takeOff(plane4); // 1
+  airport.takeOff(plane3); // 0
+  airport.landPlane(plane1); // 1
+  airport.landPlane(plane3); // 2
+  airport.landPlane(plane4); // 3
+
+  actualOutput = airport.currentNoOfPlanes;
+
+  //console.log(airport.currentNoOfPlanes);
+
+  // ASSERT
+  test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+  `);
+
+});
+
+// TEST 13 Check that weather randomly generates
+
+// EDGE CASES
+// TEST 14 Check status of plane is correct with its other properties
+// TEST 15 Check planes can't take off if the airport is empty
+// TEST 16 Check that when planes are flying, they aren't at an airport
+
+// ARRANGE
+
+// ACT
+
+// ASSERT
+
+
+// TEST 15
+test.it('TEST 15: Check that planes cannot take off if airport is empty', () => {
 
   // ARRANGE
   airport = new Airport();
@@ -295,7 +375,7 @@ test.it('TEST 13: Check that planes cannot take off if airport is empty', () => 
   expectedOutput = 'Plane cannot take off, airport is empty';
 
   // ACT
-  actualOutput = airport.takeOff(plane1, weather);
+  actualOutput = airport.takeOff(plane1);
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);

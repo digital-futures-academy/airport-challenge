@@ -15,11 +15,11 @@ class Airport {
     this.currentNoOfPlanes = planeList.length;
   }
 
-  landPlane(plane, weather) {
+  landPlane(plane, weather = 'sunny') {
 
     let index = this.planeList.indexOf(plane);
 
-    if (index === -1 && weather.weatherReport === 'sunny') {
+    if (index === -1 && weather === 'sunny') {
 
       if (!this.isFull) {
 
@@ -48,7 +48,7 @@ class Airport {
 
         return 'Plane is already at airport';
 
-      } else if (weather.weatherReport === 'stormy') {
+      } else if (weather === 'stormy') {
 
         return 'Plane cannot land, weather is stormy';
 
@@ -56,9 +56,9 @@ class Airport {
     }
   }
 
-  takeOff(plane, weather) {
+  takeOff(plane, weather = 'sunny') {
 
-    if (this.currentNoOfPlanes > 0 && weather.weatherReport === 'sunny') {
+    if (this.currentNoOfPlanes > 0 && weather === 'sunny') {
 
       let planeIndex = this.planeList.indexOf(plane);
 
@@ -77,7 +77,7 @@ class Airport {
       }
     } else {
 
-      if (weather.weatherReport === 'stormy') {
+      if (weather === 'stormy') {
         return 'Plane cannot take off, weather is stormy';
       } else {
         return 'Plane cannot take off, airport is empty';
