@@ -46,3 +46,16 @@ airport.landPlane(plane);
 // Assert
 result = assertEquals(airport.planes.length, expectedOutput);
 console.log(result);
+
+// Test 4 - Test to see if a plane can still land when the weather is fixed to sunny
+console.log('Test 4 - Test to see if a plane can still land when the weather is fixed to sunny');
+// Arrange
+airport = new Airport();
+plane = new Plane();
+expectedOutput = 1;
+// Act
+airport.setSafeWeather(true);
+airport.landPlane(plane);
+// Assert
+result = assertEquals(airport.planes.length, expectedOutput);
+console.log(result);

@@ -8,7 +8,7 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (!this.checkIfFull() && !this.checkIfLanded(plane)) {
+    if (!this.checkIfFull() && !this.checkIfLanded(plane) && this.safeWeather) {
       this.planes.push(plane);
     }
   }
