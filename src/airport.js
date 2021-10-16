@@ -3,8 +3,14 @@ class Airport {
 
     hanger = [];
 
-    constructor() {
+    constructor(airportName, airportCapacity) {
         this.planes = this.hanger;
+        this._airportCapacity = airportCapacity;
+        this.airportName = airportName;
+    }
+
+    get airportCapacity() {
+        return this._airportCapacity;
     }
 
     landPlane(plane) {
