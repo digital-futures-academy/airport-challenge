@@ -125,6 +125,7 @@ Another difficulty I faced was when I started writing the test case for user sto
 
 Luckily, I was able to avert having to make significant changes. I deleted test 8 and refactored test 1 (the test for user story 1) and ensured that it would fail before writing code that passed test 1. Then I wrote a failing test 8 which actually turned out to be what I initially wrote for test 1. Finally, I refactored the source code so that test 8 was also passing.
 
+<<<<<<< HEAD
 My final step was to go through the main user stories and refactor them if needed and then to write some unit tests for the mentioned edge cases and check if I had adequately accounted for them. I ended up breaking down test 3 and test 4 into smaller subtests. 
 
 I finished by proofreading my code and tiding everything up and documenting my approach to the challenge in this README file.
