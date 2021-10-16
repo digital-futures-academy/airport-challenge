@@ -76,6 +76,16 @@ class Airport {
     }
     return false;
   }
+
+  numberOfPlanesAtAirport() {
+    let count = 0;
+    for (let i = 0, j = this.planes.length; i < j; i++) {
+      if (this.planes[i].landed) {
+        count++;
+      }
+    }
+    return count;
+  }
 }
 
 module.exports = Airport;
