@@ -4,12 +4,16 @@ class Airport {
     this.maxCapacity = maxCapacity;
     this.currentCapacity = 0;
     this.planes = [];
-    Math.random() >= 0.5 ? this.safeWeather = true : this.safeWeather = false;
+    //Math.random() >= 0.5 ? this.safeWeather = true : this.safeWeather = false;
+    this.safeWeather = true;
   }
 
   landPlane(plane) {
     if (!this.checkIfFull() && !this.checkIfLanded(plane) && this.safeWeather) {
-      this.planes.push(plane);
+      if (!plane.airport) {
+        this.planes.push(plane);
+        plane.airport = this;
+      }
     }
   }
 
@@ -33,6 +37,7 @@ class Airport {
     if (this.checkIfLanded(plane) && this.safeWeather) {
       let index = this.planes.indexOf(plane);
       this.planes.splice(index, 1);
+      plane.airport = undefined;
     }
   }
 
