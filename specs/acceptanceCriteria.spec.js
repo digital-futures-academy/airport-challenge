@@ -108,7 +108,7 @@ test.it("Test5a - Testing that planes not at airport cannot takeoff", () => {
 	let plane = new Plane();
 	let airport = new Airport();
 	airport.parkingLot = [];
-	expectedOutput = "Not possible: Plane is not at airport";
+	expectedOutput = `Not possible: ${plane} is not at airport`;
 
 	// Step2 - Act
 	actualOutput = airport.takeOff(plane);
