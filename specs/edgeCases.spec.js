@@ -14,7 +14,7 @@ test.it("EdgeCase1: Testing that planes can only take off from airports they are
 	heathrow.parkingLot = [plane];
 	frankfurt.parkingLot = [];
 
-	expectedOutput = `Not possible: ${plane} is not at ${frankfurt}`;
+	expectedOutput = `Not possible: ${plane} is not at ${frankfurt.name}`;
 
 	// Act
 	actualOutput = frankfurt.takeOff(plane);
