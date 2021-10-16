@@ -10,3 +10,11 @@ Steps
 
 How I approached the problem
 -----------------------------
+
+1. First I created some Domain Models from the user stories to plan out the objects and properties I may need for each criteria.
+2. In the test-framework file I added a function to use for each test to keep the code clean without much repetition.
+3. Any changes made to the project which did not cause any errors, were committed and pushed to GitHub.
+4. From the Domain Models, I created some failing tests to fit each criteria.
+5. I used `node specRunner.js` in the terminal while the current directory was set to the airport-challenge directory, to check that the tests were failing only due to the module or function not existing yet.
+6. After pushing the changes to GitHub again, I started on creating the source code to match each criteria and test, to allow the tests to pass.
+7. I spent some time refactoring code where I felt it was needed.
