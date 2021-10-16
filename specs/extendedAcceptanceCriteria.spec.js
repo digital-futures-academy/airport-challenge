@@ -2,7 +2,7 @@ const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
 const test = require('../test-framework');
 
-test.it("Test6 - Testing that we can prevent takeoff when weather is 'stormy'", () => {
+test.xit("Test6 - Testing that we can prevent takeoff when weather is 'stormy'", () => {
 	// Assign
 	let actualOutput, expectedOutput;
 	let plane = new Plane();
@@ -20,7 +20,7 @@ test.it("Test6 - Testing that we can prevent takeoff when weather is 'stormy'", 
 	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
 })
 
-test.it("Test7 - Testing that we can prevent landing when weather is 'stormy'", () => {
+test.xit("Test7 - Testing that we can prevent landing when weather is 'stormy'", () => {
 	// Assign
 	let actualOutput, expectedOutput;
 	let plane = new Plane();
@@ -37,7 +37,7 @@ test.it("Test7 - Testing that we can prevent landing when weather is 'stormy'", 
 	test.assertEquals(actualOutput.toString(), expectedOutput.toString());
 })
 
-test.it("Test8 - Testing that all landed planes are at an airport", () => {
+test.xit("Test8 - Testing that all landed planes are at an airport", () => {
 	// Assign
 	let actualOutput, expectedOutput;
 	let plane = new Plane();

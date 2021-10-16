@@ -11,6 +11,7 @@ const test = {
 		try {
 			testFunc();
 			console.log(testMessage);
+			console.log("Passed");
 		} catch (err) {
 			console.log(testMessage);
 			console.log(err.message);
@@ -19,7 +20,7 @@ const test = {
 	},
 
 	xit(message) {
-		console.log("Test skipped");
+		console.log("SKIPPED" + " " + message);
 	}
 }
 

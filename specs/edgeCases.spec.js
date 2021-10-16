@@ -2,7 +2,7 @@ const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
 const test = require('../test-framework');
 
-test.it("EdgeCase1: Testing that planes can only take off from airports they are in", () => {
+test.xit("EdgeCase1: Testing that planes can only take off from airports they are in", () => {
 	// Assign
 	let expectedOutput, actualOutput;
 	let heathrow = new Airport('heathrow');
@@ -23,7 +23,7 @@ test.it("EdgeCase1: Testing that planes can only take off from airports they are
 	test.assertEquals(actualOutput, expectedOutput);
 })
 
-test.it("EdgeCase2: Testing that planes already flying cannot be in an airport", () => {
+test.xit("EdgeCase2: Testing that planes already flying cannot be in an airport", () => {
 	// Assign
 	let expectedOutput, actualOutput;
 	let frankfurt = new Airport('frankfurt');
