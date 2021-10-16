@@ -23,4 +23,4 @@ How I approached the problem
 
 Screenshot of my interaction with the program
 -----------------------------------------------
-![my screenshot](screenshot-of-interaction.jpg)
+![my screenshot](/airport-challenge/screenshot-of-interaction.jpgscreenshot-of-interaction.jpg)
