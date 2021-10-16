@@ -11,7 +11,7 @@ test.it("Criteria 1 - land a plane.", () => {
     let expectedOutput = 1;
 
     //Execute (Act)
-    airport.landPlane('EasyJet');
+    airport.landPlane(new Plane("EasyJet", false));
     let actualOutput = airport.planes.length;
 
     //Verify (Assert)
@@ -33,12 +33,12 @@ test.it("Criteria 2 - allow override of default airport capacity.", () => {
 
 
 test.it("Criteria 3 - prevent a plane from landing when the airport is full.", () => {
-    planes = ['EasyJet', 'JumboJet', 'Airbus'];
+    planes = [new Plane('EasyJet', true), new Plane('JumboJet', true), new Plane('Airbus', true)];
     airport = new Airport(planes, 3);
 
     airport.stormyWeather = false;
 
-    airport.landPlane('PassengerJet');
+    airport.landPlane(new Plane('PassengerJet', false));
     let expectedOutput = 3;
     let actualOutput = airport.planes.length;
 
@@ -47,7 +47,7 @@ test.it("Criteria 3 - prevent a plane from landing when the airport is full.", (
 
 
 test.it("Criteria 4 - instruct the airport to let a plane take off and confirm it is no longer at the airport.", () => {
-    planes = ['EasyJet', 'JumboJet', 'Airbus', 'PassengerJet'];
+    planes = [new Plane('EasyJet', true), new Plane('JumboJet', true), new Plane('Airbus', true), new Plane('PassengerJet', true)];
     airport = new Airport(planes);
 
     airport.stormyWeather = false;
@@ -55,17 +55,16 @@ test.it("Criteria 4 - instruct the airport to let a plane take off and confirm i
     airport.takeOff(planes[1]);
 
     let expectedOutput = false;
-    let actualOutput = airport.isPlaneAtAirport('JumboJet');
+    let actualOutput = airport.isPlaneAtAirport(new Plane('JumboJet'));
     test.assertEquals(actualOutput, expectedOutput);
 });
 
 
 test.it("Criteria 5 - prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed.", () => {
-    planes = ['EasyJet', 'JumboJet', 'Airbus', 'PassengerJet'];
+    planes = [new Plane('EasyJet', true), new Plane('JumboJet', true), new Plane('Airbus', true), new Plane('PassengerJet', true)];
     airport = new Airport(planes);
 
     airport.stormyWeather = false;
-
     airport.landPlane('Airbus');
     airport.takeOff('TestPlane');
 
@@ -76,7 +75,7 @@ test.it("Criteria 5 - prevent asking the airport to let planes take-off which ar
 
 
 test.it("Criteria 6 - prevent take-off when weather is stormy.", () => {
-    planes = ['EasyJet', 'JumboJet', 'Airbus', 'PassengerJet'];
+    planes = [new Plane('EasyJet', true), new Plane('JumboJet', true), new Plane('Airbus', true), new Plane('PassengerJet', true)];
     airport = new Airport(planes);
 
     airport.stormyWeather = true;
@@ -90,7 +89,7 @@ test.it("Criteria 6 - prevent take-off when weather is stormy.", () => {
 
 
 test.it("Criteria 7 - prevent landing when weather is stormy.", () => {
-    planes = ['EasyJet', 'PassengerJet'];
+    planes = [new Plane('EasyJet', true), new Plane('PassengerJet', true)];
     airport = new Airport(planes);
 
     airport.stormyWeather = true;
