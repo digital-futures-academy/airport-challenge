@@ -19,3 +19,8 @@ How I approached the problem
 6. After pushing the changes to GitHub again, I started on creating the source code to match each criteria and test, to allow the tests to pass.
 7. On creating the tests for the extension criteria tasks, for task 8 I attempted to use a Plane class. For the source code section of this task I spent some time understanding how this other class could be used within the Airport class. I realised that I could call this.planes[0].landed or this.planes[0].name, from the array of planes to retrieve the data needed for certain functions.
 8. I spent some time refactoring code from my findings in the above step, where I felt it was needed, and checked that all the tests were still passing.
+
+
+Screenshot of my interaction with the program
+-----------------------------------------------
+![my screenshot](screenshot-of-interaction.jpg)
