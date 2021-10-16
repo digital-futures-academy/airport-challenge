@@ -30,7 +30,7 @@ class Airport {
   }
 
   allowTakeOff(plane) {
-    if (this.checkIfLanded(plane)) {
+    if (this.checkIfLanded(plane) && this.safeWeather) {
       let index = this.planes.indexOf(plane);
       this.planes.splice(index, 1);
     }

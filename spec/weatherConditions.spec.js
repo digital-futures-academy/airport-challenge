@@ -20,3 +20,29 @@ airport.allowTakeOff(plane);
 // Assert 
 result = assertEquals(airport.planes.length, expectedOutput);
 console.log(result);
+
+// Test 2 - Test to see if a plane can still takeoff if the weather is fixed to being sunny
+console.log('Test 2 - Test to see if a plane can still takeoff if the weather is fixed to being sunny');
+// Assert
+airport = new Airport();
+plane = new Plane();
+expectedOutput = 0;
+// Act
+airport.landPlane(plane);
+airport.allowTakeOff(plane);
+// Assert
+result = assertEquals(airport.planes.length, expectedOutput);
+console.log(result);
+
+// Test 3 - Test to see if a plane can land when the weather is fixed to stormy
+console.log('Test 3 - Test to see if a plane can land when the weather is fixed to stormy');
+// Assert 
+airport = new Airport();
+plane = new Plane();
+expectedOutput = 0;
+// Act
+airport.setSafeWeather(false);
+airport.landPlane(plane);
+// Assert
+result = assertEquals(airport.planes.length, expectedOutput);
+console.log(result);
