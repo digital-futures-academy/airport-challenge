@@ -3,12 +3,14 @@ class Airport {
   planes;
   defaultCapacity;
   status = false;
+  stormyWeather;
 
   constructor(planes = [], defaultCapacity = 10) {
     this.planes = planes;
     this.defaultCapacity = defaultCapacity;
 
     this.#updateAirportStatus();
+    this.#determineWeather();
   }
 
   #updateAirportStatus() {
@@ -17,6 +19,17 @@ class Airport {
     }
     else {
       this.status = false;
+    }
+  }
+
+  #determineWeather() {
+    const weatherChance = Math.floor(Math.random() * 101);
+
+    if (weatherChance < 80) {
+      this.stormyWeather = false;
+    }
+    else {
+      this.stormyWeather = true;
     }
   }
 
@@ -39,9 +52,14 @@ class Airport {
 
   takeOff(plane) {
     if (this.isPlaneAtAirport(plane)) {
-      const index = this.planes.indexOf(plane);
-      if (index > -1) {
-        this.planes.splice(index, 1);
+      if (!this.stormyWeather) {
+        const index = this.planes.indexOf(plane);
+        if (index > -1) {
+          this.planes.splice(index, 1);
+        }
+      }
+      else {
+        console.log("Plane is unable to take off due to stormy weather.");
       }
     }
     this.#updateAirportStatus();
