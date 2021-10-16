@@ -17,21 +17,34 @@ class Airport {
 
   landPlane(plane) {
 
-    let index = this.planeList.indexOf(plane.planeID);
+    let index = this.planeList.indexOf(plane);
 
     if (index === -1) {
 
       if (!this.isFull) {
+
         this.planeList.push(plane);
         this.currentNoOfPlanes = this.planeList.length;
-      }
-    }
 
-    this.checkIsFull();
+        this.checkIsFull();
+
+        return 'Plane has landed';
+
+      } else {
+
+        return 'Plane cannot land, airport is full';
+
+      }
+    } else {
+
+      return 'Plane is already at airport';
+
+    }
 
   }
 
   takeOff(plane) {
+
     if (this.currentNoOfPlanes > 0) {
 
       let planeIndex = this.planeList.indexOf(plane);
@@ -42,12 +55,17 @@ class Airport {
 
         this.currentNoOfPlanes = this.planeList.length;
 
+        this.checkIsFull();
+
+        return 'Plane took off successfully';
+
       } else {
-        return 'Plane cannot take off because it doesn\'t exist';
+        return 'Plane is not at airport';
       }
+    } else {
+      return 'Plane is not at airport';
     }
 
-    this.checkIsFull();
   }
 
   checkIsFull() {
@@ -58,6 +76,8 @@ class Airport {
     }
   }
 
+  // To refactor checking if planes are at an airport
+  checkIsAtAirport () {}
 }
 
 module.exports = Airport;

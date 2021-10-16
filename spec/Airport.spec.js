@@ -11,13 +11,26 @@ let expectedOutput;
 let actualOutput;
 
 // TEST CASES
+// ACCEPTANCE CRITERIA
+// X TEST 1 Check the aiport can land the plane
+// X TEST 2 + 3 Check that landing cannot happen if the aiport is full
+// X TEST 4 Check that a plane can take off and confirm it is no longer at the airport
+// TEST 5 Prevent asking planes to take off if they are not at the airport
+// TEST 6 Prevent asking planes to land if they are already at the airport
+// X TEST 7 Check the default aiport capacity can be overridden
+
+// EXTENDED ACCEPTANCE CRITERIA
+// TEST 8 Prevent landing if the weather is stormy
+// TEST 9 Prevent take off if weather is stormy
+// TEST 10 Check that planes that have landed are at an airport
+// TEST 11 Check to count planes correctly
+
+// EDGE CASES
+// Check status of plane is correct with its other properties
+// Check planes can't take off if the airport is empty
+
 // Airport
-// X Check that planes can land
-// X Check that airport is full
-// X Check that a full aiport prevents landing
-// X Check that planes that take off are removed from currentNoOfPlanes
-// Check that planes can only land if they are not at the Airport (planeID)
-// Check that planes cannot land if they are at the Airport
+// Check that planes only take off if they are at the Airport
 // Check that when plane takes off it is no longer at Airport (planeID)
 // Check that airport capacity can be overridden
 // Check that planes can only take-off if they have already landed
@@ -60,11 +73,17 @@ test.it('TEST 1: Check that planes can land', () => {
 // TEST 2
 test.it('TEST 2: Check airport is full', () => {
   airport = new Airport();
-  plane = new Plane(planeID = '002');
+  plane1 = new Plane(planeID = '001');
+  plane2 = new Plane(planeID = '002');
 
   expectedOutput = true;
 
-  airport.landPlane(plane);
+  // Landing the first plane to fill up the airport
+  // ...It's not a very big airport, okay?
+  airport.landPlane(plane1);
+
+  // Landing the second plane
+  airport.landPlane(plane2);
 
   actualOutput = airport.isFull;
 
@@ -124,23 +143,46 @@ test.it('TEST 4: Check that planes can take off, reducing currentNoOfPlanes by 1
 test.it('TEST 5: Check that planes can only land if they are not at the Airport', () => {
 
   // ARRANGE
-  airport = new Airport(airportName = 'Gatwick', capacity = 2);
+  airport = new Airport(airportName = 'Gatwick', capacity = 3);
   plane1 = new Plane(planeID = '001');
   plane2 = new Plane(planeID = '002');
 
-  expectedOutput = 2;
+  expectedOutput = 'Plane is already at airport';
 
   // ACT
   // Landing plane1 and plane2 for the first time
-  airport.landPlane(plane1.planeID);
-  airport.landPlane(plane2.planeID);
+  airport.landPlane(plane1);
+  airport.landPlane(plane2);
 
   // Trying to land plane2 for a secondTime
-  airport.landPlane(plane2.planeID);
-
-  actualOutput = airport.currentNoOfPlanes;
+  actualOutput = airport.landPlane(plane2);
+  //console.log(actualOutput);
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}`);
+  console.log(`	${result}
+`);
 });
+
+test.it('TEST 6: Check planes can only take off if they are at the aiport', () => {
+
+  // ARRANGE
+  airport = new Airport(airportName = 'Gatwick', capacity = 4);
+  plane1 = new Plane(planeID = '001');
+  plane2 = new Plane(planeID = '002');
+
+  expectedOutput = 'Plane is not at airport';
+
+  // ACT
+  airport.landPlane(plane1);
+
+  actualOutput = airport.takeOff(plane2);
+  console.log(actualOutput);
+
+  // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(result);
+
+});
+
+// TEST 7 - Check airport cap can be overridden
