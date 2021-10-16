@@ -58,7 +58,7 @@ test.it("Test3b - Testing that we can prevent landing when airport is full", () 
 	let plane2 = new Plane();
 	let airport = new Airport(1);
 	airport.parkingLot = [plane1];
-	expectedOutput = `${plane2} is unable to land: airport capacity is full`;
+	expectedOutput = `${plane2} is unable to land: Airport capacity is full`;
 
 	// Step2 - Act
 	actualOutput = airport.landPlane(plane2);
