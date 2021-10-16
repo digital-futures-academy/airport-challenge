@@ -15,13 +15,15 @@ class Airport {
     this.currentNoOfPlanes = planeList.length;
   }
 
-  landPlane(plane) {
+  landPlane(plane, weather) {
 
     let index = this.planeList.indexOf(plane);
 
     if (index === -1) {
 
-      if (!this.isFull) {
+      if (!this.isFull && weather.weatherReport === 'sunny') {
+
+        //console.log(weather.weatherReport);
 
         this.planeList.push(plane);
         this.currentNoOfPlanes = this.planeList.length;
@@ -32,7 +34,15 @@ class Airport {
 
       } else {
 
-        return 'Plane cannot land, airport is full';
+        if (this.isFull) {
+
+          return 'Plane cannot land, airport is full';
+
+        } else if (weather.weatherReport === 'stormy') {
+
+          return 'Plane cannot land, weather is stormy';
+
+        };
 
       }
     } else {

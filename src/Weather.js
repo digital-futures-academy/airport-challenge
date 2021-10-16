@@ -1,9 +1,14 @@
 
 class Weather{
 
-  constructor() {
+  weatherReport;
+
+  constructor(weatherReport = 'sunny') {
+
+    this.weatherReport = weatherReport;
 
   }
+
 }
 
 module.exports = Weather;

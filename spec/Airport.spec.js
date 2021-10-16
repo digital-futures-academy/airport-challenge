@@ -55,12 +55,13 @@ test.it('TEST 1: Check that planes can land', () => {
   // arrange
   airport = new Airport();
   plane = new Plane();
+  weather = new Weather();
 
   expectedOutput = 1;
 
   // act
 
-  airport.landPlane(plane);
+  airport.landPlane(plane, weather);
 
   // assert
 
@@ -75,15 +76,16 @@ test.it('TEST 2: Check airport is full', () => {
   airport = new Airport();
   plane1 = new Plane(planeID = '001');
   plane2 = new Plane(planeID = '002');
+  weather = new Weather();
 
   expectedOutput = true;
 
   // Landing the first plane to fill up the airport
   // ...It's not a very big airport, okay?
-  airport.landPlane(plane1);
+  airport.landPlane(plane1, weather);
 
   // Landing the second plane
-  airport.landPlane(plane2);
+  airport.landPlane(plane2, weather);
 
   actualOutput = airport.isFull;
 
@@ -98,14 +100,15 @@ test.it('TEST 3: Check that a full airport prevents landing', () => {
   airport = new Airport();
   plane = new Plane();
   plane2 = new Plane(planeID = '002');
+  weather = new Weather();
 
   // landing the first plane so that isFull = true
-  airport.landPlane(plane);
+  airport.landPlane(plane, weather);
 
   expectedOutput = 1;
 
   // ACT
-  airport.landPlane(plane2);
+  airport.landPlane(plane2, weather);
   actualOutput = airport.currentNoOfPlanes;
 
   // ASSERT
@@ -121,11 +124,12 @@ test.it('TEST 4: Check that planes can take off, reducing currentNoOfPlanes by 1
   // ARRANGE
   airport = new Airport(capacity = 1);
   plane = new Plane();
+  weather = new Weather();
 
   expectedOutput = 0; // currentNoOfPlanes = 0
 
   // landing the first plane so it can take off
-  airport.landPlane(plane);
+  airport.landPlane(plane, weather);
 
   // ACT
   airport.takeOff(plane);
@@ -146,16 +150,17 @@ test.it('TEST 5: Check that planes can only land if they are not at the Airport'
   airport = new Airport(airportName = 'Gatwick', capacity = 3);
   plane1 = new Plane(planeID = '001');
   plane2 = new Plane(planeID = '002');
+  weather = new Weather();
 
   expectedOutput = 'Plane is already at airport';
 
   // ACT
   // Landing plane1 and plane2 for the first time
-  airport.landPlane(plane1);
-  airport.landPlane(plane2);
+  airport.landPlane(plane1, weather);
+  airport.landPlane(plane2, weather);
 
   // Trying to land plane2 for a secondTime
-  actualOutput = airport.landPlane(plane2);
+  actualOutput = airport.landPlane(plane2, weather);
   //console.log(actualOutput);
 
   // ASSERT
@@ -170,11 +175,12 @@ test.it('TEST 6: Check planes can only take off if they are at the aiport', () =
   airport = new Airport(airportName = 'Gatwick', capacity = 4);
   plane1 = new Plane(planeID = '001');
   plane2 = new Plane(planeID = '002');
+  weather = new Weather();
 
   expectedOutput = 'Plane is not at airport';
 
   // ACT
-  airport.landPlane(plane1);
+  airport.landPlane(plane1, weather);
 
   actualOutput = airport.takeOff(plane2);
   //console.log(actualOutput);
@@ -191,6 +197,7 @@ test.it('TEST 7: Check airport cap can be overridden', () => {
 
   // ARRANGE
   airport = new Airport();
+  weather = new Weather();
 
   expectedOutput = 4;
 
@@ -210,16 +217,24 @@ test.it('TEST 7: Check airport cap can be overridden', () => {
 test.it('TEST 8: Prevent landing if weather is stormy', () => {
 
   // ARRANGE
+  airport = new Airport();
+  weather = new Weather();
+  plane1 = new Plane();
+  weather = new Weather();
+
+  weather.weatherReport = 'stormy';
 
   expectedOutput = 'Plane cannot land, weather is stormy';
 
   // ACT
-
-  actualOutput = airport.landPlane();
+  actualOutput = airport.landPlane(plane1, weather);
 
   // ASSERT
   test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+`);
 });
+
 //
 
 // TEST 13
@@ -228,6 +243,7 @@ test.it('TEST 13: Check that planes cannot take off if airport is empty', () => 
   // ARRANGE
   airport = new Airport();
   plane1 = new Plane(planeID = '001');
+  weather = new Weather();
 
   expectedOutput = 'Plane cannot take off, airport is empty';
 
