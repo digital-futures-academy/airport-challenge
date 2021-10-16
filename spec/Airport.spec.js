@@ -26,8 +26,8 @@ let actualOutput;
 // TEST 11 Check to count planes correctly
 
 // EDGE CASES
-// Check status of plane is correct with its other properties
-// Check planes can't take off if the airport is empty
+// TEST 12 Check status of plane is correct with its other properties
+// TEST 13 Check planes can't take off if the airport is empty
 
 // Airport
 // Check that planes only take off if they are at the Airport
@@ -177,12 +177,65 @@ test.it('TEST 6: Check planes can only take off if they are at the aiport', () =
   airport.landPlane(plane1);
 
   actualOutput = airport.takeOff(plane2);
-  console.log(actualOutput);
+  //console.log(actualOutput);
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(result);
+  console.log(`	${result}
+`);
 
 });
 
-// TEST 7 - Check airport cap can be overridden
+// TEST 7
+test.it('TEST 7: Check airport cap can be overridden', () => {
+
+  // ARRANGE
+  airport = new Airport();
+
+  expectedOutput = 4;
+
+  // ACT
+  airport.capacity = 4;
+
+  actualOutput = airport.capacity;
+
+  // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+`);
+
+});
+
+// TEST 8
+test.it('TEST 8: Prevent landing if weather is stormy', () => {
+
+  // ARRANGE
+
+  expectedOutput = 'Plane cannot land, weather is stormy';
+
+  // ACT
+
+  actualOutput = airport.landPlane();
+
+  // ASSERT
+  test.assertEquals(expectedOutput, actualOutput);
+});
+//
+
+// TEST 13
+test.it('TEST 13: Check that planes cannot take off if airport is empty', () => {
+
+  // ARRANGE
+  airport = new Airport();
+  plane1 = new Plane(planeID = '001');
+
+  expectedOutput = 'Plane cannot take off, airport is empty';
+
+  // ACT
+  actualOutput = airport.takeOff(plane1);
+
+  // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+`);
+});

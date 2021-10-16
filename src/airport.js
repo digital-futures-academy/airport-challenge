@@ -63,7 +63,7 @@ class Airport {
         return 'Plane is not at airport';
       }
     } else {
-      return 'Plane is not at airport';
+      return 'Plane cannot take off, airport is empty';
     }
 
   }
