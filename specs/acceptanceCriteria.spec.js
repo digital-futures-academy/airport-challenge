@@ -105,7 +105,7 @@ test.it("Test5b - Testing that planes at airport cannot land", () => {
 	let plane = new Plane();
 	let airport = new Airport();
 	airport.parkingLot = [plane];
-	expectedOutput = "Not possible: Plane is at airport";
+	expectedOutput = `Not possible: ${plane} is at airport`;
 
 	// Step2 - Act
 	actualOutput = airport.landPlane(plane);
