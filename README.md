@@ -55,6 +55,14 @@ As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 
+### **Edge Cases**
+
+**EdgeCase1**
+Planes can only take off from airports they are in.
+
+**EdgeCase2**
+Planes that are already flying cannot be in an airport
+
 ## Domain Model - a first pass
 --------------------------------------
 
@@ -99,6 +107,6 @@ Another difficulty I faced was when I started writing the test case for user sto
 
 Luckily, I was able to avert having to make significant changes. I deleted test 8 and refactored test 1 (the test for user story 1) and ensured that it would fail before writing code that passed test 1. Then I wrote a failing test 8 which actually turned out to be what I initially wrote for test 1. Finally, I refactored the source code so that test 8 was also passing.
 
-My final step was to write some unit tests for the mentioned edge cases and check if I had adequately accounted for them.
+My final step was to go through the main user stories and refactor them if needed and then to write some unit tests for the mentioned edge cases and check if I had adequately accounted for them.
 
 I finished by tiding everything up and documenting my approach to the challenge in this README file.

@@ -22,3 +22,21 @@ test.it("EdgeCase1: Testing that planes can only take off from airports they are
 	// Assert
 	test.assertEquals(actualOutput, expectedOutput);
 })
+
+test.it("EdgeCase2: Testing that planes already flying cannot be in an airport", () => {
+	// Assign
+	let expectedOutput, actualOutput;
+	let frankfurt = new Airport('frankfurt');
+	let plane = new Plane();
+	frankfurt.weather = "sunny";
+	frankfurt.parkingLot = [plane];
+
+	expectedOutput = false;
+
+	// Act
+	frankfurt.takeOff(plane);
+	actualOutput = plane.isAtAirport(frankfurt);
+
+	// Assert
+	test.assertEquals(actualOutput, expectedOutput);
+})
