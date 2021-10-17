@@ -50,8 +50,6 @@ test.it('TEST 1: Check that planes can land', () => {
   // assert
 
   result = test.assertEquals(airport.currentNoOfPlanes, expectedOutput);
-  console.log(`	${result}
-`);
 
 });
 
