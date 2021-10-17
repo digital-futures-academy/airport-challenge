@@ -16,6 +16,11 @@ class Airport {
     }
 
   }
+
+  overrideCapacity(number) {
+    this.capacity = number;
+    return number;
+  }
 }
 
 module.exports = Airport;

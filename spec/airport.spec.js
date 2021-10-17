@@ -1,9 +1,6 @@
 const test = require('../test-framework');
 const Airport = require('../src/airport.js');
 const Plane = require('../src/plane.js');
-//let airport, expectedOutput, result;
-
-//console.log('land plane to the airport() and add 1 to the planes');
 
 test.it(`Check that length of Planes in the airport grows by one when one plain lands`, function () {
 
@@ -50,11 +47,11 @@ test.it(`Check that the plane landed is in the airport`, function () {
 
 });
 
-test.it(`Check that the airport can land another plane to make the total capacity 2 `, function () {
+/*test.it(`Check that the airport can land another plane to make the total capacity 2 `, function () {
 
     //--Check if landing another plane change the capacity to 2 and both planes are in the airport --
 
-    let airport, expectedOutput;
+    let airport, expectedOutput, klm, boeng737;
 
     //ARRANGE/SETUP
     airport = new Airport();
@@ -62,21 +59,47 @@ test.it(`Check that the airport can land another plane to make the total capacit
     boeng737 = new Plane('boeng737');
     expectedOutput = 2;
 
+    console.log(airport.planes.length, 'airport ARRAY LENGTH b4 add');
+
     //ACT/EXECUTE
     airport.landPlane(boeng737);
     airport.landPlane(klm);
 
-    //console.log(airport.planes.length);
+    console.log(airport.planes.length, 'airport ARRAY LENGTH');
 
     //ASSERT/VERIFY
 
     return test.assertEquals(airport.planes.length, expectedOutput);
 
 });
+*/
+
+//----------------TEST 2 ------------
+
+test.it(`Check the default capacity and Override airport capacity as appropriate `, function () {
+
+    let manchester, capacity, newCapacity;
+
+    //ARRANGE/SETUP
+    manchester = new Airport();
+    capacity = manchester.capacity;
+    // console.log(capacity);
+
+
+    //ACT/EXECUTE
+    liverpool = new Airport();
+    newCapacity = liverpool.overrideCapacity(5);
+
+    //ASSERT/VERIFY
+
+    return test.assertEquals(newCapacity, 5);
+
+});
+
+//----------------TEST 3 ------------
 
 test.it(`Prevent landing when the airport is full `, function () {
 
-    //--Check if landing another plane change the capacity to 2 and both planes are in the airport --
 
     let airport, expectedOutput, result;
 
