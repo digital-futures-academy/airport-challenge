@@ -26,10 +26,11 @@ module.exports = Airport;
 
 //Array for checking if plane is at airport
 
-let airport = ['plane1', 'plane2', 'plane3']
-let pos = airport.indexOf('plane1');
+let planeList = ['plane1', 'plane2', 'plane3']
+let pos = planeList.indexOf('plane1');
 
-console.log(pos, airport[pos])
+console.log(pos, planeList[pos])
+
 
 
 

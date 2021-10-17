@@ -50,10 +50,10 @@ console.log(result);
 // Test 4 - Let a plane take off and confirm it is not in the airport
 console.log(' Test 4 - confirm the plane is not at the airport after take off')
 //Arrange
-let airport, pos;
+let planeList, pos;
 expectedOutput = 0, plane1
 //Act
-let pos = airport.indexOf('plane1');
+let pos = planeList.indexOf('plane1');
 
 //Assert
 result = assertEquals(pos, expectedOutput)
@@ -61,10 +61,10 @@ result = assertEquals(pos, expectedOutput)
 //Test 5 - To prevent planes that arent in the airport from taking off and planes that are in the airport landing again
 console.log('Test 5 - if plane is in the airport or not.')
 //Arrange
-let airport, pos;
-expectedOutput = true
+let planeList, pos;
+expectedOutput = 'plane not in airport'
 //Act
-let pos = airport.indexOf('plane2')
+let pos = planeList.indexOf('plane2');
 if (airport.indexOf('plane2') >= 0) {
     console.log('plane is in the airport')
 } else {
