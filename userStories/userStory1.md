@@ -1,8 +1,8 @@
 # **UserStory 1**
 
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
+As an air traffic controller<br>
+So I can get passengers to a destination<br>
+I want to instruct the airport to land a plane<br>
 
 # Objects
 - Airport
@@ -17,6 +17,27 @@ I want to instruct the airport to land a plane
 # Output
 - `@Boolean`
 
+<br><br>
+
+ # **UserStory 2**
+
+As the system designer<br>
+So that the software can be used for many different airports<br>
+I would like a default airport capacity that can be overridden as appropriate<br>
 
 
+# Objects
+- Airport
+
+# Properties
+- defaultCapacity
+
+# Messages
+- defaultCapacity`@Integer`
+
+
+# Output
+- `@Boolean`
+
+<br><br>
 

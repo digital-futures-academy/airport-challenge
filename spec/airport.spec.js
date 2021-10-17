@@ -28,3 +28,34 @@ console.log(result);
 
 
 
+
+//Test 2//
+/*As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate*/
+
+console.log('Airport has a default capacity of 3');           // create a console.log of question at hand
+// setup
+airport = new Airport();
+//execute
+
+//verify
+console.log(assertEquals(airport.defaultCapacity, 3));
+
+
+
+console.log('Can override the default capacity of the Airport [3]');           // create a console.log of question at hand
+// setup
+airport = new Airport(6);                                                       //insert an override value
+//execute
+
+//verify
+console.log(assertEquals(airport.defaultCapacity, 6));                          //check both values are the same
+
+
+
+
+
+
+
+
