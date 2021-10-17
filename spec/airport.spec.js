@@ -40,3 +40,11 @@ console.log('Test 4- Ensure plane takesoff and leaves airport')
 airport = new Airport();
 result = airport.departed('plane2')
 console.log(assertEquals(result.length, 0));
+
+
+console.log('Test 5- Make sure that a plane cannot land if its in the airport already, and cannot take off if its not.')
+// Unsure how to write the test, however would set up src and array such as this:
+//let airport = ['plane1', 'plane2', 'plane3']
+//let pos = airport.indexOf('plane1');
+
+//console.log(pos, airport[pos])

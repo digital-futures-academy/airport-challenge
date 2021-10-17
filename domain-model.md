@@ -7,7 +7,7 @@ I want to instruct the airport to land a plane
 Objects: plane, airport
 Properties: plane@string, airport@string
 Messages: plane(), airport()
-Output: number (plane added)
+Output: boolean
 ______________________________________________________________________________________________________
 As the system designer
 So that the software can be used for many different airports
@@ -16,7 +16,7 @@ I would like a default airport capacity that can be overridden as appropriate
 Objects: airport, capacity, plane
 Properties: capacity@integer, airport@string, plane@string
 Messages: capacity(), airport(), plane()
-Output: number (capacity)
+Output: boolean
 ______________________________________________________________________________________________________
 As an air traffic controller
 To ensure safety
@@ -24,7 +24,7 @@ I want to prevent landing when the airport is full
 
 Objects: airport, capacity, planes
 Properties: capacity@integer, airport@string, planes@integer
-Message: isAirportFull(), plane()
+Message: isFull(), plane()
 Output: Boolean
 
 ______________________________________________________________________________________________________
@@ -34,7 +34,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 Objects: plane, airport
 Properties: plane@string, airport@string
-Message: takenOff()
+Message: departed()
 Output: Boolean
 
 ______________________________________________________________________________________________________
