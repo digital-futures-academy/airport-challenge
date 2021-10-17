@@ -16,6 +16,7 @@ I want to instruct the airport to land a plane<br>
 
 # Output
 - `@Boolean`
+- `@Array`
 
 <br><br>
 
@@ -60,6 +61,30 @@ I want to prevent landing when the airport is full<br>
 
 # Output
 - `@Boolean`
+
+<br><br>
+
+
+# **UserStory 4**
+
+As an air traffic controller<br>
+So I can get passengers on the way to their destination<br>
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport<br>
+
+
+# Objects
+- Airport
+
+# Properties
+- takeOff
+
+# Messages
+- takeOff`@Integer`
+
+
+# Output
+- `@Boolean`
+- `@Array`
 
 <br><br>
 

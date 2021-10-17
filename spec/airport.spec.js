@@ -95,3 +95,20 @@ console.log(assertEquals(airport.isFull(), true));              //check to see i
 
 
 
+//Test 4//
+/*As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport*/
+
+console.log('Can i remove a plane from the airport?');
+
+airport = new Airport();
+
+
+result = airport.takeOff('Airbus A350');                            //store takeOff(remove) function into result variable
+
+
+console.log(assertEquals(result.length, 0));                        //assertEqual to check both values of array length is empty
+
+console.log(assertEquals(result.includes('Airbus A350'), 1));       //check if Airbus A350 is included(still in airport) true or false
+console.log(result);                                                // check if array is empty
