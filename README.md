@@ -33,6 +33,10 @@ Steps
 4. Run your tests using `npm test` or `node specRunner.js`
 5. [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`
 
+How I approached the problem
+----------------------------
+I firstly made the domain models for each of the user stories by typing up the objects, properties, messages and output. Then I typed up the functionalities in the airport.js file. Then I made a airport.spec.js file and tested out the functionalities to make sure that they work, which they do. I also have a specRunner.js file which requires the airport.spec.js file and runs all of the tests.
+
 Task
 -----
 
@@ -40,40 +44,82 @@ We have a request from a client to write the software to control the flow of pla
 
 #### Acceptance Criteria
 ```
-As an air traffic controller
+1) As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-As the system designer
+Objects: Airport
+Properties: Array[plane], String(weather)
+Messages: Land()
+Output: String('The plane has landed at the airport')
+
+2) As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-As an air traffic controller
+Objects: Airport
+Properties: Int(Capacity)
+Messages: EditCapacity()
+Output: String('The airport capacity is' + capacity)
+
+3) As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-As an air traffic controller
+Objects: Airport
+Properties: Array[plane], String(weather)
+Messages: Land()
+Output: String('The plane can't land yet because the airport is full')
+
+4) As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-As an air traffic controller
+Objects: Airport
+Properties: Array[plane], String(weather)
+Messages: TakeOff()
+Output: String('The plane has taken off and is no longer in the airport')
+
+5) As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+Objects: Airport
+Properties: Array[plane], String(weather)
+Messages: TakeOff(), Land()
+Output: String('The plane isn't in the airport or has already landed')
+
 ```
 
 #### Extended Acceptance Criteria
 ```
-As an air traffic controller
+6) As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
-As an air traffic controller
+Objects: Airport
+Properties: Array[plane], String(weather)
+Messages: TakeOff()
+Output: String('The plane can't take off because the weather is stormy')
+
+7) As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
-As an air traffic controller
+Objects: Airport
+Properties: Array[plane], String(weather)
+Messages: Land()
+Output: String('The plane can't land because the weather is stormy')
+
+8) As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+Objects: Airport
+Properties: Array[plane], String(weather)
+Messages: Land()
+Output: String('The number of planes that have landed at the airport are:')
+
 ```
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
