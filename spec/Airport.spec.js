@@ -392,8 +392,28 @@ test.it('TEST 14: Check isLanded is true when landed', () => {
 
 });
 
-// TEST 15 Check planes can't take off if the airport is empty
-// TEST 16 Check that when planes are flying, they aren't at an airport
+// TEST 15
+test.it('TEST 15: Check isLanded is false when flying', () => {
+
+  // ARRANGE
+  airport = new Airport();
+  plane1 = new Plane(planeID = '001');
+
+  expectedOutput = false;
+
+  // ACT
+  airport.landPlane(plane1);
+  airport.takeOff(plane1);
+  actualOutput = plane1.isLanded;
+
+  // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+  `);
+
+});
+
+// TEST 17 Check that when planes are flying, they aren't at an airport
 
 // ARRANGE
 
@@ -402,8 +422,8 @@ test.it('TEST 14: Check isLanded is true when landed', () => {
 // ASSERT
 
 
-// TEST 15
-test.it('TEST 15: Check that planes cannot take off if airport is empty', () => {
+// TEST 16
+test.it('TEST 16: Check that planes cannot take off if airport is empty', () => {
 
   // ARRANGE
   airport = new Airport();
