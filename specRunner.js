@@ -1,0 +1,1 @@
+require('../airport-challenge/spec/airport.spec');

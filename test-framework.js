@@ -1,6 +1,6 @@
 const test = {
     assertEquals(val1, val2) {
-        if (val1 !== val2) throw new Error(`Custom error message`);
+        if (val1 !== val2) throw new Error(` plane error`);
     },
 
     it(str, testFunc) {
