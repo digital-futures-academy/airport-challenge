@@ -15,9 +15,6 @@ test.it(`Check that length of Planes in the airport grows by one when one plain 
 
     //ACT/EXECUTE
     result = airport.landPlane(plane);
-    //console.log(result);
-    //console.log(result.length);
-
     //ASSERT/VERIFY
 
     return test.assertEquals(result.length, expectedOutput);
@@ -38,41 +35,11 @@ test.it(`Check that the plane landed is in the airport`, function () {
     //ACT/EXECUTE
     result = airport.landPlane(klm);
     planeName = result[0]['plane_name']
-    //console.log(result);
-    //console.log(planeName);
 
     //ASSERT/VERIFY
-
     return test.assertEquals(planeName, expectedOutput);
 
 });
-
-/*test.it(`Check that the airport can land another plane to make the total capacity 2 `, function () {
-
-    //--Check if landing another plane change the capacity to 2 and both planes are in the airport --
-
-    let airport, expectedOutput, klm, boeng737;
-
-    //ARRANGE/SETUP
-    airport = new Airport();
-    klm = new Plane('klm');
-    boeng737 = new Plane('boeng737');
-    expectedOutput = 2;
-
-    console.log(airport.planes.length, 'airport ARRAY LENGTH b4 add');
-
-    //ACT/EXECUTE
-    airport.landPlane(boeng737);
-    airport.landPlane(klm);
-
-    console.log(airport.planes.length, 'airport ARRAY LENGTH');
-
-    //ASSERT/VERIFY
-
-    return test.assertEquals(airport.planes.length, expectedOutput);
-
-});
-*/
 
 //----------------TEST 2 ------------
 
@@ -82,16 +49,12 @@ test.it(`Check the default capacity and Override airport capacity as appropriate
 
     //ARRANGE/SETUP
     manchester = new Airport();
-    //capacity = manchester.capacity;
-    // console.log(capacity);
-
 
     //ACT/EXECUTE
     liverpool = new Airport();
     newCapacity = liverpool.overrideCapacity(5);
 
     //ASSERT/VERIFY
-
     return test.assertEquals(newCapacity, 5);
 
 });
@@ -99,7 +62,6 @@ test.it(`Check the default capacity and Override airport capacity as appropriate
 //----------------TEST 3 ------------
 
 test.it(`Prevent landing when the airport is full `, function () {
-
 
     let airport, expectedOutput, result;
 
@@ -110,21 +72,13 @@ test.it(`Prevent landing when the airport is full `, function () {
     ka = new Plane('ka');
     expectedOutput = `Airport is Full no landing`;
 
-
-
     //ACT/EXECUTE
     airport.landPlane(boeng737);
     airport.landPlane(klm);
-
-    //console.log(airport.planes.length);
-
     result = airport.landPlane(ka);
-    //console.log(result);
 
     //ASSERT/VERIFY
-
     return test.assertEquals(result, expectedOutput);
-
 });
 
 //----------------TEST 4 ------------
@@ -132,61 +86,41 @@ test.it(`Prevent landing when the airport is full `, function () {
 
 test.it(`instruct the airport to let a plane take off and confirm that it is no longer in the airport`, function () {
 
-
     let luton, expectedOutput, superjumbo;
 
     //ARRANGE/SETUP
     luton = new Airport();
     superjumbo = new Plane('superjumbo');
 
-
     //ACT/EXECUTE
     luton.landPlane(superjumbo);
-    // luton.landPlane(airbus);
+    result1 = luton.landed(superjumbo);
 
-    console.log(luton.planes.length, 'LUTON');
-
-    result = luton.takeOff(superjumbo);
+    luton.takeOff(superjumbo);
     expectedOutput = 0;
 
-    //console.log(result);
-
     //ASSERT/VERIFY
-
     return test.assertEquals(luton.planes.length, expectedOutput);
-
 });
 
 //----------------TEST 5 ------------
 
-test.it(`prevent asking the airport to let planes take-off which are not at the airport`, function () {
+test.it(`prevent asking the airport to land planes which are already at the airport`, function () {
 
-
-    let luton, expectedOutput, superjumbo, airbus, result;
+    let expectedOutput, boeng777, stanstead, result1;
 
     //ARRANGE/SETUP
-    luton = new Airport();
-    superjumbo = new Plane('superjumbo');
-    //airbus = new Plane('airbus');
-    //ka = new Plane('ka');
-    // expectedOutput = `Airport is Full no landing`;
-
-
+    stanstead = new Airport();
+    boeng777 = new Plane('boeng777');
 
     //ACT/EXECUTE
-    luton.landPlane(superjumbo);
-    // luton.landPlane(airbus);
-
-    console.log(luton.planes.length, 'LUTON');
-
-    result = luton.takeOff(superjumbo);
-    expectedOutput = 0;
-
-    //console.log(result);
+    stanstead.landPlane(boeng777);
+    result1 = stanstead.landed(boeng777);
+    expectedOutput = 'Plane has Landed';
 
     //ASSERT/VERIFY
-
-    return test.assertEquals(luton.planes.length, expectedOutput);
+    return test.assertEquals(result1, expectedOutput);
 
 });
+
 

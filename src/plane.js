@@ -3,7 +3,6 @@ class Plane {
     constructor(name) {
         this.plane_name = name;
     }
-
 }
 
 module.exports = Plane;
