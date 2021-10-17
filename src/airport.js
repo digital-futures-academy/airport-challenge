@@ -59,7 +59,7 @@ class Airport {
 
   takeOff(plane, weather = 'sunny') {
 
-    if (this.currentNoOfPlanes > 0 && weather === 'sunny') {
+    if (this.currentNoOfPlanes > 0 && weather === 'sunny' && plane.currentLocation === this.airportName) {
 
       let planeIndex = this.planeList.indexOf(plane);
 
@@ -87,7 +87,7 @@ class Airport {
 
       } else {
 
-        return 'Plane cannot take off, airport is empty';
+        return 'Plane cannot take off, it is not at the airport';
 
       }
     }
