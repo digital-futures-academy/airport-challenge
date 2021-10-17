@@ -8,9 +8,9 @@ class Airport {
   }
   land(plane) {
     if (this.planes.length >= this.capacity) {
-      console.log("sorry airport is full");
+      console.log(" airport is full");
     } else if (this.planes.includes(plane)) {
-      return "Plane has already landed at the airport"
+      return "Plane has already landed "
     }
     else {
       this.planes.push(plane);
