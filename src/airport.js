@@ -79,6 +79,7 @@ class Airport {
         return 'Plane is not at airport';
 
       }
+
     } else {
 
       if (weather === 'stormy') {
@@ -90,7 +91,9 @@ class Airport {
         return 'Plane cannot take off, the airport is empty';
 
       } else {
+
         return 'Plane is not at this airport';
+
       }
     }
 

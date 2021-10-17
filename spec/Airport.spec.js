@@ -32,6 +32,7 @@ let actualOutput;
 // TEST 15 Check isLanded is false when flying
 // TEST 16 Check planes can't take off if the airport is empty
 // TEST 17 Check that when planes are flying, they aren't at an airport
+// TEST 18: Planes can only take off from the airport they are at
 
 // TEST 1
 test.it('TEST 1: Check that planes can land', () => {
@@ -73,8 +74,7 @@ test.it('TEST 2: Check airport is full', () => {
   actualOutput = airport.isFull;
 
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
+
 });
 
 // TEST 3
@@ -96,8 +96,6 @@ test.it('TEST 3: Check that a full airport prevents landing', () => {
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
 
 });
 
@@ -121,8 +119,6 @@ test.it('TEST 4: Check that planes can take off, reducing currentNoOfPlanes by 1
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
 
 });
 
@@ -148,8 +144,7 @@ test.it('TEST 5: Check that planes can only land if they are not at the Airport'
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
+
 });
 
 // TEST 6
@@ -171,8 +166,6 @@ test.it('TEST 6: Check planes can only take off if they are at the aiport', () =
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
 
 });
 
@@ -192,8 +185,6 @@ test.it('TEST 7: Check airport cap can be overridden', () => {
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
 
 });
 
@@ -215,8 +206,7 @@ test.it('TEST 8: Prevent landing if weather is stormy', () => {
 
   // ASSERT
   test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
+
 });
 
 // TEST 9
@@ -238,8 +228,7 @@ test.it('TEST 9: Prevent take off if weather is stormy', () => {
   // ASSERT
 
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-  `);
+
 });
 
 // TEST 10
@@ -261,8 +250,6 @@ test.it('TEST 10: Check that planes that have landed are at an airport', () => {
   // ASSERT
 
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-  `);
 
 });
 
@@ -286,8 +273,6 @@ test.it('TEST 11: Check that when planes take off they aren\'t at an airport', (
   // ASSERT
 
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-  `);
 
 });
 
@@ -326,32 +311,29 @@ test.it('TEST 12: Check to count planes correctly', () => {
 
   // ASSERT
   test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-  `);
 
 });
 
 // TEST 13
 // Run test a few times to see the random weather generation
-console.log('        TEST 13 uses the random number generator so is likely to fail.');
-console.log('        Please re-run the test a few times to see it pass.');
+
 test.it('TEST 13 Check that weather randomly generates', () => {
+
+  console.log('\tTEST 13 uses the random number generator so is likely to fail.');
+  console.log('\tPlease re-run the test a few times to see it pass.');
+
   // ARRANGE
-  airport = new Airport();
   weather = new Weather();
-  plane1 = new Plane();
 
   expectedOutput = 'stormy';
 
   // ACT
   weather.generateWeather();
   actualOutput = weather.weatherReport;
-  console.log('        ' + actualOutput);
+  console.log('\n\tThe weather is ' + actualOutput + '!\n');
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-  `);
 
 });
 
@@ -370,8 +352,6 @@ test.it('TEST 14: Check isLanded is true when landed', () => {
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-  `);
 
 });
 
@@ -391,8 +371,6 @@ test.it('TEST 15: Check isLanded is false when flying', () => {
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-  `);
 
 });
 
@@ -412,8 +390,7 @@ test.it('TEST 16: Check that planes cannot take off if airport is empty', () => 
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
+
 });
 
 // TEST 17 Check that when planes are flying, they aren't at an airport
@@ -432,8 +409,6 @@ test.it('TEST 17: Check that when planes are flying, they aren\'t at an airport'
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
 
 });
 
@@ -455,7 +430,5 @@ test.it('TEST 18: Planes can only take off from the airport they are at', () => 
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(`	${result}
-`);
 
 });
