@@ -24,7 +24,7 @@ class Airport {
       return false;
     }
   }
-  setFlying(plane) {
+  setTakeOff(plane) {
     this.currentPlanes = this.currentPlanes.filter(planes => planes !== plane)
     plane.status = 'flying';
   };

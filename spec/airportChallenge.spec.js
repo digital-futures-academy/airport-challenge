@@ -76,7 +76,7 @@ test.it('5 - Check if airport capacity is full when planes array equals capacity
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('6 - Check if airport plane array does not increase by 1 when airport is full  and airport tries to land plane', () => {
+test.it('6 - Check if airport plane array does not increase when airport is full  and airport tries to land plane', () => {
 
   let expectedOutput;
   let result;
@@ -121,7 +121,7 @@ test.it('8 - Check if airport plane array decreases by 1 when airport takes off 
   heathrow.landPlane(boeing2);
   heathrow.landPlane(boeing3);
 
-  heathrow.setFlying(boeing2);
+  heathrow.setTakeOff(boeing2);
 
 
   expectedOutput = 2;
@@ -142,7 +142,7 @@ test.it('9 - Check if airport removes specific plane from plane array when airpo
   heathrow.landPlane(boeing2);
   heathrow.landPlane(boeing3);
 
-  heathrow.setFlying(boeing2);
+  heathrow.setTakeOff(boeing2);
 
 
   expectedOutput = false;
@@ -163,7 +163,7 @@ test.it('10 - Check if airplane is flying when airport takes off plane', () => {
   heathrow.landPlane(boeing2);
   heathrow.landPlane(boeing3);
 
-  heathrow.setFlying(boeing2);
+  heathrow.setTakeOff(boeing2);
 
 
   expectedOutput = 'flying';
@@ -172,7 +172,7 @@ test.it('10 - Check if airplane is flying when airport takes off plane', () => {
 });
 
 
-test.it('11 - Check if airplane array does not decrease by 1 if plane that is not in airport is set to take off by airport', () => {
+test.it('11 - Check if airplane array does not decrease if plane that is not in airport is set to take off by airport', () => {
 
   let expectedOutput;
   let result;
@@ -187,7 +187,7 @@ test.it('11 - Check if airplane array does not decrease by 1 if plane that is no
   heathrow.landPlane(boeing2);
   heathrow.landPlane(boeing3);
 
-  heathrow.setFlying(boeing4);
+  heathrow.setTakeOff(boeing4);
 
 
   expectedOutput = 3;
@@ -195,7 +195,7 @@ test.it('11 - Check if airplane array does not decrease by 1 if plane that is no
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('12 - Check if airplane array does not increase by 1 if plane that is already in airport is set to land', () => {
+test.it('12 - Check if airplane array does not increase if plane that is already in airport is set to land', () => {
 
   let expectedOutput;
   let result;
@@ -236,7 +236,7 @@ test.it('13 - With 2 airports, if plane that is in airport-1 is set to take off 
   jfk.landPlane(airbus1);
   jfk.landPlane(airbus2);
 
-  heathrow.setFlying(airbus1);
+  heathrow.setTakeOff(airbus1);
 
   expectedOutput = 2;
   result = jfk.currentPlanes.length
@@ -261,7 +261,7 @@ test.it('14 - With 2 airports, if plane that is in airport-1 is set to take off 
   jfk.landPlane(airbus1);
   jfk.landPlane(airbus2);
 
-  heathrow.setFlying(airbus1);
+  heathrow.setTakeOff(airbus1);
 
   expectedOutput = 2;
   result = heathrow.currentPlanes.length
@@ -326,7 +326,7 @@ test.it('17 - Weather class has weather status property', () => {
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('18 - If stormy, airport plane array does not increase by 1 if attempting to land a plane', () => {
+test.it('18 - If stormy, airport plane array does not change if attempting to land a plane', () => {
   let expectedOutput;
   let result;
 
@@ -339,27 +339,28 @@ test.it('18 - If stormy, airport plane array does not increase by 1 if attemptin
   Weather.status = 'stormy'
   heathrow.landPlane(boeing1, Weather.status);
 
-
   expectedOutput = 1;
   result = heathrow.currentPlanes.length;
 
-  console.log(result);
-  console.log(heathrow);
   test.assertEquals(expectedOutput, result);
 
 });
 
-// test.it('18 - If weather is stormy, length of airport airplane array does not increase if flying plane tries to land', () => {
-//   let expectedOutput;
-//   let result;
+test.it('19 - If weather is stormy, length of airport airplane array does not decrease if plane is set to take off', () => {
+  let expectedOutput;
+  let result;
 
-//   let weather = new Weather('stormy');
-//   let heathrow = new Airport([], 50);
-//   let boeing1 = new Airplane('boeing747-1');
-//   heathrow.landPlane(boeing1);
+  let heathrow = new Airport([], 50);
+  let boeing1 = new Airplane('boeing747-1');
+  let boeing2 = new Airplane('boeing747-2');
+  heathrow.landPlane(boeing1);
+  heathrow.landPlane(boeing2);
 
-//   expectedOutput = 0;
-//   result = heathrow.currentPlanes.length;
-//   console.log(result);
-//   test.assertEquals(expectedOutput, result);
-// });
+  Weather.status = 'stormy';
+  heathrow.setTakeOff(boeing1);
+
+  expectedOutput = 2;
+  result = heathrow.currentPlanes.length;
+  console.log(result);
+  test.assertEquals(expectedOutput, result);
+});
