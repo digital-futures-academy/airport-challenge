@@ -50,32 +50,12 @@ So I can get passengers to a destination
 TEST EXAMPLE
 ---------
 
-    let airport, plane, expectedOutput, result;
 
-    //ARRANGE/SETUP
-    airport = new Airport();
-    plane = new Plane();
-    expectedOutput = 1;
-
-    //ACT/EXECUTE
-    result = airport.landPlane(plane);
-    //ASSERT/VERIFY
-
-    return test.assertEquals(result.length, expectedOutput);
+![Test 1](https://user-images.githubusercontent.com/91478720/137644409-3511984b-b0a8-4d98-86eb-70925ac0f8bc.JPG)
 
 CODE
----------
+-----------
 
-  landPlane(plane) {
-    if (this.planes < this.capacity) {
-      this.planes.push(plane);
-      return this.planes;
-    }
-    else {
-      return `Airport is Full no landing`;
-    }
-
-  }
-
+![Test2](https://user-images.githubusercontent.com/91478720/137644360-856528be-4955-4fad-8639-0f0b27fb3656.JPG)
 
 
