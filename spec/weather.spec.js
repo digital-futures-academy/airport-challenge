@@ -6,10 +6,10 @@ test2.it("Weather is clear - plane checks can continue", () => {
     //setup
     weather = new Weather();
     let actualOutput;
-    expectedOutput = false
+    expectedOutput = false;
 
     //execute
-    actualOutput = Boolean(weather.isClear())
+    actualOutput = Boolean(weather.isClear());
 
     //verify
     test2.assertEquals(actualOutput, expectedOutput);

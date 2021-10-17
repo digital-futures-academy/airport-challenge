@@ -1,7 +1,7 @@
 // test-framework.js
 const test = {
     assertEquals(val1, val2) {
-        if (val1 !== val2) throw new Error('\n Test Failed - Please check code')
+        if (val1 !== val2) throw new Error('Test Failed - Please check code');
     },
 
     it(str, testFunc) {

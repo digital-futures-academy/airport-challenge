@@ -3,7 +3,7 @@
 
 const test2 = {
     assertEquals(val1, val2) {
-        if (val1 !== val2) throw new Error('Weather is stormy')
+        if (val1 !== val2) throw new Error('Weather is stormy');
     },
 
     it(str, testFunc) {
