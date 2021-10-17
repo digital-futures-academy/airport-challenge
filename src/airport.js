@@ -11,6 +11,11 @@ class Airport {
     return this.planes.length >=
       this.capacity;
   }
+  departed(plane) {
+    this.planes.pop(plane)
+    return this.planes;
+  }
+
 
 
 
