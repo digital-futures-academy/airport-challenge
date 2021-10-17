@@ -47,8 +47,35 @@ So I can get passengers to a destination
 | Plane   | name @String  | -name()                   | @String        |
 | Airport | planes @array | -landPlane(plane)         | @Array[@Plane] |
 
-TEST CODE
+TEST EXAMPLE
 ---------
+
+    let airport, plane, expectedOutput, result;
+
+    //ARRANGE/SETUP
+    airport = new Airport();
+    plane = new Plane();
+    expectedOutput = 1;
+
+    //ACT/EXECUTE
+    result = airport.landPlane(plane);
+    //ASSERT/VERIFY
+
+    return test.assertEquals(result.length, expectedOutput);
+
+CODE
+---------
+
+  landPlane(plane) {
+    if (this.planes < this.capacity) {
+      this.planes.push(plane);
+      return this.planes;
+    }
+    else {
+      return `Airport is Full no landing`;
+    }
+
+  }
 
 
 
