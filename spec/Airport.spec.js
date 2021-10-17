@@ -413,15 +413,6 @@ test.it('TEST 15: Check isLanded is false when flying', () => {
 
 });
 
-// TEST 17 Check that when planes are flying, they aren't at an airport
-
-// ARRANGE
-
-// ACT
-
-// ASSERT
-
-
 // TEST 16
 test.it('TEST 16: Check that planes cannot take off if airport is empty', () => {
 
@@ -439,4 +430,25 @@ test.it('TEST 16: Check that planes cannot take off if airport is empty', () => 
   result = test.assertEquals(expectedOutput, actualOutput);
   console.log(`	${result}
 `);
+});
+
+// TEST 17 Check that when planes are flying, they aren't at an airport
+test.it('TEST 17: Check that when planes are flying, they aren\'t at an airport', () => {
+
+  // ARRANGE
+  airport = new Airport();
+  plane1 = new Plane();
+
+  expectedOutput = 'flying';
+
+  // ACT
+  airport.landPlane(plane1);
+  airport.takeOff(plane1);
+  actualOutput = plane1.currentLocation;
+
+  // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+`);
+
 });
