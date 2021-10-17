@@ -24,9 +24,11 @@ class Airport {
       return false;
     }
   }
-  setTakeOff(plane) {
-    this.currentPlanes = this.currentPlanes.filter(planes => planes !== plane)
-    plane.status = 'flying';
+  setTakeOff(plane, weather) {
+    if (weather === 'sunny') {
+      this.currentPlanes = this.currentPlanes.filter(planes => planes !== plane)
+      plane.status = 'flying';
+    }
   };
   checkWeather(weather) {
     return weather.weather;

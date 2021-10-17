@@ -364,3 +364,20 @@ test.it('19 - If weather is stormy, length of airport airplane array does not de
   console.log(result);
   test.assertEquals(expectedOutput, result);
 });
+
+test.it('20 - Weather setStatus function is returning sunny roughly 70% of the time', () => {
+  let expectedOutput;
+  let result;
+
+
+  Weather.status = 'stormy';
+  heathrow.setTakeOff(boeing1);
+
+  expectedOutput = true;
+  result = false;
+  if (stormyCounter >= 650 && stormyCounter <= 750) {
+    result = true;
+  }
+
+  test.assertEquals(expectedOutput, result);
+});
