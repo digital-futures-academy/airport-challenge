@@ -1,4 +1,5 @@
 const Airport = require("../src/airport");
+const Plane = require("../src/plane");
 const assertEquals = require("./test-framework");
 
 
@@ -20,4 +21,16 @@ result = assertEquals(capacity, 10);
 console.log(result);
 
 
-console.log('Test 3 - ')
+console.log('Test 3 - Is the airport full?')
+let expectedOutcome = true
+plane = new Plane();
+airport = new Airport();
+plane2 = new Plane();
+plane3 = new Plane();
+
+airport.landed(plane);
+airport.landed(plane2);
+airport.landed(plane3);
+
+console.log(assertEquals(airport.isFull(), expectedOutcome));
+
