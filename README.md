@@ -27,6 +27,10 @@ Using test-driven development, I developed a series of tests that covered all of
 
 Screenshots of my code in action
 -----
+Here are all the tests written for this task.
+
+<img width="535" alt="Screenshot 2021-10-17 at 22 19 12" src="https://user-images.githubusercontent.com/91621852/137645379-c32563d7-5dc1-4e02-8eb0-3223f012d547.png">
+
 Here are a couple of images showing the test code calling the `weather.generateWeather()` function and the code in the Weather.js class file that generates the weather.
 
 <img width="659" alt="Screenshot 2021-10-17 at 22 09 59" src="https://user-images.githubusercontent.com/91621852/137645141-8febc72c-e46e-4975-9ef7-42a5d9a9278b.png">
