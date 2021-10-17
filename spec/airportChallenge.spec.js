@@ -2,7 +2,7 @@ const test = require('../test-framework');
 const Airport = require('../src/Airport');
 const Airplane = require('../src/Airplane');
 const Weather = require('../src/Weather');
-test.it('1 - Check if airport can land plane', () => {
+test.it('1 - Check if airport can set plane status to landed', () => {
 
   let expectedOutput;
   let result;
@@ -63,7 +63,7 @@ test.it('4 - Check if airport capacity can be modified', () => {
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('5 - Check if airport capacity is full when planes array equals capacity', () => {
+test.it('5 - Check if airport capacity is full when airport planes array length equals capacity', () => {
 
   let expectedOutput;
   let result;
@@ -150,7 +150,7 @@ test.it('9 - Check if airport removes specific plane from plane array when airpo
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('10 - Check if airplane is flying when airport takes off plane', () => {
+test.it('10 - Check if airplane status is set to flying when airport takes off plane', () => {
 
   let expectedOutput;
   let result;
@@ -171,6 +171,27 @@ test.it('10 - Check if airplane is flying when airport takes off plane', () => {
   test.assertEquals(expectedOutput, result);
 });
 
+
+test.it('10 - Check if airplane status is set to flying when airport takes off plane', () => {
+
+  let expectedOutput;
+  let result;
+
+  let heathrow = new Airport([], 50);
+  let boeing1 = new Airplane('boeing747-1');
+  let boeing2 = new Airplane('boeing747-2');
+  let boeing3 = new Airplane('boeing747-3');
+  heathrow.landPlane(boeing1);
+  heathrow.landPlane(boeing2);
+  heathrow.landPlane(boeing3);
+
+  heathrow.setTakeOff(boeing2);
+
+
+  expectedOutput = 'flying';
+  result = boeing2.status
+  test.assertEquals(expectedOutput, result);
+});
 
 test.it('11 - Check if airplane array does not decrease if plane that is not in airport is set to take off by airport', () => {
 
@@ -357,27 +378,35 @@ test.it('19 - If weather is stormy, length of airport airplane array does not de
   heathrow.landPlane(boeing2);
 
   Weather.status = 'stormy';
-  heathrow.setTakeOff(boeing1);
+  heathrow.setTakeOff(boeing1, Weather.status);
 
   expectedOutput = 2;
   result = heathrow.currentPlanes.length;
-  console.log(result);
+  console.log();
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('20 - Weather setStatus function is returning sunny roughly 70% of the time', () => {
+test.it('20 - Weather setStatus function is returning stormy roughly 30% of the time', () => {
   let expectedOutput;
   let result;
 
-
-  Weather.status = 'stormy';
-  heathrow.setTakeOff(boeing1);
+  function stormyCounter() { // counter to test random function is working as expected
+    let counter = 0;
+    for (let i = 0; i < 10000; i++) {
+      if (Weather.setStatus() === 'stormy') {
+        counter++
+      }
+    }
+    return counter
+  }
 
   expectedOutput = true;
   result = false;
-  if (stormyCounter >= 650 && stormyCounter <= 750) {
+  let counter = stormyCounter();
+  console.log(counter);
+  if (counter >= 2900 && counter <= 3100) {
     result = true;
   }
-
   test.assertEquals(expectedOutput, result);
 });
+

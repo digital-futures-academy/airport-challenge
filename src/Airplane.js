@@ -3,7 +3,6 @@ class Airplane {
     this.name = name;
     this.status = status;
   }
-
 }
 
 module.exports = Airplane;

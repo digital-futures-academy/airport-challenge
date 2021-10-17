@@ -13,6 +13,7 @@
 - setFlying()
 - checkIfFull()
 - checkWeather()
+- isInAirport()
   
 **Properties**
 
@@ -30,11 +31,11 @@
   
 <br><br>
 
-| Objects  | Properties                                | Messages                                                | Output                |
-| -------- | ----------------------------------------- | ------------------------------------------------------- | --------------------- |
-| Airplane | name `@string`, status`@string`           |                                                         | `@string`             |
-| Airport  | capacity `@number`, currentPlanes`@array` | checkIfFull(), landPlane(), setFlying(), checkWeather() | `@number`, `@Boolean` |
-| Weather  | weather`@string`                          |                                                         | `@string`             |
+| Objects  | Properties                                | Messages                                                               | Output                |
+| -------- | ----------------------------------------- | ---------------------------------------------------------------------- | --------------------- |
+| Airplane | name `@string`, status`@string`           |                                                                        | `@string`             |
+| Airport  | capacity `@number`, currentPlanes`@array` | checkIfFull(), landPlane(), setFlying(), checkWeather(), isInAirport() | `@number`, `@Boolean` |
+| Weather  | weather`@string`                          |                                                                        | `@string`             |
 
 <br><br>
 
