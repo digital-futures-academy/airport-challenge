@@ -5,20 +5,17 @@ So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
 # Objects
-- plane
-- airport
+- Airport
 
 # Properties
-- name @String
-- itemList(@Array[`@item`])
+- plane@String
 
 # Messages
-- addItem()
+- add(`@String`)
 
 
 # Output
-- `@itemList`
-- `@string`
+- `@Boolean`
 
 
 
