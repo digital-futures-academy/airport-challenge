@@ -367,13 +367,31 @@ test.it('TEST 13 Check that weather randomly generates', () => {
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
-  console.log(result);
+  console.log(`	${result}
+  `);
 
 });
 
-
 // EDGE CASES
-// TEST 14 Check status of plane is correct with its other properties
+// TEST 14
+test.it('TEST 14: Check isLanded is true when landed', () => {
+  // ARRANGE
+  airport = new Airport();
+  plane1 = new Plane(planeID = '001');
+
+  expectedOutput = true;
+
+  // ACT
+  airport.landPlane(plane1);
+  actualOutput = plane1.isLanded;
+
+  // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(`	${result}
+  `);
+
+});
+
 // TEST 15 Check planes can't take off if the airport is empty
 // TEST 16 Check that when planes are flying, they aren't at an airport
 

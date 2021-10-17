@@ -28,6 +28,7 @@ class Airport {
         this.planeList.push(plane);
         this.currentNoOfPlanes = this.planeList.length;
         plane.currentLocation = this.airportName;
+        plane.isLanded = true;
 
         this.checkIsFull();
 
@@ -67,20 +68,27 @@ class Airport {
         this.planeList.splice(planeIndex, 1);
         this.currentNoOfPlanes = this.planeList.length;
         plane.currentLocation = 'flying';
+        plane.isLanded = false;
 
         this.checkIsFull();
 
         return 'Plane took off successfully';
 
       } else {
+
         return 'Plane is not at airport';
+
       }
     } else {
 
       if (weather === 'stormy') {
+
         return 'Plane cannot take off, weather is stormy';
+
       } else {
+
         return 'Plane cannot take off, airport is empty';
+
       }
     }
 
