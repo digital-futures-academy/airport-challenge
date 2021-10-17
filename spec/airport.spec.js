@@ -16,3 +16,23 @@ airport.landPlane(plane);
 //Assert
 actualOutput = assertEquals(expectedOutput, airport.getCurrentCapacity());
 printResult(testMsg, actualOutput);
+
+airport = null;
+expectedOutput = null;
+actualOutput = null;
+plane = null;
+testMsg = null;
+//----------------------------------------------------------------------------------//
+
+//Arrange
+airport = new Airport();
+testMsg = "Testing overriding default airport capacity";
+expectedOutput = 20;
+
+//Act (default capacity will be set to 10)
+airport.setMaxCapacity(20);
+
+//Assert
+actualOutput = assertEquals(expectedOutput, airport.getMaxCapacity());
+printResult(testMsg, actualOutput);
+

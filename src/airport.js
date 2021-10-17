@@ -1,6 +1,8 @@
 class Airport {
-    constructor(listPlanes = []) {
+
+    constructor(listPlanes = [], maxCapacity = 10) {
         this.listPlanes = listPlanes;
+        this.maxCapacity = maxCapacity;
     }
 
     landPlane(plane) {
@@ -9,6 +11,14 @@ class Airport {
 
     getCurrentCapacity() {
         return this.listPlanes.length;
+    }
+
+    setMaxCapacity(capacity) {
+        this.maxCapacity = capacity;
+    }
+
+    getMaxCapacity() {
+        return this.maxCapacity;
     }
 }
 

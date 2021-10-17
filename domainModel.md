@@ -68,6 +68,6 @@ Planes that have landed must be at an airport
 | ''      | maxSize(@Integer)   | setMaxSize(@Integer)                           | set the max capacity       | @Integer      |
 | ''      | ''                  | getMaxSize()                                   | returns max capacity       | @Integer      |
 | ''      | ''                  | isAirportFull(@listPlanes, @maxSize)           | checks if airport is full  | @Boolean      |
-| Weather | weather(@String)    | generateWeather()                              | generates a random weather | @String       |
+| ''      | weather(@String)    | generateWeather()                              | generates a random weather | @String       |
 | ''      | ''                  | getWeather()                                   | returns the weather        | @String       |
 
