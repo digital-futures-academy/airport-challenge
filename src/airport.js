@@ -1,12 +1,13 @@
 class Airport {
-  constructor(capacity = 3) {
-    this.capacity = capacity;
+  constructor(capacity = 10) {
+    this.capacity = 10;
     this.planes = []
   }
   landed(plane) {
     this.planes.push(plane)
     return this.planes;
   }
+
 
 
 }
