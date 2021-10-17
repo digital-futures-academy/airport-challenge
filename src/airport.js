@@ -85,10 +85,12 @@ class Airport {
 
         return 'Plane cannot take off, weather is stormy';
 
+      } else if (this.currentNoOfPlanes <= 0) {
+
+        return 'Plane cannot take off, the airport is empty';
+
       } else {
-
-        return 'Plane cannot take off, it is not at the airport';
-
+        return 'Plane is not at this airport';
       }
     }
 

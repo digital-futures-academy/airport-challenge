@@ -15,7 +15,7 @@ const test = {
     } catch (err) {
       console.log('\x1b[31m%s\x1b[0m', `	${str}`);
       console.error(err.message);
-      console.log(err.stack);
+      //console.log(err.stack);
     }
   },
 

@@ -161,7 +161,7 @@ test.it('TEST 6: Check planes can only take off if they are at the aiport', () =
   plane2 = new Plane(planeID = '002');
   weather = new Weather();
 
-  expectedOutput = 'Plane is not at airport';
+  expectedOutput = 'Plane is not at this airport';
 
   // ACT
   airport.landPlane(plane1);
@@ -404,11 +404,11 @@ test.it('TEST 16: Check that planes cannot take off if airport is empty', () => 
   plane1 = new Plane(planeID = '001');
   weather = new Weather();
 
-  expectedOutput = 'Plane cannot take off, airport is empty';
+  expectedOutput = 'Plane cannot take off, the airport is empty';
 
   // ACT
   actualOutput = airport.takeOff(plane1);
-  console.log(actualOutput);
+  //console.log(actualOutput);
 
   // ASSERT
   result = test.assertEquals(expectedOutput, actualOutput);
@@ -444,11 +444,13 @@ test.it('TEST 18: Planes can only take off from the airport they are at', () => 
   gatwickAirport = new Airport(airportName = 'Gatwick');
   dubaiAirport = new Airport(airportName = 'Dubai');
   plane1 = new Plane('001');
+  plane2 = new Plane('002');
 
   expectedOutput = 'Plane is not at this airport';
 
   // ACT
   gatwickAirport.landPlane(plane1);
+  dubaiAirport.landPlane(plane2);
   actualOutput = dubaiAirport.takeOff(plane1);
 
   // ASSERT
