@@ -72,7 +72,6 @@ plane = ['Boeing 747'];
 airport.landPlane(plane);
 expectedOutput = false;
 airport.planeTakeoff(plane);
-
 //Act
 actualOutput = airport.isPlaneInAirport(plane);
 
@@ -88,7 +87,7 @@ console.log("Test 5, prevent asking the airport to let planes take-off which are
 airport = new Airport();
 plane = new Plane();
 
-plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane', 'Concorde'];
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane'];
 expectedOutput = false;
 
 //Act
@@ -101,3 +100,18 @@ console.log(result);
 
 
 //TEST 6
+console.log("Test 6, prevent takeoff when weather is stormy:");
+//Arrange
+airport = new Airport();
+plane = new Plane();
+
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane'];
+expectedOutput = false; //if the weather is stormy, otherwise true
+
+//Act
+airport.landPlane(plane);
+actualOutput = airport.planeTakeoff(['Boeing 747']);
+
+//Assert
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
