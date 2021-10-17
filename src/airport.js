@@ -11,7 +11,7 @@ class Airport {
             this.listPlanes.push(plane);
         } else {
             if (this.isAirportFull()) {
-                console.log('Airport at max capacity, cannot land plane')
+                console.log('Airport at max capacity, cannot land plane');
             } else {
                 console.log('Plane is already at airport');
             }

@@ -105,3 +105,11 @@ airport.sendPlane(plane2);
 actualOutput = assertEquals(expectedOutput, airport.getCurrentCapacity());
 printResult(testMsg, actualOutput);
 
+airport = null;
+expectedOutput = null;
+actualOutput = null;
+plane1 = null;
+plane2 = null;
+testMsg = null;
+//----------------------------------------------------------------------------------//
+
