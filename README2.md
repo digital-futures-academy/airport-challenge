@@ -1,6 +1,8 @@
 Airport Challenge
+=================
 
-INTRODUCTION
+Instructions
+---------
 
 This challenge is to use own test framework and evidence test-driven development of an Airport control traffic system.
 
