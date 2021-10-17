@@ -173,7 +173,6 @@ test.it('10 - Check if airplane status is set to flying when airport takes off p
 
 
 test.it('10 - Check if airplane status is set to flying when airport takes off plane', () => {
-
   let expectedOutput;
   let result;
 
@@ -193,7 +192,26 @@ test.it('10 - Check if airplane status is set to flying when airport takes off p
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('11 - Check if airplane array does not decrease if plane that is not in airport is set to take off by airport', () => {
+test.it('11 - Check if airplane status is set to flying when airport takes off plane', () => {
+  let expectedOutput;
+  let result;
+
+  let heathrow = new Airport([], 50);
+  let boeing1 = new Airplane('boeing747-1');
+  let boeing2 = new Airplane('boeing747-2');
+  let boeing3 = new Airplane('boeing747-3');
+  heathrow.landPlane(boeing1);
+  heathrow.landPlane(boeing2);
+  heathrow.landPlane(boeing3);
+
+  heathrow.setTakeOff(boeing2);
+
+  expectedOutput = false;
+  result = heathrow.isInAirport(boeing2);
+  test.assertEquals(expectedOutput, result);
+});
+
+test.it('12 - Check if airplane array does not decrease if plane that is not in airport is set to take off by airport', () => {
 
   let expectedOutput;
   let result;
@@ -216,7 +234,7 @@ test.it('11 - Check if airplane array does not decrease if plane that is not in 
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('12 - Check if airplane array does not increase if plane that is already in airport is set to land', () => {
+test.it('13 - Check if airplane array does not increase if plane that is already in airport is set to land', () => {
 
   let expectedOutput;
   let result;
@@ -240,7 +258,7 @@ test.it('12 - Check if airplane array does not increase if plane that is already
 });
 
 
-test.it('13 - With 2 airports, if plane that is in airport-1 is set to take off by airport-2, airport-1s array length is not changed', () => {
+test.it('14 - With 2 airports, if plane that is in airport-1 is set to take off by airport-2, airport-1s array length is not changed', () => {
 
   let expectedOutput;
   let result;
@@ -265,7 +283,7 @@ test.it('13 - With 2 airports, if plane that is in airport-1 is set to take off 
 });
 
 
-test.it('14 - With 2 airports, if plane that is in airport-1 is set to take off by airport-2, airport-2s array length is not changed', () => {
+test.it('15 - With 2 airports, if plane that is in airport-1 is set to take off by airport-2, airport-2s array length is not changed', () => {
 
   let expectedOutput;
   let result;
@@ -289,7 +307,7 @@ test.it('14 - With 2 airports, if plane that is in airport-1 is set to take off 
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('15 - With 2 airports, if plane that is in airport-1 is set to land by airport-2, airport-1s array length is not changed', () => {
+test.it('16 - With 2 airports, if plane that is in airport-1 is set to land by airport-2, airport-1s array length is not changed', () => {
 
   let expectedOutput;
   let result;
@@ -313,7 +331,7 @@ test.it('15 - With 2 airports, if plane that is in airport-1 is set to land by a
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('16 - With 2 airports, if plane that is in airport-1 is set to land by airport-2, airport-2s array length is not changed', () => {
+test.it('17 - With 2 airports, if plane that is in airport-1 is set to land by airport-2, airport-2s array length is not changed', () => {
 
   let expectedOutput;
   let result;
@@ -338,7 +356,7 @@ test.it('16 - With 2 airports, if plane that is in airport-1 is set to land by a
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('17 - Weather class has weather status property', () => {
+test.it('18 - Weather class has weather status property', () => {
   let expectedOutput;
   let result;
   expectedOutput = 'sunny';
@@ -347,7 +365,7 @@ test.it('17 - Weather class has weather status property', () => {
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('18 - If stormy, airport plane array does not change if attempting to land a plane', () => {
+test.it('19 - If stormy, airport plane array does not change if attempting to land a plane', () => {
   let expectedOutput;
   let result;
 
@@ -367,7 +385,7 @@ test.it('18 - If stormy, airport plane array does not change if attempting to la
 
 });
 
-test.it('19 - If weather is stormy, length of airport airplane array does not decrease if plane is set to take off', () => {
+test.it('20 - If weather is stormy, length of airport airplane array does not decrease if plane is set to take off', () => {
   let expectedOutput;
   let result;
 
@@ -386,7 +404,7 @@ test.it('19 - If weather is stormy, length of airport airplane array does not de
   test.assertEquals(expectedOutput, result);
 });
 
-test.it('20 - Weather setStatus function is returning stormy roughly 30% of the time', () => {
+test.it('21 - Weather setStatus function is returning stormy roughly 30% of the time', () => {
   let expectedOutput;
   let result;
 
