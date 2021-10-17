@@ -9,10 +9,10 @@ const test2 = {
     it(str, testFunc) {
         try {
             testFunc();
-            console.log("\x1b[32m", '\n', str); // Lets rest of output stay green so it's known everything is okay, if you would like to cancel this please add ,"\x1b[0m" after str
+            console.log("\x1b[32m", '\n', str); // Lets rest of output stay green so it's known everything is okay, if you would like to cancel this please add ,"\x1b[0m" after str;
         }
         catch (err) {
-            console.log("\x1b[41m", err.message, "\x1b[40m");
+            console.log("\x1b[41m", err.message); // Lets rest of output stay red so it's known the weather is stormy, if you would like to cancel this please add ,"\x1b[40m" after str;
             console.log(err.stack);
         }
     },

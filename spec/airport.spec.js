@@ -1,4 +1,3 @@
-
 const Airport = require('../src/airport');
 const test = require('../test-framework');
 
@@ -39,7 +38,7 @@ test.it("Test Two - Testing that airport capacity can be altered", () => {
 
 //TEST THREE
 // --------------------------
-test.it("Test three - Testing when the Airport is full", () => {
+test.it("Test Three - Testing when the Airport is full", () => {
 
     airport = new Airport();
 
