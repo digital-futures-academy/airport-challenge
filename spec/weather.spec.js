@@ -1,6 +1,5 @@
-
 const Weather = require('../src/weather');
-const test2 = require('../test-framework');
+const test2 = require('../test-framework-weather');
 
 test2.it("Weather is clear - plane checks can continue", () => {
 
