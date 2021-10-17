@@ -41,3 +41,25 @@ I would like a default airport capacity that can be overridden as appropriate<br
 
 <br><br>
 
+# **UserStory 3**
+
+As an air traffic controller<br>
+To ensure safety<br>
+I want to prevent landing when the airport is full<br>
+
+
+# Objects
+- Airport
+
+# Properties
+- isFull
+
+# Messages
+- isFull`@Integer`
+
+
+# Output
+- `@Boolean`
+
+<br><br>
+

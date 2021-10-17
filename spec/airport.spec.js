@@ -1,9 +1,9 @@
 const assertEquals = require('../test-framework');          //import from test-framework.js
 const Airport = require('../src/airport');                  //import from airport.js
-
+const Plane = require('../src/plane');
 
 //Empty Variables                                           //create empty variables to be re-used later
-let airport, result;
+let airport, result, plane;
 
 //Test 1//
 /*As an air traffic controller
@@ -36,7 +36,7 @@ I would like a default airport capacity that can be overridden as appropriate*/
 
 console.log('Airport has a default capacity of 3');           // create a console.log of question at hand
 // setup
-airport = new Airport();
+airport = new Airport();                                        //create a new class instance of Airport.
 //execute
 
 //verify
@@ -54,8 +54,44 @@ console.log(assertEquals(airport.defaultCapacity, 6));                          
 
 
 
+//Test 3//
+/*As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full*/
+
+console.log('Airport is full, unable to land');
+
+//setup
+airport = new Airport();                                        //create a new class instance for Airport
+plane = new Plane();                                            //create a new class instance for Plane
+plane2 = new Plane();
+plane3 = new Plane();
+
+//execute
+airport.landed(plane);                                          // add each instance of plane  
+airport.landed(plane2);
+airport.landed(plane3);
 
 
+//verify
+console.log(assertEquals(airport.isFull(), true));
+
+console.log('Airport is full, unable to land');
+
+//setup 
+airport = new Airport();                                        //create a new class instance for Airport
+plane = new Plane();                                            //create a new class instance for Plane
+plane2 = new Plane();
+plane3 = new Plane();
+
+//execute 
+airport.landed(plane);                                          // add each instance of plane  
+//airport.landed(plane2);
+//airport.landed(plane3);                                       //commented out to run 2nd test
+
+
+//verify
+console.log(assertEquals(airport.isFull(), true));              //check to see if Airport is full
 
 
 

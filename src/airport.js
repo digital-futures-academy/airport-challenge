@@ -9,7 +9,10 @@ class Airport {                               // Airport class created.
     return this.planes;                       // return the value
   }
 
-
+  isFull() {
+    return this.planes.length >=
+      this.defaultCapacity;                   //  isFull function, check if planes.lenth array is more than or  equal to the
+  }                                           //  default capacity of airport and returns it
 
 }
 
