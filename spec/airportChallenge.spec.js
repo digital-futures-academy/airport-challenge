@@ -171,28 +171,7 @@ test.it('10 - Check if airplane status is set to flying when airport takes off p
   test.assertEquals(expectedOutput, result);
 });
 
-
-test.it('10 - Check if airplane status is set to flying when airport takes off plane', () => {
-  let expectedOutput;
-  let result;
-
-  let heathrow = new Airport([], 50);
-  let boeing1 = new Airplane('boeing747-1');
-  let boeing2 = new Airplane('boeing747-2');
-  let boeing3 = new Airplane('boeing747-3');
-  heathrow.landPlane(boeing1);
-  heathrow.landPlane(boeing2);
-  heathrow.landPlane(boeing3);
-
-  heathrow.setTakeOff(boeing2);
-
-
-  expectedOutput = 'flying';
-  result = boeing2.status
-  test.assertEquals(expectedOutput, result);
-});
-
-test.it('11 - Check if airplane status is set to flying when airport takes off plane', () => {
+test.it('11 - Check if airport can correctly check if plane is in airport', () => {
   let expectedOutput;
   let result;
 
@@ -352,7 +331,6 @@ test.it('17 - With 2 airports, if plane that is in airport-1 is set to land by a
 
   expectedOutput = 2;
   result = heathrow.currentPlanes.length
-  console.log(heathrow);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -361,7 +339,6 @@ test.it('18 - Weather class has weather status property', () => {
   let result;
   expectedOutput = 'sunny';
   result = Weather.status;
-  console.log(result);
   test.assertEquals(expectedOutput, result);
 });
 
@@ -400,7 +377,6 @@ test.it('20 - If weather is stormy, length of airport airplane array does not de
 
   expectedOutput = 2;
   result = heathrow.currentPlanes.length;
-  console.log();
   test.assertEquals(expectedOutput, result);
 });
 
