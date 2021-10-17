@@ -13,6 +13,10 @@ class Airport {
         }
     }
 
+    sendPlane(plane) {
+        this.listPlanes.pop();
+    }
+
     getCurrentCapacity() {
         return this.listPlanes.length;
     }
@@ -28,6 +32,11 @@ class Airport {
     isAirportFull() {
         return this.listPlanes.length === this.maxCapacity;
     }
+
+    isPlaneInAirport(plane) {
+        return this.planes.indexOf(plane) !== -1;
+    }
+
 }
 
 module.exports = Airport;
