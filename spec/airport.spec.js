@@ -71,6 +71,8 @@ test.it("Test Four - Plane has left the airport", () => {
 
 });
 
+//TEST Five
+// ------------------------
 test.it("Test Five - The plane is at the airport and is going to takeoff", () => {
 
     //setup
@@ -87,6 +89,8 @@ test.it("Test Five - The plane is at the airport and is going to takeoff", () =>
 
 });
 
+//TEST Six
+// ------------------------
 test.it("Test Six - The plane is flying and would like to land", () => {
 
     //setup
@@ -103,7 +107,7 @@ test.it("Test Six - The plane is flying and would like to land", () => {
 
 });
 
-test.it("Test Six - The plane is landed at an airport", () => {
+test.it("Test Seven - The plane is landed at an airport", () => {
 
     //setup
     let airport = new Airport();

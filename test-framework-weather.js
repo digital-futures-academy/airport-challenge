@@ -9,7 +9,7 @@ const test2 = {
     it(str, testFunc) {
         try {
             testFunc();
-            console.log('\n', str);
+            console.log("\x1b[32m", '\n', str); // Lets rest of output stay green so it's known everything is okay, if you would like to cancel this please add ,"\x1b[0m" after str
         }
         catch (err) {
             console.log("\x1b[41m", err.message, "\x1b[40m");
@@ -18,9 +18,8 @@ const test2 = {
     },
 
     xit(str) {
-        console.log(`\n Test skipped ${str}`);
+        console.log("\x1b[31m%s\x1b[0m", `\t TEST SKIPPED: ${str}`)
     }
 }
-
 
 module.exports = test2;
