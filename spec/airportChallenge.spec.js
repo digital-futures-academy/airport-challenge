@@ -167,7 +167,7 @@ test.it('10 - Check if airplane status is set to flying when airport takes off p
 
 
   expectedOutput = 'flying';
-  result = boeing2.status
+  result = boeing2.status;
   test.assertEquals(expectedOutput, result);
 });
 
@@ -209,7 +209,7 @@ test.it('12 - Check if airplane array does not decrease if plane that is not in 
 
 
   expectedOutput = 3;
-  result = heathrow.currentPlanes.length = 3
+  result = heathrow.currentPlanes.length = 3;
   test.assertEquals(expectedOutput, result);
 });
 
@@ -232,7 +232,7 @@ test.it('13 - Check if airplane array does not increase if plane that is already
   heathrow.landPlane(boeing2);
 
   expectedOutput = 4;
-  result = heathrow.currentPlanes.length
+  result = heathrow.currentPlanes.length;
   test.assertEquals(expectedOutput, result);
 });
 
@@ -257,7 +257,7 @@ test.it('14 - With 2 airports, if plane that is in airport-1 is set to take off 
   heathrow.setTakeOff(airbus1);
 
   expectedOutput = 2;
-  result = jfk.currentPlanes.length
+  result = jfk.currentPlanes.length;
   test.assertEquals(expectedOutput, result);
 });
 
@@ -282,7 +282,7 @@ test.it('15 - With 2 airports, if plane that is in airport-1 is set to take off 
   heathrow.setTakeOff(airbus1);
 
   expectedOutput = 2;
-  result = heathrow.currentPlanes.length
+  result = heathrow.currentPlanes.length;
   test.assertEquals(expectedOutput, result);
 });
 
@@ -306,7 +306,7 @@ test.it('16 - With 2 airports, if plane that is in airport-1 is set to land by a
   heathrow.landPlane(airbus1);
 
   expectedOutput = 2;
-  result = jfk.currentPlanes.length
+  result = jfk.currentPlanes.length;
   test.assertEquals(expectedOutput, result);
 });
 
@@ -330,7 +330,7 @@ test.it('17 - With 2 airports, if plane that is in airport-1 is set to land by a
   heathrow.landPlane(airbus1);
 
   expectedOutput = 2;
-  result = heathrow.currentPlanes.length
+  result = heathrow.currentPlanes.length;
   test.assertEquals(expectedOutput, result);
 });
 
@@ -352,7 +352,7 @@ test.it('19 - If stormy, airport plane array does not change if attempting to la
   heathrow.landPlane(airbus1, Weather.status);
 
   let boeing1 = new Airplane('boeing747-1');
-  Weather.status = 'stormy'
+  Weather.status = 'stormy';
   heathrow.landPlane(boeing1, Weather.status);
 
   expectedOutput = 1;
@@ -388,10 +388,10 @@ test.it('21 - Weather setStatus function is returning stormy roughly 30% of the 
     let counter = 0;
     for (let i = 0; i < 10000; i++) {
       if (Weather.setStatus() === 'stormy') {
-        counter++
+        counter++;
       }
     }
-    return counter
+    return counter;
   }
 
   expectedOutput = true;

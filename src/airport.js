@@ -23,15 +23,15 @@ class Airport {
       this.currentPlanes = this.currentPlanes.filter(planes => planes !== plane);
       plane.status = 'flying';
     }
-  };
+  }
   checkWeather(weather) {
     return weather.weather;
   }
   isInAirport(plane) {
     if (this.currentPlanes.includes(plane)) {
-      return true
+      return true;
     }
-    else { return false }
+    else { return false; }
   }
 }
 
