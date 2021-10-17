@@ -80,3 +80,28 @@ airport.sendPlane(plane1);
 actualOutput = assertEquals(expectedOutput, airport.getCurrentCapacity());
 printResult(testMsg, actualOutput);
 
+airport = null;
+expectedOutput = null;
+actualOutput = null;
+plane1 = null;
+testMsg = null;
+//----------------------------------------------------------------------------------//
+
+//Arrange
+airport = new Airport();
+plane1 = new Plane();
+plane2 = new Plane();
+testMsg = 'avoid sending plane not at airport, landing if already at airport';
+expectedOutput = 1;
+airport.landPlane(plane1); //1 plane already at airport
+
+//Act
+airport.landPlane(plane1);
+//not in airport (done twice otherwise it will pass when it shouldn't)
+airport.sendPlane(plane2);
+airport.sendPlane(plane2);
+
+//Assert
+actualOutput = assertEquals(expectedOutput, airport.getCurrentCapacity());
+printResult(testMsg, actualOutput);
+

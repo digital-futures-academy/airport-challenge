@@ -6,15 +6,25 @@ class Airport {
     }
 
     landPlane(plane) {
-        if (!this.isAirportFull()) {
+        const indx = this.findPlane(plane);
+        if (indx === -1 && !this.isAirportFull()) {
             this.listPlanes.push(plane);
         } else {
-            console.log('Airport at max capacity, cannot land plane');
+            if (this.isAirportFull()) {
+                console.log('Airport at max capacity, cannot land plane')
+            } else {
+                console.log('Plane is already at airport');
+            }
         }
     }
 
     sendPlane(plane) {
-        this.listPlanes.pop();
+        const indx = this.findPlane(plane);
+        if (indx === -1) {
+            console.log('Plane does not exist in airport');
+        } else {
+            this.listPlanes.splice(indx, 1);
+        }
     }
 
     getCurrentCapacity() {
@@ -34,7 +44,11 @@ class Airport {
     }
 
     isPlaneInAirport(plane) {
-        return this.planes.indexOf(plane) !== -1;
+        return this.listPlanes.indexOf(plane) !== -1;
+    }
+
+    findPlane(plane) {
+        return this.listPlanes.indexOf(plane);
     }
 
 }
