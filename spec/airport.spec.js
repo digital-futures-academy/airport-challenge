@@ -135,5 +135,23 @@ console.log(airport);
 console.log(result);
 
 
+//TEST 8
+console.log("Test 8, planes that have landed must be at an airport:");
+//Arrange
+airport = new Airport();
+plane = new Plane();
+
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane', 'U-2 spy plane'];
+expectedOutput = airport;
+
+//Act
+airport.landPlane(plane);
+actualOutput = airport.printAirport();
+
+//Assert
+result = assertEquals(actualOutput, expectedOutput);
+console.log(airport);  //Not sure why this outputs differently to my printAirport function when it's essentially the same thing, so can't get true to return and I don't really know how else to test this.
+console.log(result);
+
 /* The weather obviously affects previous tests as well, so now some tests may say false if it is stormy.
 Disabling the weather should make tests 1 - 5 return true. */
