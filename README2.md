@@ -40,7 +40,9 @@ User Story 1
 As an air traffic controller
 I want to instruct the airport to land a plane
 So I can get passengers to a destination
-			
+
+DOMAIN MODEL
+---------			
 
 | Objects | Properties    | Message/functions/methods | Output         |
 | ------- | ------------- | ------------------------- | -------------- |
