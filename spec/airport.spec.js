@@ -82,7 +82,7 @@ test.it(`Check the default capacity and Override airport capacity as appropriate
 
     //ARRANGE/SETUP
     manchester = new Airport();
-    capacity = manchester.capacity;
+    //capacity = manchester.capacity;
     // console.log(capacity);
 
 
@@ -124,6 +124,69 @@ test.it(`Prevent landing when the airport is full `, function () {
     //ASSERT/VERIFY
 
     return test.assertEquals(result, expectedOutput);
+
+});
+
+//----------------TEST 4 ------------
+
+
+test.it(`instruct the airport to let a plane take off and confirm that it is no longer in the airport`, function () {
+
+
+    let luton, expectedOutput, superjumbo;
+
+    //ARRANGE/SETUP
+    luton = new Airport();
+    superjumbo = new Plane('superjumbo');
+
+
+    //ACT/EXECUTE
+    luton.landPlane(superjumbo);
+    // luton.landPlane(airbus);
+
+    console.log(luton.planes.length, 'LUTON');
+
+    result = luton.takeOff(superjumbo);
+    expectedOutput = 0;
+
+    //console.log(result);
+
+    //ASSERT/VERIFY
+
+    return test.assertEquals(luton.planes.length, expectedOutput);
+
+});
+
+//----------------TEST 5 ------------
+
+test.it(`prevent asking the airport to let planes take-off which are not at the airport`, function () {
+
+
+    let luton, expectedOutput, superjumbo, airbus, result;
+
+    //ARRANGE/SETUP
+    luton = new Airport();
+    superjumbo = new Plane('superjumbo');
+    //airbus = new Plane('airbus');
+    //ka = new Plane('ka');
+    // expectedOutput = `Airport is Full no landing`;
+
+
+
+    //ACT/EXECUTE
+    luton.landPlane(superjumbo);
+    // luton.landPlane(airbus);
+
+    console.log(luton.planes.length, 'LUTON');
+
+    result = luton.takeOff(superjumbo);
+    expectedOutput = 0;
+
+    //console.log(result);
+
+    //ASSERT/VERIFY
+
+    return test.assertEquals(luton.planes.length, expectedOutput);
 
 });
 

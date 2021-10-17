@@ -42,3 +42,14 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | Objects | Properties  | Message/functions/methods | Output    |
 | ------- | ----------- | ------------------------- | --------- |
 | Airport | plane@Array | -takeOff(plane)           | new@Array |
+
+
+User Story 5
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+| Objects | Properties  | Message/functions/methods | Output  |
+| ------- | ----------- | ------------------------- | ------- |
+| Airport | plane@Array | -checkPlane(plane)        | boolean |
