@@ -88,3 +88,30 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 <br><br>
 
+
+# **UserStory 5**
+
+As an air traffic controller<br>
+To avoid confusion<br>
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed<br>
+
+
+# Objects
+- Airport
+- plane`@string`
+
+# Properties
+- hasTookOff
+- hasLanded
+
+# Messages
+- hastakeOff`@Integer`
+- hasLanded`@Integer`
+
+
+# Output
+- `@Boolean`
+- `@Array`
+
+<br><br>
+

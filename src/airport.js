@@ -14,9 +14,26 @@ class Airport {                               // Airport class created.
       this.defaultCapacity;
   }
 
-  takeOff(plane) {                            // create a remove function(takeOff) and remove plane using .pop 
+  takeOff(plane) {
+
     this.planes.pop(plane);                   // return the array
     return this.planes;
+  }
+  hasLanded() {
+    if (this.planes.includes('Airbus A350')) {
+      return "Sorry, plane is already at airport"
+    } else {
+      this.planes.push('Airbus A350');
+      return this.planes;
+    }
+  }
+  hasTookOff() {
+    if (this.planes.includes('Airbus A350')) {
+      return "Sorry, plane has already departed"
+    } else {
+      this.planes.pop('Airbus A350');
+      return this.planes;
+    }
   }
 }
 

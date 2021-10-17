@@ -112,3 +112,33 @@ console.log(assertEquals(result.length, 0));                        //assertEqua
 
 console.log(assertEquals(result.includes('Airbus A350'), 1));       //check if Airbus A350 is included(still in airport) true or false
 console.log(result);                                                // check if array is empty
+
+
+//Test 5//
+/*As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed*/
+
+console.log('can not land if already landed');
+
+//setup
+plane = 'Airbus A350';
+airport = new Airport();
+//execute
+result = airport.hasLanded(plane);
+result = airport.hasLanded(plane);
+//verify
+console.log(assertEquals(result, true));
+
+
+
+console.log('can not take off if not in airport');
+
+//setup
+plane = 'Airbus A350';
+airport = new Airport();
+//execute
+result = airport.hasTookOff(plane);
+result = airport.hasTookOff(plane);
+//verify
+console.log(assertEquals(result, true));
