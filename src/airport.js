@@ -6,7 +6,11 @@ class Airport {
     }
 
     landPlane(plane) {
-        this.listPlanes.push(plane);
+        if (!this.isAirportFull()) {
+            this.listPlanes.push(plane);
+        } else {
+            console.log('Airport at max capacity, cannot land plane');
+        }
     }
 
     getCurrentCapacity() {
@@ -19,6 +23,10 @@ class Airport {
 
     getMaxCapacity() {
         return this.maxCapacity;
+    }
+
+    isAirportFull() {
+        return this.listPlanes.length === this.maxCapacity;
     }
 }
 
