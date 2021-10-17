@@ -350,7 +350,27 @@ test.it('TEST 12: Check to count planes correctly', () => {
 
 });
 
-// TEST 13 Check that weather randomly generates
+// TEST 13
+// Run test a few times to see the random weather generation
+test.it('TEST 13 Check that weather randomly generates', () => {
+  // ARRANGE
+  airport = new Airport();
+  weather = new Weather();
+  plane1 = new Plane();
+
+  expectedOutput = 'stormy';
+
+  // ACT
+  weather.generateWeather();
+  actualOutput = weather.weatherReport;
+  console.log(actualOutput);
+
+  // ASSERT
+  result = test.assertEquals(expectedOutput, actualOutput);
+  console.log(result);
+
+});
+
 
 // EDGE CASES
 // TEST 14 Check status of plane is correct with its other properties
