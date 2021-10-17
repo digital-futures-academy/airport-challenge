@@ -4,7 +4,7 @@ class Plane {
     constructor(planeID, isPlaneFlying) {
         this._planeID = planeID;
         this._isPlaneFlying = isPlaneFlying;
-
+        this.planeLanded = isPlaneFlying;
     }
 
     get isPlaneFlying() {
@@ -16,12 +16,9 @@ class Plane {
     }
 
     landed() {
-        let status = this._isPlaneFlying = false;
-        if (status === true) {
-            this._isPlaneFlying = true;
-            return 'Plane still not landed';
-        }
-        return status;
+        this._isPlaneFlying = false;
+        this.planeLanded = true;
+        return this.planeLanded;
     }
 
     generatePlaneID() {
@@ -29,6 +26,8 @@ class Plane {
         let rand = array[Math.floor(Math.random()*array.length)]
         return rand;
     }
+
+
 }
 
 module.exports = Plane;

@@ -1,11 +1,7 @@
-//const Plane = require("./Plane");
 class Airport {
 
-    hanger = [];
-    //planeIns = new Plane();
-
     constructor(airportName, airportCapacity) {
-        this.planes = this.hanger;
+        this._noOfPlanes = [];
         this._airportCapacity = airportCapacity;
         this.airportName = airportName;
     }
@@ -14,27 +10,43 @@ class Airport {
         return this._airportCapacity;
     }
 
+    get noOfPlanes() {
+        return this._noOfPlanes;
+    }
+
     isAirportFull() {
-        if(this.hanger.length >= this.airportCapacity) {
-            console.log(`Plane with Reg: ${plane.planeID} cannot land as the Airport is full`);
+        if(this.noOfPlanes.length >= this.airportCapacity) {
+            return true;
         }
     }
 
     landPlane(plane) {
-        let airport = new Airport();
         if (plane.isPlaneFlying) {
-            if (!airport.isAirportFull()) {
-                this.hanger.push(plane);
-                return`Land plane with Reg: ${plane.planeID} at the airport `;
-
+            if (!this.isAirportFull()) {
+                if(plane.landed()) {
+                    if(!this.noOfPlanes.includes(plane.planeID)) {
+                        this.noOfPlanes.push(plane.planeID);
+                        return`Land plane with Reg: ${plane.planeID} at the airport `;
+                    } else {
+                        console.log(`Plane with Reg: ${plane.planeID} has already landed`);
+                    }
+                }
+            } else {
+                console.log(`Plane with Reg: ${plane.planeID} cannot land as the Airport is full`);
             }
-            
         } else {
-            return 'not flying. so cannot land';
+            return 'Not flying. so cannot land';
         }
     }
 
-
+    takeOff(plane) {
+        if (plane.landed()) {
+            let rand = this.noOfPlanes[Math.floor(Math.random()*this.noOfPlanes.length)];
+            let getIndex = this.noOfPlanes.indexOf(rand);
+            let takenOff = this.noOfPlanes.splice(getIndex, 1);
+            console.log(`${takenOff} has taken off and is no longer at the airport`);
+        }
+    }
 }
 
 module.exports = Airport;

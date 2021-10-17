@@ -39,27 +39,101 @@ let  expectedOutput, result, airportCap;
 
 // });
 
-Test.it('Prevent landing when the airport is full', () => {
-    airportCap = 3;
-    // const currentPlaneID = plane.generatePlaneID();
+/** AC - 3 */
+// Test.it('Prevent landing when the airport is full', () => {
 
-    airport = new Airport("Luton Airport", airportCap);
+//     airport = new Airport("Luton Airport", 3);
+    
+//     plane = new Plane(plane.generatePlaneID(), true);
+//     airport.landPlane(plane);
+    
+//     let plane2 = new Plane(plane.generatePlaneID(), true);
+//     airport.landPlane(plane2);
+
+//     let plane3 = new Plane(plane.generatePlaneID(), true);
+//     airport.landPlane(plane3);
+
+//     let plane4 = new Plane(plane.generatePlaneID(), true);
+//     airport.landPlane(plane4);
+
+//     expectedOutput = 3;
+
+//     result = Test.assertEquals(expectedOutput, airport.noOfPlanes.length);
+
+//     return result;
+// });
+
+/** AC - 4 */
+Test.it('Instruct the plane to takeoff', () => {
+    
+    airport = new Airport("Luton Airport", 7);
+    
     plane = new Plane(plane.generatePlaneID(), true);
-    let plane2 = new Plane(plane.generatePlaneID(), true);
-    let plane3 = new Plane(plane.generatePlaneID(), true);
-    let plane4 = new Plane(plane.generatePlaneID(), true);
-
-
-    expectedOutput = 3;
-
     airport.landPlane(plane);
+    
+    let plane2 = new Plane(plane.generatePlaneID(), true);
     airport.landPlane(plane2);
+
+    let plane3 = new Plane(plane.generatePlaneID(), true);
     airport.landPlane(plane3);
-   //airport.landPlane(plane4);
 
-    result = Test.assertEquals(expectedOutput, airport.hanger.length);
+    let plane4 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane4);
 
-    console.log(result);
+    let plane5 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane5);
+
+    let plane6 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane6);
+
+    let plane7 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane7);
+
+    //plane = new Plane(plane.generatePlaneID(), false);
+    //airport.takeOff(plane);
+
+    expectedOutput = airport.noOfPlanes.length;
+
+    result = Test.assertEquals(expectedOutput, airport.noOfPlanes.length);
+
+    return result;
+});
+
+
+/** AC - 5 */
+Test.it('Instruct the plane to takeoff', () => {
+    
+    airport = new Airport("Luton Airport", 7);
+    
+    plane = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane);
+    
+    let plane2 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane2);
+
+    let plane3 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane3);
+
+    let plane4 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane4);
+
+    let plane5 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane5);
+
+    let plane6 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane6);
+
+    let plane7 = new Plane(plane.generatePlaneID(), true);
+    airport.landPlane(plane7);
+
+    plane = new Plane(plane.generatePlaneID(), false);
+    airport.takeOff(plane);
+
+    expectedOutput = airport.noOfPlanes.length;
+
+    result = Test.assertEquals(expectedOutput, airport.noOfPlanes.length);
+
+    return result;
 });
 
 
