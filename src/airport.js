@@ -7,8 +7,12 @@ class Airport {
   landPlane(planes) {
     for (let i = 0; i < planes.length; i++) {
       if (this.isAirportFull() === false) {
-        if (this.isPlaneInAirport() === false) {
+        if (this.weather() === false) {
+          console.log(`${planes[i]} cannot land because it is stormy!`);
+        }
+        else if (this.isPlaneInAirport() === false) {
           this.airport.push(planes[i]);
+          console.log(`${planes[i]} has landed!`)
         }
         else {
           console.log(`${planes[i]} is already in the airport.`);
@@ -30,7 +34,7 @@ class Airport {
         result = false;
       }
       else if (this.weather() === false) {
-        console.log(`${planes[i]} can not take off as it is stormy.`);
+        console.log(`${planes[i]} cannot take off as it is stormy.`);
         result = false;
       }
       else {

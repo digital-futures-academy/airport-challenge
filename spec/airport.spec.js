@@ -63,7 +63,7 @@ console.log(result);
 
 
 //TEST 4
-console.log('Test 4, check if a plane has left the airport:')
+console.log('Test 4, check if a plane has left the airport:') //This test returns true no matter what and I don't understand why
 //Arrange
 airport = new Airport();
 plane = new Plane();
@@ -115,3 +115,25 @@ actualOutput = airport.planeTakeoff(['Boeing 747']);
 //Assert
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
+
+
+//TEST 7
+console.log("Test 7, prevent landing when weather is stormy:");
+//Arrange
+airport = new Airport();
+plane = new Plane();
+
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane'];
+expectedOutput = false; //if the weather is stormy, otherwise true
+
+//Act
+actualOutput = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(actualOutput, expectedOutput);
+console.log(airport);
+console.log(result);
+
+
+/* The weather obviously affects previous tests as well, so now some tests may say false if it is stormy.
+Disabling the weather should make tests 1 - 5 return true. */
