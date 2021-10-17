@@ -14,9 +14,36 @@ This began with domain models which can be found in domainModels.md with the tab
 
 
 
+# How to Interact with the Program
 
+Creates new airport with default capacity of 500 
 
+>`let airport = new Airport();`
 
+Creates new airport with default capacity of 1000
 
+>`let airport = new Airport(1000);`
 
+Creates a new plane object 
 
+>`let plane = new Plane();`
+
+Changes the airport max capacity to 1500
+
+>`airport.overrideCapacity(1500);`
+
+Sets the current capacity of the airport to 750
+
+>`airport.setCurrentCapacity(750)`
+
+Causes the plane object given to land at the airport if possible
+
+>`airport.landPlane(plane);`
+
+Causes the plane object given to takeoff from the airport if possible
+
+>`airport.allowTakeOff(plane);`
+
+Sets the weather to safe (sunny), false sets the weather to unsafe (stormy)
+
+>`airport.setSafeWeather(true);`
