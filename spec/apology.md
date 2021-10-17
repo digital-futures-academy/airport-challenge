@@ -1,0 +1,1 @@
+Sorry, I don't yet understand the setup/execute/verify framework quite well enough to reproduce it for myself and write specific tests - I've studied the examples in the bobs-bagels-demo repo and elsewhere but I don't yet have that active understanding of it. Hopefully with more hours of study this week and more days for it all to sink in!
