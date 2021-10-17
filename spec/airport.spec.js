@@ -35,7 +35,7 @@ airport.landed(plane3);
 console.log(assertEquals(airport.isFull(), expectedOutcome));
 
 
-console.log('Test 4- Ensure plane takesoff and leaves airport')
+console.log('Test 4- Ensure plane takes off and leaves airport')
 
 airport = new Airport();
 result = airport.departed('plane2')
