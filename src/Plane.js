@@ -26,8 +26,6 @@ class Plane {
         let rand = array[Math.floor(Math.random()*array.length)]
         return rand;
     }
-
-
 }
 
 module.exports = Plane;
