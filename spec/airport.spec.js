@@ -131,7 +131,6 @@ actualOutput = airport.landPlane(plane);
 
 //Assert
 result = assertEquals(actualOutput, expectedOutput);
-console.log(airport);
 console.log(result);
 
 
@@ -141,7 +140,7 @@ console.log("Test 8, planes that have landed must be at an airport:");
 airport = new Airport();
 plane = new Plane();
 
-plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane', 'U-2 spy plane'];
+plane = ['Boeing 747', 'Concorde', 'Hawker Hurricane', 'Concorde', 'U-2 spy plane', 'Boeing 747'];
 expectedOutput = airport;
 
 //Act

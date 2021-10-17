@@ -7,8 +7,8 @@ class Airport {
   landPlane(planes) {
     for (let i = 0; i < planes.length; i++) {
       if (this.isAirportFull() === false) {
-        if (this.weather() === false) {
-          console.log(`${planes[i]} cannot land because it is stormy!`);
+        if (this.weather() === false || this.airport.indexOf(planes[i]) !== -1) {
+          console.log(`${planes[i]} cannot land because it is stormy or has already landed!`);
         }
         else if (this.isPlaneInAirport() === false) {
           this.airport.push(planes[i]);
@@ -74,7 +74,7 @@ class Airport {
   }
 
   isPlaneInAirport(plane) {
-    if (this.airport.indexOf(plane) === -1) {
+    if (this.airport.indexOf(plane) === -1) {     //later realised I could have just used array.include 😂
       return false;
     }
     else {
