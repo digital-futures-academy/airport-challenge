@@ -5,7 +5,7 @@ class Airport {
   }
 
   landPlane(newPlane) {
-    if (this.isPlaneAtAirport(newPlane) === false) {
+    if (this.isPlaneAtAirport(newPlane) === false && this.stormyWeather() === false) {
       this.planes.push(newPlane);
     }
     else {

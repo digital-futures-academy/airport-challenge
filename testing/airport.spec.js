@@ -88,3 +88,12 @@ test.it(`Check to Prevent takeoff if stormy weather`, () => {
 
     test.assertEquals(airport.takeoffPlane(plane), expectedOutput);
 });
+test.it(`Check to Prevent landing if stormy weather`, () => {
+    let airport, plane, expectedOutput;
+    airport = new Airport();
+    plane = new Plane();
+
+    expectedOutput = false;
+
+    test.assertEquals(airport.landPlane(plane), expectedOutput);
+});
