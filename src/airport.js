@@ -25,11 +25,19 @@ class Airport {
   }
 
   isLanded(landed) {
-    return landed === true;
+    if (landed === true) {
+      return true
+    } else {
+      return false
+    }
   }
 
   isFlying(flying) {
-    return flying === true;
+    if (flying === true) {
+      return true
+    } else {
+      return false
+    }
   }
 
   isAtAirport(landed, atAirport) {
