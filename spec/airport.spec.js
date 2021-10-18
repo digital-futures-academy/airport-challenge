@@ -113,3 +113,24 @@ plane2 = null;
 testMsg = null;
 //----------------------------------------------------------------------------------//
 
+//Arrange
+airport = new Airport();
+plane1 = new Plane();
+testMsg = 'prevent takeoff when weather is stormy';
+expectedOutput = 1;
+airport.landPlane(plane1);
+airport.setWeather('stormy'); //to stub random behavior
+
+//Act
+airport.sendPlane(plane1);
+
+//Assert
+actualOutput = assertEquals(expectedOutput, airport.getCurrentCapacity());
+printResult(testMsg, actualOutput);
+
+airport = null;
+expectedOutput = null;
+actualOutput = null;
+plane1 = null;
+testMsg = null;
+//----------------------------------------------------------------------------------//

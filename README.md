@@ -17,3 +17,9 @@ After this, was to write the first production code to pass the failing test.
 Previous two steps were repeated throughout, following the domain model loosely.
 ```
 
+## Sources for some code
+Source for the function
+```js
+getRandomIntInclusive(min, max)
+```
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random

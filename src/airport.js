@@ -3,6 +3,7 @@ class Airport {
     constructor(listPlanes = [], maxCapacity = 10) {
         this.listPlanes = listPlanes;
         this.maxCapacity = maxCapacity;
+        this.weather = this.generateWeather();
     }
 
     landPlane(plane) {
@@ -22,7 +23,10 @@ class Airport {
         const indx = this.findPlane(plane);
         if (indx === -1) {
             console.log('Plane does not exist in airport');
-        } else {
+        } else if (this.getWeather() === 'stormy') {
+            console.log('Plane cannot take off as weather is stormy');
+        }
+        else {
             this.listPlanes.splice(indx, 1);
         }
     }
@@ -50,6 +54,27 @@ class Airport {
     findPlane(plane) {
         return this.listPlanes.indexOf(plane);
     }
+
+    generateWeather() {
+        let randNum = this.getRandomIntInclusive(1, 10);
+        randNum <= 8 ? this.setWeather('clear') : this.setWeather('stormy');
+    }
+
+    setWeather(weather) {
+        this.weather = weather;
+    }
+
+    getWeather() {
+        return this.weather;
+    }
+
+    getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+
 
 }
 
