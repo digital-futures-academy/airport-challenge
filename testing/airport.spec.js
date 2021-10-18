@@ -9,7 +9,7 @@ test.it(`Make sure a plane has landed at the airport`, () => {
     plane = new Plane();
     expectedOutput = true;
     //ACT:
-    airport.landPlane(plane)
+    airport.landPlane(plane);
     // ASSERT:
     test.assertEquals(airport.planes.includes(plane), expectedOutput);
 });
@@ -18,7 +18,7 @@ test.it(`Check that length of planes in airport grows by one when one plane land
     airport = new Airport();
     plane = new Plane();
     expectedOutput = 1;
-    airport.landPlane(plane)
+    airport.landPlane(plane);
     test.assertEquals(airport.planes.length, expectedOutput);
 });
 test.it(`Check that there is a default airport capacity`, () => {
@@ -32,4 +32,17 @@ test.it(`Check you can override the default airport capacity`, () => {
     airport = new Airport(5);
     expectedOutput = 5;
     test.assertEquals(airport.defaultCapacity, expectedOutput);
+});
+test.it(`Check airport is full to prevent landing`, () => {
+    let airport, plane, expectedOutput;
+    airport = new Airport();
+
+    plane1 = new Plane();
+    plane2 = new Plane();
+
+    airport.landPlane(plane1);
+    airport.landPlane(plane2);
+
+    expectedOutput = true;
+    test.assertEquals(airport.isFull(), expectedOutput);
 });
