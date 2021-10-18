@@ -46,3 +46,15 @@ test.it(`Check airport is full to prevent landing`, () => {
     expectedOutput = true;
     test.assertEquals(airport.isFull(), expectedOutput);
 });
+test.it(`Check that a plane is no longer at the airport`, () => {
+    let airport, expectedOutput;
+    airport = new Airport();
+    plane = new Plane();
+
+    expectedOutput = false;
+
+    airport.landPlane(plane);
+    airport.takeoffPlane(plane);
+
+    test.assertEquals(airport.isPlaneAtAirport(plane), expectedOutput);
+});

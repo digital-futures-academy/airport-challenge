@@ -1,6 +1,6 @@
 const test = {
     assertEquals(val1, val2) {
-        if (val1 !== val2) throw new Error(`The actual output isn't equal t the expected output`);
+        if (val1 !== val2) throw new Error(`The actual output isn't equal to the expected output`);
     },
 
     it(str, testFunc) {

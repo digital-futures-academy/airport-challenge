@@ -13,5 +13,18 @@ class Airport {
       return true;
     }
   }
+
+  takeoffPlane(newPlane) {
+    this.planes.pop(newPlane);
+  }
+
+  isPlaneAtAirport(newPlane) {
+    if (this.planes.includes(newPlane)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
 module.exports = Airport;
