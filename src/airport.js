@@ -1,13 +1,11 @@
 class Airport {
-  // here's a starting point for you
-  constructor(initialPlanes = []) {
-    this.planes = initialPlanes;
+  constructor(defaultCapacity = 2) {
+    this.planes = [];
+    this.defaultCapacity = defaultCapacity;
   }
 
   landPlane(newPlane) {
     this.planes.push(newPlane);
   }
-
 }
-
 module.exports = Airport;
