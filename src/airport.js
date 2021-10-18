@@ -19,8 +19,8 @@ class Airport {
     return this.planeList.length === this.airportSize;
   }
 
-  removePlane(plane) {
-    this.planeList.pop(plane);
+  removePlane() {
+    this.planeList.pop();
     return this.planeList;
   }
 

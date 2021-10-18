@@ -54,16 +54,16 @@ test.it("Test Three - Testing when the Airport is full", () => {
 
 //TEST Four
 // ------------------------
-test.it("Test Four - Plane has left the airport", () => {
+test.it("Test Four - Plane UA321 has left the airport", () => {
 
     //setup
     let airport = new Airport();
-    let plane = 'pla1';
-    let expectedOutput = 0;
+    airport.planeList = ['BA 123', 'UA321']
+    let expectedOutput = 1;
     let actualOutput;
 
     //execute
-    actualOutput = airport.removePlane(plane).length;
+    actualOutput = airport.removePlane().length;
 
     //verify
     test.assertEquals(actualOutput, expectedOutput);
