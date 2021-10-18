@@ -9,6 +9,7 @@ plane1 = new Plane();
 airport = new Airport();
 testMsg = 'Testing to land a plane so there must be 1 plane at the airport';
 expectedOutput = 1;
+airport.setWeather('clear') //to stub random behavior
 
 //Act
 airport.landPlane(plane1);
@@ -28,6 +29,7 @@ testMsg = null;
 airport = new Airport();
 testMsg = 'Testing overriding default airport capacity';
 expectedOutput = 20;
+airport.setWeather('clear') //to stub random behavior
 
 //Act (default capacity will be set to 10)
 airport.setMaxCapacity(20);
@@ -48,6 +50,7 @@ plane1 = new Plane();
 plane2 = new Plane();
 testMsg = 'prevent plane from landing when airport is full';
 expectedOutput = 1;
+airport.setWeather('clear') //to stub random behavior
 
 //Act (airport capacity set to 1 with 1 plane already in airport)
 airport.setMaxCapacity(1);
@@ -71,6 +74,7 @@ airport = new Airport();
 plane1 = new Plane();
 testMsg = 'send a plane off from the airport';
 expectedOutput = 0;
+airport.setWeather('clear') //to stub random behavior
 
 //Act (land plane, then send plane, with 0 planes at airport)
 airport.landPlane(plane1);
@@ -94,6 +98,7 @@ plane2 = new Plane();
 testMsg = 'avoid sending plane not at airport, landing if already at airport';
 expectedOutput = 1;
 airport.landPlane(plane1); //1 plane already at airport
+airport.setWeather('clear') //to stub random behavior
 
 //Act
 airport.landPlane(plane1);
@@ -123,6 +128,27 @@ airport.setWeather('stormy'); //to stub random behavior
 
 //Act
 airport.sendPlane(plane1);
+
+//Assert
+actualOutput = assertEquals(expectedOutput, airport.getCurrentCapacity());
+printResult(testMsg, actualOutput);
+
+airport = null;
+expectedOutput = null;
+actualOutput = null;
+plane1 = null;
+testMsg = null;
+//----------------------------------------------------------------------------------//
+
+//Arrange
+airport = new Airport();
+plane1 = new Plane();
+testMsg = 'Prevent landing when weather is stormy';
+expectedOutput = 0;
+airport.setWeather('stormy');
+
+//Act
+airport.landPlane(plane1);
 
 //Assert
 actualOutput = assertEquals(expectedOutput, airport.getCurrentCapacity());
