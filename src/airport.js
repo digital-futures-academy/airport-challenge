@@ -38,7 +38,7 @@ class Airport {
 
 	// Take off the plane if the weather is not stormy and the plane is present at the airport (in array of planes)
 	takeOffPlane(plane) {
-		if (this.weather === 'stormy' || this.getPlanesInAirport().includes(plane.planeId)) {
+		if (this.weather !== 'STORMY' && this.getPlanesInAirport().includes(plane.planeId)) {
 			let position = this.getPlanesInAirport().indexOf(plane.planeId);
 			this.getPlanesInAirport().splice(position, 1); // Removes the plane that has took off, from the array of planes at the airport
 			return true;
