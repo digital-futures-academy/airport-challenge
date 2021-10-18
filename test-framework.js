@@ -1,6 +1,6 @@
 const test = {
-    assertEquals(val1, val2) {
-        if (val1 !== val2) throw new Error('message');
+    assertEquals(actualOutput, expectedOutput) {
+        if (actualOutput !== expectedOutput) throw new Error('message');
            
     },
     it(str, testFunc) {

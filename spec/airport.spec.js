@@ -6,72 +6,95 @@ const Airport = require('../src/airport.js');
 console.log('Test 1: Land plane');
 test.it('Add plane to airport', () => {
     //setup
-    let plane = new Plane;
+    let plane = 'plane A';
     let airport = new Airport;
+    let expectedOutput = 1;
+    let actualOutput;
+
     //execute
-    let result = airport.land(plane);
+    actualOutput = airport.land(plane).length;
+    
     //verify
-    test.assertEquals(result.length, 1);
+    test.assertEquals(actualOutput, expectedOutput);
 });
+
 console.log('Test 2: Override default capacity'); 
 test.it('Expand original capacity', () => {
     //setup
-    let plane = new Plane;
+    let planes = [1, 2, 3];
     let airport = new Airport;
+    let expectedOutput = 3;
+    let actualOutput;
     //execute
-    let result = airport.capacity(plane);
+    actualOutput = airport.capacity(planes).length;
+    
     //verify
-    test.assertEquals(result, 3);
+    test.assertEquals(actualOutput, expectedOutput);
 });
+
 console.log('Test 3: Prevent landing when airport is full'); 
 test.it('Cannot let plane land at airport', () => {
     //setup
-    let plane = new Plane(3);
+    //let planes = new Plane(3);
     let airport = new Airport;
     let planeA = new Plane;
     let planeB = new Plane;
     let planeC = new Plane;
-    airport.land(planeA);
-    airport.land(planeB);
-    airport.land(planeC);
-       
+    let expectedOutput = 3;
+    let actualOutput;
+    
     //execute
-    let result = airport.land(plane);      
+    actualOutput = (airport.land(planeA), airport.land(planeB), airport.land(planeC)).length;      
 
     //verify
-    test.assertEquals(result, 3);  
+    test.assertEquals(actualOutput, expectedOutput);  
 
 });
 console.log('Test 4: Plane take off and confirm');
 test.it('Plane leaves airport', () => {
 
     //setup
-    let plane = new Plane;
+   // let plane = new Plane;
     let airport = new Airport;
+    airport.planeList = [1, 2, 3];
+    
+    let expectedOutput = 2;
+    //airport.planeList = [1, 2, 3];
     //execute
-    let result = airport.takeOff(plane);
+    let actualOutput = airport.takeOff().length;
+    
     //verify
-    test.assertEquals(result, 0);
+    console.log(actualOutput);
+    test.assertEquals(actualOutput, expectedOutput);
 });
 console.log('Test 5A: Prevent takeoff of planes not in airport');
 test.it('False takeoff', () => {
     //setup
-    let plane = new Plane;
+    
     let airport = new Airport;
+    let actualOutput;
+    let landed = false;
+    let expectedOutput = false;
     //execute
-    let result = airport.takeOff(plane);
+    actualOutput = airport.isLanded(landed);
+    
     //verify
-    test.assertEquals(result, 'error');
+    test.assertEquals(actualOutput, expectedOutput);
 });
 console.log('Test 5B: Prevent landing of already landed planes');
 test.it('False landing', () => {
     //setup
-    let plane = new Plane;
+    
     let airport = new Airport;
+    let actualOutput;
+    let flying = false;
+    let expectedOutput = false;
+    
     //execute
-    let result = airport.land(plane);
+    actualOutput = airport.isFlying(flying);
+    
     //verify
-    test.assertEquals(result, 'error');
+    test.assertEquals(actualOutput, expectedOutput);
 });   
 
     
