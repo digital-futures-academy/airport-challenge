@@ -58,3 +58,23 @@ test.it(`Check that a plane is no longer at the airport`, () => {
 
     test.assertEquals(airport.isPlaneAtAirport(plane), expectedOutput);
 });
+test.it(`Check to Prevent takeoff if not at airport`, () => {
+    let airport, expectedOutput;
+    airport = new Airport();
+    plane = new Plane();
+
+    expectedOutput = false;
+
+    test.assertEquals(airport.takeoffPlane(plane), expectedOutput);
+});
+test.it(`Check to Prevent landing if already at airport`, () => {
+    let airport, expectedOutput;
+    airport = new Airport();
+    plane = new Plane();
+
+    expectedOutput = false;
+
+    airport.landPlane(plane);
+
+    test.assertEquals(airport.landPlane(plane), expectedOutput);
+});

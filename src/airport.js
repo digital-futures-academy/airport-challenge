@@ -5,7 +5,12 @@ class Airport {
   }
 
   landPlane(newPlane) {
-    this.planes.push(newPlane);
+    if (this.isPlaneAtAirport(newPlane) === false) {
+      this.planes.push(newPlane);
+    }
+    else {
+      return false;
+    }
   }
 
   isFull() {
@@ -15,7 +20,12 @@ class Airport {
   }
 
   takeoffPlane(newPlane) {
-    this.planes.pop(newPlane);
+    if (this.isPlaneAtAirport(newPlane) === true) {
+      this.planes.pop(newPlane);
+    }
+    else {
+      return false;
+    }
   }
 
   isPlaneAtAirport(newPlane) {
