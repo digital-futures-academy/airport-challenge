@@ -34,7 +34,7 @@ test.it(`Check you can override the default airport capacity`, () => {
     test.assertEquals(airport.defaultCapacity, expectedOutput);
 });
 test.it(`Check airport is full to prevent landing`, () => {
-    let airport, plane, expectedOutput;
+    let airport, plane1, plane2, expectedOutput;
     airport = new Airport();
 
     plane1 = new Plane();
@@ -46,8 +46,8 @@ test.it(`Check airport is full to prevent landing`, () => {
     expectedOutput = true;
     test.assertEquals(airport.isFull(), expectedOutput);
 });
-test.it(`Check that a plane is no longer at the airport`, () => {
-    let airport, expectedOutput;
+test.it(`Check that a plane is no longer at the airport`, () => { //the stormy weather feature makes this test return false when stormyWeather is true
+    let airport, plane, expectedOutput;
     airport = new Airport();
     plane = new Plane();
 
@@ -59,7 +59,7 @@ test.it(`Check that a plane is no longer at the airport`, () => {
     test.assertEquals(airport.isPlaneAtAirport(plane), expectedOutput);
 });
 test.it(`Check to Prevent takeoff if not at airport`, () => {
-    let airport, expectedOutput;
+    let airport, plane, expectedOutput;
     airport = new Airport();
     plane = new Plane();
 
@@ -68,7 +68,7 @@ test.it(`Check to Prevent takeoff if not at airport`, () => {
     test.assertEquals(airport.takeoffPlane(plane), expectedOutput);
 });
 test.it(`Check to Prevent landing if already at airport`, () => {
-    let airport, expectedOutput;
+    let airport, plane, expectedOutput;
     airport = new Airport();
     plane = new Plane();
 
@@ -77,4 +77,14 @@ test.it(`Check to Prevent landing if already at airport`, () => {
     airport.landPlane(plane);
 
     test.assertEquals(airport.landPlane(plane), expectedOutput);
+});
+test.it(`Check to Prevent takeoff if stormy weather`, () => {
+    let airport, expectedOutput;
+    airport = new Airport();
+    plane = new Plane();
+    airport.landPlane(plane);
+
+    expectedOutput = false;
+
+    test.assertEquals(airport.takeoffPlane(plane), expectedOutput);
 });

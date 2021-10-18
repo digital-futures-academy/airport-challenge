@@ -20,7 +20,7 @@ class Airport {
   }
 
   takeoffPlane(newPlane) {
-    if (this.isPlaneAtAirport(newPlane) === true) {
+    if (this.isPlaneAtAirport(newPlane) === true && this.stormyWeather() === false) {
       this.planes.pop(newPlane);
     }
     else {
@@ -30,6 +30,15 @@ class Airport {
 
   isPlaneAtAirport(newPlane) {
     if (this.planes.includes(newPlane)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  stormyWeather() {
+    if (Math.random() > 0.8) {
       return true;
     }
     else {
