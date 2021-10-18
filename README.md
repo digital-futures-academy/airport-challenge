@@ -23,10 +23,13 @@ How to install the project and run the tests
 How I approached the problem
 -------
 
+I started with creating a domain model of the user stories, so I could map out all the objects, their properties and messages, and the outputs connected with those messages.
+
 Using test-driven development, I developed a series of tests that covered all of the acceptance (and extended) criteria from the user stories. I think thought about edge cases where these tests could be caught out if values weren't what they should be, but the test thought the information was correct. I then worked through the acceptance criteria, building code based only on what the test required.
 
 Screenshots of my code in action
 -----
+
 Here are all the tests written for this task.
 
 <img width="535" alt="Screenshot 2021-10-17 at 22 19 12" src="https://user-images.githubusercontent.com/91621852/137645379-c32563d7-5dc1-4e02-8eb0-3223f012d547.png">
@@ -99,5 +102,3 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
-
-
