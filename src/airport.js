@@ -10,6 +10,9 @@ class Airport {
         const indx = this.findPlane(plane);
         if (indx === -1 && !this.isAirportFull() && this.weather !== 'stormy') {
             this.listPlanes.push(plane);
+            if (this.isPlaneInAirport(plane)) {
+                console.log('plane has landed');
+            }
         } else {
             if (this.isAirportFull()) {
                 console.log('Airport at max capacity, cannot land plane');
