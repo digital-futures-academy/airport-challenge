@@ -5,9 +5,9 @@ const printResult = (message = 'No Message', result) => {
     const resetCol = '\x1b[0m';
     result ? color = '\x1b[32m' : color = '\x1b[31m';
 
-    console.log('=============================================================================');
-    console.log('Testing: ' + message + '\nThe result is : ' + color + result);
-    console.log(resetCol + '=============================================================================\n\n');
+    console.log(color + '=============================================================================');
+    console.log(resetCol + 'Testing: ' + message + '\nThe result is : ' + color + result);
+    console.log(color + '=============================================================================\n\n' + resetCol);
 };
 
 //module.exports = assertEquals;
