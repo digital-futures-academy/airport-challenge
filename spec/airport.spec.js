@@ -90,7 +90,7 @@ test.it("Test Five - The plane is at the airport and is going to takeoff", () =>
 
 //TEST Six
 // ------------------------
-test.it("Test Six - The plane is flying and would like to land", () => {
+test.xit("Test Six - The plane is flying and would like to land", () => {
 
     //setup
     let airport = new Airport();

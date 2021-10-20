@@ -1,8 +1,8 @@
 class Airport {
-  planeList = [];
 
   constructor(airportSize = 2) {
     this.airportSize = airportSize;
+    this.planeList = [];
   }
 
   addPlane(plane) {
@@ -26,17 +26,17 @@ class Airport {
 
   isLanded(landed) {
     if (landed === true) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 
   isFlying(flying) {
     if (flying === true) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 

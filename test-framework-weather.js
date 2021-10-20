@@ -3,7 +3,7 @@
 
 const test2 = {
     assertEquals(val1, val2) {
-        if (val1 !== val2) throw new Error('Weather is stormy');
+        if (val1 !== val2) throw new Error/* ('Weather is stormy' */;
     },
 
     it(str, testFunc) {
@@ -12,8 +12,8 @@ const test2 = {
             console.log("\x1b[32m", '\n', str); // Lets rest of output stay green so it's known everything is okay, if you would like to cancel this please add ,"\x1b[0m" after str;
         }
         catch (err) {
-            console.log("\x1b[41m", err.message); // Lets rest of output stay red so it's known the weather is stormy, if you would like to cancel this please add ,"\x1b[40m" after str;
-            console.log(err.stack);
+            /* console.log("\x1b[41m", err.message); // Lets rest of output stay red so it's known the weather is stormy, if you would like to cancel this please add ,"\x1b[40m" after str;
+            console.log(err.stack); */
         }
     },
 
