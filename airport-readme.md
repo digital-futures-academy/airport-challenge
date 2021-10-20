@@ -30,11 +30,21 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
+| ** Object | Properties| Messages | Output **
+| ----------- | ----------- | -----| -----|
+| Airport| Plane @Array[@String] |  landPlane(String| @string |
+|  | Plane @Array[@Plane]  | newCapacity@airport)   | @Airport  |
+
 ### User Story 3
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+| Object      |   Properties| Messages    |   Output    |
+| ----------- | ----------- |-----------  | ----------- |
+| Plane    | plane @array[plane] | planes(@string) | @string |
+| Airport      | Airport@full | isAirportFull(@planeList) | @boolean |
+| | planes @Array[@Plane]  | landPlane(@String)   | @Airport |
 ### User Story 4
 As an air traffic controller
 So I can get passengers on the way to their destination
@@ -50,3 +60,9 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+| ** Object | Properties| Messages | Output **
+| ----------- | ----------- | -----| -----|
+| Plane | Plane @Array[@String] |  PlaneID()| @string |
+|  | Plane @Array[@Plane]  | isFlying(@String)   | @string  |
+|  | Plane @Array[@Plane]  | isLanded(@String)   | @string |
