@@ -73,13 +73,13 @@ const testLandingPlane = () => {
 const testLandingPlaneInFullAirport = () => {
     //Setup
     // let input = 0;
-    airport1.maxPlaneCapcity = 3;
-    let expected = maxPlaneCapacity;
+    let airport1 = new Airport();
+    airport1.maxPlaneCapacity = 3;
+    let expected = airport1.maxPlaneCapacity;
     let plane1 = new Plane();
     let plane2 = new Plane();
     let plane3 = new Plane();
     let plane4 = new Plane();
-    let airport1 = new Airport();
     console.log(`Testing that airport1.landedPlanes.length => ${expected}`);
     //Execute
     airport1.land(plane1);
