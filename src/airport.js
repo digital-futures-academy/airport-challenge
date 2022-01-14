@@ -3,4 +3,4 @@ class Airport {
 
 }
 
-module.exports = Airport;
+export { Airport };
