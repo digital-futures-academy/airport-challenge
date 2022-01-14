@@ -21,3 +21,11 @@ Verbs - ensure, prevent, landing
 Objects         Messages           Properties           Output
 plane           item@string         Null                @string
 airport         Array[item]         isFull()            Message saying airport is full
+
+Case 4
+Nouns - passengers, airport, plane
+Verbs - instuct, take off, confirm
+
+Objects         Messages           Properties           Output
+plane           item@string         Null                @string
+airport         Array[item]         takeOff()            Message saying plane has taken off

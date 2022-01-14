@@ -1,6 +1,8 @@
 const {canAddToAirport,
     canOverideCapacity,
-    testFullWarning} = require('./airport-spec.js');         //Imports all tests
+    testFullWarning,
+    testTakeOff,
+    testTakeOffMessage} = require('./airport-spec.js');         //Imports all tests
 
 let correct = 0;            //Initilises correct counters
 let incorrect = 0;          //Initilises incorrect counters
@@ -9,7 +11,9 @@ let count = 0;              //Initilises counter for tests run
 var answer;                 //creates variable outside of loop
 let functions = [canAddToAirport(),
     canOverideCapacity(),
-    testFullWarning()]             //Creates an array of all tests to then loop over
+    testFullWarning(),
+    testTakeOff(),
+    testTakeOffMessage()]             //Creates an array of all tests to then loop over
 
 
 

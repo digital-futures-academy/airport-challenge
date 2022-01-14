@@ -47,7 +47,40 @@ const testFullWarning = () => {
     return [result, `${counter}). Test at capacity`]
 }
 
+const testTakeOff = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10)  
+    // Arrange
+    const expected = 0                 
+    // Act
+    airport.landing('Plane A');                    //Plane needs to be at the airport
+    airport.takeOff('Plane A');       
+    actual = airport.grounded.length 
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test plane has left aiport`]
+}
+
+const testTakeOffMessage = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10)  
+    // Arrange
+    const expected = `Plane A has taken off`                 
+    // Act
+    airport.landing('Plane A');                    //Plane needs to be at the airport
+    actual = airport.takeOff('Plane A');        
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test takeoff message`]
+}
+
 
 module.exports = {canAddToAirport,
     canOverideCapacity,
-    testFullWarning}
+    testFullWarning,
+    testTakeOff,
+    testTakeOffMessage}
