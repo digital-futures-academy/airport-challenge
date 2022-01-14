@@ -1,10 +1,33 @@
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+//airport, plane
+//Airpot Properties:
+airportID, landedPlanes
+//Airport Methods() = outputs:
+
+//Plane Properties:
+planeID,
+
+//Plane Methods() = outputs:
+Land(Airport) = updated airport.landedPlanes array
+
+
 
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+//airport, plane
+//Airpot Properties:
+airportID, landedPlanes, maxPlaneCapacity
+//Airport Methods() = outputs:
+
+//Plane Properties:
+planeID,
+
+//Plane Methods() = outputs:
+Land(Airport) = 
+
 
 As an air traffic controller
 To ensure safety
