@@ -1,3 +1,3 @@
-const airportTests = require('./airport.spec');
+const airportSpec = require('./airport.spec');
 
-Object.keys(airportTests).forEach((k) => airportTests[k]());
+airportSpec.report();
