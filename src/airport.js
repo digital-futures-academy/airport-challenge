@@ -2,6 +2,7 @@ class Airport {
   constructor(capacity) {
     this.grounded = [];
     this.capacity = capacity;
+    this.index;
   }
 
   landing (plane) {        
@@ -21,6 +22,12 @@ class Airport {
 
   atCapacity() {
     return this.grounded.length === this.capacity
+  }
+
+  takeOff (plane) {    
+    this.index = this.grounded.indexOf(plane)                      
+    this.grounded.splice(this.index,1);
+    return `${plane} has taken off`                             
   }
 
 }
