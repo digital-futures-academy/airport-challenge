@@ -39,12 +39,17 @@ plane           item@string         Null                @string
 airport         Array[item]         atAirport()         Message saying plane is/is not on runway
 
 Case 6
-As an air traffic controller
-To ensure safety
-I want to prevent takeoff when weather is stormy
 Nouns - weather
 Verb - ensure, prevent, takeoff
 
 Objects         Messages           Properties           Output
 plane           item@string         Null                @string
 airport         Array[item]         Weather         Message saying plane cannot takoff due to weather
+
+Case 7
+Nouns - weather
+Verbs - ensure, prevent, landing
+
+Objects         Messages           Properties           Output
+plane           item@string         Null                @string
+airport         Array[item]         Weather         Message saying plane cannot land due to weather

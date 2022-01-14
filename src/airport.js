@@ -3,7 +3,7 @@ class Airport {
     this.grounded = grounded || [];
     this.capacity = capacity || 10;
     this.index;
-    this.weather = weather || (Math.random() - 0.1) ;
+    this.weather = weather || (Math.random() - 0.9) ;
   }
 
   landing (plane) {        
@@ -44,5 +44,6 @@ class Airport {
   }
 
 }
+
 
 module.exports = Airport;

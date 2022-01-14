@@ -126,14 +126,13 @@ const testTakeOffNullMessage = () => {
 const testWeather = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10,1)  
-    var result;
+    let airport = new Airport(10,7)  
     // Arrange
-    if (airport.weather === 0 || 1){
-        result = true
-    } else {
-        result = false
-    }
+    const expected = 7               
+    // Act              
+    actual = airport.weather;    
+    // Assert
+    const result = assertEquals(actual, expected);    
     // Report
     return [result, `${counter}). Test whether, weather comes up 1 or 0 (good vs bad weather)`]
 }
@@ -152,8 +151,49 @@ const testWeatherTakeOff = () => {
     return [result, `${counter}). Test takeoff when weather set to bad`]
 }
 
+const testWeatherTakeOffCount = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10, -1, ['Plane A'])  
+    // Arrange
+    const expected = 1                
+    // Act              
+    airport.takeOff('Plane A')
+    actual = airport.grounded;    
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test grounded counter with takeoff when weather set to bad`]
+}
 
+const testWeatherLanding = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10,1);
+    // Arrange
+    const expected = `Plane A cannot land due to adverse weather`                 
+    // Act                  
+    actual = airport.landing('Plane A');        
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test plane landing in stormy weather`]
+}
 
+const testWeatherLandingCount = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(1, -1, ['Plane B'])  
+    // Arrange
+    const expected = 1                
+    // Act              
+    airport.landing('Plane A')
+    actual = airport.grounded;    
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test grounded counter with landing when weather set to bad`]
+}
 
 module.exports = {canAddToAirport,
     canOverideCapacity,
@@ -164,4 +204,7 @@ module.exports = {canAddToAirport,
     testDuplicateLandingCounter,
     testTakeOffNullMessage,
     testWeather,
-    testWeatherTakeOff}
+    testWeatherTakeOff,
+    testWeatherTakeOffCount,
+    testWeatherLanding,
+    testWeatherLandingCount}
