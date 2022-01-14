@@ -1,0 +1,7 @@
+Case 1: 
+Nouns - passengers, airport, plane
+Verbs - instruct, land
+
+Objects         Messages           Properties           Output
+plane           item@string         Null                @string
+airport         Array[item]         Add()               Doesn't have to return anything
