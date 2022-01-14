@@ -6,7 +6,7 @@ const Plane = require('../src/plane');
 module.exports = Test.describe('Airport', (suite) => {
     suite.it('Can land a plane.', (test) => {
         const airport = new Airport();
-        const plane = new Plane(undefined, 'flying');
+        const plane = new Plane('1', 'flying');
         const expected = 'landed';
 
         airport.landPlane(plane);
@@ -17,7 +17,7 @@ module.exports = Test.describe('Airport', (suite) => {
 
     suite.it('Adds plane to planes array when landing.', (test) => {
         const airport = new Airport();
-        const plane = new Plane(undefined, 'flying');
+        const plane = new Plane('1', 'flying');
         const expected = 1;
 
         airport.landPlane(plane);
@@ -46,7 +46,7 @@ module.exports = Test.describe('Airport', (suite) => {
 
     suite.it('Plane cannot be landed when capacity is full.', (test) => {
         const airport = new Airport(0);
-        const plane = new Plane(undefined, 'flying');
+        const plane = new Plane('1', 'flying');
 
         test.expect(() => airport.landPlane(plane)).toThrow();
     });
@@ -97,7 +97,7 @@ module.exports = Test.describe('Airport', (suite) => {
 
     suite.it('Cannot land a plane which is already landed.', (test) => {
         const airport = new Airport();
-        const plane = new Plane();
+        const plane = new Plane('1');
 
         test.expect(() => airport.landPlane(plane)).toThrow();
     });
