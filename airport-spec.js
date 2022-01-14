@@ -123,6 +123,21 @@ const testTakeOffNullMessage = () => {
     return [result, `${counter}). Test non existant plane cannot take off`]
 }
 
+const testWeather = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10)  
+    const result;
+    // Arrange
+    if (airport.weather === 0 || 1){
+        result = true
+    } else {
+        result = false
+    }
+    // Report
+    return [result, `${counter}). Test whether, weather comes up 1 or 0 (good vs bad weather)`]
+}
+
 
 
 
@@ -133,4 +148,5 @@ module.exports = {canAddToAirport,
     testTakeOffMessage,
     testDuplicateLandingMessage,
     testDuplicateLandingCounter,
-    testTakeOffNullMessage}
+    testTakeOffNullMessage,
+    testWeather}
