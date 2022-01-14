@@ -33,3 +33,19 @@ I would like a default airport capacity that can be overridden as appropriate
 | Airport | capacity @Integer | capacity() | @Integer |
 | | | landPlane(@Plane) | @Void |
 | Plane | status @String | status() | @String |
+
+### User Story 3
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+| Objects | Properties | Messages | Output |
+| ---     | ---        | ---      | ---    |
+| Airport | capacity @Integer | capacity() | @Integer |
+| | | isFull() | @Boolean |
+| | planes @Array[@Plane] | planes() | @Array[@Plane] |
+| | | landPlane(@Plane) | @Void |
+| Plane | status @String | status() | @String |

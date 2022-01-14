@@ -32,4 +32,11 @@ module.exports = Test.describe('Airport', (suite) => {
 
         test.expect(expected).toEqual(actual);
     });
+
+    suite.it('Plane cannot be landed when capacity is full.', (test) => {
+        const airport = new Airport(0);
+        const plane = new Plane();
+
+        test.expect(() => airport.landPlane(plane)).toThrow();
+    });
 });
