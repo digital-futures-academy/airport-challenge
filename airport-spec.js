@@ -169,7 +169,7 @@ const testWeatherTakeOffCount = () => {
 const testWeatherLanding = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10,1);
+    let airport = new Airport(10,-1);
     // Arrange
     const expected = `Plane A cannot land due to adverse weather`                 
     // Act                  
@@ -188,7 +188,7 @@ const testWeatherLandingCount = () => {
     const expected = 1                
     // Act              
     airport.landing('Plane A')
-    actual = airport.grounded;    
+    actual = airport.grounded.length;  
     // Assert
     const result = assertEquals(actual, expected);
     // Report

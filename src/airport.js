@@ -11,6 +11,8 @@ class Airport {
       return `Cannot land ${plane}. We are at capacity`
     } else if (this.onRunway(plane)) {          //Checks whether the plan is already on the run way
       return `${plane} has already landed`
+    } else if (this.weather < 0) {
+      return `${plane} cannot land due to adverse weather`
     } else {                                
       this.grounded.push(plane);
     }
