@@ -1,0 +1,1 @@
+const airportSpec = require(`./spec/airport.spec.js`);
