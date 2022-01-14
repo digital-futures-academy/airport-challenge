@@ -127,7 +127,7 @@ const testWeather = () => {
     //Identifiers
     counter++;
     let airport = new Airport(10)  
-    const result;
+    var result;
     // Arrange
     if (airport.weather === 0 || 1){
         result = true

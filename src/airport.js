@@ -3,6 +3,7 @@ class Airport {
     this.grounded = [];
     this.capacity = capacity;
     this.index;
+    this.weather = (Math.ceil(Math.random() * 10))%6;
   }
 
   landing (plane) {        
