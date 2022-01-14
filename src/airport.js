@@ -1,6 +1,7 @@
 class Airport {
-  // here's a starting point for you
-
+    landPlane(plane) {
+        plane.status = 'landed';
+    }
 }
 
 module.exports = Airport;
