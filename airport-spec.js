@@ -38,7 +38,7 @@ const testFullWarning = () => {
     counter++;
     let airport = new Airport(0)  
     // Arrange
-    const expected = 'We are at capacity sir'                 
+    const expected = `Cannot land Plane A. We are at capacity`                 
     // Act
     actual = airport.landing('Plane A')        
     // Assert
