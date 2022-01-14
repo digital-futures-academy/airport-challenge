@@ -53,3 +53,11 @@ Verbs - ensure, prevent, landing
 Objects         Messages           Properties           Output
 plane           item@string         Null                @string
 airport         Array[item]         Weather         Message saying plane cannot land due to weather
+
+Case 8
+Noun - Planes, airport
+Verb - Count landed
+
+Objects         Messages           Properties           Output
+plane           item@string         Null                @string
+airport         Array[item]         Add(), Remove()     Array[items@string]

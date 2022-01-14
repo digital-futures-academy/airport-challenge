@@ -195,6 +195,27 @@ const testWeatherLandingCount = () => {
     return [result, `${counter}). Test grounded counter with landing when weather set to bad`]
 }
 
+const testOnRunway = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(1, 1)  
+    // Arrange
+    const expected = ['Plane A', 'Plane B', 'Plane C', 'Plane D']                
+    // Act              
+    airport.landing('Plane A')
+    airport.landing('Plane B')
+    airport.landing('Plane Z')
+    airport.landing('Plane C')
+    airport.landing('Plane D')
+    airport.takeOff('Plane Z')
+
+    actual = airport.grounded;  
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test whether grounded planes are recorded`]
+}
+
 module.exports = {canAddToAirport,
     canOverideCapacity,
     testFullWarning,
@@ -207,4 +228,5 @@ module.exports = {canAddToAirport,
     testWeatherTakeOff,
     testWeatherTakeOffCount,
     testWeatherLanding,
-    testWeatherLandingCount}
+    testWeatherLandingCount,
+    testOnRunway}
