@@ -1,11 +1,13 @@
-const { canAddToAirport } = require('./airport-spec.js');         //Imports all tests
+const {canAddToAirport,
+    canOverideCapacity} = require('./airport-spec.js');         //Imports all tests
 
 let correct = 0;            //Initilises correct counters
 let incorrect = 0;          //Initilises incorrect counters
 let failed = [];            //Initilises list of failed tests
 let count = 0;              //Initilises counter for tests run  
 var answer;                 //creates variable outside of loop
-let functions = [canAddToAirport()]             //Creates an array of all tests to then loop over
+let functions = [canAddToAirport(),
+    canOverideCapacity()]             //Creates an array of all tests to then loop over
 
 
 

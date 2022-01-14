@@ -5,3 +5,11 @@ Verbs - instruct, land
 Objects         Messages           Properties           Output
 plane           item@string         Null                @string
 airport         Array[item]         Add()               Doesn't have to return anything
+
+Case 2:
+Nouns - Software, airport(s)
+Verbs - used, overridden
+
+Objects         Messages           Properties           Output
+plane           item@string         Null                @string
+airport         Array[item]         OverrideCpacity     Capacity@int
