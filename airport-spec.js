@@ -1,5 +1,5 @@
 Airport = require('./src/airport');
-const { assertEquals } = require('./testFramework');
+const { assertEquals, assetEqualsArray } = require('./testFramework');
 
 var counter = 0;
 
@@ -198,9 +198,9 @@ const testWeatherLandingCount = () => {
 const testOnRunway = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(1, 1)  
+    let airport = new Airport(10, 1)  //Capactity should not have been set to 1
     // Arrange
-    const expected = ['Plane A', 'Plane B', 'Plane C', 'Plane D']                
+    const expected = [ 'Plane A', 'Plane B', 'Plane C', 'Plane D' ]                
     // Act              
     airport.landing('Plane A')
     airport.landing('Plane B')
@@ -208,10 +208,9 @@ const testOnRunway = () => {
     airport.landing('Plane C')
     airport.landing('Plane D')
     airport.takeOff('Plane Z')
-
-    actual = airport.grounded;  
+    actual = airport.grounded;
     // Assert
-    const result = assertEquals(actual, expected);
+    const result = assetEqualsArray(actual, expected);
     // Report
     return [result, `${counter}). Test whether grounded planes are recorded`]
 }
