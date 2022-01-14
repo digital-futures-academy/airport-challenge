@@ -33,6 +33,21 @@ const canOverideCapacity = () => {
     return [result, `${counter}). Test increasing capacity`]
 }
 
+const testFullWarning = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(0)  
+    // Arrange
+    const expected = 'We are at capacity sir'                 
+    // Act
+    actual = airport.landing('Plane A')        
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test at capacity`]
+}
+
 
 module.exports = {canAddToAirport,
-    canOverideCapacity}
+    canOverideCapacity,
+    testFullWarning}

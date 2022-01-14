@@ -13,3 +13,11 @@ Verbs - used, overridden
 Objects         Messages           Properties           Output
 plane           item@string         Null                @string
 airport         Array[item]         OverrideCpacity     Capacity@int
+
+Case 3
+Nouns - airport
+Verbs - ensure, prevent, landing
+
+Objects         Messages           Properties           Output
+plane           item@string         Null                @string
+airport         Array[item]         isFull()            Message saying airport is full
