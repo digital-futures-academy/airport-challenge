@@ -1,6 +1,10 @@
 class Airport {
-  // here's a starting point for you
-
+  constructor() {
+    this.grounded = [];
+  }
+  landing (plane) {            
+    this.grounded.push(plane);
+  }
 }
 
 module.exports = Airport;
