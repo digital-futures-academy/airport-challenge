@@ -78,9 +78,59 @@ const testTakeOffMessage = () => {
     return [result, `${counter}). Test takeoff message`]
 }
 
+const testDuplicateLandingMessage = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10)  
+    // Arrange
+    const expected = `Plane A has already landed`                 
+    // Act
+    airport.landing('Plane A');                    //Plane needs to be at the airport
+    actual = airport.Landing('Plane A');        
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test Duplicate landing message`]
+}
+
+const testDuplicateLandingCounter = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10)  
+    // Arrange
+    const expected = 1                 
+    // Act
+    airport.landing('Plane A');                    //Plane needs to be at the airport
+    airport.Landing('Plane A');        
+    actual = airport.grounded.length
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test Duplicate plane has not landed`]
+}
+
+const testTakeOffNullMessage = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10)  
+    // Arrange
+    const expected = `Plane A is not at the airport and cannot takeoff`                 
+    // Act                  
+    actual = airport.takeOff('Plane A');        
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test non existant plane cannot take off`]
+}
+
+
+
 
 module.exports = {canAddToAirport,
     canOverideCapacity,
     testFullWarning,
     testTakeOff,
-    testTakeOffMessage}
+    testTakeOffMessage,
+    testDuplicateLandingMessage,
+    testDuplicateLandingCounter,
+    testTakeOffNullMessage}
