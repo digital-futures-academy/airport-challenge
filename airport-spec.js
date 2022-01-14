@@ -86,7 +86,7 @@ const testDuplicateLandingMessage = () => {
     const expected = `Plane A has already landed`                 
     // Act
     airport.landing('Plane A');                    //Plane needs to be at the airport
-    actual = airport.Landing('Plane A');        
+    actual = airport.landing('Plane A');        
     // Assert
     const result = assertEquals(actual, expected);
     // Report
@@ -101,7 +101,7 @@ const testDuplicateLandingCounter = () => {
     const expected = 1                 
     // Act
     airport.landing('Plane A');                    //Plane needs to be at the airport
-    airport.Landing('Plane A');        
+    airport.landing('Plane A');        
     actual = airport.grounded.length
     // Assert
     const result = assertEquals(actual, expected);
