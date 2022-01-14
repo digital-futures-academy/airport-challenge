@@ -47,7 +47,7 @@ class Test {
         } catch (err) {
             this.cases.push({
                 description,
-                err: err || new Error('Case threw without a specific error.'),
+                err,
             });
         }
     }

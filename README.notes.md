@@ -49,3 +49,22 @@ I want to prevent landing when the airport is full
 | | planes @Array[@Plane] | planes() | @Array[@Plane] |
 | | | landPlane(@Plane) | @Void |
 | Plane | status @String | status() | @String |
+
+### User Story 4
+
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+
+| Objects | Properties | Messages | Output |
+| ---     | ---        | ---      | ---    |
+| Airport | capacity @Integer | capacity() | @Integer |
+| | | isFull() | @Boolean |
+| | planes @Array[@Plane] | planes() | @Array[@Plane] |
+| | | landPlane(@Plane) | @Void |
+| | | takeOffPlane(@String) | @Void |
+| | | hasPlane(@String) | @Boolean |
+| Plane | id @String | id() | @String |
+| | status @String | status() | @String |

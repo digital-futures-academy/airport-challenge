@@ -6,11 +6,22 @@ const Plane = require('../src/plane');
 module.exports = Test.describe('Airport', (suite) => {
     suite.it('Can land a plane.', (test) => {
         const airport = new Airport();
-        const plane = new Plane('flying');
+        const plane = new Plane(undefined, 'flying');
         const expected = 'landed';
 
         airport.landPlane(plane);
         const actual = plane.status;
+
+        test.expect(expected).toEqual(actual);
+    });
+
+    suite.it('Adds plane to planes array when landing.', (test) => {
+        const airport = new Airport();
+        const plane = new Plane();
+        const expected = 1;
+
+        airport.landPlane(plane);
+        const actual = airport.planes.length;
 
         test.expect(expected).toEqual(actual);
     });
@@ -38,5 +49,40 @@ module.exports = Test.describe('Airport', (suite) => {
         const plane = new Plane();
 
         test.expect(() => airport.landPlane(plane)).toThrow();
+    });
+
+    suite.it('Can make a plane take off.', (test) => {
+        const airport = new Airport();
+        const plane = new Plane('1');
+        airport.landPlane(plane);
+        const expected = 'flying';
+
+        airport.takeOffPlane('1');
+        const actual = plane.status;
+
+        test.expect(expected).toEqual(actual);
+    });
+
+    suite.it('Removes plane from planes array after take off.', (test) => {
+        const airport = new Airport();
+        const plane = new Plane('1');
+        airport.landPlane(plane);
+        const expected = 0;
+
+        airport.takeOffPlane('1');
+        const actual = airport.planes.length;
+
+        test.expect(expected).toEqual(actual);
+    });
+
+    suite.it('Can check for a plane in the plane array.', (test) => {
+        const airport = new Airport();
+        const plane = new Plane('1');
+        airport.landPlane(plane);
+        const expected = true;
+
+        const actual = airport.hasPlane('1');
+
+        test.expect(expected).toEqual(actual);
     });
 });

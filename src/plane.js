@@ -1,5 +1,6 @@
 class Plane {
-    constructor(status = 'landed') {
+    constructor(id, status = 'landed') {
+        this.id = id;
         this.status = status;
     }
 }
