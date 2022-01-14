@@ -68,3 +68,15 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | | | hasPlane(@String) | @Boolean |
 | Plane | id @String | id() | @String |
 | | status @String | status() | @String |
+
+### User Story 5
+
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+
+No domain change. Added new checks in the `landPlane` and `takeOffPlane` functions.
+
+Also added the `isFull` test and function which I forgot to implement separately in a previous test cycle.

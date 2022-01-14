@@ -17,7 +17,7 @@ module.exports = Test.describe('Airport', (suite) => {
 
     suite.it('Adds plane to planes array when landing.', (test) => {
         const airport = new Airport();
-        const plane = new Plane();
+        const plane = new Plane(undefined, 'flying');
         const expected = 1;
 
         airport.landPlane(plane);
@@ -46,14 +46,23 @@ module.exports = Test.describe('Airport', (suite) => {
 
     suite.it('Plane cannot be landed when capacity is full.', (test) => {
         const airport = new Airport(0);
-        const plane = new Plane();
+        const plane = new Plane(undefined, 'flying');
 
         test.expect(() => airport.landPlane(plane)).toThrow();
     });
 
+    suite.it('Can check whether capacity is full.', (test) => {
+        const airport = new Airport(0);
+        const expected = true;
+
+        const actual = airport.isFull();
+
+        test.expect(expected).toEqual(actual);
+    });
+
     suite.it('Can make a plane take off.', (test) => {
         const airport = new Airport();
-        const plane = new Plane('1');
+        const plane = new Plane('1', 'flying');
         airport.landPlane(plane);
         const expected = 'flying';
 
@@ -65,7 +74,7 @@ module.exports = Test.describe('Airport', (suite) => {
 
     suite.it('Removes plane from planes array after take off.', (test) => {
         const airport = new Airport();
-        const plane = new Plane('1');
+        const plane = new Plane('1', 'flying');
         airport.landPlane(plane);
         const expected = 0;
 
@@ -77,12 +86,29 @@ module.exports = Test.describe('Airport', (suite) => {
 
     suite.it('Can check for a plane in the plane array.', (test) => {
         const airport = new Airport();
-        const plane = new Plane('1');
+        const plane = new Plane('1', 'flying');
         airport.landPlane(plane);
         const expected = true;
 
         const actual = airport.hasPlane('1');
 
         test.expect(expected).toEqual(actual);
+    });
+
+    suite.it('Cannot land a plane which is already landed.', (test) => {
+        const airport = new Airport();
+        const plane = new Plane();
+
+        test.expect(() => airport.landPlane(plane)).toThrow();
+    });
+
+    suite.it('Cannot take off a plane which is already flying.', (test) => {
+        const airport = new Airport();
+        const plane = new Plane('1', 'flying');
+        airport.landPlane(plane);
+
+        plane.status = 'flying';
+
+        test.expect(() => airport.takeOffPlane('1')).toThrow();
     });
 });
