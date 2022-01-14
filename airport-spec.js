@@ -138,6 +138,21 @@ const testWeather = () => {
     return [result, `${counter}). Test whether, weather comes up 1 or 0 (good vs bad weather)`]
 }
 
+const testWeatherTakeOff = () => { 
+    //Identifiers
+    counter++;
+    let airport = new Airport(10)  
+    airport.weather = 1
+    // Arrange
+    const expected = `Plane A cannot start takeoff due to adverse weather`                 
+    // Act                  
+    actual = airport.takeOff('Plane A');        
+    // Assert
+    const result = assertEquals(actual, expected);
+    // Report
+    return [result, `${counter}). Test takeoff when weather set to bad`]
+}
+
 
 
 
@@ -149,4 +164,5 @@ module.exports = {canAddToAirport,
     testDuplicateLandingMessage,
     testDuplicateLandingCounter,
     testTakeOffNullMessage,
-    testWeather}
+    testWeather,
+    testWeatherTakeOff}

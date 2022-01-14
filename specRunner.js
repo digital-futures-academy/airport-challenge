@@ -6,7 +6,8 @@ const {canAddToAirport,
     testDuplicateLandingMessage,
     testDuplicateLandingCounter,
     testTakeOffNullMessage,
-    testWeather} = require('./airport-spec.js');         //Imports all tests
+    testWeather,
+    testWeatherTakeOff} = require('./airport-spec.js');         //Imports all tests
 
 let correct = 0;            //Initilises correct counters
 let incorrect = 0;          //Initilises incorrect counters
@@ -21,7 +22,8 @@ let functions = [canAddToAirport(),
     testDuplicateLandingMessage(),
     testDuplicateLandingCounter(),
     testTakeOffNullMessage(),
-    testWeather()]             //Creates an array of all tests to then loop over
+    testWeather(),
+    testWeatherTakeOff()]             //Creates an array of all tests to then loop over
 
 
 
