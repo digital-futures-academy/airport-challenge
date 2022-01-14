@@ -6,7 +6,7 @@ var counter = 0;
 const canAddToAirport = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport()
+    let airport = new Airport(10,1)
     // Arrange
     const expected = 1                  //Expect the number of planes on runway to be 1
     // Act
@@ -21,7 +21,7 @@ const canAddToAirport = () => {
 const canOverideCapacity = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(1)            //Sets capacity to 1
+    let airport = new Airport(1,1)            //Sets capacity to 1
     // Arrange
     const expected = 2                  //Expect the number of planes on runway to be 1
     // Act
@@ -36,7 +36,7 @@ const canOverideCapacity = () => {
 const testFullWarning = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(0)  
+    let airport = new Airport(1,1, ['Plane B'])  
     // Arrange
     const expected = `Cannot land Plane A. We are at capacity`                 
     // Act
@@ -50,7 +50,7 @@ const testFullWarning = () => {
 const testTakeOff = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10)  
+    let airport = new Airport(10,1)  
     // Arrange
     const expected = 0                 
     // Act
@@ -66,7 +66,7 @@ const testTakeOff = () => {
 const testTakeOffMessage = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10)  
+    let airport = new Airport(10,1)  
     // Arrange
     const expected = `Plane A has taken off`                 
     // Act
@@ -81,7 +81,7 @@ const testTakeOffMessage = () => {
 const testDuplicateLandingMessage = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10)  
+    let airport = new Airport(10,1)  
     // Arrange
     const expected = `Plane A has already landed`                 
     // Act
@@ -96,7 +96,7 @@ const testDuplicateLandingMessage = () => {
 const testDuplicateLandingCounter = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10)  
+    let airport = new Airport(10,1)  
     // Arrange
     const expected = 1                 
     // Act
@@ -112,7 +112,7 @@ const testDuplicateLandingCounter = () => {
 const testTakeOffNullMessage = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10)  
+    let airport = new Airport(10,1)  
     // Arrange
     const expected = `Plane A is not at the airport and cannot takeoff`                 
     // Act                  
@@ -126,7 +126,7 @@ const testTakeOffNullMessage = () => {
 const testWeather = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10)  
+    let airport = new Airport(10,1)  
     var result;
     // Arrange
     if (airport.weather === 0 || 1){
@@ -141,12 +141,11 @@ const testWeather = () => {
 const testWeatherTakeOff = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10)  
-    airport.weather = 1
+    let airport = new Airport(10, -1, ['Plane A'])  
     // Arrange
-    const expected = `Plane A cannot start takeoff due to adverse weather`                 
-    // Act                  
-    actual = airport.takeOff('Plane A');        
+    const expected = `Plane A cannot start takeoff due to adverse weather`                
+    // Act              
+    actual = airport.takeOff('Plane A');    
     // Assert
     const result = assertEquals(actual, expected);
     // Report

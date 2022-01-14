@@ -1,9 +1,9 @@
 class Airport {
-  constructor(capacity) {
-    this.grounded = [];
-    this.capacity = capacity;
+  constructor(capacity, weather, grounded) {
+    this.grounded = grounded || [];
+    this.capacity = capacity || 10;
     this.index;
-    this.weather = (Math.ceil(Math.random() * 10))%6;
+    this.weather = weather || (Math.random() - 0.1) ;
   }
 
   landing (plane) {        
@@ -30,6 +30,8 @@ class Airport {
   takeOff (plane) {    
     if (!this.onRunway(plane)){                           
       return `${plane} is not at the airport and cannot takeoff`
+    } else if (this.weather < 0) {
+      return `${plane} cannot start takeoff due to adverse weather`
     } else {                      
       this.grounded.splice(this.index,1);
       return `${plane} has taken off`      
@@ -42,4 +44,5 @@ class Airport {
   }
 
 }
+
 module.exports = Airport;
