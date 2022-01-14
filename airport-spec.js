@@ -25,7 +25,7 @@ const canOverideCapacity = () => {
     // Arrange
     const expected = 2                  //Expect the number of planes on runway to be 1
     // Act
-    airport.overrideCapacity('Plane A')     //Attempt to increase the capacity
+    airport.overrideCapacity(1)     //Attempt to increase the capacity
     actual = airport.capacity               //Checks capacity
     // Assert
     const result = assertEquals(actual, expected);
