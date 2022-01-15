@@ -3,6 +3,7 @@ class Airport {
   constructor(maxPlaneCapacity = 10, airportID) {
     this.landedPlanes = [];
     this.maxPlaneCapacity = maxPlaneCapacity;
+
     this.airportID = airportID;
   }
 
@@ -10,6 +11,11 @@ class Airport {
     if (this.landedPlanes.length < this.maxPlaneCapacity) {
       this.landedPlanes.push(landingPlane);
     }
+  }
+
+  takeOff(leavingPlane) {
+    let planeToRemove = this.landedPlanes.indexOf(leavingPlane);
+    this.landedPlanes.splice(planeToRemove);
   }
 }
 
