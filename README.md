@@ -2,7 +2,6 @@
 
 ## Instructions
 
-- Run `npm install`.
 - Run `npm test` to execute test runner.
 
 ## Domain Models
@@ -101,3 +100,30 @@ With these two things in mind, I returned to first principles and started test-d
 | | status @String | status() | @String |
 | | | land(@Airport) | @Void |
 | | | takeOff(@Airport) | @Void |
+
+### User Story 6 & 7
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Airport | capacity @Integer | capacity() | @Integer |
+| | | isFull() | @Boolean |
+| | planes @Array[@Plane] | planes() | @Array[@Plane] |
+| | | arrive(@Plane)| @Void |
+| | | depart(@Plane) | @Void |
+| | | hasPlane(@Plane) | @Boolean |
+| | forecaster @Weather | forecaster() | @Weather |
+| Plane | id @String | id() | @String |
+| | status @String | status() | @String |
+| | | land(@Airport) | @Void |
+| | | takeOff(@Airport) | @Void |
+| Weather | | forecast() | @String |
