@@ -10,6 +10,8 @@ airportSpec.testLandingPlaneInFullAirport();
 airportSpec.testPlaneTakingOff();
 airportSpec.testPlaneTakingOffInEmptyAirport();
 airportSpec.testLandingNotAPlane();
+airportSpec.testNotAPlaneTakingOffInEmptyAirport();
+airportSpec.testNotAPlaneTakingOff();
 
 //Plane methods
 planeSpec.testNewPlane();

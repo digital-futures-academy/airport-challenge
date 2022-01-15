@@ -140,6 +140,43 @@ const testLandingNotAPlane = () => {
     console.log(` testLandingNotAPlane\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
 }
 
+const testNotAPlaneTakingOffInEmptyAirport = () => {
+    //Setup
+    // let input = 0;
+    let airport1 = new Airport();
+    let expected = 0;
+    let notAPlane1 = new Airport();
+    // airport1.land(plane1);
+    console.log(`Testing that airport1.landedPlanes.length => ${expected}`);
+    //Execute
+    airport1.takeOff(notAPlane1);
+    let actual = airport1.landedPlanes.length;
+    //Verify
+    let result = assertStatements.assertEquals(actual, expected);
+    console.log(` testNotAPlaneTakingOffInEmptyAirport\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
+}
+
+const testNotAPlaneTakingOff = () => {
+    //Setup
+    // let input = 0;
+    let airport1 = new Airport();
+    let plane1 = new Plane("595NN");
+    let plane2 = new Plane("646CA");
+    let plane3 = new Plane("999GY");
+    airport1.land(plane1);
+    airport1.land(plane2);
+    airport1.land(plane3);
+    let notAPlane1 = new Airport();
+    let expected = airport1.landedPlanes.length;
+    console.log(`Testing that airport1.landedPlanes.length => ${expected}`);
+    //Execute
+    airport1.takeOff(notAPlane1);
+    let actual = airport1.landedPlanes.length;
+    //Verify
+    let result = assertStatements.assertEquals(actual, expected);
+    console.log(` testNotAPlaneTakingOff\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
+}
+
 
 const airportSpec = {
     testNewAirport,
@@ -149,7 +186,9 @@ const airportSpec = {
     testLandingPlaneInFullAirport,
     testPlaneTakingOff,
     testPlaneTakingOffInEmptyAirport,
-    testLandingNotAPlane
+    testLandingNotAPlane,
+    testNotAPlaneTakingOffInEmptyAirport,
+    testNotAPlaneTakingOff
 }
 
 module.exports = airportSpec;
