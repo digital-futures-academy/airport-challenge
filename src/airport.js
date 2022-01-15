@@ -15,8 +15,11 @@ class Airport {
   }
 
   takeOff(leavingPlane) {
-    let planeToRemove = this.landedPlanes.indexOf(leavingPlane);
-    this.landedPlanes.splice(planeToRemove);
+    if (this.landedPlanes.includes(leavingPlane)) {
+      let planeToRemove = this.landedPlanes.indexOf(leavingPlane);
+      this.landedPlanes.splice(planeToRemove);
+
+    }
   }
 }
 
