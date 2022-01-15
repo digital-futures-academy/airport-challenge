@@ -1,3 +1,5 @@
+const Plane = require("./plane");
+
 class Airport {
   // here's a starting point for you
   constructor(maxPlaneCapacity = 10, airportID) {
@@ -6,9 +8,8 @@ class Airport {
 
     this.airportID = airportID;
   }
-
   land(landingPlane) {
-    if (this.landedPlanes.length < this.maxPlaneCapacity) {
+    if ((landingPlane instanceof Plane) && (this.landedPlanes.length < this.maxPlaneCapacity)) {
       this.landedPlanes.push(landingPlane);
     }
   }
