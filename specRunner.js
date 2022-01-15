@@ -7,6 +7,7 @@ airportSpec.testNewAirportIsEmpty();
 airportSpec.testOverridingPlaneCapacityToNewAirport();
 airportSpec.testLandingPlane();
 airportSpec.testLandingPlaneInFullAirport();
+airportSpec.testPlaneTakingOff();
 
 //Plane methods
 planeSpec.testNewPlane();
