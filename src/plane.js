@@ -6,7 +6,7 @@ class Plane {
         this._status = 'flying';
     }
 
-    _instruct(airport, method, temp, final, fallback) {
+    _request(airport, method, temp, final, fallback) {
         this._status = temp;
         try {
             airport[method](this);
@@ -22,7 +22,7 @@ class Plane {
         if (this.status !== 'flying')
             throw new Error('Cannot land: Plane is in incorrect state.');
 
-        this._instruct(airport, 'arrive', 'arriving', 'landed', 'flying');
+        this._request(airport, 'arrive', 'arriving', 'landed', 'flying');
     }
 
     takeOff(airport) {
@@ -30,7 +30,7 @@ class Plane {
         if (this.status !== 'landed')
             throw new Error('Cannot take off: Plane is in incorrect state.');
 
-        this._instruct(airport, 'depart', 'departing', 'flying', 'landed');
+        this._request(airport, 'depart', 'departing', 'flying', 'landed');
     }
 
     get id() {
