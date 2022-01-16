@@ -1,7 +1,9 @@
 class Airport {
   // here's a starting point for you
-  constructor() {
+  constructor(capacity = 5) {
     this.planesArray = [];
+    this.capacity = capacity;
+
   }
 
   landPlane(plane) {

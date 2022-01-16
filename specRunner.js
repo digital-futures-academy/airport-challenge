@@ -2,10 +2,13 @@ const {
     testNumbOfPlanesIsZero,
     testOnePlaneLanded,
     testPlaneIsOnlyString,
-    testNoNullPlanes } = require(`./tests/airportTests`);
+    testNoNullPlanes,
+    testDefaultCapacityAtAirport,
+    testChangeCapacityAtAirport } = require(`./tests/airportTests`);
 
 testNumbOfPlanesIsZero();
 testOnePlaneLanded();
 testPlaneIsOnlyString();
 testNoNullPlanes();
-
+testDefaultCapacityAtAirport();
+testChangeCapacityAtAirport();
