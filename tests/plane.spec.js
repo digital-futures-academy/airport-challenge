@@ -15,7 +15,9 @@ const test = Test.describe('Plane', (suite) => {
     });
 
     suite.it('Cannot be initialised without a string id.', (test) => {
-        test.expect(() => new Plane()).toThrow();
+        test.expect(() => new Plane()).toThrow(
+            'Plane cannot be initialised without a string id.',
+        );
     });
 
     suite.it('Can land.', (test) => {
@@ -32,7 +34,7 @@ const test = Test.describe('Plane', (suite) => {
     suite.it('Cannot land without a destination Airport.', (test) => {
         const plane = new Plane('1');
 
-        test.expect(plane.land).toThrow();
+        test.expect(plane.land).toThrow('Cannot land: no destination Airport provided.');
     });
 
     suite.it('Cannot land if destination Airport is full.', (test) => {
@@ -47,7 +49,9 @@ const test = Test.describe('Plane', (suite) => {
         plane._status = 'landed';
         const airport = new Airport(undefined, SunnyWeather);
 
-        test.expect(() => plane.land(airport)).toThrow();
+        test.expect(() => plane.land(airport)).toThrow(
+            'Cannot land: Plane is in incorrect state.',
+        );
     });
 
     suite.it('Remains in original state if landing fails.', (test) => {
@@ -77,7 +81,9 @@ const test = Test.describe('Plane', (suite) => {
         const plane = new Plane('1');
         plane._status = 'landed';
 
-        test.expect(plane.takeOff).toThrow();
+        test.expect(plane.takeOff).toThrow(
+            'Cannot take off: no departure Airport provided.',
+        );
     });
 
     suite.it('Cannot take off if it is not located at departure Airport.', (test) => {
@@ -92,7 +98,9 @@ const test = Test.describe('Plane', (suite) => {
         const plane = new Plane('1');
         const airport = new Airport(undefined, SunnyWeather);
 
-        test.expect(() => plane.takeOff(airport)).toThrow();
+        test.expect(() => plane.takeOff(airport)).toThrow(
+            'Cannot take off: Plane is in incorrect state.',
+        );
     });
 
     suite.it('Remains in original state if take off fails.', (test) => {

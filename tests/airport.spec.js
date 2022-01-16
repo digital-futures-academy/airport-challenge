@@ -23,7 +23,7 @@ const test = Test.describe('Airport', (suite) => {
         test.expect(expected).toEqual(actual);
     });
 
-    suite.it('Can store a Plane on arrival.', (test) => {
+    suite.it('Can recieve a Plane on arrival.', (test) => {
         const plane = new Plane('1');
         plane._status = 'arriving';
         const airport = new Airport(undefined, SunnyWeather);
@@ -35,11 +35,13 @@ const test = Test.describe('Airport', (suite) => {
         test.expect(expected).toEqual(actual);
     });
 
-    suite.it('Cannot store a Plane which is not arriving.', (test) => {
+    suite.it('Cannot recieve a Plane which is not arriving.', (test) => {
         const plane = new Plane('1');
         const airport = new Airport(undefined, SunnyWeather);
 
-        test.expect(() => airport.arrive(plane)).toThrow();
+        test.expect(() => airport.arrive(plane)).toThrow(
+            'Cannot recieve a Plane which is not arriving.',
+        );
     });
 
     suite.it('Can check if capacity is full.', (test) => {
@@ -55,15 +57,17 @@ const test = Test.describe('Airport', (suite) => {
         test.expect(expected2).toEqual(actual2);
     });
 
-    suite.it('Cannot store a Plane if capacity is full.', (test) => {
+    suite.it('Cannot recieve a Plane if capacity is full.', (test) => {
         const plane = new Plane('1');
         plane._status = 'arriving';
         const airport = new Airport(0, SunnyWeather);
 
-        test.expect(() => airport.arrive(plane)).toThrow();
+        test.expect(() => airport.arrive(plane)).toThrow(
+            'Cannot recieve a Plane while capacity is full.',
+        );
     });
 
-    suite.it('Can remove a Plane on departure.', (test) => {
+    suite.it('Can release a Plane on departure.', (test) => {
         const plane = new Plane('1');
         const airport = new Airport(undefined, SunnyWeather);
         plane.land(airport);
@@ -76,12 +80,24 @@ const test = Test.describe('Airport', (suite) => {
         test.expect(expected).toEqual(actual);
     });
 
-    suite.it('Cannot remove a Plane which is not departing.', (test) => {
+    suite.it('Cannot release a Plane which is not departing.', (test) => {
         const plane = new Plane('1');
         const airport = new Airport(undefined, SunnyWeather);
         plane.land(airport);
 
-        test.expect(() => airport.depart(plane)).toThrow();
+        test.expect(() => airport.depart(plane)).toThrow(
+            'Cannot release a Plane which is not departing.',
+        );
+    });
+
+    suite.it('Cannot release a Plane which is not at that Airport.', (test) => {
+        const plane = new Plane('1');
+        const airport = new Airport(undefined, SunnyWeather);
+        plane._status = 'landed';
+
+        test.expect(() => airport.depart(plane)).toThrow(
+            'Cannot release a Plane which is not at this Airport.',
+        );
     });
 
     suite.it('Can check for the presence of a Plane.', (test) => {
@@ -100,7 +116,9 @@ const test = Test.describe('Airport', (suite) => {
         const airport = new Airport(undefined, StormyWeather);
         plane._status = 'arriving';
 
-        test.expect(() => airport.arrive(plane)).toThrow();
+        test.expect(() => airport.arrive(plane)).toThrow(
+            'Cannot recieve a Plane while weather is stormy.',
+        );
     });
 
     suite.it('Cannot release a Plane while weather is stormy.', (test) => {
@@ -109,7 +127,9 @@ const test = Test.describe('Airport', (suite) => {
         plane._status = 'departing';
         airport.planes.push(plane);
 
-        test.expect(() => airport.depart(plane)).toThrow();
+        test.expect(() => airport.depart(plane)).toThrow(
+            'Cannot release a Plane while weather is stormy.',
+        );
     });
 });
 

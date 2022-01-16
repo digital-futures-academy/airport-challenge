@@ -9,23 +9,23 @@ class Assertions {
         throw new Error(`Expected ${this.expected} and ${actual} to be strictly equal.`);
     }
 
-    toThrow() {
+    toThrow(msg) {
         if (typeof this.expected !== 'function')
             throw new Error('Assertions.toThrow expects a test function.');
 
         try {
             this.expected();
         } catch (err) {
+            if (msg && err !== msg && err.message !== msg)
+                throw new Error(
+                    `Expected ${
+                        this.expected
+                    } to throw with message: '${msg}'. Recieved '${err.message || err}'.`,
+                );
             return new Assertions(true);
         }
 
         throw new Error(`Expected ${this.expected} to throw.`);
-    }
-}
-
-class Case {
-    expect(expected) {
-        return new Assertions(expected);
     }
 }
 
@@ -42,7 +42,7 @@ class Test {
 
     it(description, testCase) {
         try {
-            testCase(new Case());
+            testCase({ expect: (expected) => new Assertions(expected) });
             this.cases.push({ description, err: null });
         } catch (err) {
             this.cases.push({

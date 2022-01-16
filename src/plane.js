@@ -1,7 +1,7 @@
 class Plane {
     constructor(id) {
         if (typeof id !== 'string')
-            throw new Error('Plane must be initialised with an id.');
+            throw new Error('Plane cannot be initialised without a string id.');
         this._id = id;
         this._status = 'flying';
     }
@@ -18,17 +18,17 @@ class Plane {
     }
 
     land(airport) {
-        if (!airport) throw new Error('Cannot land without a destination airport.');
+        if (!airport) throw new Error('Cannot land: no destination Airport provided.');
         if (this.status !== 'flying')
-            throw new Error('Cannot land if status is not flying.');
+            throw new Error('Cannot land: Plane is in incorrect state.');
 
         this._instruct(airport, 'arrive', 'arriving', 'landed', 'flying');
     }
 
     takeOff(airport) {
-        if (!airport) throw new Error('Cannot take off without a departure airport.');
+        if (!airport) throw new Error('Cannot take off: no departure Airport provided.');
         if (this.status !== 'landed')
-            throw new Error('Cannot take off if status is not landed.');
+            throw new Error('Cannot take off: Plane is in incorrect state.');
 
         this._instruct(airport, 'depart', 'departing', 'flying', 'landed');
     }
