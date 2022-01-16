@@ -82,12 +82,12 @@ const testNoNullPlanes = () => {
 
     //Arrange
     input = new Airport();
-    expected = [];
+    expected = undefined;
 
     //Act
 
     input.landPlane();
-    actual = input.planesArray;
+    actual = input.planesArray[0];
 
     //Assert
     result = assertEquals(actual, expected);
