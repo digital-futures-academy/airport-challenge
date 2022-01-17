@@ -23,6 +23,25 @@ const planeInitialisesWithNameTest = () => {
     // Report
     printBorder();
     console.log(`Plane constructor correctly creates plane given a name: ${result}`)
-
 }
-export { planeInitialisesWithNameTest };
+
+const planeInitialisesWithAirportProperty = () => {
+    // Check that plane constructor correctly initialises a plane given it's name and airport
+
+    // 1. Setup
+    const input = ["myPlane", "LHR"];
+    const expectedOutput = "LHR";
+
+    // 2. Execute
+    const myPlane = new Plane("myPlane", "LHR");
+    const actualOutput = myPlane.airport;
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput, actualOutput);
+
+    // Report
+    printBorder();
+    console.log(`Plane constructor correctly creates named planed given airport: ${result}`);
+}
+
+export { planeInitialisesWithNameTest, planeInitialisesWithAirportProperty };

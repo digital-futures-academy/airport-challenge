@@ -1,3 +1,4 @@
-import { planeInitialisesWithNameTest } from "./plane.spec.js"
+import { planeInitialisesWithNameTest, planeInitialisesWithAirportProperty } from "./plane.spec.js"
 
 planeInitialisesWithNameTest();
+planeInitialisesWithAirportProperty();
