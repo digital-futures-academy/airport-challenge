@@ -1,5 +1,5 @@
-import { assertEquals, printBorder } from "./spec/test-framework.js";
+import { assertEquals, printBorder } from "./test-framework.js";
 
-const { airport } = require('../src/airport.js');
-const { plane } = require('../src/plane.js');
+import { Airport } from '../src/airport.js';
+import { Plane } from '../src/plane.js';
 
