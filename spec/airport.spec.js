@@ -40,4 +40,23 @@ const airportInitialisesWithCapacityTest = () => {
     console.log(`Airport constructor correctly creates airport given capacity: ${result}`)
 }
 
-export { airportInitialisesWithNameTest, airportInitialisesWithCapacityTest };
+const airportInitialisesWithDefaultCapacityTest = () => {
+    // Check that airport constructor correctly creates an airport given name
+
+    // 1. Setup
+    const input = ["myAirport"];
+    const expectedOutput = 100;
+
+    // 2. Execute
+    const myAirport = new Airport(...input);
+    const actualOutput = myAirport.capacity;
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput, actualOutput);
+
+    // Report
+    printBorder();
+    console.log(`Airport constructor correctly creates airport with default capacity: ${result}`)
+}
+
+export { airportInitialisesWithNameTest, airportInitialisesWithCapacityTest, airportInitialisesWithDefaultCapacityTest };
