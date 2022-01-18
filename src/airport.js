@@ -1,5 +1,5 @@
 class Airport {
-  constructor(name, capacity) {
+  constructor(name, capacity = 100) {
     this.name = name;
     this.capacity = capacity;
   }
