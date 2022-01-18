@@ -14,7 +14,7 @@ const planeInitialisesWithNameTest = () => {
     const expectedOutput = "myPlane";
 
     // 2. Execute
-    const myPlane = new Plane("myPlane");
+    const myPlane = new Plane(input);
     const actualOutput = myPlane.name;
 
     // 3. Verify
