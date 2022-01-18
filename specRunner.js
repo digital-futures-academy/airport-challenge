@@ -12,6 +12,9 @@ airportSpec.testPlaneTakingOffInEmptyAirport();
 airportSpec.testLandingNotAPlane();
 airportSpec.testNotAPlaneTakingOffInEmptyAirport();
 airportSpec.testNotAPlaneTakingOff();
-
+airportSpec.testSetWeatherUsingInt();
+airportSpec.testSetWeatherUsingValidStr();
+airportSpec.testSetWeatherUsingInvalidInt();
+airportSpec.testSetWeatherUsingInvalidStr();
 //Plane methods
 planeSpec.testNewPlane();

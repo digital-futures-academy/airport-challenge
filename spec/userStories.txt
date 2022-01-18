@@ -69,6 +69,18 @@ I want to prevent asking the airport to let planes take-off which are not at the
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+//Objects: airport, plane
+//Airpot Properties:
+airportID, landedPlanes, maxPlaneCapacity, weather
+//Airport Methods() = outputs:
+land(Plane) = +1 plane to airport.landedPlanes array, unless full
+takeoff(Plane) = -1 plane to airport.landedPlanes array, unless weather is stormy
+
+//Plane Properties:
+planeID,
+
+//Plane Methods() = outputs:
+
 
 As an air traffic controller
 To ensure safety

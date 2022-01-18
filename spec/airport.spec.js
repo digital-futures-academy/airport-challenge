@@ -177,6 +177,70 @@ const testNotAPlaneTakingOff = () => {
     console.log(` testNotAPlaneTakingOff\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
 }
 
+const testSetWeatherUsingInt = () => {
+    //Setup
+    let input = 2;
+    let airport1 = new Airport();
+    let expected = airport1.weatherPossibilities[input];
+    console.log(`Testing that airport1.weather => ${expected}`);
+
+    //Execute
+    airport1.setWeather(input);
+    let actual = airport1.weather;
+
+    //Verify
+    let result = assertStatements.assertEquals(actual, expected);
+    console.log(` testSetWeatherUsingInt\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
+}
+
+const testSetWeatherUsingValidStr = () => {
+    //Setup
+    let input = `sunny`;
+    let airport1 = new Airport();
+    let expected = airport1.weatherPossibilities[0];
+    console.log(`Testing that airport1.weather => ${expected}`);
+
+    //Execute
+    airport1.setWeather(input);
+    let actual = airport1.weather;
+
+    //Verify
+    let result = assertStatements.assertEquals(actual, expected);
+    console.log(` testSetWeatherUsingValidStr\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
+}
+
+const testSetWeatherUsingInvalidInt = () => {
+    //Setup
+    let input = 78;
+    let airport1 = new Airport();
+    let expected = true;
+    console.log(`Testing that instanceof Error => ${expected}`);
+
+    //Execute
+    let actual = airport1.setWeather(input) instanceof Error;
+
+    //Verify
+    let result = assertStatements.assertEquals(actual, expected);
+    console.log(` testSetWeatherUsingInvalidInt\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
+}
+
+const testSetWeatherUsingInvalidStr = () => {
+    //Setup
+    let input = `nonsense`;
+    let airport1 = new Airport();
+    let expected = true;
+    console.log(`Testing that instanceof Error => ${expected}`);
+
+    //Execute
+    let actual = airport1.setWeather(input) instanceof Error;
+
+    //Verify
+    let result = assertStatements.assertEquals(actual, expected);
+    console.log(` testSetWeatherUsingInvalidStr\n  expected = ${expected}\n  actual = ${actual}\n  assertEquals = ${result}\n`);
+}
+
+//todo: test landing/taking off in stormy weather
+//
 
 const airportSpec = {
     testNewAirport,
@@ -188,7 +252,11 @@ const airportSpec = {
     testPlaneTakingOffInEmptyAirport,
     testLandingNotAPlane,
     testNotAPlaneTakingOffInEmptyAirport,
-    testNotAPlaneTakingOff
+    testNotAPlaneTakingOff,
+    testSetWeatherUsingInt,
+    testSetWeatherUsingValidStr,
+    testSetWeatherUsingInvalidInt,
+    testSetWeatherUsingInvalidStr
 }
 
 module.exports = airportSpec;
