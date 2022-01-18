@@ -1,6 +1,29 @@
 class Airport {
-  // here's a starting point for you
+}
+
+/*As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+*/
+
+const airportOne = new Airport();
+
+let takeOffCondition = () => {
+  weather(Math.random(0 - 1));
+  if (weather < 0.1) {
+    return stormy
+  } else {
+    (weather > 0.1)
+    return sunny
+  }
+}
+
+if (takeOffCondition = rainy) {
+  return 'Cannoy take-off in stormy weather'
+}
+
+let airportCapacity = () => {
 
 }
 
-module.exports = Airport;
+module.exports(airportOne)
