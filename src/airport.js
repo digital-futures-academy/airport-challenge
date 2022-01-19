@@ -10,6 +10,19 @@ class Airport {
     console.log(`Capacity changed to ${newCapacity}`);
   }
 
+  landPlane(plane) {
+    try {
+      if (this.planes.length <= capacity) {
+        this.planes.push(plane);
+      } else {
+        let err = new Error("Airport is full, this plane cannot land.");
+      }
+    }
+    catch (err) {
+
+    }
+  }
+
 }
 
 export { Airport };
