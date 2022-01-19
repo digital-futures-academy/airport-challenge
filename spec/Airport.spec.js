@@ -19,3 +19,19 @@ test.it('test airport capacity can be overridden', function () {
     airport.updateCapacity(5);
     return test.expect(airport.capacity).toEqual(20);
 });
+
+test.it('test to check if airport outputs false when airport is not full', function () {
+    let airport = new Airport(10);
+    return test.expect(airport.isAirportFull()).toEqual(false);
+});
+
+test.it('test to check if airport outputs true when airport is full', function () {
+    let airport = new Airport(0);
+    return test.expect(airport.isAirportFull()).toEqual(true);
+});
+
+test.it('test planes are prevented from landing if airport is full', function () {
+    let airport = new Airport(0);
+    const landPlaneResult = airport.landPlane(new Plane('plane'));
+    return test.expect(landPlaneResult).toEqual('Airport is full. Unable to land plane') && test.expect(airport.capacity).toEqual(0);
+});
