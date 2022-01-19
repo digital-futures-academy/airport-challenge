@@ -27,6 +27,15 @@ class Airport {
       return `Airport capacity has been successfully overridden to ${newCapacity}`
     }
   }
+  takeOff(tailNumber) {
+    if (!this.airplanes.includes(tailNumber)) {
+      return `Error: ${tailNumber} is not at airport`
+    } else {
+      this.airplanes = this.airplanes.filter(e => e !== tailNumber)
+      this.airspace.push(tailNumber)
+      return `Take off successful; ${tailNumber} is no longer at the airport`
+    }
+  }
 }
 
 module.exports = Airport;
