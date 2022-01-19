@@ -1,7 +1,11 @@
-const Weather = require('../weather');
+class MockWeather {
+    constructor(result) {
+        this.forecast = () => result;
+    }
+}
 
-const StormyWeather = new Weather(() => 0);
+const StormyWeather = new MockWeather('stormy');
 
-const SunnyWeather = new Weather(() => 1);
+const SunnyWeather = new MockWeather('sunny');
 
 module.exports = { StormyWeather, SunnyWeather };

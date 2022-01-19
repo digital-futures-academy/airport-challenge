@@ -5,12 +5,7 @@ class Weather {
             ['sunny', 1],
         ];
 
-        if (typeof rng === 'function') {
-            this.rng = rng;
-            return;
-        }
-
-        this.rng = Math.random;
+        this.rng = typeof rng === 'function' ? rng : Math.random;
     }
 
     forecast() {

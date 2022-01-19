@@ -1,10 +1,10 @@
 const Weather = require('./weather');
 
 class Airport {
-    constructor(capacity = 10, forecaster) {
+    constructor(capacity = 10, forecaster = new Weather()) {
         this.capacity = capacity;
         this.planes = [];
-        this.forecaster = forecaster || new Weather();
+        this.forecaster = forecaster;
     }
 
     arrive(plane) {
