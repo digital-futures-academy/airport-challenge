@@ -4,11 +4,25 @@
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
   "scripts": {
-    "test": "node specRunner.js"
+    "test": "test"
   },
   "author": "dearshrewdwit",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
-  }
+    "eslint": "^7.22.0",
+    "jasmine": "^4.0.2"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lux-mafra/airport-challenge.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/lux-mafra/airport-challenge/issues"
+  },
+  "homepage": "https://github.com/lux-mafra/airport-challenge#readme"
 }

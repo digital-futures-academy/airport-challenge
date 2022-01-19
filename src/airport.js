@@ -1,5 +1,15 @@
 class Airport {
-  // here's a starting point for you
+  #available;
+  #planes;
+
+  constructor(available = true) {
+    this.#available = available;
+    this.#planes = [];
+  }
+
+  isAvailable() {
+    return this.#available;
+  }
 
 }
 
