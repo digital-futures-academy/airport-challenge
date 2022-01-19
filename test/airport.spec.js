@@ -189,6 +189,24 @@ actualOutput = airport.takeOff(tailNumber);
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log(`Testing that, after take off, the plane is removed from the array of planes at airport`)
+
+tailNumber = 'AH574';
+capacity = 3;
+airplanesAtAirport = ['AH574', 'HE274'];
+
+expectedOutput = false;
+
+//2. Act
+airport = new Airport(capacity, [], airplanesAtAirport);
+airport.takeOff(tailNumber)
+actualOutput = airport.airplanes.includes(tailNumber);
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
+
 
 
 
