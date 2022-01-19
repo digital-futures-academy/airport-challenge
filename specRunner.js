@@ -6,8 +6,8 @@ const planeTests = require(`./tests/planeTests.spec`);
 
 airportTests.testNumbOfPlanesIsZero();
 airportTests.testOnePlaneLanded();
-airportTests.testPlaneIsOnlyString();
-airportTests.testNoNonStringPlanes();
+//airportTests.testPlaneIsOnlyString();
+//airportTests.testNoNonStringPlanes();
 airportTests.testDefaultCapacityAtAirport();
 airportTests.testChangeCapacityAtAirport();
 airportTests.testPreventLanding();
@@ -16,3 +16,5 @@ airportTests.testPreventLanding();
 //Plane Tests
 planeTests.testPlaneIsFlyingByDefault();
 planeTests.testPlaneIsLandedIfSupplied();
+planeTests.testPlaneHasStringName();
+

@@ -34,7 +34,7 @@ module.exports = Airport;
 
 
 //to do:
-//stop plane from landing if airport full
-//Create a plane class and decouple (properties name and landed (boolean))
+//stop plane from landing if airport full (done)
+//Create a plane class and decouple (properties name and landed (boolean)) (doing)
 //then let plane takeoff
 // refactor so already landed planes don't land again and already takeoff'd planes done takeoff again

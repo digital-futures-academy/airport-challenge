@@ -51,56 +51,6 @@ const testOnePlaneLanded = () => {
 
 };
 
-const testPlaneIsOnlyString = () => {
-
-
-    //Identity 
-    console.log(`testPlaneIsOnlyString \n ========== \n`);
-
-
-    //Arrange
-    input = new Airport();
-    expected = 'string';
-
-    //Act
-
-    input.landPlane(52);
-    actual = typeof input.planesArray[0];
-
-    //Assert
-    result = assertEquals(actual, expected);
-
-    //Report
-    console.log(`testPlaneIsOnlyString result: ${result}`);
-
-};
-
-
-
-
-const testNoNonStringPlanes = () => {
-
-    //Identity 
-    console.log(`testNoNonStringPlanes \n ========== \n`);
-
-
-    //Arrange
-    input = new Airport();
-    expected = true;
-
-    //Act
-
-    const nonStringPlane = input.landPlane();
-    actual = nonStringPlane instanceof Error;
-
-    //Assert
-    result = assertEquals(actual, expected);
-
-    //Report
-    console.log(`testNoNonStringPlanes result: ${result}`);
-
-
-};
 
 
 
@@ -153,7 +103,6 @@ const testChangeCapacityAtAirport = () => {
 };
 
 
-
 //User case 3 - Stops plane from landing
 const testPreventLanding = () => {
     //Identity
@@ -183,8 +132,6 @@ const testPreventLanding = () => {
 airportTests = {
     testNumbOfPlanesIsZero,
     testOnePlaneLanded,
-    testPlaneIsOnlyString,
-    testNoNonStringPlanes,
     testDefaultCapacityAtAirport,
     testChangeCapacityAtAirport,
     testPreventLanding
