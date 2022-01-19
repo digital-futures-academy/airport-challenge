@@ -54,10 +54,10 @@ const checkNewAirportHasEmptyArrayOfLandedPlanes = () => {
     //Identifier
     console.log(`\ncheckNewAirportHasEmptyArrayOfLandedPlanes\n================`)
     //Arrange
-    const testAirport = new Airport('JFK')
-    const expected = 0
+    const testAirport = new Airport('JFK');
+    const expected = 0;
     //Act
-    const landedPlanes = testAirport.getLandedPlanesList()
+    const landedPlanes = testAirport.getLandedPlanesList();
     const actual = landedPlanes.length;
     //Assert
     const result = assertEquals(expected, actual);
@@ -173,8 +173,53 @@ const checkDefaultAirportCapacityCanBeOverRidden = () => {
     //Assert
     const result = assertEquals(expected, actual);
     //Report
-    console.log(`checkDefaultAirportCapacityCanBeOverRidden test result: ${result}\n`)
+    console.log(`checkDefaultAirportCapacityCanBeOverRidden test result: ${result}\n`);
 }
+
+//// USER STORY PART 3
+
+// AIRPORT CAPACITY - LANDING TESTS 
+
+const checkCanCountNumberOfPlanesAtAirport = () => {
+    //Identifier
+    console.log(`\ncheckCanCountNumberOfPlanesAtAirport\n================`)
+    //Arrange
+    const testAirport = new Airport('TST');
+    const testPlane1 = new Plane('Plane1');
+    const testPlane2 = new Plane('Plane2');
+    const testPlane3 = new Plane('Plane3');
+    const expected = 3;
+    //Act
+    testAirport.landPlane(testPlane1);
+    testAirport.landPlane(testPlane2);
+    testAirport.landPlane(testPlane3);
+    const actual = testAirport.getNumberOfPlanesAtAirport();
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report 
+    console.log(`checkCanCountNumberOfPlanesAtAirport test result: ${result}\n`);
+}
+
+const checkLandingIsPreventedWithAirportAtFullCapacity = () => {
+    //Identifier
+    console.log(`\ncheckLandingIsPreventedWithAirportAtFullCapacity\n================`)
+    //Arrange
+    const testAirport = new Airport('TST', 2);
+    const testPlane1 = new Plane('Plane1');
+    const testPlane2 = new Plane('Plane2');
+    const testPlane3 = new Plane('Plane3');
+    const expected = true;
+    //Act
+    testAirport.landPlane(testPlane1);
+    testAirport.landPlane(testPlane2);
+    const requestLandingResult = testAirport.landPlane(testPlane3);
+    const actual = requestLandingResult instanceof Error;
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report 
+    console.log(`checkLandingIsPreventedWithAirportAtFullCapacity test result: ${result}\n`);
+}
+
 
 module.exports = {
     checkAnyPlaneNameInputNotStringIsUndefined,
@@ -187,5 +232,7 @@ module.exports = {
     checkPlaneInstructedToLandIsAtAirport,
     checkLandedPlaneLocationIsSetToSpecifiedAirport,
     checkDefaultAirportCapacityIs5,
-    checkDefaultAirportCapacityCanBeOverRidden
+    checkDefaultAirportCapacityCanBeOverRidden,
+    checkCanCountNumberOfPlanesAtAirport,
+    checkLandingIsPreventedWithAirportAtFullCapacity
 }

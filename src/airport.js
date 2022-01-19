@@ -16,6 +16,7 @@ class Airport {
       this.#name = name
       this.#landedPlanes = [];
       this.airportCapacity = airportCapacity;
+      this.numberOfPlanesAtAirport = 0
       Airport.listOfAllAirports.push(name);
     } catch (err) {
       console.log(err.message);
@@ -30,22 +31,21 @@ class Airport {
     return this.#landedPlanes;
   }
 
-  landPlane(plane) {
-    this.#landedPlanes.push(plane.getPlaneName())
-    plane.setPlaneLocation(this.#name);
+  getNumberOfPlanesAtAirport() {
+    return this.numberOfPlanesAtAirport;
   }
 
+  landPlane(plane) {
+    try {
+      if (this.numberOfPlanesAtAirport === this.airportCapacity) throw new Error('The airport is at full capacity. This plane cannot land here.')
+      this.#landedPlanes.push(plane.getPlaneName())
+      plane.setPlaneLocation(this.#name);
+      this.numberOfPlanesAtAirport++;
+    } catch (err) {
+      console.log(err.message);
+      return err;
+    }
+  }
 }
-
-let testAirport = new Airport('LVE');
-let testPlane = new Plane('HelloPlane')
-
-console.log(testAirport.getLandedPlanesList());
-
-testAirport.landPlane(testPlane);
-
-console.log(testAirport.getLandedPlanesList());
-
-console.log(testPlane.getLocation());
 
 module.exports = { Airport };
