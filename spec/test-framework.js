@@ -7,4 +7,4 @@ const printReport = (testDescription, result) => {
     console.log(`${testDescription}: ${result}`);
 }
 
-export { assertEquals, printBorder, printReport };
+export { assertEquals, printReport };

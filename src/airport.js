@@ -4,6 +4,10 @@ class Airport {
     this.capacity = capacity;
   }
 
+  changeCapacity(newCapacity) {
+    this.capacity = newCapacity;
+  }
+
 }
 
 export { Airport };

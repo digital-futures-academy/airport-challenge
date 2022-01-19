@@ -1,9 +1,9 @@
-import { assertEquals, printBorder, printReport } from "./test-framework.js";
+import { assertEquals, printReport } from "./test-framework.js";
 
 import { Airport } from '../src/airport.js';
 
 const airportInitialisesWithNameTest = () => {
-    // Check that airport constructor correctly creates an airport given name
+    const testDescription = "Airport constructor correctly creates an airport given name"
 
     // 1. Setup
     const input = "myAirport";
@@ -17,12 +17,11 @@ const airportInitialisesWithNameTest = () => {
     const result = assertEquals(expectedOutput, actualOutput);
 
     // Report
-    printBorder();
-    console.log(`Airport constructor correctly creates airport given a name: ${result}`)
+    printReport(testDescription, result);
 }
 
 const airportInitialisesWithCapacityTest = () => {
-    // Check that airport constructor correctly creates an airport given name
+    const testDescription = "Airport constructor correctly creates an airport given capacity"
 
     // 1. Setup
     const input = ["myAirport", 100];
@@ -36,12 +35,11 @@ const airportInitialisesWithCapacityTest = () => {
     const result = assertEquals(expectedOutput, actualOutput);
 
     // Report
-    printBorder();
-    console.log(`Airport constructor correctly creates airport given capacity: ${result}`)
+    printReport(testDescription, result);
 }
 
 const airportInitialisesWithDefaultCapacityTest = () => {
-    // Check that airport constructor correctly creates an airport given name
+    const testDescription = "Airport constructor correctly creates an airport with default capacity"
 
     // 1. Setup
     const input = ["myAirport"];
@@ -55,8 +53,7 @@ const airportInitialisesWithDefaultCapacityTest = () => {
     const result = assertEquals(expectedOutput, actualOutput);
 
     // Report
-    printBorder();
-    console.log(`Airport constructor correctly creates airport with default capacity: ${result}`)
+    printReport(testDescription, result);
 }
 
 const airportCapacityCanBeChanged = () => {
