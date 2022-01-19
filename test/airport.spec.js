@@ -224,6 +224,27 @@ actualOutput = airport.airspace.includes(tailNumber);
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log(`Testing that trying to land a plane that is already at airport will output error message`)
+
+tailNumber = 'AH574';
+capacity = 3;
+airplanesAtAirport = ['AH574', 'HE274'];
+airspace = ['AH574']
+
+expectedOutput = 'Error: AH574 already at airport';
+
+//2. Act
+airport = new Airport(capacity, airspace, airplanesAtAirport);
+actualOutput = airport.land(tailNumber)
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
+
+
+
+
 
 
 
