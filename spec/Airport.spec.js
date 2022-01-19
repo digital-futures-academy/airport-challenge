@@ -44,3 +44,15 @@ test.it('test airport can let plane take off', function () {
     airport.takeOff(plane1);
     return test.expect(airport.planes[0].name).toEqual('plane2') && test.expect(airport.planes.length).toEqual(1);
 });
+
+test.it('test to check if airport outputs false when plane is not at airport', function () {
+    let airport = new Airport();
+    let plane = new Plane('plane');
+    return test.expect(airport.isPlaneAtAirport(plane)).toEqual(false);
+});
+
+test.it('test to check if airport outputs true when plane is at airport', function () {
+    let plane = new Plane('plane');
+    let airport = new Airport(10, [plane]);
+    return test.expect(airport.isPlaneAtAirport(plane)).toEqual(true);
+});
