@@ -1,10 +1,12 @@
 class Airport {
   #available;
   #planes;
+  #capacity;
 
   constructor(available = true) {
     this.#available = available;
     this.#planes = [];
+    this.#capacity = 3;
   }
 
   isAvailable() {
@@ -27,6 +29,10 @@ class Airport {
   addPlane(planeDetails) {
     const newPlane = planeDetails;
     this.#planes.push(newPlane);
+  }
+
+  getCapacity() {
+    return this.#capacity;
   }
 
 }

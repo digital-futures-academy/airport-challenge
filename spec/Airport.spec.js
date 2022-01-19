@@ -86,7 +86,6 @@ const testPlaneLandedIntoAirport = () => {
 
 // Test if can add more than one plane into the airport
 const testAddMoreThanOnePlane = () => {
-
     // Arrange
     const airport = new Airport();
     const expected = 2;
@@ -105,6 +104,21 @@ const testAddMoreThanOnePlane = () => {
     console.log(`There is more than one plane in the airport: ${result}`);
 }
 
+// Test Default Capacity of the Airport
+const testDefaultCapacityAirport = () => {
+    //Arrange
+    const airport = new Airport();
+    const expected = 3;
+
+    // Act
+    const actual = airport.getCapacity();
+
+    // Assert
+    const result = assertEquals(actual, expected);
+
+    // Report
+    console.log(`Get the Default capacity of the airport: ${result}`);
+}
 
 module.exports = {
     testAirportAvailable,
@@ -112,5 +126,6 @@ module.exports = {
     testPlaneLandsAirportUnavailable,
     testPlaneLandsAirportAvailable,
     testPlaneLandedIntoAirport,
-    testAddMoreThanOnePlane
+    testAddMoreThanOnePlane,
+    testDefaultCapacityAirport
 };
