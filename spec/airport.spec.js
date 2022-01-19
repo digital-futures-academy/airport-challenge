@@ -1,4 +1,4 @@
-import { assertEquals, printBorder } from "./test-framework.js";
+import { assertEquals, printBorder, printReport } from "./test-framework.js";
 
 import { Airport } from '../src/airport.js';
 
@@ -59,4 +59,22 @@ const airportInitialisesWithDefaultCapacityTest = () => {
     console.log(`Airport constructor correctly creates airport with default capacity: ${result}`)
 }
 
-export { airportInitialisesWithNameTest, airportInitialisesWithCapacityTest, airportInitialisesWithDefaultCapacityTest };
+const airportCapacityCanBeChanged = () => {
+    const testDescription = "Airport capacity can be changed to provided value"
+
+    //1. Setup
+    const myAirport = new Airport("myAirport");
+    const expectedOutput = 120;
+
+    // 2. Execute
+    myAirport.changeCapacity(120);
+    const actualOutput = myAirport.capacity;
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
+
+export { airportInitialisesWithNameTest, airportInitialisesWithCapacityTest, airportInitialisesWithDefaultCapacityTest, airportCapacityCanBeChanged };

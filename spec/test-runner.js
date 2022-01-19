@@ -7,7 +7,8 @@ import {
 import {
     airportInitialisesWithNameTest,
     airportInitialisesWithCapacityTest,
-    airportInitialisesWithDefaultCapacityTest
+    airportInitialisesWithDefaultCapacityTest,
+    airportCapacityCanBeChanged
 } from "./airport.spec.js"
 
 // Plane class tests
@@ -20,3 +21,4 @@ planeInitialisesWithDefaultAirportProperty();
 airportInitialisesWithNameTest();
 airportInitialisesWithCapacityTest();
 airportInitialisesWithDefaultCapacityTest();
+airportCapacityCanBeChanged();
