@@ -1,5 +1,12 @@
 //run this to execute test
 
-const { testAddPlane } = require("./test-specs")
+const { testAddPlane, testChangeCapacity, testUnableToAddIfFull, testCountPlane, testTakeOffWhenHere, testCannotTakeOffWhenNotHere, testCanTakeOffIfNotStormy, testCannotTakeOffIfStormy } = require("./test-specs")
 
 testAddPlane();
+testChangeCapacity();
+testUnableToAddIfFull();
+testCountPlane();
+testTakeOffWhenHere();
+testCannotTakeOffWhenNotHere();
+testCanTakeOffIfNotStormy();
+testCannotTakeOffIfStormy();
