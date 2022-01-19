@@ -72,5 +72,27 @@ actualOutput = airport.airplanes.includes(tailNumber)
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log(`Testing that array of airplanes in airspace updates to remove 'AH574' after its successful land`);
+
+//1. Arrange
+tailNumber = 'AH574';
+airspace = ['AH574']
+airportCapacity = 1;
+airplanesAtAirport = []
+expectedOutput = false
+
+//2. Act
+airport = new Airport(airportCapacity, [tailNumber], []);
+airport.land(tailNumber);
+actualOutput = airport.airspace.includes(tailNumber)
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
+
+
+
+
 
 
