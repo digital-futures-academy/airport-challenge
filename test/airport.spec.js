@@ -90,6 +90,19 @@ actualOutput = airport.airspace.includes(tailNumber)
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log(`Testing that overriding capacity with anything other than a integer value outputs error message`)
+
+//1. Arrange
+newCapacity = 'Hello';
+expectedOutput = 'Error: Airport capacity must be set to an integer';
+
+//2. Act
+airport = new Airport();
+actualOutput = airport.override(newCapacity)
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
 
 
 
