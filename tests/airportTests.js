@@ -76,26 +76,28 @@ const testPlaneIsOnlyString = () => {
 };
 
 
-const testNoNullPlanes = () => {
+
+
+const testNoNonStringPlanes = () => {
 
     //Identity 
-    console.log(`testNoNullPlanes \n ========== \n`);
+    console.log(`testNoNonStringPlanes \n ========== \n`);
 
 
     //Arrange
     input = new Airport();
-    expected = undefined;
+    expected = true;
 
     //Act
 
-    input.landPlane();
-    actual = input.planesArray[0];
+    const nonStringPlane = input.landPlane();
+    actual = nonStringPlane instanceof Error;
 
     //Assert
     result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testNoNullPlanes result: ${result}`);
+    console.log(`testNoNonStringPlanes result: ${result}`);
 
 
 };
@@ -152,56 +154,42 @@ const testChangeCapacityAtAirport = () => {
 
 
 
-
-
-
-
-
-
-/*
 //User case 3 - Stops plane from landing
-const testNoMoreThanOnePlane = () => {
+const testPreventLanding = () => {
     //Identity
 
-    console.log(`testNoMoreThanOnePlane \n ===================\n`);
+    console.log(`testPreventLanding \n ===================\n`);
     //Arrange
-    input = new Airport().landPlane('plane1');
-    expected = `Airport has reached capacity!`
-
+    input = new Airport(capacity = 1);
+    expected = true;
 
     //Act
-
-
+    input.landPlane('plane1');
+    const extraPlane = input.landPlane('plane2');
+    actual = extraPlane instanceof Error
 
     //Assert
-
+    result = assertEquals(actual, expected);
 
     //Report
-
+    console.log(`testPreventLanding result: ${result}`);
 };
-*/
 
 
 
 
 
 
-
-
-
-
-
-
-
-//allAirportTests = { testNumbOfPlanesIsZero };
-
-module.exports = {
+airportTests = {
     testNumbOfPlanesIsZero,
     testOnePlaneLanded,
     testPlaneIsOnlyString,
-    testNoNullPlanes,
+    testNoNonStringPlanes,
     testDefaultCapacityAtAirport,
-    testChangeCapacityAtAirport
+    testChangeCapacityAtAirport,
+    testPreventLanding
 };
+
+module.exports = airportTests;
 
 

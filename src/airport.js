@@ -9,21 +9,32 @@ class Airport {
   landPlane(plane) {
 
     if (typeof plane === 'string') {
-      this.planesArray.push(plane);
-    } else if (plane) {
-      this.planesArray.push(plane.toString());
+      if (this.planesArray < this.capacity) {
 
-    } else {
+        this.planesArray.push(plane);
+
+      } else {
+        return new Error('Airport is full. Land somewhere else!');
+      }
+
+    }
+    else {
+      return new Error('Please input plane name as a string');
 
     }
 
-
-
   }
-
 
 }
 
 
 
 module.exports = Airport;
+
+
+
+//to do:
+//stop plane from landing if airport full
+//Create a plane class and decouple (properties name and landed (boolean))
+//then let plane takeoff
+// refactor so already landed planes don't land again and already takeoff'd planes done takeoff again
