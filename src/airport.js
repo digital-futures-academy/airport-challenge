@@ -17,6 +17,16 @@ class Airport {
       return `Landing successful; ${tailNumber} has arrived at airport`;
     }
   }
+  override(newCapacity) {
+    if (!Number.isInteger(newCapacity)) {
+      return `Error: Airport capacity must be set to an integer`
+    } else if (this.airplanes.length > newCapacity) {
+      return `Error: Airport capacity must be greater than number of planes already in airport`
+    } else {
+      this.capacity = newCapacity
+      return `Airport capacity has been successfully overridden to ${newCapacity}`
+    }
+  }
 }
 
 module.exports = Airport;
