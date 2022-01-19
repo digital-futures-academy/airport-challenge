@@ -1,4 +1,4 @@
-const airportTests = require(`./tests/airportTests`);
+const airportTests = require(`./tests/airportTests.spec`);
 
 const planeTests = require(`./tests/planeTests.spec`);
 
