@@ -157,6 +157,24 @@ actualOutput = airport.capacity;
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log(`Instructing a plane to take off when not included in array of airplanes at airport returns error message`)
+
+tailNumber = 'AH574';
+capacity = 3;
+airplanesAtAirport = ['HE274'];
+
+expectedOutput = 'Error: AH574 is not at airport';
+
+//2. Act
+airport = new Airport(capacity, [], airplanesAtAirport);
+actualOutput = airport.takeOff(tailNumber);
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
+
+
 
 
 
