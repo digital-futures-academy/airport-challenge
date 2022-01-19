@@ -7,6 +7,7 @@ p.planeInitialisesWithAirportProperty();
 p.planeInitialisesWithDefaultAirportProperty();
 
 
+
 // Airport class tests
 a.airportInitialisesWithNameTest();
 a.airportInitialisesWithCapacityTest();

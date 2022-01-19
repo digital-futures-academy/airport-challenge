@@ -12,14 +12,18 @@ class Airport {
 
   landPlane(plane) {
     try {
-      if (this.planes.length <= capacity) {
+      if (this.planes.length < this.capacity) {
         this.planes.push(plane);
+        // return ....
       } else {
-        let err = new Error("Airport is full, this plane cannot land.");
+        throw new Error("Airport is full, this plane cannot land.");
       }
     }
-    catch (err) {
+    catch (error) {
+      return error;
+      // I realise I could just return the error without throwing/catching but I wanted to practice...
 
+      // QUESTION: Is it bad practice to return rather than throw errors? What is the most common setup?
     }
   }
 
