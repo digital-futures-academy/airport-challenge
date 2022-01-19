@@ -23,7 +23,7 @@ airbourneStatus = () => {
 // if(this.capacity == xxx
 // console.log('MAximum capacity reached, do not land plane at airport'))
 
-//try- true for planes landed in an airport, false for still in flight with a corresponding string 
+//try- true for planes landed in an airport, false for still in flight with a corresponding string
 
 
 
@@ -32,6 +32,11 @@ airbourneStatus = () => {
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 */
+
+
+
+
+//get function for last extra condition  
 
 
 
