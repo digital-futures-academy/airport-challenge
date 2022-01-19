@@ -24,7 +24,9 @@ export const airportInitialisesWithCapacityTest = () => {
     const testDescription = "Airport constructor correctly creates an airport given capacity"
 
     // 1. Setup
-    const input = ["myAirport", 110];
+    const input = ["myAirport", [], 110];
+    // Have to pass empty array of planes to airport constructor due to the order of the default parameters.
+    // Don't know clean way to allow input ["myAirport", 110] without checking argument types...
     const expectedOutput = 110;
 
     // 2. Execute
