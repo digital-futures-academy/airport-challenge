@@ -6,6 +6,7 @@ class Airport {
 
   changeCapacity(newCapacity) {
     this.capacity = newCapacity;
+    console.log(`Capacity changed to ${newCapacity}`);
   }
 
 }

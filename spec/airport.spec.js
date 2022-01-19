@@ -2,7 +2,7 @@ import { assertEquals, printReport } from "./test-framework.js";
 
 import { Airport } from '../src/airport.js';
 
-const airportInitialisesWithNameTest = () => {
+export const airportInitialisesWithNameTest = () => {
     const testDescription = "Airport constructor correctly creates an airport given name"
 
     // 1. Setup
@@ -20,7 +20,7 @@ const airportInitialisesWithNameTest = () => {
     printReport(testDescription, result);
 }
 
-const airportInitialisesWithCapacityTest = () => {
+export const airportInitialisesWithCapacityTest = () => {
     const testDescription = "Airport constructor correctly creates an airport given capacity"
 
     // 1. Setup
@@ -38,7 +38,7 @@ const airportInitialisesWithCapacityTest = () => {
     printReport(testDescription, result);
 }
 
-const airportInitialisesWithDefaultCapacityTest = () => {
+export const airportInitialisesWithDefaultCapacityTest = () => {
     const testDescription = "Airport constructor correctly creates an airport with default capacity"
 
     // 1. Setup
@@ -56,7 +56,7 @@ const airportInitialisesWithDefaultCapacityTest = () => {
     printReport(testDescription, result);
 }
 
-const airportCapacityCanBeChanged = () => {
+export const airportCapacityCanBeChanged = () => {
     const testDescription = "Airport capacity can be changed to provided value"
 
     //1. Setup
@@ -74,4 +74,20 @@ const airportCapacityCanBeChanged = () => {
     printReport(testDescription, result);
 }
 
-export { airportInitialisesWithNameTest, airportInitialisesWithCapacityTest, airportInitialisesWithDefaultCapacityTest, airportCapacityCanBeChanged };
+export const airportInitialisesWithListOfPlanes = () => {
+    const testDescription = "Airport initialises with empty array of planes"
+
+    //1. Setup
+    const input = "myAirport";
+    const expectedOutput = 0
+
+    // 2. Execute
+    const myAirport = new Airport(input);
+    const actualOutput = myAirport.planes.length;
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
