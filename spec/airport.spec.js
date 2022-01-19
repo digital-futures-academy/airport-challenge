@@ -1,4 +1,4 @@
-import { assertEquals, printReport } from "./test-framework.js";
+import { assertEquals, assertArrayOfPrimitivesEquals, printReport } from "./test-framework.js";
 
 import { Airport } from '../src/airport.js';
 
@@ -91,3 +91,23 @@ export const airportInitialisesWithListOfPlanes = () => {
     // Report
     printReport(testDescription, result);
 }
+
+export const airportCanBeInitialisedWithCustomListOfPlanes = () => {
+    const testDescription = "Airport initialises with custom array of planes"
+
+    //1. Setup
+    const planesList = ["plane1, plane2"];
+    const input = ["myAirport", planesList];
+    const expectedOutput = planesList;
+
+    // 2. Execute
+    const myAirport = new Airport(input);
+    const actualOutput = myAirport.planes;
+
+    // 3. Verify
+    const result = assertArrayOfPrimitivesEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
+

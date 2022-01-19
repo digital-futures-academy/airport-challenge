@@ -13,3 +13,4 @@ a.airportInitialisesWithCapacityTest();
 a.airportInitialisesWithDefaultCapacityTest();
 a.airportCapacityCanBeChanged();
 a.airportInitialisesWithListOfPlanes();
+a.airportCanBeInitialisedWithCustomListOfPlanes();
