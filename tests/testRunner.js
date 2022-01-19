@@ -6,7 +6,9 @@ const { checkAnyPlaneNameInputNotStringIsUndefined,
     checkAirportNameHasToBeThreeLetterInput,
     checkCanGetAirportName,
     checkPlaneInstructedToLandIsAtAirport,
-    checkLandedPlaneLocationIsSetToSpecifiedAirport } = require('./testSpecs.js')
+    checkLandedPlaneLocationIsSetToSpecifiedAirport,
+    checkDefaultAirportCapacityIs5,
+    checkDefaultAirportCapacityCanBeOverRidden } = require('./testSpecs.js')
 
 
 checkAnyPlaneNameInputNotStringIsUndefined();
@@ -18,3 +20,5 @@ checkAirportNameHasToBeThreeLetterInput();
 checkCanGetAirportName();
 checkPlaneInstructedToLandIsAtAirport();
 checkLandedPlaneLocationIsSetToSpecifiedAirport();
+checkDefaultAirportCapacityIs5();
+checkDefaultAirportCapacityCanBeOverRidden();

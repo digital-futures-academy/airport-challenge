@@ -7,7 +7,7 @@ class Airport {
   #name
   #landedPlanes
 
-  constructor(name) {
+  constructor(name, airportCapacity = 5) {
 
     try {
       if (!name) throw new Error(`Entry data is missing for airport name.`);
@@ -15,6 +15,7 @@ class Airport {
       if (name.length != 3) throw new Error('Airport names must be in the format of three capital letters. E.g: JFK.')
       this.#name = name
       this.#landedPlanes = [];
+      this.airportCapacity = airportCapacity;
       Airport.listOfAllAirports.push(name);
     } catch (err) {
       console.log(err.message);
@@ -33,7 +34,6 @@ class Airport {
     this.#landedPlanes.push(plane.getPlaneName())
     plane.setPlaneLocation(this.#name);
   }
-
 
 }
 

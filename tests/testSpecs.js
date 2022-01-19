@@ -2,7 +2,7 @@ const { Airport } = require('../src/airport');
 const { Plane } = require('../src/plane');
 const { assertEquals } = require('./testFramework');
 
-//PART 1 
+//// USER STORY PART 1 
 
 // PLANE INSTANCE TESTS 
 
@@ -107,7 +107,7 @@ const checkCanGetAirportName = () => {
     console.log(`checkCanGetAirportName test result: ${result}\n`)
 }
 
-// AIRPORT LANDING PLANE TEST 
+// AIRPORT LANDING PLANE TESTS 
 
 const checkPlaneInstructedToLandIsAtAirport = () => {
     //Identify
@@ -126,8 +126,6 @@ const checkPlaneInstructedToLandIsAtAirport = () => {
     console.log(`checkPlaneInstructedToLandIsAtAirport test result: ${result}\n`)
 }
 
-// Test that newly landed plane location is that of airports 
-
 const checkLandedPlaneLocationIsSetToSpecifiedAirport = () => {
     //Identify
     console.log(`\ncheckLandedPlaneLocationIsSetToSpecifiedAirport\n================`)
@@ -144,9 +142,39 @@ const checkLandedPlaneLocationIsSetToSpecifiedAirport = () => {
     console.log(`checkLandedPlaneLocationIsSetToSpecifiedAirport test result: ${result}\n`)
 }
 
-// console.log(testPlane.getLocation());
+//// USER STORY PART 2
 
-//PART 2 
+// AIRPORT CAPACITY TESTS
+
+const checkDefaultAirportCapacityIs5 = () => {
+    //Identifier
+    console.log(`\ncheckDefaultAirportCapacityIs5\n================`)
+    //Arrange
+    const testAirport = new Airport('LDN');
+    expected = 5;
+    //Act
+    const actual = testAirport.airportCapacity;
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report
+    console.log(`checkDefaultAirportCapacityIs5 test result: ${result}\n`)
+}
+
+// Check default airport capacity can be overridden
+
+const checkDefaultAirportCapacityCanBeOverRidden = () => {
+    //Identifier
+    console.log(`\ncheckDefaultAirportCapacityCanBeOverRidden\n================`)
+    //Arrange
+    const testAirport = new Airport('TST', 2);
+    const expected = 2;
+    //Act
+    const actual = testAirport.airportCapacity;
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report
+    console.log(`checkDefaultAirportCapacityCanBeOverRidden test result: ${result}\n`)
+}
 
 module.exports = {
     checkAnyPlaneNameInputNotStringIsUndefined,
@@ -157,5 +185,7 @@ module.exports = {
     checkAirportNameHasToBeThreeLetterInput,
     checkCanGetAirportName,
     checkPlaneInstructedToLandIsAtAirport,
-    checkLandedPlaneLocationIsSetToSpecifiedAirport
+    checkLandedPlaneLocationIsSetToSpecifiedAirport,
+    checkDefaultAirportCapacityIs5,
+    checkDefaultAirportCapacityCanBeOverRidden
 }
