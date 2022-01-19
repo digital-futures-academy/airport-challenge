@@ -173,6 +173,23 @@ actualOutput = airport.takeOff(tailNumber);
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log(`Instructing a plane (that is already at airport) to take off will return success message`)
+
+tailNumber = 'AH574';
+capacity = 3;
+airplanesAtAirport = ['AH574', 'HE274'];
+
+expectedOutput = `Take off successful; AH574 is no longer at the airport`;
+
+//2. Act
+airport = new Airport(capacity, [], airplanesAtAirport);
+actualOutput = airport.takeOff(tailNumber);
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
+
 
 
 
