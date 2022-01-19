@@ -67,10 +67,50 @@ const testPlaneLandsAirportAvailable = () => {
     console.log(`A plane can land when airport is available: ${result}`);
 };
 
+// Test if plane landed into the airport:
+const testPlaneLandedIntoAirport = () => {
+    // Arrange
+    const airport = new Airport();
+    const expected = true;
+
+    // Act
+    const getPlanesResult = airport.getPlanes();
+    const actual = getPlanesResult instanceof Array;
+
+    // Assert
+    const result = assertEquals(expected, actual);
+
+    // Report
+    console.log(`A plane landed into the airport: ${result}`);
+};
+
+// Test if can add more than one plane into the airport
+const testAddMoreThanOnePlane = () => {
+
+    // Arrange
+    const airport = new Airport();
+    const expected = 2;
+    const testPlane = ['MSE-2201-A', 'London'];
+    const testPlane2 = ['DSE-2201-A', 'Verona'];
+
+    // Act
+    airport.addPlane(testPlane);
+    airport.addPlane(testPlane2);
+    const actual = airport.getPlanes().length;
+
+    // Assert
+    const result = assertEquals(actual, expected);
+
+    // Report
+    console.log(`There is more than one plane in the airport: ${result}`);
+}
+
 
 module.exports = {
     testAirportAvailable,
     testAirportUnavailable,
     testPlaneLandsAirportUnavailable,
-    testPlaneLandsAirportAvailable
+    testPlaneLandsAirportAvailable,
+    testPlaneLandedIntoAirport,
+    testAddMoreThanOnePlane
 };

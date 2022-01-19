@@ -15,6 +15,20 @@ class Airport {
     this.#available = !this.#available;
   }
 
+  getPlanes() {
+    if (this.#available === false) {
+      return new Error(`Planes cannot land when the airport is unavailable`);
+    } else {
+      return this.#planes;
+    }
+
+  }
+
+  addPlane(planeDetails) {
+    const newPlane = planeDetails;
+    this.#planes.push(newPlane);
+  }
+
 }
 
 module.exports = Airport;
