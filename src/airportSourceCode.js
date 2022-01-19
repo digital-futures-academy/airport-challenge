@@ -1,21 +1,25 @@
 class Airport {
  
-  constructor (planeAirStatus, airportCapacity = 0){
+  constructor (planeAirStatus, airportMaxCapacity = 0){
    this.airStatus = planeAirStatus
-   this.airportCapacity = airportCapacity
+   this.airportMaxCapacity = airportMaxCapacity
   }
 
   landPlane(planeAirStatus){
-    if (planeAirStatus === true) {
-    return true 
-    } else {
-    return false 
-    }
+    if (planeAirStatus) {
+    return planeAirStatus 
+    } 
+    return planeAirStatus 
   }
 
-  changeCapacity(airportCapacity){
-   let newCapacity = airportCapacity
+  changeCapacity(airportMaxCapacity){
+   let newCapacity = airportMaxCapacity;
+  this.airportMaxCapacity = newCapacity
     return newCapacity;
+  }
+
+  preventLanding(){
+
   }
 
 
