@@ -11,11 +11,22 @@ class Airport {
 
 }
 
-const airportOne = new Airport
+const airportOne = new Airport(inFlight, 0, 0, 0, 0)
 
-airbourneStatus(){
 
+
+airbourneStatus = () => {
+    if (position === inFlight)
+        console.log('land plane at airport')
 }
+
+// if(this.capacity == xxx
+// console.log('MAximum capacity reached, do not land plane at airport'))
+
+//try- true for planes landed in an airport, false for still in flight with a corresponding string 
+
+
+
 
 /*As an air traffic controller
 So I can get passengers to a destination

@@ -18,8 +18,10 @@ let takeOffCondition = () => {
   }
 }
 
-if (takeOffCondition = rainy) {
+if (takeOffCondition = stormy) {
   return 'Cannoy take-off in stormy weather'
+} else {
+  return 'Take-off authorised'
 }
 
 let airportCapacity = () => {

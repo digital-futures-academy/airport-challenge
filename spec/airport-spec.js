@@ -1,12 +1,5 @@
 const { airport } = require('.../src/airport')
 
-let airport;
-
-if (plane = landed in airport) {
-    return true
-} else {
-    return false
-};
 
 /*let input, expectedOutput, actualOutput, result;
 // --------------------------------------------------
