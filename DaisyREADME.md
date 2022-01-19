@@ -1,19 +1,20 @@
-Airport Challenge
+# Airport Challenge
 =================
 
+// Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
+
+//If you refer to the solution of another coach or student, please put a link to that in your README.
+
+## How to Install the Project
+---------
+
+
+## How to Run the Tests
+---------
 
 
 
-
-
-
-
-
-
-
-
-
-
+```
                                          _
                  ___                          (_)
                _/XXX\
@@ -39,5 +40,5 @@ __/_______\________\__\_/________\__/_/____/_____________/_______\____/____
                       /      ____/___\____     \
                       ___________[o0o]___________
                                O   O    O
-
+```
                                
