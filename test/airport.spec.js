@@ -105,6 +105,30 @@ result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
 
+console.log(`Testing that overriding capacity with an integer value that is less than the number of planes already in airport outputs error message`)
+
+//1. Arrange
+capacity = 3;
+airplanesAtAirport = ['AH574', 'HE274'];
+newCapacity = 1;
+
+expectedOutput = 'Error: Airport capacity must be greater than number of planes already in airport';
+
+//2. Act
+airport = new Airport(capacity, [], airplanesAtAirport);
+actualOutput = airport.override(newCapacity)
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
+
+
+
+
+
+
+
 
 
 
