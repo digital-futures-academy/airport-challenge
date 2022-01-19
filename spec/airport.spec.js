@@ -28,7 +28,7 @@ const testNewAirport = () => {
     //     console.log(`testingMethod \n expected = ${expected} \n actual = ${actual} \n assertEquals = ${result}`);
 }
 
-const testNewAirportIsEmpty = () => {
+const testNewAirportIsEmpty = () => { //Converted to jasmine
     //Setup
     // let input = 0;
     let expected = 0;
@@ -260,3 +260,114 @@ const airportSpec = {
 }
 
 module.exports = airportSpec;
+
+//***************//
+//Jasmine testing//
+//***************//
+
+class MockPlane {
+    planeID = 'T3ST-1NG';
+}
+
+describe(`Airport tests`, () => {
+    describe(`Constructor testing`, () => {
+        it(`should be empty with new airport`, () => {
+            //Arrange
+            let testAirport = new Airport();
+            //Act
+            let actual = testAirport.getPlanes();
+            //Assert
+            expect(actual.length).toBe(0);
+        });
+        it(`should be set to input supplied in constructor`, () => {
+            //Arrange
+            let input = 5;
+            let testAirport = new Airport(input);
+
+            //Act
+            let actual = testAirport.getCapacity();
+
+            //Assert
+            expect(actual).toBe(input);
+
+        });
+        it(`should be set to ID supplied in constructor`, () => {
+            //Arrange
+            let input = "LAX";
+            let testAirport = new Airport(10, input);
+
+            //Act
+            let actual = testAirport.getID();
+
+            //Assert
+            expect(actual).toBe(input);
+        });
+    });
+    describe(`Plane manipulation testing`, () => {
+        it(`should return an array`, () => {
+            //Arrange
+            let testAirport = new Airport();
+
+            //Act
+            let actual = testAirport.getPlanes();
+
+            //Assert
+            expect(actual).toBeInstanceOf(Array);
+        });
+        it(`should add Plane while airport is not full`, () => {
+            //Arrange
+            let testAirport = new Airport();
+            let testPlane = new MockPlane();
+
+            //Act
+            testAirport.land(testPlane);
+            let actual = testAirport.getPlanes();
+
+            //Assert
+            expect(actual.length).toBe(1);
+        });
+        it(`should not add Plane while airport is full`, () => {
+            //Arrange
+            let testAirport = new Airport(3);
+            let testPlane1 = new MockPlane();
+            let testPlane2 = new MockPlane();
+            let testPlane3 = new MockPlane();
+            testAirport.land(testPlane1);
+            testAirport.land(testPlane2);
+            testAirport.land(testPlane3);
+
+            let testPlane = new MockPlane();
+
+            //Act
+            let actual = testAirport.land(testPlane);
+            //let actual = testAirport.getPlanes();
+
+            //Assert
+            expect(actual).toBeInstanceOf(Error);
+        });
+        it(`should remove Plane from airport`, () => {
+            //Arrange
+            let testAirport = new Airport();
+            let testPlane = new MockPlane();
+            testAirport.land(testPlane);
+
+            //Act
+            testAirport.takeOff(testPlane);
+            let actual = testAirport.getPlanes();
+
+            //Assert
+            expect(actual.length).toBe(0);
+        });
+        it(`should not remove Plane from empty airport`, () => {
+            //Arrange
+            let testAirport = new Airport(5, `LAX`);
+            let testPlane = new MockPlane();
+
+            //Act
+            let actual = testAirport.takeOff(testPlane);
+
+            //Assert
+            expect(actual).toBeInstanceOf(Error);
+        });
+    });
+});
