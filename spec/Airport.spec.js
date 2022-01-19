@@ -6,5 +6,5 @@ test.it('test airport can land plane', function () {
     let airport = new Airport();
     let plane = new Plane('plane');
     airport.landPlane(plane);
-    test.expect(airport.planes.length).toEqual(1);
+    return test.expect(airport.planes.length).toEqual(1);
 });
