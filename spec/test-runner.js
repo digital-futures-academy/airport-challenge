@@ -1,17 +1,3 @@
-// import {
-//     planeInitialisesWithNameTest,
-//     planeInitialisesWithAirportProperty,
-//     planeInitialisesWithDefaultAirportProperty
-// } from "./plane.spec.js"
-
-// import {
-//     airportInitialisesWithNameTest,
-//     airportInitialisesWithCapacityTest,
-//     airportInitialisesWithDefaultCapacityTest,
-//     airportCapacityCanBeChanged,
-//     airportInitialisesWithListOfPlanes
-// } from "./airport.spec.js"
-
 import * as p from "./plane.spec.js";
 import * as a from "./airport.spec.js";
 
