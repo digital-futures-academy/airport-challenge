@@ -207,6 +207,24 @@ result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
 
+console.log(`Testing that, after take off, the plane has been added to the airspace`)
+
+tailNumber = 'AH574';
+capacity = 3;
+airplanesAtAirport = ['AH574', 'HE274'];
+
+expectedOutput = true;
+
+//2. Act
+airport = new Airport(capacity, [], airplanesAtAirport);
+airport.takeOff(tailNumber)
+actualOutput = airport.airspace.includes(tailNumber);
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
+
 
 
 
