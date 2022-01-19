@@ -1,3 +1,7 @@
-const { testAirportAvailable } = require('./spec/Airport.spec');
+const {
+    testAirportAvailable,
+    testAirportUnavailable,
+} = require('./spec/Airport.spec');
 
 testAirportAvailable();
+testAirportUnavailable();
