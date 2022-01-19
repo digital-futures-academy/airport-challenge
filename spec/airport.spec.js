@@ -1,6 +1,7 @@
 import { assertEquals, assertArrayOfPrimitivesEquals, printReport } from "./test-framework.js";
 
 import { Airport } from '../src/airport.js';
+import { Plane } from "../src/plane.js";
 
 export const airportInitialisesWithNameTest = () => {
     const testDescription = "Airport constructor correctly creates an airport given name"
@@ -113,3 +114,20 @@ export const airportCanBeInitialisedWithCustomListOfPlanes = () => {
     printReport(testDescription, result);
 }
 
+
+export const airportCannotLandPlaneWhenFull = () => {
+    const testDescription = "Airport can't land a plane when it's full"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const expectedOutput = new Error("Airport is full, this plane cannot land.");
+
+    // 2. Execute
+    const actualOutput = myAirport.landPlane();
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput instanceof Error && expectedOutput.message === "Airport is full, this plane cannot land.", actualOutput instanceof Error && actualOutput.message === "Airport is full, this plane cannot land.");
+
+    // Report
+    printReport(testDescription, result);
+}
