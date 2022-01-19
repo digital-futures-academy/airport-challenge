@@ -33,9 +33,27 @@ const testAirportUnavailable = () => {
     console.log(`Airport is initially unavailable: ${result}`);
 };
 
+// Test if a plane can land when Airport is unavailable:
+const testPlaneLandsAirportUnavailable = () => {
+    // Arrange
+    const airport = new Airport();
+    const expected = false;
+
+    // Act
+    airport.isFull();
+    const actual = airport.isAvailable();
+
+    // Assert
+    const result = assertEquals(expected, actual);
+
+    // Report
+    console.log(`A plane cannot land when airport is unavailable: ${result}`);
+};
+
 
 
 module.exports = {
     testAirportAvailable,
     testAirportUnavailable,
+    testPlaneLandsAirportUnavailable
 };

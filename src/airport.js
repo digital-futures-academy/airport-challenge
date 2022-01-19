@@ -11,6 +11,10 @@ class Airport {
     return this.#available;
   }
 
+  isFull() {
+    this.#available = !this.#available;
+  }
+
 }
 
 module.exports = Airport;
