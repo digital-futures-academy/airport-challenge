@@ -35,6 +35,11 @@ class Airport {
     return this.#capacity;
   }
 
+  changeCapacity(num) {
+    this.#capacity = num;
+    return this.#capacity;
+  }
+
 }
 
 module.exports = Airport;
