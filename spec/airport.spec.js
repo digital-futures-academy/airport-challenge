@@ -24,8 +24,8 @@ export const airportInitialisesWithCapacityTest = () => {
     const testDescription = "Airport constructor correctly creates an airport given capacity"
 
     // 1. Setup
-    const input = ["myAirport", 100];
-    const expectedOutput = 100;
+    const input = ["myAirport", 110];
+    const expectedOutput = 110;
 
     // 2. Execute
     const myAirport = new Airport(...input);
@@ -101,7 +101,7 @@ export const airportCanBeInitialisedWithCustomListOfPlanes = () => {
     const expectedOutput = planesList;
 
     // 2. Execute
-    const myAirport = new Airport(input);
+    const myAirport = new Airport(...input);
     const actualOutput = myAirport.planes;
 
     // 3. Verify
