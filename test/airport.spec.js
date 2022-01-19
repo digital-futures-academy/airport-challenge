@@ -122,6 +122,22 @@ actualOutput = airport.override(newCapacity)
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log(`Testing that overriding Airport capacity with integer > airplanesAtAirport outputs success message`)
+
+//1. Arrange
+capacity = 3;
+airplanesAtAirport = ['AH574', 'HE274'];
+newCapacity = 4;
+
+expectedOutput = `Airport capacity has been successfully overridden to 4`;
+
+//2. Act
+airport = new Airport(capacity, [], capacity);
+actualOutput = airport.override(newCapacity)
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
 
 
 
