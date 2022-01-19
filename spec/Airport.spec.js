@@ -37,9 +37,10 @@ test.it('test planes are prevented from landing if airport is full', function ()
 });
 
 test.it('test airport can let plane take off', function () {
-    let airport = new Airport();
-    let plane = new Plane('plane');
-    airport.landPlane(plane);
-    airport.takeOff(plane);
-    return test.expect(airport.planes.length).toEqual(0);
+    let plane1 = new Plane('plane1');
+    let airport = new Airport(10, [plane1]);
+    let plane2 = new Plane('plane2');
+    airport.landPlane(plane2);
+    airport.takeOff(plane1);
+    return test.expect(airport.planes[0].name).toEqual('plane2') && test.expect(airport.planes.length).toEqual(1);
 });

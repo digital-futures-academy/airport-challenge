@@ -9,6 +9,10 @@ class Airport {
         this.planes.push(plane);
     }
 
+    takeOff(plane) {
+        this.planes.splice(this.planes.indexOf(plane), 1);
+    }
+
     updateCapacity(extra) {
         this.capacity += extra;
     }
