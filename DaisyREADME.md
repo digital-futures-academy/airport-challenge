@@ -1,16 +1,17 @@
 # Airport Challenge
-=================
 
 // Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
 
 //If you refer to the solution of another coach or student, please put a link to that in your README.
 
-## How to Install the Project
----------
+## How to Install and Run the Project
+
+  - Can view the total number of planes and airports in existent (that have been created)
+
 
 
 ## How to Run the Tests
----------
+
 
 
 
