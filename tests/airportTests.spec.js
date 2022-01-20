@@ -10,7 +10,7 @@ class MockPlane {
     getName() { return this.name } //Only doing this because I haven't set up Jasmine and can't use spyOn();
     isLanded() { return this.landed }
 
-    //changeLandingStatus() { }
+    changeLandingStatus() { this.landed = !this.landed }
 
 }
 
@@ -212,12 +212,68 @@ const testTakeOffUsesObjectPlanesOnly = () => {
     console.log(`testTakeOffUsesObjectPlanesOnly result : ${result}`);
 
 
+};
 
+//User Case 5 - Don't let plane land or take-off twice
 
+const testIfPlaneAlreadyAtAirportDontLandAgain = () => {
+
+    //Identity
+    console.log(`testIfPlaneAlreadyAtAirportDontLandAgain \n ========== \n`)
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const expected = true;
+    //Act
+    input.landPlane(testPlane);
+    const landSamePlane = input.landPlane(testPlane);
+    const actual = landSamePlane instanceof Error;
+    //Assert
+    const result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testIfPlaneAlreadyAtAirportDontLandAgain result : ${result}`);
+}
+
+const testPlaneLandedSomewhereElseThenCantLand = () => {
+
+    //Identity
+    console.log(`testPlaneLandedSomewhereElseThenCantLand \n ========== \n`)
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane('Test Plane', true);
+    const expected = true;
+    //Act
+    const alreadyLandedPlane = input.landPlane(testPlane);
+    const actual = alreadyLandedPlane instanceof Error;
+    //Assert
+    const result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testPlaneLandedSomewhereElseThenCantLand result : ${result}`);
 
 };
 
 
+const testCantRemovePlaneNotAtAirport = () => {
+
+    //Identity
+    console.log(`testCantRemovePlaneNotAtAirport \n ========== \n`);
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const expected = true;
+    //Act
+    const takeOffPlaneNotInList = input.takeOffPlane(testPlane);
+    const actual = takeOffPlaneNotInList instanceof Error;
+
+    //Assert
+    const result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testCantRemovePlaneNotAtAirport result : ${result}`);
+
+}
 
 
 
@@ -231,7 +287,10 @@ airportTests = {
     testPreventLanding,
     testPlaneMustBeAnObject,
     testTakeOffRemovesPlaneFromArray,
-    testTakeOffUsesObjectPlanesOnly
+    testTakeOffUsesObjectPlanesOnly,
+    testIfPlaneAlreadyAtAirportDontLandAgain,
+    testPlaneLandedSomewhereElseThenCantLand,
+    testCantRemovePlaneNotAtAirport
 };
 
 module.exports = airportTests;

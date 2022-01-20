@@ -1,3 +1,5 @@
+const { Plane } = require("./plane");
+
 class Airport {
   // here's a starting point for you
   constructor(capacity = 5) {
@@ -8,31 +10,40 @@ class Airport {
 
   //Need to refactor 
   landPlane(plane) {
-    if (plane instanceof Object) {
-      if (this.planesArray.length < this.capacity) {
-        this.planesArray.push(plane.getName());
-      } else {
-        return new Error('Airport is full. Land somewhere else!');
-      }
+    try {
+      if (!(plane instanceof Object)) throw new Error('Plane must be an object. Please use the Plane() class.')
+      if (this.planesArray.includes(plane.getName())) throw new Error('Plane is already at the Airport');
+      if (plane.isLanded()) throw new Error('Plane is Landed somewhere else.')
+      if (!(this.planesArray.length < this.capacity)) throw new Error('Airport is full. Land somewhere else!')
+      this.planesArray.push(plane.getName());
+      plane.changeLandingStatus()
+    }
 
-    } else {
-
-      return new Error('Plane must be an object. Please use the Plane() class.');
-
+    catch (err) {
+      console.log(err.message)
+      return err
     }
 
   }
 
+
   takeOffPlane(plane) {
 
-    if (plane instanceof Object) {
 
+    try {
+      if (!(plane instanceof Object)) throw new Error('Please use the Plane class.');
+      if (!this.planesArray.includes(plane.getName())) throw new Error('Plane is not at this Airport.')
       const planeIndex = this.planesArray.indexOf(plane.getName());
       this.planesArray = this.planesArray.filter(landedPlane => landedPlane != plane.getName());
-
-    } else {
-      return new Error('Please use the Plane class.');
+      plane.changeLandingStatus();
     }
+    catch (err) {
+      console.log(err.message)
+      return err;
+    }
+
+
+
   }
 
 
@@ -46,8 +57,4 @@ module.exports = Airport;
 
 
 
-//to do:
-//stop plane from landing if airport full (done)
-//Create a plane class and decouple (properties name and landed (boolean)) (doing)
-//then let plane takeoff
-// refactor so already landed planes don't land again and already takeoff'd planes done takeoff again
+//To do: All user cases done just need to do the Extended criteria

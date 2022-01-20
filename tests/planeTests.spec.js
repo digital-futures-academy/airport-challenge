@@ -128,26 +128,26 @@ const testErrorIfNameIsNonString = () => {
 
 //MIGHT NOT NEED THIS IF CAN CHANGE LANDING STATUS IN THE AIRPORT CLASS
 
-// const testChangingPlaneLandingStatus = () => {
+const testChangingPlaneLandingStatus = () => {
 
-//     //Initial 
-//     console.log(`testChangingPlaneLandingStatus \n ============ \n`);
+    //Initial 
+    console.log(`testChangingPlaneLandingStatus \n ============ \n`);
 
-//     //Arrange 
-//     const testPlane = new Plane('Test Plane');
-//     const expected = true;
+    //Arrange 
+    const testPlane = new Plane('Test Plane');
+    const expected = true;
 
-//     //Act
-//     testPlane.changeLandingStatus();
-//     const actual = testPlane.isLanded()
+    //Act
+    testPlane.changeLandingStatus();
+    const actual = testPlane.isLanded()
 
-//     //Assert
-//     const result = assertEquals(actual, expected);
+    //Assert
+    const result = assertEquals(actual, expected);
 
-//     //Report
-//     console.log(`testChangingPlaneLandingStatus result ${result}`);
+    //Report
+    console.log(`testChangingPlaneLandingStatus result ${result}`);
 
-// };
+};
 
 
 
@@ -161,7 +161,7 @@ planeTests = {
     testPlaneHasStringName,
     testErrorIfNullPlaneName,
     testErrorIfNameIsNonString,
-    //testChangingPlaneLandingStatus
+    testChangingPlaneLandingStatus
 
 }
 

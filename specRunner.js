@@ -12,6 +12,9 @@ airportTests.testPreventLanding();
 airportTests.testPlaneMustBeAnObject();
 airportTests.testTakeOffRemovesPlaneFromArray();
 airportTests.testTakeOffUsesObjectPlanesOnly();
+airportTests.testIfPlaneAlreadyAtAirportDontLandAgain();
+airportTests.testPlaneLandedSomewhereElseThenCantLand();
+airportTests.testCantRemovePlaneNotAtAirport();
 
 
 //Plane Tests
@@ -20,5 +23,6 @@ planeTests.testPlaneIsLandedIfSupplied();
 planeTests.testPlaneHasStringName();
 planeTests.testErrorIfNullPlaneName();
 planeTests.testErrorIfNameIsNonString();
-//planeTests.testChangingPlaneLandingStatus();
+planeTests.testChangingPlaneLandingStatus();
+
 

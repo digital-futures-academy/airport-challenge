@@ -26,10 +26,10 @@ class Plane {
         return this.#name;
 
     }
-    //MIGHT NOT NEED IF CAN CHANGE IN AIRPORT CLASS
-    // changeLandingStatus() {
-    //     this.#landed = !this.#landed;
-    // };
+
+    changeLandingStatus() {
+        this.#landed = !this.#landed;
+    };
 
 }
 
