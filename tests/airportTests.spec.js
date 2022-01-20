@@ -1,13 +1,15 @@
 const Airport = require("../src/airport");
 const { assertEquals } = require(`./test-frameworks`);
+
 class MockPlane {
     constructor(name = 'Test Plane', landed = false) {
         this.landed = landed;
         this.name = name;
         //Needed a constructor as I wanted to use the Mock to add two planes with different names
     }
-    getName() { }
-    isLanded() { }
+    getName() { return this.name } //Only doing this because I haven't set up Jasmine and can't use spyOn();
+    isLanded() { return this.landed }
+
     //changeLandingStatus() { }
 
 }
@@ -138,6 +140,86 @@ const testPreventLanding = () => {
 
 
 
+const testPlaneMustBeAnObject = () => {
+
+    //Identity 
+    console.log(`testPlaneMustBeAnObject \n ===========\n`);
+
+    //Arrange
+    const input = new Airport();
+    const testPLane = 'NonObject Plane';
+    const expected = true;
+
+    //Act
+    const testLanding = input.landPlane(testPLane);
+    const actual = testLanding instanceof Error;
+    //Assert
+    const result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testPlaneMustBeAnObject result : ${result}`);
+}
+
+
+
+//User Case 4 - Let plane takeoff
+
+const testTakeOffRemovesPlaneFromArray = () => {
+
+    //Identity
+    console.log(`testTakeOffRemovesPlaneFromArray \n ========== \n`);
+
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const testPlane2 = new MockPlane('Test Plane 2');
+    const expected = 'Test Plane 2';
+
+    //Act
+    input.landPlane(testPlane);
+    input.landPlane(testPlane2);
+    input.takeOffPlane(testPlane);
+    const actual = input.planesArray[0];
+
+    //Assert
+    const result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testTakeOffRemovesPlaneFromArray result : ${result}`);
+
+
+}
+
+const testTakeOffUsesObjectPlanesOnly = () => {
+
+    //Identity
+    console.log(`testTakeOffUsesObjectPlanesOnly \n ========== \n`);
+
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const testPlaneName = testPlane.getName();
+    const expected = true;
+
+    //Act
+    input.landPlane(testPlane);
+    const takingOffTestPlane = input.takeOffPlane(testPlaneName);
+    const actual = takingOffTestPlane instanceof Error;
+    //Assert
+    const result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testTakeOffUsesObjectPlanesOnly result : ${result}`);
+
+
+
+
+
+};
+
+
+
+
 
 
 
@@ -146,7 +228,10 @@ airportTests = {
     testOnePlaneLanded,
     testDefaultCapacityAtAirport,
     testChangeCapacityAtAirport,
-    testPreventLanding
+    testPreventLanding,
+    testPlaneMustBeAnObject,
+    testTakeOffRemovesPlaneFromArray,
+    testTakeOffUsesObjectPlanesOnly
 };
 
 module.exports = airportTests;

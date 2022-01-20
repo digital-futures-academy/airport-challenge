@@ -8,16 +8,32 @@ class Airport {
 
   //Need to refactor 
   landPlane(plane) {
+    if (plane instanceof Object) {
+      if (this.planesArray.length < this.capacity) {
+        this.planesArray.push(plane.getName());
+      } else {
+        return new Error('Airport is full. Land somewhere else!');
+      }
 
-    if (this.planesArray.length < this.capacity) {
-      this.planesArray.push(plane.getName());
     } else {
-      return new Error('Airport is full. Land somewhere else!');
+
+      return new Error('Plane must be an object. Please use the Plane() class.');
+
     }
 
   }
 
+  takeOffPlane(plane) {
 
+    if (plane instanceof Object) {
+
+      const planeIndex = this.planesArray.indexOf(plane.getName());
+      this.planesArray = this.planesArray.filter(landedPlane => landedPlane != plane.getName());
+
+    } else {
+      return new Error('Please use the Plane class.');
+    }
+  }
 
 
 
