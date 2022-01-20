@@ -1,7 +1,9 @@
 const { checkCanLandPlane, checkCanOverrideAirportCapacity, 
-    checkCannotLandWhenAirportFull } = require("./airport.spec");
+    checkCannotLandWhenAirportFull, 
+    checkCanTakeOff} = require("./airport.spec");
 
 
 checkCanLandPlane(); 
 checkCanOverrideAirportCapacity(); 
 checkCannotLandWhenAirportFull(); 
+checkCanTakeOff(); 

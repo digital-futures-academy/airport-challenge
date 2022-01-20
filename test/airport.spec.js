@@ -21,11 +21,11 @@ console.log(`The airport managed to land the plane: ${result} `);
 const checkCanOverrideAirportCapacity = () => {
 //Arrange
 const updatingCapacity = new Airport(); 
-let expected = 1
+let expected = 0
 
 //Setup 
-let actual = updatingCapacity.changeCapacity(1); 
-console.log(`This is where it is: ${updatingCapacity.airportMaxCapacity}`);
+let actual = updatingCapacity.changeCapacity(); 
+//console.log(`This is where it is: ${updatingCapacity.airportMaxCapacity}`);
 //Report 
 let result = assertEquals(actual, expected); 
 console.log(`The airport capacity has been updated: ${result}`); 
@@ -36,10 +36,12 @@ console.log(`The airport capacity has been updated: ${result}`);
 const checkCannotLandWhenAirportFull = () => {
 //Arrange
 const testPlane = new Airport(); 
-let expected = false
+let expected = true;
 
 //Setup
-let actual = testPlane.preventLanding();
+let cannotLandResult = testPlane.preventLanding(["flight1"]);
+let actual = cannotLandResult instanceof Error;
+console.log(actual, 'This is where is is')
 
 //Result 
 let result = assertEquals(actual, expected); 
@@ -48,7 +50,23 @@ console.log(`For safety, the plane cannot land as the max capacity has been reac
 }
 
 
+const checkCanTakeOff = () => {
+//Arrange
+const testPlane = new Airport (); 
+let expected = 0;
+//Set up
+
+let actual = testPlane.allowTakeOff(false, ["plane1"]); 
+
+//Report 
+let result = assertEquals (actual, expected); 
+console.log(`The plane has taken off and is no longer at the airport: ${result}`);
+
+}
+
+
+
 
 
 module.exports = {assertEquals, checkCanLandPlane, checkCanOverrideAirportCapacity, 
-checkCannotLandWhenAirportFull}; 
+checkCannotLandWhenAirportFull, checkCanTakeOff}; 
