@@ -32,18 +32,26 @@ class Airport {
   }
 
   getLandedPlanesList() {
+    console.log(this.#landedPlanes)
     return this.#landedPlanes;
   }
 
   getNumberOfPlanesAtAirport() {
+    console.log(this.numberOfPlanesAtAirport);
     return this.numberOfPlanesAtAirport;
   }
 
-  landPlane(plane) {
+  confirmPlaneHasLeft(plane) {
+    this.#landedPlanes.includes(plane.getPlaneName()) ? console.log(`${plane.getPlaneName()} is at ${this.#name}`) : console.log(`${plane.getPlaneName()} is not at ${this.#name}`)
+  }
+
+  landPlane(plane, weatherReport) {
     try {
 
       if (!(plane instanceof Plane)) throw new Error('Entry data must be an instance of Plane.');
-      if (this.#landedPlanes.includes(plane.getPlaneName())) throw new Error('This plane has already landed a this Airport and cannot do so again.')
+      if (!(weatherReport instanceof WeatherReport)) throw new Error('Entry data must have an instance of WeatherReport.');
+      if (weatherReport.stormyWeather === true) throw new Error('The weather is stormy and planes are not able to land right now.')
+      if (this.#landedPlanes.includes(plane.getPlaneName())) throw new Error('This plane has already landed at this airport and cannot do so again.')
       if (this.numberOfPlanesAtAirport === this.airportCapacity) throw new Error('The airport is at full capacity. This plane cannot land here.')
 
       this.#landedPlanes.push(plane.getPlaneName())

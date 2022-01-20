@@ -9,14 +9,15 @@ const { checkAnyPlaneNameInputNotStringIsUndefined,
     checkLandedPlaneLocationIsSetToSpecifiedAirport,
     checkDefaultAirportCapacityIs5,
     checkDefaultAirportCapacityCanBeOverRidden,
-    checkCanCountNumberOfPlanesAtAirport,
     checkLandingIsPreventedWithAirportAtFullCapacity,
     checkPlaneCanTakeOffFromAirportAndIsNoLongerThere,
     checkPlaneLocationAfterTakingOffIsSky,
     checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport,
     checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport,
     checkStormyFunctionProducesABooleanValue,
-    checkPlaneCannotTakeOffWhenStormy } = require('./testSpecs.js')
+    checkPlaneCannotTakeOffWhenStormy,
+    checkPlaneCannotLandWhenWeatherIsStormy,
+    checkCanCountNumberOfPlanesAtAirport } = require('./testSpecs.js')
 
 
 checkAnyPlaneNameInputNotStringIsUndefined();
@@ -30,7 +31,6 @@ checkPlaneInstructedToLandIsAtAirport();
 checkLandedPlaneLocationIsSetToSpecifiedAirport();
 checkDefaultAirportCapacityIs5();
 checkDefaultAirportCapacityCanBeOverRidden();
-checkCanCountNumberOfPlanesAtAirport();
 checkLandingIsPreventedWithAirportAtFullCapacity();
 checkPlaneCanTakeOffFromAirportAndIsNoLongerThere();
 checkPlaneLocationAfterTakingOffIsSky();
@@ -38,3 +38,5 @@ checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport();
 checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport();
 checkStormyFunctionProducesABooleanValue();
 checkPlaneCannotTakeOffWhenStormy();
+checkPlaneCannotLandWhenWeatherIsStormy();
+checkCanCountNumberOfPlanesAtAirport();

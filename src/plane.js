@@ -23,6 +23,7 @@ class Plane {
     }
 
     getLocation() {
+        console.log(`Plane ${this.#name} location: ${this.#location}`);
         return this.#location;
     }
 

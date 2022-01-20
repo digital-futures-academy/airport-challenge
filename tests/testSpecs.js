@@ -184,28 +184,6 @@ const checkDefaultAirportCapacityCanBeOverRidden = () => {
 
 // AIRPORT CAPACITY - LANDING TESTS 
 
-const checkCanCountNumberOfPlanesAtAirport = () => {
-    //Identifier
-    console.log(`\ncheckCanCountNumberOfPlanesAtAirport\n================`)
-    //Arrange
-    const testAirport = new Airport('TST');
-    const testPlane1 = new Plane('Plane1');
-    const testPlane2 = new Plane('Plane2');
-    const testPlane3 = new Plane('Plane3');
-    const testWeatherReport = new WeatherReport();
-    testWeatherReport.stormyWeather = false;
-    const expected = 3;
-    //Act
-    testAirport.landPlane(testPlane1, testWeatherReport);
-    testAirport.landPlane(testPlane2, testWeatherReport);
-    testAirport.landPlane(testPlane3, testWeatherReport);
-    const actual = testAirport.getNumberOfPlanesAtAirport();
-    //Assert
-    const result = assertEquals(expected, actual);
-    //Report 
-    console.log(`checkCanCountNumberOfPlanesAtAirport test result: ${result}\n`);
-}
-
 const checkLandingIsPreventedWithAirportAtFullCapacity = () => {
     //Identifier
     console.log(`\ncheckLandingIsPreventedWithAirportAtFullCapacity\n================`)
@@ -300,7 +278,7 @@ const checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport = () => {
     const testAirport = new Airport('TST');
     const testWeatherReport = new WeatherReport();
     testWeatherReport.stormyWeather = false;
-    const expected = 'This plane has already landed a this Airport and cannot do so again.';
+    const expected = 'This plane has already landed at this airport and cannot do so again.';
     //Act
     testAirport.landPlane(testPlane, testWeatherReport);
     let outputError = testAirport.landPlane(testPlane, testWeatherReport)
@@ -357,7 +335,7 @@ const checkPlaneCannotLandWhenWeatherIsStormy = () => {
     const testAirport = new Airport('TST');
     const testWeatherReport = new WeatherReport();
     testWeatherReport.stormyWeather = true;
-    const expected = 'The weather is stormy and no planes are able to land right now.';
+    const expected = 'The weather is stormy and planes are not able to land right now.';
     //Act
     let outputError = testAirport.landPlane(testPlane, testWeatherReport);
     const actual = outputError.message;
@@ -370,7 +348,29 @@ const checkPlaneCannotLandWhenWeatherIsStormy = () => {
 
 //// USER STORY PART 8 
 
-// COUNTING PLANES THAT HAVE LANDED AT AN AIRPORT 
+// COUNTING PLANES THAT HAVE LANDED AT AN AIRPORT TESTS
+
+const checkCanCountNumberOfPlanesAtAirport = () => {
+    //Identifier
+    console.log(`\ncheckCanCountNumberOfPlanesAtAirport\n================`)
+    //Arrange
+    const testAirport = new Airport('TST');
+    const testPlane1 = new Plane('Plane1');
+    const testPlane2 = new Plane('Plane2');
+    const testPlane3 = new Plane('Plane3');
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
+    const expected = 3;
+    //Act
+    testAirport.landPlane(testPlane1, testWeatherReport);
+    testAirport.landPlane(testPlane2, testWeatherReport);
+    testAirport.landPlane(testPlane3, testWeatherReport);
+    const actual = testAirport.getNumberOfPlanesAtAirport();
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report 
+    console.log(`checkCanCountNumberOfPlanesAtAirport test result: ${result}\n`);
+}
 
 module.exports = {
     checkAnyPlaneNameInputNotStringIsUndefined,
@@ -384,7 +384,6 @@ module.exports = {
     checkLandedPlaneLocationIsSetToSpecifiedAirport,
     checkDefaultAirportCapacityIs5,
     checkDefaultAirportCapacityCanBeOverRidden,
-    checkCanCountNumberOfPlanesAtAirport,
     checkLandingIsPreventedWithAirportAtFullCapacity,
     checkPlaneCanTakeOffFromAirportAndIsNoLongerThere,
     checkPlaneLocationAfterTakingOffIsSky,
@@ -392,5 +391,6 @@ module.exports = {
     checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport,
     checkStormyFunctionProducesABooleanValue,
     checkPlaneCannotTakeOffWhenStormy,
-    checkPlaneCannotLandWhenWeatherIsStormy
+    checkPlaneCannotLandWhenWeatherIsStormy,
+    checkCanCountNumberOfPlanesAtAirport,
 }
