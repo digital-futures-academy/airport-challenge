@@ -4,7 +4,26 @@
 
 - Run `npm test` to execute test runner.
 
-## Domain Models
+## Overview
+
+To complete this challenge I used domain modelling and test-driven-development, incrementally adding features to address each user story in turn. In general I found this to be a very beneficial approach to development as it allowed me to stay confident in my existing code when I went back to refactor and make implementation changes.
+
+If I were to repeat this challenge again, I would look further ahead and try to address all the user stories in a single domain model before I started coding any features. I feel this would limit the amount of refactoring I ultimately had to do. My solution also feels quite complex given the relative simplicity of the task, but I could not see an easier way to satisfy all the user stories. Possibly I should have asked for more clarification on the final user story in particular to try and avoid this.
+
+Below is a basic demo of how the classes work:
+
+```js
+const airport = new Airport(); // creates an airport with default capacity 10
+const plane = new Plane("1"); // creates a plane with ID of "1"
+
+plane.land(airport); // changes plane's status to "landed" and adds it to airport planes array
+plane.takeOff(airport); // change's plane's status to "flying" and removes it from airport planes array
+
+airport.arrive(plane); // ERROR: airport.arrive can only be called by a plane which is landing
+airport.depart(plane); // ERROR: airport.depart can only be called by a plane which is taking off
+```
+
+## Domain Models / Comments
 
 ### User Story 1
 
