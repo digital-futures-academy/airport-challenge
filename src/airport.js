@@ -1,13 +1,21 @@
+const isWeatherStormy = require('./weather')
+
 class Airport {
   // here's a starting point for you
-  constructor(capacity, airspace, airplanes) {
+  constructor(capacity, airspace, airplanes, randomWeatherToggle = false, manualStorm = false) {
     this.capacity = capacity;
     this.airspace = airspace;
     this.airplanes = airplanes;
+    this.manualStorm = manualStorm;
+    this.randomWeatherToggle = randomWeatherToggle;
   }
 
   land(tailNumber) {
-    if (!this.airspace.includes(tailNumber)) {
+    if (this.manualStorm === true) {
+      return `Unsuccessful operation; weather is stormy`;
+    } else if (this.randomWeatherToggle === true && isWeatherStormy() === true) {
+      return `Unsuccessful operation; weather is stormy`;
+    } else if (!this.airspace.includes(tailNumber)) {
       return `Landing unsuccessful; ${tailNumber} cannot be found in airspace`;
     } else if (!this.capacity > this.airplanes.length) {
       return `Landing unsuccessful; Airport is full`;
@@ -30,7 +38,11 @@ class Airport {
     }
   }
   takeOff(tailNumber) {
-    if (!this.airplanes.includes(tailNumber)) {
+    if (this.manualStorm === true) {
+      return `Unsuccessful operation; weather is stormy`;
+    } else if (this.randomWeatherToggle === true && isWeatherStormy() === true) {
+      return `Unsuccessful operation; weather is stormy`
+    } else if (!this.airplanes.includes(tailNumber)) {
       return `Error: ${tailNumber} is not at airport`
     } else {
       this.airplanes = this.airplanes.filter(e => e !== tailNumber)
@@ -38,6 +50,7 @@ class Airport {
       return `Take off successful; ${tailNumber} is no longer at the airport`
     }
   }
+
 }
 
 module.exports = Airport;
