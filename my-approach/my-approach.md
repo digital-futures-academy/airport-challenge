@@ -8,7 +8,7 @@ User Story 1:
 
 As an air traffic controller\
 So I can get passengers to a destination\
-I want to instruct the airport to land a plane\
+I want to instruct the airport to land a plane
 
 
 #### Nouns and verbs
@@ -33,11 +33,11 @@ These two requirements translate to the following acceptance criteria:
 2) Attempting to land a plane at an airport that is full will output 'Landing unsuccessful; Airport is full'
 
 
-After the plane has landed we have three further acceptance criteria:\
+After the plane has landed we have three further acceptance criteria:
 
-3) Air traffic controller is notified successful landing of airplane 'Landing successful; Airplane now at airport'\
-4) Array of airplanes at airport is updated to include landed airplane.\
-5) Array of airplanes in airspace is updated to remove landed airplane.\
+3) Air traffic controller is notified successful landing of airplane 'Landing successful; Airplane now at airport'
+4) Array of airplanes at airport is updated to include landed airplane.
+5) Array of airplanes in airspace is updated to remove landed airplane.
 
 
 #### Domain Model
@@ -93,14 +93,14 @@ Please note: User Story 3 has already been covered in the prerequisite acceptanc
 
 As an air traffic controller\
 To ensure safety\
-I want to prevent landing when the airport is full\
+I want to prevent landing when the airport is full
 
 User Story 4: 
 ---------
 
-As an air traffic controller;
-So I can get passengers on the way to their destination;
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport;
+As an air traffic controller\
+So I can get passengers on the way to their destination\
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
 #### Nouns and verbs
 
@@ -173,7 +173,7 @@ I want to prevent landing when weather is stormy\
 \
 As an air traffic controller\
 To count planes easily\
-Planes that have landed must be at an airport\
+Planes that have landed must be at an airport
 
 #### Nouns and verbs
 
@@ -202,5 +202,5 @@ Planes that have landed must be at an airport\
 | Weather                | -                   | isWeatherStormy()                     | @Boolean |
 
 
-When testing for acceptance criteria 1) and 2), I created both a 'manualStorm' and 'randomWeatherToggle' for the purpose of testing only. Without a 'manualStorm' property, the occurrence of a storm would be random, meaning that the associated tests would also be pass randomly. As such, the manualStorm property allows us to create an instance of airport that always has a storm.
+When testing for acceptance criteria 1) and 2), I created both a 'manualStorm' and 'randomWeatherToggle' for the purpose of testing only. Without a 'manualStorm' property, the occurrence of a storm would be random, meaning that the associated tests would also pass with a random chance. As such, the manualStorm property allows us to create an instance of airport that always has a storm.
 
