@@ -52,11 +52,27 @@ As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
+| Object  | Properties      | Message         | Output   |
+| ------- | --------------- | --------------- | -------- |
+| Airport | stormy @Boolean | isStormy()      | @Boolean |
+|         |                 | takeOff(@Plane) | @String  |
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+| Object  | Properties      | Message           | Output   |
+| ------- | --------------- | ----------------- | -------- |
+| Airport | stormy @Boolean | isStormy()        | @Boolean |
+|         |                 | landPlane(@Plane) | @String  |
+
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+| Object  | Properties     | Message       | Output  |
+| ------- | -------------- | ------------- | ------- |
+| Airport | planes @Array  | countPlanes() | @Number |
+| Plane   | status @String |               |         |
+
 ```
