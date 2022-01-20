@@ -10,7 +10,6 @@ class MockPlane {
     }
 
     land() {}
-
     takeOff() {}
 }
 
@@ -102,7 +101,7 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Cannot release a Plane which is not at that Airport.', (test) => {
-        const plane = new MockPlane('1', 'landed');
+        const plane = new MockPlane('1', 'departing');
         const airport = new Airport(undefined, SunnyWeather);
 
         test.expect(() => airport.depart(plane)).toThrow(
