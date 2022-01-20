@@ -20,3 +20,5 @@ a.airportCanLandPlaneWhenNotFull();
 a.airportCanLetPlaneTakeOff();
 a.airportCannotTakeOffPlaneNotInAirport();
 a.airportCannotLandPlaneAlreadyInAirport();
+a.airportLandPlaneReturnsPlaneObject();
+a.airportTakeOffPlaneReturnsPlaneObject();

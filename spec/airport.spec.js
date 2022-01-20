@@ -182,6 +182,9 @@ export const airportCannotTakeOffPlaneNotInAirport = () => {
     // Test doesn't work without above line. Makes me realise that since airport methods take a labelled Plane object as argument I can't do something like:
     // myAirport.landPlane(new Plane("A plane"));
     // myAirport.takeOffPlane("A plane");
+
+    // See later tests "take off/landing returns plane"
+
     const expectedOutput = new Error("Cannot take off a plane which isn't in the airport.")
 
     // 2. Execute
@@ -209,6 +212,43 @@ export const airportCannotLandPlaneAlreadyInAirport = () => {
 
     // 3. Verify
     const result = assertErrorEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
+
+export const airportLandPlaneReturnsPlaneObject = () => {
+    const testDescription = "Airport returns plane object when landing plane"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+    const expectedOutput = myPlane;
+
+    // 2. Execute
+    const actualOutput = myAirport.landPlane(myPlane);
+
+    // 3. Verify
+    const result = assertEquals(actualOutput, expectedOutput);
+
+
+    // Report
+    printReport(testDescription, result);
+}
+export const airportTakeOffPlaneReturnsPlaneObject = () => {
+    const testDescription = "Airport returns plane object when taking off plane"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+    const expectedOutput = myPlane;
+
+    // 2. Execute
+    myAirport.landPlane(myPlane);
+    const actualOutput = myAirport.takeOffPlane(myPlane);
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput, actualOutput);
 
     // Report
     printReport(testDescription, result);
