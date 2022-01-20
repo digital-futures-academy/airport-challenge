@@ -136,7 +136,7 @@ const testChangeCapacity = () => {
     console.log(`Capacity of the airport was changed: ${result}`);
 }
 
-// Teste plane leaving the airport
+// Test plane leaving the airport
 const leavingAirport = () => {
     // Arrange
     const airport = new Airport();
@@ -154,6 +154,21 @@ const leavingAirport = () => {
     console.log(`The plane just left the airport: ${result}`);
 }
 
+// Test if plane cannot land when is stormy:
+const testStormyLand = () => {
+    // Arrange
+    const airport = new Airport();
+    const expected = true;
+
+    // Act
+    const actual = airport.isStormy(0.5);
+
+    // Assert
+    const result = assertEquals(actual, expected);
+
+    // Report
+    console.log(`Planes cannot land when is stormy: ${result}`);
+}
 
 module.exports = {
     testAirportAvailable,
@@ -164,5 +179,6 @@ module.exports = {
     testAddMoreThanOnePlane,
     testDefaultCapacityAirport,
     testChangeCapacity,
-    leavingAirport
+    leavingAirport,
+    testStormyLand
 };

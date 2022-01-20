@@ -2,11 +2,13 @@ class Airport {
   #available;
   #planes;
   #capacity;
+  #weather;
 
   constructor(available = true) {
     this.#available = available;
     this.#planes = [];
     this.#capacity = 3;
+    this.#weather = Math.random();
   }
 
   isAvailable() {
@@ -43,6 +45,15 @@ class Airport {
   leavingAirport(plane) {
     this.#planes.pop(plane);
     return this.#planes.length;
+  }
+
+  isStormy(num) {
+    this.#weather = num;
+    if (this.#weather < 0.7) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
