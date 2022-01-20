@@ -22,6 +22,7 @@ class Airport {
         throw new Error("Cannot land plane when airport is full.");
       }
       this.planes.push(plane);
+      plane.airport = this.name;
       console.log(`Plane ${plane.name} landed successfully at ${this.name}.`)
       return plane;
     } catch (error) {
@@ -38,6 +39,7 @@ class Airport {
       // const planeIndex = this.planes.indexOf(plane);
       // this.plane.splice(planeIndex, 1);
       this.planes = this.planes.filter(elt => elt !== plane);
+      plane.airport = "in flight";
       console.log(`Plane ${plane.name} has taken off successfully from ${this.name}.`);
       return plane;
       // Not sure which way better, probably .indexOf since chance it doesn't have to traverse whole array (hence faster?)
