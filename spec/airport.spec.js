@@ -122,6 +122,7 @@ export const airportCannotLandPlaneWhenFull = () => {
     const myAirport = new Airport("My Airport", [], 0);
     // Set airport capacity at 0 so no planes can land
     const myPlane = new Plane("Matt's plane");
+    // This Airport test is tightly coupled to the Plane class...
     const expectedOutput = new Error("Cannot land plane when airport is full.");
 
     // 2. Execute
@@ -148,6 +149,25 @@ export const airportCanLandPlaneWhenNotFull = () => {
     // 3. Verify
     const result = myAirport.planes.includes(myPlane);
     // QUESTION: Is it okay to use .includes rather than writing my own assertContains function?
+
+    // Report
+    printReport(testDescription, result);
+}
+
+export const airportCanLetPlaneTakeOff = () => {
+    const testDescription = "Airport can let a plane take off"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+
+    // 2. Execute
+    myAirport.landPlane(myPlane);
+    myAirport.takeOffPlane(myPlane);
+    const actualOutput = myAirport.planes;
+
+    // 3. Verify
+    const result = !myAirport.planes.includes(myPlane);
 
     // Report
     printReport(testDescription, result);

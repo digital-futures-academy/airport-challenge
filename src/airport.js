@@ -16,7 +16,7 @@ class Airport {
         throw new Error("Cannot land plane when airport is full.");
       }
       this.planes.push(plane);
-      console.log("Plane landed successfully.")
+      console.log(`Plane ${plane.name} landed successfully.`)
     } catch (error) {
       console.log("Airport is full, this plane cannot land.")
       return error;
@@ -24,7 +24,13 @@ class Airport {
     }
   }
 
+  takeOffPlane(plane) {
+
+  }
+
 }
+
+
 
 
 
