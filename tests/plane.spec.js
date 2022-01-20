@@ -1,8 +1,11 @@
 const Test = require('./test-framework');
 
 const Plane = require('../src/Plane');
-const { SunnyWeather } = require('../src/__mocks__/weather-mocks');
-const Airport = require('../src/Airport');
+
+class MockAirport {
+    arrive() {}
+    depart() {}
+}
 
 const test = Test.describe('Plane', (suite) => {
     suite.it('Initialises as flying by default.', (test) => {
@@ -22,7 +25,7 @@ const test = Test.describe('Plane', (suite) => {
 
     suite.it('Can land.', (test) => {
         const plane = new Plane('1');
-        const airport = new Airport(undefined, SunnyWeather);
+        const airport = new MockAirport();
         const expected = 'landed';
 
         plane.land(airport);
@@ -37,9 +40,12 @@ const test = Test.describe('Plane', (suite) => {
         test.expect(plane.land).toThrow('Cannot land: no destination Airport provided.');
     });
 
-    suite.it('Cannot land if destination Airport is full.', (test) => {
+    suite.it('Cannot land when Airport.arrive() throws an error.', (test) => {
         const plane = new Plane('1');
-        const airport = new Airport(0, SunnyWeather);
+        const airport = new MockAirport();
+        airport.arrive = () => {
+            throw new Error();
+        };
 
         test.expect(() => plane.land(airport)).toThrow();
     });
@@ -47,7 +53,7 @@ const test = Test.describe('Plane', (suite) => {
     suite.it('Cannot land if it is not flying.', (test) => {
         const plane = new Plane('1');
         plane._status = 'landed';
-        const airport = new Airport(undefined, SunnyWeather);
+        const airport = new MockAirport();
 
         test.expect(() => plane.land(airport)).toThrow(
             'Cannot land: Plane is in incorrect state.',
@@ -56,7 +62,10 @@ const test = Test.describe('Plane', (suite) => {
 
     suite.it('Remains in original state if landing fails.', (test) => {
         const plane = new Plane('1');
-        const airport = new Airport(0, SunnyWeather);
+        const airport = new MockAirport();
+        airport.arrive = () => {
+            throw new Error();
+        };
         const expected = plane.status;
 
         test.expect(() => plane.land(airport)).toThrow();
@@ -67,7 +76,7 @@ const test = Test.describe('Plane', (suite) => {
 
     suite.it('Can take off.', (test) => {
         const plane = new Plane('1');
-        const airport = new Airport(undefined, SunnyWeather);
+        const airport = new MockAirport();
         plane.land(airport);
         const expected = 'flying';
 
@@ -86,17 +95,20 @@ const test = Test.describe('Plane', (suite) => {
         );
     });
 
-    suite.it('Cannot take off if it is not located at departure Airport.', (test) => {
+    suite.it('Cannot take off when Airport.depart() throws an error.', (test) => {
         const plane = new Plane('1');
         plane._status = 'landed';
-        const airport = new Airport(undefined, SunnyWeather);
+        const airport = new MockAirport();
+        airport.depart = () => {
+            throw new Error();
+        };
 
         test.expect(() => plane.takeOff(airport)).toThrow();
     });
 
     suite.it('Cannot take off if it is not landed.', (test) => {
         const plane = new Plane('1');
-        const airport = new Airport(undefined, SunnyWeather);
+        const airport = new MockAirport();
 
         test.expect(() => plane.takeOff(airport)).toThrow(
             'Cannot take off: Plane is in incorrect state.',
@@ -105,7 +117,7 @@ const test = Test.describe('Plane', (suite) => {
 
     suite.it('Remains in original state if take off fails.', (test) => {
         const plane = new Plane('1');
-        const airport = new Airport(undefined, SunnyWeather);
+        const airport = new MockAirport();
         const expected = plane.status;
 
         test.expect(() => plane.takeOff(airport)).toThrow();
