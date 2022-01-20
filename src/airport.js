@@ -5,12 +5,14 @@ class Airport {
     }
 
     landPlane(plane) {
+        if (plane.status === 'landed') return 'Plane cannot land when already landed';
         if (this.isAirportFull()) return 'Airport is full. Unable to land plane';
         this.planes.push(plane);
         plane.status = 'landed';
     }
 
     takeOff(plane) {
+        if (plane.status === 'flying') return 'Plane cannot take off when already flying';
         this.planes.splice(this.planes.indexOf(plane), 1);
         plane.status = 'flying';
     }
