@@ -23,6 +23,7 @@ class Airport {
       }
       this.planes.push(plane);
       console.log(`Plane ${plane.name} landed successfully at ${this.name}.`)
+      return plane;
     } catch (error) {
       return error;
       // QUESTION: Is it correct to return an error? Or should errors only be thrown/caught rather than returned?
@@ -38,6 +39,7 @@ class Airport {
       // this.plane.splice(planeIndex, 1);
       this.planes = this.planes.filter(elt => elt !== plane);
       console.log(`Plane ${plane.name} has taken off successfully from ${this.name}.`);
+      return plane;
       // Not sure which way better, probably .indexOf since chance it doesn't have to traverse whole array (hence faster?)
     } catch (error) {
       console.log(`Plane ${plane.name} is not in the airport. Cannot take off.`);
