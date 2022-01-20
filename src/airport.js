@@ -37,6 +37,10 @@ class Airport {
         return this.weather <= 0.1 ? true : false;
     }
 
+    countPlanes() {
+        return this.planes.length;
+    }
+
 }
 
 module.exports = Airport;
