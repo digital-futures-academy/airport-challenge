@@ -52,8 +52,8 @@ const test = Test.describe('Plane', (suite) => {
 
     suite.it('Cannot land if it is not flying.', (test) => {
         const plane = new Plane('1');
-        plane._status = 'landed';
         const airport = new MockAirport();
+        plane.land(airport);
 
         test.expect(() => plane.land(airport)).toThrow(
             'Cannot land: Plane is in incorrect state.',

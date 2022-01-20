@@ -1,18 +1,20 @@
 class Plane {
+    #id;
+    #status = 'flying';
+
     constructor(id) {
         if (typeof id !== 'string')
             throw new Error('Plane cannot be initialised without a string id.');
-        this._id = id;
-        this._status = 'flying';
+        this.#id = id;
     }
 
     #request(airport, method, temp, final, fallback) {
-        this._status = temp;
+        this.#status = temp;
         try {
             airport[method](this);
-            this._status = final;
+            this.#status = final;
         } catch (err) {
-            this._status = fallback;
+            this.#status = fallback;
             throw err;
         }
     }
@@ -34,11 +36,11 @@ class Plane {
     }
 
     get id() {
-        return this._id;
+        return this.#id;
     }
 
     get status() {
-        return this._status;
+        return this.#status;
     }
 }
 
