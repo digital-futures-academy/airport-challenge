@@ -179,6 +179,9 @@ export const airportCannotTakeOffPlaneNotInAirport = () => {
     //1. Setup
     const myAirport = new Airport("My Airport");
     const myPlane = new Plane("Matt's plane");
+    // Test doesn't work without above line. Makes me realise that since airport methods take a labelled Plane object as argument I can't do something like:
+    // myAirport.landPlane(new Plane("A plane"));
+    // myAirport.takeOffPlane("A plane");
     const expectedOutput = new Error("Cannot take off a plane which isn't in the airport.")
 
     // 2. Execute
@@ -191,3 +194,22 @@ export const airportCannotTakeOffPlaneNotInAirport = () => {
     printReport(testDescription, result);
 }
 
+export const airportCannotLandPlaneAlreadyInAirport = () => {
+    const testDescription = "Airport cannot land a plane if it is already in the airport"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+    const expectedOutput = new Error("Cannot land a plane which is already in the airport.")
+
+    // 2. Execute
+    myAirport.landPlane(myPlane);
+    // try land sam plane again:
+    const actualOutput = myAirport.landPlane(myPlane);
+
+    // 3. Verify
+    const result = assertErrorEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
