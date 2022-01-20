@@ -264,6 +264,26 @@ actualOutput = airport.takeOff(tailNumber)
 result = assertEquals(actualOutput, expectedOutput);
 console.log(result);
 
+console.log('Testing that trying to land in stormy weather outputs error message')
+
+//Arrange
+tailNumber = 'AH574';
+capacity = 3;
+airplanesAtAirport = ['HE274'];
+airspace = ['AH574']
+randomWeatherToggle = false
+manualStorm = true
+
+expectedOutput = 'Unsuccessful operation; weather is stormy';
+
+//2. Act
+airport = new Airport(capacity, airspace, airplanesAtAirport, randomWeatherToggle, manualStorm);
+actualOutput = airport.land(tailNumber)
+
+//3. Assert 
+result = assertEquals(actualOutput, expectedOutput);
+console.log(result);
+
 
 
 
