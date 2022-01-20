@@ -14,10 +14,10 @@ So I can get passengers to a destination
 I want to instruct the airport to land a plane
 ```
 
-| Objects | Properties | Messages | Output |
-| ---     | ---        | ---      | ---    |
-| Airport | | landPlane(@Plane) | @Void |
-| Plane | status @String | status() | @String |
+| Objects | Properties     | Messages          | Output  |
+| ------- | -------------- | ----------------- | ------- |
+| Airport |                | landPlane(@Plane) | @Void   |
+| Plane   | status @String | status()          | @String |
 
 ### User Story 2
 
@@ -27,11 +27,11 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
 
-| Objects | Properties | Messages | Output |
-| ---     | ---        | ---      | ---    |
-| Airport | capacity @Integer | capacity() | @Integer |
-| | | landPlane(@Plane) | @Void |
-| Plane | status @String | status() | @String |
+| Objects | Properties        | Messages          | Output   |
+| ------- | ----------------- | ----------------- | -------- |
+| Airport | capacity @Integer | capacity()        | @Integer |
+|         |                   | landPlane(@Plane) | @Void    |
+| Plane   | status @String    | status()          | @String  |
 
 ### User Story 3
 
@@ -41,13 +41,13 @@ To ensure safety
 I want to prevent landing when the airport is full
 ```
 
-| Objects | Properties | Messages | Output |
-| ---     | ---        | ---      | ---    |
-| Airport | capacity @Integer | capacity() | @Integer |
-| | | isFull() | @Boolean |
-| | planes @Array[@Plane] | planes() | @Array[@Plane] |
-| | | landPlane(@Plane) | @Void |
-| Plane | status @String | status() | @String |
+| Objects | Properties            | Messages          | Output         |
+| ------- | --------------------- | ----------------- | -------------- |
+| Airport | capacity @Integer     | capacity()        | @Integer       |
+|         |                       | isFull()          | @Boolean       |
+|         | planes @Array[@Plane] | planes()          | @Array[@Plane] |
+|         |                       | landPlane(@Plane) | @Void          |
+| Plane   | status @String        | status()          | @String        |
 
 ### User Story 4
 
@@ -57,16 +57,16 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
 
-| Objects | Properties | Messages | Output |
-| ---     | ---        | ---      | ---    |
-| Airport | capacity @Integer | capacity() | @Integer |
-| | | isFull() | @Boolean |
-| | planes @Array[@Plane] | planes() | @Array[@Plane] |
-| | | landPlane(@Plane) | @Void |
-| | | takeOffPlane(@String) | @Void |
-| | | hasPlane(@String) | @Boolean |
-| Plane | id @String | id() | @String |
-| | status @String | status() | @String |
+| Objects | Properties            | Messages              | Output         |
+| ------- | --------------------- | --------------------- | -------------- |
+| Airport | capacity @Integer     | capacity()            | @Integer       |
+|         |                       | isFull()              | @Boolean       |
+|         | planes @Array[@Plane] | planes()              | @Array[@Plane] |
+|         |                       | landPlane(@Plane)     | @Void          |
+|         |                       | takeOffPlane(@String) | @Void          |
+|         |                       | hasPlane(@String)     | @Boolean       |
+| Plane   | id @String            | id()                  | @String        |
+|         | status @String        | status()              | @String        |
 
 ### User Story 5 & 8
 
@@ -88,18 +88,18 @@ At this point I was starting to dislike the way my codebase was organised. All t
 
 With these two things in mind, I returned to first principles and started test-driving a new implementation using the following domain model:
 
-| Objects | Properties | Messages | Output |
-| --- | --- | --- | --- |
-| Airport | capacity @Integer | capacity() | @Integer |
-| | | isFull() | @Boolean |
-| | planes @Array[@Plane] | planes() | @Array[@Plane] |
-| | | arrive(@Plane)| @Void |
-| | | depart(@Plane) | @Void |
-| | | hasPlane(@Plane) | @Boolean |
-| Plane | id @String | id() | @String |
-| | status @String | status() | @String |
-| | | land(@Airport) | @Void |
-| | | takeOff(@Airport) | @Void |
+| Objects | Properties            | Messages          | Output         |
+| ------- | --------------------- | ----------------- | -------------- |
+| Airport | capacity @Integer     | capacity()        | @Integer       |
+|         |                       | isFull()          | @Boolean       |
+|         | planes @Array[@Plane] | planes()          | @Array[@Plane] |
+|         |                       | arrive(@Plane)    | @Void          |
+|         |                       | depart(@Plane)    | @Void          |
+|         |                       | hasPlane(@Plane)  | @Boolean       |
+| Plane   | id @String            | id()              | @String        |
+|         | status @String        | status()          | @String        |
+|         |                       | land(@Airport)    | @Void          |
+|         |                       | takeOff(@Airport) | @Void          |
 
 ### User Story 6 & 7
 
@@ -113,17 +113,17 @@ To ensure safety
 I want to prevent landing when weather is stormy
 ```
 
-| Objects | Properties | Messages | Output |
-| --- | --- | --- | --- |
-| Airport | capacity @Integer | capacity() | @Integer |
-| | | isFull() | @Boolean |
-| | planes @Array[@Plane] | planes() | @Array[@Plane] |
-| | | arrive(@Plane)| @Void |
-| | | depart(@Plane) | @Void |
-| | | hasPlane(@Plane) | @Boolean |
-| | forecaster @Weather | forecaster() | @Weather |
-| Plane | id @String | id() | @String |
-| | status @String | status() | @String |
-| | | land(@Airport) | @Void |
-| | | takeOff(@Airport) | @Void |
-| Weather | | forecast() | @String |
+| Objects | Properties            | Messages          | Output         |
+| ------- | --------------------- | ----------------- | -------------- |
+| Airport | capacity @Integer     | capacity()        | @Integer       |
+|         |                       | isFull()          | @Boolean       |
+|         | planes @Array[@Plane] | planes()          | @Array[@Plane] |
+|         |                       | arrive(@Plane)    | @Void          |
+|         |                       | depart(@Plane)    | @Void          |
+|         |                       | hasPlane(@Plane)  | @Boolean       |
+|         | forecaster @Weather   | forecaster()      | @Weather       |
+| Plane   | id @String            | id()              | @String        |
+|         | status @String        | status()          | @String        |
+|         |                       | land(@Airport)    | @Void          |
+|         |                       | takeOff(@Airport) | @Void          |
+| Weather |                       | forecast()        | @String        |

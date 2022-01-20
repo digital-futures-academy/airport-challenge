@@ -2,7 +2,17 @@ const Test = require('./test-framework');
 
 const { StormyWeather, SunnyWeather } = require('../src/__mocks__/weather-mocks');
 const Airport = require('../src/Airport');
-const Plane = require('../src/Plane');
+
+class MockPlane {
+    constructor(id = '1', status = 'flying') {
+        this.id = id;
+        this.status = status;
+    }
+
+    land() {}
+
+    takeOff() {}
+}
 
 const test = Test.describe('Airport', (suite) => {
     suite.it('Has a default capacity.', (test) => {
@@ -24,8 +34,7 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Can recieve a Plane on arrival.', (test) => {
-        const plane = new Plane('1');
-        plane._status = 'arriving';
+        const plane = new MockPlane('1', 'arriving');
         const airport = new Airport(undefined, SunnyWeather);
         const expected = 1;
 
@@ -36,7 +45,7 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Cannot recieve a Plane which is not arriving.', (test) => {
-        const plane = new Plane('1');
+        const plane = new MockPlane('1');
         const airport = new Airport(undefined, SunnyWeather);
 
         test.expect(() => airport.arrive(plane)).toThrow(
@@ -58,8 +67,7 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Cannot recieve a Plane if capacity is full.', (test) => {
-        const plane = new Plane('1');
-        plane._status = 'arriving';
+        const plane = new MockPlane('1', 'arriving');
         const airport = new Airport(0, SunnyWeather);
 
         test.expect(() => airport.arrive(plane)).toThrow(
@@ -68,10 +76,12 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Can release a Plane on departure.', (test) => {
-        const plane = new Plane('1');
+        const plane = new MockPlane('1', 'arriving');
         const airport = new Airport(undefined, SunnyWeather);
+        plane.land = (airport) => airport.arrive(plane);
+        plane.takeOff = () => (plane.status = 'departing');
         plane.land(airport);
-        plane._status = 'departing';
+        plane.takeOff();
         const expected = 0;
 
         airport.depart(plane);
@@ -81,8 +91,9 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Cannot release a Plane which is not departing.', (test) => {
-        const plane = new Plane('1');
+        const plane = new MockPlane('1', 'arriving');
         const airport = new Airport(undefined, SunnyWeather);
+        plane.land = (airport) => airport.arrive(plane);
         plane.land(airport);
 
         test.expect(() => airport.depart(plane)).toThrow(
@@ -91,9 +102,8 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Cannot release a Plane which is not at that Airport.', (test) => {
-        const plane = new Plane('1');
+        const plane = new MockPlane('1', 'landed');
         const airport = new Airport(undefined, SunnyWeather);
-        plane._status = 'landed';
 
         test.expect(() => airport.depart(plane)).toThrow(
             'Cannot release a Plane which is not at this Airport.',
@@ -101,8 +111,9 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Can check for the presence of a Plane.', (test) => {
-        const plane = new Plane('1');
+        const plane = new MockPlane('1', 'arriving');
         const airport = new Airport(undefined, SunnyWeather);
+        plane.land = (airport) => airport.arrive(plane);
         plane.land(airport);
         const expected = true;
 
@@ -112,9 +123,8 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Cannot recieve a Plane while weather is stormy.', (test) => {
-        const plane = new Plane('1');
+        const plane = new MockPlane('1', 'arriving');
         const airport = new Airport(undefined, StormyWeather);
-        plane._status = 'arriving';
 
         test.expect(() => airport.arrive(plane)).toThrow(
             'Cannot recieve a Plane while weather is stormy.',
@@ -122,9 +132,8 @@ const test = Test.describe('Airport', (suite) => {
     });
 
     suite.it('Cannot release a Plane while weather is stormy.', (test) => {
-        const plane = new Plane('1');
+        const plane = new MockPlane('1', 'departing');
         const airport = new Airport(undefined, StormyWeather);
-        plane._status = 'departing';
         airport.planes.push(plane);
 
         test.expect(() => airport.depart(plane)).toThrow(
