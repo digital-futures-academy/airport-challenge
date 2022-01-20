@@ -11,4 +11,12 @@ describe(`Airport Tests: `, () => {
         // Assert
         expect(airport.onGround).toHaveSize(1);
     });
+    it(`airport has a default cpacity`, () => {
+        // Arrange
+        const airport = new Airport();
+        // Act
+        const capacity = airport.capacity;
+        // Assert
+        expect(capacity).toEqual(5);
+    })
 })

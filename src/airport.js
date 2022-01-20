@@ -1,6 +1,7 @@
 class Airport {
-  constructor() {
+  constructor(capacity = 5) {
     this.onGround = [];
+    this.capacity = capacity;
   }
   land(plane) {
     this.onGround.push(plane);
