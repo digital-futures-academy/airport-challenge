@@ -6,24 +6,21 @@ class Airport {
 
   }
 
+  //Need to refactor 
   landPlane(plane) {
 
-    if (typeof plane === 'string') {
-      if (this.planesArray < this.capacity) {
-
-        this.planesArray.push(plane);
-
-      } else {
-        return new Error('Airport is full. Land somewhere else!');
-      }
-
-    }
-    else {
-      return new Error('Please input plane name as a string');
-
+    if (this.planesArray.length < this.capacity) {
+      this.planesArray.push(plane.getName());
+    } else {
+      return new Error('Airport is full. Land somewhere else!');
     }
 
   }
+
+
+
+
+
 
 }
 

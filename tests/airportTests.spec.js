@@ -1,11 +1,21 @@
 const Airport = require("../src/airport");
 const { assertEquals } = require(`./test-frameworks`);
+class MockPlane {
+    constructor(name = 'Test Plane', landed = false) {
+        this.landed = landed;
+        this.name = name;
+        //Needed a constructor as I wanted to use the Mock to add two planes with different names
+    }
+    getName() { }
+    isLanded() { }
+    //changeLandingStatus() { }
+
+}
 
 
 //User Case 1 - Airport lands a plane
 
 const testNumbOfPlanesIsZero = () => {
-    //note: test may become redundant after refactoring
 
     //Identity 
     console.log(`testNumbOfPlanesIsZero \n ========== \n`);
@@ -26,21 +36,21 @@ const testNumbOfPlanesIsZero = () => {
 
 };
 
-
 const testOnePlaneLanded = () => {
-    //note: test may become redundant after refactoring
+
 
     //Identity 
     console.log(`testOnePlaneLanded \n ========== \n`);
 
 
     //Arrange
-    input = new Airport();
-    expected = 1;
+    const input = new Airport();
+    const expected = 1;
+    const testPlane = new MockPlane();
 
     //Act
 
-    input.landPlane('plane1');
+    input.landPlane(testPlane);
     actual = input.planesArray.length;
 
     //Assert
@@ -104,17 +114,19 @@ const testChangeCapacityAtAirport = () => {
 
 
 //User case 3 - Stops plane from landing
+
 const testPreventLanding = () => {
     //Identity
 
     console.log(`testPreventLanding \n ===================\n`);
     //Arrange
-    input = new Airport(capacity = 1);
-    expected = true;
-
+    const input = new Airport(capacity = 1);
+    const expected = true;
+    const testPlane = new MockPlane();
+    const testPlane2 = new MockPlane('Test Plane 2');
     //Act
-    input.landPlane('plane1');
-    const extraPlane = input.landPlane('plane2');
+    input.landPlane(testPlane);
+    const extraPlane = input.landPlane(testPlane2);
     actual = extraPlane instanceof Error
 
     //Assert

@@ -19,5 +19,5 @@ planeTests.testPlaneIsLandedIfSupplied();
 planeTests.testPlaneHasStringName();
 planeTests.testErrorIfNullPlaneName();
 planeTests.testErrorIfNameIsNonString();
-planeTests.testChangingPlaneLandingStatus();
+//planeTests.testChangingPlaneLandingStatus();
 

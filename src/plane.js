@@ -23,14 +23,13 @@ class Plane {
     }
 
     getName() {
-
         return this.#name;
 
     }
-
-    changeLandingStatus() {
-        this.#landed = !this.#landed;
-    };
+    //MIGHT NOT NEED IF CAN CHANGE IN AIRPORT CLASS
+    // changeLandingStatus() {
+    //     this.#landed = !this.#landed;
+    // };
 
 }
 
