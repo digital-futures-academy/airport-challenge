@@ -82,3 +82,15 @@ test.it('test to prevent plane taking off when it is already flying', function (
     let airport = new Airport(10);
     return test.expect(airport.takeOff(plane)).toEqual('Plane cannot take off when already flying');
 });
+
+test.it('test to prevent plane taking off when weather is stormy', function () {
+    let plane = new Plane('plane', 'landed');
+    let airport = new Airport(10, [plane]);
+    return test.expect(airport.takeOff(plane)).toEqual('Stormy weather. Plane cannot take off');
+});
+
+test.it('test to prevent plane landing when weather is stormy', function () {
+    let plane = new Plane('plane', 'flying');
+    let airport = new Airport(10);
+    return test.expect(airport.landPlane(plane)).toEqual('Stormy weather. Plane cannot land');
+});
