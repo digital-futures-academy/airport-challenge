@@ -88,7 +88,6 @@ const test = Test.describe('Plane', (suite) => {
 
     suite.it('Cannot take off without a departure Airport.', (test) => {
         const plane = new Plane('1');
-        plane._status = 'landed';
 
         test.expect(plane.takeOff).toThrow(
             'Cannot take off: no departure Airport provided.',
@@ -97,7 +96,6 @@ const test = Test.describe('Plane', (suite) => {
 
     suite.it('Cannot take off when Airport.depart() throws an error.', (test) => {
         const plane = new Plane('1');
-        plane._status = 'landed';
         const airport = new MockAirport();
         airport.depart = () => {
             throw new Error();
