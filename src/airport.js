@@ -1,8 +1,9 @@
 class Airport {
-  constructor(name, capacity = 100,) {
+  constructor(name, capacity = 100, weatherCode = 0.5) {
     this.name = name;
     this.capacity = capacity;
     this.planes = [];
+    this.weather = weatherCode
   }
 
   changeCapacity(newCapacity) {
@@ -21,10 +22,12 @@ class Airport {
         console.log(`Airport is full, plane ${plane.name} cannot land.`)
         throw new Error("Cannot land plane when airport is full.");
       }
-      this.planes.push(plane);
-      plane.airport = this.name;
-      console.log(`Plane ${plane.name} landed successfully at ${this.name}.`)
-      return plane;
+      if (this.weather < 0.9) {
+        this.planes.push(plane);
+        plane.airport = this.name;
+        console.log(`Plane ${plane.name} landed successfully at ${this.name}.`)
+        return plane;
+      } else console.log(`The weather is too stormy to land at ${this.name} !`);
     } catch (error) {
       return error;
       // QUESTION: Is it correct to return an error? Or should errors only be thrown/caught rather than returned?
@@ -38,10 +41,12 @@ class Airport {
       }
       // const planeIndex = this.planes.indexOf(plane);
       // this.plane.splice(planeIndex, 1);
-      this.planes = this.planes.filter(elt => elt !== plane);
-      plane.airport = "in flight";
-      console.log(`Plane ${plane.name} has taken off successfully from ${this.name}.`);
-      return plane;
+      if (this.weather < 0.9) {
+        this.planes = this.planes.filter(elt => elt !== plane);
+        plane.airport = "in flight";
+        console.log(`Plane ${plane.name} has taken off successfully from ${this.name}.`);
+        return plane;
+      } else console.log(`The weather is too stormy to land at ${this.name} !`);
       // Not sure which way better, probably .indexOf since chance it doesn't have to traverse whole array (hence faster?)
     } catch (error) {
       console.log(`Plane ${plane.name} is not in the airport ${this.name}. Cannot take off.`);

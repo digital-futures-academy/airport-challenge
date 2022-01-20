@@ -301,11 +301,10 @@ export const airportCannotLandPlaneWhenWeatherStormy = () => {
     const testDescription = "Airport can't land a plane when the weather is stormy"
 
     //1. Setup
-    const myAirport = new Airport("My Airport");
+    const myAirport = new Airport("My Airport", 100, 0.95); // weatherCode = 0.95 (stormy weather)
     const myPlane = new Plane("Matt's plane");
 
     // 2. Execute
-    let weather = 0.95;
     myAirport.landPlane(myPlane);
 
     // 3. Verify
@@ -320,12 +319,12 @@ export const airportCannotTakeOffPlaneWhenWeatherStormy = () => {
 
     //1. Setup
     const myAirport = new Airport("My Airport");
+    // by default has weatherCode = 0.5 (i.e. sunny)
     const myPlane = new Plane("Matt's plane");
 
     // 2. Execute
-    let weather = 0.5;
-    myAirport.landPlane(myPlane);
-    weather = 0.95;
+    myAirport.landPlane(myPlane); // fine to land since sunny
+    myAirport.weather = 0.95;
     myAirport.takeOffPlane(myPlane);
 
     // 3. Verify
