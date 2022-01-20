@@ -38,10 +38,11 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-| Object  | Properties    | Message             | Output   |
-| ------- | ------------- | ------------------- | -------- |
-| Airport | planes @Array | hasTakenOff(@Plane) | @Boolean |
-|         |               | hasLanded(@Plane)   | @Boolean |
+| Object  | Properties     | Message             | Output   |
+| ------- | -------------- | ------------------- | -------- |
+| Airport | planes @Array  | hasTakenOff(@Plane) | @Boolean |
+|         |                | hasLanded(@Plane)   | @Boolean |
+| Plane   | status @Number |                     |          |
 
 ```
 

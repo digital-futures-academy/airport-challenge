@@ -56,3 +56,17 @@ test.it('test to check if airport outputs true when plane is at airport', functi
     let airport = new Airport(10, [plane]);
     return test.expect(airport.isPlaneAtAirport(plane)).toEqual(true);
 });
+
+test.it('test to check plane status is changed to landed when plane is landed', function () {
+    let plane = new Plane('plane', 'flying');
+    let airport = new Airport();
+    airport.landPlane(plane);
+    return test.expect(plane.status).toEqual('landed');
+});
+
+test.it('test to check plane status is changed to flying when the plane has taken off', function () {
+    let plane = new Plane('plane', 'landed');
+    let airport = new Airport(10, [plane]);
+    airport.takeOff(plane);
+    return test.expect(plane.status).toEqual('flying');
+});
