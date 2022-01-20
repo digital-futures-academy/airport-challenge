@@ -99,3 +99,11 @@ test.it('test to prevent plane landing when weather is stormy', function () {
     airport.weather = 0.05; // stormy
     return test.expect(airport.landPlane(plane)).toEqual('Stormy weather. Plane cannot land');
 });
+
+test.it('test to count planes in airport', function () {
+    let plane1 = new Plane('plane1', 'landed');
+    let plane2 = new Plane('plane2', 'landed');
+    let plane3 = new Plane('plane3', 'landed');
+    let airport = new Airport(10, [plane1, plane2, plane3]);
+    return test.expect(airport.countPlanes()).toEqual(3);
+});
