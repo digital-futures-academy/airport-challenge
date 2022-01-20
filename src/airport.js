@@ -37,6 +37,8 @@ class Airport {
 
   landPlane(plane) {
     try {
+      if (!(plane instanceof Plane)) throw new Error('Entry data must be an instance of Plane.');
+      if (this.#landedPlanes.includes(plane.getPlaneName())) throw new Error('This plane has already landed a this Airport and cannot do so again.')
       if (this.numberOfPlanesAtAirport === this.airportCapacity) throw new Error('The airport is at full capacity. This plane cannot land here.')
       this.#landedPlanes.push(plane.getPlaneName())
       plane.setPlaneLocation(this.#name);
@@ -49,13 +51,15 @@ class Airport {
 
   planeTakeOff(plane) {
     try {
-      if (this.#landedPlanes.includes(plane.getPlaneName()) === false) throw new Error('This plane is not currently at the airport and can therefore not take off from here.')
+      if (!(plane instanceof Plane)) throw new Error('Entry data must be an instance of Plane.');
+      if (this.#landedPlanes.includes(plane.getPlaneName()) === false) throw new Error('This plane is not currently at the airport and cannot take off from here.');
       const planeIndex = this.#landedPlanes.indexOf(plane.getPlaneName());
       this.#landedPlanes.splice(planeIndex, 1);
       this.numberOfPlanesAtAirport--;
       plane.setPlaneLocation('sky');
     } catch (err) {
       console.log(err.message);
+      return err;
     }
   }
 
@@ -70,19 +74,19 @@ const testPlane1 = new Plane('plane1');
 const testPlane2 = new Plane('plane2');
 const testPlane3 = new Plane('plane3');
 
-const testAirport = new Airport('TST');
+const testAirport = new Airport('TST', 1);
 
 console.log(testAirport.getLandedPlanesList());
 console.log(testAirport.getNumberOfPlanesAtAirport());
 
-testAirport.landPlane(testPlane1);
+testAirport.landPlane(10);
 testAirport.landPlane(testPlane2);
 testAirport.landPlane(testPlane3);
 
 console.log(testAirport.getLandedPlanesList());
 console.log(testAirport.getNumberOfPlanesAtAirport());
 
-console.log(testAirport.getLandedPlanesList().indexOf('plane3'));
+console.log(testAirport.getLandedPlanesList().indexOf('plane2'));
 
 testAirport.planeTakeOff(testPlane3);
 testAirport.planeTakeOff(testPlane2);

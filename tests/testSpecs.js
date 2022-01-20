@@ -262,8 +262,6 @@ const checkPlaneLocationAfterTakingOffIsSky = () => {
 
 // QUESTIONABLE PLANE TAKE OFF AND LANDING REQUESTS ERROR TESTS 
 
-// test whether error occurs when requesting a plane to take off that isn't at the airport 
-
 const checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport = () => {
     //Identifier
     console.log(`\ncheckErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport\n================`)
@@ -279,8 +277,25 @@ const checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport = () => {
     console.log(`checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport test result: ${result}\n`);
 }
 
+const checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport = () => {
+    //Identifier
+    console.log(`\ncheckErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport\n================`)
+    //Arrange
+    const testPlane = new Plane('TestPlane');
+    const testAirport = new Airport('TST');
+    const expected = true;
+    //Act
+    testAirport.landPlane(testPlane);
+    const actual = testAirport.landPlane(testPlane) instanceof Error;
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report 
+    console.log(`checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport test result: ${result}\n`);
+}
 
-// test that an error occurs if asking a plane to land when it is already landed at the airport 
+//// USER STORY PART 6
+
+
 
 
 module.exports = {
@@ -299,5 +314,6 @@ module.exports = {
     checkLandingIsPreventedWithAirportAtFullCapacity,
     checkPlaneCanTakeOffFromAirportAndIsNoLongerThere,
     checkPlaneLocationAfterTakingOffIsSky,
-    checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport
+    checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport,
+    checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport
 }
