@@ -92,5 +92,6 @@ I have tested edge cases such as landing a plane that is already at an airport o
 
 One aspect of my code that I think could be improved on is that the Plane and Airport classes are currently tightly coupled. In particular the landing and take off methods of the Airport class directly reassign the airport property of Plane instances. With more experience I would like to avoid this in future, but may need some guidance. In a similar way, the tests I have written for the Airport class are tightly coupled to the Plane class. To improve this I could use a mock class next time.
 
+For the extended criteria, I created a third class Weather with two static methods to allow the generating and reading of weather codes. If assigned a weather code, airport takeoffs and landings are affected by stormy weather. Otherwise, weather is considered to be sunny.
 
 

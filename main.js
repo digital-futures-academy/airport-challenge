@@ -1,5 +1,6 @@
 import { Plane } from './src/plane.js'
 import { Airport } from './src/airport.js'
+import { Weather } from './src/weather.js';
 
 
 //////// Try out creating some instances of classes and using their methods here! /////////
@@ -57,6 +58,21 @@ console.log(myNewPlane); // returns error message
 // An airport cannot be landed at once it reaches capacity:
 const plane3 = new Plane("Huge plane");
 airport2.landPlane(plane3);
+
+
+// By default, airports initialise with a weather code of 0.5, where weather code is between 0 and 1. Code 0.9 or higher indicates stormy while lower indicates sunny.
+
+// The weatherGenerator function of the Weather class can randomly generate weather to be assigned to an airport.
+console.log(`Weather code at airport ${airport1.name} is ${airport1.weather}`);
+let weatherCode = Weather.weatherGenerator();
+console.log(`Newly generated weather code is: ${weatherCode}`);
+airport1.weather = weatherCode;
+console.log(`New weather code at airport ${airport1.name} is ${airport1.weather}`);
+
+// Use the weatherCodereader function of the Weather class to print the weather code in a readable format:
+console.log(`The weather at airport ${airport1.name} is: ${Weather.weatherCodeReader(airport1.weather)}`);
+
+
 
 
 
