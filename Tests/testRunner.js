@@ -1,5 +1,11 @@
-const  assertEquals = require('./testFramework.js');
+const assertEquals = require('./testFramework.js');
 const Airport = require('../src/airport.js');
-const testEmptyTerminal =require('./Terminal.js');
+const tests = require('./testSpec.js');
 
-testEmptyTerminal()
+
+tests.testThatAirportIsEmpty()
+tests.testThatPlaneCanLand()
+tests.testThatCapacityCanBeOverwritten()
+tests.testThatAirportIsFull()
+tests.testThatPlanesCanTakeOff()
+tests.testThatPlanesAreTracked()
