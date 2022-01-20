@@ -2,6 +2,8 @@ const airportTests = require(`./tests/airportTests.spec`);
 
 const planeTests = require(`./tests/planeTests.spec`);
 
+const weatherTests = require(`./tests/weatherTests.spec`);
+
 //Airport tests
 
 airportTests.testNumbOfPlanesIsZero();
@@ -26,3 +28,5 @@ planeTests.testErrorIfNameIsNonString();
 planeTests.testChangingPlaneLandingStatus();
 
 
+//Weather Tests
+weatherTests.testRandomlyGenerateWeather();

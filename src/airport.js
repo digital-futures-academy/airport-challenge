@@ -33,7 +33,6 @@ class Airport {
     try {
       if (!(plane instanceof Object)) throw new Error('Please use the Plane class.');
       if (!this.planesArray.includes(plane.getName())) throw new Error('Plane is not at this Airport.')
-      const planeIndex = this.planesArray.indexOf(plane.getName());
       this.planesArray = this.planesArray.filter(landedPlane => landedPlane != plane.getName());
       plane.changeLandingStatus();
     }

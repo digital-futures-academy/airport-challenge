@@ -277,8 +277,6 @@ const testCantRemovePlaneNotAtAirport = () => {
 
 
 
-
-
 airportTests = {
     testNumbOfPlanesIsZero,
     testOnePlaneLanded,
