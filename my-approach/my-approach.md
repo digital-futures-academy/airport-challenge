@@ -6,9 +6,9 @@ User Story 1:
 
 #### Acceptance Criteria
 
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
+As an air traffic controller;
+So I can get passengers to a destination;
+I want to instruct the airport to land a plane;
 
 
 #### Nouns and verbs
@@ -56,9 +56,9 @@ User Story 2:
 
 #### Acceptance Criteria
 
-As the system designer
-So that the software can be used for many different airports
-I would like a default airport capacity that can be overridden as appropriate
+As the system designer;
+So that the software can be used for many different airports;
+I would like a default airport capacity that can be overridden as appropriate;
 
 #### Nouns and verbs
 
@@ -90,16 +90,16 @@ Please note: User Story 3 has already been covered in the prerequisite acceptanc
 
 #### Acceptance Criteria
 
-As an air traffic controller
-To ensure safety
-I want to prevent landing when the airport is full
+As an air traffic controller;
+To ensure safety;
+I want to prevent landing when the airport is full;
 
 User Story 4: 
 ---------
 
-As an air traffic controller
-So I can get passengers on the way to their destination
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+As an air traffic controller;
+So I can get passengers on the way to their destination;
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport;
 
 #### Nouns and verbs
 
@@ -129,9 +129,9 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 User Story 5: 
 ---------
 
-As an air traffic controller
-To avoid confusion
-I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+As an air traffic controller;
+To avoid confusion;
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed;
 
 #### Nouns and verbs
 
@@ -162,17 +162,17 @@ I want to prevent asking the airport to let planes take-off which are not at the
 Extended Acceptance Criteria: 
 ---------
 
-As an air traffic controller
-To ensure safety
-I want to prevent takeoff when weather is stormy
+As an air traffic controller;
+To ensure safety;
+I want to prevent takeoff when weather is stormy;
 
-As an air traffic controller
-To ensure safety
-I want to prevent landing when weather is stormy
+As an air traffic controller;
+To ensure safety;
+I want to prevent landing when weather is stormy;
 
-As an air traffic controller
-To count planes easily
-Planes that have landed must be at an airport
+As an air traffic controller;
+To count planes easily;
+Planes that have landed must be at an airport;
 
 #### Nouns and verbs
 
