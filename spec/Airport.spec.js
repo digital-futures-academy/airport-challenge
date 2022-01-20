@@ -121,7 +121,7 @@ const testDefaultCapacityAirport = () => {
 }
 
 // Test Change of the capacity
-testChangeCapacity = () => {
+const testChangeCapacity = () => {
     // Arrange
     const airport = new Airport();
     expected = 5
@@ -136,6 +136,25 @@ testChangeCapacity = () => {
     console.log(`Capacity of the airport was changed: ${result}`);
 }
 
+// Teste plane leaving the airport
+const leavingAirport = () => {
+    // Arrange
+    const airport = new Airport();
+    expected = 0;
+    const testPlane = ['MSE-2201-A', 'London'];
+    airport.addPlane(testPlane);
+
+    // Act
+    const actual = airport.leavingAirport(testPlane);
+
+    // Assert
+    const result = assertEquals(actual, expected);
+
+    // Report
+    console.log(`The plane just left the airport: ${result}`);
+}
+
+
 module.exports = {
     testAirportAvailable,
     testAirportUnavailable,
@@ -144,5 +163,6 @@ module.exports = {
     testPlaneLandedIntoAirport,
     testAddMoreThanOnePlane,
     testDefaultCapacityAirport,
-    testChangeCapacity
+    testChangeCapacity,
+    leavingAirport
 };

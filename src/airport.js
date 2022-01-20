@@ -40,6 +40,11 @@ class Airport {
     return this.#capacity;
   }
 
+  leavingAirport(plane) {
+    this.#planes.pop(plane);
+    return this.#planes.length;
+  }
+
 }
 
 module.exports = Airport;
