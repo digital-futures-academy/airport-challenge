@@ -21,9 +21,9 @@ I would like a default airport capacity that can be overridden as appropriate
 | Objects | Properties              | Messages             | Outputs        |
 | ------- | ----------------------- | -------------------- | -------------- |
 | Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane] |
-|         |                         | land(@Plane)         |                |
 |         | capacity @Number        | getCapacity()        | @Number        |
 |         |                         | setCapacity(@Number) |                |
+|         |                         | land(@Plane)         |                |
 | Plane   |                         |                      |                |
 
 # Part 3
@@ -31,6 +31,15 @@ I would like a default airport capacity that can be overridden as appropriate
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+
+| Objects | Properties              | Messages             | Outputs        |
+| ------- | ----------------------- | -------------------- | -------------- |
+| Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane] |
+|         | capacity @Number        | getCapacity()        | @Number        |
+|         |                         | setCapacity(@Number) |                |
+|         |                         | land(@Plane)         |                |
+|         |                         | isFull()             | @Boolean       |
+| Plane   |                         |                      |                |
 
 # Part 4
 
