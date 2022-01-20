@@ -7,10 +7,12 @@ class Airport {
     landPlane(plane) {
         if (this.isAirportFull()) return 'Airport is full. Unable to land plane';
         this.planes.push(plane);
+        plane.status = 'landed';
     }
 
     takeOff(plane) {
         this.planes.splice(this.planes.indexOf(plane), 1);
+        plane.status = 'flying';
     }
 
     updateCapacity(extra) {
