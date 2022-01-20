@@ -62,7 +62,7 @@ class Airport {
       if (!(plane instanceof Plane)) throw new Error('Entry data must have an instance of Plane.');
       if (!(weatherReport instanceof WeatherReport)) throw new Error('Entry data must have an instance of WeatherReport.');
       if (weatherReport.stormyWeather === true) throw new Error('The weather is stormy and planes are not able to take off right now.')
-      if (this.#landedPlanes.includes(plane.getPlaneName()) === false) throw new Error('This plane is not currently at the airport and cannot take off from here.');
+      if (this.#landedPlanes.includes(plane.getPlaneName()) === false) throw new Error('This plane is not currently at the airport. Take off request is invalid.');
 
       const planeIndex = this.#landedPlanes.indexOf(plane.getPlaneName());
       this.#landedPlanes.splice(planeIndex, 1);

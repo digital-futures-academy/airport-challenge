@@ -118,8 +118,10 @@ const checkPlaneInstructedToLandIsAtAirport = () => {
     const testPlane = new Plane('TestPlane');
     const testAirport = new Airport('TST');
     const expected = 'TestPlane'
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
     //Act
-    testAirport.landPlane(testPlane);
+    testAirport.landPlane(testPlane, testWeatherReport);
     const landedPlaneList = testAirport.getLandedPlanesList()
     actual = landedPlaneList[0];
     //Assert
@@ -135,8 +137,10 @@ const checkLandedPlaneLocationIsSetToSpecifiedAirport = () => {
     const testPlane = new Plane('TestPlane');
     const testAirport = new Airport('TST');
     const expected = 'TST'
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
     //Act
-    testAirport.landPlane(testPlane);
+    testAirport.landPlane(testPlane, testWeatherReport);
     const actual = testPlane.getLocation();
     //Assert
     const result = assertEquals(expected, actual);
@@ -161,8 +165,6 @@ const checkDefaultAirportCapacityIs5 = () => {
     //Report
     console.log(`checkDefaultAirportCapacityIs5 test result: ${result}\n`)
 }
-
-// Check default airport capacity can be overridden
 
 const checkDefaultAirportCapacityCanBeOverRidden = () => {
     //Identifier
@@ -190,11 +192,13 @@ const checkCanCountNumberOfPlanesAtAirport = () => {
     const testPlane1 = new Plane('Plane1');
     const testPlane2 = new Plane('Plane2');
     const testPlane3 = new Plane('Plane3');
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
     const expected = 3;
     //Act
-    testAirport.landPlane(testPlane1);
-    testAirport.landPlane(testPlane2);
-    testAirport.landPlane(testPlane3);
+    testAirport.landPlane(testPlane1, testWeatherReport);
+    testAirport.landPlane(testPlane2, testWeatherReport);
+    testAirport.landPlane(testPlane3, testWeatherReport);
     const actual = testAirport.getNumberOfPlanesAtAirport();
     //Assert
     const result = assertEquals(expected, actual);
@@ -210,12 +214,14 @@ const checkLandingIsPreventedWithAirportAtFullCapacity = () => {
     const testPlane1 = new Plane('Plane1');
     const testPlane2 = new Plane('Plane2');
     const testPlane3 = new Plane('Plane3');
-    const expected = true;
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
+    const expected = 'The airport is at full capacity. This plane cannot land here.';
     //Act
-    testAirport.landPlane(testPlane1);
-    testAirport.landPlane(testPlane2);
-    const requestLandingResult = testAirport.landPlane(testPlane3);
-    const actual = requestLandingResult instanceof Error;
+    testAirport.landPlane(testPlane1, testWeatherReport);
+    testAirport.landPlane(testPlane2, testWeatherReport);
+    let outputError = testAirport.landPlane(testPlane3, testWeatherReport);
+    const actual = outputError.message;
     //Assert
     const result = assertEquals(expected, actual);
     //Report 
@@ -232,10 +238,12 @@ const checkPlaneCanTakeOffFromAirportAndIsNoLongerThere = () => {
     //Arrange
     const testPlane = new Plane('TESTPLANE');
     const testAirport = new Airport('TST');
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
     const expected = false;
     //Act
-    testAirport.landPlane(testPlane);
-    testAirport.planeTakeOff(testPlane);
+    testAirport.landPlane(testPlane, testWeatherReport);
+    testAirport.planeTakeOff(testPlane, testWeatherReport);
     const actual = testAirport.getLandedPlanesList().includes('TESTPLANE');
     //Assert
     const result = assertEquals(expected, actual);
@@ -249,10 +257,12 @@ const checkPlaneLocationAfterTakingOffIsSky = () => {
     //Arrange
     const testPlane = new Plane('TESTPLANE');
     const testAirport = new Airport('TST');
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
     const expected = 'sky';
     //Act
-    testAirport.landPlane(testPlane);
-    testAirport.planeTakeOff(testPlane);
+    testAirport.landPlane(testPlane, testWeatherReport);
+    testAirport.planeTakeOff(testPlane, testWeatherReport);
     const actual = testPlane.getLocation();
     //Assert
     const result = assertEquals(expected, actual);
@@ -270,9 +280,12 @@ const checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport = () => {
     //Arrange
     const testPlane = new Plane('TestPlane');
     const testAirport = new Airport('TST');
-    const expected = true;
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
+    const expected = 'This plane is not currently at the airport. Take off request is invalid.';
     //Act
-    const actual = testAirport.planeTakeOff(testPlane) instanceof Error;
+    let outputError = testAirport.planeTakeOff(testPlane, testWeatherReport);
+    const actual = outputError.message;
     //Assert
     const result = assertEquals(expected, actual);
     //Report 
@@ -285,10 +298,13 @@ const checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport = () => {
     //Arrange
     const testPlane = new Plane('TestPlane');
     const testAirport = new Airport('TST');
-    const expected = true;
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
+    const expected = 'This plane has already landed a this Airport and cannot do so again.';
     //Act
-    testAirport.landPlane(testPlane);
-    const actual = testAirport.landPlane(testPlane) instanceof Error;
+    testAirport.landPlane(testPlane, testWeatherReport);
+    let outputError = testAirport.landPlane(testPlane, testWeatherReport)
+    const actual = outputError.message;
     //Assert
     const result = assertEquals(expected, actual);
     //Report 
@@ -320,18 +336,37 @@ const checkPlaneCannotTakeOffWhenStormy = () => {
     const testPlane = new Plane('TestPlane');
     const testAirport = new Airport('TST');
     const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = false;
+    testAirport.landPlane(testPlane, testWeatherReport);
     testWeatherReport.stormyWeather = true;
-    const expected = true
+    const expected = 'The weather is stormy and planes are not able to take off right now.';
     //Act
-    const actual = testAirport.planeTakeOff(testPlane, testWeatherReport) instanceof Error;
+    let outputError = testAirport.planeTakeOff(testPlane, testWeatherReport);
+    const actual = outputError.message;
     //Assert
     const result = assertEquals(expected, actual);
     //Report 
     console.log(`checkPlaneCannotTakeOffWhenStormy test result: ${result}\n`);
 }
 
-// check that a plane cannot land when weather is stormy 
+const checkPlaneCannotLandWhenWeatherIsStormy = () => {
+    //Identifier
+    console.log(`\ncheckPlaneCannotLandWhenWeatherIsStormy\n================`)
+    //Arrange
+    const testPlane = new Plane('TestPlane');
+    const testAirport = new Airport('TST');
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = true;
+    const expected = 'The weather is stormy and no planes are able to land right now.';
+    //Act
+    let outputError = testAirport.landPlane(testPlane, testWeatherReport);
+    const actual = outputError.message;
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report
+    console.log(`checkPlaneCannotLandWhenWeatherIsStormy test result: ${result}\n`);
 
+}
 
 //// USER STORY PART 8 
 
@@ -356,5 +391,6 @@ module.exports = {
     checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport,
     checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport,
     checkStormyFunctionProducesABooleanValue,
-    checkPlaneCannotTakeOffWhenStormy
+    checkPlaneCannotTakeOffWhenStormy,
+    checkPlaneCannotLandWhenWeatherIsStormy
 }
