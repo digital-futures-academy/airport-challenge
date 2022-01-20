@@ -7,6 +7,7 @@
 ## How to Install and Run the Project
 
   - Can view the total number of planes and airports in existent (that have been created)
+  - explain how the stormy weather application works 
 
 
 

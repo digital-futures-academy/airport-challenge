@@ -1,6 +1,8 @@
 const { Airport } = require('../src/airport');
 const { Plane } = require('../src/plane');
+const { WeatherReport } = require('../src/weather.js')
 const { assertEquals } = require('./testFramework');
+
 
 //// USER STORY PART 1 
 
@@ -293,10 +295,47 @@ const checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport = () => {
     console.log(`checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport test result: ${result}\n`);
 }
 
-//// USER STORY PART 6
+//// USER STORY PART 6 AND 7 
+
+// STORMY WEATHER TESTS
+
+const checkStormyFunctionProducesABooleanValue = () => {
+    //Identifier
+    console.log(`\ncheckStormyFunctionProducesABooleanValue\n================`)
+    //Arrange
+    const testWeatherReport = new WeatherReport;
+    const expected = 'boolean';
+    //Act
+    const actual = typeof testWeatherReport.stormyWeather;
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report 
+    console.log(`checkStormyFunctionProducesABooleanValue test result: ${result}\n`);
+}
+
+const checkPlaneCannotTakeOffWhenStormy = () => {
+    //Identifier
+    console.log(`\ncheckPlaneCannotTakeOffWhenStormy\n================`)
+    //Arrange
+    const testPlane = new Plane('TestPlane');
+    const testAirport = new Airport('TST');
+    const testWeatherReport = new WeatherReport();
+    testWeatherReport.stormyWeather = true;
+    const expected = true
+    //Act
+    const actual = testAirport.planeTakeOff(testPlane, testWeatherReport) instanceof Error;
+    //Assert
+    const result = assertEquals(expected, actual);
+    //Report 
+    console.log(`checkPlaneCannotTakeOffWhenStormy test result: ${result}\n`);
+}
+
+// check that a plane cannot land when weather is stormy 
 
 
+//// USER STORY PART 8 
 
+// COUNTING PLANES THAT HAVE LANDED AT AN AIRPORT 
 
 module.exports = {
     checkAnyPlaneNameInputNotStringIsUndefined,
@@ -315,5 +354,7 @@ module.exports = {
     checkPlaneCanTakeOffFromAirportAndIsNoLongerThere,
     checkPlaneLocationAfterTakingOffIsSky,
     checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport,
-    checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport
+    checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport,
+    checkStormyFunctionProducesABooleanValue,
+    checkPlaneCannotTakeOffWhenStormy
 }

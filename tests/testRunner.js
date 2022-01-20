@@ -14,7 +14,9 @@ const { checkAnyPlaneNameInputNotStringIsUndefined,
     checkPlaneCanTakeOffFromAirportAndIsNoLongerThere,
     checkPlaneLocationAfterTakingOffIsSky,
     checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport,
-    checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport } = require('./testSpecs.js')
+    checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport,
+    checkStormyFunctionProducesABooleanValue,
+    checkPlaneCannotTakeOffWhenStormy } = require('./testSpecs.js')
 
 
 checkAnyPlaneNameInputNotStringIsUndefined();
@@ -34,3 +36,5 @@ checkPlaneCanTakeOffFromAirportAndIsNoLongerThere();
 checkPlaneLocationAfterTakingOffIsSky();
 checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport();
 checkErrorOccursWhenAskingPlaneToLandWhenAlreadyAtAirport();
+checkStormyFunctionProducesABooleanValue();
+checkPlaneCannotTakeOffWhenStormy();
