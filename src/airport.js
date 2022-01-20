@@ -12,6 +12,11 @@ class Airport {
 
   landPlane(plane) {
     try {
+      if (this.planes.includes(plane)) {
+        console.log(`Plane ${plane.name} is already in the airport. Cannot land again.`);
+        throw new Error("Cannot land a plane which is already in the airport.");
+      }
+
       if (this.planes.length >= this.capacity) {
         console.log(`Airport is full, plane ${plane.name} cannot land.`)
         throw new Error("Cannot land plane when airport is full.");
