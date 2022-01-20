@@ -1,8 +1,13 @@
 class Airport {
     constructor(capacity = 10, planes = []) {
-        this.planes = planes;
-        this.capacity = capacity;
-        this.weather = Math.random();
+        try {
+            if (!(planes instanceof Array) || capacity < 0) throw new Error('Error! Bad input for airport constructor');
+            this.planes = planes;
+            this.capacity = capacity;
+            this.weather = Math.random();
+        } catch (err) {
+            console.log('Error! Bad input for airport constructor');
+        }
     }
 
     landPlane(plane) {
