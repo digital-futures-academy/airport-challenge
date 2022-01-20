@@ -10,7 +10,10 @@ const { checkAnyPlaneNameInputNotStringIsUndefined,
     checkDefaultAirportCapacityIs5,
     checkDefaultAirportCapacityCanBeOverRidden,
     checkCanCountNumberOfPlanesAtAirport,
-    checkLandingIsPreventedWithAirportAtFullCapacity } = require('./testSpecs.js')
+    checkLandingIsPreventedWithAirportAtFullCapacity,
+    checkPlaneCanTakeOffFromAirportAndIsNoLongerThere,
+    checkPlaneLocationAfterTakingOffIsSky,
+    checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport } = require('./testSpecs.js')
 
 
 checkAnyPlaneNameInputNotStringIsUndefined();
@@ -26,3 +29,6 @@ checkDefaultAirportCapacityIs5();
 checkDefaultAirportCapacityCanBeOverRidden();
 checkCanCountNumberOfPlanesAtAirport();
 checkLandingIsPreventedWithAirportAtFullCapacity();
+checkPlaneCanTakeOffFromAirportAndIsNoLongerThere();
+checkPlaneLocationAfterTakingOffIsSky();
+checkErrorOccursWhenAskingPlaneToTakeOffThatsNotAtAirport();

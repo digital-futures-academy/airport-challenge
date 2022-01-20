@@ -46,6 +46,51 @@ class Airport {
       return err;
     }
   }
+
+  planeTakeOff(plane) {
+    try {
+      if (this.#landedPlanes.includes(plane.getPlaneName()) === false) throw new Error('This plane is not currently at the airport and can therefore not take off from here.')
+      const planeIndex = this.#landedPlanes.indexOf(plane.getPlaneName());
+      this.#landedPlanes.splice(planeIndex, 1);
+      this.numberOfPlanesAtAirport--;
+      plane.setPlaneLocation('sky');
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+
 }
 
 module.exports = { Airport };
+
+// I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+const testPlane1 = new Plane('plane1');
+const testPlane2 = new Plane('plane2');
+const testPlane3 = new Plane('plane3');
+
+const testAirport = new Airport('TST');
+
+console.log(testAirport.getLandedPlanesList());
+console.log(testAirport.getNumberOfPlanesAtAirport());
+
+testAirport.landPlane(testPlane1);
+testAirport.landPlane(testPlane2);
+testAirport.landPlane(testPlane3);
+
+console.log(testAirport.getLandedPlanesList());
+console.log(testAirport.getNumberOfPlanesAtAirport());
+
+console.log(testAirport.getLandedPlanesList().indexOf('plane3'));
+
+testAirport.planeTakeOff(testPlane3);
+testAirport.planeTakeOff(testPlane2);
+
+console.log(testAirport.getLandedPlanesList());
+console.log(testAirport.getNumberOfPlanesAtAirport());
+
+
+
+
+
