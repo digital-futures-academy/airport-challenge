@@ -18,7 +18,7 @@ class Airport {
       this.planes.push(plane);
       console.log(`Plane ${plane.name} landed successfully at ${airport.name}.`)
     } catch (error) {
-      console.log("Airport is full, this plane cannot land.")
+      console.log("Airport is full, plane ${plane.name} cannot land.")
       return error;
       // QUESTION: Is it correct to return an error? Or should errors only be thrown rather than returned?
     }

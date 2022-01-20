@@ -18,3 +18,4 @@ a.airportCanBeInitialisedWithCustomListOfPlanes();
 a.airportCannotLandPlaneWhenFull();
 a.airportCanLandPlaneWhenNotFull();
 a.airportCanLetPlaneTakeOff();
+a.airportCannotTakeOffPlaneNotInAirport();

@@ -172,3 +172,21 @@ export const airportCanLetPlaneTakeOff = () => {
     // Report
     printReport(testDescription, result);
 }
+
+export const airportCannotTakeOffPlaneNotInAirport = () => {
+    const testDescription = "Airport cannot let a plane take off if it isn't in the airport"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+    const expectedOutput = new Error("Cannot take off a plane which isn't in the airport.")
+
+    // 2. Execute
+    const actualOutput = myAirport.takeOffPlane(myPlane);
+
+    // 3. Verify
+    const result = assertErrorEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
