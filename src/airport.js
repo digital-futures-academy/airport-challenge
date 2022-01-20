@@ -21,6 +21,11 @@ class Airport {
         return this.planes.length >= this.capacity ? true : false;
     }
 
+    isPlaneAtAirport(plane) {
+        if (this.planes.indexOf(plane) < 0) return false;
+        return true;
+    }
+
 }
 
 module.exports = Airport;
