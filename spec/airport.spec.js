@@ -8,6 +8,7 @@ const Airport = require("../src/airport.js");
 
 class MockPlane {
     planeID = 'T3ST-1NG';
+    isLanded = false;
 }
 
 // class MockPlane {
@@ -155,6 +156,50 @@ describe(`Airport:`, () => {
             expect(actual).toBeInstanceOf(Error);
             expect(testAirport.getPlanes().length).toBe(1);
         });
+        it(`should not land in multiple airports`, () => {
+            //Arrange
+            let testAirport1 = new Airport();
+            let testAirport2 = new Airport();
+            let testPlane = new MockPlane();
+            testAirport1.land(testPlane);
+
+            //Act
+            let actual = testAirport2.land(testPlane);
+
+            //Assert
+            expect(actual).toBeInstanceOf(Error);
+            expect(testAirport1.getPlanes().length).toBe(1);
+            expect(testAirport2.getPlanes().length).toBe(0);
+        });
+        it(`should not take off unless landed`, () => {
+            //Arrange
+            let testAirport = new Airport();
+            let testPlane1 = new MockPlane();
+            testAirport.land(testPlane1);
+            let testPlane2 = new MockPlane();
+
+            //Act
+            let actual = testAirport.takeOff(testPlane2);
+
+            //Assert
+            expect(actual).toBeInstanceOf(Error);
+            expect(testAirport.getPlanes().length).toBe(1);
+        });
+        it(`should not takeoff unless landed at the correct airport`, () => {
+            //Arrange
+            let testAirport1 = new Airport();
+            let testAirport2 = new Airport();
+            let testPlane = new MockPlane();
+            testAirport1.land(testPlane);
+
+            //Act
+            let actual = testAirport2.takeOff(testPlane);
+
+            //Assert
+            expect(actual).toBeInstanceOf(Error);
+            expect(testAirport1.getPlanes().length).toBe(1);
+            expect(testAirport2.getPlanes().length).toBe(0);
+        });
     });
     describe(`Weather manipulation:`, () => {
         it(`should produce valid weather when supplied with a < 1 float`, () => {
@@ -221,6 +266,33 @@ describe(`Airport:`, () => {
 
             //Assert
             expect(actual).toBeInstanceOf(Error);
+        });
+        it(`should not allow planes to land while stormy`, () => {
+            //Arrange
+            let testAirport = new Airport();
+            testAirport.setWeather(`stormy`);
+            let testPlane = new MockPlane();
+
+            //Act
+            let actual = testAirport.land(testPlane);
+
+            //Assert
+            expect(actual).toBeInstanceOf(Error);
+            expect(testAirport.getPlanes().length).toBe(0);
+        });
+        it(`should not allow planes to takeoff while stormy`, () => {
+            //Arrange
+            let testAirport = new Airport();
+            let testPlane = new MockPlane();
+            testAirport.land(testPlane);
+            testAirport.setWeather(`stormy`);
+
+            //Act
+            let actual = testAirport.takeOff(testPlane);
+
+            //Assert
+            expect(actual).toBeInstanceOf(Error);
+            expect(testAirport.getPlanes().length).toBe(1);
         });
     });
 });

@@ -24,7 +24,14 @@ class Airport {
             if (this.assertIsFull()) {
                 throw new Error(`Airport is full, ${landingPlane?.planeID ?? `Plane`} cannot land.`);
             }
+            if (this.getWeather() === `stormy`) {
+                throw new Error(`Weather is currently ${this.getWeather()}, so no planes can land.`)
+            }
+            if (landingPlane.isLanded) {
+                throw new Error(`${landingPlane?.planeID ?? `Plane`} is already landed at an airport, it must take off before it can land here!`);
+            }
             this.landedPlanes.push(landingPlane);
+            landingPlane.isLanded = true;
             console.log(`${landingPlane?.planeID ?? `Plane`} has landed!`);
 
         } catch (err) {
@@ -41,7 +48,13 @@ class Airport {
                 throw new Error(`${this?.airportID ?? `This airport`} is currently empty of planes.`);
             }
             else if (!this.landedPlanes.includes(leavingPlane)) {
-                throw new Error(`${this.landedPlanes?.planeID ?? `Plane`} is not currently at ${this?.airportID ?? `this Airport.`}`);
+                throw new Error(`${this.leavingPlane?.planeID ?? `Plane`} is not currently at ${this?.airportID ?? `this Airport.`}`);
+            }
+            if (this.getWeather() === `stormy`) {
+                throw new Error(`Weather is currently ${this.getWeather()}, so no planes can take off.`)
+            }
+            if (!leavingPlane.isLanded) {
+                throw new Error(`${landingPlane?.planeID ?? `Plane`} is not currently landed, it must land at this airport before it can take off!`);
             }
             // if (!leavingPlane.planeID && leavingPlane.planeID !== '')
             let planeToRemove = this.landedPlanes.indexOf(leavingPlane);
@@ -70,7 +83,7 @@ class Airport {
 
     getWeather() {
         if (!this.weather) {
-            this.setWeather();
+            this.setWeather(`sunny`);
         }
         return this.weather;
     }
