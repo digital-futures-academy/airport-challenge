@@ -54,11 +54,21 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 |         |                         | setCapacity(@Number) |                |
 |         |                         | land(@Plane)         |                |
 |         |                         | isFull()             | @Boolean       |
-|         |                         | takeOff(@Plane)      | @Boolean       |
-| Plane   |                         |                      |                |
+|         |                         | takeOff(@Plane)      | @Plane         |
+| Plane   | id @String              | getId()              | @String        |
 
 # Part 5
 
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+| Objects | Properties              | Messages             | Outputs         |
+| ------- | ----------------------- | -------------------- | --------------- |
+| Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane]  |
+|         | capacity @Number        | getCapacity()        | @Number         |
+|         |                         | setCapacity(@Number) |                 |
+|         |                         | land(@Plane)         | @Plane or @Null |
+|         |                         | isFull()             | @Boolean        |
+|         |                         | takeOff(@Plane)      | @Plane or @Null |
+| Plane   | id @String              | getId()              | @String         |
