@@ -4,11 +4,12 @@
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/specRunner.js"
+    "test": "node tests/specRunner.js",
+    "lint": "eslint ./src"
   },
   "author": "dearshrewdwit",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
+    "eslint": "^8.7.0"
   }
 }
