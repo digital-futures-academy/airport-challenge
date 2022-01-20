@@ -10,8 +10,8 @@ checkIfAirPortLandedPlane = () => {
     const testAirplane = new Airplane();
     const expected = true;
     //act
-    let input = false;
-    let actual = testAirTrafficController.landPlaneOrder();
+    let input = testAirTrafficController.landPlaneOrder();
+    let actual = input;
 
     //result
     const result = assertEquals(actual,expected);
