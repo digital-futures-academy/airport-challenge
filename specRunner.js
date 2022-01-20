@@ -8,7 +8,8 @@ const {
     testDefaultCapacityAirport,
     testChangeCapacity,
     leavingAirport,
-    testStormyLand
+    testStormyLand,
+    testStormyLeave
 } = require('./spec/Airport.spec');
 
 testAirportAvailable();
@@ -21,3 +22,4 @@ testDefaultCapacityAirport();
 testChangeCapacity();
 leavingAirport();
 testStormyLand();
+testStormyLeave();
