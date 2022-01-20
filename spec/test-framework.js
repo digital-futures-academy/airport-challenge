@@ -23,7 +23,7 @@ const assertErrorEquals = (error1, error2) => {
 const printBorder = () => console.log(`===================================================================`);
 
 const printReport = (testDescription, result) => {
-    console.log(`${testDescription}: ${result}`);
+    console.log(`${testDescription}: ${result.toString().toUpperCase()}`);
     printBorder();
 }
 

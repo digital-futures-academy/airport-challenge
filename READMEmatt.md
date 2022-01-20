@@ -69,7 +69,7 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 | Plane     |                                                  | constructor(@String)           | @Plane                                              |
 |           | name (@String)                                   | name                           | @String                                             |
 |           | airport (@String) "airport name" / "in flight"   | airport                        | @String                                             |
-|           |                                                  | landPlane(@Plane)              | should this only be included in Airport messages?   |
+|           |                                                  | Airport.landPlane(@Plane)      | should this only be included in Airport messages?   |
 | --------- | ------------------------------------------------ | ------------------------------ | --------------------------------------------------- |
 | Airport   |                                                  |                                |                                                     |
 |           |                                                  | constructor(@String, @Number)  | @Airport                                            |

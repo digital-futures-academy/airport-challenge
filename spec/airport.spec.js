@@ -25,7 +25,7 @@ export const airportInitialisesWithCapacityTest = () => {
     const testDescription = "Airport constructor correctly creates an airport given capacity"
 
     // 1. Setup
-    const input = ["myAirport", [], 110];
+    const input = ["myAirport", 110];
     // Have to pass empty array of planes to airport constructor due to the order of the default parameters.
     // Don't know clean way to allow input ["myAirport", 110] without checking argument types...
     const expectedOutput = 110;
@@ -121,7 +121,7 @@ export const airportCannotLandPlaneWhenFull = () => {
     const testDescription = "Airport can't land a plane when it's full"
 
     //1. Setup
-    const myAirport = new Airport("My Airport", [], 0);
+    const myAirport = new Airport("My Airport", 0);
     // Set airport capacity at 0 so no planes can land
     const myPlane = new Plane("Matt's plane");
     // This Airport test is tightly coupled to the Plane class...
@@ -295,3 +295,45 @@ export const airportTakeOffPlaneChangesPlaneAirportProperty = () => {
     // Report
     printReport(testDescription, result);
 }
+
+
+export const airportCannotLandPlaneWhenWeatherStormy = () => {
+    const testDescription = "Airport can't land a plane when the weather is stormy"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+
+    // 2. Execute
+    let weather = 0.95;
+    myAirport.landPlane(myPlane);
+
+    // 3. Verify
+    const result = !myAirport.planes.includes(myPlane);
+
+    // Report
+    printReport(testDescription, result);
+}
+
+export const airportCannotTakeOffPlaneWhenWeatherStormy = () => {
+    const testDescription = "Airport can take off plane when the weather is stormy"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+
+    // 2. Execute
+    let weather = 0.5;
+    myAirport.landPlane(myPlane);
+    weather = 0.95;
+    myAirport.takeOffPlane(myPlane);
+
+    // 3. Verify
+    const result = myAirport.planes.includes(myPlane);
+
+    // Report
+    printReport(testDescription, result);
+}
+
+
+// Annoying that the export object has keys in alphabetical order...

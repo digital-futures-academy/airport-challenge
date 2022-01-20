@@ -10,7 +10,6 @@ for (let property in planeTests) {
 // p.planeInitialisesWithDefaultAirportProperty();
 
 
-
 // Airport class tests
 for (let property in airportTests) {
     airportTests[property]();
