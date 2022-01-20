@@ -241,11 +241,51 @@ export const airportTakeOffPlaneReturnsPlaneObject = () => {
     //1. Setup
     const myAirport = new Airport("My Airport");
     const myPlane = new Plane("Matt's plane");
+    // In next week's challenge I'll try use mock classes to decouple tests
     const expectedOutput = myPlane;
 
     // 2. Execute
     myAirport.landPlane(myPlane);
     const actualOutput = myAirport.takeOffPlane(myPlane);
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
+
+export const airportLandPlaneChangesPlaneAirportProperty = () => {
+    const testDescription = "Landing a plane changes its airport property"
+
+    //1. Setup
+    const myAirport = new Airport("LHR");
+    const myPlane = new Plane("Matt's plane", "in flight"); // plane initialised in flight
+    const expectedOutput = "LHR";
+
+    // 2. Execute
+    myAirport.landPlane(myPlane);
+    const actualOutput = myPlane.airport;
+
+    // 3. Verify
+    const result = assertEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
+
+export const airportTakeOffPlaneChangesPlaneAirportProperty = () => {
+    const testDescription = "Taking off a plane changes its airport property"
+
+    //1. Setup
+    const myAirport = new Airport("LHR");
+    const myPlane = new Plane("Matt's plane"); // plane initialised with default LGW
+    const expectedOutput = "in flight";
+
+    // 2. Execute
+    myAirport.landPlane(myPlane);
+    myAirport.takeOffPlane(myPlane);
+    const actualOutput = myPlane.airport;
 
     // 3. Verify
     const result = assertEquals(expectedOutput, actualOutput);

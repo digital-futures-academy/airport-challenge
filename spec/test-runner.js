@@ -22,3 +22,5 @@ a.airportCannotTakeOffPlaneNotInAirport();
 a.airportCannotLandPlaneAlreadyInAirport();
 a.airportLandPlaneReturnsPlaneObject();
 a.airportTakeOffPlaneReturnsPlaneObject();
+a.airportLandPlaneChangesPlaneAirportProperty();
+a.airportTakeOffPlaneChangesPlaneAirportProperty();
