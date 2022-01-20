@@ -1,6 +1,5 @@
 const Test = require('./test-framework');
 
-const { StormyWeather, SunnyWeather } = require('../src/__mocks__/weather-mocks');
 const Airport = require('../src/Airport');
 
 class MockPlane {
@@ -12,6 +11,16 @@ class MockPlane {
     land() {}
     takeOff() {}
 }
+
+class MockWeather {
+    constructor(result) {
+        this.forecast = () => result;
+    }
+}
+
+const StormyWeather = new MockWeather('stormy');
+
+const SunnyWeather = new MockWeather('sunny');
 
 const test = Test.describe('Airport', (suite) => {
     suite.it('Has a default capacity.', (test) => {
