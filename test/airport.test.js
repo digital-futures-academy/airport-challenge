@@ -1,7 +1,7 @@
 const Airplane = require('../src/airPlane');
 const Airport = require('../src/airport');
 const AirTrafficController = require('../src/airTrafficController');
-const assertEquals = require('./testFramework');
+const {assertEquals} = require('./testFramework');
 
 checkIfAirPortLandedPlane = () => {
     //setup
@@ -11,7 +11,7 @@ checkIfAirPortLandedPlane = () => {
     const expected = true;
     //act
     let input = false;
-    let actual = landPlaneOrder();
+    let actual = testAirTrafficController.landPlaneOrder();
 
     //result
     const result = assertEquals(actual,expected);
