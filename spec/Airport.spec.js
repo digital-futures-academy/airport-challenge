@@ -32,6 +32,7 @@ test.it('test to check if airport outputs true when airport is full', function (
 
 test.it('test planes are prevented from landing if airport is full', function () {
     let airport = new Airport(0);
+    airport.weather = 0.9;
     const landPlaneResult = airport.landPlane(new Plane('plane'));
     return test.expect(landPlaneResult).toEqual('Airport is full. Unable to land plane') && test.expect(airport.capacity).toEqual(0);
 });
@@ -60,6 +61,7 @@ test.it('test to check if airport outputs true when plane is at airport', functi
 test.it('test to check plane status is changed to landed when plane is landed', function () {
     let plane = new Plane('plane', 'flying');
     let airport = new Airport();
+    airport.weather = 0.9;
     airport.landPlane(plane);
     return test.expect(plane.status).toEqual('landed');
 });
@@ -67,6 +69,7 @@ test.it('test to check plane status is changed to landed when plane is landed', 
 test.it('test to check plane status is changed to flying when the plane has taken off', function () {
     let plane = new Plane('plane', 'landed');
     let airport = new Airport(10, [plane]);
+    airport.weather = 0.9;
     airport.takeOff(plane);
     return test.expect(plane.status).toEqual('flying');
 });
@@ -86,11 +89,13 @@ test.it('test to prevent plane taking off when it is already flying', function (
 test.it('test to prevent plane taking off when weather is stormy', function () {
     let plane = new Plane('plane', 'landed');
     let airport = new Airport(10, [plane]);
+    airport.weather = 0.05; // stormy
     return test.expect(airport.takeOff(plane)).toEqual('Stormy weather. Plane cannot take off');
 });
 
 test.it('test to prevent plane landing when weather is stormy', function () {
     let plane = new Plane('plane', 'flying');
     let airport = new Airport(10);
+    airport.weather = 0.05; // stormy
     return test.expect(airport.landPlane(plane)).toEqual('Stormy weather. Plane cannot land');
 });
