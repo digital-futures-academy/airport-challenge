@@ -1,6 +1,6 @@
 class Airport {
 
-  constructor(position, weather, destination, location, capacity) {
+  constructor(position, weather, destination, location, capacity = 20) {
     this.planeFlightStatus = position;
     this.weatherCondition = weather;
     this.flightDestination = destination;
@@ -9,9 +9,18 @@ class Airport {
 
   }
 
+  planePosition() {
+    return this.planeFlightStatus;
+  }
+
+  airportCapacity() {
+    return this.maximumCapacity;
+  }
+
 }
 
-const airportOne = new Airport(True, 0, 0, 0, 0)
+
+
 
 
 /*As an air traffic controller
