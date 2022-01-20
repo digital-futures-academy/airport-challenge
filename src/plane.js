@@ -5,6 +5,15 @@ class Plane {
     constructor(name, landed = false) {
 
         this.#landed = landed;
+        try {
+            if (!name) throw new Error('Please supply a plane name.');
+            if (!(typeof name === 'string')) throw new Error('Name must be a string');
+        }
+        catch (err) {
+            console.log(err);
+            return err;
+        }
+
         this.#name = name;
     }
 
@@ -19,6 +28,9 @@ class Plane {
 
     }
 
+    changeLandingStatus() {
+        this.#landed = !this.#landed;
+    };
 
 }
 

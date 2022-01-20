@@ -10,7 +10,7 @@ const testPlaneIsFlyingByDefault = () => {
 
 
     //Arrange 
-    const testPlane = new Plane();
+    const testPlane = new Plane('testPlane');
     const expected = false;
 
     //Act
@@ -34,7 +34,7 @@ const testPlaneIsLandedIfSupplied = () => {
 
 
     //Arrange 
-    const testPlane = new Plane(landed = true);
+    const testPlane = new Plane('testPlane', landed = true);
     const expected = true;
 
     //Act
@@ -55,11 +55,11 @@ const testPlaneHasStringName = () => {
 
 
     //Identity 
-    console.log(`testPlaneIsOnlyString \n ========== \n`);
+    console.log(`testPlaneHasStringName \n ========== \n`);
 
 
     //Arrange
-    const testPlane = new Plane('plane1');
+    const testPlane = new Plane('testPlane1');
     const expected = 'string';
 
     //Act
@@ -70,7 +70,7 @@ const testPlaneHasStringName = () => {
     result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testPlaneIsOnlyString result: ${result}`);
+    console.log(`testPlaneHasStringName result: ${result} \n`);
 
 };
 
@@ -78,50 +78,90 @@ const testPlaneHasStringName = () => {
 
 const testErrorIfNullPlaneName = () => {
 
-    //Identity
+
+    //Identity 
+
+    console.log(`testErrorIfNullPlaneName \n ========== \n`);
 
 
     //Arrange
+    const namePlane = null;
+    const expected = true;
 
     //Act
+    const testPlane = new Plane(namePlane);
+    const actual = testPlane instanceof Error;
 
     //Assert
+    result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testErrorIfNullPlaneName result: ${result} \n`);
 
 }
 
 
+const testErrorIfNameIsNonString = () => {
+
+    //Identity 
+
+    console.log(`testErrorIfNameIsNonString \n ========== \n`);
+
+
+    //Arrange
+    const namePlane = 1999;
+    const expected = true;
+
+    //Act
+    const testPlane = new Plane(namePlane);
+    const actual = testPlane instanceof Error;
+
+
+    //Assert
+    result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testErrorIfNameIsNonString result: ${result} \n`);
+
+
+};
+
+
+const testChangingPlaneLandingStatus = () => {
+
+    //Initial 
+    console.log(`testChangingPlaneLandingStatus \n ============ \n`);
+
+    //Arrange 
+    const testPlane = new Plane('Test Plane');
+    const expected = true;
+
+    //Act
+    testPlane.changeLandingStatus();
+    const actual = testPlane.isLanded()
+
+    //Assert
+    const result = assertEquals(actual, expected);
+
+    //Report
+    console.log(`testChangingPlaneLandingStatus result ${result}`);
+
+};
 
 
 
 
 
 
-// const testNoNonStringPlanes = () => {
 
-//     //Identity 
-//     console.log(`testNoNonStringPlanes \n ========== \n`);
+planeTests = {
+    testPlaneIsFlyingByDefault,
+    testPlaneIsLandedIfSupplied,
+    testPlaneHasStringName,
+    testErrorIfNullPlaneName,
+    testErrorIfNameIsNonString,
+    testChangingPlaneLandingStatus
 
+}
 
-//     //Arrange
-//     input = new Airport();
-//     expected = true;
-
-//     //Act
-
-//     const nonStringPlane = input.landPlane();
-//     actual = nonStringPlane instanceof Error;
-
-//     //Assert
-//     result = assertEquals(actual, expected);
-
-//     //Report
-//     console.log(`testNoNonStringPlanes result: ${result}`);
-
-
-// };
-
-
-
-
-planeTests = { testPlaneIsFlyingByDefault, testPlaneIsLandedIfSupplied, testPlaneHasStringName }
 module.exports = planeTests;

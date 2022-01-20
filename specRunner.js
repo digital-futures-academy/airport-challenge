@@ -17,4 +17,7 @@ airportTests.testPreventLanding();
 planeTests.testPlaneIsFlyingByDefault();
 planeTests.testPlaneIsLandedIfSupplied();
 planeTests.testPlaneHasStringName();
+planeTests.testErrorIfNullPlaneName();
+planeTests.testErrorIfNameIsNonString();
+planeTests.testChangingPlaneLandingStatus();
 
