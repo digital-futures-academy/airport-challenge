@@ -41,5 +41,24 @@ describe(`Airport Tests: `, () => {
         let actual = airport.takeOff(plane1);
         // Assert
         expect(actual).toEqual(plane1);
-    })
+    });
+    it(`a plane cannot land if it already in the airport`, () => {
+        // Arrange
+        const airport = new Airport();
+        const plane1 = new Plane(`345`);
+        airport.land(plane1);
+        // Act 
+        let actual = airport.land(plane1);
+        // Assert
+        expect(actual).toBeNull();
+    });
+    it(`a plane not in the airport cannot take off`, () => {
+        // Arrange
+        const airport = new Airport();
+        const plane1 = new Plane();
+        // Act 
+        let actual = airport.takeOff(plane1);
+        // Assert
+        expect(actual).toBeNull();
+    });
 })
