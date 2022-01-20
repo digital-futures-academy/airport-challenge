@@ -6,16 +6,25 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-| Objects | Properties              | Messages     | Outputs |
-| ------- | ----------------------- | ------------ | ------- |
-| Airport | onGround @Array[@Plane] | land(@Plane) |         |
-| Plane   |                         |              |         |
+| Objects | Properties              | Messages      | Outputs        |
+| ------- | ----------------------- | ------------- | -------------- |
+| Airport | onGround @Array[@Plane] | getOnGround() | @Array[@Plane] |
+|         |                         | land(@Plane)  |                |
+| Plane   |                         |               |                |
 
 # Part 2
 
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+| Objects | Properties              | Messages             | Outputs        |
+| ------- | ----------------------- | -------------------- | -------------- |
+| Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane] |
+|         |                         | land(@Plane)         |                |
+|         | capacity @Number        | getCapacity()        | @Number        |
+|         |                         | setCapacity(@Number) |                |
+| Plane   |                         |                      |                |
 
 # Part 3
 
