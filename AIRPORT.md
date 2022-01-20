@@ -47,6 +47,16 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+| Objects | Properties              | Messages             | Outputs        |
+| ------- | ----------------------- | -------------------- | -------------- |
+| Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane] |
+|         | capacity @Number        | getCapacity()        | @Number        |
+|         |                         | setCapacity(@Number) |                |
+|         |                         | land(@Plane)         |                |
+|         |                         | isFull()             | @Boolean       |
+|         |                         | takeOff(@Plane)      | @Boolean       |
+| Plane   |                         |                      |                |
+
 # Part 5
 
 As an air traffic controller
