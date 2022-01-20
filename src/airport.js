@@ -15,8 +15,8 @@ class Airport {
       if (this.planes.length >= this.capacity) {
         throw new Error("Cannot land plane when airport is full.");
       }
-      // this.planes.push(plane);
-      // console.log("Plane landed successfully.")
+      this.planes.push(plane);
+      console.log("Plane landed successfully.")
     } catch (error) {
       console.log("Airport is full, this plane cannot land.")
       return error;

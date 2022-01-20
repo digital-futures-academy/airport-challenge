@@ -147,6 +147,7 @@ export const airportCanLandPlaneWhenNotFull = () => {
 
     // 3. Verify
     const result = myAirport.planes.includes(myPlane);
+    // QUESTION: Is it okay to use .includes rather than writing my own assertContains function?
 
     // Report
     printReport(testDescription, result);
