@@ -9,6 +9,6 @@ describe(`Airport Tests: `, () => {
         // Act
         airport.land(plane);
         // Assert
-        expect(airports.onGround).toEqual(1);
+        expect(airport.onGround).toHaveSize(1);
     });
 })
