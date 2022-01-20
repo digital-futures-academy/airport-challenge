@@ -1,0 +1,23 @@
+{
+  "name": "airport-challenge",
+  "version": "1.0.0",
+  "description": "Airport Challenge\r =================",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N-Mugglestone/airport-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N-Mugglestone/airport-challenge/issues"
+  },
+  "homepage": "https://github.com/N-Mugglestone/airport-challenge#readme",
+  "devDependencies": {
+    "jasmine": "^4.0.2"
+  }
+}
