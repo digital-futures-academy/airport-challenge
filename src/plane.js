@@ -1,7 +1,7 @@
 class Plane {
-    constructor(name, airport = "LGW") {
+    constructor(name) {
         this.name = name;
-        this.airport = airport;
+        this.airport = "unassigned";
     }
 
 }

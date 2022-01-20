@@ -24,30 +24,32 @@ const planeInitialisesWithNameTest = () => {
     printReport(testDescription, result);
 }
 
-const planeInitialisesWithAirportProperty = () => {
-    const testDescription = "Plane constructor correctly initialises a plane given its current airport"
+//// REMOVED BELOW SINCE PLANE NOW INITIALISES WITH AIRPORT "unassigned" TO AVOID CONFUSION WITH AIRPORT TAKE OFF / LAND METHODS
 
-    // 1. Setup
-    const input = ["myPlane", "LHR"];
-    const expectedOutput = "LHR";
+// const planeInitialisesWithAirportProperty = () => {
+//     const testDescription = "Plane constructor correctly initialises a plane given its current airport"
 
-    // 2. Execute
-    const myPlane = new Plane(...input);
-    const actualOutput = myPlane.airport;
+//     // 1. Setup
+//     const input = ["myPlane", "LHR"];
+//     const expectedOutput = "LHR";
 
-    // 3. Verify
-    const result = assertEquals(expectedOutput, actualOutput);
+//     // 2. Execute
+//     const myPlane = new Plane(...input);
+//     const actualOutput = myPlane.airport;
 
-    // Report
-    printReport(testDescription, result);
-}
+//     // 3. Verify
+//     const result = assertEquals(expectedOutput, actualOutput);
+
+//     // Report
+//     printReport(testDescription, result);
+// }
 
 const planeInitialisesWithDefaultAirportProperty = () => {
     const testDescription = "Plane constructor correctly initialises a plane with default airport"
 
     // 1. Setup
     const input = ["myPlane"];
-    const expectedOutput = "LGW";
+    const expectedOutput = "unassigned";
 
     // 2. Execute
     const myPlane = new Plane(input);
@@ -60,4 +62,4 @@ const planeInitialisesWithDefaultAirportProperty = () => {
     printReport(testDescription, result);
 }
 
-export { planeInitialisesWithNameTest, planeInitialisesWithAirportProperty, planeInitialisesWithDefaultAirportProperty };
+export { planeInitialisesWithNameTest, planeInitialisesWithDefaultAirportProperty };

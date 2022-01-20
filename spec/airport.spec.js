@@ -95,24 +95,26 @@ export const airportInitialisesWithListOfPlanes = () => {
     printReport(testDescription, result);
 }
 
-export const airportCanBeInitialisedWithCustomListOfPlanes = () => {
-    const testDescription = "Airport initialises with custom array of planes"
+// REMOVED BELOW SINCE AIRPORT INITIALISING WITH A LIST OF PLANES CAUSES PROBLEMS IF THOSE PLANES DON'T HAVE THEIR AIRPORT PROPERTY CHANGED
 
-    //1. Setup
-    const planesList = ["plane1, plane2"];
-    const input = ["myAirport", planesList];
-    const expectedOutput = planesList;
+// export const airportCanBeInitialisedWithCustomListOfPlanes = () => {
+//     const testDescription = "Airport initialises with custom array of planes"
 
-    // 2. Execute
-    const myAirport = new Airport(...input);
-    const actualOutput = myAirport.planes;
+//     //1. Setup
+//     const planesList = ["plane1, plane2"];
+//     const input = ["myAirport", planesList];
+//     const expectedOutput = planesList;
 
-    // 3. Verify
-    const result = assertArrayOfPrimitivesEquals(expectedOutput, actualOutput);
+//     // 2. Execute
+//     const myAirport = new Airport(...input);
+//     const actualOutput = myAirport.planes;
 
-    // Report
-    printReport(testDescription, result);
-}
+//     // 3. Verify
+//     const result = assertArrayOfPrimitivesEquals(expectedOutput, actualOutput);
+
+//     // Report
+//     printReport(testDescription, result);
+// }
 
 
 export const airportCannotLandPlaneWhenFull = () => {

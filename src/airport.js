@@ -1,13 +1,13 @@
 class Airport {
-  constructor(name, planes = [], capacity = 100,) {
+  constructor(name, capacity = 100,) {
     this.name = name;
     this.capacity = capacity;
-    this.planes = planes;
+    this.planes = [];
   }
 
   changeCapacity(newCapacity) {
     this.capacity = newCapacity;
-    console.log(`Capacity changed to ${newCapacity}`);
+    console.log(`Capacity of ${this.name} changed to ${newCapacity}`);
   }
 
   landPlane(plane) {
@@ -44,7 +44,7 @@ class Airport {
       return plane;
       // Not sure which way better, probably .indexOf since chance it doesn't have to traverse whole array (hence faster?)
     } catch (error) {
-      console.log(`Plane ${plane.name} is not in the airport. Cannot take off.`);
+      console.log(`Plane ${plane.name} is not in the airport ${this.name}. Cannot take off.`);
       return error;
     }
   }
