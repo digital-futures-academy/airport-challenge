@@ -1,13 +1,45 @@
 class Airport {
   // here's a starting point for you
-  constructor(name){
-  this.name = name;
-}
-}
+  constructor(name, capacity) {
+    this.terminal = []
+    this.name = name;
+    this.capacity = capacity;
+  }
 
-const airportOne = new Airport('MAN');
-const airportTwo = new Airport('KEF');
+  land(plane) {
+    if (this.terminal.length < this.capacity) {
+      this.terminal.push(plane)
+    } else {
+      return 'Error: Airport is full'
+    }
+  }
 
-console.log(airportTwo);
+  capacityEditor(input) {
+    this.capacity = input;
+  }
 
-module.exports = new Airport();
+  takeOff(plane) {
+    for (let i = 0; i < this.terminal.length; i++) {
+      if (this.terminal[i] === plane) {
+        this.terminal.splice(i, 1)
+      }
+    }
+  };
+
+  planeTracker() {
+    if (this.terminal.includes(input)) {
+      return 'plane is already here';
+    } else {
+      return 'plane is not here';
+    }
+  }
+
+};
+
+
+
+const airportOne = new Airport('MAN', 5);
+
+
+
+module.exports = Airport;
