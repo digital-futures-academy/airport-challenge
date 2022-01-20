@@ -186,6 +186,28 @@ const testStormyLeave = () => {
     console.log(`Planes cannot leave when is stormy: ${result}`);
 }
 
+// Test to count planes landed in the airport
+const testCountPlanes = () => {
+    // Arrange
+    const airport = new Airport();
+    const expected = 3;
+    const testPlane = ['MSE-2201-A', 'London'];
+    const testPlane2 = ['DSE-2201-B', 'Verona'];
+    const testPlane3 = ['MCE-2201-C', 'Rio'];
+
+    // Act
+    airport.addPlane(testPlane);
+    airport.addPlane(testPlane2);
+    airport.addPlane(testPlane3);
+    const actual = airport.countPlanes();
+
+    // Assert
+    const result = assertEquals(actual, expected);
+
+    // Report
+    console.log(`Can count the number of planes landed: ${result}`);
+}
+
 module.exports = {
     testAirportAvailable,
     testAirportUnavailable,
@@ -197,5 +219,6 @@ module.exports = {
     testChangeCapacity,
     leavingAirport,
     testStormyLand,
-    testStormyLeave
+    testStormyLeave,
+    testCountPlanes
 };

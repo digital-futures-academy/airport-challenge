@@ -20,12 +20,7 @@ class Airport {
   }
 
   getPlanes() {
-    if (this.#available === false) {
-      return new Error(`Planes cannot land when the airport is unavailable`);
-    } else {
-      return this.#planes;
-    }
-
+    return this.#planes;
   }
 
   addPlane(planeDetails) {
@@ -54,6 +49,10 @@ class Airport {
     } else {
       return false;
     }
+  }
+
+  countPlanes() {
+    return this.#planes.length;
   }
 
 }
