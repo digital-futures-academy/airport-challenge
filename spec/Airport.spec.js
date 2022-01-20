@@ -70,3 +70,15 @@ test.it('test to check plane status is changed to flying when the plane has take
     airport.takeOff(plane);
     return test.expect(plane.status).toEqual('flying');
 });
+
+test.it('test to prevent plane landing when it is already landed', function () {
+    let plane = new Plane('plane', 'landed');
+    let airport = new Airport(10, [plane]);
+    return test.expect(airport.landPlane(plane)).toEqual('Plane cannot land when already landed');
+});
+
+test.it('test to prevent plane taking off when it is already flying', function () {
+    let plane = new Plane('plane', 'flying');
+    let airport = new Airport(10);
+    return test.expect(airport.takeOff(plane)).toEqual('Plane cannot take off when already flying');
+});
