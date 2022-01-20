@@ -57,9 +57,9 @@ User Story 2:
 
 #### Acceptance Criteria
 
-As the system designer
+As the system designer\
 So that the software can be used for many different airports\
-I would like a default airport capacity that can be overridden as appropriate\
+I would like a default airport capacity that can be overridden as appropriate
 
 #### Nouns and verbs
 
