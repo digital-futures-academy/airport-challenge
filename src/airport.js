@@ -16,7 +16,7 @@ class Airport {
     }
 
     changeWeather() {
-        if (Math.round(Math.random()) === 1) {
+        if ((Math.floor(Math.random() * 6) + 1) === 1) {
             this.stormy = true;
         }
     }
