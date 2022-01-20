@@ -122,13 +122,31 @@ export const airportCannotLandPlaneWhenFull = () => {
     const myAirport = new Airport("My Airport", [], 0);
     // Set airport capacity at 0 so no planes can land
     const myPlane = new Plane("Matt's plane");
-    const expectedOutput = new Error("Airport is full, this plane cannot land.");
+    const expectedOutput = new Error("Cannot land plane when airport is full.");
 
     // 2. Execute
     const actualOutput = myAirport.landPlane(myPlane);
 
     // 3. Verify
     const result = assertErrorEquals(expectedOutput, actualOutput);
+
+    // Report
+    printReport(testDescription, result);
+}
+
+export const airportCanLandPlaneWhenNotFull = () => {
+    const testDescription = "Airport can land a plane when it is not full"
+
+    //1. Setup
+    const myAirport = new Airport("My Airport");
+    const myPlane = new Plane("Matt's plane");
+
+    // 2. Execute
+    myAirport.landPlane(myPlane);
+    const actualOutput = myAirport.planes;
+
+    // 3. Verify
+    const result = myAirport.planes.includes(myPlane);
 
     // Report
     printReport(testDescription, result);

@@ -16,3 +16,4 @@ a.airportCapacityCanBeChanged();
 a.airportInitialisesWithListOfPlanes();
 a.airportCanBeInitialisedWithCustomListOfPlanes();
 a.airportCannotLandPlaneWhenFull();
+a.airportCanLandPlaneWhenNotFull();

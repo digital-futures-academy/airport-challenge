@@ -11,12 +11,20 @@ const assertErrorEquals = (error1, error2) => {
     return error1 instanceof Error && error2 instanceof Error && error1.message === error2.message;
 }
 
+// const catchError = (func) => {
+//     try {
+//         func;
+//     } catch (error) {
+//         return error;
+//     }
+// }
+
 
 const printBorder = () => console.log(`===================================================================`);
 
 const printReport = (testDescription, result) => {
-    printBorder();
     console.log(`${testDescription}: ${result}`);
+    printBorder();
 }
 
 export { assertEquals, assertArrayOfPrimitivesEquals, assertErrorEquals, printReport };
