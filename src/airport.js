@@ -6,6 +6,9 @@ class Airport {
   land(plane) {
     this.onGround.push(plane);
   }
+  isFull() {
+    return (this.onGround.length === this.capacity) ? true : false;
+  }
 
 }
 
