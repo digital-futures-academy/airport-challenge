@@ -1,9 +1,10 @@
 const Airplane = require('../src/airPlane');
-const Airport = require('../src/airport');
+// const Airport = require('../src/airport');
 const {assertEquals} = require('./testFramework');
 
 
-const checkAirplaneObjectIsObject = () => {
+checkAirplaneObjectIsObject = () => {
+
     //setup
     const testAirplaneObject = new Airplane('BD21');
     const expected = { airplaneName: 'BD21', inAir: false }
@@ -17,10 +18,12 @@ const checkAirplaneObjectIsObject = () => {
     console.log(`the ${testAirplaneObject.airplaneName} object is a object ${true}`);
 }
 
-const checkAirplaneNameIsOfTypeString = () => {
+checkAirplaneNameIsOfTypeString = () => {
+
     //setup
     const testAirplaneObject = new Airplane('GM22');
     const expected = 'string'
+
     //act
     let input = testAirplaneObject.getAirplaneName();
     const actual = typeof input;
@@ -29,10 +32,12 @@ const checkAirplaneNameIsOfTypeString = () => {
     const result = assertEquals(actual, expected);
     console.log(`The airplane name is of type string: ${result}`)
 }
-const checkInAirStatusIsOfTypeBoolean = () => {
+checkInAirStatusIsOfTypeBoolean = () => {
+
     //setup
     const testAirplaneObject = new Airplane('GM22');
     const expected = 'boolean'
+
     //act
     let input = testAirplaneObject.getInAirStatus();
     const actual = typeof input;
@@ -46,4 +51,4 @@ module.exports={
     checkAirplaneObjectIsObject,
     checkAirplaneNameIsOfTypeString,
     checkInAirStatusIsOfTypeBoolean
-}
+};

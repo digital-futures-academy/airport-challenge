@@ -3,13 +3,13 @@ const Airport = require('../src/airport');
 // const AirTrafficController = require('../src/airTrafficController');
 const {assertEquals} = require('./testFramework');
 
-checkIfAnAirPortLandedPlane = () => {
+checkIfAnAirportLandedPlane = () => {
     //test
     console.log(`checkIfAnAirPortLandedPlane \n ========= \n`);
 
     //setup
     const testAirplane = new Airplane('BA21', true);
-    const testAirport = new Airport('Heathrow')
+    const testAirport = new Airport('Heathrow');
     const expected = true;
 
     //act
@@ -25,7 +25,7 @@ checkIfAirportCapacityOverridden = () => {
     console.log(`checkIfAirportCapacityOverridden \n ========= \n`);
 
     //set up
-    const testAirport = new Airport('Heathrow')
+    const testAirport = new Airport('Heathrow');
     const expected = 10;
     let newCapacity = 10;
 
@@ -42,7 +42,7 @@ checkIfIntegerEnteredForAirportCapacity = () => {
     console.log(`checkIfIntegerEnteredForAirportCapacity \n ========= \n`)
 
     //setup
-    const testAirport = new Airport('Heathrow')
+    const testAirport = new Airport('Heathrow');
     const expected = false;
     let newCapacity = 'ten';
 
@@ -61,7 +61,7 @@ checkIfAnAirportLandedPlaneWhenFull = () => {
 
     //setup
     const testAirplane = new Airplane('BA23', true);
-    const testAirport = new Airport('Dhaka')
+    const testAirport = new Airport('Dhaka');
     testAirport.parkedPlanes = [1,2,3,4,5];
     //expected is false as it is prevented
     const expected = false;
@@ -116,7 +116,7 @@ checkIfPlaneCanLandAtAnotherAirportIfAlreadyLanded = () => {
 }
 
 module.exports={
-    checkIfAnAirPortLandedPlane,
+    checkIfAnAirportLandedPlane,
     checkIfAirportCapacityOverridden,
     checkIfAnAirportLandedPlaneWhenFull,
     checkIfPlaneTakenOffAndConfirmedWithAirport,
