@@ -4,10 +4,10 @@ const { assertEquals, assetEqualsArray } = require('../testFramework');
 var counter = 0;
 
 
-const canAddToAirport = () => { 
+const canAddToAirport = () => {             
     //Identifiers
     counter++;
-    let airport = new Airport(10,1)
+    let airport = new Airport(10,1)         //New Airport with weather set to good
     // Arrange
     const expected = 1                  //Expect the number of planes on runway to be 1
     // Act
@@ -16,10 +16,10 @@ const canAddToAirport = () => {
     // Assert
     const result = assertEquals(actual, expected);
     // Report
-    return [result, `${counter}). Test landing plane at airport`]
+    return [result, `${counter}). Test landing plane at airport`]       //Returns result and details of 
 }
 
-const canOverideCapacity = () => { 
+const canOverideCapacity = () => {      
     //Identifiers
     counter++;
     let airport = new Airport(1,1)            //Sets capacity to 1
@@ -37,11 +37,11 @@ const canOverideCapacity = () => {
 const testFullWarning = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(1,1)  
+    let airport = new Airport(1,1)      
     // Arrange
     const expected = `Cannot land Plane A. We are at capacity`                 
     // Act
-    airport.landing('Plane B')
+    airport.landing('Plane B')                      //Airport needs to be full before testing adding plane to a full airport
     actual = airport.landing('Plane A')        
     // Assert
     const result = assertEquals(actual, expected);
@@ -87,7 +87,7 @@ const testDuplicateLandingMessage = () => {
     // Arrange
     const expected = `Plane A has already landed`                 
     // Act
-    airport.landing('Plane A');                    //Plane needs to be at the airport
+    airport.landing('Plane A');                    //Original plane needs to be at the airport to te test a duplicate
     actual = airport.landing('Plane A');        
     // Assert
     const result = assertEquals(actual, expected);
@@ -104,7 +104,7 @@ const testDuplicateLandingCounter = () => {
     // Act
     airport.landing('Plane A');                    //Plane needs to be at the airport
     airport.landing('Plane A');        
-    actual = airport.grounded.length
+    actual = airport.getRunway().length
     // Assert
     const result = assertEquals(actual, expected);
     // Report
@@ -142,7 +142,7 @@ const testWeather = () => {
 const testWeatherTakeOff = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10, -1, ['Plane A']) 
+    let airport = new Airport(10, -1, ['Plane A'])                          //Sets weather to bad, and has plane already on the runway to test takeoff
     // Arrange
     const expected = `Plane A cannot start takeoff due to adverse weather`                
     // Act              
@@ -161,7 +161,7 @@ const testWeatherTakeOffCount = () => {
     const expected = 1                
     // Act              
     airport.takeOff('Plane A')
-    actual = airport.grounded;    
+    actual = airport.getRunway();    
     // Assert
     const result = assertEquals(actual, expected);
     // Report
@@ -200,7 +200,7 @@ const testWeatherLandingCount = () => {
 const testOnRunway = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10, 1)  //Capactity should not have been set to 1
+    let airport = new Airport(10, 1) 
     // Arrange
     const expected = [ 'Plane A', 'Plane B', 'Plane C', 'Plane D' ]                
     // Act              
