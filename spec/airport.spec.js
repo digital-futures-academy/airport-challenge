@@ -3,6 +3,14 @@ import { assertEquals, assertArrayOfPrimitivesEquals, assertErrorEquals, printRe
 import { Airport } from '../src/airport.js';
 import { Plane } from "../src/plane.js";
 
+class MockPlane {
+    name = "Matt's mock plane";
+    airport = "unassigned";
+}
+
+
+
+
 export const airportInitialisesWithNameTest = () => {
     const testDescription = "Airport constructor correctly creates an airport given name"
 
@@ -26,8 +34,6 @@ export const airportInitialisesWithCapacityTest = () => {
 
     // 1. Setup
     const input = ["myAirport", 110];
-    // Have to pass empty array of planes to airport constructor due to the order of the default parameters.
-    // Don't know clean way to allow input ["myAirport", 110] without checking argument types...
     const expectedOutput = 110;
 
     // 2. Execute
@@ -95,7 +101,7 @@ export const airportInitialisesWithListOfPlanes = () => {
     printReport(testDescription, result);
 }
 
-// REMOVED BELOW SINCE AIRPORT INITIALISING WITH A LIST OF PLANES CAUSES PROBLEMS IF THOSE PLANES DON'T HAVE THEIR AIRPORT PROPERTY CHANGED
+// REMOVED BELOW SINCE AIRPORT INITIALISING WITH A LIST OF PLANES CAUSES PROBLEMS IF THOSE PLANES DON'T HAVE THEIR AIRPORT PROPERTY CHANGED TO MATCH
 
 // export const airportCanBeInitialisedWithCustomListOfPlanes = () => {
 //     const testDescription = "Airport initialises with custom array of planes"
@@ -123,8 +129,7 @@ export const airportCannotLandPlaneWhenFull = () => {
     //1. Setup
     const myAirport = new Airport("My Airport", 0);
     // Set airport capacity at 0 so no planes can land
-    const myPlane = new Plane("Matt's plane");
-    // This Airport test is tightly coupled to the Plane class...
+    const myPlane = new MockPlane();
     const expectedOutput = new Error("Cannot land plane when airport is full.");
 
     // 2. Execute
@@ -142,7 +147,7 @@ export const airportCanLandPlaneWhenNotFull = () => {
 
     //1. Setup
     const myAirport = new Airport("My Airport");
-    const myPlane = new Plane("Matt's plane");
+    const myPlane = new MockPlane();
 
     // 2. Execute
     myAirport.landPlane(myPlane);
@@ -161,7 +166,7 @@ export const airportCanLetPlaneTakeOff = () => {
 
     //1. Setup
     const myAirport = new Airport("My Airport");
-    const myPlane = new Plane("Matt's plane");
+    const myPlane = new MockPlane();
 
     // 2. Execute
     myAirport.landPlane(myPlane);
@@ -180,12 +185,12 @@ export const airportCannotTakeOffPlaneNotInAirport = () => {
 
     //1. Setup
     const myAirport = new Airport("My Airport");
-    const myPlane = new Plane("Matt's plane");
-    // Test doesn't work without above line. Makes me realise that since airport methods take a labelled Plane object as argument I can't do something like:
+    const myPlane = new MockPlane();
+    // Test doesn't work without declaring myPlane above. Makes me realise that since airport methods take a labelled Plane object as argument I can't do something like:
     // myAirport.landPlane(new Plane("A plane"));
     // myAirport.takeOffPlane("A plane");
 
-    // See later tests "take off/landing returns plane"
+    // See later tests "take off/landing returns plane" for workaround.
 
     const expectedOutput = new Error("Cannot take off a plane which isn't in the airport.")
 
@@ -204,7 +209,7 @@ export const airportCannotLandPlaneAlreadyInAirport = () => {
 
     //1. Setup
     const myAirport = new Airport("My Airport");
-    const myPlane = new Plane("Matt's plane");
+    const myPlane = new MockPlane();
     const expectedOutput = new Error("Cannot land a plane which is already in the airport.")
 
     // 2. Execute
@@ -221,10 +226,13 @@ export const airportCannotLandPlaneAlreadyInAirport = () => {
 
 export const airportLandPlaneReturnsPlaneObject = () => {
     const testDescription = "Airport returns plane object when landing plane"
+    // So that can do:
+    // const aPlane = myAirport.landPlane(new Plane("A plane"));
+    // myAirport.takeOffPlane(aPlane);
 
     //1. Setup
     const myAirport = new Airport("My Airport");
-    const myPlane = new Plane("Matt's plane");
+    const myPlane = new MockPlane();
     const expectedOutput = myPlane;
 
     // 2. Execute
@@ -239,11 +247,11 @@ export const airportLandPlaneReturnsPlaneObject = () => {
 }
 export const airportTakeOffPlaneReturnsPlaneObject = () => {
     const testDescription = "Airport returns plane object when taking off plane"
+    // Less useful than above since can't take off a new Plane as it isn't already in the airport...
 
     //1. Setup
     const myAirport = new Airport("My Airport");
-    const myPlane = new Plane("Matt's plane");
-    // In next week's challenge I'll try use mock classes to decouple tests
+    const myPlane = new MockPlane();
     const expectedOutput = myPlane;
 
     // 2. Execute
@@ -262,7 +270,7 @@ export const airportLandPlaneChangesPlaneAirportProperty = () => {
 
     //1. Setup
     const myAirport = new Airport("LHR");
-    const myPlane = new Plane("Matt's plane", "in flight"); // plane initialised in flight
+    const myPlane = new MockPlane(); // plane initialised with default airport "unassigned"
     const expectedOutput = "LHR";
 
     // 2. Execute
@@ -281,7 +289,7 @@ export const airportTakeOffPlaneChangesPlaneAirportProperty = () => {
 
     //1. Setup
     const myAirport = new Airport("LHR");
-    const myPlane = new Plane("Matt's plane"); // plane initialised with default LGW
+    const myPlane = new MockPlane(); // plane initialised with default airport "unassigned"
     const expectedOutput = "in flight";
 
     // 2. Execute
@@ -302,7 +310,7 @@ export const airportCannotLandPlaneWhenWeatherStormy = () => {
 
     //1. Setup
     const myAirport = new Airport("My Airport", 100, 0.95); // weatherCode = 0.95 (stormy weather)
-    const myPlane = new Plane("Matt's plane");
+    const myPlane = new MockPlane();
 
     // 2. Execute
     myAirport.landPlane(myPlane);
@@ -320,7 +328,7 @@ export const airportCannotTakeOffPlaneWhenWeatherStormy = () => {
     //1. Setup
     const myAirport = new Airport("My Airport");
     // by default has weatherCode = 0.5 (i.e. sunny)
-    const myPlane = new Plane("Matt's plane");
+    const myPlane = new MockPlane();
 
     // 2. Execute
     myAirport.landPlane(myPlane); // fine to land since sunny
