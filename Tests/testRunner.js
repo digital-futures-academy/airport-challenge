@@ -9,3 +9,6 @@ tests.testThatCapacityCanBeOverwritten()
 tests.testThatAirportIsFull()
 tests.testThatPlanesCanTakeOff()
 tests.testThatPlanesAreTracked()
+tests.testThatWeatherCheckerWorks()
+tests.testThatPlanesCantTakeoffInStormyWeather()
+

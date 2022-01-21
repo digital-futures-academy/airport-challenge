@@ -1,14 +1,15 @@
 class Airport {
   // here's a starting point for you
-  constructor(name, capacity) {
-    this.terminal = []
+  constructor(name, capacity, weather) {
+    this.terminal = [];
     this.name = name;
     this.capacity = capacity;
+
   }
 
   land(plane) {
     if (this.terminal.length < this.capacity) {
-      this.terminal.push(plane)
+      this.terminal.push(plane);
     } else {
       return 'Error: Airport is full'
     }
@@ -34,12 +35,33 @@ class Airport {
     }
   }
 
-};
+  stopPlanesTakingOff(weather) {
+    if (this.takeOff && weather === 'stormy') {
+      return 'error: weather is bad, planes cannot takeoff'
+    }
+  };
+}
+
 
 
 
 const airportOne = new Airport('MAN', 5);
 
+class Weather {
+  constructor(weatherOptions, weather) {
+    this.weatherOptions = ['stormy', 'clear', 'raining', 'sunny']
+    this.weather = weather;
+  }
+
+  weatherChecker(weatherNumber) {
+    this.weather = this.weatherOptions[weatherNumber]
+    //let randomWeather = this.weatherOptions[Math.floor(Math.random() * this.weatherOptions.length)];
+    //this.weather = randomWeather;
+    if (this.weather === 'stormy') {
+      return 'error: weather is bad, planes cannot takeoff';
+    } return 'Weather is okay';
+  }
+}
 
 
-module.exports = Airport;
+module.exports = { Airport, Weather }

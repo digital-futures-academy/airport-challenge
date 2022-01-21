@@ -1,6 +1,6 @@
 const assertEquals = require('./testFramework.js');
-const Airport = require('../src/airport.js');
-const Plane = require('../src/airport.js');
+const { Airport } = require('../src/airport.js');
+const { Weather } = require('../src/airport.js');
 
 const testThatAirportIsEmpty = () => {
     //arrange
@@ -87,7 +87,7 @@ const testThatPlanesCanTakeOff = () => {
 const testThatPlanesAreTracked = () => {
     //arrange
     let expectedOutput = 'plane is already here' || 'plane is not here'
-    input = 'plane2'
+    input = 'plane1'
 
     //act
     let airportTwo = new Airport('KEF', 2);
@@ -99,7 +99,42 @@ const testThatPlanesAreTracked = () => {
     let result = assertEquals(actualOutput, expectedOutput)
     console.log(`testing that planes are tracked: ${result}`);
 
-    console.log(airportTwo.planeTracker(input));
+
+}
+
+const testThatWeatherCheckerWorks = () => {
+    //arrange
+    let expectedOutput = 'error: weather is bad, planes cannot takeoff' || 'Weather is okay';
+    let weather = new Weather()
+
+    //act
+
+    let actualOutput = weather.weatherChecker(0);
+
+    //assert
+    let result = assertEquals(actualOutput, expectedOutput)
+    console.log(`testing that weather Checker works: ${result}`);
+
+
+}
+
+const testThatPlanesCantTakeoffInStormyWeather = () => {
+    //arrange
+    let expectedOutput = 'error: weather is bad, planes cannot takeoff';
+    let weather = new Weather();
+    let airportTwo = new Airport('KEF', 2);
+
+    //act
+    airportTwo.land('plane1');
+    airportTwo.stopPlanesTakingOff();
+    airportTwo.takeOff('plane1')
+    let actualOutput = airportTwo.stopPlanesTakingOff();
+
+    //assert
+    let result = assertEquals(actualOutput, expectedOutput)
+    console.log(`testing that weather planes cannot take off in bad weather: ${result}`);
+
+    console.log(airportTwo.terminal)
 }
 
 
@@ -111,6 +146,9 @@ tests = {
     testThatAirportIsFull,
     testThatPlanesCanTakeOff,
     testThatPlanesAreTracked,
+    testThatWeatherCheckerWorks,
+    testThatPlanesCantTakeoffInStormyWeather,
+
 }
 
 
