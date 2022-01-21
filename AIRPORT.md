@@ -93,8 +93,9 @@ I want to prevent takeoff when weather is stormy
 | ------- | ----------------------- | -------------------- | --------------- |
 | Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane]  |
 |         | capacity @Number        | getCapacity()        | @Number         |
-|         | weather @Array[@String] | getWeather()         | @String         |
 |         |                         | setCapacity(@Number) |                 |
+|         | weather @Array[@String] | getWeather()         | @Number         |
+|         |                         | setWeather(@Number)  | @Number         |
 |         |                         | land(@Plane)         | @Null           |
 |         |                         | isFull()             | @Boolean        |
 |         |                         | takeOff(@Plane)      | @Plane or @Null |
@@ -106,8 +107,35 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+| Objects | Properties              | Messages             | Outputs         |
+| ------- | ----------------------- | -------------------- | --------------- |
+| Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane]  |
+|         | capacity @Number        | getCapacity()        | @Number         |
+|         |                         | setCapacity(@Number) |                 |
+|         | weather @Array[@String] | getWeather()         | @Number         |
+|         |                         | setWeather(@Number)  | @Number         |
+|         |                         | land(@Plane)         | @Null           |
+|         |                         | isFull()             | @Boolean        |
+|         |                         | takeOff(@Plane)      | @Plane or @Null |
+| Plane   | id @String              | getId()              | @String         |
+
+
 # Part 8
 
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+| Objects | Properties              | Messages             | Outputs         |
+| ------- | ----------------------- | -------------------- | --------------- |
+| Airport | onGround @Array[@Plane] | getOnGround()        | @Array[@Plane]  |
+|         | capacity @Number        | getCapacity()        | @Number         |
+|         |                         | setCapacity(@Number) |                 |
+|         | weather @Array[@String] | getWeather()         | @Number         |
+|         |                         | setWeather(@Number)  | @Number         |
+|         | id @String              | getId                | @String         |
+|         |                         | land(@Plane)         | @Null           |
+|         |                         | isFull()             | @Boolean        |
+|         |                         | takeOff(@Plane)      | @Plane or @Null |
+| Plane   | id @String              | getId()              | @String         |
+|         | airport @String         | getAirport()         | @String         |

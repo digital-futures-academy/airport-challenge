@@ -1,8 +1,9 @@
 class Airport {
-  constructor(capacity = 5, weather = Math.random()) {
+  constructor(airportId, capacity = 5, weather = Math.random()) {
     this.onGround = [];
     this.capacity = capacity;
     this.weather = weather;
+    this.airportId = airportId;
   }
   land(plane) {
     const planeIds = this.onGround.map(x => x.id);
@@ -29,7 +30,7 @@ class Airport {
     }
 
   }
-  changeWeather(weather = Math.random()) {
+  setWeather(weather) {
     this.weather = weather;
   }
 
