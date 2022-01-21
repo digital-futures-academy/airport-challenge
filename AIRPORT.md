@@ -1,6 +1,12 @@
 ## Installation
 
-This repo uses the jasmine framwork so this will need to be installed to run the tests. The command to run the tests is:
+This repo uses the jasmine framwork so this will need to be installed to run the tests.
+To install jasmine run these commands:
+```
+npm i --save-dev jasmine
+npx jasmine init
+```
+The command to run jasmine is:
 ```
 npm test
 ```
