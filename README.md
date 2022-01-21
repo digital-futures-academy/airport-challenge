@@ -17,7 +17,7 @@ To install the Airport challenge files, fork  the repository from github onto yo
 
 Proceed to clone it onto your local machine using whatever programme you typically use (I have used VS Code).
 
-I have used the jasmine test framework to form and run tests for this challenge. To run tests use the terinal to input npm test. This will run the inlaid tests in the Airport.spec.js file.
+I have used the jasmine test framework to form and run tests for this challenge, to run tests use the terinal to input npm test. This will run the inlaid tests found in Airport.spec.js file.
 
 
 The task criteria was
