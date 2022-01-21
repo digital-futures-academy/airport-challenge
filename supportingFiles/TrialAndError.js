@@ -1,3 +1,5 @@
+
+/*
 class Airport {
 
     constructor(planeFlightStatus, weatherCondition, flightDestination, planeLocation, maximumCapacity) {
@@ -20,27 +22,27 @@ airbourneStatus = () => {
         console.log('land plane at airport')
 }
 
-// if(this.capacity == xxx
-// console.log('MAximum capacity reached, do not land plane at airport'))
+ if(this.capacity == xxx
+/console.log('MAximum capacity reached, do not land plane at airport'))
 
-//try- true for planes landed in an airport, false for still in flight with a corresponding string
-
-
+try- true for planes landed in an airport, false for still in flight with a corresponding string
 
 
-/*As an air traffic controller
+
+
+As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
-*/
 
 
+if Airport.currentCapacity <= airportCapacity
 
 
-//get function for last extra condition  
+get function for last extra condition  
 
 const airportOne = new Airport();
 
-/*let takeOffCondition = () => {
+let takeOffCondition = () => {
     weather(Math.random(0 - 1));
     if (weather < 0.1) {
         return stormy
@@ -49,7 +51,7 @@ const airportOne = new Airport();
         return sunny
     }
 }
-*/
+
 if (takeOffCondition = stormy) {
     return 'Cannoy take-off in stormy weather'
 } else {
@@ -60,7 +62,7 @@ let airportCapacity = () => {
 
 
 }
-/*
+
 const airportOne = new Airport(inFlight, 0, 0, 0, 0)
 
 
@@ -70,21 +72,21 @@ airbourneStatus = () => {
     console.log('land plane at airport')
 }
 
-// if(this.capacity == xxx
-// console.log('MAximum capacity reached, do not land plane at airport'))
+ if(this.capacity == xxx
+console.log('MAximum capacity reached, do not land plane at airport'))
 
-//try- true for planes landed in an airport, false for still in flight with a corresponding string
-
-
+try- true for planes landed in an airport, false for still in flight with a corresponding string
 
 
-/*As an air traffic controller
+
+
+As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 */
 
-//class Airport {
-//}
+class Airport {
+}
 
-
+* /
 

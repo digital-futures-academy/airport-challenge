@@ -76,7 +76,5 @@ class Airport {
 }
 
 
-//if Airport.currentCapacity <= airportCapacity
-
 
 module.exports = Airport;
