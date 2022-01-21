@@ -72,6 +72,17 @@ class Airport {
     }
   }
 
+  planeLandingAuthorisatoin() {
+    if (this.weatherMonitor(true)) {
+      return 'Plane may land'
+    } else {
+      return 'Stormy conditions, plane may not land'
+    }
+  }
+
+
+
+
 
 }
 

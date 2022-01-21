@@ -61,11 +61,30 @@ describe('Airport tests', () => {
             //Act
             const actual = testAirport.planeTakeOffAuthorisation()
             //Assert
-            expect(actual).toContain('')
-
+            expect(actual).toBe('Stormy weather, take-off not authorised' || 'Sunny weather, take-off authorised')
 
         })
+
+        it('should prevent planes landing in stormy weather', () => {
+            //Arrange 
+            const testAirport = new Airport()
+            //Act
+            const actual = testAirport.planaLandingAuthorisation()
+            //Assert
+            expect(actual).toBe('Stormy conditions, plane may not land' || 'Plane may land')
+        })
+
+
     })
+
+    //If you just want to see if it is a string then make actual the returned value run through typeof (returnedValue) and expect actual.toBe('string')
+
+
+
+
+
+
+
 
 })
 
