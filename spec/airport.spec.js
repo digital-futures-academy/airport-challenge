@@ -59,7 +59,7 @@ describe('Airport tests', () => {
             //Arrange
             const testAirport = new Airport()
             //Act
-            const actual = testAirport.weatherMonitor()
+            const actual = testAirport.planeTakeOffAuthorisation()
             //Assert
             expect(actual).toBeTrue()
 

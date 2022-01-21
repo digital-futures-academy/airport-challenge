@@ -64,10 +64,12 @@ class Airport {
 
   }
 
-  PlaneTakeOffAuthorisation() {
-    if (this.weatherMonitor() = true)
-      !this.planeRemover()
-    return 'Stormy weather inbound- take-off not permitted'
+  planeTakeOffAuthorisation() {
+    if (this.weatherMonitor(true)) {
+      return false
+    } else {
+      return true
+    }
   }
 
 
