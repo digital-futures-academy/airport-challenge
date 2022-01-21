@@ -26,11 +26,44 @@ describe('Airport tests', () => {
 
         it('Prevent planes landing in a full airport', () => {
             //Arrange
-            const testAirport = new Airport()
+            const testAirport = new Airport(0, 0, 0, 0, 0, 0)
             //Act
             const actual = testAirport.landingPlaneIfAirportFull()
             //Assert
+            expect(actual).toBeTruthy()
+        })
+    })
+
+    describe('Plane location tests', () => {
+        it('Should monitor plane take off', () => {
+            //Arrange
+            const testAirport = new Airport(0, 0, 0, 0, 0, (['plane']))
+            //Act
+            const actual = testAirport.planeRemover()
+            //Assert
+            expect(actual).toBeTruthy()
+        })
+
+        it('Should prevent planes not at a location from taking-off', () => {
+            //Arrange
+            const testAirport = new Airport()
+            //Act 
+            const actual = testAirport.takeOffErrors((['plane']))
+            //Assert
+            expect(actual).toBeFalse()
+        })
+    })
+
+    describe('Weather condition tests', () => {
+        it('Should prevent plane take-off in stormy weather', () => {
+            //Arrange
+            const testAirport = new Airport()
+            //Act
+            const actual = testAirport.weatherMonitor()
+            //Assert
             expect(actual).toBeTrue()
+
+
         })
     })
 
@@ -41,5 +74,4 @@ describe('Airport tests', () => {
 //store that has limited capacity
     //the use of actual = meaning or variable name -- variable name
     //look at the terminal and see if it is set up correct
-
 
