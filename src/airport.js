@@ -1,14 +1,15 @@
 class Airport {
-  constructor(capacity = 5) {
+  constructor(capacity = 5, weather = Math.random()) {
     this.onGround = [];
     this.capacity = capacity;
+    this.weather = weather;
   }
   land(plane) {
     const planeIds = this.onGround.map(x => x.id);
-    if (!planeIds.includes(plane.id)) {
+    if (!planeIds.includes(plane.id) && this.weather > 0.1) {
       this.onGround.push(plane);
     } else {
-      console.log(`The plane with id: ${plane.id} is already in the airport and cannot land again`);
+      console.log(`The plane with id: ${plane.id} cannot land`);
       return null;
     }
 
@@ -18,15 +19,18 @@ class Airport {
   }
   takeOff(plane) {
     const planeIds = this.onGround.map(x => x.id);
-    if (planeIds.includes(plane.id)) {
+    if (planeIds.includes(plane.id) && this.weather > 0.1) {
       let index = planeIds.indexOf(plane.id);
       let removedPlane = this.onGround.splice(index, 1);
       return removedPlane[0];
     } else {
-      console.log(`There are no more planes to take off`)
+      console.log(`The plane with id: ${plane.id} cannot take off`)
       return null;
     }
 
+  }
+  changeWeather(weather = Math.random()) {
+    this.weather = weather;
   }
 
 }
