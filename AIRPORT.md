@@ -1,3 +1,10 @@
+## Installation
+
+This repo uses the jasmine framwork so this will need to be installed to run the tests. The command to run the tests is:
+```
+npm test
+```
+
 ## User Stories
 
 # Part 1
@@ -85,9 +92,11 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 # Part 6
 
+```
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+```
 
 | Objects | Properties              | Messages             | Outputs         |
 | ------- | ----------------------- | -------------------- | --------------- |
@@ -103,9 +112,11 @@ I want to prevent takeoff when weather is stormy
 
 # Part 7
 
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+```
 
 | Objects | Properties              | Messages             | Outputs         |
 | ------- | ----------------------- | -------------------- | --------------- |
@@ -122,9 +133,11 @@ I want to prevent landing when weather is stormy
 
 # Part 8
 
+```
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+```
 
 | Objects | Properties              | Messages             | Outputs         |
 | ------- | ----------------------- | -------------------- | --------------- |
