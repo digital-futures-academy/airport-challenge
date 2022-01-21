@@ -61,7 +61,7 @@ describe('Airport tests', () => {
             //Act
             const actual = testAirport.planeTakeOffAuthorisation()
             //Assert
-            expect(actual).toBeTrue()
+            expect(actual).toContain('')
 
 
         })

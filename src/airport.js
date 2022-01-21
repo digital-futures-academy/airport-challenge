@@ -66,9 +66,9 @@ class Airport {
 
   planeTakeOffAuthorisation() {
     if (this.weatherMonitor(true)) {
-      return false
+      return 'Sunny weather, take-off authorised'
     } else {
-      return true
+      return 'Stormy weather, take-off not authorised'
     }
   }
 
