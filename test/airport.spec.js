@@ -1,5 +1,7 @@
 const assertEquals = require(`./testFramework.js`); 
 const Airport = require(`../src/airportSourceCode`); 
+const PlaneSupport = require(`../src/planeSupportSourceCode`);
+const Forecast = require(`./../src/forecastSourceCode`);
 
 
 const checkCanLandPlane = () => {
@@ -26,7 +28,7 @@ let expected = 0
 //Setup 
 let actual = updatingCapacity.changeCapacity(); 
 //console.log(`This is where it is: ${updatingCapacity.airportMaxCapacity}`);
-//Report 
+//Result 
 let result = assertEquals(actual, expected); 
 console.log(`The airport capacity has been updated: ${result}`); 
 }
@@ -41,7 +43,6 @@ let expected = true;
 //Setup
 let cannotLandResult = testPlane.preventLanding(["flight1"]);
 let actual = cannotLandResult instanceof Error;
-console.log(actual, 'This is where is is')
 
 //Result 
 let result = assertEquals(actual, expected); 
@@ -58,10 +59,37 @@ let expected = 0;
 
 let actual = testPlane.allowTakeOff(false, ["plane1"]); 
 
-//Report 
+//Result 
 let result = assertEquals (actual, expected); 
 console.log(`The plane has taken off and is no longer at the airport: ${result}`);
 
+}
+
+const checkVoidPlaneNotFound= () => {
+//Arrange
+const testPlane = new Airport;
+let expected = false;
+
+//Setup
+let actual = testPlane.lookForPlane("plane1")
+
+//Result
+let result = assertEquals(actual, expected);
+console.log(`Airport takeoff/landing functions are unavailable as flight not in airport: ${result}`);
+}
+
+
+const checkCannotOperateWhenStormy = () => {
+//Arrange
+const testPlane = new Forecast();
+let expected = true;
+
+//Setup
+let actual = testPlane.checkWeather();
+
+//Result
+let result = assertEquals (actual, expected)
+console.log(`No operations can take place when the weather is stormy: ${result}`);
 }
 
 
@@ -69,4 +97,4 @@ console.log(`The plane has taken off and is no longer at the airport: ${result}`
 
 
 module.exports = {assertEquals, checkCanLandPlane, checkCanOverrideAirportCapacity, 
-checkCannotLandWhenAirportFull, checkCanTakeOff}; 
+checkCannotLandWhenAirportFull, checkCanTakeOff, checkVoidPlaneNotFound, checkCannotOperateWhenStormy}; 
