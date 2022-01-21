@@ -12,6 +12,11 @@ class Airport {
     return this.airportName;
   }
 
+  getParkedPlanes(){
+    console.log(this.parkedPlanes)
+    return this.parkedPlanes;
+  }
+
   //lands requested plane at airport
   landPlane(airplane){
     let space = this.isAirportFull();
@@ -38,6 +43,20 @@ class Airport {
     }
   }
 
+  takeOffPlane(airplane){
+    let airplaneName = airplane.getAirplaneName();
+  
+    if (this.parkedPlanes.includes(airplaneName)){
+      let updatedParkedPlanes = this.parkedPlanes.filter(airplane => airplane!=airplaneName)
+      this.parkedPlanes = updatedParkedPlanes;
+      console.log(`the parked planes are now ${this.parkedPlanes}`)
+      airplane.takeOff();
+      return true
+    } else {
+      console.log('airplane is not in this airport');
+      return false
+    }
+  }
 }
 
 module.exports = Airport

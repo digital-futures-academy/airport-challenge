@@ -6,7 +6,7 @@
 //     landPlaneOrder(airplane, airport){
 //         console.log('air plane is the ' + airplane)
 //         //check if airport exists and airplane exists after
-//         return airport.landPlane(airplane, airport);
+//         return airport.landPlane(airplane);
 //     }
 // }
 

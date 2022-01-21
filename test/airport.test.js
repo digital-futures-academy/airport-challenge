@@ -62,11 +62,18 @@ checkIfPlaneTakenOffAndConfirmedWithAirport = () => {
     console.log(`checkIfPlaneTakenOffAndConfirmedWithAirport \n ========= \n`);
     //set up
     const testAirplane = new Airplane('BA24');
-    const testAirport = new Airport('Dubai')
+    const testAirplane2 = new Airplane('EM24')
+    const testAirport = new Airport('Dubai');
+    //parking a plane for the set up
+    testAirport.parkedPlanes.push(testAirplane.airplaneName);
+    // console.log(`${testAirplane.airplaneName} is parked inside ${testAirport.airportName} \n
+    // Parked planes are currently: ${testAirport.getParkedPlanes()}`);
+    // testAirport.getParkedPlanes();
     const expected = true;
 
     //act
-    let input = testAirport.takeOff(testAirplane);
+    let input = testAirport.takeOffPlane(testAirplane);
+    let actual = input;
     //result
     const result = assertEquals(actual,expected);
     console.log(`${testAirplane.airplaneName} has taken off from: ${testAirport.airportName} is: ${result}\n`);

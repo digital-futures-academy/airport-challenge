@@ -26,6 +26,11 @@ class Airplane {
             return true;
         }
     }
+
+    takeOff(){
+        this.inAir = true;
+        return console.log(`the ${this.airplaneName} is now in the air: ${this.inAir}`);
+    }
 }
 
 module.exports= Airplane;
