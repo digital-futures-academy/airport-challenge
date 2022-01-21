@@ -19,6 +19,9 @@ Proceed to clone it onto your local machine using whatever programme you typical
 
 I have used the jasmine test framework to form and run tests for this challenge, to run tests use the terinal to input npm test. This will run the inlaid tests found in Airport.spec.js file.
 
+In order to meet this challenge I broke down each user story to the bare bones and created tests that would do the bare minimum in order to not complicate the code. 
+
+I added in notes as well as made a file of potential code that was created and scrapped. This was due to the code being unneeded, too complex or not fully formed. 
 
 The task criteria was
 ------------------------

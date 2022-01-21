@@ -22,20 +22,12 @@ airbourneStatus = () => {
         console.log('land plane at airport')
 }
 
- if(this.capacity == xxx
-/console.log('MAximum capacity reached, do not land plane at airport'))
-
-try- true for planes landed in an airport, false for still in flight with a corresponding string
+if (this.capacity == xxx
+    / console.log('MAximum capacity reached, do not land plane at airport'))
 
 
 
-
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
-
-
-if Airport.currentCapacity <= airportCapacity
+    if Airport.currentCapacity <= airportCapacity
 
 
 get function for last extra condition  
@@ -68,25 +60,16 @@ const airportOne = new Airport(inFlight, 0, 0, 0, 0)
 
 
 airbourneStatus = () => {
-  if (position === inFlight)
-    console.log('land plane at airport')
+    if (position === inFlight)
+        console.log('land plane at airport')
 }
 
- if(this.capacity == xxx
+if (this.capacity == xxx
 console.log('MAximum capacity reached, do not land plane at airport'))
-
-try- true for planes landed in an airport, false for still in flight with a corresponding string
-
-
-
-
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
 */
 
-class Airport {
-}
 
-* /
+
+
+
 
