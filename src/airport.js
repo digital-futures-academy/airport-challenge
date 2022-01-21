@@ -4,6 +4,7 @@ class Airport {
   //here's a starting point for you
   constructor(airportName){
     this.airportName = airportName;
+    this.maxCapacity = 5;
     this.parkedPlanes = [];
   }
 
@@ -19,6 +20,10 @@ class Airport {
     // `The airplane: ${airplane.getAirplaneName()} \n
     // has landed is: ${status} \n
     // at ${this.getAirportName()}`);
+  }
+
+  changeCapacity(newCapacity){
+    return this.maxCapacity=newCapacity;
   }
 
 }

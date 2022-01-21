@@ -1,4 +1,5 @@
 const assertEquals = require('./testFramework');
-const {checkIfAirAnPortLandedPlane}=require('./airport.test');
+const {checkIfAirAnPortLandedPlane, checkIfAirportCapacityOverridden}=require('./airport.test');
 
 checkIfAnAirPortLandedPlane();
+checkIfAirportCapacityOverridden();
