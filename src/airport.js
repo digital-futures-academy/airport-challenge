@@ -1,18 +1,26 @@
-const {Airplane} = require('./airplane');
+// const Airplane = require('./airplane');
 
 class Airport {
   //here's a starting point for you
-  constructor(airportID){
-    this.airportID = airportID;
+  constructor(airportName){
+    this.airportName = airportName;
+    this.parkedPlanes = [];
+  }
+
+  getAirportName(){
+    return this.airportName;
   }
 
   //lands requested plane at airport
-  landPlane(airplaneID, airportID){
-    let output = Airplane.setInAirStatus(false);
-    console.log(`The airplane: ${airplaneID} \n
-    has landed is: ${output} \n
-    at ${airportID}`);
+  landPlane(airplane){
+    this.parkedPlanes.push(airplane.getAirplaneName())
+    return airplane.land()
+    // console.log(
+    // `The airplane: ${airplane.getAirplaneName()} \n
+    // has landed is: ${status} \n
+    // at ${this.getAirportName()}`);
   }
+
 }
 
-module.exports = {Airport};
+module.exports = Airport

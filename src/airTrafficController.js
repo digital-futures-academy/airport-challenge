@@ -1,12 +1,13 @@
-const {Airport} = require('./airport')
+// // const Airport = require('./airport')
 
-class AirTrafficController {
+// class AirTrafficController {
 
-    //orders plane to land
-    landPlaneOrder(airplaneID, airportID){
-        //check if airport exists and airplane exists after
-        Airport.landPlane(airplaneID, airportID);
-    }
-}
+//     //orders plane to land
+//     landPlaneOrder(airplane, airport){
+//         console.log('air plane is the ' + airplane)
+//         //check if airport exists and airplane exists after
+//         return airport.landPlane(airplane, airport);
+//     }
+// }
 
-module.exports={AirTrafficController};
+// module.exports= AirTrafficController

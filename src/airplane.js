@@ -1,25 +1,31 @@
 
 class Airplane {
-    constructor(airplaneID, inAirStatus = false){
-        this.airplaneId = airplaneID;
-        this.inAirStatus = inAirStatus;
+    
+    constructor(airplaneName, inAir = false){
+        this.airplaneName = airplaneName;
+        this.inAir = inAir;
     }
 
-    getAirplaneID(){
-        return this.airplaneID;
+    getAirplaneName(){
+        return this.airplaneName;
     }
 
     getInAirStatus(){
-        return this.inAirStatus;
+        return this.inAir;
     }
 
-    setInAirStatus(status){
-        if (status===false){
-            return this.inAirStatus = status;
-        } else if (status===true){
-            return this.inAirStatus = false;
+    land(){
+        //true = air
+        //false = landed
+        if (this.inAir===false){
+            console.log(`${this.airplaneName} has already landed`)
+            return true;
+        } else if (this.inAir===true){
+            this.inAir = false;
+            console.log(`${this.airplaneName} has now landed`)
+            return true;
         }
     }
 }
 
-module.exports={Airplane};
+module.exports= Airplane;
