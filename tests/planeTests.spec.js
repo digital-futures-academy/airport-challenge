@@ -145,7 +145,7 @@ const testChangingPlaneLandingStatus = () => {
     const result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testChangingPlaneLandingStatus result ${result}`);
+    console.log(`testChangingPlaneLandingStatus result ${result} \n`);
 
 };
 

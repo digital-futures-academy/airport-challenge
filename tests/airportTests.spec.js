@@ -14,6 +14,18 @@ class MockPlane {
 
 }
 
+class MockWeather {
+
+    constructor(weather = 'Stormy') {
+        this.weather = weather;
+    }
+
+    getForecast() {
+        return this.weather;
+    }
+
+}
+
 
 //User Case 1 - Airport lands a plane
 
@@ -34,7 +46,7 @@ const testNumbOfPlanesIsZero = () => {
     result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testNumbOfPlanesIsZero result: ${result}`);
+    console.log(`testNumbOfPlanesIsZero result: ${result} \n`);
 
 };
 
@@ -49,17 +61,17 @@ const testOnePlaneLanded = () => {
     const input = new Airport();
     const expected = 1;
     const testPlane = new MockPlane();
+    const testWeather = new MockWeather('Sunny');
 
     //Act
-
-    input.landPlane(testPlane);
+    input.landPlane(testPlane, testWeather);
     actual = input.planesArray.length;
 
     //Assert
     result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testOnePlaneLanded result: ${result}`);
+    console.log(`testOnePlaneLanded result: ${result} \n`);
 
 };
 
@@ -84,7 +96,7 @@ const testDefaultCapacityAtAirport = () => {
     result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testDefaultCapacityAtAirport result: ${result}`);
+    console.log(`testDefaultCapacityAtAirport result: ${result} \n`);
 
 
 
@@ -107,7 +119,7 @@ const testChangeCapacityAtAirport = () => {
     result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testChangeCapacityAtAirport result: ${result}`);
+    console.log(`testChangeCapacityAtAirport result: ${result} \n`);
 
 
 
@@ -126,16 +138,17 @@ const testPreventLanding = () => {
     const expected = true;
     const testPlane = new MockPlane();
     const testPlane2 = new MockPlane('Test Plane 2');
+    const testWeather = new MockWeather('Sunny');
     //Act
-    input.landPlane(testPlane);
-    const extraPlane = input.landPlane(testPlane2);
+    input.landPlane(testPlane, testWeather);
+    const extraPlane = input.landPlane(testPlane2, testWeather);
     actual = extraPlane instanceof Error
 
     //Assert
     result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testPreventLanding result: ${result}`);
+    console.log(`testPreventLanding result: ${result} \n`);
 };
 
 
@@ -147,17 +160,18 @@ const testPlaneMustBeAnObject = () => {
 
     //Arrange
     const input = new Airport();
-    const testPLane = 'NonObject Plane';
+    const testPlane = 'NonObject Plane';
     const expected = true;
+    const testWeather = new MockWeather('Sunny');
 
     //Act
-    const testLanding = input.landPlane(testPLane);
+    const testLanding = input.landPlane(testPlane, testWeather);
     const actual = testLanding instanceof Error;
     //Assert
     const result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testPlaneMustBeAnObject result : ${result}`);
+    console.log(`testPlaneMustBeAnObject result : ${result} \n`);
 }
 
 
@@ -174,18 +188,18 @@ const testTakeOffRemovesPlaneFromArray = () => {
     const testPlane = new MockPlane();
     const testPlane2 = new MockPlane('Test Plane 2');
     const expected = 'Test Plane 2';
-
+    const testWeather = new MockWeather('Sunny');
     //Act
-    input.landPlane(testPlane);
-    input.landPlane(testPlane2);
-    input.takeOffPlane(testPlane);
+    input.landPlane(testPlane, testWeather);
+    input.landPlane(testPlane2, testWeather);
+    input.takeOffPlane(testPlane, testWeather);
     const actual = input.planesArray[0];
 
     //Assert
     const result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testTakeOffRemovesPlaneFromArray result : ${result}`);
+    console.log(`testTakeOffRemovesPlaneFromArray result : ${result} \n`);
 
 
 }
@@ -200,16 +214,17 @@ const testTakeOffUsesObjectPlanesOnly = () => {
     const testPlane = new MockPlane();
     const testPlaneName = testPlane.getName();
     const expected = true;
+    const testWeather = new MockWeather('Sunny');
 
     //Act
-    input.landPlane(testPlane);
-    const takingOffTestPlane = input.takeOffPlane(testPlaneName);
+    input.landPlane(testPlane, testWeather);
+    const takingOffTestPlane = input.takeOffPlane(testPlaneName, testWeather);
     const actual = takingOffTestPlane instanceof Error;
     //Assert
     const result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testTakeOffUsesObjectPlanesOnly result : ${result}`);
+    console.log(`testTakeOffUsesObjectPlanesOnly result : ${result} \n`);
 
 
 };
@@ -224,15 +239,16 @@ const testIfPlaneAlreadyAtAirportDontLandAgain = () => {
     const input = new Airport();
     const testPlane = new MockPlane();
     const expected = true;
+    const testWeather = new MockWeather('Sunny');
     //Act
-    input.landPlane(testPlane);
-    const landSamePlane = input.landPlane(testPlane);
+    input.landPlane(testPlane, testWeather);
+    const landSamePlane = input.landPlane(testPlane, testWeather);
     const actual = landSamePlane instanceof Error;
     //Assert
     const result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testIfPlaneAlreadyAtAirportDontLandAgain result : ${result}`);
+    console.log(`testIfPlaneAlreadyAtAirportDontLandAgain result : ${result} \n`);
 }
 
 const testPlaneLandedSomewhereElseThenCantLand = () => {
@@ -243,14 +259,15 @@ const testPlaneLandedSomewhereElseThenCantLand = () => {
     const input = new Airport();
     const testPlane = new MockPlane('Test Plane', true);
     const expected = true;
+    const testWeather = new MockWeather('Sunny');
     //Act
-    const alreadyLandedPlane = input.landPlane(testPlane);
+    const alreadyLandedPlane = input.landPlane(testPlane, testWeather);
     const actual = alreadyLandedPlane instanceof Error;
     //Assert
     const result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testPlaneLandedSomewhereElseThenCantLand result : ${result}`);
+    console.log(`testPlaneLandedSomewhereElseThenCantLand result : ${result} \n`);
 
 };
 
@@ -263,17 +280,126 @@ const testCantRemovePlaneNotAtAirport = () => {
     const input = new Airport();
     const testPlane = new MockPlane();
     const expected = true;
+    const testWeather = new MockWeather('Sunny');
     //Act
-    const takeOffPlaneNotInList = input.takeOffPlane(testPlane);
+    const takeOffPlaneNotInList = input.takeOffPlane(testPlane, testWeather);
     const actual = takeOffPlaneNotInList instanceof Error;
 
     //Assert
     const result = assertEquals(actual, expected);
 
     //Report
-    console.log(`testCantRemovePlaneNotAtAirport result : ${result}`);
+    console.log(`testCantRemovePlaneNotAtAirport result : ${result} \n`);
 
 }
+
+
+
+//Extended User case 1 prevent plane from landing when stormy
+
+const testNoLandingWhenStormy = () => {
+
+    //Identity
+    console.log(`testNoTakeOffWhenStormy \n ========== \n`);
+
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const testWeather = new MockWeather('Stormy');
+    const expected = true;
+
+    //Act
+    const landingInStorm = input.landPlane(testPlane, testWeather);
+    const actual = landingInStorm instanceof Error;
+
+    //Assert
+    const result = assertEquals(actual, expected)
+
+    //Report
+    console.log(`testNoLandingWhenStormy result : ${result} \n`);
+
+};
+
+
+const testTakeOffWhenStormy = () => {
+
+    //Identity
+    console.log(`testTakeOffWhenStormy \n ========== \n`);
+
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const testWeather = new MockWeather('Sunny');
+    const testStormy = new MockWeather('Stormy');
+    const expected = true;
+
+    //Act
+    input.landPlane(testPlane, testWeather);
+    const testStormyRemove = input.takeOffPlane(testPlane, testStormy);
+    const actual = testStormyRemove instanceof Error;
+
+    //Assert
+    const result = assertEquals(actual, expected)
+
+    //Report
+    console.log(`testTakeOffWhenStormy result : ${result} \n`);
+
+};
+
+
+const testLandingWeatherMustBeObject = () => {
+    //Identity
+    console.log(`testLandingWeatherMustBeObject \n ========== \n`);
+
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const testWeather = 'NonObject Weather'
+    const expected = true;
+
+    //Act
+    const landingInStorm = input.landPlane(testPlane, testWeather);
+    const actual = landingInStorm instanceof Error;
+
+    //Assert
+    const result = assertEquals(actual, expected)
+
+    //Report
+    console.log(`testLandingWeatherMustBeObject result : ${result} \n`);
+
+
+};
+
+
+const testTakeOffWeatherMustBeObject = () => {
+
+    //Identity
+    console.log(`testTakeOffWeatherMustBeObject \n ========== \n`);
+
+    //Arrange
+    const input = new Airport();
+    const testPlane = new MockPlane();
+    const testWeather = new MockWeather('Sunny');
+    const testStormy = 'NonObject Weather';
+    const expected = true;
+
+    //Act
+    input.landPlane(testPlane, testWeather);
+    const testStormyRemove = input.takeOffPlane(testPlane, testStormy);
+    const actual = testStormyRemove instanceof Error;
+
+    //Assert
+    const result = assertEquals(actual, expected)
+
+    //Report
+    console.log(`testTakeOffWeatherMustBeObject result : ${result} \n`);
+
+};
+
+
+
+
+//Will need to refactor a lot of Tests
 
 
 
@@ -288,7 +414,11 @@ airportTests = {
     testTakeOffUsesObjectPlanesOnly,
     testIfPlaneAlreadyAtAirportDontLandAgain,
     testPlaneLandedSomewhereElseThenCantLand,
-    testCantRemovePlaneNotAtAirport
+    testCantRemovePlaneNotAtAirport,
+    testNoLandingWhenStormy,
+    testTakeOffWhenStormy,
+    testLandingWeatherMustBeObject,
+    testTakeOffWeatherMustBeObject
 };
 
 module.exports = airportTests;

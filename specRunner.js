@@ -17,6 +17,10 @@ airportTests.testTakeOffUsesObjectPlanesOnly();
 airportTests.testIfPlaneAlreadyAtAirportDontLandAgain();
 airportTests.testPlaneLandedSomewhereElseThenCantLand();
 airportTests.testCantRemovePlaneNotAtAirport();
+airportTests.testNoLandingWhenStormy();
+airportTests.testTakeOffWhenStormy();
+airportTests.testLandingWeatherMustBeObject();
+airportTests.testTakeOffWeatherMustBeObject();
 
 
 //Plane Tests

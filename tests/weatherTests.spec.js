@@ -8,21 +8,24 @@ const testRandomlyGenerateWeather = () => {
 
     //Arrange
     let input = new Weather();
-    let expected1 = 'Stormy'
-    let expected2 = 'Sunny'
+    let expected = 'Stormy'
 
     //Act
-    let actual = input.getForecast();
+    let actual = input.getForecast(0);
     //Assert
 
-    let result = assertEquals(actual, expected) //have 2 expects so maybe use something else
+    let result = expected.includes(actual);
 
     //Report
-    console.log(`testRandomlyGenerateWeather result : ${result}`);
+    console.log(`testRandomlyGenerateWeather result : ${result} \n`);
+    console.log(actual); //just giving snow every time ?
 
 }
 
 //Next step for tomorrow make the test pass
+
+
+
 
 
 weatherTests = { testRandomlyGenerateWeather };
