@@ -4,7 +4,7 @@ const Airport = require('../src/airport');
 const {assertEquals} = require('./testFramework');
 
 checkIfAnAirPortLandedPlane = () => {
-
+    //test
     console.log(`checkIfAnAirPortLandedPlane \n ========= \n`);
 
     //setup
@@ -23,7 +23,7 @@ checkIfAnAirPortLandedPlane = () => {
 //testAirportaddedplanetoArray
 
 checkIfAirportCapacityOverridden = () => {
-
+    //test
     console.log(`checkIfAirportCapacityOverridden \n ========= \n`);
 
     //set up
@@ -38,10 +38,30 @@ checkIfAirportCapacityOverridden = () => {
     const result = assertEquals(actual,expected);
     console.log(`${testAirport.airportName} capacity has been updated: ${result}\n`);
 }
-//check if integer entered & edge cases
+
+checkIfIntegerEnteredForAirportCapacity = () => {
+    //test
+    console.log(`checkIfIntegerEnteredForAirportCapacity \n ========= \n`)
+
+    //setup
+    const testAirport = new Airport('Heathrow')
+    const expected = false;
+    let newCapacity = 'ten';
+
+    //act
+    let actual = testAirport.changeCapacity(newCapacity);
+
+    //result
+    const result = assertEquals(actual,expected);
+    console.log(`${testAirport.airportName} capacity has failed to update: ${result}\n`);
+
+}
+
+
 //make it private so that you can't alter it without getter
 
 checkIfAnAirportLandedPlaneWhenFull = () => {
+    //test
     console.log(`checkIfAnAirportLandedPlaneWhenFull \n ========= \n`);
 
     //setup
@@ -59,16 +79,16 @@ checkIfAnAirportLandedPlaneWhenFull = () => {
 }
 
 checkIfPlaneTakenOffAndConfirmedWithAirport = () => {
+    //test
     console.log(`checkIfPlaneTakenOffAndConfirmedWithAirport \n ========= \n`);
+
     //set up
     const testAirplane = new Airplane('BA24');
     const testAirplane2 = new Airplane('EM24')
     const testAirport = new Airport('Dubai');
+
     //parking a plane for the set up
     testAirport.parkedPlanes.push(testAirplane.airplaneName);
-    // console.log(`${testAirplane.airplaneName} is parked inside ${testAirport.airportName} \n
-    // Parked planes are currently: ${testAirport.getParkedPlanes()}`);
-    // testAirport.getParkedPlanes();
     const expected = true;
 
     //act
@@ -83,5 +103,6 @@ module.exports={
     checkIfAnAirPortLandedPlane,
     checkIfAirportCapacityOverridden,
     checkIfAnAirportLandedPlaneWhenFull,
-    checkIfPlaneTakenOffAndConfirmedWithAirport
+    checkIfPlaneTakenOffAndConfirmedWithAirport,
+    checkIfIntegerEnteredForAirportCapacity
 }

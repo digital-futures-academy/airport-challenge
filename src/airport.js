@@ -30,6 +30,10 @@ class Airport {
   }
 
   changeCapacity(newCapacity){
+    if (!newCapacity || Number.isInteger(newCapacity)===false){
+      console.log(`new max capacity is not an integer`);
+      return false;
+    }
     return this.maxCapacity=newCapacity;
   }
 
