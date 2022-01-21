@@ -25,6 +25,7 @@ class Airport {
       return false;
     }  else {
       this.parkedPlanes.push(airplane.getAirplaneName())
+      console.log(`The parked planes are now ${this.parkedPlanes}`)
       return airplane.land()
     }
   }
@@ -53,7 +54,7 @@ class Airport {
     if (this.parkedPlanes.includes(airplaneName)){
       let updatedParkedPlanes = this.parkedPlanes.filter(airplane => airplane!=airplaneName)
       this.parkedPlanes = updatedParkedPlanes;
-      console.log(`the parked planes are now ${this.parkedPlanes}`)
+      console.log(`The parked planes are now ${this.parkedPlanes}`)
       airplane.takeOff();
       return true
     } else {

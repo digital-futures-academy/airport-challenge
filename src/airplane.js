@@ -29,7 +29,12 @@ class Airplane {
 
     takeOff(){
         this.inAir = true;
-        return console.log(`the ${this.airplaneName} is now in the air: ${this.inAir}`);
+        return this.confirmWithAirport();
+    }
+
+    confirmWithAirport(){
+        console.log(`The ${this.airplaneName} is now in the air: ${this.inAir}`);
+        return this.inAir;
     }
 }
 

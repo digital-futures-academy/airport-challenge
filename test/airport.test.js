@@ -17,10 +17,8 @@ checkIfAnAirPortLandedPlane = () => {
 
     //result
     const result = assertEquals(actual,expected);
-    console.log(`the Airport has landed is: ${result}\n`);
+    console.log(`The ${testAirplane.airplaneName} has landed is: ${result}\n`);
 }
-
-//testAirportaddedplanetoArray
 
 checkIfAirportCapacityOverridden = () => {
     //test
@@ -57,9 +55,6 @@ checkIfIntegerEnteredForAirportCapacity = () => {
 
 }
 
-//testing push on updated branch again
-//make it private so that you can't alter it without getter
-
 checkIfAnAirportLandedPlaneWhenFull = () => {
     //test
     console.log(`checkIfAnAirportLandedPlaneWhenFull \n ========= \n`);
@@ -68,6 +63,7 @@ checkIfAnAirportLandedPlaneWhenFull = () => {
     const testAirplane = new Airplane('BA23', true);
     const testAirport = new Airport('Dhaka')
     testAirport.parkedPlanes = [1,2,3,4,5];
+    //expected is false as it is prevented
     const expected = false;
 
     //act
