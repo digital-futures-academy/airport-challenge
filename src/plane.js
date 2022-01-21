@@ -36,15 +36,3 @@ class Plane {
 
 
 module.exports = { Plane };
-
-// try {
-//     if (!date || !entryText) throw new Error(`Entry data missing: ${!date ? `date` : `text`}`);
-//     if (!(date instanceof Date)) throw new Error(`Date in incorrect format`);
-//     this.#date = date;
-//     if (typeof entryText !== `string`) throw new Error(`Text is not a string`);
-//     this.#entryText = entryText;
-// }
-// catch (err) {
-//     console.log(err.message);
-//     return err;
-// }
