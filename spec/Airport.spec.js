@@ -5,7 +5,8 @@ describe(`Airport Tests: `, () => {
     it(`land a plane`, () => {
         // Arrange
         const airport = new Airport(`ORD`, 5, 0.5);
-        const plane = new Plane('345', airport);
+        // const plane = new Plane('345', airport);
+        const plane = new Plane(`345`, airport);
         // Act
         airport.land(plane);
         // Assert
@@ -82,14 +83,5 @@ describe(`Airport Tests: `, () => {
         // Assert
         expect(actual).toBeNull();
     });
-    it(`if a plane has landed it must be in an airport`, () => {
-        // Arrange
-        const airport = new Airport(`ORD`, 5, 0.4);
-        const plane = new Plane(`345`, airport);
-        airport.land(plane);
-        // Act
-        let actual = plane.getAirport();;
-        // Assert
-        expect(actual).toEqual(`ORD`);
-    })
+
 })

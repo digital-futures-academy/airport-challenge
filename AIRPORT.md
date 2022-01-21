@@ -158,3 +158,10 @@ Planes that have landed must be at an airport
 |         |                         | takeOff(@Plane)      | @Plane or @Null |
 | Plane   | id @String              | getId()              | @String         |
 |         | airport @String         | getAirport()         | @String         |
+
+
+## Approach
+
+I approached the challenge by creating a domain model table for each user story, writing a failign test that satisfied the requirements from the story and then writing the product code that satisfied this test.
+
+Since I worked one user story at a time some earlier code and tables needed to be refactored to fit the new requirements.

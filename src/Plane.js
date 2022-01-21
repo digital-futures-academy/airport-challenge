@@ -1,8 +1,7 @@
 class Plane {
     constructor(id, airport) {
-        console.log(airport)
         this.id = id;
-        this.airport = airport.airportId;
+        this.airport = airport.id;
     }
     getId() {
         return this.id

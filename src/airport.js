@@ -1,9 +1,9 @@
 class Airport {
-  constructor(airportId, capacity = 5, weather = Math.random()) {
+  constructor(id, capacity = 5, weather = Math.random()) {
     this.onGround = [];
     this.capacity = capacity;
     this.weather = weather;
-    this.airportId = airportId;
+    this.id = id;
   }
   land(plane) {
     const planeIds = this.onGround.map(x => x.id);
@@ -13,7 +13,6 @@ class Airport {
       console.log(`The plane with id: ${plane.id} cannot land`);
       return null;
     }
-
   }
   isFull() {
     return (this.onGround.length === this.capacity) ? true : false;
@@ -28,7 +27,6 @@ class Airport {
       console.log(`The plane with id: ${plane.id} cannot take off`)
       return null;
     }
-
   }
   setWeather(weather) {
     this.weather = weather;
