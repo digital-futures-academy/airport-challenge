@@ -29,11 +29,21 @@ const checkAirplaneNameIsOfTypeString = () => {
     const result = assertEquals(actual, expected);
     console.log(`The airplane name is of type string: ${result}`)
 }
-// const checkInAirStatus = () => {
+const checkInAirStatusIsOfTypeBoolean = () => {
+    //setup
+    const testAirplaneObject = new Airplane('GM22');
+    const expected = 'boolean'
+    //act
+    let input = testAirplaneObject.getInAirStatus();
+    const actual = typeof input;
 
-// }
+    //result
+    const result = assertEquals(actual, expected);
+    console.log(`The airplane inAirStatus is of type string: ${result}`)
+}
 
 module.exports={
     checkAirplaneObjectIsObject,
-    checkAirplaneNameIsOfTypeString
+    checkAirplaneNameIsOfTypeString,
+    checkInAirStatusIsOfTypeBoolean
 }
