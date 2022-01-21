@@ -57,7 +57,7 @@ checkIfIntegerEnteredForAirportCapacity = () => {
 
 }
 
-
+//testing push on updated branch
 //make it private so that you can't alter it without getter
 
 checkIfAnAirportLandedPlaneWhenFull = () => {
