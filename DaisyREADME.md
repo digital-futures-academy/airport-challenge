@@ -12,7 +12,7 @@ The programme has three classes to create object instances from:
 
 - **Airport**
   
-  - A new Airport is constructed with a name input and a capacity input. The capacity is defaulted to 5 planes but can be overridden to required specifications.  
+  - A new Airport is constructed with a name input and a capacity input. Defaulf capacity is 5 planes but can be overridden to required specifications. 
   - To view a list of all the landed planes at an airport call the *getLandedPlanesList()* method.
   - To count the number of planes currently at an airport call the *getNumberOfPlanesAtAirport()* method.
 
@@ -22,7 +22,7 @@ The programme has three classes to create object instances from:
 
 ### Landing and taking off functionality 
 
-Each airport can request for a specific plane to land and takeoff by calling these methods:
+Each airport can request for a specific plane to land and take off by calling these methods:
 
   - *landPlane(plane, weatherReport)*
   - *planeTakeOff(plane, weatherReport)*
@@ -39,8 +39,6 @@ There are 20 tests altogether.
 
 > Run **node testRunner.js** in the terminal to run the tests.
 
-//how you approached the problem and provide screenshots of interacting with your program.
-
 ## How I Approached the Problem 
 
 ### Identifying the Nouns and Verbs from the User Stories 
@@ -50,21 +48,14 @@ There are 20 tests altogether.
 | 1    | Air Traffic Controller   | Instruct (to land a plane)                            |
 |      | Airport                  |                                                       |
 |      | Plane                    |                                                       |
-| ---- | --------                 | ------------                                          |
 | 2    | Default airport capacity | Overridden as appropriate                             |
-| ---- | --------                 | ------------                                          |
 | 3    | Airport (full)           | Prevent landing                                       |
-| ---- | --------                 | ------------                                          |
 | 4    | Airport                  | Instruct (a plane to take off)                        |
 |      |                          | Confirm (plane is no longer at the airport)           |
-| ---- | --------                 | ------------                                          |
 | 5    | Plane (not at airport)   | Prevent asking (the airport to do improbable actions) |
 |      | Plane (already landed)   |                                                       |
-| ---- | --------                 | ------------                                          |
 | 6    | Weather(stormy)          | Prevent take off                                      |
-| ---- | --------                 | ------------                                          |
 | 7    | Weather(stormy)          | Prevent landing                                       |
-| ---- | --------                 | ------------                                          |
 | 8    | Planes                   | Count                                                 |
 
 ### Domain Modelling 
@@ -73,13 +64,13 @@ After extracting the key nouns and verbs form the user stories, I created a doma
 
 Here is the original domain model:
 
-<img src="airport-domain-model.png" width = 60% height = "300" >
+<img src="screenshots/airport-domain-model.png" width = 60% height = "300" >
 
 Originally I wanted to decouple the functionality of requesting a plane to land and take off but in the finalised programme these were embedded within my airport objects since I was confronted with some complications when attempting to decouple it in this way. I would like to work on achieving better encapsulation and cohesion across my objects and overall programme. 
 
 ### TDD 
 
-I built my whole programme using the TDD process and found that it allowed the development to be a lot more systematic and structured. I built the project in steps, building upon each consecutive user story one the previous one had been fully tested. This iterative approach meant that the programme was built with a lot more efficiency and direction. 
+I built my whole programme using the TDD process and found that it allowed the development to be a lot more systematic and structured. I built the project in steps, building upon each consecutive user story one the previous one had been fully tested. This iterative approach meant that the programme was built with a lot more efficiency and coherent direction. 
 
 I used my own testing framework using an assert equals function. 
 
@@ -117,4 +108,4 @@ Here are screenshots from an example programme that was run to show how the cons
 
 <img src="screenshots/airport-screenshot-1.png" width = 90% height = "500" >
 <img src="screenshots/airport-screenshot-2.png" width = 90% height = "500" >
-<img src="screenshots/airport-screenshot-3.png" width = 90% height = "500" >
+<img src="screenshots/airport-screenshot-3.png" width = 90% height = "350" >
