@@ -1,12 +1,12 @@
 class Airport {
 
-  constructor(position, weather, destination, location, capacity = 20) {
+  constructor(position, weather, destination, location, capacity) {
     this.planeFlightStatus = position;
     this.weatherCondition = weather;
     this.flightDestination = destination;
     this.planeLocation = location;
     this.maximumCapacity = capacity;
-
+    this.hanger = []
   }
 
   planePosition() {
@@ -17,9 +17,20 @@ class Airport {
     return this.maximumCapacity;
   }
 
+
+  landingPlaneIfAirportFull() {
+    if (this.hanger.length < airportCapacity) {
+      return 'Space available, land here'
+    } else {
+      return 'Hanger full, cannot land'
+    }
+  }
+
 }
 
 
+
+//if Airport.currentCapacity <= airportCapacity
 
 
 

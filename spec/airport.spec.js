@@ -14,19 +14,32 @@ describe('Airport tests', () => {
     })
 
     describe('Airport capacity tests', () => {
-        it('should change the maximum capacity of the airport')
-        //Arrange
-        const testAirport = new Airport()
-        //Act
-        const actual = testAirport.airportCapacity === new.airportCapacity;
-        //Assert
-        expect(actual).toBeTrue
-        //Resolve
+        it('should change the capacity of a airport', () => {
+            //Arrange
+            const testAirport = new Airport(0, 0, 0, 0, 7)
+            //Act
+            const actual = testAirport.airportCapacity()
+            //Assert
+            expect(actual).toBeInstanceOf(Number)
+        })
+
+
+        it('Prevent planes landing in a full airport', () => {
+            //Arrange
+            const testAirport = new Airport()
+            //Act
+            const actual = testAirport.landingPlaneIfAirportFull()
+            //Assert
+            expect(actual).toBeTrue()
+        })
     })
+
 })
 
+//[+ object to array]
+
+//store that has limited capacity
+    //the use of actual = meaning or variable name -- variable name
+    //look at the terminal and see if it is set up correct
 
 
-//the use of actual = meaning or variable name -- variable name
-//look at the terminal and see if it is set up correct
-//if constructor use is viable*/})
