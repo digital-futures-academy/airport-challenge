@@ -12,7 +12,7 @@ The programme has three classes to create object instances from:
 
 - **Airport**
   
-  - A new Airport is constructed with a name input and a capacity input. Defaulf capacity is 5 planes but can be overridden to required specifications. 
+  - A new Airport is constructed with a name input and a capacity input. Default capacity is 5 planes but can be overridden to required specifications. 
   - To view a list of all the landed planes at an airport call the *getLandedPlanesList()* method.
   - To count the number of planes currently at an airport call the *getNumberOfPlanesAtAirport()* method.
 
