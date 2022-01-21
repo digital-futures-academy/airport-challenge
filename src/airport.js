@@ -8,7 +8,7 @@ class Airport {
 
   }
 
-  //Need to refactor 
+
   landPlane(plane, weather) {
     try {
       if (!(plane instanceof Object && weather instanceof Object)) throw new Error('Arguments must be objects. Please use the Plane() and Weather() class.');
@@ -54,5 +54,4 @@ module.exports = Airport;
 
 
 
-//To do: Create test so nonObjects weathers cant be inputted
 

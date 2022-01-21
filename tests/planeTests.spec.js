@@ -74,7 +74,7 @@ const testPlaneHasStringName = () => {
 
 };
 
-//New Test which is throw error if nothing isn't supplied as the Plane name
+//New Test which is throw error if nothing is supplied as the Plane name
 
 const testErrorIfNullPlaneName = () => {
 
@@ -126,7 +126,6 @@ const testErrorIfNameIsNonString = () => {
 
 };
 
-//MIGHT NOT NEED THIS IF CAN CHANGE LANDING STATUS IN THE AIRPORT CLASS
 
 const testChangingPlaneLandingStatus = () => {
 
@@ -148,11 +147,6 @@ const testChangingPlaneLandingStatus = () => {
     console.log(`testChangingPlaneLandingStatus result ${result} \n`);
 
 };
-
-
-
-
-
 
 
 planeTests = {

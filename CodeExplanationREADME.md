@@ -1,6 +1,6 @@
 ## Read Me file to explain how the code should be run:
 
-In the submission there a three Classes (Airport, Plane and Weather) which are located in the src folder and the corresponding tests are in the test folder. All tests are imported to the testRunner.js file and that can be run to see if the tests pass.
+In the submission there a three Classes (Airport, Plane and Weather) which are located in the src folder and the corresponding tests are in the test folder. All tests are imported to the specRunner.js file and that can be run to see if the tests pass.
 
 Starting with the Plane class, this class has two private properties (name (of the plane) and landed (boolean whether the plane is landed or in flight)). Tests have been done to see if the name is define when creating and instance and in the correct type (string), the landed status is initially false by default as Planes must be in an Airport when landed. Three methods are used in this class (getName(), isLanded(), changeLandingStatus()) which are hopefully self-explanatory :). 
 

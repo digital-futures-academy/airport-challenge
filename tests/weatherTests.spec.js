@@ -18,14 +18,9 @@ const testRandomlyGenerateWeather = () => {
 
     //Report
     console.log(`testRandomlyGenerateWeather result : ${result} \n`);
-    console.log(actual); //just giving snow every time ?
+    console.log(actual);
 
 }
-
-//Next step for tomorrow make the test pass
-
-
-
 
 
 weatherTests = { testRandomlyGenerateWeather };

@@ -295,7 +295,7 @@ const testCantRemovePlaneNotAtAirport = () => {
 
 
 
-//Extended User case 1 prevent plane from landing when stormy
+//Extended User case prevent plane from landing when stormy
 
 const testNoLandingWhenStormy = () => {
 
@@ -398,8 +398,6 @@ const testTakeOffWeatherMustBeObject = () => {
 
 
 
-
-//Will need to refactor a lot of Tests
 
 
 
