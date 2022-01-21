@@ -1,9 +1,10 @@
-class Airport {
-  constructor(capacity, weather, grounded) {
-    this.grounded = grounded || [];
-    this.capacity = capacity || 10;
+class Airport {                                   //Defines class
+  constructor(capacity, weather, grounded) {      //Can set capacity of airport, weather condition
+    
+    this.grounded = grounded || [];               //Array of planes that have landed
+    this.capacity = capacity || 10;               //Capactiy of the airport is 
     this.index;
-    this.weather = weather || (Math.random() - 0.9) ;
+    this.weather = weather || (Math.random() - 0.1);
   }
 
   landing (plane) {        
@@ -15,6 +16,7 @@ class Airport {
       return `${plane} cannot land due to adverse weather`
     } else {                                
       this.grounded.push(plane);
+      return `${plane} has successfully landed`
     }
   }
 
@@ -45,7 +47,18 @@ class Airport {
     return this.index !== -1
   }
 
+  getRunway () {
+    if (this.grounded[0]){
+      return this.grounded
+    } else {
+      return `Airport is empty`
+    }
+  }
+
 }
 
-
 module.exports = Airport;
+
+// let airport = new Airport( undefined, 1, undefined);
+
+// console.log(airport)

@@ -1,7 +1,8 @@
-Airport = require('./src/airport');
-const { assertEquals, assetEqualsArray } = require('./testFramework');
+Airport = require('../src/airport');
+const { assertEquals, assetEqualsArray } = require('../testFramework');
 
 var counter = 0;
+
 
 const canAddToAirport = () => { 
     //Identifiers
@@ -36,10 +37,11 @@ const canOverideCapacity = () => {
 const testFullWarning = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(1,1, ['Plane B'])  
+    let airport = new Airport(1,1)  
     // Arrange
     const expected = `Cannot land Plane A. We are at capacity`                 
     // Act
+    airport.landing('Plane B')
     actual = airport.landing('Plane A')        
     // Assert
     const result = assertEquals(actual, expected);
@@ -128,7 +130,7 @@ const testWeather = () => {
     counter++;
     let airport = new Airport(10,7)  
     // Arrange
-    const expected = 7               
+    const expected = 7                                                                                                         
     // Act              
     actual = airport.weather;    
     // Assert
@@ -140,7 +142,7 @@ const testWeather = () => {
 const testWeatherTakeOff = () => { 
     //Identifiers
     counter++;
-    let airport = new Airport(10, -1, ['Plane A'])  
+    let airport = new Airport(10, -1, ['Plane A']) 
     // Arrange
     const expected = `Plane A cannot start takeoff due to adverse weather`                
     // Act              
@@ -214,6 +216,8 @@ const testOnRunway = () => {
     // Report
     return [result, `${counter}). Test whether grounded planes are recorded`]
 }
+
+
 
 module.exports = {canAddToAirport,
     canOverideCapacity,

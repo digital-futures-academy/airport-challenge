@@ -10,7 +10,7 @@ const {canAddToAirport,
     testWeatherTakeOff,
     testWeatherLanding,
     testWeatherLandingCount,
-    testOnRunway} = require('./airport-spec.js');         //Imports all tests
+    testOnRunway} = require('./spec/airport-spec.js');         //Imports all tests
 
 let correct = 0;            //Initilises correct counters
 let incorrect = 0;          //Initilises incorrect counters
