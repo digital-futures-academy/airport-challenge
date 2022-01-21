@@ -8,11 +8,11 @@ This table is a convergence of my user stories into my domain model:
 
 | Object  | Properties                | Methods                      | Output           |
 | ------- | ------------------------------- | --------------------------------------- | ---------------- |
-| Airport | airStatus@boolean               | landPlane(airStatus)                    | @Ioolean         |
+| Airport | airStatus@boolean               | landPlane(airStatus)                    | @Boolean         |
 |         | airportMaxCapacity@integer      | changeCapacity(airportMaxCapacity       | @Integer         |
-|         | currentCapacity@integer         | preventLanding()                        | @true            |
+|         | currentCapacity@integer         | preventLanding()                        | @Boolean         |
 |         |                                 | allowTakeOff(airStatus, planesToLand)   | @Error           |
-|         |                                 | lookForPlane()                          | @array OR @error |
+|         |                                 | lookForPlane()                          | @Boolean/ @error |
 | ------- | ------------------------------- | --------------------------------------- | ---------------- |
 
 ## Test Framework guide
