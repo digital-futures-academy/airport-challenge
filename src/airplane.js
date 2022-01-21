@@ -17,6 +17,7 @@ class Airplane {
     land(){
         //true = air
         //false = landed
+        //need to refactor
         if (this.inAir===false){
             console.log(`${this.airplaneName} has already landed`)
             return true;

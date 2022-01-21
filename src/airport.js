@@ -23,7 +23,10 @@ class Airport {
     if (space){
       console.log('can not land plane');
       return false;
-    }  else {
+    }  else if(airplane.getInAirStatus() === false){
+      console.log(`The airplane ${airplane.getAirplaneName()} has landed already`)
+      return false;
+    } else {
       this.parkedPlanes.push(airplane.getAirplaneName())
       console.log(`The parked planes are now ${this.parkedPlanes}`)
       return airplane.land()
@@ -39,6 +42,7 @@ class Airport {
   }
 
   isAirportFull(){
+    //returns true if airport is full
     if (this.parkedPlanes.length<this.maxCapacity){
       console.log('There is still space');
       return false

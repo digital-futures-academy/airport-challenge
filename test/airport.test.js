@@ -80,7 +80,6 @@ checkIfPlaneTakenOffAndConfirmedWithAirport = () => {
 
     //set up
     const testAirplane = new Airplane('BA24');
-    const testAirplane2 = new Airplane('EM24')
     const testAirport = new Airport('Dubai');
 
     //parking a plane for the set up
@@ -95,10 +94,32 @@ checkIfPlaneTakenOffAndConfirmedWithAirport = () => {
     console.log(`${testAirplane.airplaneName} has taken off from: ${testAirport.airportName} is: ${result}\n`);
 }
 
+checkIfPlaneCanLandAtAnotherAirportIfAlreadyLanded = () => {
+    //test
+    console.log(`checkIfPlaneCanLandAtAnotherAirportIfAlreadyLanded \n ========= \n`);
+
+    //set up
+    const testAirplane = new Airplane('BA24');
+    const testAirport = new Airport('Tokyo');
+    const testAirport2 = new Airport('Dubai');
+
+    //parking a plane in first airport for the set up
+    testAirport.parkedPlanes.push(testAirplane.airplaneName);
+    const expected = false;
+
+    //act
+    let input = testAirport2.landPlane(testAirplane);
+    let actual = input;
+    //result
+    const result = assertEquals(actual,expected);
+    console.log(`checkIfPlaneCanLandAtAnotherAirportIfAlreadyLanded passed is: ${result}\n`);
+}
+
 module.exports={
     checkIfAnAirPortLandedPlane,
     checkIfAirportCapacityOverridden,
     checkIfAnAirportLandedPlaneWhenFull,
     checkIfPlaneTakenOffAndConfirmedWithAirport,
-    checkIfIntegerEnteredForAirportCapacity
+    checkIfIntegerEnteredForAirportCapacity,
+    checkIfPlaneCanLandAtAnotherAirportIfAlreadyLanded
 }
