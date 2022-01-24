@@ -1,13 +1,10 @@
 import { assertEquals, printReport } from "./test-framework.js";
 
-import { Airport } from '../src/airport.js';
-import { Plane } from '../src/plane.js';
+import { Plane } from "../src/plane.js";
 
-// const { airport } = require('../src/airport.js');
-// const { plane } = require('../src/plane.js');
 
 const planeInitialisesWithNameTest = () => {
-    const testDescription = "Plane constructor correctly creates a plane given plane name"
+    const testDescription = "Plane constructor correctly creates a plane given plane name";
 
     // 1. Setup
     const input = "myPlane";
@@ -22,7 +19,7 @@ const planeInitialisesWithNameTest = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 //// REMOVED BELOW SINCE PLANE NOW INITIALISES WITH AIRPORT "unassigned" TO AVOID CONFUSION WITH AIRPORT TAKE OFF / LAND METHODS
 
@@ -45,7 +42,7 @@ const planeInitialisesWithNameTest = () => {
 // }
 
 const planeInitialisesWithDefaultAirportProperty = () => {
-    const testDescription = "Plane constructor correctly initialises a plane with default airport"
+    const testDescription = "Plane constructor correctly initialises a plane with default airport";
 
     // 1. Setup
     const input = ["myPlane"];
@@ -60,6 +57,6 @@ const planeInitialisesWithDefaultAirportProperty = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export { planeInitialisesWithNameTest, planeInitialisesWithDefaultAirportProperty };

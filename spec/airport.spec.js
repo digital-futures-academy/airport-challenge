@@ -1,18 +1,18 @@
 import { assertEquals, assertArrayOfPrimitivesEquals, assertErrorEquals, printReport } from "./test-framework.js";
 
-import { Airport } from '../src/airport.js';
-import { Plane } from "../src/plane.js";
+import { Airport } from "../src/airport.js";
+// import { Plane } from "../src/plane.js";
 
 class MockPlane {
     name = "Matt's mock plane";
     airport = "unassigned";
-}
+};
 
 
 
 
 export const airportInitialisesWithNameTest = () => {
-    const testDescription = "Airport constructor correctly creates an airport given name"
+    const testDescription = "Airport constructor correctly creates an airport given name";
 
     // 1. Setup
     const input = "myAirport";
@@ -27,10 +27,10 @@ export const airportInitialisesWithNameTest = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportInitialisesWithCapacityTest = () => {
-    const testDescription = "Airport constructor correctly creates an airport given capacity"
+    const testDescription = "Airport constructor correctly creates an airport given capacity";
 
     // 1. Setup
     const input = ["myAirport", 110];
@@ -45,10 +45,10 @@ export const airportInitialisesWithCapacityTest = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportInitialisesWithDefaultCapacityTest = () => {
-    const testDescription = "Airport constructor correctly creates an airport with default capacity"
+    const testDescription = "Airport constructor correctly creates an airport with default capacity";
 
     // 1. Setup
     const input = ["myAirport"];
@@ -63,10 +63,10 @@ export const airportInitialisesWithDefaultCapacityTest = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportCapacityCanBeChanged = () => {
-    const testDescription = "Airport capacity can be changed to provided value"
+    const testDescription = "Airport capacity can be changed to provided value";
 
     //1. Setup
     const myAirport = new Airport("myAirport");
@@ -81,14 +81,14 @@ export const airportCapacityCanBeChanged = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportInitialisesWithListOfPlanes = () => {
-    const testDescription = "Airport initialises with empty array of planes"
+    const testDescription = "Airport initialises with empty array of planes";
 
     //1. Setup
     const input = "myAirport";
-    const expectedOutput = 0
+    const expectedOutput = 0;
 
     // 2. Execute
     const myAirport = new Airport(input);
@@ -99,7 +99,7 @@ export const airportInitialisesWithListOfPlanes = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 // REMOVED BELOW SINCE AIRPORT INITIALISING WITH A LIST OF PLANES CAUSES PROBLEMS IF THOSE PLANES DON'T HAVE THEIR AIRPORT PROPERTY CHANGED TO MATCH
 
@@ -124,7 +124,7 @@ export const airportInitialisesWithListOfPlanes = () => {
 
 
 export const airportCannotLandPlaneWhenFull = () => {
-    const testDescription = "Airport can't land a plane when it's full"
+    const testDescription = "Airport can't land a plane when it's full";
 
     //1. Setup
     const myAirport = new Airport("My Airport", 0);
@@ -140,10 +140,10 @@ export const airportCannotLandPlaneWhenFull = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportCanLandPlaneWhenNotFull = () => {
-    const testDescription = "Airport can land a plane when it is not full"
+    const testDescription = "Airport can land a plane when it is not full";
 
     //1. Setup
     const myAirport = new Airport("My Airport");
@@ -151,7 +151,6 @@ export const airportCanLandPlaneWhenNotFull = () => {
 
     // 2. Execute
     myAirport.landPlane(myPlane);
-    const actualOutput = myAirport.planes;
 
     // 3. Verify
     const result = myAirport.planes.includes(myPlane);
@@ -159,10 +158,10 @@ export const airportCanLandPlaneWhenNotFull = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportCanLetPlaneTakeOff = () => {
-    const testDescription = "Airport can let a plane take off"
+    const testDescription = "Airport can let a plane take off";
 
     //1. Setup
     const myAirport = new Airport("My Airport");
@@ -171,17 +170,16 @@ export const airportCanLetPlaneTakeOff = () => {
     // 2. Execute
     myAirport.landPlane(myPlane);
     myAirport.takeOffPlane(myPlane);
-    const actualOutput = myAirport.planes;
 
     // 3. Verify
     const result = !myAirport.planes.includes(myPlane);
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportCannotTakeOffPlaneNotInAirport = () => {
-    const testDescription = "Airport cannot let a plane take off if it isn't in the airport"
+    const testDescription = "Airport cannot let a plane take off if it isn't in the airport";
 
     //1. Setup
     const myAirport = new Airport("My Airport");
@@ -192,7 +190,7 @@ export const airportCannotTakeOffPlaneNotInAirport = () => {
 
     // See later tests "take off/landing returns plane" for workaround.
 
-    const expectedOutput = new Error("Cannot take off a plane which isn't in the airport.")
+    const expectedOutput = new Error("Cannot take off a plane which isn't in the airport.");
 
     // 2. Execute
     const actualOutput = myAirport.takeOffPlane(myPlane);
@@ -202,15 +200,15 @@ export const airportCannotTakeOffPlaneNotInAirport = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportCannotLandPlaneAlreadyInAirport = () => {
-    const testDescription = "Airport cannot land a plane if it is already in the airport"
+    const testDescription = "Airport cannot land a plane if it is already in the airport";
 
     //1. Setup
     const myAirport = new Airport("My Airport");
     const myPlane = new MockPlane();
-    const expectedOutput = new Error("Cannot land a plane which is already in the airport.")
+    const expectedOutput = new Error("Cannot land a plane which is already in the airport.");
 
     // 2. Execute
     myAirport.landPlane(myPlane);
@@ -222,10 +220,10 @@ export const airportCannotLandPlaneAlreadyInAirport = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportLandPlaneReturnsPlaneObject = () => {
-    const testDescription = "Airport returns plane object when landing plane"
+    const testDescription = "Airport returns plane object when landing plane";
     // So that can do:
     // const aPlane = myAirport.landPlane(new Plane("A plane"));
     // myAirport.takeOffPlane(aPlane);
@@ -244,9 +242,10 @@ export const airportLandPlaneReturnsPlaneObject = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
+
 export const airportTakeOffPlaneReturnsPlaneObject = () => {
-    const testDescription = "Airport returns plane object when taking off plane"
+    const testDescription = "Airport returns plane object when taking off plane";
     // Less useful than above since can't take off a new Plane as it isn't already in the airport...
 
     //1. Setup
@@ -263,10 +262,10 @@ export const airportTakeOffPlaneReturnsPlaneObject = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportLandPlaneChangesPlaneAirportProperty = () => {
-    const testDescription = "Landing a plane changes its airport property"
+    const testDescription = "Landing a plane changes its airport property";
 
     //1. Setup
     const myAirport = new Airport("LHR");
@@ -282,10 +281,10 @@ export const airportLandPlaneChangesPlaneAirportProperty = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportTakeOffPlaneChangesPlaneAirportProperty = () => {
-    const testDescription = "Taking off a plane changes its airport property"
+    const testDescription = "Taking off a plane changes its airport property";
 
     //1. Setup
     const myAirport = new Airport("LHR");
@@ -302,11 +301,11 @@ export const airportTakeOffPlaneChangesPlaneAirportProperty = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 
 export const airportCannotLandPlaneWhenWeatherStormy = () => {
-    const testDescription = "Airport can't land a plane when the weather is stormy"
+    const testDescription = "Airport can't land a plane when the weather is stormy";
 
     //1. Setup
     const myAirport = new Airport("My Airport", 100, 0.95); // weatherCode = 0.95 (stormy weather)
@@ -320,10 +319,10 @@ export const airportCannotLandPlaneWhenWeatherStormy = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 export const airportCannotTakeOffPlaneWhenWeatherStormy = () => {
-    const testDescription = "Airport can take off plane when the weather is stormy"
+    const testDescription = "Airport can take off plane when the weather is stormy";
 
     //1. Setup
     const myAirport = new Airport("My Airport");
@@ -340,7 +339,7 @@ export const airportCannotTakeOffPlaneWhenWeatherStormy = () => {
 
     // Report
     printReport(testDescription, result);
-}
+};
 
 
 // Annoying that the export object has keys in alphabetical order...
