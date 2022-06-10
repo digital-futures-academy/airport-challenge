@@ -1,3 +1,34 @@
+## Domain modelling 
+#### First user story
+*As an air traffic controller*
+*So I can get passengers to a destination*
+*I want to instruct the airport to land a plane*
+
+| **Object** | **Message** |
+| ---------- | ----------- |
+| Airport | landPlane(plane) |
+| Plane |  |
+
+| **Object** | **Property** | **Message** | **Output** |
+| ---------- | ------------ | ----------- | ---------- |
+| Airport |  landedPlanes(@array) | landPlane() | @string |
+| Plane   | planeID | 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Airport Challenge
 =================
 
