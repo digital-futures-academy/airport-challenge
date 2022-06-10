@@ -1,6 +1,10 @@
 class Airport {
-  // here's a starting point for you
+  // create class constructor
+  constructor() {
+  }
 
 }
 
-module.exports = Airport;
+module.exports = {
+  Airport: Airport
+}
