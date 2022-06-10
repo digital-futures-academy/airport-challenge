@@ -1,9 +1,12 @@
 class Airport {
   // create class constructor
-  constructor() {
-  }
+  constructor() { };
+
+
+  landPlane = () => { };
 
 }
+
 
 module.exports = {
   Airport: Airport
