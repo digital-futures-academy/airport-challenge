@@ -3,7 +3,9 @@ class Airport {
   constructor() { };
 
 
-  landPlane = () => { };
+  landPlane = (plane) => {
+    return 'success'
+  };
 
 }
 
