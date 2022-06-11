@@ -42,3 +42,10 @@ result = assertEquals(actualOutput, expectedOutput);
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
 
 
+// Test 3 - on providing an argument that is not a plane returns an error message
+testName = `Test 3: On providing an argument that is not a plane returns an error message`;
+input = `Not a plane`;
+expectedOutput = `Error: no Plane provided`;
+actualOutput = airport.landPlane(input);
+result = assertEquals(actualOutput, expectedOutput);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
