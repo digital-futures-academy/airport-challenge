@@ -12,9 +12,9 @@ let testName = ``;
 //Test 1
 //arrange
 testName = `Tes1: plan can land  `;
-planeCanLand = true;
+planeCanLand = false;
 planeID = `pl003`;
-expectedOutput = true;
+expectedOutput = false;
 
 //act
 actualOutput = landAPlane(planeCanLand, planeID);

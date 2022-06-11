@@ -6,8 +6,8 @@ class Airport {
 const landAPlane = (planeCanLand, plane1) => {
   if (planeCanLand) {
     airport1.planesInAirport.push(plane1);
-    return planeCanLand;
   }
+  return planeCanLand;
 }
 const airport1 = new Airport();
 
