@@ -1,6 +1,20 @@
 class Airport {
-  // here's a starting point for you
+  planesInAirport = [];
+
 
 }
+const landAPlane = (planeCanLand, plane1) => {
+  if (planeCanLand) {
+    airport1.planesInAirport.push(plane1);
+    return true;
+  }
+}
+const airport1 = new Airport();
 
-module.exports = Airport;
+
+
+
+module.exports = {
+  Airport,
+  landAPlane
+};

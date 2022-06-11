@@ -84,6 +84,6 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 | Objects    |  Properties  |     Messages   | Output      |
 |------------|--------------|----------------|-------------|
-|airport     |List@objects  |landAPlane()    |             |
+|airport     |              |landAPlane()    |             |
 |            |              |                |             |
 |plane       |planeID       |                |             |

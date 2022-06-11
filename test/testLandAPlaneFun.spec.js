@@ -2,7 +2,8 @@
 //airport should allow plane to land
 
 const { assertEquals } = require("../test-framework");
-
+const { landAPlane } = require("../src/airport");
+// require("../src/index");
 //initial arrange
 let expectedOutput, actualOutput, result;
 let planeCanLand;
@@ -12,10 +13,11 @@ let testName = ``;
 //arrange
 testName = `Tes1: fail test `;
 planeCanLand = true;
+planeID = `pl003`;
 expectedOutput = true;
 
 //act
-actualOutput = landAPlane();
+actualOutput = landAPlane(planeCanLand, planeID);
 
 //assert
 result = assertEquals(expectedOutput, actualOutput);
