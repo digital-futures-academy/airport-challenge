@@ -82,7 +82,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 # Domain Modelling 
 
-#### Acceptance Criteria
+## Acceptance Criteria
+
+### Requirement 1
+
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -91,14 +95,23 @@ I want to instruct the airport to land a plane
 
 |     Object      |     Messages     |
 |-----------------|------------------|
-| airport         | landPlane(planeId @string)    |
+| airport         | landPlane(@plane)    |
 | plane           |      |
 
 Rationale 
 - Objects: airport and planes are acting on each other so part of the system. Passengers and their destination do not affect the airport or plane so aren't part of the system and therefore don't need to be an object for this story. I don't think an air traffic controller object is needed in this instance as I am assuming they are part of the airport and this would start to add additional complexity. 
-- Messages: the requirement relates to an airport instructing a plane to land so this is covered by the landPlane message. Although not stated I'm assuming that they will want to specify a specific plane and therefore will need to use a planeId as part of the landPlane message.  
+- Messages: the requirement relates to an airport instructing a plane to land so this is covered by the landPlane message. The message will accept a plane object as an argument to allow it to act on the plane via the message.
+
+Expanded to:
 
 |     Object      |     Properties  |     Messages               |    Output      |
 |-----------------|-----------------|----------------------------|----------------|
-| airport         |                 |landPlane(planeId @string)  |@string         |
-| plane           |planeId @string  |                            |                |
+| Airport         |                 |landPlane(@Plane) //tell the plane obj to land         |@string //success or failure message    |
+| Plane           |state @string // eg. "flying" or "landed"  | land() //change the planes state to "landed"                     | @string // return success/failure message.               |
+
+Added in some further details that I think are necessary:
+- Plane.state to manage whether the plane is flying and allow it to have a concept of landing.
+- Plane.land() as an internal message that Airport.landPlane() can call to make the plane land.
+- Outputs are in addition to the main effect of the function to return some form of success or failure message.
+
+This requirement only talks about one airport and one plane and I am therefore sticking to this model. Implications of future requirements are that there will be many planes. In that case an additional data structure to hold the available planes and an additional message to find the desired plane to land would be needed.
