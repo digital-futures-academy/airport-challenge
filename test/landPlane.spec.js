@@ -49,3 +49,14 @@ expectedOutput = `Error: no Plane provided`;
 actualOutput = airport.landPlane(input);
 result = assertEquals(actualOutput, expectedOutput);
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
+// Test 4 - A Plane's state changes from "flying" to "landed" after being passed into landPlane.
+testName = `Test 4: A Plane's state changes from "flying" to "landed" after being passed into landPlane.`;
+input = plane
+input.state = 'flying'; // Ensure the plane's state is set to a value other than the expected output
+expectedOutput = 'landed';
+airport.landPlane(plane) // This should result in a change to the plane's state
+actualOutput = input.state; //this should have changed to 'landed' if landPlane worked
+result = assertEquals(actualOutput, expectedOutput);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
