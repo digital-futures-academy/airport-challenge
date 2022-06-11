@@ -34,6 +34,8 @@ console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
 
 
 // // Test 2 - On providing a Plane as an argument landPlane returns 'Success'.
-// input = new Plane();
-// expectedOutput = 'success'
-// actualOutput = 
+input = plane;
+expectedOutput = 'success'
+actualOutput = airport.landPlane(input);
+result = assertEquals(actualOutput, expectedOutput);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
