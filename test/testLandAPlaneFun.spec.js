@@ -11,7 +11,7 @@ let testName = ``;
 
 //Test 1
 //arrange
-testName = `Tes1: fail test `;
+testName = `Tes1: plan can land  `;
 planeCanLand = true;
 planeID = `pl003`;
 expectedOutput = true;
@@ -24,3 +24,6 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
+console.log(actualOutput);
+console.log(expectedOutput);
+console.log(result);
