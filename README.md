@@ -27,8 +27,8 @@ I want to instruct the airport to land a plane
 
 |object |	property	|message|output|
 |-------| --------------|-------|-------|
-airport|	listOfLandedPlanes @ARRAY[@PLANES[@planeID]]	|landAPlane(@planeID)|	@string
-|planes	|planeid @String	|planeId()	|@string
+|airport|	listOfLandedPlanes @ARRAY[@PLANES[@planeID]]	|landAPlane(@planeID)|	@string|
+|planes	|planeid @String	|planeId()	|@string|
 
 As the system designer
 So that the software can be used for many different airports
