@@ -1,7 +1,11 @@
 // File to actually run my program
 
-const { landAPlane } = require("./landAPlaneFunction");
+const { AIRPORT } = require("./Airport");
 
-const plane1 = "PLANE1";
+const { PLANE } = require("./Plane");
 
-console.log(landAPlane(plane1));
+
+let airport = new AIRPORT;
+let plane = new PLANE;
+
+console.log(airport.landAPlane("plane1"));
