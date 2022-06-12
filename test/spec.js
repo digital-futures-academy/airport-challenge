@@ -160,3 +160,48 @@ console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
 
 console.log("------------- END of Test 6----------------")
+
+
+
+// Test 7
+
+// arrange
+testName = `Test 7 - Prevent Take Off a plane if weather is stormy`;
+console.log(testName);
+let airport7 = new AIRPORT;
+airport7.listOfLandedPlanes = ["PLANE1", "PLANE2", "PLANE3", "PLANE4", "PLANE5", "PLANE6", "PLANE7", "PLANE8", "PLANE9", "PLANE10",];
+input = "PLANE7";
+expectedOutput = `${input} cannot Take Off as it is not current weather is Stormy`;
+
+// act
+
+// as weather is random need to run few instance of tests as the test could fail if only 1 instance is tested as weather turns out to be clear
+let multipleActualOutput = [];
+
+//tried with i < 10  but even with 33.33% chance of stormy weather stormy weather event was not triggered so increased to 50
+for (let i = 0; i < 50; i++) {
+    multipleActualOutput.push(airport7.takeOffPlane(input));
+}
+//checks if any take off attempt failed due to stormy weather
+let weatherCheckTest = multipleActualOutput.findIndex((currentResultOfTakeOff) => {
+    return (currentResultOfTakeOff === `${input} cannot Take Off as it is not current weather is Stormy`);
+});
+// if weatherCheckTest is -1 ,no instance of test had stormy weather and test 7 will FAIL
+let stormyWeatherInstance = multipleActualOutput[weatherCheckTest];
+
+//actualOutput = airport7.takeOffPlane(input);
+actualOutput = stormyWeatherInstance;
+
+console.log(actualOutput);
+
+// assert
+result = assertEquals(expectedOutput, actualOutput)
+
+// Report
+console.log(airport7.listOfLandedPlanes);
+
+console.log(multipleActualOutput);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+console.log("------------- END of Test 7----------------")
