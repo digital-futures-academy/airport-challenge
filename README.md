@@ -13,25 +13,6 @@ Airport Challenge
 
 ```
 
-Instructions
----------
-
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
-
-Steps
--------
-
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src` - Optional but recommended!
 
 Task
 -----
@@ -43,6 +24,11 @@ We have a request from a client to write the software to control the flow of pla
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+
+|object |	property	|message|output|
+|-------| --------------|-------|-------|
+airport|	listOfLandedPlanes @ARRAY[@PLANES[@planeID]]	|landAPlane(@planeID)|	@string
+|planes	|planeid @String	|planeId()	|@string
 
 As the system designer
 So that the software can be used for many different airports
