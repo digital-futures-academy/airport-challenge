@@ -23,7 +23,9 @@ class AIRPORT {
         //for test 3 user story 3
         else if (this.listOfLandedPlanes.length === this.capacity) {
 
-            return console.log(`Airport Capacity FULL, cannot instruct ${inputPlaneID} to land!`);
+            let message = `Airport Capacity FULL, cannot instruct ${inputPlaneID} to land!`;
+
+            return (message);
         }
 
 
