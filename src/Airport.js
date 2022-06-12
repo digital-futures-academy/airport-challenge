@@ -7,23 +7,58 @@ class AIRPORT {
     constructor() {
         this.capacity = 10; //default capacity
         this.listOfLandedPlanes = []; //default empty airport
+        this._weather = [];
     }
 
-    weather() {
-        // 33.33% chance of stormy weather
-        let possibleWeatherConditions = ["Stormy", "Clear", "Clear"];
 
-        //rand num between 0 and 2;
-        let rand = Math.floor(0 + Math.random() * (2 + 1 - 0));
-        let currentWeather = possibleWeatherConditions[rand];
-        // console.log(currentWeather);
-        return currentWeather;
+
+    get weather() {
+        // 33.33% chance of stormy weather
+        if (this._weather.length === 0) {
+            let possibleWeatherConditions = ["Stormy", "Clear", "Clear"];
+
+            //rand num between 0 and 2;
+            let rand = Math.floor(0 + Math.random() * (2 + 1 - 0));
+            let currentWeather = possibleWeatherConditions[rand];
+            // console.log(currentWeather);
+            this._weather.push(currentWeather);
+            return currentWeather;
+
+        }
+        else {
+            return this._weather[0];
+        }
+
+    }
+
+    set weather(weathercond) {
+        if (weathercond === "Stormy") {
+            this._weather.push(weathercond);
+            return this._weather[0];
+        }
+        else if (weathercond === "Clear") {
+            this._weather.push(weathercond);
+            return this._weather[0];
+        }
+        else {
+            return 'Enter valid weather condition either Stormy or Clear';
+        }
     }
 
 
     landAPlane(inputPlaneID) {
+        let currentWeather = this.weather;
+        if (currentWeather === "Stormy" && this.listOfLandedPlanes.length === this.capacity) {
+            let message = `${inputPlaneID} cannot Land as Airport capacity is FULL and current weather is Stormy!`;
+            return message;
+        }
+        else if (currentWeather === "Stormy") {
+            let message = `${inputPlaneID} cannot Land as current weather is Stormy`;
+            return message;
+        }
+
         // for test 1 user story 1
-        if (this.listOfLandedPlanes.length === 0) {
+        else if (this.listOfLandedPlanes.length === 0) {
 
             this.listOfLandedPlanes.push(inputPlaneID);
 
@@ -75,15 +110,15 @@ class AIRPORT {
         let indexNumber = this.listOfLandedPlanes.findIndex((currentLandedPlaneID) => {
             return currentLandedPlaneID == inputPlaneID;
         });
-        let currentWeather = this.weather();
+        let currentWeather = this.weather;
         //if weather stormy
         if (currentWeather === "Stormy") {
-            let message = `${inputPlaneID} cannot Take Off as it is not current weather is Stormy`;
+            let message = `${inputPlaneID} cannot Take Off as current weather is Stormy`;
             return message;
         }
         // if inputPlaneID is not in listOfLandedPlanes array
         else if (indexNumber === -1 && this.weather !== "Stormy") {
-            let message = `${inputPlaneID} cannot Take Off as it is not currently in landed in the airport`;
+            let message = `${inputPlaneID} cannot Take Off as it is not currently in landed list of planes in the airport`;
             return message;
         }
         // if successfully taken off!
