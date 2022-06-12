@@ -247,3 +247,50 @@ console.log(`${testName}: ${result ? 'PASS' : 'FAIL'} `);
 
 
 console.log('------------- END of Test 8----------------');
+
+
+
+// // Test 9 
+
+// // arrange
+// testName = 'Test 9 - Count number of landed planes in airport matches the plane\'s status';
+// console.log(testName);
+// let airport9 = new AIRPORT;
+// let plane9 = new PLANE("PLANE9");
+
+// let input9 = 'PLANE9';
+
+// expectedOutput = 1;
+
+// // act
+
+// // as weather is random setting weather as Stormy by using setter 
+
+// airport9.weather = 'Clear';
+
+// airport9.landAPlane(input9);
+
+
+// let counter = 0;
+// if (plane9._status[0] === 'Landed in Airport') {
+//     counter = 1;
+// } else {
+//     counter = 0;
+// }
+
+
+// actualOutput = counter;
+
+// console.log(actualOutput);
+
+// // assert
+// result = assertEquals(expectedOutput, actualOutput);
+
+// // Report
+// console.log(airport9.listOfLandedPlanes);
+
+// //console.log(multipleActualOutput); //logs all instance of take off attempts
+// console.log(`${testName}: ${result ? 'PASS' : 'FAIL'} `);
+
+
+// console.log('------------- END of Test 9----------------');

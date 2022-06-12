@@ -1,10 +1,12 @@
 
+const { PLANE } = require('./Plane');
 
 
 
 class AIRPORT {
 
     constructor() {
+
         this.capacity = 10; //default capacity
         this.listOfLandedPlanes = []; //default empty airport
         this._weather = [];
@@ -15,7 +17,7 @@ class AIRPORT {
     get weather() {
         // 33.33% chance of stormy weather
         if (this._weather.length === 0) {
-            let possibleWeatherConditions = ["Stormy", "Clear", "Clear"];
+            let possibleWeatherConditions = ['Stormy', 'Clear', 'Clear'];
 
             //rand num between 0 and 2;
             let rand = Math.floor(0 + Math.random() * (2 + 1 - 0));
@@ -32,16 +34,17 @@ class AIRPORT {
     }
 
     set weather(weathercond) {
-        if (weathercond === "Stormy") {
+        if (weathercond === 'Stormy') {
             this._weather.push(weathercond);
-            return this._weather[0];
+            this._weather[0] = weathercond;
         }
-        else if (weathercond === "Clear") {
+        else if (weathercond === 'Clear') {
             this._weather.push(weathercond);
-            return this._weather[0];
+            this._weather[0] = weathercond;
         }
         else {
-            return 'Enter valid weather condition either Stormy or Clear';
+            this._weather[0] = 'Enter valid weather condition either Stormy or Clear';
+
         }
     }
 
@@ -61,6 +64,9 @@ class AIRPORT {
         else if (this.listOfLandedPlanes.length === 0) {
 
             this.listOfLandedPlanes.push(inputPlaneID);
+            this._status = 'Landed in Airport';
+
+
 
             console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
 
@@ -87,6 +93,7 @@ class AIRPORT {
             });
             // if a new plane then push it into listOfLandedPlanes array
             this.listOfLandedPlanes.push(inputPlaneID);
+            this._status = 'Landed in Airport';
             console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
             return this.listOfLandedPlanes.length;
         }
@@ -112,18 +119,19 @@ class AIRPORT {
         });
         let currentWeather = this.weather;
         //if weather stormy
-        if (currentWeather === "Stormy") {
+        if (currentWeather === 'Stormy') {
             let message = `${inputPlaneID} cannot Take Off as current weather is Stormy`;
             return message;
         }
         // if inputPlaneID is not in listOfLandedPlanes array
-        else if (indexNumber === -1 && this.weather !== "Stormy") {
+        else if (indexNumber === -1 && this.weather !== 'Stormy') {
             let message = `${inputPlaneID} cannot Take Off as it is not currently in landed list of planes in the airport`;
             return message;
         }
         // if successfully taken off!
         else {
             this.listOfLandedPlanes.splice(indexNumber, 1);
+            this._status = 'Not Landed in Airport';
             let message = `${inputPlaneID} has Taken Off! and ${inputPlaneID} is no longer in the airport!`;
             return message;
         }
