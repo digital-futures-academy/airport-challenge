@@ -9,6 +9,7 @@ class AIRPORT {
         this.listOfLandedPlanes = []; //empty airport
     }
 
+
     landAPlane(inputPlaneID) {
         // for test 1 user story 1
         if (this.listOfLandedPlanes.length === 0) {
@@ -43,6 +44,7 @@ class AIRPORT {
             console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
             return this.listOfLandedPlanes.length;
         }
+
         else {
             // log for test purposes
             return console.log('incorrect code ');
@@ -50,6 +52,12 @@ class AIRPORT {
 
     }
 
+
+    changeAirportCapacity(newCapacityNumber) {
+        this.capacity = newCapacityNumber;
+        let message = `Capacity changed to ${this.capacity}!`;
+        return message;
+    }
 
 
 

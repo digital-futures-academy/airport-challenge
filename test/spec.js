@@ -60,7 +60,6 @@ console.log("------------- END of Test 3----------------")
 // Test 3
 
 // arrange
-testName = `Test 2 - Add a plane to airport's landed planes list where airport has already has few planes landed`;
 testName = `Test 3 - Attempting to add plane to airport's landed planes list where airport is already at full capaicity`;
 
 let airport3 = new AIRPORT;
@@ -80,4 +79,31 @@ result = assertEquals(expectedOutput, actualOutput)
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
 
-console.log("------------- END of Test 2----------------")
+console.log("------------- END of Test 3----------------")
+
+
+
+
+// Test 3
+
+// arrange
+testName = `Test 4 - Change Airport Capacity`;
+
+let airport4 = new AIRPORT;
+
+// airport3.listOfLandedPlanes = ["PLANE1", "PLANE2", "PLANE3", "PLANE4", "PLANE5", "PLANE6", "PLANE7", "PLANE8", "PLANE9", "PLANE10",];
+input = 20;
+expectedOutput = `Capacity changed to ${input}!`;
+
+// act
+actualOutput = airport4.changeAirportCapacity(input);
+console.log(actualOutput);
+
+// assert
+result = assertEquals(expectedOutput, actualOutput)
+
+// Report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+console.log("------------- END of Test 4----------------")
