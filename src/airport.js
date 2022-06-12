@@ -1,5 +1,5 @@
 class Airport {
-  constructor() {
+  constructor(undefined, capacity) {
     this.planesInAirport = [];
     this.capacity = capacity;
   }
@@ -11,6 +11,10 @@ const landAPlane = (planeCanLand, plane1) => {
   return planeCanLand;
 }
 
+const isAirportFull = () => {
+  if (airport1.capacity === airport1.planesInAirport.length)`airport is full`;
+}
+
 const airport1 = new Airport();
 
 
@@ -18,5 +22,6 @@ const airport1 = new Airport();
 
 module.exports = {
   Airport,
-  landAPlane
+  landAPlane,
+  isAirportFull
 };

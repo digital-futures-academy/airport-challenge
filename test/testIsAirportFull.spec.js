@@ -4,7 +4,7 @@
 // So that I can return boolean value on basis of list of planes in airport and capacity of airport.
 
 const { assertEquals } = require("../test-framework");
-
+const { isAirportFull } = require("../src/airport");
 //initial arrange
 let expectedOutput, actualOutput, result;
 let planesList = [];
