@@ -48,11 +48,11 @@ class AIRPORT {
 
     landAPlane(inputPlaneID) {
         let currentWeather = this.weather;
-        if (currentWeather === "Stormy" && this.listOfLandedPlanes.length === this.capacity) {
+        if (currentWeather === 'Stormy' && this.listOfLandedPlanes.length === this.capacity) {
             let message = `${inputPlaneID} cannot Land as Airport capacity is FULL and current weather is Stormy!`;
             return message;
         }
-        else if (currentWeather === "Stormy") {
+        else if (currentWeather === 'Stormy') {
             let message = `${inputPlaneID} cannot Land as current weather is Stormy`;
             return message;
         }

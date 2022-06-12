@@ -44,7 +44,7 @@ input = 'PLANE3';
 expectedOutput = 3;
 
 // act
-airport1.weather = 'Clear';
+airport2.weather = 'Clear';
 actualOutput = airport2.landAPlane(input);
 console.log(actualOutput);
 
@@ -170,14 +170,14 @@ actualOutput = airport6.takeOffPlane(input);
 console.log(actualOutput);
 
 // assert
-result = assertEquals(expectedOutput, actualOutput)
+result = assertEquals(expectedOutput, actualOutput);
 
 // Report
 console.log(airport6.listOfLandedPlanes);
 console.log(`${testName}: ${result ? 'PASS' : 'FAIL'} `);
 
 
-console.log('------------- END of Test 6----------------')
+console.log('------------- END of Test 6----------------');
 
 
 // Test 7 
@@ -186,7 +186,7 @@ console.log('------------- END of Test 6----------------')
 testName = 'Test 7 - Prevent Take Off for a plane if weather is stormy';
 console.log(testName);
 let airport7 = new AIRPORT;
-airport7.listOfLandedPlanes = ['PLANE1', 'PLANE2', 'PLANE3', 'PLANE4', 'PLANE5', 'PLANE6', 'PLANE7', 'PLANE8', 'PLANE9', 'PLANE10',];
+airport7.listOfLandedPlanes = ['PLANE1', 'PLANE2', 'PLANE3', 'PLANE4', 'PLANE5', 'PLANE6'];
 input = 'PLANE7';
 expectedOutput = `${input} cannot Take Off as current weather is Stormy`;
 
@@ -194,7 +194,7 @@ expectedOutput = `${input} cannot Take Off as current weather is Stormy`;
 
 // as weather is random setting weather as Stormy by using setter 
 
-airport7.weather = "Stormy";
+airport7.weather = 'Stormy';
 
 
 actualOutput = airport7.takeOffPlane(input);
@@ -202,7 +202,7 @@ actualOutput = airport7.takeOffPlane(input);
 console.log(actualOutput);
 
 // assert
-result = assertEquals(expectedOutput, actualOutput)
+result = assertEquals(expectedOutput, actualOutput);
 
 // Report
 console.log(airport7.listOfLandedPlanes);
@@ -211,4 +211,39 @@ console.log(airport7.listOfLandedPlanes);
 console.log(`${testName}: ${result ? 'PASS' : 'FAIL'} `);
 
 
-console.log('------------- END of Test 7----------------')
+console.log('------------- END of Test 7----------------');
+
+
+
+// Test 8 
+
+// arrange
+testName = 'Test 8 - Prevent Landing for a plane if weather is stormy';
+console.log(testName);
+let airport8 = new AIRPORT;
+airport8.listOfLandedPlanes = ['PLANE1', 'PLANE2', 'PLANE3', 'PLANE4', 'PLANE5',];
+input = 'PLANE8';
+expectedOutput = `${input} cannot Land as current weather is Stormy`;
+
+// act
+
+// as weather is random setting weather as Stormy by using setter 
+
+airport8.weather = 'Stormy';
+
+
+actualOutput = airport8.landAPlane(input);
+
+console.log(actualOutput);
+
+// assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(airport8.listOfLandedPlanes);
+
+//console.log(multipleActualOutput); //logs all instance of take off attempts
+console.log(`${testName}: ${result ? 'PASS' : 'FAIL'} `);
+
+
+console.log('------------- END of Test 8----------------');
