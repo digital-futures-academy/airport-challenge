@@ -1,5 +1,7 @@
-//acceptance Criteria
-//airport should allow plane to land
+// Acceptance Criteria
+// As a function,
+// I want to be able to control if plane can land or not
+
 
 const { assertEquals } = require("../test-framework");
 const { landAPlane } = require("../src/airport");

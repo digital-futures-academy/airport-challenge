@@ -1,7 +1,8 @@
 class Airport {
-  planesInAirport = [];
-
-
+  constructor() {
+    this.planesInAirport = [];
+    this.capacity = capacity;
+  }
 }
 const landAPlane = (planeCanLand, plane1) => {
   if (planeCanLand) {
@@ -9,6 +10,7 @@ const landAPlane = (planeCanLand, plane1) => {
   }
   return planeCanLand;
 }
+
 const airport1 = new Airport();
 
 
