@@ -13,8 +13,7 @@ let testName = ``;
 //Test1
 //arrange 
 testName = `Test1: fail test`;
-planesList = [`pl002`, `pl001`, `pl003`];
-expectedOutput = `airport is full`;
+expectedOutput = `no more landing! airport is full`;
 
 //act
 actualOutput = isAirportFull();
@@ -24,4 +23,7 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
+console.log(expectedOutput);
+console.log(actualOutput);
+console.log(result);
 

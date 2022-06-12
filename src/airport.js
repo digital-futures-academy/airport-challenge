@@ -1,6 +1,9 @@
+const Plane = require("./plane");
+
+
 class Airport {
-  constructor(undefined, capacity) {
-    this.planesInAirport = [];
+  constructor(planesInAirport, capacity) {
+    this.planesInAirport = planesInAirport;
     this.capacity = capacity;
   }
 }
@@ -12,10 +15,12 @@ const landAPlane = (planeCanLand, plane1) => {
 }
 
 const isAirportFull = () => {
-  if (airport1.capacity === airport1.planesInAirport.length)`airport is full`;
+  if (airport1.capacity === airport1.planesInAirport.length)
+    return `no more landing! airport is full`;
+  return `can land`;
 }
 
-const airport1 = new Airport();
+const airport1 = new Airport([Plane.plane3, Plane.plane2, Plane.plane1, Plane.plane4, Plane.plane5], 5);
 
 
 
@@ -25,3 +30,4 @@ module.exports = {
   landAPlane,
   isAirportFull
 };
+
