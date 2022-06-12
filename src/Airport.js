@@ -6,14 +6,13 @@ const { PLANE } = require('./Plane');
 class AIRPORT {
 
     constructor() {
-
         this.capacity = 10; //default capacity
         this.listOfLandedPlanes = []; //default empty airport
         this._weather = [];
     }
 
 
-
+    // generates weather condition if this._weather is null
     get weather() {
         // 33.33% chance of stormy weather
         if (this._weather.length === 0) {
@@ -33,6 +32,7 @@ class AIRPORT {
 
     }
 
+    //sets desired weather condition
     set weather(weathercond) {
         if (weathercond === 'Stormy') {
             this._weather.push(weathercond);
@@ -64,7 +64,7 @@ class AIRPORT {
         else if (this.listOfLandedPlanes.length === 0) {
 
             this.listOfLandedPlanes.push(inputPlaneID);
-            this._status = 'Landed in Airport';
+
 
 
 
@@ -93,7 +93,7 @@ class AIRPORT {
             });
             // if a new plane then push it into listOfLandedPlanes array
             this.listOfLandedPlanes.push(inputPlaneID);
-            this._status = 'Landed in Airport';
+
             console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
             return this.listOfLandedPlanes.length;
         }
@@ -131,7 +131,7 @@ class AIRPORT {
         // if successfully taken off!
         else {
             this.listOfLandedPlanes.splice(indexNumber, 1);
-            this._status = 'Not Landed in Airport';
+
             let message = `${inputPlaneID} has Taken Off! and ${inputPlaneID} is no longer in the airport!`;
             return message;
         }

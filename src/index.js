@@ -13,5 +13,5 @@ let plane = new PLANE;
 // console.log(airport.takeOffPlane("PLANE1"));
 
 
-let actualOutput = airport.changeAirportCapacity(20);
-console.log(actualOutput);
+// let actualOutput = airport.changeAirportCapacity(20);
+// console.log(actualOutput);

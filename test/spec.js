@@ -257,10 +257,11 @@ console.log('------------- END of Test 8----------------');
 // console.log(testName);
 // let airport9 = new AIRPORT;
 // let plane9 = new PLANE("PLANE9");
+// let plane10 = new PLANE("PLANE10");
+// let plane11 = new PLANE("PLANE11");
 
-// let input9 = 'PLANE9';
 
-// expectedOutput = 1;
+// expectedOutput = 3;
 
 // // act
 
@@ -268,15 +269,21 @@ console.log('------------- END of Test 8----------------');
 
 // airport9.weather = 'Clear';
 
-// airport9.landAPlane(input9);
-
+// airport9.landAPlane(plane9);
+// airport9.landAPlane(plane10);
+// airport9.landAPlane(plane11);
 
 // let counter = 0;
 // if (plane9._status[0] === 'Landed in Airport') {
-//     counter = 1;
-// } else {
-//     counter = 0;
+//     counter++;
 // }
+// else if (plane10._status[0] === 'Landed in Airport') {
+//     counter++;
+// }
+// else if (plane11._status[0] === 'Landed in Airport') {
+//     counter++;
+// }
+
 
 
 // actualOutput = counter;
