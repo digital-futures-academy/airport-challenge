@@ -137,26 +137,26 @@ console.log("------------- END of Test 5----------------")
 
 
 
-// // Test 6
+// Test 6
 
-// // arrange
-// testName = `Test 6 - Take Off a plane which is NOT currently landed in airport`;
-// console.log(testName);
-// let airport6 = new AIRPORT;
-// airport6.listOfLandedPlanes = ["PLANE1", "PLANE2", "PLANE3", "PLANE4", "PLANE5", "PLANE6", "PLANE7", "PLANE8", "PLANE9", "PLANE10",];
-// input = "PLANE11";
-// expectedOutput = `${input} cannot Take Off as it is not currently in landed in the airport`;
+// arrange
+testName = `Test 6 - Take Off a plane which is NOT currently landed in airport`;
+console.log(testName);
+let airport6 = new AIRPORT;
+airport6.listOfLandedPlanes = ["PLANE1", "PLANE2", "PLANE3", "PLANE4", "PLANE5", "PLANE6", "PLANE7", "PLANE8", "PLANE9", "PLANE10",];
+input = "PLANE11";
+expectedOutput = `${input} cannot Take Off as it is not currently in landed in the airport`;
 
-// // act
-// actualOutput = airport6.takeOffPlane(input);
-// console.log(actualOutput);
+// act
+actualOutput = airport6.takeOffPlane(input);
+console.log(actualOutput);
 
-// // assert
-// result = assertEquals(expectedOutput, actualOutput)
+// assert
+result = assertEquals(expectedOutput, actualOutput)
 
-// // Report
-// console.log(airport6.listOfLandedPlanes);
-// console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+// Report
+console.log(airport6.listOfLandedPlanes);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
 
-// console.log("------------- END of Test 6----------------")
+console.log("------------- END of Test 6----------------")
