@@ -34,8 +34,8 @@ class AIRPORT {
         //if airport already has few planes landed
         else if (this.listOfLandedPlanes.length > 0) {
             //loops through landed plane's list to check if the landing plane already in it
-            this.listOfLandedPlanes.forEach(eachLandedPlaneID => {
-                if (eachLandedPlaneID === inputPlaneID) {
+            this.listOfLandedPlanes.forEach(currentLandedPlaneID => {
+                if (currentLandedPlaneID === inputPlaneID) {
                     return console.log(`${inputPlaneID} has already landed!`);
                 }
             });
@@ -59,12 +59,28 @@ class AIRPORT {
         return message;
     }
 
+    takeOffPlane(inputPlaneID) {
 
+        let indexNumber = this.listOfLandedPlanes.findIndex((currentLandedPlaneID) => {
+            return currentLandedPlaneID == inputPlaneID;
+        });
+
+        if (indexNumber === -1) {
+            let message = `${inputPlaneID} cannot Take Off as it is not currently in landed in the airport`;
+            return message;
+        }
+        else {
+            this.listOfLandedPlanes.splice(indexNumber, 1);
+            let message = `${inputPlaneID} has Taken Off! and ${inputPlaneID} is no longer in the airport!`;
+            return message;
+        }
+    }
 
 
 
 
 }
+
 
 module.exports = {
     AIRPORT
