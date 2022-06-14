@@ -9,3 +9,4 @@ test.it('Test that \'landAPlane\' lands a Plane when instructed', () => {
     // Act/Assert
     test.assertEquals(airport.landAPlane('PLANE1').includes('PLANE1'), true);
 });
+

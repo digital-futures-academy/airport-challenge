@@ -1,8 +1,7 @@
 
 class Airport {
-    constructor() {
+    constructor(capacity = 10) {
         this.listOfLandedPlanes = []; //default empty airport
-        this.capacity = 10; //default capacity
         // this._weather = [];
     }
 
@@ -14,6 +13,11 @@ class Airport {
 
         }
 
+    }
+
+    changeCapacity(newCapacity) {
+        this.capacity = newCapacity;
+        return this.capacity;
     }
 
 

@@ -62,14 +62,25 @@ I would like a default airport capacity that can be overridden as appropriate
  
 1. Test that `changeAirportCapacity` changes capacity of airport
 
+```
+
+User Story - 3
 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+```
+
+#### Domain Model:
 
 | object |	property	| message | output |
 | -------| -------------|-------  | ------- |
-| AIRPORT |		     | landAPlane(@planeID) |	@String |
+| AIRPORT |		capacity     | landAPlane(@planeID) |	@Error |
+
+#### Tests:
+ 
+1. Test that `landAPlane()` throws an Error if capacity of airport is full.
+
 
 As an air traffic controller
 So I can get passengers on the way to their destination
