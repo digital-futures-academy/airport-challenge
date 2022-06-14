@@ -21,24 +21,47 @@ We have a request from a client to write the software to control the flow of pla
 
 #### Acceptance Criteria
 ```
+User Story - 1
+
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+```
+
+#### Domain Model for US-1:
 
 
 | object |	property	| message | output |
 | -------| -------------|-------  | ------- |
-| AIRPORT |	listOfLandedPlanes @ARRAY[@PLANES[@planeID]]	| landAPlane(@planeID) |	@string |
-| planes	| planeid @String	| 	|              |
+| AIRPORT |	listOfLandedPlanes | landAPlane(@planeID) | @string |
+
+
+
+#### Tests:
+ 
+1. Test that `landAPlane` lands a Plane when instructed
+
+
+
+```
+
+User Story - 2
 
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
-
+```
+#### Domain Model:
 
 | object |	property	| message | output |
 | -------| -------------|-------  | ------- |
 | AIRPORT |	capacity	| changeAirportCapacity(@Number) |	@Number |
+
+
+#### Tests:
+ 
+1. Test that `changeAirportCapacity` changes capacity of airport
+
 
 As an air traffic controller
 To ensure safety
