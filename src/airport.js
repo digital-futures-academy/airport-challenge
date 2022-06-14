@@ -1,16 +1,15 @@
-/*
 class Airport {
-  // here's a starting point for you
+  landed = true
 
-}
+  isLanded() {
+    return this.landed;
+  }
 
-module.exports = Airport;
-*/
-
-const landPlane = () => {
-  if (airport !== null || airport !== undefined || airport !== 0) {
-    console.log(`Plane has landed`)
+  landPlane() {
+    return this.landed = true;
   }
 }
 
-module.exports = landPlane; 
+module.exports = Airport;
+
+

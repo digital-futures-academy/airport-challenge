@@ -2,32 +2,29 @@
 //So I can get passengers to a destination
 //I want to instruct the airport to land a plane
 
+const Airport = require("../src/airport");
 const { assertEquals } = require("./test-framework")
-const { landPlane } = require("../src/airport")
+const { assertTrue } = require("./test-framework")
+const { assertFalse } = require("./test-framework")
 
-//Test 1
 //initial arrange
 
 let expectedOutput, actualOutput, result;
-let airport = [];
 let testName = ``;
 
+console.log(`===Airport Test 1===`)
+
 //arrange
-
-testName = `Test 1 - return 'Plane has landed'`
-let plane = {
-    passenger1: 'Shaf',
-    passenger2: 'Tom'
-}
-
-airport = ['Shaf']
-expectedOutput = `Plane has landed`;
+testName = `Test 1 - return true for plane has landed`
 
 //act
-actualOutput = landPlane(airport)
+testAirport = new Airport();
+testAirport.landPlane();
+actualResult = testAirport.isLanded();
+
 
 //assert
-result = assertEquals(expectedOutput, actualOutput);
+result = assertTrue(actualResult)
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
