@@ -28,3 +28,35 @@ result = assertTrue(actualResult)
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+//Requirement 2
+//Test 2
+console.log(`===Airport Test 2===`)
+testName = `Test 2 - return capacity for airport class`
+testAirport = new Airport();
+actualResult = testAirport.getCapacity();
+expectedOutput = 100
+result = assertEquals(actualResult, expectedOutput)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//Test 3 
+console.log(`===Airport Test 3===`)
+testName = `Test 3 - return changed capacity for new airport class`
+testAirport = new Airport();
+testAirport.setCapacity(200);
+actualResult = testAirport.getCapacity();
+expectedOutput = 200
+result = assertEquals(actualResult, expectedOutput)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+//Requirement 3
+//Test 4
+console.log(`===Airport Test 4===`)
+testName = `Test 2 - return error when plane attmepts to land with a full airport`
+testAirport = new Airport().setCapacity(99);
+actualResult = testAirport.isLanded()
+console.log(actualResult)
+result = assertFalse(actualResult)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
