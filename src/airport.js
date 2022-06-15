@@ -1,19 +1,13 @@
-// class Airport {
-//   // here's a starting point for you
+class Airport {
+  landedPlanes = [];
+  // To land a plane, I want to add said plane to the array landedPlanes.
+  landPlane = inputPlane => {
+    this.landedPlanes.push(inputPlane);
+    return this.landedPlanes;
+  }
 
-// }
-
-// To land a plane, I want to add said plane to the array landedPlanes.
-let landedPlanes = [];
-const landPlane = inputPlane => {
-  landedPlanes.push(inputPlane);
-  return landedPlanes
-};
-// console.log(landPlane(`plane1`));
-
-module.exports = {
-  // Airport,
-  landPlane
 }
+
+module.exports = Airport;
 
 

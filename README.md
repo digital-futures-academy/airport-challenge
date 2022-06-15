@@ -11,8 +11,8 @@
 
 | **Object** | **Property** | **Message** | **Output** |
 | ---------- | ------------ | ----------- | ---------- |
-| Airport |  landedPlanes(@array) | landPlane() | @string |
-| Plane   | planeID | 
+| Airport |  landedPlanes(@array) | landPlane() |  |
+| Plane   | planeID |             | isLanded()  | @boolean |
 
 
 
