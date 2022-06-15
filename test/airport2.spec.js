@@ -20,7 +20,6 @@ expectedOutput = 1;
 testAirport = new Airport2();
 testAirport.landPlane(input);
 actualResult = testAirport.airportList.length;
-console.log(actualResult)
 
 //assert
 result = assertEquals(actualResult, expectedOutput)
@@ -39,5 +38,18 @@ testAirport.setCapacity(200);
 actualResult = testAirport.getCapacity();
 expectedOutput = 200
 result = assertEquals(actualResult, expectedOutput)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//Requirement 3
+//Test 3
+console.log(`===Airport Test 3===`)
+testName = `Test 3 - return error when plane attmepts to land with a full airport`
+input = `plane1`
+testAirport = new Airport2()
+testAirport.setAirportSize(100);
+testAirport.landPlane(input);
+actualResult = testAirport.landPlane();
+expectedOutput = [];
+result = assertTrue(actualResult instanceof Error)
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 

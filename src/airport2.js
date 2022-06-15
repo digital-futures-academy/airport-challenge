@@ -1,10 +1,22 @@
 class Airport2 {
     airportList = [];
     capacity = 100;
+    airportSize = 100;
 
     landPlane = inputPlane => {
-        this.airportList.push(inputPlane);
-        return this.airportList;
+        if (this.airportSize < this.capacity) {
+            this.airportList.push(inputPlane);
+            return this.airportList;
+        } else {
+            return new Error(`Aiport is full`)
+        }
+    }
+
+    planeTakeoff = () => {
+        if (this.airportList.length > 0) {
+            this.airportList.pop();
+            return this.airportList;
+        }
     }
 
     setCapacity(newCapacity) {
@@ -16,6 +28,13 @@ class Airport2 {
 
     getCapacity() {
         return this.capacity
+    }
+
+    setAirportSize(value) {
+        if (value < 0) {
+            value = 0;
+        }
+        this.airportSize = value;
     }
 }
 
