@@ -53,3 +53,15 @@ expectedOutput = [];
 result = assertTrue(actualResult instanceof Error)
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
+//Requirement 4
+//Test 4
+console.log(`===Airport Test 4===`)
+testName = `Test 3 - Call a method that removes the last landed plane from the airport and then confirm that it is no longer in the airportList array`
+input = `plane1`
+testAirport = new Airport2()
+testAirport.landPlane(input);
+testAirport.planeTakeoff();
+actualResult = testAirport.airportList.includes(input);
+result = assertFalse(actualResult)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+

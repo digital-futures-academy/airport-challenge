@@ -1,7 +1,7 @@
 class Airport2 {
     airportList = [];
     capacity = 100;
-    airportSize = 100;
+    airportSize = 99;
 
     landPlane = inputPlane => {
         if (this.airportSize < this.capacity) {
@@ -37,5 +37,12 @@ class Airport2 {
         this.airportSize = value;
     }
 }
+
+let input = `plane1`
+testAirport = new Airport2()
+testAirport.landPlane(input);
+testAirport.planeTakeoff();
+actualResult = testAirport.airportList.includes(input);
+console.log(`Actaul result is ${actualResult} and airport list is ${testAirport.airportList}`)
 
 module.exports = Airport2
