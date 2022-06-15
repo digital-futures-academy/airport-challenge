@@ -4,19 +4,24 @@ class Airport2 {
     airportSize = 99;
 
     landPlane = inputPlane => {
-        if (this.airportSize < this.capacity) {
+        const index1 = this.airportList.indexOf(inputPlane);
+        if (this.airportSize < this.capacity && index1 === -1) {
             this.airportList.push(inputPlane);
-            return this.airportList;
-        } else {
-            return new Error(`Aiport is full`)
+        } else if (index1 > -1) {
+            return new Error(`This plane is already in the airport`)
+        } else if (this.capacity <= this.airportSize) {
+            return new Error(`Airport is full`)
         }
     }
 
-    planeTakeoff = () => {
-        if (this.airportList.length > 0) {
-            this.airportList.pop();
-            return this.airportList;
+    planeTakeoff = (inputPlane) => {
+        const index2 = this.airportList.indexOf(inputPlane);
+        if (index2 > -1) {
+            this.airportList.splice(index2, 1); // 2nd parameter means remove one item only
+        } else {
+            return new Error(`This plane is not in the airport`)
         }
+        return this.airportList;
     }
 
     setCapacity(newCapacity) {
@@ -38,11 +43,6 @@ class Airport2 {
     }
 }
 
-let input = `plane1`
-testAirport = new Airport2()
-testAirport.landPlane(input);
-testAirport.planeTakeoff();
-actualResult = testAirport.airportList.includes(input);
-console.log(`Actaul result is ${actualResult} and airport list is ${testAirport.airportList}`)
+
 
 module.exports = Airport2

@@ -77,4 +77,21 @@ output: Empty array
 Test 4 - Call a method that removes the last landed plane from the airport and then confirm that it is no longer in the airportList array
 
 
+### Requirement 5
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+nouns: airport, plane
+verbs: prevent, take-off, land
+
+objects: airport, plane
+properties: airportList @Array
+messages: planeTakeoff(), landPlane
+output: Error message 
+
+Test 5 - Receive error message when attempting to take-off a plane that is not in airportList. 
+Test 6 - Recieve error message when attempting to land a plane that is already in airportList. 
+
 
