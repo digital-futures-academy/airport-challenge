@@ -1,7 +1,6 @@
-Airport Challenge
-=================
+# Airport Challenge
 
-```
+``````
          ______
         __\____\___
 =  = ==(____DFA____)
@@ -11,21 +10,19 @@ Airport Challenge
                 `---~~\___________/------------`````
                 =  ===(_________)
 
-```
+``````
 
-Instructions
----------
+## Instructions
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
+- Feel free to use google, your notes, books, etc. but work on your own.
+- Keep it SIMPLE - it's not nearly as complicated as it first may look.
+- You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
+- Use your own test framework and evidence your test-driven development by committing on passing tests.
+- Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
+- If you refer to the solution of another coach or student, please put a link to that in your README.
+- Please create separate files for every class, module, and spec.
 
-Steps
--------
+## Steps
 
 1. Fork this repo, and clone to your local machine
 2. `npm install` to install project dependencies
@@ -33,12 +30,12 @@ Steps
 4. Run your tests using `npm test` or `node specRunner.js`
 5. [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src` - Optional but recommended!
 
-Task
------
+## Task
 
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off. Here are the user stories that we worked out in collaboration with the client:
 
 #### Acceptance Criteria
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -62,6 +59,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 
 #### Extended Acceptance Criteria
+
 ```
 As an air traffic controller
 To ensure safety
@@ -79,3 +77,42 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+#### Domain Modelling
+
+# User Story 1
+
+As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+
+| Object  | Property             | Messages           | Output  |
+| ------- | -------------------- | ------------------ | ------- | -------------------------- |
+| Airport | planes@array[@plane] | landPlane [@plane] | @string | // plane (name) has landed |
+| Plane   | state @string        | land()             | @string |
+|         | Id                   | getID              | @id     |
+
+# For test 1
+
+1. Test for landPlane()
+
+landPlane needs a plane object, and includes in the list of plane in the airport and output a string when the plane landed saying 'Plane (name) has landed
+
+if the plane is landed successfully the plane name will be in array of planes and will return a string with plane ID.
+
+//arrange
+
+need a instance of airport class
+need a object that represents a plane
+
+expected result is that plane is in array of planes
+
+//act
+use airport instance (testAirport) and call landPlane passing in plane object
+
+//assert part
+expectedOutput is the plane is the list of planes at the airport
+
+1. get array of planes at airport
+2. access the plane in the array [i] and get its Id
+3. assert that the Id of the array matches the Id of the plane
