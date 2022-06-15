@@ -5,7 +5,6 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 ```
-
 | **Object** | **Message** |
 | ---------- | ----------- |
 | Airport | landPlane(plane) |
@@ -16,6 +15,7 @@ I want to instruct the airport to land a plane
 | Airport |  landedPlanes @array | landPlane() |  |
 |         |                      | getLandedPlanes()| landedPlanes @array |
 | Plane   |   planeID             |             | | 
+
 
 #### Second user story
 ```
@@ -30,8 +30,27 @@ I would like a default airport capacity that can be overridden as appropriate
 | **Object** | **Property** | **Message** | **Output** |
 | ---------- | ------------ | ----------- | ---------- |
 | Airport |  capacity@number | setCapacity() |  |
-|          |                 | getCapacity() | number |
+|          |                 | getCapacity() | @number |
 
+
+#### Third user story
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+| **Object** | **Message** |
+| ---------- | ----------- |
+| Error      |             |
+| Airport | landPlane(plane) |
+| Plane |  |
+
+| **Object** | **Property** | **Message** | **Output** |
+| ---------- | ------------ | ----------- | ---------- |
+| Error   |  message @string|             | @string    |
+| Airport |  landedPlanes @array | landPlane() | Error |
+|         |  capacity@number     |  |  |
+| Plane   |   planeID             |             | | 
 
 
 

@@ -3,7 +3,12 @@ class Airport {
   #capacity = 100;
 
   // To land a plane, I want to add said plane to the array landedPlanes.
-  landPlane = inputPlane => this.#landedPlanes.push(inputPlane);
+  landPlane = inputPlane => {
+    if (this.#capacity > this.#landedPlanes.length) {
+      this.#landedPlanes.push(inputPlane);
+    }
+    return new Error(`Abort landing, airport at capacity.`)
+  }
 
   //To implement encapsulation, made landedPlanes PRIVATE so a getter is needed to return the array
   getLandedPlanes = () => this.#landedPlanes;
