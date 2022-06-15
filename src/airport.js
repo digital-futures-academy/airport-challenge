@@ -9,7 +9,7 @@ class Airport {
   getLandedPlanes = () => this.#landedPlanes;
 
   //To check what the airport capacity is, I want to create a getter method that returns the value of capacity
-
+  getCapacity = () => this.#capacity;
 
   //To modify the airport's capacity, I want to create a setter method that takes the desired capacity as an input
 
