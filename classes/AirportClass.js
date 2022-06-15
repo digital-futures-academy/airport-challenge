@@ -31,7 +31,26 @@ class Airport {
         return this._capacity;
     }
 
+    takeOffPlane(inputPlaneID) {
+        // looping through listOfLandedPlanes to find index of inputPlaneID
+        let indexNumber = this.listOfLandedPlanes.findIndex((currentLandedPlaneID) => {
+            return currentLandedPlaneID === inputPlaneID;
+        });
 
+        if (indexNumber === -1) {
+            let message = `${inputPlaneID} cannot Take Off as it is not currently in landed list of planes in the airport`;
+            return message;
+        }
+        else {
+            this.listOfLandedPlanes.splice(indexNumber, 1);
+            let message = `${inputPlaneID} has Taken Off! and ${inputPlaneID} is no longer in the airport!`;
+            return message;
+        }
+
+
+
+
+    }
 }
 
 module.exports = Airport;

@@ -115,7 +115,7 @@ class AIRPORT {
     takeOffPlane(inputPlaneID) {
         // looping through listOfLandedPlanes to find index of inputPlaneID
         let indexNumber = this.listOfLandedPlanes.findIndex((currentLandedPlaneID) => {
-            return currentLandedPlaneID == inputPlaneID;
+            return currentLandedPlaneID === inputPlaneID;
         });
         let currentWeather = this.weather;
         //if weather stormy
