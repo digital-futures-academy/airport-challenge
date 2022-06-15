@@ -9,37 +9,32 @@ const Airport = require("../src/airport");
 const Plane = require("../src/plane");
 
 //**Instances of airport class**
-const airport1 = new Airport([], 5);
+const airport1 = new Airport(capacity = 5);
 // const airport1 = new Airport([Plane.plane3], 5);
 
-//**Instance of plane class
-const plane1 = new Plane();
-
-
 //initial arrange
-let expectedOutput, actualOutput, result;
-let testName = ``;
+let expectedOutput, actualOutput, result, testName, planeID;
+
 
 //Test1
 //arrange 
 testName = `Test1: when plan list is equal to airport capacity`;
-expectedOutput = `airport is full`;
+expectedOutput = 5;
+planeID = new Plane();
 
 
 //act
-actualOutput = airport1.isAirportFull();
+actualOutput = airport1..isAirportFull();
 
 //assert
 result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(expectedOutput);
-console.log(actualOutput);
-console.log(result);
+
 
 //Test2
-//arrange 
+//arrange
 testName = `Test1: when planes list is empty`;
 expectedOutput = `airport is not full`;
 

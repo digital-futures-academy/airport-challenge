@@ -16,7 +16,7 @@ const airport1 = new Airport();
 
 //initial arrange
 let expectedOutput, actualOutput, result;
-const planeID = new Plane();
+const planeID = new Plane(`pl001`);
 let testName = ``;
 
 //Test 1
@@ -33,14 +33,12 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(actualOutput);
-console.log(expectedOutput);
-console.log(result);
+
 
 //Test 1
 //arrange
 testName = `Tes1: plan cannot land  `;
-expectedOutput = false;
+expectedOutput = `Sorry Plan cannot land`;
 airport1.setPlaneCanLand();
 
 //act
@@ -51,6 +49,4 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(actualOutput);
-console.log(expectedOutput);
-console.log(result);
+console.log(airport1.getPlanesInAirport());
