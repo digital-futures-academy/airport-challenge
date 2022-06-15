@@ -94,4 +94,11 @@ output: Error message
 Test 5 - Receive error message when attempting to take-off a plane that is not in airportList. 
 Test 6 - Recieve error message when attempting to land a plane that is already in airportList. 
 
+### Requirement 6 
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+
+nouns: 
+
 
