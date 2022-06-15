@@ -28,3 +28,25 @@ console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
 
 
+//User story 2
+// As the system designer
+// So that the software can be used for many different airports
+// I would like a default airport capacity that can be overridden as appropriate
+
+//Arrange
+//Test 2 - I want to add a capacity for Airport
+console.log(`==== test 2 ====`);
+testName = `Test 2 - add a capacity`;
+expectedOutput = 10;
+
+//Act
+testAirport = new Airport(10);
+actualOutput = testAirport.capacity;
+
+//Assert
+
+result = assertEquals(expectedOutput, actualOutput);
+
+//Report
+
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

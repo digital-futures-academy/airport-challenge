@@ -89,3 +89,11 @@ Domain model
 | Object  | Properties                  | Message      | Output  |
 | ------- | --------------------------- | ------------ | ------- |
 | Airport | listOfPlanes[@Array@planes] | land(@plane) | @String |
+
+User story 2
+Domain model
+
+| Object  | Properties                  | Message      | Output  |
+| ------- | --------------------------- | ------------ | ------- |
+| Airport | listOfPlanes[@Array@planes] | land(@plane) | @String |
+|         | capacity                    |              |         |
