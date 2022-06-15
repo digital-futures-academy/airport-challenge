@@ -13,7 +13,8 @@ I want to instruct the airport to land a plane
 
 | **Object** | **Property** | **Message** | **Output** |
 | ---------- | ------------ | ----------- | ---------- |
-| Airport |  landedPlanes(@array) | landPlane() |  |
+| Airport |  landedPlanes @array | landPlane() |  |
+|         |                      | getLandedPlanes()| landedPlanes @array |
 | Plane   |   planeID             |             | | 
 
 #### Second user story
@@ -28,8 +29,8 @@ I would like a default airport capacity that can be overridden as appropriate
 
 | **Object** | **Property** | **Message** | **Output** |
 | ---------- | ------------ | ----------- | ---------- |
-| Airport |  capacity@number | setCapacity() | number |
-
+| Airport |  capacity@number | setCapacity() |  |
+|          |                 | getCapacity() | number |
 
 
 

@@ -12,7 +12,7 @@ class Airport {
   getCapacity = () => this.#capacity;
 
   //To modify the airport's capacity, I want to create a setter method that takes the desired capacity as an input
-
+  setCapacity = (newCapacity) => this.#capacity = newCapacity;
 
 }
 
