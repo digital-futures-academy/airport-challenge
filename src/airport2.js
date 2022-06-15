@@ -2,7 +2,7 @@ class Airport2 {
     airportList = [];
     capacity = 100;
     airportSize = 99;
-    weather = `stormy`;
+    weather = `clear`;
 
     landPlane = inputPlane => {
         const index1 = this.airportList.indexOf(inputPlane); //finds the index of the plane in the array
@@ -19,12 +19,14 @@ class Airport2 {
 
     planeTakeoff = (inputPlane) => {
         const index2 = this.airportList.indexOf(inputPlane);
-        if (index2 > -1) {
+        if (index2 > -1 && this.weather === `clear`) {
             this.airportList.splice(index2, 1); // 2nd parameter means remove one item only
-        } else {
+            return this.airportList
+        } else if (index2 === -1) {
             return new Error(`This plane is not in the airport`)
+        } else if (this.weather === `stormy`) {
+            return new Error(`Weather too stormy for take-off`)
         }
-        return this.airportList;
     }
 
     setCapacity(newCapacity) {

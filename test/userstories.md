@@ -99,6 +99,43 @@ As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
-nouns: 
+nouns: weather
+verb: take-off
+
+objects: airport, weather
+properties: airportList@Array, weather@String
+messages: planeTakeoff()
+output: Boolean
+
+Test 7 - After setting a new variable named weather to `stormy`, planeTakeoff() should return an error. (first, weather must be set to `clear` so a plane can land in the airport before it can be held back due to stormy weather.)
+
+### Requirement 7 
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+
+nouns: weather
+verb: landing
+
+objects: airport, weather
+properties: airportList@Array, weather@String
+messages: landPlane()
+output: Boolean
+
+Test 8 - After setting a new variable named weather to `stormy`, landPlane() should return an error.
 
 
+### Requirement 8 
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+
+nouns: plane, airport
+verbs: count
+
+object: planes, airport
+properties: aiportList @Array, airportList.length @Number
+messages: landPlane()
+Output: Boolean
+
+Test 9 - Return a number for number of planes in airport that have landed

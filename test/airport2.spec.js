@@ -84,3 +84,42 @@ testAirport.landPlane(input)
 actualResult = testAirport.landPlane(input);
 result = assertTrue(actualResult instanceof Error)
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+//Requirement 6
+//Test  7 
+console.log(`===Airport Test 7===`)
+testName = `Test 7 - Receive an error when attempting to take-off plane in stormy weather`
+input = `plane1`
+testAirport = new Airport2()
+testAirport.weather = `clear`
+testAirport.landPlane(input)
+testAirport.weather = `stormy`
+actualResult = testAirport.planeTakeoff(input);
+result = assertTrue(actualResult instanceof Error)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+//Requirement 7
+//Test  8 
+console.log(`===Airport Test 8===`)
+testName = `Test 7 - Receive an error when attempting to land plane in stormy weather`
+input = `plane1`
+testAirport = new Airport2()
+actualResult = testAirport.landPlane(input);
+result = assertTrue(actualResult instanceof Error)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+//Requirement 8
+//Test  9
+console.log(`===Airport Test 9===`)
+testName = `Return a number for the number of planes that have landed in the airport`
+input = `plane1`
+expectedOutput = 2;
+testAirport = new Airport2();
+testAirport.landPlane(input);
+actualResult = testAirport.airportList.length;
+console.log(actualResult);
+result = assertEquals(actualResult, expectedOutput)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
