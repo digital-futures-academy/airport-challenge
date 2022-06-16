@@ -6,7 +6,7 @@ console.log('==== Test 2 ====');
 //arrange
 const testAirport = new Airport();
 let testName = `Test that I am able to override the default capacity`;
-let expectedResult = 15;
+let expectedResult = 15; // cap i want to set as new cap
 //act
 
 const actualResult = testAirport.setCapacity(15);

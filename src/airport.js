@@ -1,7 +1,7 @@
 class Airport {
 	constructor() {
 		// for user story 2
-		this.capacity = 10;
+		this.capacity = 10; //default capacity
 		this.planesAtAirport = [];
 	}
 
@@ -12,9 +12,16 @@ class Airport {
 	}
 
 	setCapacity(input) {
+		// used a setter to set a new cap for the airport
 		this.capacity = input;
-		return this.capacity;
+		return this.capacity; // used return because i didn't use a arrow function so i need a return
 	}
+
+	/*isFull() {
+		if (this.setCapacity(input) = this.capacity) {
+			return new error(`Abort landing, this airport is FULL`);
+		}
+	}*/
 }
 
 module.exports = Airport;

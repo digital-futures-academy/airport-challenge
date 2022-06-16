@@ -130,3 +130,16 @@ I would like a default airport capacity that can be overridden as appropriate
 
 1.create a method that returns the value of the airport capacity (get)
 2.to change the capacity, use a method that take capacity
+
+# User story 3
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+
+| Object   | Property              | Message      | Output |
+| -------- | --------------------- | ------------ | ------ |
+| error    | message               | ------       | string |
+| Airport  | planesAtAirport@array | planeLand()  | Error  |
+| -------- | capacity@number       | ------------ | -----  |
+| Plane    | planeID               | ------------ | ------ |
