@@ -23,15 +23,15 @@ const airport1 = new Airport(`ap001`, planeID, 5);
 
 //**Instances of Plane class and saving them in list of planes from Airport class**
 planeID = new Plane(`pl001`);
-airport1.setPlanesInAirport(planeID);
+airport1.addPlaneInAirport(planeID);
 planeID = new Plane(`pl002`);
-airport1.setPlanesInAirport(planeID);
+airport1.addPlaneInAirport(planeID);
 planeID = new Plane(`pl003`);
-airport1.setPlanesInAirport(planeID);
+airport1.addPlaneInAirport(planeID);
 planeID = new Plane(`pl004`);
-airport1.setPlanesInAirport(planeID);
+airport1.addPlaneInAirport(planeID);
 planeID = new Plane(`pl005`);
-airport1.setPlanesInAirport(planeID);
+airport1.addPlaneInAirport(planeID);
 planeID = new Plane(`pl006`);
 
 
