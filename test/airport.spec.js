@@ -22,5 +22,15 @@ The test logic is:
 
 */
 test.it(`1. On calling instructToLand() with a mock plane the mock plane's state changes to 'landed'`, function () {
-
+    airport = new Airport();
+    let expectedResult = 'landed';
+    const mockPlane = {
+        state: '',
+        land() {
+            mockPlane.state = landed;
+        }
+    }
+    airport.instructToLand(mockPlane);
+    let actualResult = mockPlane.state;
+    test.assertEquals(expectedResult, actualResult);
 })
