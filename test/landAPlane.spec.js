@@ -2,6 +2,7 @@ const test = require('../test-framework');
 const Airport = require('../classes/AirportClass');
 
 console.log('---------landAPlane() tests---------');
+let input;
 
 test.it('Test that \'landAPlane\' lands a Plane when instructed', () => {
     // Arrange
@@ -25,4 +26,16 @@ test.it('Prevent Landing of a plane which is already landed in airport', () => {
     airport3.listOfLandedPlanes = ['PLANE1', 'PLANE2']; // setting the 2 values to fill the capacity
     // Act/Assert
     test.assertEquals(airport3.landAPlane('PLANE2'), `${input} has already landed!`); // error message
+});
+
+
+
+test.it('Prevent landing of a plane if weather is stormy', () => {
+    // Arrange
+    const airport4 = new Airport;
+    input = 'PLANE2';
+    airport4.weather = 'stormy'; // setter in airport class
+    airport4.listOfLandedPlanes = ['PLANE1', 'PLANE2'];
+    // Act/Assert
+    test.assertEquals(airport4.landAPlane(input), `${input} cannot Land as current weather is Stormy`);
 });

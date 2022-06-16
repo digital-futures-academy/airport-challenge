@@ -9,16 +9,22 @@ class Airport {
     }
 
     landAPlane(inputPlaneID) {
-        let message;
-        if (this.listOfLandedPlanes.length === 0) {
+        let landingMessage;
+        let currentWeather = this._weather[0];
+        //if weather stormy
+        if (currentWeather === this.possibleWeatherConditions[0]) {
+            landingMessage = `${inputPlaneID} cannot Land as current weather is Stormy`;
+            return landingMessage;
+        }
+        else if (this.listOfLandedPlanes.length === 0) {
             this.listOfLandedPlanes = [...this.listOfLandedPlanes, inputPlaneID];
             // console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
             return this.listOfLandedPlanes;
         }
 
         else if (this.listOfLandedPlanes.includes(inputPlaneID)) {
-            message = `${inputPlaneID} has already landed!`;
-            return message;
+            landingMessage = `${inputPlaneID} has already landed!`;
+            return landingMessage;
         }
 
         else if (this.listOfLandedPlanes.length < this._capacity) {
@@ -29,8 +35,8 @@ class Airport {
 
         else {
             const capacityError = new Error('Airport capacity full');
-            message = capacityError.message;
-            return message;
+            landingMessage = capacityError.message;
+            return landingMessage;
         }
 
     }

@@ -164,7 +164,7 @@ I want to prevent landing when weather is stormy
 
 #### Tests:
 
-1. Prevent Take Off for a plane if weather is stormy
+1. Prevent landing of a plane if weather is stormy
 
 ```
 
