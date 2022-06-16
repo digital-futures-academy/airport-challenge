@@ -15,7 +15,7 @@ planeID = new Plane(`pl004`);
 airport1 = new Airport(`ap002`, planeID, 5);
 
 //act
-actualOutput = airport1.getPlaneHasTakenOff();
+actualOutput = airport1.getPlaneTakeOff();
 
 //assert
 result = assertEquals(expectedOutput, actualOutput);
