@@ -6,7 +6,7 @@ const Plane = require('../src/plane.js');
 //declare a variable that will hold plane instances for tests.
 let plane;
 
-console.log('Airport class tests:');
+console.log('Plane class tests:');
 
 /*Requirement 1 - Test: The state of newly created instance of a Plane is a blank string.
 Intended test logic:
