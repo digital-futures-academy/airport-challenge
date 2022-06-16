@@ -1,9 +1,13 @@
-class PLANE {
+class Plane {
 
 
     constructor(planeID) {
         this.planeID = planeID;
-        this._status = [];
+        this.isLanded = false;
     }
 
+
 }
+
+
+module.exports = Plane;

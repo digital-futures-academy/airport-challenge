@@ -1,4 +1,6 @@
 const Airport = require('../classes/AirportClass');
+const Plane = require('../classes/PlaneClass');
+const Status = require('../classes/changeStatus');
 
 class Main {
     static main() {
@@ -17,6 +19,17 @@ class Main {
         console.log(airport3.listOfLandedPlanes.length);
         airport3.listOfLandedPlanes = ['PLANE1', 'PLANE2', 'PLANE3'];
         console.log(airport3.takeOffPlane('PLANE1'));
+
+
+
+
+        let inputPlaneID = 'PLANE7';
+        let plane7 = new Plane(inputPlaneID);
+        Status.changeStatus(plane7);
+
+
+
+
     }
 }
 
