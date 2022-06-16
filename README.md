@@ -77,16 +77,13 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 | **Object** | **Message** |
 | ---------- | ----------- |
-| Error      |             |
 | Airport | takeOff(plane) |
 |         | landPlane(plane)|
 | Plane   | isAtAirport()  |
 
 | **Object** | **Property** | **Message** | **Output** |
 | ---------- | ------------ | ----------- | ---------- |
-| Error   |  message @string|             | @string    |
-| Airport |  landedPlanes @array | takeOff()   | Error |
-|         |                      | landPlane() | Error |
+| Airport |  landedPlanes @array |        | |
 | Plane   |   planeID            | isAtAirport() | @boolean | 
 
 
