@@ -47,26 +47,7 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(airport1.getPlanesInAirport());
-console.log(actualOutput);
-console.log(airport1.getPlanesInAirport().length);
-console.log(airport1.capacity);
-
-
-
-// //Test2
-// //arrange
-// testName = `Test1: when planes list is empty`;
-// expectedOutput = `airport is not full`;
-
-// //act
-// actualOutput = airport1.isAirportFull();
-
-// //assert
-// result = assertEquals(expectedOutput, actualOutput);
-
-// //report
-// console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-// console.log(expectedOutput);
+// console.log(airport1.getPlanesInAirport());
 // console.log(actualOutput);
-// console.log(result);
+// console.log(airport1.getPlanesInAirport().length);
+// console.log(airport1.capacity);
