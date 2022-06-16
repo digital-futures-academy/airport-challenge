@@ -69,10 +69,25 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 |         |                      | getLandedPlanes()| landedPlanes @array |
 | Plane   |   planeID            |             | | 
 
+#### Fifth user story
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+| **Object** | **Message** |
+| ---------- | ----------- |
+| Error      |             |
+| Airport | takeOff(plane) |
+|         | landPlane(plane)|
+| Plane   | isAtAirport()  |
 
-
-
-
+| **Object** | **Property** | **Message** | **Output** |
+| ---------- | ------------ | ----------- | ---------- |
+| Error   |  message @string|             | @string    |
+| Airport |  landedPlanes @array | takeOff()   | Error |
+|         |                      | landPlane() | Error |
+| Plane   |   planeID            | isAtAirport() | @boolean | 
 
 
 
