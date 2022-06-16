@@ -2,7 +2,7 @@ const { assertTrue } = require("../test-framework");
 const Airport = require("../src/airport")
 
 // Initial arrange
-let result, actualResult, input1, input2, testName, airportTest;
+let result, actualOutput, input1, input2, testName, airportTest;
 
 //  ---Test 1--- 
 // Initially I wanted to create a test that would simply check if I am unable to land a further plane after meeting capacity, but couldn't think of an approach that would let me test that, so decided to go straight for the Error approach. 
@@ -16,10 +16,10 @@ airportTest.setCapacity(1); //Setting capacity to 1 so we can test if we can add
 airportTest.landPlane(input1); //Now the airport is full
 
 // Act 
-actualResult = airportTest.landPlane(input2);
+actualOutput = airportTest.landPlane(input2);
 
 // Assert
-result = assertTrue(actualResult instanceof Error);
+result = assertTrue(actualOutput instanceof Error);
 
 // Report 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

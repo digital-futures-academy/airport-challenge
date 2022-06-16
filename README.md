@@ -52,8 +52,22 @@ I want to prevent landing when the airport is full
 |         |  capacity@number     |  |  |
 | Plane   |   planeID             |             | | 
 
+#### Fourth user story
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+| **Object** | **Message** |
+| ---------- | ----------- |
+| Airport | takeOff(plane) |
+| Plane |  |
 
-
+| **Object** | **Property** | **Message** | **Output** |
+| ---------- | ------------ | ----------- | ---------- |
+| Airport |  landedPlanes @array | takeOff() | @string |
+|         |                      | getLandedPlanes()| landedPlanes @array |
+| Plane   |   planeID            |             | | 
 
 
 
