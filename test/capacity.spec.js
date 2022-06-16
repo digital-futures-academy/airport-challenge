@@ -4,9 +4,9 @@ const { assertEquals } = require("../test-framework")
 // Initial arrange
 let expectedOutput, actualOutput, result, input, testName, airportTest;
 
-//  ---Test 1--- 
+//  ---Test 3--- 
 // Arrange
-testName = `Test 1 = check new instances of airport are created with default capacity of 100`;
+testName = `Test 3 = check new instances of airport are created with default capacity of 100`;
 airportTest = new Airport;
 expectedOutput = 100;
 
@@ -19,9 +19,9 @@ result = assertEquals(expectedOutput, actualOutput);
 // Report 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
-//  ---Test 2--- 
+//  ---Test 4--- 
 // Arrange
-testName = `Test 2 = check setCapacity() changes the default capacity to the desired one`;
+testName = `Test 4 = check setCapacity() changes the default capacity to the desired one`;
 airportTest = new Airport;
 input = 200;
 expectedOutput = input; //Find out if expectedOutput = 200; would be preferable

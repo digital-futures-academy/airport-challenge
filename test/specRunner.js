@@ -1,1 +1,0 @@
-// Add require for every document.spec.js so we can run all the test in one go

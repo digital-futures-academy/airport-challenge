@@ -4,9 +4,9 @@ const Airport = require("../src/airport")
 // Initial arrange
 let result, actualOutput, input1, input2, testName, airportTest;
 
-//  ---Test 1--- 
+//  ---Test 5--- 
 // Arrange
-testName = `Test 1 = check an instance of plane can't be added to landedPlanes when the airport is at capacity`;
+testName = `Test 5 = check an instance of plane can't be added to landedPlanes when the airport is at capacity`;
 airportTest = new Airport;
 input1 = `plane1`;
 input2 = `plane2`;
@@ -24,9 +24,10 @@ result = assertFalse(actualOutput);
 // Report 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
-//  ---Test 2--- 
+//  ---Test 6--- 
 // Arrange
-testName = `Test 2 = check an instance of plane can't be added to landedPlanes when the airport is at capacity. Throw error message in that case`;
+// This is not a requirement, but it makes sense to return an error if not able to land the plane (may be wrong and was best to stick to the explicit requirement)
+testName = `Test 6 = check an instance of plane can't be added to landedPlanes when the airport is at capacity. Throw error message in that case`;
 airportTest = new Airport;
 input1 = `plane1`;
 input2 = `plane2`;
