@@ -7,27 +7,34 @@ class Airport {
     }
 
     landAPlane(inputPlaneID) {
-        if (this.listOfLandedPlanes.length >= 0) {
-            if (this.listOfLandedPlanes.length < this._capacity) {
-                this.listOfLandedPlanes = [...this.listOfLandedPlanes, inputPlaneID];
-                // console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
-                return this.listOfLandedPlanes;
-            }
-            else {
-                const capacityError = new Error('Airport capacity full');
-                return capacityError.message;
+        let message;
+        if (this.listOfLandedPlanes.length === 0) {
+            this.listOfLandedPlanes = [...this.listOfLandedPlanes, inputPlaneID];
+            // console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
+            return this.listOfLandedPlanes;
+        }
 
+        else if (this.listOfLandedPlanes.includes(inputPlaneID)) {
+            message = `${inputPlaneID} has already landed!`;
+            return message;
+        }
 
-            }
+        else if (this.listOfLandedPlanes.length < this._capacity) {
+            this.listOfLandedPlanes = [...this.listOfLandedPlanes, inputPlaneID];
+            // console.log(`${inputPlaneID} has now landed! Current utilized capacity is ${this.listOfLandedPlanes.length} out of ${this.capacity}!`);
+            return this.listOfLandedPlanes;
+        }
 
-
-
+        else {
+            const capacityError = new Error('Airport capacity full');
+            message = capacityError.message;
+            return message;
         }
 
     }
 
     changeCapacity(newCapacity) {
-        this._capacity = newCapacity
+        this._capacity = newCapacity;
         return this._capacity;
     }
 

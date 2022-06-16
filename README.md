@@ -122,7 +122,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 #### Tests:
 
-1. Prevent Take Off for a plane which is NOT currently landed in airport'
+1. Prevent Take Off for a plane which is NOT currently landed in airport
 2. Prevent Landing of a plane which is already landed in airport
 
 ```

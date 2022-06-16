@@ -1,7 +1,7 @@
 const { assertEquals } = require('../test-framework');
 
 const { AIRPORT } = require('../src/Airport');
-const { PLANE } = require('../src/Plane');
+//const { PLANE } = require('../src/Plane');
 
 
 
