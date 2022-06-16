@@ -95,8 +95,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 |         | Passengers        | @void             | @void    |
 
 ### Requirement 2
-
-| Objects | Properties        | Messages          | Output   |
+ggg| Objects | Properties        | Messages          | Output   |
 | ------- | ----------------- | ----------------- | -------- |
 | Airport | planes@id         | planeID@number    | @number  |
 |         |                   | isLand@Boolean    | @boolean |
