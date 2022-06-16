@@ -2,6 +2,7 @@ const Airport2 = require("../src/airport2");
 const { assertEquals } = require("./test-framework")
 const { assertTrue } = require("./test-framework")
 const { assertFalse } = require("./test-framework")
+const { assertEither } = require("./test-framework")
 
 //initial arrange
 let expectedOutput, actualOutput, result, input, testName;
@@ -119,7 +120,7 @@ console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 //Requirement 8
 //Test  9
 //console.log(`===Airport Test 9===`)
-testName = `Return a number for the number of planes that have landed in the airport`
+testName = `Test 9 - Return a number for the number of planes that have landed in the airport`
 input = `plane1`
 input2 = `plane2`
 input3 = `plane3`
@@ -131,3 +132,15 @@ testAirport.landPlane(input3);
 actualResult = testAirport.airportList.length;
 result = assertEquals(actualResult, expectedOutput)
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//Test 10
+testName = `Test 10 - check to see if setWeather setter outputs either clear or stormy weather`;
+input = `plane`
+testAirport = new Airport2();
+testAirport.randomWeather(); //if this method is not called, weather defaults to clear
+actualResult = testAirport.getWeather();
+console.log(actualResult)
+result = assertEither(actualResult, `clear`, `stormy`)
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+

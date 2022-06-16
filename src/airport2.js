@@ -39,14 +39,20 @@ class Airport2 {
         return this.capacity
     }
 
-    setAirportSize(value) {
-        if (value < 0) {
-            value = 0;
-        }
-        this.airportSize = value;
+    randomWeather() {
+        let r = Math.floor(Math.random() * 10);
+        if (r < 3) {
+            this.weather = `stormy`
+        } else if (r >= 3) {
+            this.weather = `clear`
+        } return this.weather
     }
-}
 
+    getWeather() {
+        return this.weather;
+    }
+
+}
 
 
 module.exports = Airport2
