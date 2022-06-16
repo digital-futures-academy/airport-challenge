@@ -30,12 +30,12 @@ Intended test logic:
 - call plane.land(). The state variable in the plane should change to 'landed'.
 - set the actualResult equal to the return of plane.
 - Use assertEquals to compare expectedResult and actualResult.
+
+Update: refactored to remove the lines declaring and initializing values to expectedResult and actualResult as they can be placed directly within assertEquals.
 */
 
 test.it(`2. On calling land() a plane's state changes to 'landed'`, function () {
     plane = new Plane();
-    let expectedResult = 'landed';
     plane.land();
-    let actualResult = plane.getState();
-    test.assertEquals(expectedResult, actualResult);
+    test.assertEquals('landed', plane.getState());
 })
