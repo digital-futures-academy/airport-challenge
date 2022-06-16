@@ -3,7 +3,9 @@ class Airport {
     constructor(_capacity = 10) {
         this.listOfLandedPlanes = []; //default empty airport
         this._capacity = _capacity;
-        // this._weather = [];
+        this._weather = [];
+        this._weather.length = 1; // can only have one one wether condition
+        this.possibleWeatherConditions = ['stormy', 'clear', 'clear'];
     }
 
     landAPlane(inputPlaneID) {
@@ -39,25 +41,72 @@ class Airport {
     }
 
     takeOffPlane(inputPlaneID) {
+        let takeOffMessage;
         // looping through listOfLandedPlanes to find index of inputPlaneID
         let indexNumber = this.listOfLandedPlanes.findIndex((currentLandedPlaneID) => {
             return currentLandedPlaneID === inputPlaneID;
         });
+        let currentWeather = this._weather[0];
+        //if weather stormy
+        if (currentWeather === this.possibleWeatherConditions[0]) {
+            takeOffMessage = `${inputPlaneID} cannot Take Off as current weather is Stormy`;
+            return takeOffMessage;
+        }
 
-        if (indexNumber === -1) {
-            let message = `${inputPlaneID} cannot Take Off as it is not currently in landed list of planes in the airport`;
-            return message;
+        else if (indexNumber === -1) {
+            takeOffMessage = `${inputPlaneID} cannot Take Off as it is not currently in landed list of planes in the airport`;
+            return takeOffMessage;
         }
         else {
             this.listOfLandedPlanes.splice(indexNumber, 1);
-            let message = `${inputPlaneID} has Taken Off! and ${inputPlaneID} is no longer in the airport!`;
-            return message;
+            takeOffMessage = `${inputPlaneID} has Taken Off! and ${inputPlaneID} is no longer in the airport!`;
+            return takeOffMessage;
+        }
+    }
+
+    // generates weather condition if this._weather is null
+    get weather() {
+        // 33.33% chance of stormy weather
+        if (this._weather.length === 0) {
+            //rand num between 0 and 2;
+            let rand = Math.floor(0 + Math.random() * (2 + 1 - 0));
+            let currentWeather = this.possibleWeatherConditions[rand];
+            // console.log(currentWeather);
+            this._weather.push(currentWeather);
+            return currentWeather;
+
+        }
+        else {
+            return this._weather[0];
         }
 
-
-
-
     }
+
+    //sets desired weather condition
+    set weather(setWeather) {
+        setWeather = setWeather.toLowerCase();
+        if (setWeather === this.possibleWeatherConditions[0]) {
+            this._weather = []; //clears the array
+            this._weather.push(setWeather);
+        }
+        else if (setWeather === this.possibleWeatherConditions[1]) {
+            this._weather = []; //clears the array
+            this._weather.push(setWeather);
+        }
+        else {
+            this._weather = []; //clears the array
+            this._weather[0] = 'Enter valid weather condition either stormy or clear';
+
+        }
+    }
+
+
+
+
+
+
+
+
 }
 
 module.exports = Airport;
