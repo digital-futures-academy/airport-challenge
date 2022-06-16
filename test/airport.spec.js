@@ -2,6 +2,7 @@
 
 const test = require('../test-framework.js');
 const Airport = require('../src/airport.js');
+const { assertEquals } = require('../test-framework.js');
 
 //declare a variable that will hold airport instances for tests.
 let airport;
@@ -47,3 +48,8 @@ test.it(`1. On calling instructToLand() with a mock plane the mock plane's state
 
  As expectedResult and actualResult values are only used in assertEquals they can be placed directly in assertEquals either as number primitive or the function call.
  **/
+
+test.it(`2. On calling the Airport constructor without an argument, getCapacity() returns the default capacity.`, function () {
+    airport = new Airport();
+    assertEquals(5, airport.getCapacity());
+})
