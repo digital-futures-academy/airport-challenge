@@ -8,9 +8,7 @@ const { assertEquals } = require("../test-framework");
 const Airport = require("../src/airport");
 const Plane = require("../src/plane");
 
-//**Instances of airport class**
-const airport1 = new Airport(capacity = 5);
-// const airport1 = new Airport([Plane.plane3], 5);
+
 
 //initial arrange
 let expectedOutput, actualOutput, result, testName, planeID;
@@ -19,24 +17,27 @@ let expectedOutput, actualOutput, result, testName, planeID;
 //Test1
 //arrange 
 testName = `Test1: when plan list is equal to airport capacity`;
-expectedOutput = 5;
-planeID = new Plane();
+expectedOutput = `Sorry airport is full`;
+//**Instances of Airport class**
+const airport1 = new Airport(`ap001`, planeID, 5);
+
+//**Instances of Plane class and saving them in list of planes from Airport class**
+planeID = new Plane(`pl001`);
+airport1.setPlanesInAirport(planeID);
+planeID = new Plane(`pl002`);
+airport1.setPlanesInAirport(planeID);
+planeID = new Plane(`pl003`);
+airport1.setPlanesInAirport(planeID);
+planeID = new Plane(`pl004`);
+airport1.setPlanesInAirport(planeID);
+planeID = new Plane(`pl005`);
+airport1.setPlanesInAirport(planeID);
+planeID = new Plane(`pl006`);
 
 
-//act
-actualOutput = airport1..isAirportFull();
-
-//assert
-result = assertEquals(expectedOutput, actualOutput);
-
-//report
-console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
 
 
-//Test2
-//arrange
-testName = `Test1: when planes list is empty`;
-expectedOutput = `airport is not full`;
+
 
 //act
 actualOutput = airport1.isAirportFull();
@@ -46,6 +47,26 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(expectedOutput);
+console.log(airport1.getPlanesInAirport());
 console.log(actualOutput);
-console.log(result);
+console.log(airport1.getPlanesInAirport().length);
+console.log(airport1.capacity);
+
+
+
+// //Test2
+// //arrange
+// testName = `Test1: when planes list is empty`;
+// expectedOutput = `airport is not full`;
+
+// //act
+// actualOutput = airport1.isAirportFull();
+
+// //assert
+// result = assertEquals(expectedOutput, actualOutput);
+
+// //report
+// console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
+// console.log(expectedOutput);
+// console.log(actualOutput);
+// console.log(result);

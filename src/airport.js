@@ -1,5 +1,9 @@
-//class for airports to store list of planes in airport and capacity of airport
-//also have two methods/functions that tells weather plane can land or no on basis of capacity and already landed planes
+// class for airports to store airportId, list of planes in airport and capacity of airport
+// also have two SETTER,GETTER methods/functions 
+// that sets the values and provide the values of private properties(encapsulated)
+// also have two methods/functions 
+// landAPlane tells weather plane can land or no on basis of capacity and already landed planes
+// isAirportFull checks airport is full or no
 
 const Plane = require("./plane");
 
@@ -12,7 +16,6 @@ class Airport {
   }
   #planeCanLand = true;
   #planesInAirport = [];
-  // #planesInAirport = [Plane.plane2, Plane.plane1, Plane.plane4, Plane.plane5];
   getPlaneCanLand() {
     return this.#planeCanLand;
   }
@@ -22,13 +25,20 @@ class Airport {
   getPlanesInAirport() {
     return this.#planesInAirport;
   }
-  isAirportFull() {
-    if (this.#capacity === this.#planesInAirport.length) return `airport is full`;
+  setPlanesInAirport(airportPlane) {
+    this.#planesInAirport = [...this.#planesInAirport, airportPlane];
+  }
+  isAirportFull(airportPlane = this.airportPlane) {
+    if (this.capacity === this.getPlanesInAirport().length) {
+      return `Sorry airport is full`
+    };
+    this.landAPlane(airportPlane);
     return `airport is not full`;
   }
   landAPlane(airportPlane) {
-    if (this.getPlaneCanLand()) {
-      this.#planesInAirport = [...this.#planesInAirport, airportPlane];
+    if (this.getPlaneCanLand() && this.capacity <= 5) {
+      this.setPlanesInAirport(airportPlane);
+      this.getPlanesInAirport();
       return `Plan has been landed`;
     }
     return `Sorry Plan cannot land`;
