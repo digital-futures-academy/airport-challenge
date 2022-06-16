@@ -1,2 +1,2 @@
-
-require("./test/landPlane.spec");
+require("./test/plane.spec.js");
+require("./test/airport.spec.js");
