@@ -20,10 +20,11 @@ The test logic is:
 - set the actual result to the mockPlane.state after the call.
 - Test outcome with assert.
 
+Update: refactor to remove use of expectedResult and actualResult variables by placing their values into assertEquals.
+
 */
 test.it(`1. On calling instructToLand() with a mock plane the mock plane's state changes to 'landed'`, function () {
     airport = new Airport();
-    let expectedResult = 'landed';
     const mockPlane = {
         state: '',
         land() {
@@ -31,6 +32,5 @@ test.it(`1. On calling instructToLand() with a mock plane the mock plane's state
         }
     }
     airport.instructToLand(mockPlane);
-    let actualResult = mockPlane.state;
-    test.assertEquals(expectedResult, actualResult);
+    test.assertEquals('landed', mockPlane.state);
 })
