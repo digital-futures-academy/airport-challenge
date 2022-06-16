@@ -11,21 +11,9 @@ const testPlane = {
 };
 //act
 testAirport.planeLand(testPlane);
-const actualResult = testAirport.planesAtAirport[0]?.id; //if exists will check the id otherwise will return undefined
+const actualResult = testAirport.planesAtAirport[0]?.id;
 
 //assert
 const result = assertEquals(actualResult, testPlane.id);
 //report
 console.log(result ? `PASS` : `FAIL`);
-
-//test 2
-
-console.log('==== Test 2 ====');
-
-//arrange
-
-//act
-
-//assert
-
-//report

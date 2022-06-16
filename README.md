@@ -37,23 +37,23 @@ We have a request from a client to write the software to control the flow of pla
 #### Acceptance Criteria
 
 ```
-As an air traffic controller
+1.As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-As the system designer
+2.As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-As an air traffic controller
+3.As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-As an air traffic controller
+4.As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-As an air traffic controller
+5.As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
@@ -116,3 +116,17 @@ expectedOutput is the plane is the list of planes at the airport
 1. get array of planes at airport
 2. access the plane in the array [i] and get its Id
 3. assert that the Id of the array matches the Id of the plane
+
+# User story 2
+
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+
+| Object  | Properties      | Message       | Output  |
+| ------- | --------------- | ------------- | ------- |
+| Airport | capacity@number | setCapacity() | number  |
+| Plane   | planeID         | isLanded()    | Boolean |
+
+1.create a method that returns the value of the airport capacity (get)
+2.to change the capacity, use a method that take capacity
