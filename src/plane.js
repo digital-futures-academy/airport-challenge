@@ -9,7 +9,9 @@ class Plane {
         return this.#state;
     }
 
+    land() {
 
+    }
 
 }
 

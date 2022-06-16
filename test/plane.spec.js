@@ -21,3 +21,21 @@ test.it(`1. The state of newly created instance of a Plane is a blank string`, f
     plane = new Plane();
     test.assertEquals('', plane.getState());
 })
+
+/*Requirement 1 - Test: On calling land() the plane's state changes to 'landed'.
+
+Intended test logic:
+- Assign a new instance of the Plane class to plane. It's state variable should be '' as per previous test.
+- set expectedResult to be 'landed';
+- call plane.land(). The state variable in the plane should change to 'landed'.
+- set the actualResult equal to the return of plane.
+- Use assertEquals to compare expectedResult and actualResult.
+*/
+
+test.it(`2. On calling land() a plane's state changes to 'landed'`, function () {
+    plane = new Plane();
+    let expectedResult = 'landed';
+    plane.land();
+    let actualResult = plane.getState();
+    test.assertEquals(expectedResult, actualResult);
+})
