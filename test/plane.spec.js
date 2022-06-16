@@ -15,9 +15,9 @@ Intended test logic:
  - set the actual result to the returned value of plane.getState().
  - compare the actual and expected results using assertEquals. 
 */
-test.it(`The state of newly created instance of a Plane is a blank string`, function () {
+test.it(`1. The state of newly created instance of a Plane is a blank string`, function () {
     plane = new Plane();
     let expectedResult = '';
     actualResult = plane.getState();
-    assertEquals(expectedResult, actualResult);
+    test.assertEquals(expectedResult, actualResult);
 })
