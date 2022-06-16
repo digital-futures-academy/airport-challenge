@@ -27,7 +27,7 @@ test.it(`1. On calling instructToLand() with a mock plane the mock plane's state
     const mockPlane = {
         state: '',
         land() {
-            mockPlane.state = landed;
+            mockPlane.state = 'landed';
         }
     }
     airport.instructToLand(mockPlane);
