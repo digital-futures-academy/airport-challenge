@@ -9,6 +9,9 @@
   "author": "dearshrewdwit",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
+    "eslint": "^7.32.0"
+  },
+  "dependencies": {
+    "save-dev": "^0.0.1-security"
   }
 }
