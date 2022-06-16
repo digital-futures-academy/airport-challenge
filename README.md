@@ -119,7 +119,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 - Although the requirement does not specify a `getState()` to return the `state` string I am inferring it is needed as I intend the `state` to be a private variable to a `Plane` class instances and therefore inaccessible without a getter.
 
 ### TDD the user story
-1. The `state` of newly created instance of a Plan` is a ***blank string***.
+1. The `state` of newly created instance of a Plane is a ***blank string***.
 2. On calling `land()` the plane's state changes to ***'landed'***.
 3. On calling `instructToLand()` with a mock plane changes the mock plane's state changes to ***'landed'***.
 
