@@ -10,12 +10,13 @@ let testName, actualOutput, expectedOutput, result, airport1, planeID;
 
 //arrange
 testName = `Test1: to check plan has taken off`;
-expectedOutput = false;
+expectedOutput = true;
 planeID = new Plane(`pl004`);
 airport1 = new Airport(`ap002`, planeID, 5);
+airport1.setHasPlaneTakenOff();
 
 //act
-actualOutput = airport1.getPlaneTakeOff();
+actualOutput = airport1.getHasPlaneTakenOff();
 
 //assert
 result = assertEquals(expectedOutput, actualOutput);
