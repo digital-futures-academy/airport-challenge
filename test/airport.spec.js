@@ -34,3 +34,16 @@ test.it(`1. On calling instructToLand() with a mock plane the mock plane's state
     airport.instructToLand(mockPlane);
     test.assertEquals('landed', mockPlane.state);
 })
+
+
+/**
+ Requirement 2 - On calling the Airport constructor without an argument, getCapacity() returns the default capacity.
+
+ Test logic:
+ - initialise a new instance of the Airport class with no argument included.
+ - set expectedResult to 5.
+ - set actualResult to the return of airport.getCapacity()
+ - Use assertEquals to compare expectedResult and actualResult.
+
+ As expectedResult and actualResult values are only used in assertEquals they can be placed directly in assertEquals either as number primitive or the function call.
+ **/
