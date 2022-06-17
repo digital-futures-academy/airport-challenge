@@ -53,3 +53,9 @@ test.it(`2. On calling the Airport constructor without an argument, getCapacity(
     airport = new Airport();
     assertEquals(5, airport.getCapacity());
 })
+
+//From requirement 1:
+test.it(`3. The length of inAiport[] for a newly created Airport is 0.`, function () {
+    airport = new Airport();
+    assertEquals(0, airport.getInAirport().length);
+})
