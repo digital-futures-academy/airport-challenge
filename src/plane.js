@@ -16,7 +16,7 @@ class Plane {
         return this.#state;
     }
 
-    // The function will change the this.#state to 'landed'. No return value is required by the domain model (requirment 1).
+    // The function will change the this.#state to 'landed'. No return value is required by the domain model (requirement 1).
     land() {
         this.#state = 'landed';
     }
