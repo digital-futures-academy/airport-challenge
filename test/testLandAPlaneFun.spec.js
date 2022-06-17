@@ -22,7 +22,7 @@ const airport1 = new Airport(`ap001`, planeID, 5);
 
 //**Instance of plane class
 planeID = new Plane(`pl004`);
-airport1.checkIfPlanCanAddedInList(planeID);
+airport1.checkIfPlaneCanAddedInList(planeID);
 planeID = new Plane(`pl006`);
 
 //act
@@ -42,9 +42,9 @@ expectedOutput = `plane is already in airport`;
 
 //**Instance of plane class
 planeID = new Plane(`pl009`);
-airport1.checkIfPlanCanAddedInList(planeID);
+airport1.checkIfPlaneCanAddedInList(planeID);
 planeID = new Plane(`pl001`);
-airport1.checkIfPlanCanAddedInList(planeID);
+airport1.checkIfPlaneCanAddedInList(planeID);
 
 planeID = new Plane(`pl004`);
 
@@ -66,7 +66,7 @@ expectedOutput = `Sorry airport is full, Plan cannot land`;
 
 //**Instance of plane class
 planeID = new Plane(`pl007`);
-airport1.checkIfPlanCanAddedInList(planeID);
+airport1.checkIfPlaneCanAddedInList(planeID);
 planeID = new Plane(`pl003`);
 
 //act

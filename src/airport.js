@@ -18,7 +18,7 @@ class Airport {
     return `Plan has been landed`;
   }
 
-  checkIfPlanCanAddedInList(airportPlane) {
+  checkIfPlaneCanAddedInList(airportPlane) {
     if (this.#planesInAirport.length === 0) return this.addPlaneInAirport(airportPlane);
     for (let i = 0; i < this.#planesInAirport.length; i++) {
       if (this.#planesInAirport[i].planeID === airportPlane.planeID) {
@@ -40,7 +40,7 @@ class Airport {
     if (this.#planesInAirport.length === this.capacity) {
       return `Sorry airport is full, Plan cannot land`;
     }
-    return this.checkIfPlanCanAddedInList(airportPlane);
+    return this.checkIfPlaneCanAddedInList(airportPlane);
   }
 }
 

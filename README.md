@@ -79,14 +79,13 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
-# Solution explanation
-
-# first user story
+# Acceptance criteria
+## 1st user story
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-## Domain Modeling
+### Domain Modeling
 
 | Objects    |  Properties                         |     Messages                     | Output      |
 |------------|-------------------------------------|----------------------------------|-------------|
@@ -97,12 +96,12 @@ I want to instruct the airport to land a plane
 |            |                                     |                                  |             |
 |plane       |planeID@number                       |                                  |             |
 
-# second user story
+## 2nd user story
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-## Domain Modeling
+### Domain Modeling
 
 | Objects    |  Properties        |     Messages   | Output      |
 |------------|--------------------|----------------|-------------|
@@ -110,12 +109,12 @@ I would like a default airport capacity that can be overridden as appropriate
 |            |capacity@number     |                |             |
 |            |                    |                |             |
 
-# third user story
+## 3rd user story
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-## domain modeling
+### domain modeling
 | Objects    |  Properties                         |     Messages             | Output      |
 |------------|-------------------------------------|--------------------------|-------------|
 |airport     |capacity@number                      |landAPlan(Plane@Object)   |             |
@@ -124,12 +123,12 @@ I want to prevent landing when the airport is full
 |            |                                     |                          |             |
 |            |                                     |                          |             |
 
-# fourth user story
+## 4th user story
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-## domain modeling
+### domain modeling
 | Objects    |  Properties                         |     Messages                         | Output      |
 |------------|-------------------------------------|--------------------------------------|-------------|
 |airport     |                                     |takeOffPlaneFromAirport(Plane@Object) |             |
@@ -137,7 +136,25 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 |            |                                     |                                      |             |
 |            |                                     |                                      |             |
 
-## classes
+## 5th user story
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+
+### domain modeling
+| Objects    |  Properties                         |     Messages                         | Output              |
+|------------|-------------------------------------|--------------------------------------|---------------------|
+|airport     |                                     |getPlanesInAirport()                  |Array[@PlaneObjects] |
+|            |                                     |                                      |                     |
+|            |                                     |                                      |                     |
+### explanation for user story five
+ i think if traffic controller wants to prevent asking airport to land or take off plane when they already landed or taken off, traffic controller should be able to access the list of planes in airport so he can get know the planes in list cannot be landed again and planes not in list cannot be taken off
+
+
+
+
+# classes
 - there is **Airport** class for airports to store airportId, list of planes in airport and capacity of airport
 -also have two SETTER,GETTER methods/functions 
 that sets the values and provide the values of private properties(encapsulated)
@@ -146,6 +163,7 @@ that sets the values and provide the values of private properties(encapsulated)
 -isAirportFull checks airport is full or no
 - there is class **Plane** having planeID property
 
+# files
 ## src files
 - **airport.js** -- for *Airport* class
 - **plane.js** -- for *Plane* class

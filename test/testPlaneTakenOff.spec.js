@@ -15,7 +15,7 @@ testName = `Test1: to check plane has taken off`;
 expectedOutput = `plane is not in airport already take off`;
 airport2 = new Airport(`ap002`, planeID, 5);
 planeID = new Plane(`pl004`);
-airport2.checkIfPlanCanAddedInList(planeID);
+airport2.checkIfPlaneCanAddedInList(planeID);
 planeID = new Plane(`pl006`);
 
 //act
@@ -32,9 +32,9 @@ console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
 testName = `Test1: to check plane has taken off`;
 expectedOutput = `plane has taken off`;
 planeID = new Plane(`pl009`);
-airport2.checkIfPlanCanAddedInList(planeID);
+airport2.checkIfPlaneCanAddedInList(planeID);
 planeID = new Plane(`pl010`);
-airport2.checkIfPlanCanAddedInList(planeID);
+airport2.checkIfPlaneCanAddedInList(planeID);
 planeID = new Plane(`pl010`);
 //act
 actualOutput = airport2.takeOffPlaneFromAirport(planeID);
