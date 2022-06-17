@@ -39,3 +39,10 @@ test.it(`2. On calling land() a plane's state changes to 'landed'`, function () 
     plane.land();
     test.assertEquals('landed', plane.getState());
 })
+
+//Requirement 1:
+
+test.it(`3. The planeId of a newly created plane without an argument is 'noID'.`, function () {
+    plane = new Plane();
+    test.assertEquals('noID', plane.getPlaneId());
+})
