@@ -14,8 +14,8 @@ class Airport {
   instructToLand(plane) {
     if (this.isFull() === false) {
       plane.land();
+      this.addToInAirport(plane);
     }
-    this.addToInAirport(plane);
   }
 
   isFull() {
