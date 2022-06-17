@@ -165,6 +165,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 - It's assumed that using OOP encapsulation that `capacity` will be a private property and therefore `getCapacity()` is included as a message to allow the capacity value to be checked.
 
 ### TDD the user story
+#### Airport
 1. On calling the `Airport` constructor without an argument, getCapacity() returns the ***default*** capacity. 
 2. On calling the `Airport` constructor with a capacity override amount, getCapacity() returns the ***overridden capacity*** amount.
 3. After calling `setCapacity(number)`, getCapacity() returns ***number***.
