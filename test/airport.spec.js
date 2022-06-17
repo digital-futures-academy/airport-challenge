@@ -65,8 +65,9 @@ test.it(`6. On calling instructToLand(mockPlane), inAirport.length has ***increa
 })
 
 
+console.log(`Requirement 2 tests`);
 
-test.it(`7. On calling the Airport constructor without an argument, getCapacity() returns the default capacity.`, function () {
+test.it(`1. On calling the Airport constructor without an argument, getCapacity() returns the default capacity.`, function () {
     airport = new Airport();
     assertEquals(5, airport.getCapacity());
 })
