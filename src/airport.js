@@ -1,12 +1,12 @@
-//const planes = require('../src/planes');
 
 class Airport {
     planesAtAirport = [];
 	capacity = 10;
 	
 	planeLand(plane) {
-		this.planesAtAirport.push(plane); //this is directing to specific planesAtAirport.
-		console.log(`Plane ${plane.id} has landed.`);
+		this.planesAtAirport.push(plane);
+		 //this is directing to specific planesAtAirport.
+		console.log(`Plane ✈️  ${plane.id} has landed.`);
 	}
 
 	setCapacity(input) {

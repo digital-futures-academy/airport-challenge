@@ -1,11 +1,10 @@
 class plane{
-    #planeID = [];
-    #departure = "";
-    #destination = "";
-    #onAir = true;
+    id= [];
+    departure;
     
-    isOnAir() {
-         return this.#onAir;
+    isInAir(plane) {
+        this.id.push(plane); 
+        console.log(`Plane ✈️  ${plane.id} is in the air.`);
     }
 }
 module.exports = plane;

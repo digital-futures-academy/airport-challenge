@@ -1,20 +1,19 @@
-const { onAir } = require('../testFramework');
-const Airport = require('../src/airport');
+const { inAir, assertEquals } = require('../testFramework');
 const plane = require('../src/planes');
+const Airport = require('../src/airport');
 
-let testName, expectedResult, actualResult, result, testPlane;
+let testName, actualResult, result, testPlane, planeID;
 
-console.log('                    🛫🛫🛫     Plane Test 1     🛫🛫🛫');
+console.log('                          🛫🛫🛫🛫     Plane Test 1     🛫🛫🛫🛫');
 
-// Arrange
-testName = 'Test if the plane is on Air';
+planeID = { id: 'PLN', departure: true };
 
-// Act
+//arrange
 testPlane = new plane();
-actualResult = testPlane.isOnAir();
-
-// Assert
-result = onAir(actualResult);
-
-// Report
-console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+testPlane.isInAir(planeID);
+//Act
+actualResult = testPlane.id[0].departure;
+//assert
+result = inAir(actualResult);
+//report
+console.log(result ? `PASS` : `FAIL`);
