@@ -8,6 +8,11 @@ class Airport {
     this.#capacity = capacity;
   }
 
+
+  addToInAirport(plane) {
+    this.#inAirport.push(plane);
+  }
+
   // instructToLand pseudo logic:
   // will accept a plane as an argument
   // will call land() function of the plane.
