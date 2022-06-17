@@ -64,3 +64,16 @@ test.it(`4. getInAirport() returns an array`, function () {
     airport = new Airport();
     assertTrue(Array.isArray(airport.getInAirport()));
 })
+
+test.it(`5. After calling addToInAirport(mockPlane), inAirport.length has increased by 1.`, function () {
+    airport = new Airport();
+    const mockPlane = {
+        state: '',
+        land() {
+            mockPlane.state = 'landed';
+        }
+    }
+    let expectedResult = airport.getInAirport().length + 1;
+    airport.addToInAirport(mockPlane);
+    assertEquals(expectedResult, airport.getInAirport().length);
+})
