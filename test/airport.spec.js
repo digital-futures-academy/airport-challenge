@@ -71,3 +71,9 @@ test.it(`1. On calling the Airport constructor without an argument, getCapacity(
     airport = new Airport();
     assertEquals(5, airport.getCapacity());
 })
+
+test.it(`2. On calling theAirport constructor with a capacity, getCapacity() returns the capacity`, function () {
+    const capacity = 25;
+    airport = new Airport(capacity);
+    assertEquals(capacity, airport.getCapacity());
+})

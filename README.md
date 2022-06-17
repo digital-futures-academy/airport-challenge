@@ -167,7 +167,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 ### TDD the user story
 #### Airport
 1. On calling the `Airport` constructor without an argument, getCapacity() returns the ***default*** capacity. 
-2. On calling the `Airport` constructor with a capacity override amount, getCapacity() returns the ***overridden capacity*** amount.
+2. On calling the `Airport` constructor with a capacity, getCapacity() returns the ***capacity***.
 3. After calling `setCapacity(number)`, getCapacity() returns ***number***.
 
 ## Requirement 3
