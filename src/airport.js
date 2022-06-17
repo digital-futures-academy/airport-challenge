@@ -16,6 +16,12 @@ class Airport {
     this.addToInAirport(plane);
   }
 
+  isFull() {
+    if (this.#inAirport.length < this.#capacity) {
+      return false
+    }
+  }
+
   getCapacity() {
     return this.#capacity;
   }
