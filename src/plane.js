@@ -2,8 +2,11 @@ class Plane {
     //Private variable that will store the state of the plane. E.g. recording whether it has taken off or landed.
     //initializes to blank string.
     #state = '';
-    #planeId = 'noID';
+    #planeId;
 
+    constructor(planeId = 'noID') {
+        this.#planeId = planeId;
+    }
 
     getPlaneId() {
         return this.#planeId;
