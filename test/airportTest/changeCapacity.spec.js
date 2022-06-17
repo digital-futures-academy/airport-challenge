@@ -3,13 +3,13 @@ const Airport = require('../../src/airport.js')
 
 
 
-test.it('airport start with a default capacity of 0', () => {
+test.it('airport start with a default capacity of 10', () => {
     //arrange
-    const expectedValue = 0
+    const expectedValue = 10
 
     // act 
-    let airport = new Airport()
-    const actualValue = airport.capacity
+    let testAirport = new Airport()
+    const actualValue = testAirport.capacity
     //assert
     test.assertEquals(expectedValue, actualValue)
 
@@ -17,13 +17,14 @@ test.it('airport start with a default capacity of 0', () => {
 
 test.it('Airport can change capacity', () => {
     //arrange
-    const expectedValue = 5
-
-    // act 
     let airport = new Airport()
+    const initialCapacity = airport.capacity
+    const expectedValue = 5
+    // act 
     airport.changeCapacity(5)
     const actualValue = airport.capacity
     //assert
     test.assertEquals(expectedValue, actualValue)
+    test.assertNotEquals(initialCapacity, actualValue)
 
 })

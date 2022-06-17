@@ -5,9 +5,9 @@ test.it('check if airport is full', () => {
     //arrange
 
     // act 
-    let airport = new Airport(0)
+    let TestAirport = new Airport(0)
 
-    const actualValue = airport.isFull()
+    const actualValue = TestAirport.isFull()
     //assert
     test.assertTrue(actualValue)
 
@@ -17,20 +17,12 @@ test.it('check if airport is full', () => {
 
 test.it('prevent landing when airport is full by throwing error', () => {
     //arrange
-    const plane = {
+    const TestPlane = {
         name: 'plane1'
     }
     let airport = new Airport(0)
 
-    const actualValue = airport.land(plane)
+    const actualValue = airport.land(TestPlane)
     //assert
     test.assertTrue(actualValue instanceof Error)
 })
-
-// test.it('Airport starts with 0 planes initially', () => {
-//     //arrange
-//     let airport = new Airport()
-//     // act  //assert
-//     test.assertFalse(airport.airportList[0])
-
-// })

@@ -4,6 +4,11 @@ const test = {
             throw new Error;
         }
     },
+    assertNotEquals: (val1, val2) => {
+        if (val1 === val2) {
+            throw new Error;
+        }
+    },
     assertTrue: val1 => {
         if (val1 !== true) {
             throw new Error;

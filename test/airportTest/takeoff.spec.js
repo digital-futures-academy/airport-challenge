@@ -3,17 +3,24 @@ const Airport = require('../../src/airport.js')
 
 
 
-test.it('be able to land a plane in the airport', () => {
+test.it('be able let a plane to take off from the airport', () => {
     //arrange
-    const plane = {
+    const testPlane = {
         name: 'plane1'
     }
-    const expectedValue = plane
+    let testAirport = new Airport(3)
+    testAirport.land(testPlane)
+    const expectedValue = 0
+
     // act 
-    let airport = new Airport(3)
-    airport.land(plane)
-    const actualValue = airport.airportList[0]
+    testAirport.takeOff(testPlane)
+    const actualValue = testAirport.airportList.length
+
     //assert
     test.assertEquals(expectedValue, actualValue)
+    test.assertFalse(testAirport.airportList.includes(testPlane))
+
 
 })
+
+

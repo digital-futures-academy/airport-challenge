@@ -3,7 +3,7 @@ class Airport {
   #airportList;
   #capacity
 
-  constructor(capacity = 0) {
+  constructor(capacity = 10) {
     this.#airportList = []
     this.#capacity = capacity
   }
@@ -23,8 +23,6 @@ class Airport {
     } else {
       this.#airportList = [...this.#airportList, plane]
     }
-
-
   }
 
   changeCapacity(num) {
@@ -36,6 +34,11 @@ class Airport {
       return true
     }
     return false
+  }
+
+  takeOff(plane) {
+    const index = this.#airportList.findIndex(i => i === plane)
+    this.#airportList.splice(index, 1)
   }
 
 }
