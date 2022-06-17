@@ -1,11 +1,12 @@
 const { assertEquals } = require('../testFramework');
 const Airport = require('../src/airport');
 
-let result, testAirport, testPlane, actualResult;
+let  testName, result, testAirport, testPlane, actualResult;
 
 console.log('                          🛫🛫🛫🛫     Airport Test 1     🛫🛫🛫🛫');
 
 //arrange 
+testName = 'Test if the plane can land at the airport';
 testPlane = {id: 'PLN'};
 
 //Act
@@ -16,4 +17,4 @@ actualResult = testAirport.planesAtAirport[0]?.id;
 result = assertEquals(actualResult, testPlane.id);
 
 //report
-console.log(result ? `PASS` : `FAIL`);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

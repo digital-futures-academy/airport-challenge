@@ -1,19 +1,24 @@
-const { assertEquals } = require('../testFramework');
+const { assertEquals,assertNotEqual } = require('../testFramework');
 const Airport = require('../src/airport');
 
-let result, testAirport, testPlane, actualResult;
+let testName, result, testAirport, expectedResult, actualResult;
+
+
 
 console.log('                          🛫🛫🛫🛫     Airport Test 1     🛫🛫🛫🛫');
 
 //arrange 
-testPlane = {id: 'PLN'};
+testName = 'Test if the capacity can be Overridden as appropriate ';
+testAirport = new Airport();
+expectedResult = testAirport.capacity;
+
 
 //Act
-testAirport = new Airport();
-testAirport.planeLand(testPlane);
-actualResult = testAirport.planesAtAirport[0]?.id;
+actualResult = testAirport.Capacity(20);
 //assert
-result = assertEquals(actualResult, testPlane.id);
+
+result = assertNotEqual(actualResult, expectedResult);
 
 //report
-console.log(result ? `PASS` : `FAIL`);
+
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
