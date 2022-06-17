@@ -23,6 +23,10 @@ class Airport
         return this.listOfPlanes.length === this.capacity;
 
     }
+    takeOff()
+    {
+        this.listOfPlanes.pop();
+    }
 }
 
 module.exports = Airport;

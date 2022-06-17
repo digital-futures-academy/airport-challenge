@@ -76,7 +76,7 @@ result = assertEquals(expectedOutput, actualOutput);
 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
-//Test 3 - I want to prevent landing of a plane if the airport is full
+//Test 4 - I want to prevent landing of a plane if the airport is full
 
 console.log(`===Test 4 - prevent landing of a plane if airport is full===`)
 testName = `Test 4 - prevent landing if capacity at full when 2 planes are trying to land`;
@@ -94,6 +94,33 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //Report
 
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+
+// As an air traffic controller
+// So I can get passengers on the way to their destination
+// I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+
+//Arrange
+//Test 5 - Instruct the plane to take off and remove it from the airport list of current planes
+console.log(`=== Test 5 - instruct a plane to take off and remove it from the airport list of current planes ===`)
+
+
+
+//Act
+
+testAirport = new Airport(1);
+testAirport.land(`a-236`);
+expectedOutput = testAirport.listOfPlanes.length - 1;
+testAirport.takeOff();
+actualOutput = testAirport.listOfPlanes.length;
+
+//Assert
+
+result = assertEquals(expectedOutput, actualOutput);
+
+//Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
 
