@@ -2,7 +2,7 @@
 
 const test = require('../test-framework.js');
 const Airport = require('../src/airport.js');
-const { assertEquals, assertTrue } = require('../test-framework.js');
+const { assertEquals, assertTrue, assertFalse } = require('../test-framework.js');
 
 //declare a variable that will hold airport instances for tests.
 let airport;
@@ -83,4 +83,11 @@ test.it(`3. After calling setCapacity(number), getCapacity() returns number`, fu
     airport = new Airport();
     airport.setCapacity(capacity);
     assertEquals(capacity, airport.getCapacity());
+})
+
+console.log(`Requirement 3 tests`)
+
+test.it(`1. isFull() returns false if inAirport[].length is less than capacity.`, function () {
+    airport = new Airport(); // Default - no planes inAirport so should not be full
+    assertFalse(airport.isFull());
 })
