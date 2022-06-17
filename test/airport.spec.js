@@ -105,3 +105,10 @@ test.it(`3. Calling instructToLand(mock Plane) when the airport is under capacit
     airport.instructToLand(mockPlane);
     assertEquals('landed', mockPlane.state);
 })
+
+test.it(`4. Calling instructToLand(mock Plane) when the airport is full results in no change to the mock Plane's state`, function () {
+    airport = new Airport(1);
+    const mockPlane = provideMockPlane();
+    airport.instructToLand(mockPlane);
+    assertEquals('', mockPlane.state);
+})
