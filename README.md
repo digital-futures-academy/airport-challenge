@@ -139,7 +139,8 @@ I want to prevent landing when the airport is full
 
 | Object   | Property              | Message      | Output |
 | -------- | --------------------- | ------------ | ------ |
-| error    | message               | ------       | string |
 | Airport  | planesAtAirport@array | planeLand()  | Error  |
 | -------- | capacity@number       | ------------ | -----  |
 | Plane    | planeID               | ------------ | ------ |
+
+1. test if i can prevent from landing expectedOutput = testAirport.setCapacity()
