@@ -104,4 +104,3 @@ test.it(`7. On calling instructToLand(mockPlane), inAirport.length has ***increa
     airport.instructToLand(mockPlane);
     assertEquals(expectedResult, airport.getInAirport().length);
 })
-

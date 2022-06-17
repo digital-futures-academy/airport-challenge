@@ -19,6 +19,7 @@ class Airport {
   // No return value specified as required in the domain model for requirement 1.
   instructToLand(plane) {
     plane.land();
+    this.addToInAirport(plane);
   }
 
   //getCapacity() - act as the getter of #capacity by returning #capacity.
