@@ -91,3 +91,17 @@ test.it(`6. After calling addToInAirport(mockPlane), the array inAirport[] conta
     assertEquals(mockPlane.planeId, airport.getInAirport()[0].planeId);
 })
 
+test.it(`7. On calling instructToLand(mockPlane), inAirport.length has ***increased by 1***.`, function () {
+    airport = new Airport();
+    const mockPlane = {
+        planeId: 'mockPlane',
+        state: '',
+        land() {
+            mockPlane.state = 'landed';
+        }
+    }
+    const expectedResult = airport.getInAirport().length + 1;
+    airport.instructToLand(mockPlane);
+    assertEquals(expectedResult, airport.getInAirport().length);
+})
+
