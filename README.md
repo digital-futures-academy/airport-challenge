@@ -109,7 +109,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 |Objects    |Properties       |Messages               |Outputs    |
 |-----------|-----------------|-----------------------|-----------|
 |Airport    |inAirport[@Plane]|intructToLand(@Plane)  |@void      |
-|           |                 |addToInAirport(@Plane) |           |
+|           |                 |addToInAirport(@Plane) |@void      |
 |           |                 |getInAirport()         |inAirport[@Planes]|
 |Plane      |state @string    |land()                 |@string    |
 |           |planeId @string  |getState()             |@state @string|
@@ -131,7 +131,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 5. The length of `inAiport[]` for a newly created Airport is ***0***.
 6. `getInAirport()` returns an ***array***.
 7. After calling `addToInAirport(mockPlane)`, inAirport.length has ***increased by 1***.
-8. After calling `addToInAirport(mockPlane)`, the last entry of inAirport[] planeId matches that of the mockPlane.
+8. After calling `addToInAirport(mockPlane)`, the array inAirport[] contains an object with ***planeId***.
 9. On calling `instructToLand(mockPLane)` with a mock plane changes the mock plane's state changes to ***'landed'***.
 10. On calling `instructToLand(mockPlane)`, inAirport.length has ***increased by 1***. 
 
