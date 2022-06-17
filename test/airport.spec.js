@@ -77,3 +77,10 @@ test.it(`2. On calling theAirport constructor with a capacity, getCapacity() ret
     airport = new Airport(capacity);
     assertEquals(capacity, airport.getCapacity());
 })
+
+test.it(`3. After calling setCapacity(number), getCapacity() returns number`, function () {
+    const capacity = 20;
+    airport = new Airport();
+    airport.setCapacity(capacity);
+    assertEquals(capacity, airport.getCapacity());
+})
