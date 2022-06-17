@@ -18,7 +18,9 @@ class Airport {
 
   isFull() {
     if (this.#inAirport.length < this.#capacity) {
-      return false
+      return false;
+    } else {
+      return true;
     }
   }
 
