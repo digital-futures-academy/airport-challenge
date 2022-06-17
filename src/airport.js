@@ -1,7 +1,8 @@
 const plane = require('../src/planes');
 class Airport {
     
-	planesAtAirport= [];
+	planesAtAirport = [];
+	id = [];
 	capacity = 15;
 	full;
 	planeLand(plane) {

@@ -7,9 +7,9 @@ class plane{
    
 
     takeOff(plane) {
-        if (plane.departure === false) {
+        if (plane.flightStatus === false) {
             this.id.push(plane);
-            console.log(`Plane ✈️  ${plane.id} to ${plane.destination} is in the air.`);
+            console.log(`Plane ✈️  ${plane.id} to ${plane.destination} from ${plane.departure} is in the air.`);
             plane.departure = true;
             Airport.planesAtAirport = 0;
         }

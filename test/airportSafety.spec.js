@@ -11,11 +11,12 @@ testAirport = new Airport();
 //arrange 
 testName = 'Test if a airport is full';
 testAirport = new Airport();
-for (let i = 0; i <= testAirport.capacity; i++) {
-    testFull = {id: 'PLN' + i,destination: 'Lisbon', departure: false};
-    testAirport.planeLand(testFull);
+for (let i = 0; i <= testAirport.capacity ; i++) {
+    planeID = {id: 'PLN' + i,destination: 'Lisbon', departure: false};
+    testAirport.planesAtAirport.push(planeID);
 }
 
+testAirport.planeLand(planeID);
 //Act
 actualResult = testAirport.isFull();
 

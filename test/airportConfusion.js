@@ -8,14 +8,13 @@ console.log('                          🛫🛫🛫🛫     Plane Test 1     �
 
 //arrange
 testName = 'Test if Plane departed and is no longer in Airport';
-planeID = {id: 'PLN', destination: 'Lisbon', departure: false};
-planeID1 = {id: 'LSP', destination: 'Lisbon', departure: true
-};
 
 //Act
 testAirport = new Airport();
-testAirport.planeLand(planeID);
-testAirport.planeLand(planeID1);
+for (let i = 0; i < 5; i++) {
+    planeID = {id: 'PLN' + i,destination: 'Lisbon', departure: false};
+    testAirport.planesAtAirport.push(planeID);
+}
 LandPlanes = testAirport.planesAtAirport[0];
 testPlane = new plane;
 testPlane.takeOff(LandPlanes);
