@@ -108,20 +108,32 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 ### Domain model (Objects, Properties, Messages, Outputs)
 |Objects    |Properties       |Messages               |Outputs    |
 |-----------|-----------------|-----------------------|-----------|
-|Airport    |                 |intructToLand(@Plane)  |@void      |
-|           |                 |//calls plane.land()   |           |
-|Plane      |state @string    |land()                 |@void      |
-|           |                 |//change plane.state   |           |
-|           |                 |getState()             |@state @string|
+|Airport    |inAirport[@Plane]|intructToLand(@Plane)  |@void      |
+|           |                 |addToInAirport(@Plane) |           |
+|           |                 |getInAirport()         |inAirport[@Planes]|
+|Plane      |state @string    |land()                 |@string    |
+|           |planeId @string  |getState()             |@state @string|
+|           |                 |getPlaneId()           |@planeId @string|
 
-- Outputs for `instructToLand()` and `land()` are `@void` as the requirement does not specify any form of output messaging (e.g. success or failure messages).
-- Although the requirement does not specify a `state` property I am inferring it is needed to capture that `land()` has done something e.g. the `Plane` has landed.
-- Although the requirement does not specify a `getState()` to return the `state` string I am inferring it is needed as I intend the `state` to be a private variable to a `Plane` class instances and therefore inaccessible without a getter.
+- Outputs for `instructToLand()` is `@void` as the requirement does not specify any form of output messaging (e.g. success or failure messages). `instructToLand()` will call `addToInAirport()` after landing the plane.
+- Although a property to hold the planes in the airport is not explicitly required by the requirement I am considering it implicit to what an Airport needs to do. It is also required by later requirements.  
+- Although the requirement does not specify a `state` property I am inferring it is needed to capture that `land()` has done something to the plane e.g. the `Plane` has landed.
+- Although the requirement does not specify a `getState()` orto return the `state` string I am inferring it is needed as I intend the `state` to be a private variable to a `Plane` class instances and therefore inaccessible without a getter.
 
 ### TDD the user story
+#### Plane:
 1. The `state` of newly created instance of a Plane is a ***blank string***.
 2. On calling `land()` the plane's state changes to ***'landed'***.
-3. On calling `instructToLand()` with a mock plane changes the mock plane's state changes to ***'landed'***.
+3. The `planeId` of a newly created plane without an argument is ***'noID'***.
+4. The `planeId` of a newly created plane with a planeId is the ***planeId***.
+
+#### Airport:
+5. The length of `inAiport[]` for a newly created Airport is ***0***.
+6. `getInAirport()` returns an ***array***.
+7. After calling `addToInAirport(mockPlane)`, inAirport.length has ***increased by 1***.
+8. After calling `addToInAirport(mockPlane)`, the last entry of inAirport[] planeId matches that of the mockPlane.
+9. On calling `instructToLand(mockPLane)` with a mock plane changes the mock plane's state changes to ***'landed'***.
+10. On calling `instructToLand(mockPlane)`, inAirport.length has ***increased by 1***. 
 
 ## Requirement 2
 ```
