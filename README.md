@@ -97,3 +97,12 @@ Domain model
 | ------- | --------------------------- | ------------ | ------- |
 | Airport | listOfPlanes[@Array@planes] | land(@plane) | @String |
 |         | capacity                    |              |         |
+
+User story 3
+Domain model
+
+| Object  | Properties                  | Message      | Output   |
+| ------- | --------------------------- | ------------ | -------- |
+| Airport | listOfPlanes[@Array@planes] | land(@plane) | @String  |
+|         | capacity                    |              |          |
+|         |                             | isFull()     | @boolean |

@@ -50,3 +50,28 @@ result = assertEquals(expectedOutput, actualOutput);
 //Report
 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//User story 3
+// As an air traffic controller
+// To ensure safety
+// I want to prevent landing when the airport is full
+
+//Arrange
+//Test 3 - I want to prevent landing of a plane if the airport is full
+
+console.log(`===Test 3 - prevent landing of a plane if airport is full===`)
+testName = `Test 3 - prevent landing if capacity at full`;
+expectedOutput = true;
+
+//Act
+testAirport = new Airport(10);
+actualOutput = testAirport.isFull();
+
+//Assert
+
+result = assertEquals(expectedOutput, actualOutput);
+
+//Report
+
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
