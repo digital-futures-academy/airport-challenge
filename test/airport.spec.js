@@ -93,9 +93,8 @@ test.it(`1. isFull() returns false if inAirport[].length is less than capacity.`
 })
 
 test.it(`2. isFull() returns true if inAirport[].length is equal to capacity.`, function () {
-    airport = new Airport()
-    for (let i; i < airport.getCapacity(); i++) {  // Use a for loop to fill up the airport
-        airport.addToInAirport(provideMockPlane(`Plane${i}`))
-    }
+    airport = new Airport(1); // set the  capacity to 1 so we only need to add one mock
+    const mockPlane = provideMockPlane();
+    airport.addToInAirport(mockPlane);
     assertTrue(airport.isFull()); // Should return true.
 })
