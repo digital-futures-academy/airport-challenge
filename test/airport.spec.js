@@ -2,7 +2,7 @@
 
 const test = require('../test-framework.js');
 const Airport = require('../src/airport.js');
-const { assertEquals } = require('../test-framework.js');
+const { assertEquals, assertTrue } = require('../test-framework.js');
 
 //declare a variable that will hold airport instances for tests.
 let airport;
@@ -58,4 +58,9 @@ test.it(`2. On calling the Airport constructor without an argument, getCapacity(
 test.it(`3. The length of inAiport[] for a newly created Airport is 0.`, function () {
     airport = new Airport();
     assertEquals(0, airport.getInAirport().length);
+})
+
+test.it(`4. getInAirport() returns an array`, function () {
+    airport = new Airport();
+    assertTrue(Array.isArray(airport.getInAirport()));
 })
