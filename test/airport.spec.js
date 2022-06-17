@@ -98,3 +98,10 @@ test.it(`2. isFull() returns true if inAirport[].length is equal to capacity.`, 
     airport.addToInAirport(mockPlane);
     assertTrue(airport.isFull()); // Should return true.
 })
+
+test.it(`3. Calling instructToLand(mock Plane) when the airport is under capacity results in the mock Plane state changing to 'landed'`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    airport.instructToLand(mockPlane);
+    assertEquals('landed', mockPlane.state);
+})
