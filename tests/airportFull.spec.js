@@ -6,17 +6,15 @@ let expectedResult, testName, actualResult, result, input1, input2, testAirport;
 
 //arrange
 testAirport = new Airport();
-testName = `Test that I able to prevent a plane to land if airport is full`;
+testName = `Test the airport capacity is full and return an error`;
 input1 = 'PLN';
 input2 = 'PLN1';
 testAirport.setCapacity(1);
-expectedResult = 1;
 testAirport.planeLand(input1);
-testAirport.planeLand(input2);
 //act
-actualResult = testAirport.planesAtAirport.length;
-console.log(actualResult);
+actualResult = testAirport.planeLand(input2);
+
 //assert
-result = assertEquals(actualResult, expectedResult);
+result = assertTrue(actualResult instanceof Error);
 //report
 console.log(result ? `PASS` : `FAIL`);
