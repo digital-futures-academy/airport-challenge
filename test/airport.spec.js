@@ -113,3 +113,11 @@ test.it(`4. Calling instructToLand(mock Plane) when the airport is full results 
     airport.instructToLand(mockPlane);
     assertEquals('', mockPlane.state);
 })
+
+test.it(`5. Calling instructToLand(mock Plane) when the airport is full results in no change to inAirport[].length.`, function () {
+    airport = new Airport(0);
+    const mockPlane = provideMockPlane();
+    const expectedResult = airport.getInAirport().length;
+    airport.instructToLand(mockPlane);
+    assertEquals(expectedResult, airport.getInAirport().length);
+})
