@@ -200,6 +200,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 2. `isFull()` returns ***true*** if inAirport[].length is equal to capacity.
 3. Calling `instructToLand(mock Plane)` when the airport is under capacity results in the mock Plane state changing to ***'landed'***.
 4. Calling `instructToLand(mock Plane)` when the airport is full results in ***no change*** to the mock Plane's state.
+5. Calling `instructToLand(mock Plane)` when the airport is full results in ***no change*** to inAirport[].length.
 
 
 ## Requirement 4
