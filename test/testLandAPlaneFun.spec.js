@@ -7,7 +7,7 @@ const { assertEquals } = require("../test-framework");
 const Airport = require("../src/airport");
 const Plane = require("../src/plane");
 
-
+console.log(`****** Tests for plan can land ******`);
 //initial arrange
 let expectedOutput, actualOutput, result, planeID;
 let testName = ``;
@@ -18,11 +18,11 @@ let testName = ``;
 testName = `Tes1: plan can land because airport is not full `;
 expectedOutput = `Plan has been landed`;
 //**Instances of airport class**
-const airport1 = new Airport(`ap002`, planeID, 5);
+const airport1 = new Airport(`ap001`, planeID, 5);
 
 //**Instance of plane class
 planeID = new Plane(`pl004`);
-airport1.addPlaneInAirport(planeID);
+airport1.checkIfPlanCanAddedInList(planeID);
 planeID = new Plane(`pl006`);
 
 //act
@@ -34,22 +34,40 @@ result = assertEquals(expectedOutput, actualOutput);
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
 
-
 //Test 1
+//arrange
+testName = `Tes1: plan cannot land because it already in airport `;
+expectedOutput = `plane is already in airport`;
+
+
+//**Instance of plane class
+planeID = new Plane(`pl009`);
+airport1.checkIfPlanCanAddedInList(planeID);
+planeID = new Plane(`pl001`);
+airport1.checkIfPlanCanAddedInList(planeID);
+
+planeID = new Plane(`pl004`);
+
+
+//act
+actualOutput = airport1.landAPlane(planeID);
+
+//assert
+result = assertEquals(expectedOutput, actualOutput);
+
+//report
+console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
+
+
+//Test 3
 //arrange
 testName = `Tes1: plan cannot land because airport is full `;
 expectedOutput = `Sorry airport is full, Plan cannot land`;
 
-
 //**Instance of plane class
-planeID = new Plane(`pl004`);
-airport1.addPlaneInAirport(planeID);
-planeID = new Plane(`pl006`);
-airport1.addPlaneInAirport(planeID);
 planeID = new Plane(`pl007`);
-airport1.addPlaneInAirport(planeID);
-planeID = new Plane(`pl009`);
-
+airport1.checkIfPlanCanAddedInList(planeID);
+planeID = new Plane(`pl003`);
 
 //act
 actualOutput = airport1.landAPlane(planeID);
@@ -59,5 +77,5 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(actualOutput);
-console.log(airport1.getPlanesInAirport());
+// console.log(actualOutput);
+// console.log(airport1.getPlanesInAirport());

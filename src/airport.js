@@ -1,49 +1,50 @@
-// class for airports to store airportId, list of planes in airport and capacity of airport
-// also have two SETTER,GETTER methods/functions 
-// that sets the values and provide the values of private properties(encapsulated)
-// also have two methods/functions 
-// landAPlane tells weather plane can land or no on basis of capacity and already landed planes
-// isAirportFull checks airport is full or no
+
 
 const Plane = require("./plane");
 
 
 class Airport {
-  constructor(airportId, planeObject = new Plane(`pl001`), capacity = 10) {
+  constructor(airportId, planeObject = new Plane(`pl001`, false), capacity = 10) {
     this.airportId = airportId;
-    this.airportPlane = planeObject;
+    this.defaultPlane = planeObject;
     this.capacity = capacity;
   }
-  #planeCanLand = true;
   #planesInAirport = [];
-  getPlaneCanLand() {
-    return this.#planeCanLand;
-  }
-  setPlaneCanLand() {
-    this.#planeCanLand = !this.#planeCanLand;
-  }
   getPlanesInAirport() {
     return this.#planesInAirport;
   }
-  setPlanesInAirport(airportPlane) {
+  addPlaneInAirport(airportPlane) {
     this.#planesInAirport = [...this.#planesInAirport, airportPlane];
+    return `Plan has been landed`;
   }
-  isAirportFull(airportPlane = this.airportPlane) {
-    if (this.capacity === this.getPlanesInAirport().length) {
-      return `Sorry airport is full`
-    };
-    this.landAPlane(airportPlane);
-    return `airport is not full`;
-  }
-  landAPlane(airportPlane) {
-    if (this.getPlaneCanLand() && this.capacity <= 5) {
-      this.setPlanesInAirport(airportPlane);
-      this.getPlanesInAirport();
-      return `Plan has been landed`;
+
+  checkIfPlanCanAddedInList(airportPlane) {
+    if (this.#planesInAirport.length === 0) return this.addPlaneInAirport(airportPlane);
+    for (let i = 0; i < this.#planesInAirport.length; i++) {
+      if (this.#planesInAirport[i].planeID === airportPlane.planeID) {
+        return `plane is already in airport`;
+      }
     }
-    return `Sorry Plan cannot land`;
+    return this.addPlaneInAirport(airportPlane);
+  }
+  takeOffPlaneFromAirport(airportPlane) {
+    for (let i = 0; i < this.#planesInAirport.length; i++) {
+      if (this.#planesInAirport[i].planeID === airportPlane.planeID) {
+        this.#planesInAirport.splice(i, 1);
+        return `plane has taken off`;
+      }
+    }
+    return `plane is not in airport already take off`;
+  }
+  landAPlane(airportPlane = this.defaultPlane) {
+    if (this.#planesInAirport.length === this.capacity) {
+      return `Sorry airport is full, Plan cannot land`;
+    }
+    return this.checkIfPlanCanAddedInList(airportPlane);
   }
 }
+
+
 
 
 

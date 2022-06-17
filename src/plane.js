@@ -3,9 +3,14 @@
 class Plane {
     constructor(planeID) {
         this.planeID = planeID;
-        // this.addPlanesInList(planeID)
     }
-
+    // #hasPlaneTakenOff = false;
+    // setHasPlaneTakenOff() {
+    //     this.#hasPlaneTakenOff = !this.#hasPlaneTakenOff;
+    // }
+    // getHasPlaneTakenOff() {
+    //     return this.#hasPlaneTakenOff;
+    // }
     // addPlanesInList(planeID) {
     //     listOfPlanes = [];
     //     listOfPlanes.push(planeID);

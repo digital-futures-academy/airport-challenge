@@ -8,7 +8,7 @@ const Plane = require("../src/plane");
 
 //**Instance of airport class**
 const airport1 = new Airport(`ap001`, new Plane(`pl004`), 5);
-
+console.log(`****** Tests for Capacity ********`);
 //initial arrange
 let expectedOutput, actualOutput, result, testName;
 

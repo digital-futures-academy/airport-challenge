@@ -1,6 +1,5 @@
 const Airport = require("./airport");
 const Plane = require("./plane");
-const { landAPlan } = require("./airport");
 
 
 class Main {
@@ -17,7 +16,7 @@ class Main {
         // const plane8 = new Plane(`pl008`);
         // const plane9 = new Plane(`pl009`);
         // const plan10 = new Plane(`pl010`);
-        console.log(airport1.landAPlane(airport1.airportPlane));
+        console.log(airport1.landAPlane(airport1.defaultPlane));
         console.log(airport1.getPlanesInAirport());
     }
 }
