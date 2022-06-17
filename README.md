@@ -191,12 +191,13 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 |Objects  |Properties              |Messages               |Outputs  |
 |---------|------------------------|-----------------------|---------|
 |Airport  |Capacity @number        |instructToLand(@Plane) |@void    |
-|         |planesInAirport @number |isFull()               |@boolean |
+|         |inAirport[@planes]      |isFull()               |@boolean |
 
 
 ### TDD the user story
-1. `isFull()` returns ***false*** if planesInAirport is less than capacity.
-2. `isFull()` returns ***true*** if planesInAirport is equal to capacity.
+#### Airport
+1. `isFull()` returns ***false*** if inAirport[].length is less than capacity.
+2. `isFull()` returns ***true*** if inAirport[].length is equal to capacity.
 3. Calling `instructToLand(mock Plane)` when the airport is under capacity results in the mock Plane state changing to ***'landed'***.
 4. Calling `instructToLand(mock Plane)` when the airport is full results in ***no change*** to the mock Plane's state.
 
