@@ -10,7 +10,7 @@ let testName, actualOutput, expectedOutput, result, airport1, planeID;
 
 //arrange
 testName = `Test1: to check plane has taken off`;
-expectedOutput = true;
+expectedOutput = `plane is not in airport`;
 airport1 = new Airport(`ap002`, planeID, 5);
 planeID = new Plane(`pl004`);
 airport1.addPlaneInAirport(planeID);
@@ -22,6 +22,11 @@ planeID = new Plane(`pl009`);
 airport1.addPlaneInAirport(planeID);
 planeID = new Plane(`pl010`);
 airport1.addPlaneInAirport(planeID);
+planeID = new Plane(`pl010`);
+airport1.addPlaneInAirport(planeID);
+planeID = new Plane(`pl009`);
+
+
 // planeID = new Plane(`pl005`, false);
 
 
@@ -34,6 +39,5 @@ result = assertEquals(expectedOutput, actualOutput);
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
 console.log(actualOutput);
-console.log(planeID.getHasPlaneTakenOff());
+console.log(airport1.getPlanesInAirport());
 
-// console.log(airport1.deletePlaneFromAirport());
