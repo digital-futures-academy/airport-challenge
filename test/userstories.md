@@ -14,9 +14,9 @@ I want to instruct the airport to land a plane
 
 # Domain model 1
 
-| Objects     | Properties               | Messages          | Output   |
-| ----------- | ------------------------ | ----------------- | -------- |
-| Airport     | airportList @Array       | airportList       | @Array   |
+| Objects     | Properties               | Messages            | Output   |
+| ----------- | ------------------------ | -----------------   | -------- |
+| Airport     | airportList @Array       | airportList.length  | @Boolean |
 
 ---
 
@@ -53,8 +53,8 @@ nouns: airport
 verb: landing
 
 objects: airport, plane
-properties: capacity @Number
-messages: capacity()
+properties: capacity @Number, airportList@Array
+messages: capacity(), landPlane()
 output: @Error
 
 Test 3 - Return error when land plane is called due to capacity being full. 
@@ -67,12 +67,12 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
 nouns: airport, plane
-verbs: instruct, take off, confirm
+verbs: instruct, take off
 
 objects: airport, plane
 properties: airportList @Array
 messages: planeTakeoff()
-output: Empty array
+output: @Boolean (is array empty: true)
 
 Test 4 - Call a method that removes the last landed plane from the airport and then confirm that it is no longer in the airportList array
 
@@ -84,12 +84,12 @@ To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
 nouns: airport, plane
-verbs: prevent, take-off, land
+verbs: take-off, land
 
 objects: airport, plane
-properties: airportList @Array
-messages: planeTakeoff(), landPlane
-output: Error message 
+properties: airportList@Array
+messages: planeTakeoff(), landPlane();
+output: Error 
 
 Test 5 - Receive error message when attempting to take-off a plane that is not in airportList. 
 Test 6 - Recieve error message when attempting to land a plane that is already in airportList. 
@@ -136,6 +136,6 @@ verbs: count
 object: planes, airport
 properties: aiportList @Array, airportList.length @Number
 messages: landPlane()
-Output: Boolean
+Output: Number
 
 Test 9 - Return a number for number of planes in airport that have landed
