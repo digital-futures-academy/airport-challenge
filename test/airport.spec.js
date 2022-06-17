@@ -64,7 +64,8 @@ testName = `Test 3 - prevent landing if capacity at full`;
 expectedOutput = true;
 
 //Act
-testAirport = new Airport(10);
+testAirport = new Airport(1);
+testAirport.land(`a-234`)
 actualOutput = testAirport.isFull();
 
 //Assert
@@ -74,4 +75,25 @@ result = assertEquals(expectedOutput, actualOutput);
 //Report
 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//Test 3 - I want to prevent landing of a plane if the airport is full
+
+console.log(`===Test 4 - prevent landing of a plane if airport is full===`)
+testName = `Test 4 - prevent landing if capacity at full when 2 planes are trying to land`;
+expectedOutput = `Airport is full`;
+
+//Act
+testAirport = new Airport(1);
+testAirport.land(`a-234`)
+actualOutput = testAirport.land(`a-235`)
+
+
+//Assert
+
+result = assertEquals(expectedOutput, actualOutput);
+
+//Report
+
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
 
