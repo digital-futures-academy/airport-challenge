@@ -23,6 +23,10 @@ class Airport {
   getInAirport() {
     return this.#inAirport;
   }
+
+  setCapacity(number) {
+    this.#capacity = number;
+  }
 }
 
 module.exports = Airport;
