@@ -12,6 +12,7 @@ function provideMockPlane() {
     const mockPlane = {
         planeId: 'mockPlane',
         state: '',
+        wasTakeOffCalled: false,
         getPlaneId() {
             return mockPlane.planeId;
         },
@@ -20,6 +21,7 @@ function provideMockPlane() {
         },
         takeOff() {
             mockPlane.state = 'flying';
+            mockPlane.wasTakeOffCalled = true;
         }
     }
     return mockPlane;
@@ -205,4 +207,11 @@ test.it(`2. isInAirport(plane) returns true if the plane is in inAirport[]`, fun
     const mockPlane = provideMockPlane();
     airport.addToInAirport(mockPlane);
     assertTrue(airport.isInAirport(mockPlane));
+})
+
+test.it(`3. On calling instructToTakeOff() on a plane that is not in the airport results in no call to the plane's takeOff() function.`, function () {
+    airport = new Airport()
+    const mockPlane = provideMockPlane();
+    airport.instructToTakeOff(mockPlane);
+    assertFalse(mockPlane.wasTakeOffCalled);
 })
