@@ -115,7 +115,12 @@ I want to prevent takeoff when weather is stormy
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
-
+```
+### Domain modeling
+| Objects    |  Properties                 |     Messages                     | Output              |
+|------------|-----------------------------|----------------------------------|---------------------|
+|weather     |weather@String               |landAPlan(Plane@Object)           |                     |
+|            |                             |                                  |                     |
 ## 3rd user story
 ```
 As an air traffic controller

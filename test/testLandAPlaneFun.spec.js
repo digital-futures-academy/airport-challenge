@@ -19,6 +19,7 @@ testName = `Tes1: plan can land because airport is not full `;
 expectedOutput = `Plan has been landed`;
 //**Instances of airport class**
 const airport1 = new Airport(`ap001`, planeID, 5);
+airport1.setWeather();
 
 //**Instance of plane class
 planeID = new Plane(`pl004`);

@@ -41,6 +41,7 @@ class Airport {
     } return `plane is not in airport already take off`;
   }
   landAPlane(airportPlane = this.defaultPlane) {
+    if (this.#weather === `stormy`) return `Weather is stormy plane cannot land`;
     if (this.#planesInAirport.length === this.capacity) {
       return `Sorry airport is full, Plan cannot land`;
     }
