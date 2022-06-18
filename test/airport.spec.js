@@ -232,3 +232,13 @@ test.it(`4. On calling instructToLand() on a plane that is already landed result
     airport.instructToLand(mockPlane);
     assertFalse(mockPlane.wasLandCalled);
 })
+
+test.it(`5. On calling instructToLand() on a plane that is already landed results in no change to inAirport[].length`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    mockPlane.state = 'landed';
+    airport.addToInAirport(mockPlane);
+    expectedResult = airport.getInAirport().length;
+    airport.instructToLand(mockPlane);
+    assertEquals(expectedResult, airport.getInAirport().length);
+})
