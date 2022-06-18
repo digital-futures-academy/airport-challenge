@@ -191,3 +191,11 @@ test.it(`7. For a plane in the airport, instructToTakeOff() returns the string '
     assertEquals('plane left airport', airport.instructToTakeOff(mockPlane));
 })
 
+
+console.log('Requirement 5 tests:')
+
+test.it(`1.isInAirport(plane) returns false if the plane is NOT in inAirport[]`, function () {
+    airport = new Airport()
+    const mockPlane = provideMockPlane();
+    assertFalse(airport.isInAirport(mockPlane));
+})

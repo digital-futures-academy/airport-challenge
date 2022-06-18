@@ -285,7 +285,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 1. Calling `isLanded()` immediately after land() returns ***true***.
 2. Calling `isLanded()` after calling land() followed by takeOff()  returns ***false***.
 #### Airport
-1. `isInAirport(plane)` returns ***false*** if the plane is in inAirport[].
+1. `isInAirport(plane)` returns ***false*** if the plane is NOT in inAirport[].
 2. `isInAirport(plane)` returns ***true*** if the plane is in inAirport[].
 3. On calling `instructToTakeOff()` on a plane that is not in the airport results in ***no call to the plane's takeOff()*** function.
 4. On calling `instructToLand()` on a plane that is already landed results in ***no call of the plane's land()*** function.
