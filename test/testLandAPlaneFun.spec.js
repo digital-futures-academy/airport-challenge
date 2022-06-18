@@ -77,5 +77,3 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-// console.log(actualOutput);
-// console.log(airport1.getPlanesInAirport());

@@ -10,15 +10,15 @@ class Airport {
     this.capacity = capacity;
   }
   #planesInAirport = [];
-  getPlanesInAirport() {
-    return this.#planesInAirport;
-  }
-  addPlaneInAirport(airportPlane) {
+  // getPlanesInAirport() {
+  //   return this.#planesInAirport;
+  // }
+  addPlaneInAirport(airportPlane = this.defaultPlane) {
     this.#planesInAirport = [...this.#planesInAirport, airportPlane];
     return `Plan has been landed`;
   }
 
-  checkIfPlaneCanAddedInList(airportPlane) {
+  checkIfPlaneCanAddedInList(airportPlane = this.defaultPlane) {
     if (this.#planesInAirport.length === 0) return this.addPlaneInAirport(airportPlane);
     for (let i = 0; i < this.#planesInAirport.length; i++) {
       if (this.#planesInAirport[i].planeID === airportPlane.planeID) {
@@ -27,7 +27,7 @@ class Airport {
     }
     return this.addPlaneInAirport(airportPlane);
   }
-  takeOffPlaneFromAirport(airportPlane) {
+  takeOffPlaneFromAirport(airportPlane = this.defaultPlane) {
     for (let i = 0; i < this.#planesInAirport.length; i++) {
       if (this.#planesInAirport[i].planeID === airportPlane.planeID) {
         this.#planesInAirport.splice(i, 1);
