@@ -174,3 +174,12 @@ test.it(`5.On calling instructToTakeOff() with a mock Plane object that is in in
     airport.instructToTakeOff(mockPlane);
     assertEquals('flying', mockPlane.state);
 })
+
+test.it(`6. After calling instructToTakeOff() for a plane in the airport reduces inAirport[].length by 1.`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    airport.addToInAirport(mockPlane);
+    expectedResult = airport.getInAirport().length - 1;
+    airport.instructToTakeOff(mockPlane);
+    assertEquals(expectedResult, airport.getInAirport().length);
+})
