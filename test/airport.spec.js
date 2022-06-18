@@ -141,3 +141,15 @@ test.it(`2. removeFromInAirport() returns true if it removes a mockPlane from in
     airport.addToInAirport(mockPlane);
     assertTrue(airport.removeFromInAirport(mockPlane));
 })
+
+test.it(`3. removeFromInAirport() does not change the inAirport[].length if the mockPlane is not in the airport.`, function () {
+    airport = new Airport();
+    const mock1 = provideMockPlane();
+    mock1.planeId = 'mock1'; //mock 1 will be added to airport so there is a plane in airport. 
+    airport.addToInAirport(mock1);
+    expectedResult = airport.getInAirport().length; // expect 1.
+    const mock2 = provideMockPlane();
+    mock2.planeId = 'mock2'; //set mock2 to have a different id to mock1. When we try to remove this mock from the airport we expect nothing to happen due to the planeId difference.
+    airport.removeFromInAirport(mock2);
+    assertEquals(expectedResult, airport.getInAirport().length);
+})
