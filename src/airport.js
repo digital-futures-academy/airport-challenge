@@ -26,6 +26,10 @@ class Airport {
     }
   }
 
+  isInAirport(plane) {
+    return false;
+  }
+
   instructToTakeOff(plane) {
     plane.takeOff();
     this.removeFromInAirport(plane);
