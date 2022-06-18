@@ -10,6 +10,10 @@ class Airport {
     this.capacity = capacity;
   }
   #planesInAirport = [];
+  #weather = `stormy`;
+  setWeather() {
+    this.#weather = !this.#weather;
+  }
   getPlanesInAirport() {
     return this.#planesInAirport;
   }
@@ -28,13 +32,13 @@ class Airport {
     return this.addPlaneInAirport(airportPlane);
   }
   takeOffPlaneFromAirport(airportPlane = this.defaultPlane) {
+    if (this.#weather === `stormy`) return `Weather is stormy plane cannot take off`;
     for (let i = 0; i < this.#planesInAirport.length; i++) {
       if (this.#planesInAirport[i].planeID === airportPlane.planeID) {
         this.#planesInAirport.splice(i, 1);
         return `plane has taken off`;
       }
-    }
-    return `plane is not in airport already take off`;
+    } return `plane is not in airport already take off`;
   }
   landAPlane(airportPlane = this.defaultPlane) {
     if (this.#planesInAirport.length === this.capacity) {

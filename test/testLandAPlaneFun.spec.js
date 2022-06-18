@@ -36,7 +36,7 @@ console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
 
 //Test 1
 //arrange
-testName = `Tes1: plan cannot land because it already in airport `;
+testName = `Tes2: plan cannot land because it already in airport `;
 expectedOutput = `plane is already in airport`;
 
 
@@ -61,7 +61,7 @@ console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
 
 //Test 3
 //arrange
-testName = `Tes1: plan cannot land because airport is full `;
+testName = `Tes3: plan cannot land because airport is full `;
 expectedOutput = `Sorry airport is full, Plan cannot land`;
 
 //**Instance of plane class

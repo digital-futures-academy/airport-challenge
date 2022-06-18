@@ -5,7 +5,7 @@
 const Airport = require("../src/airport");
 const Plane = require("../src/plane");
 const { assertEquals } = require("../test-framework");
-
+console.log(`******* Tests for GETTER function ********`);
 //initial arrange
 let expectedOutput, actualOutput, result, planeID, airport3, testName;
 
@@ -32,5 +32,3 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(airport3.getPlanesInAirport());
-console.log(actualOutput);
