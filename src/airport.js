@@ -28,6 +28,7 @@ class Airport {
 
   instructToTakeOff(plane) {
     plane.takeOff();
+    this.removeFromInAirport(plane);
   }
 
   getCapacity() {
