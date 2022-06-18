@@ -17,6 +17,9 @@ function provideMockPlane() {
         },
         land() {
             mockPlane.state = 'landed';
+        },
+        takeOff() {
+            mockPlane.state = 'flying';
         }
     }
     return mockPlane;
@@ -162,4 +165,12 @@ test.it(`4. removeFromInAirport() returns false if the mockPlane is not inAirpor
     const mock2 = provideMockPlane();
     mock2.planeId = 'mock2'; //set mock2 to have a different id to mock1. When we try to remove this mock from the airport we expect a return of false.
     assertFalse(airport.removeFromInAirport(mock2));
+})
+
+test.it(`5.On calling instructToTakeOff() with a mock Plane object that is in inAirport[] changes the mock objects state to 'flying'`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    airport.addToInAirport(mockPlane);
+    airport.instructToTakeOff(mockPlane);
+    assertEquals('flying', mockPlane.state);
 })
