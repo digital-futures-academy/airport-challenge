@@ -134,3 +134,10 @@ test.it(`1. removeFromInAirport() changes inAirport[].length by minus 1 when the
     airport.removeFromInAirport(mockPlane);
     assertEquals(expectedResult, airport.getInAirport().length);
 })
+
+test.it(`2. removeFromInAirport() returns true if it removes a mockPlane from inAirport[]`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    airport.addToInAirport(mockPlane);
+    assertTrue(airport.removeFromInAirport(mockPlane));
+})
