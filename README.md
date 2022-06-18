@@ -222,18 +222,27 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 - For the purposes of domain modelling will ignore those marked with * as these appear to describe context, objects and actions outside the scope of the specific requirement.
 
 ### Domain model (Objects, Properties, Messages, Outputs)
-|Objects  |Properties    |Messages                  |Outputs  |
-|---------|--------------|--------------------------|---------|
-|Airport  |              |instructToTakeOff(@Plane) |@string  |
-|Plane    |state @string |takeOff()                 |@void  |
+|Objects  |Properties         |Messages                  |Outputs  |
+|---------|-------------------|--------------------------|---------|
+|Airport  |inAirport[@Planes] |instructToTakeOff(@Plane) |@string  |
+|         |                   |removeFromInAirport(@Plane)|@boolean|
+|Plane    |state @string      |takeOff()                 |@void  |
+|         |planeId @ string   |getPlaneId()              |@planeId |
 
-- The requirement asks for confirmation that the plane has left the `airport`. The `instructToTakeOff()` will return a string to act as the confirmation.
+- The requirement asks for confirmation that the plane has left the `airport`. The `instructToTakeOff()` will return a string to act as the confirmation. `remonveFromInAirport()` will return a boolean to confirm that it has removed the plane from `inAirport[]`.
 - Changing `Plane.state` is not explicitly referenced in the requirement but given the assumptions made regarding updating `Plane.state` for requirement #1 I am considering it implicit in this requirement. 
 
 ### TDD the user story
+#### Plane
 1. On calling `takeOff()` the planes state changes to ***'flying'***.
-2. On calling `instructToTakeOff()` with a mock Plane object changes the mock objects state to ***'flying'***.
-3. `instructToTakeOff()` returns a string to confirm ***'Plane left airport'***. 
+#### Airport
+1. `removeFromInAirport()` changes inAirport[].length by ***minus 1*** when the mockPlane is in inAirport[]. 
+2. `removeFromInAirport()` returns ***true*** if it removes a mockPlane from inAirport[].
+3. `removeFromInAirport()` ***does not change*** the inAirport[].length if the mockplane is not in the airport.
+4. `removeFromInAirport()` returns ***false*** if the mockPlane is not inAirport[].
+5. On calling `instructToTakeOff()` with a mock Plane object changes the mock objects state to ***'flying'***.
+6. `instructToTakeOff()` returns the string ***'success'*** after successful takeoff.
+7. `instructToTakeOff()` returns the string ***'failure'*** if there is no mockPlane to takeOff.
 
 ## Requirement 5
 ```
