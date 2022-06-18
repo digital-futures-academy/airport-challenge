@@ -10,9 +10,9 @@ class Airport {
     this.capacity = capacity;
   }
   #planesInAirport = [];
-  // getPlanesInAirport() {
-  //   return this.#planesInAirport;
-  // }
+  getPlanesInAirport() {
+    return this.#planesInAirport;
+  }
   addPlaneInAirport(airportPlane = this.defaultPlane) {
     this.#planesInAirport = [...this.#planesInAirport, airportPlane];
     return `Plan has been landed`;

@@ -4,10 +4,10 @@
 
 const Airport = require("../src/airport");
 const Plane = require("../src/plane");
-const { assertTrue } = require("../test-framework");
+const { assertEquals } = require("../test-framework");
 
 //initial arrange
-let actualOutput, result, planeID, airport3, testName;
+let expectedOutput, actualOutput, result, planeID, airport3, testName;
 
 //arrange
 testName = `Test1: display list of planes in airport`;
@@ -22,13 +22,15 @@ planeID = new Plane(`pl004`);
 airport3.addPlaneInAirport(planeID);
 planeID = new Plane(`pl005`);
 airport3.addPlaneInAirport(planeID);
+expectedOutput = airport3.getPlanesInAirport();
 
 //act
 actualOutput = airport3.getPlanesInAirport();
 
 //assert
-result = assertTrue(actualOutput?.getPlanesInAirport());
+result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-// console.log(airport3.getPlanesInAirport());
+console.log(airport3.getPlanesInAirport());
+console.log(actualOutput);
