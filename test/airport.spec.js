@@ -199,3 +199,9 @@ test.it(`1.isInAirport(plane) returns false if the plane is NOT in inAirport[]`,
     const mockPlane = provideMockPlane();
     assertFalse(airport.isInAirport(mockPlane));
 })
+
+test.it(`2. isInAirport(plane) returns true if the plane is in inAirport[]`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    assertTrue(airport.isInAirport(mockPlane);)
+})
