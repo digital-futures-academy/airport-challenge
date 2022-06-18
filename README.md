@@ -242,7 +242,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 4. `removeFromInAirport()` returns ***false*** if the mockPlane is not inAirport[].
 5. On calling `instructToTakeOff()` with a mock Plane object that is in inAirport[] changes the mock objects state to ***'flying'***.
 6. After calling `instructToTakeOff()` for a plane in the airport ***reduces inAirport[].length by 1***. 
-7. `instructToTakeOff()` returns the string ***'plane left airport'*** after the plane has been removed from inAirport[].
+7. For a plane in the airport, `instructToTakeOff()` returns the string ***'plane left airport'*** after completing.
 
 
 ## Requirement 5
