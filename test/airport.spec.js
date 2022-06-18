@@ -17,6 +17,13 @@ function provideMockPlane() {
         getPlaneId() {
             return mockPlane.planeId;
         },
+        isLanded() {
+            if (mockPlane.state === 'landed') {
+                return true;
+            } else {
+                return false;
+            }
+        },
         land() {
             mockPlane.state = 'landed';
             mockPlane.wasLandCalled = true;
