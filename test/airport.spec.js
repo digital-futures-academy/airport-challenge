@@ -228,7 +228,7 @@ test.it(`3. On calling instructToTakeOff() on a plane that is not in the airport
 test.it(`4. On calling instructToLand() on a plane that is already landed results in no call of the plane's land() function`, function () {
     airport = new Airport();
     const mockPlane = provideMockPlane();
-    mockPlane.land();
+    mockPlane.state = 'landed';
     airport.instructToLand(mockPlane);
     assertFalse(mockPlane.wasLandCalled);
 })
