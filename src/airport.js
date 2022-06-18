@@ -26,6 +26,10 @@ class Airport {
     }
   }
 
+  instructToTakeOff(plane) {
+    plane.takeOff();
+  }
+
   getCapacity() {
     return this.#capacity;
   }
