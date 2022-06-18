@@ -20,6 +20,10 @@ class Airport {
 		this.capacity = input;
 		return this.capacity;
 	}
+
+	planeTakeOff(plane) {
+		this.planesAtAirport.pop(plane);
+	}
 }
 
 module.exports = Airport;

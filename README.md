@@ -86,11 +86,11 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-| Object  | Property             | Messages           | Output  |
-| ------- | -------------------- | ------------------ | ------- | -------------------------- |
-| Airport | planes@array[@plane] | landPlane [@plane] | @string | // plane (name) has landed |
-| Plane   | state @string        | land()             | @string |
-|         | Id                   | getID              | @id     |
+| Object  | Property             | Messages    | Output  |
+| ------- | -------------------- | ----------- | ------- | -------------------------- |
+| Airport | planes@array[@plane] | landPlane() | @string | // plane (name) has landed |
+| Plane   | state @string        | land()      | @string |
+|         | Id                   | getID       | @id     |
 
 # For test 1
 
@@ -123,10 +123,10 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-| Object  | Properties      | Message       | Output  |
-| ------- | --------------- | ------------- | ------- |
-| Airport | capacity@number | setCapacity() | number  |
-| Plane   | planeID         | isLanded()    | Boolean |
+| Object  | Properties      | Message       | Output |
+| ------- | --------------- | ------------- | ------ |
+| Airport | capacity@number | setCapacity() | number |
+| Plane   | planeID         |               |        |
 
 1.create a method that returns the value of the airport capacity (get)
 2.to change the capacity, use a method that take capacity
@@ -144,3 +144,21 @@ I want to prevent landing when the airport is full
 | Plane    | planeID               | ------------ | ------ |
 
 1. test if i can prevent from landing expectedOutput = testAirport.setCapacity()
+   2.\* create a new instance of airport
+
+- then use 2 inputs for planes
+- set a new capacity for the airport as 1 that when the second plane attempts landing will return a error message asking to abort landing due to airport at full capacity
+- use assertTrue to "instanceOf" ERROR
+
+# User story 4
+
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+| Object  | Properties                  | Message      | Output   |
+| ------- | --------------------------- | ------------ | -------- |
+| Airport | listOfPlanes[@Array@planes] | land(@plane) | @String  |
+|         | capacity                    |              |          |
+|         |                             | isFull()     | @boolean |
+|         |                             | takeOff()    |          |

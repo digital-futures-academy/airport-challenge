@@ -1,7 +1,7 @@
 const { assertTrue, assertEquals } = require('../test-framework');
 const Airport = require('../src/airport');
 
-console.log('==== Test 3 ====');
+console.log('==== Test 4 ====');
 let expectedResult, testName, actualResult, result, input1, input2, testAirport;
 
 //arrange
