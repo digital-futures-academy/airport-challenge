@@ -3,7 +3,7 @@
 const test = require('../test-framework.js');
 const Plane = require('../src/plane.js');
 const Airport = require('../src/airport.js');
-const { assertEquals } = require('../test-framework.js');
+const { assertEquals, assertTrue } = require('../test-framework.js');
 
 //declare a variable that will hold plane instances for tests.
 let plane;
@@ -39,4 +39,12 @@ test.it(`1. On calling takeOff() the planes state changes to 'flying'`, function
     plane = new Plane();
     plane.takeOff();
     assertEquals('flying', plane.getState());
+})
+
+console.log('Requirement 5 tests')
+
+test.it(`1. Calling isLanded() immediately after land() returns true`, function () {
+    plane = new Plane();
+    plane.land();
+    assertTrue(plane.isLanded());
 })
