@@ -12,12 +12,14 @@ function provideMockPlane() {
     const mockPlane = {
         planeId: 'mockPlane',
         state: '',
+        wasLandCalled: false,
         wasTakeOffCalled: false,
         getPlaneId() {
             return mockPlane.planeId;
         },
         land() {
             mockPlane.state = 'landed';
+            mockPlane.wasLandCalled = true;
         },
         takeOff() {
             mockPlane.state = 'flying';
@@ -214,4 +216,12 @@ test.it(`3. On calling instructToTakeOff() on a plane that is not in the airport
     const mockPlane = provideMockPlane();
     airport.instructToTakeOff(mockPlane);
     assertFalse(mockPlane.wasTakeOffCalled);
+})
+
+test.it(`4. On calling instructToLand() on a plane that is already landed results in no call of the plane's land() function`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    mockPlane.land();
+    airport.instructToLand(mockPlane);
+    assertFalse(mockPlane.wasLandCalled);
 })
