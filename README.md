@@ -271,36 +271,24 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ### Domain model (Objects, Properties, Messages, Outputs)
 |Objects  |Properties         |Messages                  |Outputs  |
 |---------|-------------------|--------------------------|---------|
-|Airport  |inAirport[@Planes] |isInAirport(@planeId)     |@boolean |
+|Airport  |inAirport[@Planes] |isInAirport(@plane)     |@boolean |
 |         |                   |instructToTakeOff(@plane) |@string  |
-|         |                   |addToInAirport(@plane)    |@void    |
-|         |                   |getInAirport()          |@array[@[planes]|
+|         |                   |instructToLand(@plane)    |@void    |
 |Plane    |state @string      |takeOff()                 |@string  |
-|         |planeId @string    |getPlaneId()              |@planeId |
-|         |                   |isLanded()                |@boolean |
+|         |planeId @string    |isLanded()                |@boolean |
 |         |                   |land()                    |@void    |
 
-- `Airport.instructToTakeOff()`, `Plane.state`, `Plane.takeOff()`, `Plane.land()` are included as part of the requirements but their domain models (Objects, Properties, Messages, Outputs) remain the same as for the previous requirements.
-- `planeId` not specifically referenced in the requirement but is considered implicit as otherwise the Airport will be unable to identify if a plane is present.
-- It's assumed that `inAirport[]` will be a private variable to comply with OOP encapsulation. Therefore `addToInAirport()` and `getInAirport()`, which will add to or return the array `inAirport[]` is required in order to allow us to test whether `isInAirport()` works.
-- In theory a plane taking off from the airport should be removed from `inAirport[]`. However, this is beyond what is explicitly asked for within the requirement and therefore is not part of the model. It will not be implemented as part of this requirement.
+
 
 ### TDD the user story
-#### getPlaneID()
-1. On calling `getPlaneId()` on a new Plane() it returns ***'unnamed'***.
-2. On calling `getPlanId()` on a new Plane(planeId) it returns ***planeId***.
-#### islanded()
-3. Calling `isLanded()` returns ***false*** on a new plane.
-4. Calling `isLanded()` immediately after land() returns ***true***.
-5. Calling `isLanded()` after calling land() followed by takeOff()  returns ***false***.
-#### getInAirport()
-6. `getInAirport()` returns an ***empty array*** on a newly created airport.
-#### addToInAirport()
-7. Calling `addToInAirport(mock plane)` increases inAirport[].length ***by +1***.
-8. After calling `addToInAirport(mocked plane)`, inAirport[] contains the ***mocked plane***.
-#### isInAirport()
-9. `isInAirport(planeId)` returns ***false*** if the plane with the corresponding planeId is not in inAirport[].
-10. `isInAirport` returns ***true*** if the plane with the planeId passed to it is in inAirport[].
-#### instructToTakeOff()
-11. On calling `instructToTakeOff(mock plane)` the mock Plane's state ***does not change*** if the mock plane is not in the airport.
-12. On calling `instructToTakeOff(mock plane)` the mock Plane's state ***does change*** if the mock plane is in the airport.
+#### Plane
+1. Calling `isLanded()` immediately after land() returns ***true***.
+2. Calling `isLanded()` after calling land() followed by takeOff()  returns ***false***.
+#### Airport
+1. `isInAirport(plane)` returns ***false*** if the plane is in inAirport[].
+2. `isInAirport(plane)` returns ***true*** if the plane is in inAirport[].
+3. On calling `instructToTakeOff()` on a plane that is not in the airport results in ***no call to the plane's takeOff()*** function.
+4. On calling `instructToLand()` on a plane that is already landed results in ***no call of the plane's land()*** function.
+5. On calling `instructToLand()` on a plane that is already landed results in ***no change to inAirport[].length***.
+
+
