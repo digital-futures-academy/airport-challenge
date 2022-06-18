@@ -120,3 +120,14 @@ test.it(`5. Calling instructToLand(mock Plane) when the airport is full results 
     airport.instructToLand(mockPlane);
     assertEquals(expectedResult, airport.getInAirport().length);
 })
+
+console.log('Requirement 4 tests');
+
+test.it(`1. removeFromInAirport() changes inAirport[].length by minus 1 when the mockPlane is in inAirport[].`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    airport.addToInAirport(mockPlane);
+    const expectedResult = airport.getInAirport().length - 1;
+    airport.removeFromInAirport(mockPlane);
+    assertEquals(expectedResult, airport.getInAirport().length);
+})
