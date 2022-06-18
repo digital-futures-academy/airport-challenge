@@ -22,6 +22,8 @@ class Plane {
     isLanded() {
         if (this.#state === 'landed') {
             return true;
+        } else {
+            return false;
         }
     }
 
