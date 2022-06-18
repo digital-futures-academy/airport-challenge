@@ -36,9 +36,11 @@ class Airport {
   }
 
   instructToTakeOff(plane) {
-    plane.takeOff();
-    this.removeFromInAirport(plane);
-    return 'plane left airport';
+    if (this.isInAirport(plane)) {
+      plane.takeOff();
+      this.removeFromInAirport(plane);
+      return 'plane left airport';
+    }
   }
 
   getCapacity() {
