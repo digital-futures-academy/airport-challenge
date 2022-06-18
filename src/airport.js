@@ -27,6 +27,11 @@ class Airport {
   }
 
   isInAirport(plane) {
+    for (let i = 0; i < this.#inAirport.length; i++) {
+      if (this.#inAirport[i].getPlaneId() === plane.getPlaneId()) {
+        return true;
+      }
+    }
     return false;
   }
 
