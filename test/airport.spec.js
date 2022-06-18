@@ -183,3 +183,11 @@ test.it(`6. After calling instructToTakeOff() for a plane in the airport reduces
     airport.instructToTakeOff(mockPlane);
     assertEquals(expectedResult, airport.getInAirport().length);
 })
+
+test.it(`7. For a plane in the airport, instructToTakeOff() returns the string 'plane left airport' after completing`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    airport.addToInAirport(mockPlane);
+    assertEquals('plane left airport', airport.instructToTakeOff(mockPlane));
+})
+
