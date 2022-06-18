@@ -2,6 +2,8 @@
 
 const test = require('../test-framework.js');
 const Plane = require('../src/plane.js');
+const Airport = require('../src/airport.js');
+const { assertEquals } = require('../test-framework.js');
 
 //declare a variable that will hold plane instances for tests.
 let plane;
@@ -29,4 +31,12 @@ test.it(`3. The planeId of a newly created plane without an argument is 'noID'.`
 test.it(`4. The planeId of a newly created plane with a planeId is the planeId.`, function () {
     plane = new Plane('plane1');
     test.assertEquals('plane1', plane.getPlaneId());
+})
+
+console.log('Requirement 4 tests');
+
+test.it(`1. On calling takeOff() the planes state changes to 'flying'`, function () {
+    plane = new Plane();
+    plane.takeOff();
+    assertEquals('flying', plane.getState());
 })
