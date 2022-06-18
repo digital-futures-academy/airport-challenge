@@ -35,9 +35,14 @@ class Airport {
   }
 
   removeFromInAirport(plane) {
+    const originalLength = this.#inAirport.length;
     // use .filter() to return a new array that contains all items where the plane.getPlaneId does NOT match that of the plane object passed into removedFromInAirport().
     this.#inAirport = this.#inAirport.filter(item => item.getPlaneId() !== plane.getPlaneId())
-    return true;
+    if (this.#inAirport.length < originalLength) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   setCapacity(number) {
