@@ -19,6 +19,12 @@ class Plane {
         return this.#state;
     }
 
+    isLanded() {
+        if (this.#state === 'landed') {
+            return true;
+        }
+    }
+
     // The function will change the this.#state to 'landed'. No return value is required by the domain model (requirement 1).
     land() {
         this.#state = 'landed';
