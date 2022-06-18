@@ -24,6 +24,10 @@ class Plane {
         this.#state = 'landed';
     }
 
+    takeOff() {
+        this.#state = 'flying';
+    }
+
 }
 
 
