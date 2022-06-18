@@ -12,6 +12,9 @@ function provideMockPlane() {
     const mockPlane = {
         planeId: 'mockPlane',
         state: '',
+        getPlaneId() {
+            return mockPlane.planeId;
+        },
         land() {
             mockPlane.state = 'landed';
         }
