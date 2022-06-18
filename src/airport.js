@@ -12,7 +12,7 @@ class Airport {
   }
 
   instructToLand(plane) {
-    if (this.isFull() === false) {
+    if (this.isFull() === false && !plane.isLanded()) {
       plane.land();
       this.addToInAirport(plane);
     }
