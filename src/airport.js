@@ -16,8 +16,10 @@ class Airport {
       plane.land();
       this.addToInAirport(plane);
       return 'plane landed';
-    } else {
+    } else if (this.isFull()) {
       return 'airport full - cannot land';
+    } else {
+      return 'plane not flying - cannot be landed'
     }
   }
 
