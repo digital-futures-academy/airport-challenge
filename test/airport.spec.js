@@ -144,6 +144,12 @@ test.it(`5. Calling instructToLand(mock Plane) when the airport is full results 
     assertEquals(expectedResult, airport.getInAirport().length);
 })
 
+test.it(`6. Calling instructToLand() when the airport is full returns 'airport full - cannot land'`, function () {
+    airport = new Airport(0);
+    const mockPlane = provideMockPlane();
+    assertEquals('airport full - cannot land', airport.instructToLand(mockPlane));
+})
+
 console.log('Requirement 4 tests');
 
 test.it(`1. removeFromInAirport() changes inAirport[].length by minus 1 when the mockPlane is in inAirport[].`, function () {
