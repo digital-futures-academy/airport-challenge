@@ -13,6 +13,35 @@ Airport Challenge
 
 ```
 
+Challenge outcome notes for reviewer 
+---------
+- All core requirements were completed. Extended Acceptance Criteria were not attempted.
+- Tests can be found in `./test/` folder - `airport.spec.js` and `plane.spec.js`.
+- Tests can be run individually or via `specrunner.js` in project root. Running ```npm test``` will also run `specrunner.js`.
+```
+// run specrunner from project root folder:
+
+npm test
+// or
+node specrunner.js
+
+//run individual test from project root folder:
+
+node ./test/airport.spec.js
+```  
+- All source code can be found in `./src/` - `airport.js` and `plane.js`.
+- A program running a simple use of the code to demonstrate meeting the requirements is included at `./src/index.js`. On a console call it automatically runs. It outputs to the console. 
+```
+// Command to run index.js from project root folder:
+
+node ./src/index.js
+```
+- **Domain models** and **TDD design** are documented in this `README.md` below the originally provided instructions/requirements.
+
+
+
+
+
 Instructions
 ---------
 
