@@ -275,7 +275,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 |---------|-------------------|--------------------------|---------|
 |Airport  |inAirport[@Planes] |isInAirport(@plane)     |@boolean |
 |         |                   |instructToTakeOff(@plane) |@string  |
-|         |                   |instructToLand(@plane)    |@void    |
+|         |                   |instructToLand(@plane)    |@string    |
 |Plane    |state @string      |takeOff()                 |@string  |
 |         |planeId @string    |isLanded()                |@boolean |
 |         |                   |land()                    |@void    |
@@ -292,5 +292,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 3. On calling `instructToTakeOff()` on a plane that is not in the airport results in ***no call to the plane's takeOff()*** function.
 4. On calling `instructToLand()` on a plane that is already landed results in ***no call of the plane's land()*** function.
 5. On calling `instructToLand()` on a plane that is already landed results in ***no change to inAirport[].length***.
+6. On calling `instructToTakeOff()` on a plane that is not in the airport returns ***'plane not in airport'***.
+7. On calling `instructToLand()` on a plane that is not flying returns ***'plane not flying - cannot be landed'***.
 
 
