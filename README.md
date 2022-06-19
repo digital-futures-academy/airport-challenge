@@ -134,7 +134,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 4. After calling `addToInAirport(mockPlane)`, the array inAirport[] contains an object with ***planeId***.
 5. On calling `instructToLand(mockPLane)` with a mock plane changes the mock plane's state changes to ***'landed'***.
 6. On calling `instructToLand(mockPlane)`, inAirport.length has ***increased by 1***. 
-7. After calling `instructToLand()` it returns the 'plane landed'.
+7. After calling `instructToLand()` it returns 'plane landed'.
 
 ## Requirement 2
 ```
@@ -191,7 +191,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 ### Domain model (Objects, Properties, Messages, Outputs)
 |Objects  |Properties              |Messages               |Outputs  |
 |---------|------------------------|-----------------------|---------|
-|Airport  |Capacity @number        |instructToLand(@Plane) |@void    |
+|Airport  |Capacity @number        |instructToLand(@Plane) |@string  |
 |         |inAirport[@planes]      |isFull()               |@boolean |
 
 
@@ -202,6 +202,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 3. Calling `instructToLand(mock Plane)` when the airport is under capacity results in the mock Plane state changing to ***'landed'***.
 4. Calling `instructToLand(mock Plane)` when the airport is full results in ***no change*** to the mock Plane's state.
 5. Calling `instructToLand(mock Plane)` when the airport is full results in ***no change*** to inAirport[].length.
+6. Calling `instructToLand()` when the airport is full returns 'airport full - cannot land'.
 
 
 ## Requirement 4
