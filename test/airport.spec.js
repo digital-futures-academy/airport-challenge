@@ -81,6 +81,12 @@ test.it(`6. On calling instructToLand(mockPlane), inAirport.length has ***increa
     assertEquals(expectedResult, airport.getInAirport().length);
 })
 
+test.it(`7. After calling instructToLand() it returns 'plane landed'`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    assertEquals('plane landed', airport.instructToLand(mockPlane));
+})
+
 
 console.log(`Requirement 2 tests`);
 
