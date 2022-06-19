@@ -40,6 +40,14 @@ We have a request from a client to write the software to control the flow of pla
 
 #### Acceptance Criteria
 ```
+OBJECTS: Plane | Airport
+PROPERTIES: name@string | planesInAirport[@plane]
+MESSAGES: getName() | landPlane(@plane)
+OUTPUT: string | string
+
+when I call landPlane on an airport it will pass the plane instance to the planesInAirport array
+when the planesInAirport array is checked it will display the instance of plane
+
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane

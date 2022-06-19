@@ -1,0 +1,5 @@
+require("./airport.spec")
+require("./airportCapacity.spec")
+require("./fullAirport.spec")
+require("./takeOff.spec")
+require("./errorMessageLand.spec")
