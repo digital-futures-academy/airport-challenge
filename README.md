@@ -184,7 +184,7 @@ Planes that have landed must be at an airport
 
 
 #### Tests:
-1. Count number of planes landed in the airport accessing through listOfLandedPlanes array elements is equal to the 'isLanded' status of all planes mentioned in the listOfLandedPlanes.
+1. Count number of planes landed which have an airportID.
 
 
 

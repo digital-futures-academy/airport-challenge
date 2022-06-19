@@ -103,6 +103,7 @@ test.it('Test 9. Prevent landing of a plane if weather is stormy', () => {
 
 
 
+
     for (let i = 0; i < 5; i++) {
         airport5.landAPlane(airport5.copyOfGlobalListOfPlanes[i]);
     } //fills airport5.listOfLandedPlanes with planeID from PLANE1 to PLANE5 partially filling defaultCapacity which is 10 here for airport5
