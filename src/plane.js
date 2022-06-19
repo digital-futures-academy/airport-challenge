@@ -20,5 +20,3 @@ console.log(totalPlanes);
 
 module.exports = Plane;
 
-
-
