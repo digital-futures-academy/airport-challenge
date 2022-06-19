@@ -254,3 +254,9 @@ test.it(`5. On calling instructToLand() on a plane that is already landed result
     airport.instructToLand(mockPlane);
     assertEquals(expectedResult, airport.getInAirport().length);
 })
+
+test.it(`6. On calling instructToTakeOff() on a plane that is not in the airport returns 'plane not in airport'`, function () {
+    airport = new Airport();
+    const mockPlane = provideMockPlane();
+    assertEquals('plane not in airport', airport.instructToTakeOff());
+})
