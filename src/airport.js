@@ -12,14 +12,15 @@ class Airport {
   }
 
   instructToLand(plane) {
-    if (this.isFull() === false && !plane.isLanded()) {
+    if (this.isFull()) {
+      return 'airport full - cannot land';
+    }
+    else if (plane.isLanded()) {
+      return 'plane not flying - cannot be landed'
+    } else {
       plane.land();
       this.addToInAirport(plane);
       return 'plane landed';
-    } else if (this.isFull()) {
-      return 'airport full - cannot land';
-    } else {
-      return 'plane not flying - cannot be landed'
     }
   }
 

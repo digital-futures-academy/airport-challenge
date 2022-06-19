@@ -293,6 +293,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
 4. On calling `instructToLand()` on a plane that is already landed results in ***no call of the plane's land()*** function.
 5. On calling `instructToLand()` on a plane that is already landed results in ***no change to inAirport[].length***.
 6. On calling `instructToTakeOff()` on a plane that is not in the airport returns ***'plane not in airport'***.
-7. On calling `instructToLand()` on a plane that is not flying returns ***'plane not flying - cannot be landed'***.
+7. On calling `instructToLand()` on a plane that is landed returns ***'plane not flying - cannot be landed'***.
 
 

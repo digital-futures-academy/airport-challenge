@@ -261,7 +261,7 @@ test.it(`6. On calling instructToTakeOff() on a plane that is not in the airport
     assertEquals('plane not in airport', airport.instructToTakeOff());
 })
 
-test.it(`7. On calling instructToLand() on a plane that is not flying returns 'plane not flying - cannot be landed'`, function () {
+test.it(`7. On calling instructToLand() on a plane that is landed returns 'plane not flying - cannot be landed'`, function () {
     airport = new Airport();
     const mockPlane = provideMockPlane();
     mockPlane.state = 'landed';
