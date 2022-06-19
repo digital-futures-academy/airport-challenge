@@ -93,15 +93,17 @@ class AIRPORT {
             return takeOffMessage;
         }
 
+        else if (currentWeather === this.possibleWeatherConditions[0]) {
+            takeOffMessage = `${inputPlaneObj.planeID} cannot Take Off as current weather is Stormy!`;
+            return takeOffMessage;
+        }
+
         else if (this._checkIfContains !== true) {
             takeOffMessage = `${inputPlaneObj.planeID} cannot Take Off as it is NOT currently in landed in the airport`;
             return takeOffMessage;
         }
 
-        else if (currentWeather === this.possibleWeatherConditions[0]) {
-            takeOffMessage = `${inputPlaneObj.planeID} cannot Take Off as current weather is Stormy`;
-            return takeOffMessage;
-        }
+
     }
 
 
