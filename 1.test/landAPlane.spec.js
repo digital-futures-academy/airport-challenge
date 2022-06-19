@@ -68,3 +68,25 @@ test.it('Test 4. Test that `landAPlane()` throws an Error if capacity of airport
     // Act/Assert
     test.assertEquals(airport3.landAPlane(testPlaneObject), 'Airport capacity full');
 });
+
+
+test.it('Test 7. Prevent Landing of a plane which is already landed in airport.', () => {
+    // Arrange
+    const airport4 = new AIRPORT('airport4');
+
+    airport4.weather = 'clear'; //setter for weather
+
+    airport4.copyOfGlobalListOfPlanes = [...globalListOfPlanes]; //cloning the array as the landAPlane function makes changes in plane.landedAt property hence changing the array.
+
+
+
+    for (let i = 0; i < 5; i++) {
+        airport4.landAPlane(airport4.copyOfGlobalListOfPlanes[i]);
+    } //fills airport4.listOfLandedPlanes with planeID from PLANE1 to PLANE5 partially filling defaultCapacity which is 10 here for airport4
+
+    let testPlaneObject = airport4.copyOfGlobalListOfPlanes[2]; //where planeID =  "PLANE3"
+
+    // Act/Assert
+    test.assertEquals(airport4.landAPlane(testPlaneObject), `${testPlaneObject.planeID} has already landed!`);
+});
+

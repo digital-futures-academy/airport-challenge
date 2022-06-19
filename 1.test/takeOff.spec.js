@@ -13,7 +13,7 @@ for (let i = 1; i < 11; i++) {
 Object.freeze(globalListOfPlanes); //no more changes
 //console.log(globalListOfPlanes);
 
-test.it('Take Off a plane which is currently landed in airport and give a confirmation', () => {
+test.it('Test 5. Take Off a plane which is currently landed in airport and give a confirmation', () => {
     // Arrange
     const airport1 = new AIRPORT('airport1');
 
@@ -32,7 +32,7 @@ test.it('Take Off a plane which is currently landed in airport and give a confir
 });
 
 
-test.it('Prevent Take Off for a plane which is NOT currently landed in airport', () => {
+test.it('Test 6. Prevent Take Off for a plane which is NOT currently landed in airport', () => {
     // Arrange
     const airport2 = new AIRPORT('airport2');
 

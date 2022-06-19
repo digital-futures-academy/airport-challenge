@@ -19,11 +19,14 @@ class AIRPORT {
                 this._indexNumberOfMatchedPlane++;
                 return this._checkIfContains;
             }
+
             this._indexNumberOfMatchedPlane++;
 
         });
 
-
+        if (this._checkIfContains !== true) {
+            return this._checkIfContains = false;
+        }
         return this._checkIfContains;
 
     }
@@ -33,7 +36,7 @@ class AIRPORT {
         let landingMessage = 'No Landing Message yet!'; // this will hold the an error or a success message
         let currentWeather = this.weather;
 
-        this.checkIfContains(inputPlaneObj.planeID);
+        this.checkIfContains(inputPlaneObj);
 
         if (this.listOfLandedPlanes.length === this._capacity) {
             landingMessage = 'Airport capacity full';
