@@ -77,3 +77,24 @@ class PLANE {
 
 
 
+us2
+
+
+//User Story - 2
+
+// As the system designer
+// So that the software can be used for many different airports
+// I would like a default airport capacity that can be overridden as appropriate
+// ```
+// #### Domain Model:
+
+// | object |	property	| message | output |
+// | -------| -------------|-------  | ------- |
+// | AIRPORT |	capacity	| changeAirportCapacity(@Number) |	@Number |
+
+
+// #### Tests:
+ 
+// 1. Test that `changeAirportCapacity` changes capacity of airport
+
+

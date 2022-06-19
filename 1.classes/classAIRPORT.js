@@ -61,17 +61,18 @@ class AIRPORT {
         }
 
 
-
-
-
-
-
-
-
-
-
-
     }
+
+
+    changeAirportCapacity(newAirportCapacity) {
+        this._capacity = newAirportCapacity;
+        return this._capacity;
+    }
+
+
+
+
+
 
 
     // generates weather condition if this._weather is null
