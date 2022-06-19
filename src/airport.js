@@ -11,6 +11,13 @@ class Airport {
   }
   #planesInAirport = [];
   #weather = `stormy`;
+  #countPlanes = 0;
+  setCountPlanes() {
+    this.#countPlanes += this.#planesInAirport.length;
+  }
+  getCountPlanes() {
+    return `Number of planes on ${this.airportId} is ${this.#countPlanes}`;
+  }
   setWeather() {
     this.#weather = !this.#weather;
   }

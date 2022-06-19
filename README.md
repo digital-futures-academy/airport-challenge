@@ -110,6 +110,7 @@ I want to prevent takeoff when weather is stormy
 |------------|-----------------------------|--------------------------------------------------------|---------------------|
 |weather     |weather@String               |takeOffPlaneFromAirport(Plane@Object)                   |                     |
 |            |                             |                                                        |                     |
+
 ## 2nd user story
 ```
 As an air traffic controller
@@ -121,18 +122,24 @@ I want to prevent landing when weather is stormy
 |------------|-----------------------------|----------------------------------|---------------------|
 |weather     |weather@String               |landAPlan(Plane@Object)           |                     |
 |            |                             |                                  |                     |
+
 ## 3rd user story
 ```
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 ```
-
+### Domain modeling
+| Objects    |  Properties                 |     Messages                     | Output              |
+|------------|-----------------------------|----------------------------------|---------------------|
+|Count       |#countPlanes@Number          |getCountPlanes()                  |@Number              |
+|            |                             |                                  |                     |
 
 # classes
 ```
 - there is **Airport** class for airports to store airportId, list of planes in airport and capacity of airport
 -have one GETTER *getPlanesInAirport* for list of planes that returns the values of private(encapsulated) property planesInAirport
+-have one SETTER *setWeather* just to make *landAPlane* and *takeOffPlaneFromAirport* work when weather is not stormy
 -also have four methods/functions other then constructor
 -*addPlaneInAirport* this method adds planes in list of planes which is private property
 -*checkIfPlaneCanAddedInList* this method is called when wants to add more planes in list but we don't want to add one plane multiple times in list so first it checks if list is empty if not then call *addPlaneInList* otherwise find plane already exist in list by iterating through list with loop if plane not found then call *addPlaneInList* method
