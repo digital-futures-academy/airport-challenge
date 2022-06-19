@@ -8,14 +8,24 @@ class Airport
 
     land(plane)
     {
+        for (let i = 0; i < this.listOfPlanes.length; i++)
+        {
+            if (this.listOfPlanes[i] === plane)
+            {
+                return `Plane already landed`
+            }
+
+        }
         if (this.isFull())
         {
             return `Airport is full`
-        } else
+        }
+        else
         {
             this.listOfPlanes.push(plane);
             return plane;
         }
+
 
     }
     isFull()
@@ -23,9 +33,24 @@ class Airport
         return this.listOfPlanes.length === this.capacity;
 
     }
-    takeOff()
+    takeOff(plane)
     {
-        this.listOfPlanes.pop();
+        let isAtAirport = false;
+        for (let i = 0; i < this.listOfPlanes.length; i++)
+        {
+            if (this.listOfPlanes[i] === plane)
+            {
+                let newList = this.listOfPlanes.filter(plane => plane !== this.listOfPlanes[i]);
+                this.listOfPlanes = newList;
+                isAtAirport = true
+                break;
+            }
+        }
+
+        if (!isAtAirport)
+        {
+            return `Plane not at the airport`
+        }
     }
 }
 
@@ -34,5 +59,3 @@ module.exports = Airport;
 
 
 
-//check against capacity if the airport can take more planes
-//
