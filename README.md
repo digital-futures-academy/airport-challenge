@@ -44,21 +44,72 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+
+| OBJECTS       |PROPERTIES         |MESSAGES               |OUTPUT             |
+|---------------|-------------------|-----------------------|-------------------|
+|  Airport      | array[@planes]    |landPlane(@plane)      |[Array]            | 
+|---------------|-------------------|-----------------------|-------------------| 
+|  Plane        | Name(@string)     |                       |                   |
+
+when i call landplane on an airport it will pass the plane instance to the planesInAirport[array]
+when the planesInAirport array is checked it will display the instance of plane
+
+=========
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
+| OBJECTS       |PROPERTIES         |MESSAGES               |OUTPUT             |
+|---------------|-------------------|-----------------------|-------------------|
+|Airport        | Capacity@number   | set capacity          | number            |
+|---------------|-------------------|-----------------------|-------------------| 
+|  Plane        | Name(@string)     |                       |                   |
+
+when a new instance of the airport class is called a default capacity value will be given
+
+=========
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+ 
+| OBJECTS       |PROPERTIES         |MESSAGES               |OUTPUT             |
+|---------------|-------------------|-----------------------|-------------------|
+| Airport       | Capacity@number   | LandPlane()           | @cant land msg    |
+|---------------|-------------------|-----------------------|-------------------| 
+|  Plane        | Name(@string)     |                       |                   |
+
+when the airport is full i dont want plane to be able to land.
+A string message should output that the airport is full.
+
+=========
 
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+| OBJECTS       |PROPERTIES         |MESSAGES               |OUTPUT             |
+|---------------|-------------------|-----------------------|-------------------|
+|Airport        | taken off Boolean | takeoff()             | Array[]           |
+|---------------|-------------------|-----------------------|-------------------| 
+|  Plane        | Name(@string)     |                       |                   |
+
+when i call takeoff on an instance of plane i want to remove it from the planes in airport array,
+and then confirm that it is no longer at the airport
+
+=========
+
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+| OBJECTS       |PROPERTIES         |MESSAGES               |OUTPUT             |
+|---------------|-------------------|-----------------------|-------------------|
+| Airport       | plane in airport? | Takeoff()             | @string with error|
+|               | @boolean          | Landplane()           |    messages       |
+|---------------|-------------------|-----------------------|-------------------| 
+|  Plane        | Name(@string)     |                       |                   |
 ```
 
 #### Extended Acceptance Criteria
