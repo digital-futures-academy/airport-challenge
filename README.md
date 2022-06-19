@@ -79,3 +79,52 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+
+
+#### Monaires TDD Planning 
+
+As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+
+| noun            | verb             |
+| -----           | -----------      |
+|                 |                  |
+| Airport         | Instruct -needs register         |
+| Plane           | Land             |
+|                 |                  |
+
+### Domain Model 
+| Objects  | Properties     | Messages         | Output        |
+| -------  | ---------------| ---------------- | --------      |
+| Airplane |PlaneID         |                  | Id@string     |
+|          |                |                  |               |
+| Airport  |PlaneList@Array | landPlane()      |@Boolean       |  
+|          |                | planelanded()    |@stringarray   |
+|          |                |                  |               |
+
+-Airport needs to store a list of planes 
+-Plane needs to land 
+# TDD
+
+Failing test - but what for?
+
+**Airport** test the function of `arePlanesLanded` and get an array of planes to make sure that the planes have arrived at the airport 
+
+**Plane** test a newly created `plane` and display an `planeID`
+
+
+
+### Conclusions
+// In the plane class-perhaps a id class could have also worked because it might have helped give a single responsibility just to the id?.
+//I struggled to get the first plane test to pass so I did whatever I could to make it pass 
+
+
+
+
+
+
+                    
+                  
+                    
