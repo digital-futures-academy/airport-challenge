@@ -14,4 +14,4 @@ const actualResult = testAirport.setCapacity(15);
 //assert
 const result = assertEquals(actualResult, expectedResult);
 //report
-console.log(result ? `PASS` : `FAIL`);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

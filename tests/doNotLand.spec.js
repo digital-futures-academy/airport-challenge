@@ -15,8 +15,8 @@ testAirport.planeLand(input1);
 testAirport.planeLand(input2);
 //act
 actualResult = testAirport.planesAtAirport.length;
-console.log(actualResult);
+
 //assert
 result = assertEquals(actualResult, expectedResult);
 //report
-console.log(result ? `PASS` : `FAIL`);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

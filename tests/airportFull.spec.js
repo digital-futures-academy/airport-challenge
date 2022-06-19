@@ -17,4 +17,4 @@ actualResult = testAirport.planeLand(input2);
 //assert
 result = assertTrue(actualResult instanceof Error);
 //report
-console.log(result ? `PASS` : `FAIL`);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

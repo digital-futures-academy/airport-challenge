@@ -162,3 +162,20 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 |         | capacity                    |              |          |
 |         |                             | isFull()     | @boolean |
 |         |                             | takeOff()    |          |
+
+1. do 2 tests
+2. first one test the if the function works to remove a plane from the array planesAtAirport
+3. then on second test checks using includes() to search the array and confirm if the plane was taken off the array, using assertFalse.
+
+# User story 5
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+| Object  | Property            | Message       | Output   |
+| ------- | ------------------- | ------------- | -------- |
+| Error   | message @string     |               | @string  |
+| Airport | landedPlanes @array | takeOff()     | Error    |
+|         |                     | landPlane()   | Error    |
+| Plane   | planeID             | isAtAirport() | @boolean |

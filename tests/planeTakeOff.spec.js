@@ -11,17 +11,18 @@ let expectedResult, testName, actualResult, result, input1, testAirport;
 testAirport = new Airport();
 testName = `Test that function removes a plane from array`;
 input1 = 'PLN';
-testAirport.setCapacity(1);
-expectedResult = 0;
+testAirport.planeLand(input1);
+
+expectedResult = true;
 
 //act
 testAirport.planeTakeOff(input1);
-actualResult = testAirport.planesAtAirport.length;
+actualResult = testAirport.takeOff;
 
 //assert
 result = assertEquals(actualResult, expectedResult);
 //report
-console.log(result ? `PASS` : `FAIL`);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
 // test 2
 
@@ -29,7 +30,7 @@ console.log(result ? `PASS` : `FAIL`);
 testAirport = new Airport();
 testName = `Test if the plane has been removed from the array`;
 input1 = 'PLN';
-testAirport.setCapacity(1);
+testAirport.planeLand(input1);
 expectedResult = 0;
 
 //act
@@ -39,4 +40,4 @@ actualResult = testAirport.planesAtAirport.includes(input1);
 //assert
 result = assertFalse(actualResult);
 //report
-console.log(result ? `PASS` : `FAIL`);
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
