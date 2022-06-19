@@ -6,12 +6,28 @@ class AIRPORT {
         this._weather = [];
         this.possibleWeatherConditions = ['stormy', 'clear', 'clear'];
         this._airportID = _airportID;
+        this._checkIfContains = 'not checked';
+    }
+
+    checkIfContains(inputPlaneObj) {
+        this.listOfLandedPlanes.forEach(elementObject => {
+            if (Object.values(elementObject).includes(inputPlaneObj.planeID)) {
+                this._checkIfContains = true;
+                return this._checkIfContains;
+            }
+        });
+        this._checkIfContains = false;
+        return this._checkIfContains;
+
     }
 
 
     landAPlane(inputPlaneObj) {
-        let landingMessage; // this will hold the an error or a success message
+        let landingMessage = 'No Landing Message'; // this will hold the an error or a success message
         let currentWeather = this.weather;
+
+        this.checkIfContains(inputPlaneObj.planeID);
+
         if (this.listOfLandedPlanes.length === this._capacity) {
             landingMessage = 'Airport capacity full';
             return landingMessage;
@@ -20,11 +36,36 @@ class AIRPORT {
             landingMessage = `${inputPlaneObj.planeID} cannot Land as current weather is Stormy`;
             return landingMessage;
         }
+
+
         else if (this.listOfLandedPlanes.length === 0) {
             inputPlaneObj.landedAt = this._airportID;
             this.listOfLandedPlanes = [...this.listOfLandedPlanes, inputPlaneObj];
-            return this.listOfLandedPlanes;
+            landingMessage = `${inputPlaneObj.planeID} has now landed!`;
+            return landingMessage;
         }
+
+
+        else if (this._checkIfContains) {
+
+            landingMessage = `${inputPlaneObj.planeID} has already landed!`;
+            return landingMessage;
+
+        }
+        else if (!this._checkIfContains) {
+            inputPlaneObj.landedAt = this._airportID;
+            this.listOfLandedPlanes = [...this.listOfLandedPlanes, inputPlaneObj];
+            landingMessage = `${inputPlaneObj.planeID} has now landed!`;
+            return landingMessage;
+            //return this.listOfLandedPlanes;
+        }
+
+
+
+
+
+
+
 
 
 
