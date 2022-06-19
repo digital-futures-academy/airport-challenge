@@ -83,10 +83,15 @@ class AIRPORT {
 
         this.checkIfContains(inputPlaneObj);
 
-        if (this._checkIfContains) {
+        if (this._checkIfContains === true) {
             this.changeLandedAtPropertyInGlobalPlanesList(inputPlaneObj);
             this.listOfLandedPlanes.splice(this._indexNumberOfMatchedPlane, 1);
             takeOffMessage = `${inputPlaneObj.planeID} has Taken Off from ${this._airportID}!`;
+            return takeOffMessage;
+        }
+
+        else if (this._checkIfContains !== true) {
+            takeOffMessage = `${inputPlaneObj.planeID} cannot Take Off as it is NOT currently in landed in the airport`;
             return takeOffMessage;
         }
 

@@ -25,11 +25,27 @@ test.it('Take Off a plane which is currently landed in airport and give a confir
         airport1.landAPlane(airport1.copyOfGlobalListOfPlanes[i]);
     } //fills airport2.listOfLandedPlanes with planeID from PLANE1 to PLANE4
 
-
     let testPlaneObject = airport1.copyOfGlobalListOfPlanes[2]; //where planeID =  "PLANE3"
-
-
 
     // Act/Assert
     test.assertEquals(airport1.takeOff(testPlaneObject), `${testPlaneObject.planeID} has Taken Off from airport1!`); //if listOfLandedPlanes includes PLANE1 test should pass
+});
+
+
+test.it('Prevent Take Off for a plane which is NOT currently landed in airport', () => {
+    // Arrange
+    const airport2 = new AIRPORT('airport2');
+
+    airport2.weather = 'clear';//setter for weather
+
+    airport2.copyOfGlobalListOfPlanes = [...globalListOfPlanes];//cloning the array as the landAPlane function makes changes in plane.landedAt property hence changing the array.
+
+    for (let i = 0; i < 4; i++) {
+        airport2.landAPlane(airport2.copyOfGlobalListOfPlanes[i]);
+    } //fills airport2.listOfLandedPlanes with planeID from PLANE1 to PLANE4
+
+    let testPlaneObject = airport2.copyOfGlobalListOfPlanes[6]; //where planeID =  "PLANE7"
+
+    // Act/Assert
+    test.assertEquals(airport2.takeOff(testPlaneObject), `${testPlaneObject.planeID} cannot Take Off as it is NOT currently in landed in the airport`); //if listOfLandedPlanes does not includes PLANE7 test should pass
 });
