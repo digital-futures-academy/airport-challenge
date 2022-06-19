@@ -7,23 +7,30 @@ class AIRPORT {
         this.possibleWeatherConditions = ['stormy', 'clear', 'clear'];
         this._airportID = _airportID;
         this._checkIfContains = 'not checked';
+        this._indexNumberOfMatchedPlane = 'not checked';
+        this.copyOfGlobalListOfPlanes = [];
     }
 
     checkIfContains(inputPlaneObj) {
+        this._indexNumberOfMatchedPlane = 0;
         this.listOfLandedPlanes.forEach(elementObject => {
             if (Object.values(elementObject).includes(inputPlaneObj.planeID)) {
                 this._checkIfContains = true;
+                this._indexNumberOfMatchedPlane++;
                 return this._checkIfContains;
             }
+            this._indexNumberOfMatchedPlane++;
+
         });
-        this._checkIfContains = false;
+
+
         return this._checkIfContains;
 
     }
 
 
     landAPlane(inputPlaneObj) {
-        let landingMessage = 'No Landing Message'; // this will hold the an error or a success message
+        let landingMessage = 'No Landing Message yet!'; // this will hold the an error or a success message
         let currentWeather = this.weather;
 
         this.checkIfContains(inputPlaneObj.planeID);
@@ -46,13 +53,13 @@ class AIRPORT {
         }
 
 
-        else if (this._checkIfContains) {
+        else if (this._checkIfContains === true) {
 
             landingMessage = `${inputPlaneObj.planeID} has already landed!`;
             return landingMessage;
 
         }
-        else if (!this._checkIfContains) {
+        else if (this._checkIfContains !== true) {
             inputPlaneObj.landedAt = this._airportID;
             this.listOfLandedPlanes = [...this.listOfLandedPlanes, inputPlaneObj];
             landingMessage = `${inputPlaneObj.planeID} has now landed!`;
@@ -69,8 +76,34 @@ class AIRPORT {
         return this._capacity;
     }
 
+    takeOff(inputPlaneObj) {
+        let takeOffMessage = 'No TakeOff Message yet!';
+
+        let currentWeather = this.weather;
+
+        this.checkIfContains(inputPlaneObj);
+
+        if (this._checkIfContains) {
+            this.changeLandedAtPropertyInGlobalPlanesList(inputPlaneObj);
+            this.listOfLandedPlanes.splice(this._indexNumberOfMatchedPlane, 1);
+            takeOffMessage = `${inputPlaneObj.planeID} has Taken Off from ${this._airportID}!`;
+            return takeOffMessage;
+        }
+
+        else if (currentWeather === this.possibleWeatherConditions[0]) {
+            takeOffMessage = `${inputPlaneObj.planeID} cannot Take Off as current weather is Stormy`;
+            return takeOffMessage;
+        }
+    }
 
 
+    changeLandedAtPropertyInGlobalPlanesList(inputPlaneObj) {
+        this.copyOfGlobalListOfPlanes.forEach(elementObject => {
+            if (inputPlaneObj.planeID === elementObject.planeID) {
+                elementObject.landedAt = 'flying';
+            }
+        });
+    }
 
 
 
