@@ -15,6 +15,7 @@ class Airport {
     if (this.isFull() === false && !plane.isLanded()) {
       plane.land();
       this.addToInAirport(plane);
+      return 'plane landed';
     }
   }
 
