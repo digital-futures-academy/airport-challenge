@@ -1,8 +1,13 @@
 const { assertEquals } = require("../test/test-framework")
 const Airport = require("../src/airport")
+const landPlane = require("../src/landPlaneFunction")
+
+console.log('=== Test 1 ===')
 
 // Initial Arrange 
-let expectedOutput, actualOutput, result, input, testName, airportTest;
+let expectedOutput, actualOutput, result, airportTest;
+let input = [];
+let testName = ``;
 
 //  ---Test 1---
 //Arrange
@@ -12,8 +17,8 @@ expectedOutput = input;
 airportTest = new Airport;
 
 // Act 
-airportTest.landedPlane(input);
-actualOutput = airportTest.landedPlanes[0];
+actualOutput = landPlane[input];
+console.log(actualOutput)
 
 // Assert
 result = assertEquals(expectedOutput, actualOutput);
