@@ -27,7 +27,6 @@ result = assertEquals(expectedOutput, actualOutput);
 
 //report
 console.log(`${testName}: ${result ? `Pass` : `Fail`}`);
-console.log(actualOutput);
 
 //Test 2
 //arrange
