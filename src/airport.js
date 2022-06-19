@@ -16,6 +16,8 @@ class Airport {
       plane.land();
       this.addToInAirport(plane);
       return 'plane landed';
+    } else {
+      return 'airport full - cannot land';
     }
   }
 
@@ -41,6 +43,8 @@ class Airport {
       plane.takeOff();
       this.removeFromInAirport(plane);
       return 'plane left airport';
+    } else {
+      return 'plane not in airport';
     }
   }
 
