@@ -39,13 +39,13 @@ for (let i = 0; i < heathrow.getInAirport().length; i++) {
 console.log(`${plane1.getPlaneId()} state is now: ${plane1.getState()}`);
 
 console.log(`===================================================`);
-console.log(`Scenario for requriment 2: 'I would like a default airport capacity that can be overridden as appropriate' \nHeathrow has opened an additional runway and its capacity is increased from 1 to 2`);
+console.log(`Scenario for requirement 2: 'I would like a default airport capacity that can be overridden as appropriate' \nHeathrow has opened an additional runway and its capacity is increased from 1 to 2`);
 console.log(`Heathrow starting capacity: ${heathrow.getCapacity()}`)
 heathrow.setCapacity(2);
 console.log(`Heathrow capacity after capacity updated: ${heathrow.getCapacity()}`);
 
 console.log(`===================================================`);
-console.log(`Scenario for requriment 3: 'I want top prevent landing when the airport is full' \nHeathrow lands Plane-2 successfully using its additional capacity`);
+console.log(`Scenario for requirement 3: 'I want top prevent landing when the airport is full' \nHeathrow lands Plane-2 successfully using its additional capacity`);
 heathrow.instructToLand(plane2);
 console.log(`Heathrow - planes in airport:`)
 for (let i = 0; i < heathrow.getInAirport().length; i++) {
@@ -54,7 +54,8 @@ for (let i = 0; i < heathrow.getInAirport().length; i++) {
 console.log(`${plane1.getPlaneId()} state is now: ${plane1.getState()}`);
 console.log(`${plane2.getPlaneId()} state is now: ${plane2.getState()}`);
 console.log(`However Heathrow then accidentally tries to land Plane-3 even though there is no capacity. The safety features kick in, no landing instruction is given and Plane-3 remains flying`)
-heathrow.instructToLand(plane3);
+let outcomeMessage = heathrow.instructToLand(plane3);
+console.log(`***Message received confirming reason plane wasn't landed: '${outcomeMessage}'.***`);
 console.log(`Heathrow - planes in airport:`)
 for (let i = 0; i < heathrow.getInAirport().length; i++) {
     console.log(heathrow.getInAirport()[i].getPlaneId().padStart(10))
@@ -65,8 +66,8 @@ console.log(`${plane3.getPlaneId()} state is now: ${plane3.getState()}`);
 
 console.log(`===================================================`);
 console.log(`Scenario for requirement 4: 'I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport' \nHeathrow instructs Plane-1 to take off. The success message is received and printed.`);
-const successMessage = heathrow.instructToTakeOff(plane1);
-console.log(`Message received confirming Plane-1 successfully left: '${successMessage}'`);
+outcomeMessage = heathrow.instructToTakeOff(plane1);
+console.log(`***Message received confirming Plane-1 successfully left: '${outcomeMessage}'.***`);
 
 console.log(`Heathrow - planes in airport:`)
 for (let i = 0; i < heathrow.getInAirport().length; i++) {
@@ -75,4 +76,13 @@ for (let i = 0; i < heathrow.getInAirport().length; i++) {
 console.log(`${plane1.getPlaneId()} state is now: ${plane1.getState()}`);
 
 console.log(`===================================================`);
-console.log(`Scenario for requirement 5: 'I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed' \nHeathrow instructs Plane-1 to take off even though it has.`);
+console.log(`Scenario for requirement 5: 'I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed' \nHeathrow instructs Plane-1 to take off even though it already has.`);
+console.log(`Heathrow - planes in airport:`)
+for (let i = 0; i < heathrow.getInAirport().length; i++) {
+    console.log(heathrow.getInAirport()[i].getPlaneId().padStart(10))
+}
+outcomeMessage = heathrow.instructToTakeOff(plane1);
+console.log(`***Message received are trying to issue take off instruction: '${outcomeMessage}'.***`);
+console.log(`Heathrow tries to instruct a Plane-2 to land even though it is already landed.`)
+outcomeMessage = heathrow.instructToLand(plane2);
+console.log(`***Message received are trying to issue land instruction: '${outcomeMessage}'.***`);
