@@ -1,5 +1,6 @@
 const {assertEquals } = require('../test-frameworks');
-const { Airport, Plane } = require('../src/airport');
+const { Airport } = require('../src/airport');
+const { Plane } = require('../src/plane');
 
 console.log('---- Test 9 ----');
 

@@ -44,14 +44,6 @@ class Airport {
   } 
 
 
-class Plane { 
-
-  constructor(name) { 
-    this.planeName = name; 
-  }
-
-}
-
 module.exports = {
-  Airport, Plane
+  Airport
 };
