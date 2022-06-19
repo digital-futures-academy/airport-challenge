@@ -119,6 +119,7 @@ Failing test - but what for?
 ### Conclusions
 // In the plane class-perhaps a id class could have also worked because it might have helped give a single responsibility just to the id?.
 //I struggled to get the first plane test to pass so I did whatever I could to make it pass 
+// I had to change a few things to make the test pass such as adding functions that were neither in my TDD or my ODD. This is because I found that doing three tests for one user story was too much. 
 
 
 
