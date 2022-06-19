@@ -90,3 +90,27 @@ test.it('Test 7. Prevent Landing of a plane which is already landed in airport.'
     test.assertEquals(airport4.landAPlane(testPlaneObject), `${testPlaneObject.planeID} has already landed!`);
 });
 
+
+
+
+test.it('Test 9. Prevent landing of a plane if weather is stormy', () => {
+    // Arrange
+    const airport5 = new AIRPORT('airport5');
+
+    airport5.weather = 'clear'; //setter for weather
+
+    airport5.copyOfGlobalListOfPlanes = [...globalListOfPlanes]; //cloning the array as the landAPlane function makes changes in plane.landedAt property hence changing the array.
+
+
+
+    for (let i = 0; i < 5; i++) {
+        airport5.landAPlane(airport5.copyOfGlobalListOfPlanes[i]);
+    } //fills airport5.listOfLandedPlanes with planeID from PLANE1 to PLANE5 partially filling defaultCapacity which is 10 here for airport5
+
+    airport5.weather = 'stormy'; //setter for weather
+
+    let testPlaneObject = airport5.copyOfGlobalListOfPlanes[2]; //where planeID =  "PLANE8"
+
+    // Act/Assert
+    test.assertEquals(airport5.landAPlane(testPlaneObject), `${testPlaneObject.planeID} cannot Land as current weather is Stormy!`);
+});

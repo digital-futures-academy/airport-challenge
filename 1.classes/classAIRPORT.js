@@ -43,7 +43,7 @@ class AIRPORT {
             return landingMessage;
         }
         else if (currentWeather === this.possibleWeatherConditions[0]) {
-            landingMessage = `${inputPlaneObj.planeID} cannot Land as current weather is Stormy`;
+            landingMessage = `${inputPlaneObj.planeID} cannot Land as current weather is Stormy!`;
             return landingMessage;
         }
 
