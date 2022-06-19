@@ -108,7 +108,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 ### Domain model (Objects, Properties, Messages, Outputs)
 |Objects    |Properties       |Messages               |Outputs    |
 |-----------|-----------------|-----------------------|-----------|
-|Airport    |inAirport[@Plane]|intructToLand(@Plane)  |@void      |
+|Airport    |inAirport[@Plane]|intructToLand(@Plane)  |@string    |
 |           |                 |addToInAirport(@Plane) |@void      |
 |           |                 |getInAirport()         |inAirport[@Planes]|
 |Plane      |state @string    |land()                 |@string    |
@@ -134,6 +134,7 @@ For the purposes of domain modelling will ignore those marked with * as these ap
 4. After calling `addToInAirport(mockPlane)`, the array inAirport[] contains an object with ***planeId***.
 5. On calling `instructToLand(mockPLane)` with a mock plane changes the mock plane's state changes to ***'landed'***.
 6. On calling `instructToLand(mockPlane)`, inAirport.length has ***increased by 1***. 
+7. After calling `instructToLand()` it returns the 'plane landed'.
 
 ## Requirement 2
 ```
