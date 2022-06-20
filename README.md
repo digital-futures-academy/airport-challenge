@@ -62,6 +62,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 
 #### Extended Acceptance Criteria
+
 ```
 As an air traffic controller
 To ensure safety
@@ -81,61 +82,91 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
 
-
-
-##  Domain Model (Objects, Properties, Messages, Outputs)
+## Domain Model (Objects, Properties, Messages, Outputs)
 
 ### Requirement 1
 
-| Objects | Properties        | Messages          | Output   |
-| ------- | ----------------- | ----------------- | -------- |
-| Airport | planes@id         | planeID@number    | @number  |
-|         |                   | isLand@Boolean    | @boolean |
-|         | destination@sting | name@string       | @string  |
-|         | Passengers        | @void             | @void    |
+```
+As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+```
+
+| Objects | Properties             | Messages          | Output   |
+| ------- | ---------------------- | ----------------- | -------- |
+| Airport | planesAtAirport @array | planeLand()       | @boolean |
+|         |                        | destination@string| @string  |
+|         |                        |                   |          |
+
+#### Tests
+
+Test if the plane can ***land*** at the airport
 
 ### Requirement 2
-ggg| Objects | Properties        | Messages          | Output   |
-| ------- | ----------------- | ----------------- | -------- |
-| Airport | planes@id         | planeID@number    | @number  |
-|         |                   | isLand@Boolean    | @boolean |
-|         | destination@sting | name@string       | @string  |
-|         | Passengers        | @void             | @void    |
-|         | capacity@number   | @number           | @number  |
+
+```
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+```
+
+| Objects | Properties             | Messages          | Output   |
+| ------- | ---------------------- | ----------------- | -------- |
+| Airport | capacity@number        | Capacity(20)      | @number  |
+|         |                        |                   |          |
+
+#### Tests
+Test if the capacity can be ***Overridden*** as appropriate : PASS
 
 ### Requirement 3
 
-| Objects | Properties        | Messages          | Output   |
-| ------- | ----------------- | ----------------- | -------- |
-| Airport | planes@id         | planeID@number    | @number  |
-|         |                   | isLand@Boolean    | @boolean |
-|         | destination@sting | name@string       | @string  |
-|         | Passengers        | @void             | @void    |
-|         | capacity@number   | @number           | @number  |
-|         | isFull@boolean    | isFull@number     | @boolean |
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+| Objects | Properties             | Messages          | Output   |
+| ------- | ---------------------- | ----------------- | -------- |
+| Airport | Full@Boolean           | isFull            | @Boolean |
+|         |                        |                   |          |
+
+#### Tests
+
+Test if a airport is ***Full***.
 
 ### Requirement 4
 
-| Objects     | Properties        | Messages          | Output   |
-| ----------- | ----------------- | ----------------- | -------- |
-|             | planes@id         | planeID@number    | @number  |
-|             |                   | isLand@Boolean    | @boolean |
-|             | destination@sting | name@string       | @string  |
-|             | Passengers        | @void             | @void    |
-|             | capacity@number   | @number           | @number  |
-|             | isFull@boolean    | isFull@number     | @boolean |
-| Message     | message@string    |                   | @string  |
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+
+| Objects | Properties             | Messages          | Output   |
+| ------- | ---------------------- | ----------------- | -------- |
+| Airport | Departure@boolean      | departure         | @Boolean |
+|         |                        | takeOff()         |          |
+|         |                        | delete()          |          |
+
+#### Tests
+
+Test if Plane ***departed*** and is no ***longer*** in Airport
 
 ### Requirement 5
 
-| Objects     | Properties        | Messages          | Output   |
-| ----------- | ----------------- | ----------------- | -------- |
-| Airport     | airport@id        | airportID@number  | @number  |
-|             | planes@id         | planeID@number    | @number  |
-|             |                   | isLand@Boolean    | @boolean |
-|             | destination@sting | name@string       | @string  |
-|             | Passengers        | @void             | @void    |
-|             | capacity@number   | @number           | @number  |
-|             | isFull@boolean    | isFull@number     | @boolean |
-| Message     | message@string    |                   | @string  |
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
 
+| Objects | Properties             | Messages          | Output   |
+| ------- | ---------------------- | ----------------- | -------- |
+| Airport | Departure@boolean      | departure         | @Boolean |
+|         |                        | takeOff()         |          |
+|         |                        |                   |          |
+
+#### Tests
+
+Test prevents a Plane to take if are not at airport  or land a plane is already landed.

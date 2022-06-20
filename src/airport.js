@@ -1,15 +1,18 @@
-const plane = require('../src/planes');
+const planes = require('../src/planes');
 class Airport {
-    
-	planesAtAirport = [];
-	id = [];
+
+	name = '';
 	capacity = 15;
+	planesAtAirport = [];
 	full;
+
+
 	planeLand(plane) {
-		if (this.planesAtAirport.length < this.capacity ) {
+		if (this.planesAtAirport.length < this.capacity) {
+			this.name = plane.destination;
 			this.planesAtAirport.push(plane);
 			//this is directing to specific planesAtAirport.
-		console.log(`Plane ✈️  ${plane.id} has permission to land.`);
+		console.log(`Plane ✈️  ${plane.id} has permission to land in ${this.name}.`);
 		}
 		
 		else {

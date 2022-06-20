@@ -7,12 +7,13 @@ console.log('                          🛫🛫🛫🛫     Airport Test 1     �
 
 //arrange 
 testName = 'Test if the plane can land at the airport';
-testPlane = {id: 'PLN'};
+testPlane = { id: 'PLN', destination:'Gatwick' };
 
 //Act
 testAirport = new Airport();
 testAirport.planeLand(testPlane);
 actualResult = testAirport.planesAtAirport[0]?.id;
+
 //assert
 result = assertEquals(actualResult, testPlane.id);
 
