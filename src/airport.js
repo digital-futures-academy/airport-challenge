@@ -19,7 +19,7 @@ class Airport {
   }
 
   randomWeather() {
-    let weather = Math.floor(Math.random() * 5)
+    let weather = Math.floor(Math.random() * 30)
     if (weather === 1) {
       return 'stormy'
     }
