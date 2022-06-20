@@ -26,6 +26,7 @@ Next, as a starting point for this challenge I began with domain modelling for e
 I then used the code along live share for the "test and testing frameworks" as a template/guide for for TDD
 I outlined the three A's - arrange, act, assert, then I ran the node spec runner test and amended the errors accordingly (by defining a few undefined functions that were flagged in the terminal). Once I had a FAIL I attempted*** to refactor in attempt to get the tests to PASS - I left comments and created a folder of screenshots to show my interaction with the program.
 
+Screenshots of interaction with program: https://docs.google.com/document/d/1Dm-779tPiAopdTPqGwsW8JO4odnpQvDvk_g2yI_uVdY/edit?usp=sharing
 
 
 User Stories

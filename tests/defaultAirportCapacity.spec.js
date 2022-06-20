@@ -11,7 +11,7 @@ const { airportCapacity } = require("../src/airportCapacity");
 //arrange Test 1
 testName = `Test 2 - default airport capacity`
 inputCapacity = 20
-expectedOutput 
+expectedOutput = 
     
 //act
 actualOutput = airportCapacity(inputCapacity);

@@ -14,9 +14,10 @@ let testName = ``;
 
 //arrange Test 1
 testName = `Test 1 - plane can be added in list of array`
-input = [Airport].length;
-expectedOutput = [Airport].push(`new plane`);
-
+input = [Airport]
+expectedOutput = [Airport].push(`new plane`)
+// I think the fail is due to this arrange section, I want to add a plane to an array. 
+//I think .push() is the correct method but I'm unsure of the syntax 
 
 
 //act
