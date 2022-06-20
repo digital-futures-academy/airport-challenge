@@ -10,7 +10,7 @@ test.it('be able to land a plane in the airport', () => {
     }
     const expectedValue = testPlane
     // act 
-    let testAirport = new Airport(3)
+    let testAirport = new Airport(3, 'sunny') // weather is set to sunny since default will generate a random weather and if its set to stormy the test will fail (because of the requirement  7 ).
     testAirport.land(testPlane)
     const actualValue = testAirport.airportList[0]
     //assert

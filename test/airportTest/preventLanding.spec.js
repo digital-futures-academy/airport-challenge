@@ -1,28 +1,52 @@
 const test = require('../../test-framework.js')
 const Airport = require('../../src/airport.js')
 
-test.it('check if airport is full', () => {
+test.it('Prevent landing a plane that has already landed by throwing error', () => {
     //arrange
-
-    // act 
-    let TestAirport = new Airport(0)
-
-    const actualValue = TestAirport.isFull()
-    //assert
-    test.assertTrue(actualValue)
-
-})
-
-
-
-test.it('prevent landing when airport is full by throwing error', () => {
-    //arrange
-    const TestPlane = {
-        name: 'plane1'
+    let testPlane = {
+        name: 'plane1',
+        landed: true
     }
-    let airport = new Airport(0)
+    let testAirport = new Airport(3)
 
-    const actualValue = airport.land(TestPlane)
+    // act
+    const actualValue = testAirport.land(testPlane)
+
     //assert
     test.assertTrue(actualValue instanceof Error)
+
 })
+
+
+test.it('landing a plane will change the landed property of the plane to true', () => {
+    //arrange
+    let testPlane = {
+        name: 'plane1',
+        landed: false
+    }
+    let testAirport = new Airport(3)
+    testAirport.weather = 'sunny'
+    // act
+    testAirport.land(testPlane)
+    //assert
+    test.assertTrue(testPlane.landed)
+
+})
+
+test.it('taking off a plane will change the landed property of the plane to false ', () => {
+    //arrange
+    let testPlane = {
+        name: 'plane1',
+        landed: false
+    }
+    let testAirport = new Airport(5)
+    testAirport.weather = 'sunny'
+    testAirport.land(testPlane)
+    // act
+    testAirport.takeOff(testPlane)
+    //assert
+    test.assertFalse(testPlane.landed)
+
+})
+
+
