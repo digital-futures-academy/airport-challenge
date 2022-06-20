@@ -12,3 +12,7 @@ So I can get passengers to a destination
 | ------  | ------------        | -------            | ------  |
 | Plane   | name @String        | getName ()         | @String |
 | Airport | planeList[@Planes]  | landPlane (@plane) | @String |
+
+2)
+```
+|

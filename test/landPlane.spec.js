@@ -26,4 +26,23 @@ result = assertEquals(expectedOutput, actualOutput);
 // Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
+console.log("----- END OF TEST ONE ------")
+
+// Test 2
+
+//Arrange
+testName = `Test 2 - Add plane to airport's list where airport has already landed a few planes`
+input = `plane1`;
+expectedOutput = '1'
+let airport2 = new Airport;
+
+// Act 
+actualOutput = landPlane(input);
+actualOutput = airportTest.landedPlanes.length[0];
+
+// Assert 
+result = assertEquals(expectedOutput, actualOutput)
+
+// Report 
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
 
