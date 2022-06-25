@@ -14,4 +14,4 @@ expectedResult = 1;
 testAirport.landPlane(testPlane)
 actualResult = testAirport.planesAtAirport.length;
 // Assert
-result = assertEquals(expectedResult, actualResult)
+result = assertEquals(expectedResult, actualResult);
