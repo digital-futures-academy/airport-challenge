@@ -11,6 +11,8 @@ class Airport {
     return this.#capacity;
   }
 
+  setCapacity(newCapacity) { }
+
   landPlane(plane) {
     this.planesAtAirport.push(plane);
     console.log(this.planesAtAirport);

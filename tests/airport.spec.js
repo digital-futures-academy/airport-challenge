@@ -90,3 +90,25 @@ result = assertEquals(expectedResult, actualResult);
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+testName = 'Capacity Setting Test 2'
+console.log(`=== setCapacity changes airport's capacity value ===`);
+
+//arrange
+//create an airport for the test
+testAirport = new Airport();
+expectedResult = 10;
+
+//act
+//set capacity to expectedResult
+testAirport.setCapacity(expectedResult);
+//get the capacity of the testAirport
+actualResult = testAirport.getCapacity();
+
+//assert
+//assert that thw length of the planesAtAirport array is now 1 (initially 0)
+//assert that the actual capacity is 5
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

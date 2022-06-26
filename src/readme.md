@@ -37,7 +37,7 @@ User Story 2
 
 | Object | Property      | Message | Output |
 | ------ | ------------  | ------- | ------ |
-|airport |capacity@number|set capacity()|n/a|
+|airport |capacity@number|setCapacity()|n/a|
 |override| capacity |overrideCapacity(@capacity num)| @number|
 
 1. Test that default capacity is set to the default supplied when an airport is constructed.
