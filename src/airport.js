@@ -2,7 +2,9 @@ class Airport {
 
   planesAtAirport = [];
 
-  landPlane(plane) { }
+  landPlane(plane) {
+    this.planesAtAirport.push(plane);
+  }
 
 }
 
