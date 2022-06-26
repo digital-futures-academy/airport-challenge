@@ -9,11 +9,11 @@ I want to instruct the airport to land a plane
 | plane   | land a plane|
 |         |             |
 
-| Objects | Properties                    | Messages         | Output   |
-| ------- | ---------------               | ---------------- | -------- |
+| Objects | Properties                    | Messages                  | Output   |
+| ------- | ---------------               | ----------------          | -------- |
 | airport | planesAtAirport@array[@plane] | addLandingPlane(@string)  |          |
-| plane   | name@string                   |                  |          | 
-|         |                               |                  |          |
+| plane   | name@string                   |                           |          | 
+|         |                               |                           |          |
 
 # user story 2 
 As the system designer
