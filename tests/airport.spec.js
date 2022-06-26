@@ -134,3 +134,26 @@ result = assertEquals(expectedResult, actualResult);
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//airport full tests
+testName = 'isAirportFull Test 1'
+console.log(`=== plane not added to planesAtAirport array if planesAtAirport >= capacity===`);
+
+//arrange
+//create an airport for the test
+testAirport = new Airport();
+expectedResult = 1;
+
+//act
+//call the method under test with the testPlane
+testAirport.landPlane(testPlane);
+//if the plane was not added then the length should not change
+actualResult = testAirport.isAirportFull();
+
+//assert
+//assert that the length of the planesAtAirport array is still 1 
+//assert that the string 'testPlane' is the only thing in the planesAtAirport array
+result = assertTrue(actualResult)
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

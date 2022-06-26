@@ -21,6 +21,10 @@ class Airport {
     console.log(`planesAtAirport length: ${this.planesAtAirport.length}`)
     return `Confirming that ${plane} has landed.`;
   }
+
+  isAirportFull() {
+    return this.planesAtAirport >= this.#capacity;
+  }
 }
 
 module.exports = Airport;

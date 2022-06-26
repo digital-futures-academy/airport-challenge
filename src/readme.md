@@ -13,26 +13,6 @@ User Story 1
 2. Test that landPlane returns a string that confirms the plane has landed.
 
 
-test
-if plane has successfully landed it has been added to array of planes.
-returns message that plane has landed.
-
-arrange
-text fixtures(things that you need at the start of the test):
-need instance of airport class
-need object that represents plane
-// er plane landed needs to appears in array
-//ar use airports plane land function with the test function to see if array added plane
-
-act
-use airport instance and call plane land passing in plane object.
-
-assert
-expected output is that the plane just landed is in the array 
-get the array of planes at the airport
-access the plane in the array and get its id
-assert that that the id from the array matches the id from the test plane.
-
 User Story 2
 
 | Object | Property      | Message | Output |
@@ -45,31 +25,6 @@ User Story 2
 
 As a system designer, so that the software can be used for many different airports, I would like a default airport capacity that can be overridden as appropriate.
 
-need an array of airports that hold different capacities (array of key value pairs maybe).
-input needs to match airport capacity within array for it to be overridden. Or maybe just an array of different capacities(numbers) and input needs to match one of those capacities(numbers) for it to be overridden. 
-
-need an override method/function (use if/else statement maybe)
-
-The desired outcome of this user story is to be able to override the default airport capacity as overridden as appropriate.
-
-test - if default airport capacity can be overridden when appropriate
-returns airport capacity overridden
-
-arrange (things needed for start of test)
--need instance of airport class
--need object that represents airport capacity
-
-act
--use airport instance and call override capacity passing in the airport object.
-
-assert
--expected outcome is the capacity already exists in array
--get the arrays of capacities for different airports
--access the airport in the array and get its capacity
--assert that the capacity from the airport is not the default capacity
-
-(speak to ed, may have to create multiple airport classes)
-
 
 User Story 3
 
@@ -77,20 +32,29 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-desired outcome is to prevent landing when airport is full
-(if airport is full. plane cannot land)
-
 | noun | verb |
 |------|------|
 |airport|full |
 
 | object | property | message | output |
 | ------ | -------- | ------- | ------ |
-| plane  | id      | addid()  | @id     |
-|airport |plane@array|airportFull()|@boolean|
+|airport | capacity@number=5 |getCapacity()| @number |
+|airport |planesAtAirport@array|landPlane(plane@string)|@string|
+|airport |          |isAirportFull()|@boolean|
 
-to know whether the airport is full or not (y/n boolean)
-need array of planes with max number that can be added into this array
+isAirportFull() should return true when length of planesAtAirport is greater than/equal to capacity.
+isAirportFull()
+return planesAtAirport.length >= capacity;
+
+working on the logic in the landPlane method that we have already started to develop. We need to put a condition on whether the plane is added to the array or not.
+In landPlane(plane), if isAirportFull() is false then land plane. If its true then we can return message saying airport is full. 
+
+1. Test that if length of planesAtAirport is >= capacity, plane is not added to array.
+2. Test that landPlane returns a string saying the airport is full if that is the case.
+
+fixtures - need a full airport(make capacity 1 and land a plane), in act - try to land another plane. 
+assert that planesAtAirport.length is still a cap of 1.
+assert that string returned by landPlane contains full
 
 arrange 
 instance of airport class
