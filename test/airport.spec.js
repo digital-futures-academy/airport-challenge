@@ -52,3 +52,21 @@ actualResult = airport3.capacity;
 result = assertEquals(expectedResult, actualResult);
 
 console.log(`${testName}: ${result ? 'pass' : 'fail'}`);
+
+
+//Test 4 (when airport is at capacity, prevent plane being added to the list of planes at the airport)
+//Arrange 
+testName = 4;
+expectedResult = true;
+const airport4 = new Airport();
+const plane1 = new Plane;
+
+//Act 
+airport4.landPlane;
+airport4.capacity;
+actualResult = if (airport4.capacity !== true);
+
+//Assert 
+result = assertEquals(expectedResult, actualResult);
+
+console.log(`${testName}: ${result ? 'pass' : 'fail'}`);

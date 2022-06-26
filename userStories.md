@@ -11,7 +11,7 @@ I want to instruct the airport to land a plane
 
 | Objects | Properties                    | Messages         | Output   |
 | ------- | ---------------               | ---------------- | -------- |
-| airport | planesAtAirport@array[@plane] | addLandingPlane  |          |
+| airport | planesAtAirport@array[@plane] | addLandingPlane(@string)  |          |
 | plane   | name@string                   |                  |          | 
 |         |                               |                  |          |
 
@@ -23,29 +23,29 @@ I would like a default airport capacity that can be overridden as appropriate
 | noun    | verb             |
 | -----   | -----------      |
 | airport |                  |
-| capacity| default capacity |
+| capacity| overrideCapacity |
 |         |                  |
 
-| Objects | Properties      | Messages         | Output   |
-| ------- | --------------- | ---------------- | -------- |
-| airport | airport[@array] |                  | @array   |
-| capacity| capacity var    | capacity()       | @boolean | 
-|         |                 |                  |          |
+| Objects | Properties           | Messages         | Output            |
+| ------- | ---------------      | ---------------- | --------          |
+| airport |                      |                  |                   |
+| capacity| capacity@num[@planes]| capacity()       | default capacity  | 
+|         |                      |                  |                   |
 
 # user story 3 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-| noun    | verb                        |
-| -----   | -----------                 |
-| airport | landing when airport is full|
-|         |                             |
+| noun    | verb                                |
+| -----   | -----------                         |
+| airport | prevent landing when airport is full|
+|         |                                     |
 
-| Objects | Properties       | Messages         | Output   |
-| ------- | ---------------  | ---------------- | -------- |
-| airport | airport(capacity)| isFull()         | Message  |
-|         |                  |                  |          |
+| Objects | Properties                | Messages         | Output   |
+| ------- | ---------------           | ---------------- | -------- |
+| airport | airport@boolean(@capacity)| isFull()         | Message  |
+|         |                           |                  |          |
 
 # user story 4 
 As an air traffic controller
