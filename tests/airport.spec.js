@@ -81,7 +81,7 @@ expectedResult = 5;
 
 //act
 //get the capacity of the testAirport
-actualResult = testAirport.capacity;
+actualResult = testAirport.getCapacity();
 
 //assert
 //assert that thw length of the planesAtAirport array is now 1 (initially 0)
