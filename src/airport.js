@@ -3,7 +3,7 @@ class Airport {
   planesAtAirport = [];
   #capacity
 
-  constructor(capacity = 5) {
+  constructor(capacity = 1) {
     this.#capacity = capacity;
   }
 
@@ -23,7 +23,7 @@ class Airport {
   }
 
   isAirportFull() {
-    return this.planesAtAirport >= this.#capacity;
+    return this.planesAtAirport.length >= this.#capacity;
   }
 }
 

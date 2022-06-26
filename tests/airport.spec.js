@@ -77,7 +77,7 @@ console.log(`=== new airport have default capacity set to 5 ===`);
 //arrange
 //create an airport for the test
 testAirport = new Airport();
-expectedResult = 5;
+expectedResult = 1;
 
 //act
 //get the capacity of the testAirport
