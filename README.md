@@ -44,6 +44,11 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+| Objects | Properties                    | Messages                  | Output   |
+| ------- | ---------------               | ----------------          | -------- |
+| airport | planesAtAirport@array[@string]| `landPlane(plane `@string`)`  |@string   | 
+|         |                               |                           |          |
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
