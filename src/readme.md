@@ -8,7 +8,6 @@ User Story 1
 | Object | Property | Message | Output |
 | ------ | -------- | ------- | -------|
 |airport | planes@array[@string]|landPlane(plane@string)| @string|
-|plane   |ID        |getId()  | @ID    |
 
 1. Test that plane is added to the array (could test length increases after call or that array includes plane received).
 2. Test that landPlane returns a string that confirms the plane has landed.
@@ -16,7 +15,7 @@ User Story 1
 
 test
 if plane has successfully landed it has been added to array of planes.
-returns message with plane id.
+returns message that plane has landed.
 
 arrange
 text fixtures(things that you need at the start of the test):
@@ -36,12 +35,14 @@ assert that that the id from the array matches the id from the test plane.
 
 User Story 2
 
-| Object | Property | Message | Output |
-| ------ | -------- | ------- | ------ |
-|airport|capacity@array|get capacity()|@string|
+| Object | Property      | Message | Output |
+| ------ | ------------  | ------- | ------ |
+|airport |capacity@number|set capacity()|n/a|
 |override| capacity |overrideCapacity(@capacity num)| @number|
 
-(property- @array of capacity numbers)
+1. Test that default capacity is set to the default supplied when an airport is constructed.
+2. Test that capacity changes when setCapacity is called.
+
 As a system designer, so that the software can be used for many different airports, I would like a default airport capacity that can be overridden as appropriate.
 
 need an array of airports that hold different capacities (array of key value pairs maybe).

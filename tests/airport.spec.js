@@ -36,7 +36,6 @@ console.log(`=== item can be found in planesAtAirport array ===`);
 //arrange
 //create an airport for the test
 testAirport = new Airport();
-//expectedResult = 1;
 
 //act
 //call the method under test with the testPlane
@@ -66,6 +65,28 @@ actualResult = testAirport.landPlane(testPlane);
 //assert that thw length of the planesAtAirport array is now 1 (initially 0)
 //assert that the string 'testPlane' is included in the planesAtAirport array
 result = assertTrue(actualResult.includes(testPlane));
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//capacity setting tests
+
+testName = 'Capacity Setting Test 1'
+console.log(`=== new airport have default capacity set to 5 ===`);
+
+//arrange
+//create an airport for the test
+testAirport = new Airport();
+expectedResult = 5;
+
+//act
+//get the capacity of the testAirport
+actualResult = testAirport.capacity;
+
+//assert
+//assert that thw length of the planesAtAirport array is now 1 (initially 0)
+//assert that the actual capacity is 5
+result = assertEquals(expectedResult, actualResult);
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
