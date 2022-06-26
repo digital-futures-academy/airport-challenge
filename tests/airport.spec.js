@@ -1,11 +1,13 @@
 const Airport = require("../src/airport");
-const { assertEquals } = require("../testFramework,");
+const { assertEquals } = require("../testFramework");
+
+//Fixtures
+let testAirport, expectedResult, actualResult, result, name;
+const testPlane = `testPlane`;
 
 // landPlane tests
-console.log("landPlane Test 1 - item added to planesAtAirport Array");
-//Fixtures
-let testAirport, expectedResult, actualResult, result;
-const testPlane = `testPlane`;
+name = `landPlane Test 1 - item added to planesAtAirport Array`
+console.log(`=== ${name} ===`);
 
 // Arrange
 testAirport = new Airport();
@@ -15,3 +17,5 @@ testAirport.landPlane(testPlane)
 actualResult = testAirport.planesAtAirport.length;
 // Assert
 result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
