@@ -1,4 +1,4 @@
-const { assertEquals, assertTrue } = require("../testFramework");
+const { assertEquals, assertTrue, assertFalse } = require("../testFramework");
 const Airport = require("../src/airport");
 
 
@@ -163,15 +163,17 @@ console.log(`=== landPlane returns string that says airport is full ===`);
 //arrange
 //create an airport for the test
 testAirport = new Airport();
-
+testAirport.landPlane(testPlane);
+expectedResult = true;
 
 //act
 //call the method under test with the testPlane
-actualResult = testAirport.isAirportFull();
+message = testAirport.landPlane(testPlane);
 
 //assert
 //assert that the string confirms airport is full.
-result = assertTrue(actualResult);
+actualResult = message.includes("full")
+result = assertEquals(actualResult, expectedResult);
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
