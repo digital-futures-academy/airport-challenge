@@ -52,25 +52,6 @@ In landPlane(plane), if isAirportFull() is false then land plane. If its true th
 1. Test that if length of planesAtAirport is >= capacity, plane is not added to array.
 2. Test that landPlane returns a string saying the airport is full if that is the case.
 
-fixtures - need a full airport(make capacity 1 and land a plane), in act - try to land another plane. 
-assert that planesAtAirport.length is still a cap of 1.
-assert that string returned by landPlane contains full
-
-arrange 
-instance of airport class
-object that represents plane
-plane needs to land 
-need airport function that lets us know if it is full or not
-
-act
-use the airport instance and call land plane only if capacity is not full
-
-assert
-expected outcome is plane cannot land since capacity in airport is full
-expected outcome is plane can land since airport is not full
-access plane in array and get its id
-assert that the id from the array can be added 
-
 User Story 4
 
 as an air traffic controller 
@@ -82,8 +63,11 @@ i want to instruct the airport to let a plane take off and confirm that it is no
 |plane | take off |
 
 | object | property | message | output |
-|airport |          | planeLeft() |    |
+|airport |planesAtAirport@array[@string]| takeOffPlane(plane @string) |@string |
 | plane  | plane    | takeOff()|@boolean|
+
+1. Test that plane is removed from the planesAtAirport array when passed to `takeOffPlane`
+2. Test that `takeOffPlane` returns a string confirming that the plane has "taken off"
 
 the airport needs to record and confirm whether a plane in the array has left and can tell this by whether the id is no longer in the array or not
 
