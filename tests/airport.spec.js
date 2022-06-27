@@ -66,7 +66,7 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 //==== capacity setting test ====
 
-name = `landPlane Test 1- new airports have default capacity set to 5 landed`;
+name = `Capacity setting Test 1- new airports have default capacity set to 5 landed`;
 console.log(`==== ${name} ====`);
 
 //arrange
@@ -76,10 +76,50 @@ expectedResult = 5;
 
 //Act
 //get the capacity of the testAirport
-actualResult = testAirport.capacity;
+actualResult = testAirport.getCapacity();
 
 
 //Assert that actual capacity of the new airport is 5
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+name = `Capacity setting Test 2- setCapacity changes airport's capacity value`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+expectedResult = 10;
+
+//Act
+//Set the capcity to the expectedResult
+testAirport.setCapacity(expectedResult);
+//get the capacity of the testAirport
+actualResult = testAirport.getCapacity();
+
+
+//Assert that actual capacity of the new airport is 5
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+name = `Capacity setting Test 3- value passed to constructor is used as airport's capacity`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+expectedResult = 100;
+
+//Act
+//Create a new aiport that recieves it capacity on construction 
+testAirport = new Airport(expectedResult);
+// Get the capacity of the testAirport
+
+actualResult = testAirport.getCapacity();
+//Assert
 result = assertEquals(expectedResult, actualResult);
 
 //report
