@@ -222,3 +222,27 @@ result = assertEquals(actualResult, expectedResult);
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+//plane at airport tests
+testName = 'planesatairport Test 1'
+console.log(`=== returns true when plane is in planesAtAirport array ===`);
+
+//arrange
+//create an airport for the test
+testAirport = new Airport();
+expectedResult = true;
+
+//act
+//call the method under test with the testPlane
+testAirport.isPlaneAtAirport();
+//if the plane was added then the length should change
+actualResult = testAirport.planesAtAirport.length;
+//planesAtAirport.includes(testPlane);
+
+//assert
+//assert that the length of the planesAtAirport array is now 1 (initially 0)
+//assert that the string 'testPlane' is included in the planesAtAirport array
+result = assertEquals(expectedResult, actualResult)
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

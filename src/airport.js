@@ -35,6 +35,8 @@ class Airport {
     this.planesAtAirport.splice(0, 1,)
     return `Confirming that ${plane} has left the airport.`
   }
+
+  isPlaneAtAirport() { }
 }
 
 module.exports = Airport;

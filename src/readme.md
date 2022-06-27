@@ -64,18 +64,10 @@ i want to instruct the airport to let a plane take off and confirm that it is no
 
 | object | property | message | output |
 |airport |planesAtAirport@array[@string]| takeOffPlane(plane @string) |@string |
-| plane  | plane    | takeOff()|@boolean|
+
 
 1. Test that plane is removed from the planesAtAirport array when passed to `takeOffPlane`
 2. Test that `takeOffPlane` returns a string confirming that the plane has "taken off"
-
-the airport needs to record and confirm whether a plane in the array has left and can tell this by whether the id is no longer in the array or not
-
-the take off function needs to instruct the plane to take off
---> if id is in the array --> take off
-
-the plane left function needs to record whether the plane has left the airport or not by checking the array of plane ids with `planesAtAirport=[]`
---> if id is absent -> plane not in airport
 
 
 User Story 5
@@ -86,14 +78,23 @@ i want to prevent asking the airport to let planes take off which are not at the
 
 | noun | verb |
 |airport| prevent |
-| plane | 
 
-| object | property | message | output |
-| ------ | -------- | ------- | ------ |
-| plane  |          |         |        |
-|airport |          | preventTakeOff() | @string |
+| Objects   | Properties                        | Messages                            | Output   |
+| --------- | --------------------------------- | ----------------------------------- | -------- |
+| `airport` | `planesAtAirport` @ARRAY[@string] | `takeOffPlane(plane` @string`)`     | @string  |
+|           |                                   | `landPlane(plane` @string`)`        | @string  |
+|           |                                   | `isPlaneAtAirport(plane` @string`)` | @boolean |
 
+1. Test that `isPlaneAtAirport` returns `true` when **plane** IS in the `planesAtAirport` array
+2. Test that `isPlaneAtAirport` returns `false` when **plane** IS NOT in the `planesAtAirport` array
+3. Test that `takeOffPlane` returns message saying **plane** has taken off if `isPlaneAtAirport` returned `true`
+4. Test that `takeOffPlane` reduces `planesAtAirport` array by removing **plane** that has taken off if `isPlaneAtAirport` returned `true`
+5. Test that `takeOffPlane` returns an appropriate **string** if `isPlaneAtAirport` returned `false`
+6. Test that **length** of `planesAtAirport` is still same as before if `isPlaneAtAirport` returned `false`
+7. Test that `landPlane` returns message saying **plane** has landed if `isPlaneAtAirport` returned `false`
+8. Test that `landPlane` adds **plane** to `planesAtAirport` array if `isPlaneAtAirport` returned `false`
+9. Test that `landPlane` returns message saying **plane** is already at airport if `isPlaneAtAirport` returned `true`
+10. Test that `landPlane` does not add **plane** to `planesAtAirport` if `isPlaneAtAirport` returned `true`
 
-prevent take off if plane id is not in an array at planesAtAirport = []
+1 + 2. The isplanesatairport method needs to return true in it if a plane is in the planesatairport array and false if it isnt. (ternary expression = planesAtAirport.length === 1 ? return `true` : return `false`)
 
-This unfortunately is not complete.
