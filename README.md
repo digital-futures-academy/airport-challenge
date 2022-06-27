@@ -64,6 +64,14 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
+| Objects   | Properties             | Messages                             | Output |
+| --------- | ---------------------- | ------------------------------------ | ------ |
+| `airport` | `capacity` @number = 5 | `setCapacity(newCapacity` @number`)` | N/A    |
+
+1. Test that a default capacity is set to the default supplied when an airport is constructed
+2. Test that capacity changes when setCapacity is called
+
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full

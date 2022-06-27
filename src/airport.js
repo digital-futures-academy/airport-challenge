@@ -2,13 +2,15 @@ class Airport {
   // here's a starting point for you
 
  planesAtAirport = []; 
+ capacity = 5; 
 
  landPlane(plane) {
  this.planesAtAirport.push(plane);
  console.log(`planesAtAirport length: ${this.planesAtAirport.length}`);
  console.log(this.planesAtAirport);
 
- return `confirmong that ${plane} has landed`;
+ return `confirming that ${plane} has landed`;
+
 
   }
 
