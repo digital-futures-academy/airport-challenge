@@ -189,14 +189,11 @@ testAirport.landPlane(testPlane);
 expectedResult = 0;
 
 //act
-//call the method under test with the testPlane
 testAirport.takeOffPlane(testPlane);
 //if the plane was removed then the length should change
 actualResult = testAirport.planesAtAirport.length;
 
 //assert
-//assert that the length of the planesAtAirport array is now 0 (initially 1)
-//assert that the string 'testPlane' is removed from the planesAtAirport array
 result = assertEquals(expectedResult, actualResult)
 
 //report
@@ -206,17 +203,14 @@ testName = 'takeOffPlane Test 2'
 console.log(`=== takeOffPlane returns string that says plane has taken off ===`);
 
 //arrange
-//create an airport for the test
 testAirport = new Airport();
 testAirport.landPlane(testPlane);
 expectedResult = true;
 
 //act
-//call the method under test with the testPlane
 message = testAirport.takeOffPlane(testPlane);
 
 //assert
-//assert that the string confirms airport is full.
 actualResult = message.includes("left");
 result = assertEquals(actualResult, expectedResult);
 
@@ -228,22 +222,33 @@ testName = 'planesatairport Test 1'
 console.log(`=== returns true when plane is in planesAtAirport array ===`);
 
 //arrange
-//create an airport for the test
 testAirport = new Airport();
 expectedResult = true;
 
 //act
-//call the method under test with the testPlane
 testAirport.landPlane(testPlane);
 message = testAirport.isPlaneAtAirport();
-
-//if the plane was in there then the length should be 1
 actualResult = message.includes("true");
-//planesAtAirport.includes(testPlane);
 
 //assert
-//assert that the length of the planesAtAirport array is now 1 (initially 0)
-//assert that the string 'testPlane' is included in the planesAtAirport array
+result = assertEquals(actualResult, expectedResult)
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+testName = 'planesatairport Test 2'
+console.log(`=== returns false when plane is NOT in planesAtAirport array ===`);
+
+//arrange
+testAirport = new Airport();
+expectedResult = false;
+
+//act
+testAirport.landPlane(testPlane);
+message = testAirport.isPlaneAtAirport();
+actualResult = message.includes("true");
+
+//assert
 result = assertEquals(actualResult, expectedResult)
 
 //report
