@@ -1,4 +1,4 @@
-const {assertEquals} = require("../testFramework");
+const {assertEquals, assertTrue} = require("../testFramework");
 const Airport = require("../src/airport.js");
 
 //fixture
@@ -26,6 +26,25 @@ result = assertEquals(expectedResult,actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
+name = `landPlane Test 2-item can be found in planesAtAirportArray`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+///expectedResult = 1;
+
+//Act
+//call the method under test with the testPlane
+testAirport.landPlane(testPlane);
+
+
+
+//Assert that the length of the plansAtAirport array is now 1 (initially 0)
+result = assertTrue(testAirport.planesAtAirport.includes(testPlane));
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 
