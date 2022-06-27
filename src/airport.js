@@ -39,7 +39,9 @@ class Airport {
   isPlaneAtAirport() {
     //this.planesAtAirport.length === 1 ? console.log(`true`) : console.log(`false`);
     if (this.planesAtAirport.length === 1)
-      return `true`
+      return `true`;
+    else
+      return `false`;
   }
 }
 

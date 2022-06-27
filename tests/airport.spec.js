@@ -246,7 +246,7 @@ expectedResult = false;
 //act
 testAirport.landPlane(testPlane);
 message = testAirport.isPlaneAtAirport();
-actualResult = message.includes("true");
+actualResult = message.includes("false");
 
 //assert
 result = assertEquals(actualResult, expectedResult)
