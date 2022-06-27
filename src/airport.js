@@ -31,8 +31,9 @@ class Airport {
     return this.planesAtAirport.length >= this.#capacity;
   }
 
-  takeOffPlane() {
+  takeOffPlane(plane) {
     this.planesAtAirport.splice(0, 1,)
+    return `Confirming that ${plane} has left the airport.`
   }
 }
 

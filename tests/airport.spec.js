@@ -191,13 +191,34 @@ expectedResult = 0;
 //act
 //call the method under test with the testPlane
 testAirport.takeOffPlane(testPlane);
-//if the plane was added then the length should change
+//if the plane was removed then the length should change
 actualResult = testAirport.planesAtAirport.length;
 
 //assert
 //assert that the length of the planesAtAirport array is now 0 (initially 1)
 //assert that the string 'testPlane' is removed from the planesAtAirport array
 result = assertEquals(expectedResult, actualResult)
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+testName = 'takeOffPlane Test 2'
+console.log(`=== takeOffPlane returns string that says plane has taken off ===`);
+
+//arrange
+//create an airport for the test
+testAirport = new Airport();
+testAirport.landPlane(testPlane);
+expectedResult = true;
+
+//act
+//call the method under test with the testPlane
+message = testAirport.takeOffPlane(testPlane);
+
+//assert
+//assert that the string confirms airport is full.
+actualResult = message.includes("bye")
+result = assertEquals(actualResult, expectedResult);
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
