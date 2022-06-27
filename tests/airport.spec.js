@@ -33,14 +33,15 @@ result = assertTrue(testAirport.planesAtAirport.includes(testPlane));
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
-// === landPlane tests ===
-name = `landPlane Test 3 - landPlane returns string that confirms THE plane landed`;
+// === capacity setting tests ===
+name = `capacity setting Test 1 - new airports have default capacity set to 50`;
 console.log(`=== ${name} ===`);
 // Arrange 
 testAirport = new Airport();
+expectedResult = 50;
 // Act
-actualResult = testAirport.landPlane(testPlane);
+actualResult = testAirport.capacity;
 // Assert 
-result = assertTrue(actualResult.includes(testPlane));
+result = assertEquals(expectedResult, actualResult);
 //report 
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
