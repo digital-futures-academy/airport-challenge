@@ -3,7 +3,7 @@ const Airport = require("../src/airport");
 
 
 //fixtures (things we need in all the tests)
-let testAirport, expectedResult, actualResult, result, testName;
+let testAirport, expectedResult, actualResult, result, testName, message;
 const testPlane = 'testPlane';
 
 
@@ -217,7 +217,7 @@ message = testAirport.takeOffPlane(testPlane);
 
 //assert
 //assert that the string confirms airport is full.
-actualResult = message.includes("left")
+actualResult = message.includes("left");
 result = assertEquals(actualResult, expectedResult);
 
 //report
@@ -234,15 +234,17 @@ expectedResult = true;
 
 //act
 //call the method under test with the testPlane
-testAirport.isPlaneAtAirport();
-//if the plane was added then the length should change
-actualResult = testAirport.planesAtAirport.length;
+testAirport.landPlane(testPlane);
+message = testAirport.isPlaneAtAirport();
+
+//if the plane was in there then the length should be 1
+actualResult = message.includes("true");
 //planesAtAirport.includes(testPlane);
 
 //assert
 //assert that the length of the planesAtAirport array is now 1 (initially 0)
 //assert that the string 'testPlane' is included in the planesAtAirport array
-result = assertEquals(expectedResult, actualResult)
+result = assertEquals(actualResult, expectedResult)
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

@@ -36,7 +36,11 @@ class Airport {
     return `Confirming that ${plane} has left the airport.`
   }
 
-  isPlaneAtAirport() { }
+  isPlaneAtAirport() {
+    //this.planesAtAirport.length === 1 ? console.log(`true`) : console.log(`false`);
+    if (this.planesAtAirport.length === 1)
+      return `true`
+  }
 }
 
 module.exports = Airport;
