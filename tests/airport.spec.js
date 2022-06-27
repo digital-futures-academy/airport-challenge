@@ -2,10 +2,11 @@ const {assertEquals} = require("../testFramework");
 const Airport = require("../src/airport.js");
 
 //fixture
-let testAirport, expectedResult, actualResult, result;
+let testAirport, expectedResult, actualResult, result, name;
 const testPlane = `testPlane`;
 
-console.log("===landPlane Test 1-item added to planesAtAirport===");
+name = `landPlane Test 1-item added to planesAtAirport array`
+console.log(`==== ${name} ====`);
 
 //arrange
 //Create an airport for the test 
@@ -21,6 +22,8 @@ actualResult = testAirport.planesAtAirport.length;
 //Assert that the legnth of the plansAtAirport array is now 1 (initially 0)
 result = assertEquals(expectedResult,actualResult);
 
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 
