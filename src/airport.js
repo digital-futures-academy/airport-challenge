@@ -31,7 +31,9 @@ class Airport {
     return this.planesAtAirport.length >= this.#capacity;
   }
 
-  takeOffPlane() { }
+  takeOffPlane() {
+    this.planesAtAirport.splice(0, 1,)
+  }
 }
 
 module.exports = Airport;

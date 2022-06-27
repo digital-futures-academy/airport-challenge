@@ -23,7 +23,7 @@ testAirport.landPlane(testPlane);
 actualResult = testAirport.planesAtAirport.length;
 
 //assert
-//assert that thw length of the planesAtAirport array is now 1 (initially 0)
+//assert that the length of the planesAtAirport array is now 1 (initially 0)
 //assert that the string 'testPlane' is included in the planesAtAirport array
 result = assertEquals(expectedResult, actualResult)
 
@@ -195,8 +195,8 @@ testAirport.takeOffPlane(testPlane);
 actualResult = testAirport.planesAtAirport.length;
 
 //assert
-//assert that thw length of the planesAtAirport array is now 1 (initially 0)
-//assert that the string 'testPlane' is included in the planesAtAirport array
+//assert that the length of the planesAtAirport array is now 0 (initially 1)
+//assert that the string 'testPlane' is removed from the planesAtAirport array
 result = assertEquals(expectedResult, actualResult)
 
 //report
