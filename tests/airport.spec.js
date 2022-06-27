@@ -217,7 +217,7 @@ message = testAirport.takeOffPlane(testPlane);
 
 //assert
 //assert that the string confirms airport is full.
-actualResult = message.includes("bye")
+actualResult = message.includes("left")
 result = assertEquals(actualResult, expectedResult);
 
 //report
