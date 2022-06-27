@@ -11,6 +11,10 @@ class Airport {
     return `Confirming that ${plane} has landed`;
   }
 
+  setCapacity(newCapacity) {
+    this.capacity = newCapacity
+  }
+
 }
 
 module.exports = Airport;
