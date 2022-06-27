@@ -55,14 +55,13 @@ console.log(`=== landPlane returns string that confirms the plane landed ===`);
 //arrange
 //create an airport for the test
 testAirport = new Airport();
-//expectedResult = 1;
 
 //act
 //call the method under test with the testPlane
 actualResult = testAirport.landPlane(testPlane);
 
 //assert
-//assert that thw length of the planesAtAirport array is now 1 (initially 0)
+//assert that the length of the planesAtAirport array is now 1 (initially 0)
 //assert that the string 'testPlane' is included in the planesAtAirport array
 result = assertTrue(actualResult.includes(testPlane));
 
@@ -85,7 +84,7 @@ actualResult = testAirport.getCapacity();
 
 //assert
 //assert that thw length of the planesAtAirport array is now 1 (initially 0)
-//assert that the actual capacity is 5
+//assert that the actual capacity is 1
 result = assertEquals(expectedResult, actualResult);
 
 //report
@@ -154,6 +153,25 @@ actualResult = testAirport.isAirportFull();
 //assert that the length of the planesAtAirport array is still 1 
 //assert that the string 'testPlane' is the only thing in the planesAtAirport array
 result = assertTrue(actualResult)
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+testName = 'isAirportFull Test 2'
+console.log(`=== landPlane returns string that says airport is full ===`);
+
+//arrange
+//create an airport for the test
+testAirport = new Airport();
+
+
+//act
+//call the method under test with the testPlane
+actualResult = testAirport.isAirportFull();
+
+//assert
+//assert that the string confirms airport is full.
+result = assertTrue(actualResult);
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
