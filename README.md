@@ -44,9 +44,33 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+| noun  | verb        |
+| ----- | ----------- |
+|Airport| Land        |
+|Plane  |             |
+|       |             |
+|       |             |
+
+---
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| `airport` | `planesAtAirport` @ARRAY[@string] | `landPlane(plane` @string`)` | @string |
+
+1.Test that plane is added to array (could test that legnth increases after call or that array includes plane received)
+2.Test that landPlane returns a string that confirms the plane has landed 
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+| Objects   | Properties             | Messages                             | Output |
+| --------- | ---------------------- | ------------------------------------ | ------ |
+| `airport` | `capacity` @number = 5 | `setCapacity(newCapacity` @number`)` | N/A    |
+
+1. Test that a default capacity is set to the default supplied when an airport is constructed
+2. Test that capacity changes when setCapacity is called
+
 
 As an air traffic controller
 To ensure safety

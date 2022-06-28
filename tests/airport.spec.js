@@ -1,0 +1,128 @@
+const {assertEquals, assertTrue} = require("../testFramework");
+const Airport = require("../src/airport.js");
+
+//fixture
+let testAirport, expectedResult, actualResult, result, name;
+const testPlane = `testPlane`;
+
+name = `landPlane Test 1-item added to planesAtAirport array`
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+expectedResult = 1;
+
+//Act
+//call the method under test with the testPlane
+testAirport.landPlane(testPlane);
+//if the plane was added then the legnth should change 
+actualResult = testAirport.planesAtAirport.length;
+
+//Assert that the legnth of the plansAtAirport array is now 1 (initially 0)
+result = assertEquals(expectedResult,actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `landPlane Test 2- plane can be found in planesAtAirportArray`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+
+//Act
+//call the method under test with the testPlane
+testAirport.landPlane(testPlane);
+
+
+//Assert that the string 'testPlane' is now included in the planes at airport array  
+result = assertTrue(testAirport.planesAtAirport.includes(testPlane));
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `landPlane Test 3-landPlane returns string that confirms the plane landed`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+
+//Act
+//call the method under test with the testPlane
+actualResult = testAirport.landPlane(testPlane);
+
+
+//Assert that the string 'testPlane' is now included in the planes at airport array  
+result = assertTrue(actualResult.includes(testPlane));
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+//==== capacity setting test ====
+
+name = `Capacity setting Test 1- new airports have default capacity set to 5 landed`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+expectedResult = 5;
+
+//Act
+//get the capacity of the testAirport
+actualResult = testAirport.getCapacity();
+
+
+//Assert that actual capacity of the new airport is 5
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+name = `Capacity setting Test 2- setCapacity changes airport's capacity value`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+expectedResult = 10;
+
+//Act
+//Set the capcity to the expectedResult
+testAirport.setCapacity(expectedResult);
+//get the capacity of the testAirport
+actualResult = testAirport.getCapacity();
+
+
+//Assert that actual capacity of the new airport is 5
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+name = `Capacity setting Test 3- value passed to constructor is used as airport's capacity`;
+console.log(`==== ${name} ====`);
+
+//arrange
+//Create an airport for the test 
+expectedResult = 100;
+
+//Act
+//Create a new aiport that recieves it capacity on construction 
+testAirport = new Airport(expectedResult);
+// Get the capacity of the testAirport
+
+actualResult = testAirport.getCapacity();
+//Assert
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
