@@ -48,3 +48,30 @@ result = assertEquals(expectedResult, actualResult);
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
+
+
+// prevent landing tests
+name = `prevent landing Test 1 - plane cannot land if airport capacity is equal to or greater than 5`
+console.log(`=== ${name} ===`);
+
+
+//https://www.geeksforgeeks.org/different-ways-of-writing-functions-in-javascipt/
+
+// Fixtures
+let isAirportFull = capacity => {
+    if (planesAtAirport.length >= capacity)
+        return landPlane(testPlane)
+    else
+        return console.log(isAirportFull = true)
+};
+   
+// Arrange
+testAirport = new Airport;
+// Act
+actualResult = 5
+expectedResult = 5
+
+// Assert
+result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
