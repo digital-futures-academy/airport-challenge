@@ -1,29 +1,34 @@
 class Airport {
   // here's a starting point for you
 
- planesAtAirport = []; 
- #capacity
+  planesAtAirport = [];
+  #capacity
 
- constructor(capacity = 5) {
-   this.#capacity = capacity;
+  constructor(capacity = 1) {
+    this.#capacity = capacity;
   }
 
   getCapacity() {
     return this.#capacity;
   }
 
-  setCapacity(newCapacity) { 
-   this.#capacity = newCapacity;
+  setCapacity(newCapacity) {
+    this.#capacity = newCapacity;
   }
-  
 
- landPlane(plane) {
- this.planesAtAirport.push(plane);
- console.log(`planesAtAirport length: ${this.planesAtAirport.length}`);
- console.log(this.planesAtAirport);
+  isAirportFull() {
+    return this.planesAtAirport.length >= this.#capacity;
 
- return `confirming that ${plane} has landed`;
+  }
 
+  //trying to create more than one plane somehow 
+
+  landPlane(plane) {
+    if (this.isAirportFull() === false) {
+      this.planesAtAirport.push(plane);
+      return `confirming that ${plane} has landed`;
+    }
+    return `confirming that ${plane} has not landed`
 
   }
 

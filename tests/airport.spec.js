@@ -1,4 +1,4 @@
-const {assertEquals, assertTrue} = require("../testFramework");
+const { assertEquals, assertTrue } = require("../testFramework");
 const Airport = require("../src/airport.js");
 
 //fixture
@@ -20,7 +20,7 @@ testAirport.landPlane(testPlane);
 actualResult = testAirport.planesAtAirport.length;
 
 //Assert that the legnth of the plansAtAirport array is now 1 (initially 0)
-result = assertEquals(expectedResult,actualResult);
+result = assertEquals(expectedResult, actualResult);
 
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
@@ -126,3 +126,29 @@ result = assertEquals(expectedResult, actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
+
+name = `Full capacity Test 1-if length is more than or equal to capacity do not land plane`;
+console.log(`==== ${name} ====`);
+//test by adding two planes to an array
+
+//arrange
+//Create an airport for the test with a capacity of 1
+testAirport = new Airport();
+expectedResult = 1;
+testPlane1 = 'testPlane1';
+testPlane2 = 'testPlane2';
+testAirport.landPlane(testPlane1);
+
+//Act 
+// land a plane 
+testAirport.landPlane(testPlane2);
+
+
+//the plane must be stopped  
+actualResult = testAirport.planesAtAirport.length;
+
+//Assert that  planesAtAirport legnth is still 1 
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
