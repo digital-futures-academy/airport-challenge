@@ -253,3 +253,21 @@ result = assertEquals(actualResult, expectedResult)
 
 //report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+testName = 'planesatairport Test 3'
+console.log(`=== takeOffPlane returns message confirming plane left if isPlanesAtAirport is true ===`);
+
+//arrange
+testAirport = new Airport();
+expectedResult = true;
+
+//act
+testAirport.planesAtAirport.length;
+message = testAirport.takeOffPlane();
+actualResult = message.includes("left");
+
+//assert
+result = assertEquals(actualResult, expectedResult)
+
+//report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);

@@ -96,5 +96,5 @@ i want to prevent asking the airport to let planes take off which are not at the
 9. Test that `landPlane` returns message saying **plane** is already at airport if `isPlaneAtAirport` returned `true`
 10. Test that `landPlane` does not add **plane** to `planesAtAirport` if `isPlaneAtAirport` returned `true`
 
-1 + 2. The isplanesatairport method needs to return true in it if a plane is in the planesatairport array and false if it isnt. (ternary expression = planesAtAirport.length === 1 ? return `true` : return `false`)
-
+if (isplaneatairport() === true)
+return message already in method
