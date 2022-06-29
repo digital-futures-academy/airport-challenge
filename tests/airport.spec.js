@@ -51,7 +51,7 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 // prevent landing tests
-name = `prevent landing Test 1 - plane cannot land if airport capacity is equal to or greater than 5`
+name = `prevent landing Test 1 - plane cannot land if airport capacity is equal to or greater than 5`;
 console.log(`=== ${name} ===`);
 
 
@@ -68,10 +68,30 @@ let isAirportFull = capacity => {
 // Arrange
 testAirport = new Airport;
 // Act
-actualResult = 5
-expectedResult = 5
+actualResult = 5;
+expectedResult = 5;
 
 // Assert
 result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+
+
+name = `prevent landing Test 2 - return a string when airport is full`;
+console.log(`=== ${name} ===`);
+
+//Fixtures 
+let capacity = 1;
+
+testAirport = new Airport();
+// Act assertTrue(testAirport.planesAtAirport.includes(testPlane))
+testAirport.landPlane(testPlane);
+
+Airport.length = capacity
+// Assert
+result = assertTrue(testAirport.planesAtAirport.i ? console.log(`airport is FULL!`) : console.log(`airport ISN'T full!`));
+// result = assertTrue(testAirport.planesAtAirport.includes(testPlane))
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
