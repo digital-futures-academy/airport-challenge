@@ -22,12 +22,6 @@ class Airport {
 
 
 
-
-
-
-
-  //trying to create more than one plane somehow 
-
   landPlane(plane) {
     if (this.isAirportFull() === false) {
       this.planesAtAirport.push(plane);

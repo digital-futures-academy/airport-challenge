@@ -4,7 +4,6 @@ const Airport = require("../src/airport.js");
 //fixture
 let testAirport, expectedResult, actualResult, result, name;
 const testPlane = `testPlane`
-const planes = [`testPlane1`, `testPlane2`, `testPlane2`, `testPlane4`, `testPlane5`]
 
 name = `landPlane Test 1-item added to planesAtAirport array`
 console.log(`==== ${name} ====`);
@@ -136,17 +135,25 @@ console.log(`==== ${name} ====`);
 //Create an airport for the test with a capacity of 1
 testAirport = new Airport();
 expectedResult = 5;
+testPlane1 = `testplane1`
+testPlane2 = `testPlane2`
+testPlane3 = `testPlane3`
+testPlane4 = `testPlane4`
+testPlane5 = `testPlane5`
 testPlane6 = 'testPlane6'
 
-testAirport.landPlane(planes);
-
+testAirport.landPlane(testPlane1);
+testAirport.landPlane(testPlane2);
+testAirport.landPlane(testPlane3);
+testAirport.landPlane(testPlane4);
+testAirport.landPlane(testPlane5);
 //Act 
 // land a plane 
 testAirport.landPlane(testPlane6);
 
 
 //the plane must be stopped  
-console.log(actualResult = testAirport.planesAtAirport.length);
+actualResult = testAirport.planesAtAirport.length;
 
 //Assert that  planesAtAirport legnth is still 1 
 result = assertEquals(expectedResult, actualResult);
@@ -162,14 +169,18 @@ console.log(`==== ${name} ====`);
 //arrange
 //Create a full airport
 testAirport = new Airport();
-testPlane1 = 'testPlane1';
-testPlane2 = 'testPlane2';
-testPlane3 = 'testPlane3';
-testPlane4 = 'testPlane4';
-testPlane5 = 'testPlane5';
-testPlane6 = 'testPlane6';
+testPlane1 = `testplane1`
+testPlane2 = `testPlane2`
+testPlane3 = `testPlane3`
+testPlane4 = `testPlane4`
+testPlane5 = `testPlane5`
+testPlane6 = 'testPlane6'
 
-testAirport.landPlane(testPlane1, testPlane2, testPlane3, testPlane4, testPlane5);
+testAirport.landPlane(testPlane1);
+testAirport.landPlane(testPlane2);
+testAirport.landPlane(testPlane3);
+testAirport.landPlane(testPlane4);
+testAirport.landPlane(testPlane5);
 expectedResult = true;
 
 //Act 
@@ -183,9 +194,6 @@ result = assertTrue(expectedResult, actualResult);
 
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
-
-
-
 
 
 
