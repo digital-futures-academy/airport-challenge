@@ -58,15 +58,17 @@ console.log(`=== ${name} ===`);
 //https://www.geeksforgeeks.org/different-ways-of-writing-functions-in-javascipt/
 
 // Fixtures
+
 let isAirportFull = capacity => {
     if (planesAtAirport.length >= capacity)
         return landPlane(testPlane)
-    else
+    else testAirport.landPlane(testPlane)
+actualResult = testAirport.planesAtAirport.length;
         return console.log(isAirportFull = true)
 };
    
 // Arrange
-testAirport = new Airport;
+testAirport = new Airport();
 // Act
 actualResult = 5;
 expectedResult = 5;
@@ -83,15 +85,13 @@ name = `prevent landing Test 2 - return a string when airport is full`;
 console.log(`=== ${name} ===`);
 
 //Fixtures 
-let capacity = 1;
 
-testAirport = new Airport();
-// Act assertTrue(testAirport.planesAtAirport.includes(testPlane))
-testAirport.landPlane(testPlane);
-
-Airport.length = capacity
-// Assert
-result = assertTrue(testAirport.planesAtAirport.i ? console.log(`airport is FULL!`) : console.log(`airport ISN'T full!`));
-// result = assertTrue(testAirport.planesAtAirport.includes(testPlane))
+// Arrange -need a full airport, a plane 
+testAirport = new Airport;
+// Act  need to land plane in full airport
+actualResult = testAirport.fullCapacity; 
+expectedResult = 1;
+// Assert 
+result =  assertTrue( expectedResult= 1 ? console.log(`airport is FULL!`) : console.log(`airport ISN'T full!`));
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
