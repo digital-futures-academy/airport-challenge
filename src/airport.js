@@ -4,7 +4,7 @@ class Airport {
   planesAtAirport = [];
   #capacity
 
-  constructor(capacity = 1) {
+  constructor(capacity = 5) {
     this.#capacity = capacity;
   }
 
@@ -18,8 +18,13 @@ class Airport {
 
   isAirportFull() {
     return this.planesAtAirport.length >= this.#capacity;
-
   }
+
+
+
+
+
+
 
   //trying to create more than one plane somehow 
 
@@ -28,10 +33,16 @@ class Airport {
       this.planesAtAirport.push(plane);
       return `confirming that ${plane} has landed`;
     }
-    return `confirming that ${plane} has not landed`
+    return `airport is full`;
 
   }
+
+
 
 }
 
 module.exports = Airport;
+
+
+//=== true) {
+//  return `${Airport} is full`;

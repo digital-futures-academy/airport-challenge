@@ -3,7 +3,8 @@ const Airport = require("../src/airport.js");
 
 //fixture
 let testAirport, expectedResult, actualResult, result, name;
-const testPlane = `testPlane`;
+const testPlane = `testPlane`
+const planes = [`testPlane1`, `testPlane2`, `testPlane2`, `testPlane4`, `testPlane5`]
 
 name = `landPlane Test 1-item added to planesAtAirport array`
 console.log(`==== ${name} ====`);
@@ -134,21 +135,60 @@ console.log(`==== ${name} ====`);
 //arrange
 //Create an airport for the test with a capacity of 1
 testAirport = new Airport();
-expectedResult = 1;
-testPlane1 = 'testPlane1';
-testPlane2 = 'testPlane2';
-testAirport.landPlane(testPlane1);
+expectedResult = 5;
+testPlane6 = 'testPlane6'
+
+testAirport.landPlane(planes);
 
 //Act 
 // land a plane 
-testAirport.landPlane(testPlane2);
+testAirport.landPlane(testPlane6);
 
 
 //the plane must be stopped  
-actualResult = testAirport.planesAtAirport.length;
+console.log(actualResult = testAirport.planesAtAirport.length);
 
 //Assert that  planesAtAirport legnth is still 1 
 result = assertEquals(expectedResult, actualResult);
 
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `Full capacity Test 2-if string is returned when aiport is full `;
+console.log(`==== ${name} ====`);
+//test by returning a string 
+
+//arrange
+//Create a full airport
+testAirport = new Airport();
+testPlane1 = 'testPlane1';
+testPlane2 = 'testPlane2';
+testPlane3 = 'testPlane3';
+testPlane4 = 'testPlane4';
+testPlane5 = 'testPlane5';
+testPlane6 = 'testPlane6';
+
+testAirport.landPlane(testPlane1, testPlane2, testPlane3, testPlane4, testPlane5);
+expectedResult = true;
+
+//Act 
+// call the method under test with the test airport
+
+message = testAirport.landPlane(testPlane6);
+
+//Assert that  planesAtAirport returns a string 
+actualResult = message.includes('full');
+result = assertTrue(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+
+
+
+
+
+
+
