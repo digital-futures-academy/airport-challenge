@@ -197,7 +197,7 @@ result = assertTrue(expectedResult, actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
-name = `Plane taking off 1-if plane is removed from array when passed to a string `;
+name = `Plane taking off 1-if plane is removed from array  `;
 console.log(`==== ${name} ====`);
 //test by returning a string
 
@@ -205,14 +205,13 @@ console.log(`==== ${name} ====`);
 //Create a full airport
 //needs to loop through these objects 
 testAirport = new Airport();
-testPlane1 = `testplane1`
 testAirport.landPlane(testPlane1);
 expectedResult = 0;
 
 //Act 
 // call the method under test with the test airport
 
-message = testAirport.takeOffPlane(testPlane6);
+testAirport.takeOffPlane(testPlane1);
 
 //Assert that  planesAtAirport returns a string 
 actualResult = testAirport.planesAtAirport.length;
