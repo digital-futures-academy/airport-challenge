@@ -20,6 +20,13 @@ class Airport {
     return this.planesAtAirport.length >= this.#capacity;
   }
 
+  takeOffPlane(plane) {
+    this.planesAtAirport.pop(plane);
+    return `taken off`;
+
+  }
+
+
 
 
   landPlane(plane) {
