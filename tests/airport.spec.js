@@ -239,3 +239,26 @@ result = assertTrue(actualResult.includes(`taken off`));
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
+
+
+name = `isPlaneAtAirport Test 1-if string returns true when plane is in the array`;
+console.log(`==== ${name} ====`);
+
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+expectedResult = true;
+
+//Act
+//call the method under test with the testPlane
+testAirport.landPlane(testPlane1);
+//if the plane was added then the legnth should change 
+actualResult = testAirport.isPlaneAtAirport(testPlane1);
+
+//Assert that the legnth of the plansAtAirport array is now 1 (initially 0)
+result = assertTrue(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
