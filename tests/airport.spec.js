@@ -262,3 +262,28 @@ result = assertTrue(expectedResult, actualResult);
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
+
+name = `isPlaneAtAirport Test 2-return false when plane is not in the array`;
+console.log(`==== ${name} ====`);
+
+
+//arrange
+//Create an airport for the test 
+testAirport = new Airport();
+expectedResult = false;
+testPlane1 = `testplane1`;
+
+//Act
+//call the method to test is false is returned
+
+actualResult = testAirport.isPlaneAtAirport(testPlane1);
+
+//Assert that the legnth of the plansAtAirport array is now 1 (initially 0)
+result = assertEquals(expectedResult, actualResult);
+
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+

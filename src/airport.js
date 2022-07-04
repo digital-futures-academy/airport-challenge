@@ -27,9 +27,14 @@ class Airport {
   }
 
   isPlaneAtAirport(plane) {
-    if (this.planesAtAirport.includes(plane) === true);
+    if (this.planesAtAirport.includes(plane)) {
+      return true;
+    }
+    return false;
+
   }
 
+  // if plane at aiport includes plane return true, othewise return false 
 
 
 
@@ -47,5 +52,3 @@ class Airport {
 module.exports = Airport;
 
 
-//=== true) {
-//  return `${Airport} is full`;
