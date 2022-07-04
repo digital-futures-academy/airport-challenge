@@ -27,24 +27,22 @@ class Airport {
   }
 
   isPlaneAtAirport(plane) {
-    if (this.planesAtAirport.includes(plane) === true); {
-
-
-    }
-
-
-    landPlane(plane) {
-      if (this.isAirportFull() === false) {
-        this.planesAtAirport.push(plane);
-        return `confirming that ${plane} has landed`;
-      }
-      return `airport is full`;
-
-    }
-
-
-
+    if (this.planesAtAirport.includes(plane) === true);
   }
+
+
+
+
+  landPlane(plane) {
+    if (this.isAirportFull() === false) {
+      this.planesAtAirport.push(plane);
+
+
+      return `confirming that ${plane} has landed`;
+    }
+    return `airport is full`;
+  }
+}
 
 module.exports = Airport;
 
