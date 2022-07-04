@@ -84,14 +84,54 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 name = `prevent landing Test 2 - return a string when airport is full`;
 console.log(`=== ${name} ===`);
 
-//Fixtures 
+//Fixtures
 
-// Arrange -need a full airport, a plane 
-testAirport = new Airport;
+// Arrange -need a full airport, a plane
+//testAirport = new Airport;
 // Act  need to land plane in full airport
-actualResult = testAirport.fullCapacity; 
-expectedResult = 1;
-// Assert 
-result =  assertTrue( expectedResult= 1 ? console.log(`airport is FULL!`) : console.log(`airport ISN'T full!`));
+//actualResult = testAirport.fullCapacity;
+//expectedResult = 1;
+// Assert
+//result =  assertTrue( expectedResult= 1 ? console.log(`airport is FULL!`) : console.log(`airport ISN'T full!`));
+// Report
+//console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+
+
+//User story 4
+
+//As an air traffic controller
+//So I can get passengers on the way to their destination
+//I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+
+//Arrange
+//Airport
+//Test plane
+//planesAtAirport[] - containing 1 plane
+//Call takeoffPlane()
+
+//Act
+//takeoffPlane() should remove the test plane from the planeAtAirport array
+//Assert - to test this
+//Assert that the length of the array has decreased by 1 /
+ //   is now empty
+//Assert that takeoffPlane returns a string confirming plane has left
+
+
+name = `allow takeoff Test 1 - plane removed from to planesAtAirport Array`;
+console.log(`=== ${name} ===`);
+
+
+
+// Arrange
+testAirport = new Airport();
+expectedResult = 0;
+// Act
+testAirport.takeoffPlane(testPlane)
+actualResult = testAirport.planesAtAirport.length;
+// Assert
+result = assertEquals(expectedResult, actualResult);
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
