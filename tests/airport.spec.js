@@ -206,7 +206,8 @@ console.log(`==== ${name} ====`);
 //needs to loop through these objects 
 testAirport = new Airport();
 testAirport.landPlane(testPlane1);
-expectedResult = 0;
+expectedResult = true;
+
 
 //Act 
 // call the method under test with the test airport
@@ -214,8 +215,8 @@ expectedResult = 0;
 testAirport.takeOffPlane(testPlane1);
 
 //Assert that  planesAtAirport returns a string 
-actualResult = testAirport.planesAtAirport.length;
-result = assertEquals(expectedResult, actualResult);
+actualResult = testAirport.planesAtAirport.includes(testPlane1);
+result = assertTrue(expectedResult, actualResult);
 
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
@@ -227,14 +228,18 @@ console.log(`==== ${name} ====`);
 //test by returning a string
 
 testAirport = new Airport();
+testPlane1 = `testPlane1`
 testAirport.landPlane(testPlane1);
-
-//Act 
+expectedResult = true;
+//Act
 // call the method under test with the test airport
-//Assert that  planesAtAirport returns a string 
-actualResult = testAirport.takeOffPlane(testPlane1);
+//Assert that  planesAtAirport returns a string
 
-result = assertTrue(actualResult.includes(`taken off`));
+message = testAirport.takeOffPlane(testPlane1);
+actualResult = message.includes(`taken off`);
+
+result = assertEquals(actualResult, expectedResult);
+
 
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
@@ -248,6 +253,7 @@ console.log(`==== ${name} ====`);
 //arrange
 //Create an airport for the test 
 testAirport = new Airport();
+testPlane1 = 'testPlane1'
 expectedResult = true;
 
 //Act
@@ -286,4 +292,51 @@ result = assertEquals(expectedResult, actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
+name = `takeOffPlane Test 3-return message if isPlaneAtAirport is true`;
+console.log(`==== ${name} ====`);
+testPlane7 = `testPlane7`
+
+//arrange
+testAirport = new Airport();
+testAirport.landPlane(testPlane7);
+expectedResult = true;
+
+//Act
+// call the method under test with the test airport
+//Assert that  planesAtAirport returns a string
+
+message = testAirport.takeOffPlane(testPlane7);
+
+
+// Assert that  takeOffPlane returns a message when isPlaneAtAirport is true
+actualResult = message.includes(`taken off`);
+result = assertEquals(expectedResult, actualResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+// 4. Test that `takeOffPlane` reduces `planesAtAirport` array by removing ** plane **
+// that has taken off if `isPlaneAtAirport` returned`true`
+
+
+name = `takeOffPlane Test 4- remove plane from array`;
+console.log(`==== ${name} ====`);
+
+
+//arrange
+testAirport = new Airport();
+testPlane7 = `testPlane7`;
+testAirport.landPlane(testPlane7);
+expectedResult = 0;
+
+//Act
+testAirport.takeOffPlane(testPlane7);
+actualResult = testAirport.planesAtAirport.length;
+
+// Assert 
+result = assertEquals(actualResult, expectedResult);
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 

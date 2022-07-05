@@ -21,8 +21,10 @@ class Airport {
   }
 
   takeOffPlane(plane) {
-    this.planesAtAirport.pop(plane);
-    return `taken off`;
+    if (this.isPlaneAtAirport(plane)) {
+      this.planesAtAirport.pop(plane);
+      return `${plane} has taken off`;
+    }
 
   }
 
@@ -52,3 +54,5 @@ class Airport {
 module.exports = Airport;
 
 
+//=== true) {
+//  return `${ Airport } is full`;
