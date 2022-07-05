@@ -2,16 +2,29 @@ class Airport {
   // here's a starting point for you
   planesAtAirport = [];
   capacity = 5;
- // fullCapacity = 1
+
 
   landPlane(plane) {
-  this.planesAtAirport.push(plane)
+    this.planesAtAirport.push(plane);
+    return "airport is full, plane cannot land";
   }
-  
+
   takeoffPlane(plane) {
-    this.planesAtAirport.pop(plane)
+    this.planesAtAirport.pop(plane);
+    return "plane has left the airport";
   }
+
+//https://www.geeksforgeeks.org/different-ways-of-writing-functions-in-javascipt/
+  
+  isAirportFull = capacity => {
+    if (planesAtAirport.length >= capacity)
+      return landPlane(testPlane)
+    else testAirport.landPlane(testPlane)
+    actualResult = testAirport.planesAtAirport.length;
+    return console.log(isAirportFull = true)
+  };
+
 }
 
-module.exports = Airport ;
+module.exports = Airport;
 
