@@ -340,3 +340,74 @@ result = assertEquals(actualResult, expectedResult);
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
+
+name = `takeOffPlane Test 5- return a string when false`;
+console.log(`==== ${name} ====`);
+
+
+//arrange
+testAirport = new Airport();
+testPlane7 = `testPlane7`;
+expectedResult = false;
+
+//Act
+testAirport.takeOffPlane(testPlane7);
+message = testAirport.takeOffPlane(testPlane7);
+actualResult = message.includes(`plane not taken off`)
+
+
+// Assert 
+result = assertEquals(actualResult, expectedResult);
+
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `takeOffPlane Test 6- test that legnth is still the same as before`;
+console.log(`==== ${name} ====`);
+
+
+//arrange
+testAirport = new Airport();
+expectedResult = 0;
+testPlane7 = `testPlane7`;
+testAirport.takeOffPlane(testPlane7);
+
+//Act
+actualResult = testAirport.planesAtAirport.length
+
+// Assert 
+result = assertEquals(expectedResult, actualResult);
+
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `takeOffPlane Test 7- test that landPlane returns a message`;
+console.log(`==== ${name} ====`);
+
+// how do we get landPlane to understand that isPlaneAtAirport returned false -?
+
+
+//arrange
+testAirport = new Airport();
+testPlane7 = `testPlane7`;
+expectedResult = false;
+message = testAirport.landPlane(testPlane7);
+
+console.log(landPlane);
+//Act
+message.testAirport.landPlane(testPlane7);
+actualResult = message.includes(`has landed`)
+
+// Assert 
+result = assertEquals(expectedResult, actualResult);
+
+
+//report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+

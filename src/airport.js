@@ -25,7 +25,7 @@ class Airport {
       this.planesAtAirport.pop(plane);
       return `${plane} has taken off`;
     }
-
+    return `${plane} has not taken off`;
   }
 
   isPlaneAtAirport(plane) {
@@ -36,15 +36,12 @@ class Airport {
 
   }
 
-  // if plane at aiport includes plane return true, othewise return false 
-
+  // how do we get landPlane to understand that isPlaneAtAirport returned false -?
 
 
   landPlane(plane) {
     if (this.isAirportFull() === false) {
       this.planesAtAirport.push(plane);
-
-
       return `confirming that ${plane} has landed`;
     }
     return `airport is full`;
