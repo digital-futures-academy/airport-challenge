@@ -115,10 +115,15 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 //I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
 //1. Test that `isPlaneAtAirport` returns `true` when **plane** IS in the `planesAtAirport` array
-//name = ` `;
+name = ` isPlaneAtAirport returns true `;
 console.log(`=== ${name} ===`);
 // Arrange
-testAirport = new Airport;
+testAirport = new Airport();
+testAirport.landPlane(testPlane);
+expectedResult = testAirport.isPlaneAtAirport(testPlane);
 // Act
+actualResult = testAirport.planesAtAirport.includes(testPlane)
 // Assert
+result = assertEquals(expectedResult, actualResult);
 // Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);

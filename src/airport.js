@@ -3,6 +3,12 @@ class Airport {
   planesAtAirport = [];
   capacity = 5;
 
+  isPlaneAtAirport(plane) {
+    this.planesAtAirport.includes(plane);
+    return true
+  }
+
+
 
   landPlane(plane) {
     this.planesAtAirport.push(plane);
