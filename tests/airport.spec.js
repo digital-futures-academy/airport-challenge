@@ -127,3 +127,19 @@ actualResult = testAirport.planesAtAirport.includes(testPlane)
 result = assertEquals(expectedResult, actualResult);
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+
+//2. Test that `isPlaneAtAirport` returns `false` when **plane** IS NOT in the `planesAtAirport` array
+name = ` isPlaneAtAirport returns false if plane is not in airport `;
+console.log(`=== ${name} ===`);
+// Arrange
+testAirport = new Airport();
+testAirport.takeoffPlane(testPlane);
+expectedResult = testAirport.isPlaneAtAirport(testPlane);
+// Act
+actualResult = testAirport.planesAtAirport.includes(testPlane)
+// Assert
+result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);

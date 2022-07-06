@@ -8,6 +8,10 @@ class Airport {
     return true
   }
 
+  isPlaneAtAirport(plane) {
+    this.planesAtAirport.pop(plane);
+    return false
+  }
 
 
   landPlane(plane) {
