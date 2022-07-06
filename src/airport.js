@@ -5,7 +5,7 @@ class Airport {
 
   isPlaneAtAirport(plane) {
     this.planesAtAirport.includes(plane);
-    return true
+    return true, 'plane is ready for takeoff';
   }
 
   isPlaneAtAirport(plane) {

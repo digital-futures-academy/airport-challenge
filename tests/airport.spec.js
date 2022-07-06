@@ -51,6 +51,7 @@ result = assertEquals(expectedResult, actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
+
 // User story 3
 // prevent landing tests
 name = `prevent landing Test 1 - plane cannot land if airport capacity is equal to or greater than 5`;
@@ -66,6 +67,7 @@ result = assertEquals(expectedResult, actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
+
 name = `prevent landing Test 2 - return a string when airport is full`;
 console.log(`=== ${name} ===`);
 // Arrange
@@ -78,6 +80,7 @@ actualResult = testAirport.landPlane(testPlane);
 result = assertEquals(expectedResult, actualResult);
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
 
 
 //User story 4
@@ -97,6 +100,7 @@ result = assertEquals(expectedResult, actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
+
 name = `allow takeoff Test 2 - return a string confirming airport has left airport`;
 console.log(`=== ${name} ===`);
 // Arrange
@@ -109,6 +113,7 @@ actualResult = testAirport.takeoffPlane(testPlane);
 result = assertEquals(expectedResult, actualResult);
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
 
 
 //User story 5
@@ -138,6 +143,22 @@ testAirport = new Airport();
 testAirport.takeoffPlane(testPlane);
 expectedResult = testAirport.isPlaneAtAirport(testPlane);
 // Act
+actualResult = testAirport.planesAtAirport.includes(testPlane)
+// Assert
+result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+
+// 3. Test that `takeOffPlane` returns message saying **plane** has taken off if `isPlaneAtAirport` returned `true`
+name = ` takeoffPlane returns takeoff message if isPlaneAtAirport is true `;
+console.log(`=== ${name} ===`);
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(testPlane);
+expectedResult = true, 'plane is ready for takeoff';
+//Act 
 actualResult = testAirport.planesAtAirport.includes(testPlane)
 // Assert
 result = assertEquals(expectedResult, actualResult);
