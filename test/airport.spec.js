@@ -3,26 +3,27 @@ const { assertEquals } = require("./test-framework");
 
 
 console.log("=== Test 1 ===")
-console.log("=== Test 2 ===")
 
-//Arrange - things needed for test 
-const testName = 'Test to land plane'
-const testPlane = {
-    name: `Test plane`
-};
 
-const expectedOutput = testPlane.name
+//Fixtures 
+let testAirport;
+const testPlane = 'testPlane';
+testName = `Test1 - to landPlane by adding item to planesAtAirport array`;
+
+//Arrange - objects needed for test 
+testAirport = new Airport();
+let airport, expectedResult, actualResult, result;
+
+expectedResult = 1
 
 
 //Act 
-let testAirport = new Airport();
 testAirport.landPlane(testPlane);
-const actualOutput = testAirport.planesInAirport[0].name
-testAirport.landPlane(testPlane.name)
-const actualOutput = testAirport.planesInAirport[0]
+actualResult = testAirport.planesInAirport.length
+
+
 
 //Assert 
-const
-    result = assertEquals(expectedOutput, actualOutput)
+result = assertEquals(expectedResult, actualResult)
 
 console.log(`${testName}: ${result ? `FAIL` : `PASS`}`);
