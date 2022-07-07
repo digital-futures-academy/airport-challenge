@@ -1,2 +1,53 @@
-require()
-//I do not know what should go here I just know it is needed to run our program 
+class Airport {
+
+    planesAtAirport = [];
+    #capacity
+
+    constructor(capacity = 5) {
+        this.#capacity = capacity;
+    }
+
+    getCapacity() {
+        return this.#capacity;
+    }
+
+    setCapacity(newCapacity) {
+        this.#capacity = newCapacity;
+    }
+
+    isAirportFull() {
+        return this.planesAtAirport.length >= this.#capacity;
+    }
+
+    takeOffPlane(plane) {
+        if (this.isPlaneAtAirport(plane)) {
+            this.planesAtAirport.pop(plane);
+            return `${plane} has taken off`;
+        }
+        return `${plane} has not taken off`;
+    }
+
+    isPlaneAtAirport(plane) {
+        if (this.planesAtAirport.includes(plane)) {
+            return true;
+        }
+        return false;
+
+    }
+
+
+    landPlane(plane) {
+        if (this.isAirportFull()) {
+            return `airport is full`;
+        }
+        if (this.isPlaneAtAirport(plane)) {
+            return 'the plane is already in the airport';
+        } else {
+            this.planesAtAirport.push(plane);
+            return `confirming that ${plane} has landed`;
+        }
+
+    }
+}
+
+module.exports = Airport;

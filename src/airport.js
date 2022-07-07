@@ -1,5 +1,4 @@
 class Airport {
-  // here's a starting point for you
 
   planesAtAirport = [];
   #capacity
@@ -35,9 +34,6 @@ class Airport {
     return false;
 
   }
-  //maybe we neeed a property other than includes 
-
-  // how do we get landPlane to understand that isPlaneAtAirport returned false -?
 
 
   landPlane(plane) {
@@ -55,7 +51,3 @@ class Airport {
 }
 
 module.exports = Airport;
-
-
-//=== true) {
-//  return `${ Airport } is full`;
