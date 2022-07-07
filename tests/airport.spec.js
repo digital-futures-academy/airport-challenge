@@ -1,5 +1,5 @@
 const Airport = require("../src/airport");
-const { assertEquals } = require("../testFramework");
+const { assertEquals, assertFalse } = require("../testFramework");
 const { assertTrue } = require("../testFramework");
 
 //Fixtures
@@ -106,7 +106,7 @@ console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
 testAirport.landPlane(testPlane)
-expectedResult = "plane has left the airport";
+expectedResult = "plane has taken off";
 // Act
 actualResult = testAirport.takeoffPlane(testPlane);
 // Assert
@@ -125,7 +125,7 @@ console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
 testAirport.landPlane(testPlane);
-expectedResult = testAirport.isPlaneAtAirport(testPlane);
+expectedResult = true;
 // Act
 actualResult = testAirport.planesAtAirport.includes(testPlane)
 // Assert
@@ -140,10 +140,10 @@ name = ` isPlaneAtAirport returns false if plane is not in airport `;
 console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
-testAirport.takeoffPlane(testPlane);
-expectedResult = testAirport.isPlaneAtAirport(testPlane);
+testPlane2 =  "testPlane2"
+expectedResult = false;
 // Act
-actualResult = testAirport.planesAtAirport.includes(testPlane)
+actualResult = testAirport.planesAtAirport.includes(testPlane2)
 // Assert
 result = assertEquals(expectedResult, actualResult);
 // Report
@@ -157,10 +157,28 @@ console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
 testAirport.landPlane(testPlane);
-expectedResult = true, 'plane is ready for takeoff';
-//Act 
-actualResult = testAirport.planesAtAirport.includes(testPlane)
+expectedResult = true;
+// Act 
+message = testAirport.takeoffPlane(testPlane);
+actualResult = message.includes("plane has taken off");
 // Assert
 result = assertEquals(expectedResult, actualResult);
 // Report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//7. Test that `landPlane` returns message saying ** plane ** has landed if `isPlaneAtAirport` returned`false`
+//9. Test that `landPlane` returns message saying ** plane ** is already at airport if `isPlaneAtAirport` returned`true`
+//10. Test that `landPlane` does not add ** plane ** to`planesAtAirport` if `isPlaneAtAirport` returned`true`

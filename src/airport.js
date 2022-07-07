@@ -4,14 +4,10 @@ class Airport {
   capacity = 5;
 
   isPlaneAtAirport(plane) {
-    this.planesAtAirport.includes(plane);
-    return true, 'plane is ready for takeoff';
+    return this.planesAtAirport.includes(plane);
+  
   }
 
-  isPlaneAtAirport(plane) {
-    this.planesAtAirport.pop(plane);
-    return false
-  }
 
 
   landPlane(plane) {
@@ -20,8 +16,12 @@ class Airport {
   }
 
   takeoffPlane(plane) {
-    this.planesAtAirport.pop(plane);
-    return "plane has left the airport";
+    if (this.isPlaneAtAirport(plane)) {
+      this.planesAtAirport.pop(plane); 
+      return "plane has taken off"
+      
+   }
+
   }
 
 //https://www.geeksforgeeks.org/different-ways-of-writing-functions-in-javascipt/
