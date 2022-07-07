@@ -35,16 +35,21 @@ class Airport {
     return false;
 
   }
+  //maybe we neeed a property other than includes 
 
   // how do we get landPlane to understand that isPlaneAtAirport returned false -?
 
 
   landPlane(plane) {
-    if (this.isAirportFull() === false) {
+    if (this.isAirportFull()) {
+      return `airport is full`;
+    }
+    if (this.isPlaneAtAirport(plane)) {
+      return 'the plane is already in the airport';
+    } else {
       this.planesAtAirport.push(plane);
       return `confirming that ${plane} has landed`;
     }
-    return `airport is full`;
   }
 }
 

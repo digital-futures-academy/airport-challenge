@@ -353,7 +353,7 @@ expectedResult = false;
 //Act
 testAirport.takeOffPlane(testPlane7);
 message = testAirport.takeOffPlane(testPlane7);
-actualResult = message.includes(`plane not taken off`)
+actualResult = message.includes(`plane not taken off`);
 
 
 // Assert 
@@ -390,24 +390,17 @@ console.log(`==== ${name} ====`);
 
 // how do we get landPlane to understand that isPlaneAtAirport returned false -?
 
-
 //arrange
 testAirport = new Airport();
 testPlane7 = `testPlane7`;
-expectedResult = false;
+expectedResult = true;
+
+
+//act
 message = testAirport.landPlane(testPlane7);
-
-console.log(landPlane);
-//Act
-message.testAirport.landPlane(testPlane7);
-actualResult = message.includes(`has landed`)
-
-// Assert 
+actualResult = message.includes(`has landed`);
+//assert 
 result = assertEquals(expectedResult, actualResult);
-
-
 //report
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
-
-
 
