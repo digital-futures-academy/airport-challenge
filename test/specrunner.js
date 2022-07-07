@@ -1,9 +1,9 @@
-require(".airport.spec")
+require("./airport.spec")
 
-require("./airportcapacity.spec")
+// require("./airportcapacity.spec")
 
-require("./airportfull.spec")
+// require("./airportfull.spec")
 
-require("./takeoff.spec")
+// require("./takeoff.spec")
 
 

@@ -1,4 +1,4 @@
-const { assertEquals } = require("../test/test-framework")
+const { assertEquals } = require("../test-framework")
 const Airport = require("../src/airport")
 const landPlane = require("../src/landPlaneFunction")
 

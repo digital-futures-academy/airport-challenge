@@ -1,5 +1,5 @@
-const { assertEquals } = require("..test/test-framework)
 const Airport = require(../src/airport);
+const { assertEquals } = require("..test/test-framework);
 
 console.log("==== Test 2 ====")
 
