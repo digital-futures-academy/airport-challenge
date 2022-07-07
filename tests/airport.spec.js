@@ -168,17 +168,27 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 
-
-
-
-
-
-
-
-
+//4. Test that `takeOffPlane` reduces `planesAtAirport` array by removing ** plane ** that has taken off if `isPlaneAtAirport` returned`true`
+name = ` takeoffPlane reduces isPlaneAtAirport `;
+console.log(`=== ${name} ===`);
+// Arrange
+testAirport = new Airport();
+expectedResult = 0;
+// Act 
+testAirport.takeoffPlane(testPlane);
+actualResult = testAirport.planesAtAirport.length
+// Assert
+result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 
 //7. Test that `landPlane` returns message saying ** plane ** has landed if `isPlaneAtAirport` returned`false`
+
+
+
+
+
 //9. Test that `landPlane` returns message saying ** plane ** is already at airport if `isPlaneAtAirport` returned`true`
 //10. Test that `landPlane` does not add ** plane ** to`planesAtAirport` if `isPlaneAtAirport` returned`true`
