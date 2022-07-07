@@ -385,7 +385,7 @@ result = assertEquals(expectedResult, actualResult);
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
-name = `takeOffPlane Test 7- test that landPlane returns a message`;
+name = `landPlane Test 7- test that landPlane returns a message`;
 console.log(`==== ${name} ====`);
 
 // how do we get landPlane to understand that isPlaneAtAirport returned false -?
@@ -402,5 +402,58 @@ actualResult = message.includes(`has landed`);
 //assert 
 result = assertEquals(expectedResult, actualResult);
 //report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `landPlane  Test 8- test that landPlane is added to the array`;
+console.log(`==== ${name} ====`);
+
+//arrange
+testAirport = new Airport()
+testPlane7 = `testPlane7`
+expectedResult = 1;
+testAirport.landPlane(testPlane7)
+//act
+actualResult = testAirport.planesAtAirport.length;
+
+//assert 
+result = assertEquals(expectedResult, actualResult);
+
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `landPlane Test 9- test that landPlane returns a message`;
+console.log(`==== ${name} ====`);
+
+//arrange
+testAirport = new Airport()
+testPlane7 = `testPlane7`
+expectedResult = true;
+testAirport.landPlane(testPlane7);
+//act
+message = testAirport.landPlane(testPlane7);
+actualResult = message.includes(`plane is already at the airport`);
+
+//assert 
+result = assertTrue(expectedResult, actualResult);
+
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
+
+name = `landPlane Test 10- test that landPlane is not added to the array when at the airport`;
+console.log(`==== ${name} ====`);
+
+//arrange
+testAirport = new Airport()
+testPlane7 = `testPlane7`
+expectedResult = 1;
+testAirport.landPlane(testPlane7);
+//act
+testAirport.landPlane(testPlane7);
+actualResult = testAirport.planesAtAirport.length;
+
+//assert 
+result = assertEquals(expectedResult, actualResult);
+
 console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
