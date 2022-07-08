@@ -3,7 +3,9 @@ class Airport {
   planesInAirport = [];
   landPlane(plane) {
     this.planesInAirport.push(plane);
-    //   console.log(`${plane} has now landed! `)
+    console.log(`planesInAirport length: ${this.planesInAirport.length}`);
+    console.log(this.planesInAirport);
+    return `${plane} has now landed!`;
     // } else if (this.planesInAirport.includes(plane)) {
     //   return "Error - This plane is already at the airport"
     //  } else {

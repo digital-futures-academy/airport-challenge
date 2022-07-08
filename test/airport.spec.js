@@ -39,3 +39,17 @@ result = assertTrue(testAirport.planesInAirport.includes(testPlane));
 
 //Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
+testName = `Test3 - returns a string stating the plane landed`;
+console.log(`=== ${testName} ===`);
+
+// Arrange - Create an airport for test 
+testAirport = new Airport();
+
+//Act
+actualResult = testAirport.landPlane(testPlane)
+
+//Assert
+actualResult = assertTrue(actualResult.includes(testPlane))
+
+console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
