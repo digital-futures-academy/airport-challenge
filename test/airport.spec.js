@@ -25,6 +25,8 @@ result = assertEquals(expectedResult, actualResult)
 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
+
+// test for finding a plane in the planeInAirport array
 testName = `Test2 - finding the plane in the planeInAirport array`
 console.log(`=== ${testName} ===`);
 
@@ -40,6 +42,8 @@ result = assertTrue(testAirport.planesInAirport.includes(testPlane));
 //Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
 
+
+// test for plane has laded message
 testName = `Test3 - returns a string stating the plane landed`;
 console.log(`=== ${testName} ===`);
 
@@ -63,9 +67,26 @@ console.log(`=== ${testName} ===`);
 //Arrange - creating test airport
 testAirport = new Airport();
 expectedResult = 5;
+testAirport.setairportCapacity(expectedResult);
 
 //Act 
-actualResult = testAirport.airportCapacity;
+actualResult = testAirport.getairportCapacity();
+
+//Assert
+result = assertEquals(expectedResult, actualResult);
+console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
+
+// Test 2 for setting capacity and add to airport
+testName = `Test 2 - changing the airport value when airportCapacity changes `;
+console.log(`=== ${testName} ===`);
+
+//Arrange - creating test airport
+testAirport = new Airport(expectedResult);
+expectedResult = 10;
+testAirport.setairportCapacity(expectedResult);
+
+//Act 
+actualResult = testAirport.getairportCapacity();
 
 //Assert
 result = assertEquals(expectedResult, actualResult);

@@ -1,7 +1,7 @@
 class Airport {
   // here's a starting point for you
   planesInAirport = [];
-  airportCapacity = 5;
+  #airportCapacity;
 
   landPlane(plane) {
     this.planesInAirport.push(plane);
@@ -9,9 +9,23 @@ class Airport {
     console.log(this.planesInAirport);
     return `${plane} has now landed!`;
   }
-  airportCapacity(value) {
-    this.airportCapacity = value
+
+  constructor(airportCapacity) {
+    this.#airportCapacity = airportCapacity;
   }
+
+  airportCapacity(value) {
+    this.#airportCapacity = value;
+  }
+
+  getairportCapacity() {
+    return this.#airportCapacity;
+  }
+
+  setairportCapacity(newairportCapacity) {
+    this.#airportCapacity = newairportCapacity;
+  }
+
   // } else if (this.planesInAirport.includes(plane)) {
   //   return "Error - This plane is already at the airport"
   //  } else {
