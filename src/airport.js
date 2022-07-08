@@ -5,33 +5,37 @@ class Airport {
 
   isPlaneAtAirport(plane) {
     return this.planesAtAirport.includes(plane);
-  
   }
 
-
-
   landPlane(plane) {
-    this.planesAtAirport.push(plane);
-    return "airport is full, plane cannot land";
+    if (this.isAirportFull()) {
+      return "airport is full";
+    }
+    if (this.isPlaneAtAirport(plane)) {
+      return "plane is already at the airport";
+    } else {
+      this.planesAtAirport.push(plane);
+      return "plane has landed";
+    }
+
   }
 
   takeoffPlane(plane) {
     if (this.isPlaneAtAirport(plane)) {
-      this.planesAtAirport.pop(plane); 
-      return "plane has taken off"
-      
-   }
+      this.planesAtAirport.pop(plane);
+      return "plane has taken off";
+    }
 
   }
 
-//https://www.geeksforgeeks.org/different-ways-of-writing-functions-in-javascipt/
-  
-  isAirportFull = capacity => {
-    if (planesAtAirport.length >= capacity)
-      return landPlane(testPlane)
-    else testAirport.landPlane(testPlane)
-    actualResult = testAirport.planesAtAirport.length;
-    return console.log(isAirportFull = true)
+  setCapacity(newCapacity) {
+    this.capacity = newCapacity;
+  }
+
+  //https://www.geeksforgeeks.org/different-ways-of-writing-functions-in-javascipt/
+
+  isAirportFull() {
+    return this.planesAtAirport.length >= this.capacity;
   };
 
 }

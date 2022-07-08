@@ -42,9 +42,9 @@ name = `capacity setting Test 1 - new airports have default capacity set to 5`
 console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
+expectedResult = 5;
 // Act
 actualResult = testAirport.capacity;
-expectedResult = 5;
 // Assert
 result = assertEquals(expectedResult, actualResult);
 // Report
@@ -54,13 +54,17 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 // User story 3
 // prevent landing tests
-name = `prevent landing Test 1 - plane cannot land if airport capacity is equal to or greater than 5`;
+name = `prevent landing Test 1 - plane cannot land if airport capacity is full`;
 console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
-actualResult = 5;
+testPlane1 = "testPlane1";
+testAirport.setCapacity(1);
+testAirport.landPlane(testPlane1);
+expectedResult = 1;
 // Act
-expectedResult = 5;
+testAirport.landPlane(testPlane1);
+actualResult = testAirport.planesAtAirport.length;
 // Assert
 result = assertEquals(expectedResult, actualResult);
 // Report
@@ -72,10 +76,13 @@ name = `prevent landing Test 2 - return a string when airport is full`;
 console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
-testAirport.landPlane(testPlane)
-expectedResult = "airport is full, plane cannot land";
+testPlane1 = "testPlane1";
+testAirport.setCapacity(1);
+testAirport.landPlane(testPlane1);
+expectedResult = true;
 // Act
-actualResult = testAirport.landPlane(testPlane);
+message = testAirport.landPlane(testPlane1);
+actualResult = message.includes("airport is full");
 // Assert
 result = assertEquals(expectedResult, actualResult);
 // Report
@@ -127,7 +134,7 @@ testAirport = new Airport();
 testAirport.landPlane(testPlane);
 expectedResult = true;
 // Act
-actualResult = testAirport.planesAtAirport.includes(testPlane)
+actualResult = testAirport.planesAtAirport.includes(testPlane);
 // Assert
 result = assertEquals(expectedResult, actualResult);
 // Report
@@ -140,7 +147,7 @@ name = ` isPlaneAtAirport returns false if plane is not in airport `;
 console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
-testPlane2 =  "testPlane2"
+testPlane2 = "testPlane2"
 expectedResult = false;
 // Act
 actualResult = testAirport.planesAtAirport.includes(testPlane2)
@@ -189,7 +196,7 @@ name = ` landPlane returns message if isPlaneAtAirport returned false `;
 console.log(`=== ${name} ===`);
 // Arrange
 testAirport = new Airport();
-expectedResult = false;
+expectedResult = true;
 // Act 
 message = testAirport.landPlane(testPlane);
 actualResult = message.includes("plane has landed");
@@ -201,6 +208,34 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 //9. Test that `landPlane` returns message saying ** plane ** is already at airport if `isPlaneAtAirport` returned`true`
+name = ` landPlane returns message if isPlaneAtAirport returned false `;
+console.log(`=== ${name} ===`);
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(testPlane);
+expectedResult = true;
+// Act 
+message = testAirport.landPlane(testPlane);
+actualResult = message.includes("plane is already at the airport");
+// Assert
+result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
 
 
 //10. Test that `landPlane` does not add ** plane ** to`planesAtAirport` if `isPlaneAtAirport` returned`true`
+name = `landPlane does not added to planesAtAirport Array`
+console.log(`=== ${name} ===`);
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(testPlane);
+expectedResult = 1;
+// Act
+testAirport.landPlane(testPlane)
+actualResult = testAirport.planesAtAirport.length;
+// Assert
+result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
+
