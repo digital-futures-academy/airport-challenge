@@ -53,3 +53,20 @@ actualResult = testAirport.landPlane(testPlane)
 actualResult = assertTrue(actualResult.includes(testPlane))
 
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
+
+
+
+//   === capacity test ===
+testName = `Test 1 - for setting the capacity, default capacity for new airport is 5 `;
+console.log(`=== ${testName} ===`);
+
+//Arrange - creating test airport
+testAirport = new Airport();
+expectedResult = 5;
+
+//Act 
+actualResult = testAirport.airportCapacity;
+
+//Assert
+result = assertEquals(expectedResult, actualResult);
+console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)

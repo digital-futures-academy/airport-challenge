@@ -6,13 +6,17 @@ class Airport {
     console.log(`planesInAirport length: ${this.planesInAirport.length}`);
     console.log(this.planesInAirport);
     return `${plane} has now landed!`;
-    // } else if (this.planesInAirport.includes(plane)) {
-    //   return "Error - This plane is already at the airport"
-    //  } else {
-    //   return "Airport full, Do NOT land"
-    // }
   }
+  airportCapacity(value) {
+    this.airportCapacity = value
+  }
+  // } else if (this.planesInAirport.includes(plane)) {
+  //   return "Error - This plane is already at the airport"
+  //  } else {
+  //   return "Airport full, Do NOT land"
+  // }
 }
+
 // takeOff(plane); {
 // if (this.planesInAirport.includes(planes)) {
 //  const indexofInput = + this.planesInAirport.indexOf(plane)
