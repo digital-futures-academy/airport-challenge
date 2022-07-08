@@ -185,10 +185,22 @@ console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 //7. Test that `landPlane` returns message saying ** plane ** has landed if `isPlaneAtAirport` returned`false`
-
-
+name = ` landPlane returns message if isPlaneAtAirport returned false `;
+console.log(`=== ${name} ===`);
+// Arrange
+testAirport = new Airport();
+expectedResult = false;
+// Act 
+message = testAirport.landPlane(testPlane);
+actualResult = message.includes("plane has landed");
+// Assert
+result = assertEquals(expectedResult, actualResult);
+// Report
+console.log(`${name}: ${result ? `PASS` : `FAIL`}`);
 
 
 
 //9. Test that `landPlane` returns message saying ** plane ** is already at airport if `isPlaneAtAirport` returned`true`
+
+
 //10. Test that `landPlane` does not add ** plane ** to`planesAtAirport` if `isPlaneAtAirport` returned`true`
