@@ -1,8 +1,8 @@
 require("./airport.spec")
 
-// require("./airportcapacity.spec")
+// require("./AirportCapacity.spec")
 
-// require("./airportfull.spec")
+// require("./airportFull.spec")
 
 // require("./takeoff.spec")
 

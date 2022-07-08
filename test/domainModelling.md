@@ -3,15 +3,15 @@
 As an air traffic controller
 So I can get passengers to a destination
 ```
-| noun    | verb
-| ----    | ------
-| plane   | 
-| Airport | land plane 
+| noun    | verb       |
+| ------- | ---------- |
+| plane   |
+| Airport | land plane |
 
-| Object  | Properties          | Messages           | Output  |
-| ------  | ------------        | -------            | ------  |
-| Plane   | name @String        | getName ()         | @String |
-| Airport | planeList[@Planes]  | landPlane (@plane) | @String |
+| Object  | Properties         | Messages           | Output  |
+| ------- | ------------------ | ------------------ | ------- |
+| Plane   | name @String       | getName ()         | @String |
+| Airport | planeList[@Planes] | landPlane (@plane) | @String |
 
 2)
 ````
@@ -21,11 +21,11 @@ I would like a default airport capacity that can be overridden as appropriate
 `````
 
 
-| Object  | Properties          | Messages           | Output  |
-| ------  | ------------        | -------            | ------  |
-| Plane   | name @String        | getName ()         | @String |
-| Airport | planeList[@Planes]  | landPlane (@plane) | @String |
-|Airport  | capacity@num        | CheckCapacity()    | @num    |
+| Object  | Properties         | Messages           | Output  |
+| ------- | ------------------ | ------------------ | ------- |
+| Plane   | name @String       | getName ()         | @String |
+| Airport | planeList[@Planes] | landPlane (@plane) | @String |
+| Airport | capacity@num       | CheckCapacity()    | @num    |
 
 3)
 ```
@@ -34,11 +34,11 @@ To ensure safety
 I want to prevent landing when the airport is full
 ```
 
-| Object  | Properties          | Messages           | Output  |
-| ------  | ------------        | -------            | ------  |
-| Plane   | name @String        | getName ()         | @String |
-| Airport | planeList[@Planes]  | landPlane (@plane) | @String |
-                                | preventLanding()   | @String |
+| Object           | Properties         | Messages           | Output  |
+| ---------------- | ------------------ | ------------------ | ------- |
+| Plane            | name @String       | getName ()         | @String |
+| Airport          | planeList[@Planes] | landPlane (@plane) | @String |
+| preventLanding() | @String            |
 
 
 4)
@@ -65,7 +65,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | Objects    | Properties               | Message                | Output
 |Plane       | name@String              | getName()              |@string
 |Airport     | planesInAirport[@plane]  | takeoffPlane(@plane)   |@string
-                                        | checkPlanesInAiport () |@string
+                                        | checkPlanesInAirport () |@string
                                         |takeOffPlanesInAirport()|@string
                                         
 
