@@ -10,7 +10,7 @@ class Airport {
     return `${plane} has now landed!`;
   }
 
-  constructor(airportCapacity) {
+  constructor(airportCapacity = 5) {
     this.#airportCapacity = airportCapacity;
   }
 
@@ -26,12 +26,13 @@ class Airport {
     this.#airportCapacity = newairportCapacity;
   }
 
-  // } else if (this.planesInAirport.includes(plane)) {
-  //   return "Error - This plane is already at the airport"
-  //  } else {
-  //   return "Airport full, Do NOT land"
-  // }
-}
+  fullAirport = airportCapacity => {
+    if (planesInAirport.length <= airportCapacity)
+      return landPlane(plane);
+    else
+      return "ERROR! Airport full, Do NOT land"
+  }
+};
 
 // takeOff(plane); {
 // if (this.planesInAirport.includes(planes)) {

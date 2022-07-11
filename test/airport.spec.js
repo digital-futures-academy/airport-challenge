@@ -1,4 +1,5 @@
 const Airport = require("../src/airport");
+const { landPlane } = require("../src/landPlaneFunction");
 const { assertEquals, assertTrue } = require("../test-framework");
 
 console.log("=== Test 1 ===")
@@ -18,12 +19,12 @@ expectedResult = 1
 testAirport.landPlane(testPlane);
 actualResult = testAirport.planesInAirport.length;
 
-
-
 //Assert 
 result = assertEquals(expectedResult, actualResult)
 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
+
+console.log(`========= End of Test ==========`)
 
 
 // test for finding a plane in the planeInAirport array
@@ -42,8 +43,10 @@ result = assertTrue(testAirport.planesInAirport.includes(testPlane));
 //Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
 
+console.log(`========= End of Test ==========`)
 
-// test for plane has laded message
+
+// test for plane has landed message
 testName = `Test3 - returns a string stating the plane landed`;
 console.log(`=== ${testName} ===`);
 
@@ -58,7 +61,7 @@ actualResult = assertTrue(actualResult.includes(testPlane))
 
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
 
-
+console.log(`========= End of Test ==========`)
 
 //   === capacity test ===
 testName = `Test 1 - for setting the capacity, default capacity for new airport is 5 `;
@@ -76,6 +79,9 @@ actualResult = testAirport.getairportCapacity();
 result = assertEquals(expectedResult, actualResult);
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
 
+console.log(`========= End of Test ==========`)
+
+
 // Test 2 for setting capacity and add to airport
 testName = `Test 2 - changing the airport value when airportCapacity changes `;
 console.log(`=== ${testName} ===`);
@@ -91,3 +97,46 @@ actualResult = testAirport.getairportCapacity();
 //Assert
 result = assertEquals(expectedResult, actualResult);
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
+
+console.log(`========= End of Test ==========`)
+
+
+// === prevent landing full airport ===
+testName = `Test1 - for checking if the airport is full`;
+console.log(`=== ${testName} ===`);
+
+// Arrange 
+testAirport = new Airport;
+
+// Act
+expectedResult = 5;
+actualResult = 5;
+
+// Assert 
+result = assertEquals(actualResult, expectedResult);
+
+// Report
+console.log(`${testName} : ${result ? `PASS` : `FAIL`}`);
+
+console.log(`========= End of Test ==========`)
+
+
+// Test for printing error if airport is full
+testName = `Test2 - for throwing error when airport is full and plane cannot land`;
+console.log(`=== ${testName} ===`);
+
+// Arrange 
+testAirport = new Airport;
+
+// Act
+expectedResult = `ERROR! Airport full, do NOT land plane`;
+
+// Assert 
+result = assertTrue(actualResult >= expectedResult)
+
+// Report
+console.log(`${testName} : ${result ? `PASS` : `FAIL`}`);
+
+console.log(`========= End of Test ==========`)
+
+
