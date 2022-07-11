@@ -54,6 +54,7 @@ console.log(`=== ${testName} ===`);
 testAirport = new Airport();
 
 //Act
+testAirport.landPlane(testPlane)
 actualResult = testAirport.landPlane(testPlane)
 
 //Assert
@@ -129,10 +130,11 @@ console.log(`=== ${testName} ===`);
 testAirport = new Airport;
 
 // Act
-expectedResult = `ERROR! Airport full, do NOT land plane`;
+actualResult = testAirport.fullAirport.length;
+expectedResult = 1;
 
 // Assert 
-result = assertTrue(actualResult >= expectedResult)
+result = assertTrue(actualResult >= expectedResult);
 
 // Report
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`);
