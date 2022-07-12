@@ -32,17 +32,12 @@ class Airport {
     else
       return "ERROR! Airport full, Do NOT land"
   }
-};
-
-takeOff(plane); {
-  if (this.planesInAirport.includes(planes)) {
-    const indexofInput = + this.planesInAirport.indexOf(plane)
-    this.planesInAirport.splice(indexofInput, 1)
+  takeOff(plane) {
+    this.planesInAirport.pop(plane);
+    console.log(`planesInAirport length: ${this.planesInAirport.length}`);
+    console.log(this.planesInAirport)
+    return `${plane} has now taken off!`
   }
-  //  console.log(`${plane} has now taken off!`)
-  // } else {
-  //  console.log(`ERROR Plane has already taken off!`)
-  // }
-  // }
+}
 
-  module.exports = Airport; 
+module.exports = Airport; 

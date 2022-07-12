@@ -147,10 +147,10 @@ console.log(`=== ${testName} ===`);
 
 // Arrange 
 testAirport = new Airport;
+testAirport.takeOff(testPlane);
 
 // Act
-actualResult = Airport.takeOff.length;
-expectedResult = 0;
+actualResult = testAirport.takeOff.length;
 
 // Assert 
 result = assertEquals(actualResult, expectedResult)
