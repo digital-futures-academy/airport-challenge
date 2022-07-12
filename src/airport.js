@@ -34,15 +34,15 @@ class Airport {
   }
 };
 
-// takeOff(plane); {
-// if (this.planesInAirport.includes(planes)) {
-//  const indexofInput = + this.planesInAirport.indexOf(plane)
-//   this.planesInAirport.splice(indexofInput, 1)
+takeOff(plane); {
+  if (this.planesInAirport.includes(planes)) {
+    const indexofInput = + this.planesInAirport.indexOf(plane)
+    this.planesInAirport.splice(indexofInput, 1)
+  }
+  //  console.log(`${plane} has now taken off!`)
+  // } else {
+  //  console.log(`ERROR Plane has already taken off!`)
+  // }
+  // }
 
-//  console.log(`${plane} has now taken off!`)
-// } else {
-//  console.log(`ERROR Plane has already taken off!`)
-// }
-// }
-
-module.exports = Airport; 
+  module.exports = Airport; 
