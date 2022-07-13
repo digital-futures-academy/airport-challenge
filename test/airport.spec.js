@@ -142,6 +142,23 @@ console.log(`${testName} : ${result ? `PASS` : `FAIL`}`);
 console.log(`========= End of Test ==========`)
 
 // ==== Test for planes taking off =====
+testName = `Test 1 - for the departing plane`;
+console.log(`=== ${testName} ===`);
+
+// Arrange 
+testAirport = new Airport;
+testAirport.takeOff(testPlane)
+expectedResult = 0;
+
+// Act
+actualResult = testAirport.planesInAirport.length
+
+// Assert
+result = assertEquals(actualResult, expectedResult);
+
+// Report 
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
 testName = `Test 1 - for departing plane and making sure it leaves airport`;
 console.log(`=== ${testName} ===`);
 
@@ -152,8 +169,10 @@ testAirport.takeOff(testPlane);
 // Act
 actualResult = testAirport.takeOff.length;
 
+
 // Assert 
 result = assertEquals(actualResult, expectedResult)
+
 
 // Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
