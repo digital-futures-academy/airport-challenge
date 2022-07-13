@@ -35,6 +35,7 @@ class Airport {
   takeOff(plane) {
     this.planesInAirport.pop(plane);
     console.log(`planesInAirport length: ${this.planesInAirport.length}`);
+    return `Plane has now taken off!`
 
   }
 }
