@@ -174,7 +174,7 @@ console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
 console.log(`========= End of User Story Test ==========`)
 
 // ===== prevent taking off planes that are not in airport and landing planes already in airport ======
-testName = `Test 1 - for prevent planes already in Airport array from landing `
+testName = `Test 1 - for prevent planes already in Airport array from landing returning false`
 console.log(`=== ${testName} ===`);
 
 // Arrange
@@ -190,6 +190,58 @@ result = assertEquals(expectedResult, actualResult)
 
 // Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
+testName = `Test 2 - for prevent planes already in Airport array from landing returning false and returning ERROR message`
+console.log(`=== ${testName} ===`);
+
+// Arrange
+testAirport = new Airport();
+
+// Act
+actualResult = testAirport.planesInAirport.includes(testPlane);
+expectedResult = false, "ERROR! Plane has already landed!";
+message = testAirport.landPlane(testPlane);
+
+// Assert
+result = assertEquals(expectedResult, actualResult)
+
+// Report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
+testName = `Test 3 - for prevent planes taken off in Airport array from taking off returning true `
+console.log(`=== ${testName} ===`);
+
+// Arrange
+testAirport = new Airport();
+expectedResult = 0;
+testAirport.planeTakenOff(testPlane);
+
+// Act
+actualResult = testAirport.planesInAirport.length;
+
+// Assert
+result = assertEquals(expectedResult, actualResult)
+
+// Report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
+testName = `Test 4 - for prevent planes taken off in Airport array from taken off plane returning true and returning ERROR message`
+console.log(`=== ${testName} ===`);
+
+// Arrange
+testAirport = new Airport();
+
+// Act
+actualResult = testAirport.planesInAirport.includes(testPlane);
+expectedResult = false;
+message = testAirport.takeOff(testPlane);
+
+// Assert
+result = assertEquals(expectedResult, actualResult)
+
+// Report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
 
 
 

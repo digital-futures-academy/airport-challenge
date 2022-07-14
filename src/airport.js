@@ -4,12 +4,15 @@ class Airport {
   #airportCapacity;
 
   landPlane(plane) {
-    (this.planesInAirport.push(plane));
-    console.log(`planesInAirport length: ${this.planesInAirport.length}`);
-    console.log(this.planesInAirport);
-    return `${plane} has now landed!`;
+    if (!this.planesInAirport.includes(plane) && !this.airportCapacity <= this.planesInAirport.length) {
+      this.planesInAirport.push(plane);
+      console.log(`planesInAirport length: ${this.planesInAirport.length}`);
+      console.log(this.planesInAirport);
+      return `${plane} has now landed!`;
+    } else {
+      return `ERROR! Plane has already landed!`
+    }
   }
-
   constructor(airportCapacity = 5) {
     this.#airportCapacity = airportCapacity;
   }
@@ -45,6 +48,9 @@ class Airport {
     this.planesInAirport.includes(plane);
     return true
   }
+  planeTakenOff(plane) {
+    this.planesInAirport.pop;
+    return true
+  }
 }
-
 module.exports = Airport; 
