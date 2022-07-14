@@ -4,7 +4,7 @@ class Airport {
   #airportCapacity;
 
   landPlane(plane) {
-    this.planesInAirport.push(plane);
+    (this.planesInAirport.push(plane));
     console.log(`planesInAirport length: ${this.planesInAirport.length}`);
     console.log(this.planesInAirport);
     return `${plane} has now landed!`;
@@ -33,10 +33,17 @@ class Airport {
       return "ERROR! Airport full, Do NOT land"
   }
   takeOff(plane) {
-    this.planesInAirport.pop(plane);
-    console.log(`planesInAirport length: ${this.planesInAirport.length}`);
-    return `Plane has now taken off!`
-
+    if (this.planesInAirport.includes(plane) && this.airportCapacity >= this.planesInAirport) {
+      this.planesInAirport.pop(plane);
+      console.log(`planesInAirport length: ${this.planesInAirport.length}`);
+      return `Plane has now taken off!`
+    } else {
+      console.log(`ERROR! Plane has already taken off!`)
+    }
+  }
+  planeLanded(plane) {
+    this.planesInAirport.includes(plane);
+    return true
   }
 }
 

@@ -12,8 +12,7 @@ testName = `Test1 - to landPlane by adding item to planesInAirport array`;
 
 //Arrange - objects needed for test 
 testAirport = new Airport();
-expectedResult = 1
-
+expectedResult = 1;
 
 //Act 
 testAirport.landPlane(testPlane);
@@ -24,7 +23,6 @@ result = assertEquals(expectedResult, actualResult)
 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`);
 
-console.log(`========= End of Test ==========`)
 
 
 // test for finding a plane in the planeInAirport array
@@ -43,7 +41,6 @@ result = assertTrue(testAirport.planesInAirport.includes(testPlane));
 //Report
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
 
-console.log(`========= End of Test ==========`)
 
 
 // test for plane has landed message
@@ -62,7 +59,7 @@ actualResult = assertTrue(actualResult.includes(testPlane))
 
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
 
-console.log(`========= End of Test ==========`)
+console.log(`========= End of User Story Test ==========`)
 
 //   === capacity test ===
 testName = `Test 1 - for setting the capacity, default capacity for new airport is 5 `;
@@ -79,8 +76,6 @@ actualResult = testAirport.getairportCapacity();
 //Assert
 result = assertEquals(expectedResult, actualResult);
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
-
-console.log(`========= End of Test ==========`)
 
 
 // Test 2 for setting capacity and add to airport
@@ -99,7 +94,7 @@ actualResult = testAirport.getairportCapacity();
 result = assertEquals(expectedResult, actualResult);
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`)
 
-console.log(`========= End of Test ==========`)
+console.log(`========= End of User Story Test ==========`)
 
 
 // === prevent landing full airport ===
@@ -119,8 +114,6 @@ result = assertEquals(actualResult, expectedResult);
 // Report
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`);
 
-console.log(`========= End of Test ==========`)
-
 
 // Test for printing error if airport is full
 testName = `Test2 - for throwing error when airport is full and plane cannot land`;
@@ -139,9 +132,9 @@ result = assertTrue(actualResult >= expectedResult);
 // Report
 console.log(`${testName} : ${result ? `PASS` : `FAIL`}`);
 
-console.log(`========= End of Test ==========`)
+console.log(`========= End of User Story Test ==========`)
 
-// Test 1for planes taking off 
+// Test 1 for planes taking off 
 testName = `Test 1 - for the departing plane`;
 console.log(`=== ${testName} ===`);
 
@@ -151,7 +144,7 @@ testAirport.takeOff(testPlane)
 expectedResult = 0;
 
 // Act
-actualResult = testAirport.planesInAirport.length
+actualResult = testAirport.planesInAirport.length;
 
 // Assert
 result = assertEquals(actualResult, expectedResult);
@@ -164,7 +157,7 @@ testName = `Test 2 - for printing message to make sure it left airport`;
 console.log(`=== ${testName} ===`);
 
 // Arrange 
-testAirport = new Airport;
+testAirport = new Airport();
 testAirport.takeOff(testPlane);
 expectedResult = `Plane has now taken off!`
 
@@ -173,9 +166,30 @@ testAirport.takeOff(testPlane)
 actualResult = testAirport.takeOff(testPlane)
 
 //Assert
-actualResult = assertTrue(actualResult.includes(testPlane))
+actualResult = assertEquals(actualResult, expectedResult)
 
 // Report 
 console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
+console.log(`========= End of User Story Test ==========`)
+
+// ===== prevent taking off planes that are not in airport and landing planes already in airport ======
+testName = `Test 1 - for prevent planes already in Airport array from landing `
+console.log(`=== ${testName} ===`);
+
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(testPlane)
+
+// Act
+actualResult = testAirport.planesInAirport.includes(testPlane);
+expectedResult = testAirport.planeLanded();
+
+// Assert
+result = assertEquals(expectedResult, actualResult)
+
+// Report
+console.log(`${testName}: ${result ? `PASS` : `FAIL`}`)
+
 
 
