@@ -48,9 +48,6 @@ class Airport {
     this.planesInAirport.includes(plane);
     return true
   }
-  planeTakenOff(plane) {
-    this.planesInAirport.pop;
-    return true
-  }
+
 }
 module.exports = Airport; 

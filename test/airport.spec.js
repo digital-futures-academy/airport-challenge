@@ -214,7 +214,7 @@ console.log(`=== ${testName} ===`);
 // Arrange
 testAirport = new Airport();
 expectedResult = 0;
-testAirport.planeTakenOff(testPlane);
+testAirport.takeOff(testPlane);
 
 // Act
 actualResult = testAirport.planesInAirport.length;
