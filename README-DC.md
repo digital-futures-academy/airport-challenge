@@ -22,26 +22,31 @@
 > So I can get passengers to a destination
 > I want to instruct the airport to land a plane
 
-| **Objects** | **Properties**     | **Messages** | **Output** |
-| :---------- | :----------------- | :----------- | :--------- |
-| Airport     | planesArr[{plane}] | @landPlane   | void       |
+| **Objects** | **Properties**            | **Messages** | **Output** |
+| :---------- | :------------------------ | :----------- | :--------- |
+| Airport     | planesArr @array[objects] | @landPlane   | @string    |
+
+**Proposed test/s**
+
+1. Check that array length has increased since function call
+2. Check that function returns a success message
 
 > As the system designer
 > So that the software can be used for many different airports
 > I would like a default airport capacity that can be overridden as appropriate
 
-| **Objects** | **Properties** | **Messages** | **Output** |
-| :---------- | :------------- | :----------- | :--------- |
-| Airport     | capacity       | @setCapacity | number     |
+| **Objects** | **Properties**        | **Messages** | **Output** |
+| :---------- | :-------------------- | :----------- | :--------- |
+| Airport     | capacity @number = 10 | setCapacity  | void       |
 
 > As an air traffic controller
 > To ensure safety
 > I want to prevent landing when the airport is full
 
-| **Objects** | **Properties** | **Messages**    | **Output** |
-| :---------- | :------------- | :-------------- | :--------- |
-| Airport     | capacity       | @capacityFull   | boolean    |
-|             | planesArr      | @preventLanding | void       |
+| **Objects** | **Properties** | **Messages**   | **Output** |
+| :---------- | :------------- | :------------- | :--------- |
+| Airport     | capacity       | capacityFull   | boolean    |
+|             | planesArr      | preventLanding | void       |
 
 > As an air traffic controller So I can get passengers on the way to their destination I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
