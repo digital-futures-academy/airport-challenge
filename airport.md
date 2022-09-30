@@ -14,7 +14,7 @@
 
 **Domain Modelling for User Story 1**
 
-As a Ait Traffic Controller
+As a Air Traffic Controller
 I want to land a plane to the Airport.
 
 | **Object** | **Properties**                | **Message**        | **output** |
@@ -35,7 +35,7 @@ Include the spec file to specRunner.js , and then run the code with node specRun
 **Domain Modelling for User Story 2**
 
 As a System Manager
-I would like to override the airport capacity
+I would like to override the airport capacity as required
 
 | **Object** | **Properties**                | **Message**            | **output** |
 | ---------- | ----------------------------- | ---------------------- | ---------- |
