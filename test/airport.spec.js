@@ -238,3 +238,26 @@ plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`Test 5d: Airports update the landed variable of a plane when it takes off`);
+
+//Arrange
+airport = new Airport(1);
+plane = new Plane();
+airport.landPlane(plane);
+expected = false;
+
+//Act
+airport.takeOff(plane);
+actual = plane.isLanded();
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5d: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;

@@ -18,6 +18,7 @@ class Airport {
   takeOff = (plane) => {
     let index = this.landedPlanes.indexOf(plane);
     this.landedPlanes.splice(index, 1);
+    plane.landed = false;
   }
 
   isFull = () => {
