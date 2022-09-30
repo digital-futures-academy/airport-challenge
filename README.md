@@ -54,7 +54,7 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
 |     Objects     |     Properties     |        Messages        |     Ouputs      |
-| Airport         | @int               | airportCapacity()      | @int            |
+| Airport         | @int               | airportCapacity()      | @Int            |
 
 *Idea: Have a limit parameter in the class Airport which can be changed with the airportCapacity() method
 

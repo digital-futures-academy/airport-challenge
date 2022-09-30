@@ -6,11 +6,19 @@ const Airport = require("/Users/oonaghparker/Desktop/debug/airport-challenge/src
 //Define matcher function- same as what Ed used in the Bobs Bagels task
 const assertEquals = (actualResult, expectedResult) => actualResult === expectedResult;
 
+let airport;
+let plane;
+let plane2;
+let plane3;
+let expected;
+let actual;
+let result;
+
 //--------------------------------------
 //Test 1- Land the plane
 
 //Arrange
-let airport = new Airport();
+airport = new Airport();
 plane = { id: `Plane 1` };
 expected = 1;
 
@@ -23,17 +31,22 @@ result = assertEquals(actual, expected);
 console.log(`Test 1: Landed plane in the airport: ${result}`);
 
 //--------------------------------------
-//Test 1- Land the plane
+//Test 2- Change airport capacity
 
 //Arrange
-let airport = new Airport();
+airport = new Airport();
 plane = { id: `Plane 1` };
-expected = 1;
+plane2 = { id: `Plane 2` };
+plane3 = { id: `Plane 3` };
+expected = 3;
 
 // Act
 airport.landPlane(plane);
-actual = airport.landedPlanes.length;
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+actual = airport.airportCapacity(3);
 
 // Assert
 result = assertEquals(actual, expected);
-console.log(`Test 1: Landed plane in the airport: ${result}`);
+console.log(`Test 2: Change airport capacity: ${result}`);
+
