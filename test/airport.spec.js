@@ -47,9 +47,40 @@ actual = airport.overrideCapacity(newCapacity);
 
 // Assert
 result = assertEquals(actual, expected);
-console.log(actual);
-console.log(expected);
+//console.log(actual);
+//console.log(expected);
 console.log(`Airport Capacity has been overrided: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 3 - can plane land when airport is full?
+
+console.log(`==================================================`);
+console.log(`Test 3 - Trying to land plane when airport is full`);
+
+// Arrange
+airport = new Airport(2);
+plane1 = { id: `plane1` };
+plane2 = { id: `plane2` };
+plane3 = { id: `plane3` };
+expected = true;
+
+// Act
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+actual = airport.isAirportFull();
+
+// Assert
+result = assertEquals(actual, expected);
+//console.log(actual);
+//console.log(expected);
+console.log(`Airport is Full: ${result}`);
 
 // Clean up
 airport = null;

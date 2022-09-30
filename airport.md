@@ -21,7 +21,7 @@ I want to land a plane to the Airport.
 | ---------- | ----------------------------- | ------------------ | ---------- |
 | Airport    | planesAtAirport@Array[@plane] | landPlane[@String] | @String    |
 
-**Run the File**
+**Run the File :**
 Include the spec file to specRunner.js , and then run the code with node specRunner.js
 
 ## Domain Modelling
@@ -41,5 +41,23 @@ I would like to override the airport capacity
 | ---------- | ----------------------------- | ---------------------- | ---------- |
 | Airport    | capacity[@int] const or final | overrideCapacity[@int] | @int       |
 
-**Run the File**
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+
+## Domain Modelling
+
+### User Story 3
+
+1. As an air traffic controller
+2. To ensure safety ,I want to prevent landing when the airport is full
+
+**Domain Modelling for User Story 3**
+
+As an ATC i want to prevent landing when Airport is full
+
+| **Object** | **Properties**                | **Message**     | **output** |
+| ---------- | ----------------------------- | --------------- | ---------- |
+| Airport    | capacity[@int] const or final | isAirportFull() | @boolean   |
+
+**Run the File :**
 Include the spec file to specRunner.js , and then run the code with node specRunner.js
