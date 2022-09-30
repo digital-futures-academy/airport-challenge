@@ -8,10 +8,14 @@ class Airport {
     this.landedPlanes = [];
   }
 
-  add = (plane) => {
+  landPlane = (plane) => {
     if (!this.isFull()) {
       this.landedPlanes.push(plane);
     }
+  }
+
+  takeOff = (plane) => {
+    this.landedPlanes.pop();
   }
 
   isFull = () => {

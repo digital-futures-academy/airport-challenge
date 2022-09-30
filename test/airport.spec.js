@@ -12,7 +12,7 @@ let plane = new Plane();
 expected = 1;
 
 //Act
-airport.add(plane);
+airport.landPlane(plane);
 actual = airport.landedPlanes.length;
 
 //Assert
@@ -34,7 +34,7 @@ plane = new Plane();
 expected = plane;
 
 //Act
-airport.add(plane);
+airport.landPlane(plane);
 actual = airport.landedPlanes[0];
 
 //Assert
@@ -98,9 +98,9 @@ let plane3 = new Plane();
 expected = true;
 
 //Act
-airport.add(plane1);
-airport.add(plane2);
-airport.add(plane3);
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
 actual = airport.isFull();
 
 //Assert
@@ -127,10 +127,10 @@ let plane4 = new Plane();
 expected = 3;
 
 //Act
-airport.add(plane1);
-airport.add(plane2);
-airport.add(plane3);
-airport.add(plane4);
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
 actual = airport.landedPlanes.length;
 
 //Assert
@@ -143,6 +143,29 @@ plane1 = undefined;
 plane2 = undefined;
 plane3 = undefined;
 plane4 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`Test 4a: airport has a takeOff() method which removes a plane from its list of landed planes`)
+
+//Arrange
+airport = new Airport(1);
+plane = new Plane();
+airport.landPlane(plane);
+expected = 0;
+
+//Act
+airport.takeOff(plane);
+actual = airport.landedPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4a: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
