@@ -68,3 +68,22 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+console.log(`Test 2b: Airport capacity may be altered by passing an argument to the constructor`)
+
+//Arrange
+expected = 1;
+
+//Act
+airport = new Airport(1);
+actual = airport.capacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 2b: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
