@@ -45,7 +45,7 @@ So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
 |     Objects     |     Properties     |        Messages        |     Ouputs      |
-| Plane           | name @string       | landedPlanes()         | @array          |
+| Plane           | name @string       | landPlane()            | @Bool           |
 
 *Idea: Add the string name of the plane to an array of landed plans
 
