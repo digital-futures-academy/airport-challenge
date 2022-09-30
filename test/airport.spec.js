@@ -15,13 +15,15 @@ console.log(`Test 1 - palne is landing to the Airport`);
 // Arrange
 airport = new Airport();
 plane = { id: `plane1` };
-expected = 1;
+expected = "plane1";
 
 // Act
 airport.landPlane(plane);
-actual = airport.planesAtAirport.length;
+actual = airport.planesAtAirport[0].id;
 
 // Assert
+console.log(actual);
+console.log(expected);
 result = assertEquals(actual, expected);
 console.log(`Plane is landing to the airport: ${result}`);
 
