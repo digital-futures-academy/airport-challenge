@@ -13,7 +13,7 @@ class Airport {
   };
 
   capacity(size) {
-    if (size === null) {
+    if (size === undefined) {
       this.airportCapacity = 5;
     } else {
       this.airportCapacity = size;
