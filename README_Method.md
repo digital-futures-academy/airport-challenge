@@ -42,7 +42,7 @@ Domain Modelling
 | Plane | - | id@String | -
 | Airport Hangar | increaseHangarCapacity(@int) | hangarCapacity.length@int | @void
 
-Test 2 introduces a new property for the airport (hangarCapacity). This should determine a maximum capacity for the airport. The value needs to be increased by the system designer as per demand, therefore the test is to determine whether the capacity can be increased. The initial capacity is set as 2.
+Test 2 introduces a new property for the airport (hangarCapacity). This should determine a maximum capacity for the airport. The value needs to Tbe increased by the system designer as per demand, therefore the test is to determine whether the capacity can be increased. The initial capacity is set as 2.
 
 increaseHangarCapacity is a new function that should increase the capacity. A compound assignment (+=) is used to increase the capacity of this.airportHangar by a value determined as "xtracap".
 
@@ -59,4 +59,21 @@ Domain Modelling
 | Object | Messages | Properties | Output
 | ----------| ----------- | -- | --
 | Plane | - | id@String | -
-| Airport Hangar | increaseHangarCapacity(@int) | hangarCapacity.length@int | @void
+| Airport Hangar | add(@plane) | airportHangar@Array[@string] | @void/@string
+
+Test 3 amends the add function defined in the Airport class. An if function is introduced with the parameter set so that if length of the array "airportHangar" (airportHangar.length) is less than hangarCapacity, planes will be added to the array. If airportHangar.length is equal to the hangarCapacity, then a string should be returned saying that the capacity is full and a plane will not be added to the array.
+
+Test 4
+---
+
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+
+Domain Modelling
+| Object | Messages | Properties | Output
+| ----------| ----------- | -- | --
+| Plane | - | id@String | -
+| Airport Hangar | remove(@plane) | airportHangar@Array[@string] | @void/@string

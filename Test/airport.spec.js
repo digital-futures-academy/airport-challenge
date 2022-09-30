@@ -49,7 +49,7 @@ actual = airport.hangarCapacity;
 
 //assert
 result = assertEquals(actual, expected);
-console.log(`Test 2: ${result}`);
+console.log(`Test 2: Capacity is increased: ${result}`);
 
 //cleanup
 airport = null;
@@ -61,20 +61,49 @@ result = undefined;
 // Test 3 - Adding planes beyond capacity
 
 console.log(`===========================================`);
-console.log(`Test 2 - Is the airport full?`);
+console.log(`Test 3 - Is the airport full?`);
 
 //Arrange
 airport = new Airport();
 plane = { id: `plane1` };
-expected = 'Airport is full.';
+expected = 2;
 
 //act
-airport.increaseHangarCapacity(1);
-actual = airport.hangarCapacity;
+airport.add(plane);
+airport.add(plane);
+airport.add(plane);
+actual = airport.airportHangar.length;
 
 //assert
 result = assertEquals(actual, expected);
-console.log(`Test 2: ${result}`);
+console.log(`Test 3: Capacity is not surpassed: ${result}`);
+
+//cleanup
+airport = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 4 - Plane departs airport
+
+console.log(`===========================================`);
+console.log(`Test 4 - Remove a plane`);
+
+//Arrange
+airport = new Airport();
+plane = { id: `plane1` };
+expected = 0;
+
+//act
+airport.add(plane);
+airport.remove(plane);
+actual = airport.airportHangar.length;
+console.log(actual);
+
+//assert
+result = assertEquals(actual, expected);
+console.log(`Test 4: Plane departs airport ${result}`);
 
 //cleanup
 airport = null;
