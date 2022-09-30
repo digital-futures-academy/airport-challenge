@@ -49,8 +49,6 @@ actual = !isNaN(airport.airportCapacity);
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 2: The airport has a capacity: ${result}`);
-console.log(expected);
-console.log(actual);
 
 // Clean up
 airport = null;
