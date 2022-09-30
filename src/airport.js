@@ -5,17 +5,22 @@ class Airport {
 
   constructor() {
     this.airportList = [];
-    this.airportCapacity = 10;
+    this.airportCapacity = undefined;
   };
 
   land(plane) {
     this.airportList.push(plane);
   };
 
-  capacity() {
-
+  capacity(size) {
+    if (size === null) {
+      this.airportCapacity = 5;
+    } else {
+      this.airportCapacity = size;
+    };
   };
+};
 
-}
+
 
 module.exports = Airport;
