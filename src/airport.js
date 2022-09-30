@@ -1,3 +1,5 @@
+const { Weather } = require("./weather");
+
 class Airport {
   // here's a starting point for you
   landedPlanes;
@@ -15,8 +17,8 @@ class Airport {
     }
   }
 
-  takeOff = (plane) => {
-    if (this.isLanded(plane)) {
+  takeOff = (plane, weather = new Weather()) => {
+    if (this.isLanded(plane) && weather.getWeather() !== "stormy") {
       let index = this.landedPlanes.indexOf(plane);
       this.landedPlanes.splice(index, 1);
       plane.landed = false;

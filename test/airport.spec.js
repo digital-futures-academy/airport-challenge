@@ -1,5 +1,6 @@
 const { Airport } = require("../src/airport");
 const { Plane } = require("../src/plane");
+const { Weather } = require("../src/weather")
 const { assertEquals } = require("../testing-framework");
 
 let expected, actual, result;
@@ -306,6 +307,32 @@ console.log(`Test 5f: ${result}`)
 airport = undefined;
 plane1 = undefined;
 plane2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`Test 6b: Planes cannot take off in stormy weather`)
+
+//Arrange
+let weather = new Weather();
+airport = new Airport(1);
+plane = new Plane();
+airport.landPlane(plane);
+weather.weather = "stormy";
+expected = 1;
+
+//Act
+airport.takeOff(plane, weather);
+actual = airport.landedPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6b: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
+weather = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
