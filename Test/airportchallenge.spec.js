@@ -19,8 +19,9 @@ expectedOutput = "1";
 
 //act
 airport1.add(input)
-actualOutput = 0
+actualOutput = airport1.landedPlanes.length
 console.log(actualOutput);
+
 
 //assert
 result = assertEquals(expectedOutput, actualOutput);
