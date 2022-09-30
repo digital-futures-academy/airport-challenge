@@ -3,17 +3,17 @@ class Airport {
   airportHangar = [];
   hangarCapacity = 2;
 
-  add = plane => {
+  add = (plane) => {
     //if (this.airportHangar.length <= this.hangarCapacity) {
     this.airportHangar.push(plane);
     //} else {
     //  return "Airport is full."
-    //}
-  };
+  }
 
   increaseHangarCapacity = (xtracap) => {
     this.hangarCapacity += xtracap;
   }
+
 };
 
 

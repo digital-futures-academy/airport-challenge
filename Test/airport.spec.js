@@ -57,3 +57,28 @@ item = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Test 3 - Adding planes beyond capacity
+
+console.log(`===========================================`);
+console.log(`Test 2 - Is the airport full?`);
+
+//Arrange
+airport = new Airport();
+plane = { id: `plane1` };
+expected = 'Airport is full.';
+
+//act
+airport.increaseHangarCapacity(1);
+actual = airport.hangarCapacity;
+
+//assert
+result = assertEquals(actual, expected);
+console.log(`Test 2: ${result}`);
+
+//cleanup
+airport = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
