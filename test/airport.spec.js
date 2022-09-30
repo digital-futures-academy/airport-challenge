@@ -284,3 +284,28 @@ plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`Test 5f: Planes can't take off from airports they're not landed at`)
+
+//Arrange
+airport = new Airport(1);
+plane1 = new Plane();
+plane2 = new Plane();
+airport.landPlane(plane1);
+expected = 1;
+
+//Act
+airport.takeOff(plane2);
+actual = airport.landedPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5f: ${result}`)
+
+//Clean-up
+airport = undefined;
+plane1 = undefined;
+plane2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
