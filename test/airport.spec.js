@@ -33,7 +33,8 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Test 2 - does the airport have a capacity?
+
+// Test 2 - does airport have a capacity?
 
 console.log(`============================`);
 console.log(`Test 2 - The airport has a default capacity.`);
@@ -56,4 +57,28 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+
+// Test 3 - does airport have a changeable capacity?
+
+console.log(`============================`);
+console.log(`Test 3 - The airport has a changeable capacity.`);
+
+// Arrange
+airport = new Airport();
+size = 10
+expected = 10;
+
+// Act
+airport.capacity(size);
+actual = airport.airportCapacity;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 3: The airport has a changeable capacity: ${result}`);
+
+// Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
