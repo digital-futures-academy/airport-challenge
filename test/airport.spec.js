@@ -31,3 +31,29 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Test 2 - can Manager override the capacity of Airport?
+
+console.log(`===========================================`);
+console.log(`Test 2 - Overriding the capacity of Airport`);
+
+// Arrange
+airport = new Airport(50);
+expected = 90;
+
+// Act
+newCapacity = 40;
+actual = airport.overrideCapacity(newCapacity);
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(actual);
+console.log(expected);
+console.log(`Airport Capacity has been overrided: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

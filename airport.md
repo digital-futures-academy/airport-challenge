@@ -23,3 +23,23 @@ I want to land a plane to the Airport.
 
 **Run the File**
 Include the spec file to specRunner.js , and then run the code with node specRunner.js
+
+## Domain Modelling
+
+### User Story 2
+
+1. As the system designer
+2. So that the software can be used for many different airports
+3. I would like a default airport capacity that can be overridden as appropriate
+
+**Domain Modelling for User Story 2**
+
+As a System Manager
+I would like to override the airport capacity
+
+| **Object** | **Properties**                | **Message**            | **output** |
+| ---------- | ----------------------------- | ---------------------- | ---------- |
+| Airport    | capacity[@int] const or final | overrideCapacity[@int] | @int       |
+
+**Run the File**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
