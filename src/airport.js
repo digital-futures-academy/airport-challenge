@@ -4,7 +4,9 @@ class Airport {
   hangarCapacity = 2;
 
   add = (plane) => {
-    if (this.airportHangar.length < this.hangarCapacity) {
+    if (this.airportHangar.includes(plane)) {
+      return `Plane has already landed`
+    } else if (this.airportHangar.length < this.hangarCapacity) {
       this.airportHangar.push(plane);
     } else {
       return `Airport is full. Plane cannot land.`

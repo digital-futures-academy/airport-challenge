@@ -21,6 +21,7 @@ expected = 1;
 // Act
 airport.add(plane);
 actual = airport.airportHangar.length;
+console.log(airport.airportHangar.length)
 
 // Assert
 result = assertEquals(actual, expected);
@@ -66,12 +67,14 @@ console.log(`Test 3 - Is the airport full?`);
 //Arrange
 airport = new Airport();
 plane = { id: `plane1` };
+plane2 = { id: `plane2` };
+plane3 = { id: `plane3` };
 expected = 2;
 
 //act
 airport.add(plane);
-airport.add(plane);
-airport.add(plane);
+airport.add(plane2);
+airport.add(plane3);
 actual = airport.airportHangar.length;
 
 //assert
@@ -128,6 +131,30 @@ actual = airport.remove(plane2);
 //assert
 result = assertEquals(actual, expected);
 console.log(`Test 5a: Does program return "Plane is not in hangar?": ${result}`);
+
+//cleanup
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 5b - Land duplicate plane
+console.log("======================");
+console.log("Test 5b: Air traffic controller tries to land duplicate plane ");
+
+//Arrange
+airport = new Airport();
+plane = { id: `plane` };
+expected = `Plane has already landed`;
+
+//act
+airport.add(plane);
+actual = airport.add(plane);
+
+//assert
+result = assertEquals(actual, expected);
+console.log(`Test 5b: Does program return "Plane has already landed"?: ${result}`);
 
 //cleanup
 basket = null;

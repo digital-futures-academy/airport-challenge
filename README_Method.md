@@ -95,4 +95,6 @@ Domain Modelling
 | Plane | - | id@String | -
 | Airport Hangar | add(@plane)/remove(@plane) | airportHangar@Array[@string] | @void/@string
 
-An if statement is introduced in the remove fucntion, which first determines whether a specific plane is in the hangar. If true, then the plane can depart. If false, then the if else statement will return the string `"Plane is not in hangar."`
+An if statement is introduced in the remove function, which first determines whether a specific plane is in the hangar. If true, then the plane can depart. If false, then the if else statement will return the string `"Plane is not in hangar."`
+
+An if statement is amended on the add function, which is set up so that if this.airportHangar includes a specific plane object, then the string `"Plane has already landed"` will be returned. In other cases, the add function will operate as specified earlier.
