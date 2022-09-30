@@ -23,22 +23,22 @@ actual = undefined;
 result = undefined;
 plane = undefined;
 
-// console.log(`Test 5b: Planes contain an isLanded method to tell when they are landed or not`)
+console.log(`Test 5b: Planes contain an isLanded method to tell when they are landed or not`)
 
-// //Arrange
-// plane = new Plane();
-// plane.landed = true;
-// expected = true;
+//Arrange
+plane = new Plane();
+plane.landed = true;
+expected = true;
 
-// //Act
-// actual = plane.isLanded();
+//Act
+actual = plane.isLanded();
 
-// //Assert
-// result = assertEquals(expected, actual);
-// console.log(`Test 5b: ${result}`);
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5b: ${result}`);
 
-// //Clean-up
-// expected = undefined;
-// actual = undefined;
-// result = undefined;
-// plane = undefined;
+//Clean-up
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = undefined;
