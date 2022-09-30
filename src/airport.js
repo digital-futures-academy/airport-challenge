@@ -10,8 +10,8 @@ class Airport {
     this.landedPlanes = [];
   }
 
-  landPlane = (plane) => {
-    if (!this.isFull() && !plane.isLanded()) {
+  landPlane = (plane, weather = new Weather()) => {
+    if (!this.isFull() && !plane.isLanded() && weather.getWeather() !== "stormy") {
       this.landedPlanes.push(plane);
       plane.landed = true;
     }

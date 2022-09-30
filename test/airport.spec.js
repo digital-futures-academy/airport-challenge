@@ -336,3 +336,28 @@ weather = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`Test 7a: Planes cannot land in stormy weather`);
+
+//Arrange
+weather = new Weather();
+airport = new Airport(1);
+plane = new Plane();
+expected = 0;
+weather.weather = "stormy";
+
+//Act
+airport.landPlane(plane, weather);
+actual = airport.landedPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 7a: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
+weather = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
