@@ -11,6 +11,7 @@ class Airport {
   landPlane = (plane) => {
     if (!this.isFull()) {
       this.landedPlanes.push(plane);
+      plane.landed = true;
     }
   }
 
