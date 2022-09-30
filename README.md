@@ -38,29 +38,75 @@ Task
 
 We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
 
-#### Acceptance Criteria
+#### User Story 1
 ```
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+```
+| Objects | Properties | Messages | Output |
+| :----   | :--------  | :------  | :----  |
+|`airport`  | `airportPlanes`@ARRAY[@string]| `landPlane(`@plane`)` | @string |
+| `plane` | `flightNumber`@string | | |
 
+1. Test that the plane is added  to `airportPlanes` by checking that the length of `airportPlanes` increases after calling `landingPlanes(plane)`
+2. Test that `landPlane` returns a string that confirms that the plane has landed and is added to `airportPlane`
+#### User Story 2
+```
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+```
+| Objects | Properties | Messages | Output |
+| :----   | :--------  | :------  | :----  |
+|`airport`  | `capacity`@number| `constructor(newCapacity`@number`)` | @void |
 
+1. Test that the `airport` has a default `capacity` when it is constructed
+2. Test that `capacity` increases to the correct amount when the newCapacity is changed
+
+#### User Story 3
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+```
+| Objects | Properties | Messages | Output |
+| :----   | :--------  | :------  | :----  |
+|`airport`  | `capacity`@number| `landPlane(isAirportFull(),`@plane`)` |@string|
+| | `airportPlanes`@ARRAY[@string]| `isAirportFull()` | @boolean |
+| `plane` | `flightNumber`@string | | |
 
+1. Test if the `isAirportFull()` rejects a landing when `landPlane` is called and `airportPlanes.length` matches `capacity`
+
+#### User Story 4
+```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+| Objects | Properties | Messages | Output |
+| :----   | :--------  | :------  | :----  |
+|`airport`  | `airportPlanes`@ARRAY[@string]| `departPlane(`@plane`)` | @string |
+| `plane` | `flightNumber`@string | | |
 
+1. Test that the `plane` is removed from `airportPlanes` by checking that the length of `airportPlanes` decreases after calling `departPlane(plane)`
+2. Test that `departPlane(plane)` returns a string to confirm that the `plane` has departed and no longer exists in `airportPlanes`
+
+#### User Story 5
+```
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
+| Objects | Properties | Messages | Output |
+| :----   | :--------  | :------  | :----  |
+|`airport`  |`airportPlanes`@ARRAY[@string] | `landPlane(isInAirport,`@plane`)` |@string|
+| | | `departPlane(isInAirport,`@plane`)` | @string |
+| | | `isInAirport(`@plane`)` | @boolean |
+| `plane` | `flightNumber`@string | | |
 
+1. Test that when you attempt to "land" a plane and it already exists in the airport (`airportPlanes`) it returns a string to state that it had already landed
+2. Test that when you attempt to "depart" a plane and it has already departed from the airport (`airportPlanes`) it returns a string to state that it had already departed
 #### Extended Acceptance Criteria
 ```
 As an air traffic controller
