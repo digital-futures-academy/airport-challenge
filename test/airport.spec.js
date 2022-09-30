@@ -361,3 +361,26 @@ weather = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`Test 8b: Airports update the plane's airport to null when it takes off`);
+
+//Arrange
+airport = new Airport(1);
+plane = new Plane();
+airport.landPlane(plane);
+expected = null;
+
+//Act
+airport.takeOff(plane);
+actual = plane.airport;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8b: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;

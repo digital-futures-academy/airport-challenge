@@ -23,6 +23,7 @@ class Airport {
       let index = this.landedPlanes.indexOf(plane);
       this.landedPlanes.splice(index, 1);
       plane.landed = false;
+      plane.airport = null;
     }
   }
 
