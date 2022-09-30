@@ -22,7 +22,13 @@ class Airport {
   isFull = () => {
     return this.landedPlanes.length >= this.capacity;
   }
+
+  isLanded = (plane) => {
+    return this.landedPlanes.includes(plane);
+  }
 };
+
+
 
 module.exports = {
   Airport

@@ -189,7 +189,31 @@ console.log(`Test 4a: ${result}`);
 
 //Clean-up
 airport = undefined;
+plane1 = undefined;
+plane2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`Test 4c: airport has isLanded method that returns true if the specific plane is in the list of landed planes`)
+
+//Arrange
+airport = new Airport(1);
+plane = new Plane();
+expected = true;
+
+//Act
+airport.landPlane(plane);
+actual = airport.isLanded(plane);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4c: ${result}`);
+
+//Clean-up
+airport = undefined;
 plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+

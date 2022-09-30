@@ -90,7 +90,7 @@ Domain models
 | Object | Properties | Messages | Outputs |
 | ----------- | ----------- | ----------- | ----------- |
 | Plane | | | |
-| Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane) <br> isFull() <br> takeOff(@Plane) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Void |
+| Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane) <br> isFull() <br> takeOff(@Plane) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Bool |
 
 5. Fifth domain model now gives Plane an ID member and method to access it so we can be sure not to land a Plane that already exists at the airport (verified by matching Plane IDs). Plane object also now keep track themselves of whether they are landed or not
 
