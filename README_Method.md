@@ -80,3 +80,19 @@ Domain Modelling
 
 A function called remove is introduced to the airport class. An let statement is introduced, which first determines the index position of a plane object in the airportHangar array. Once the index position has been determined, a .splice function is used to remove the plane object determined at the index position. A return function then declares the string: `'${plane} has departed airport.'`
 
+Test 5
+---
+
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+
+Domain Modelling
+| Object | Messages | Properties | Output
+| ----------| ----------- | -- | --
+| Plane | - | id@String | -
+| Airport Hangar | add(@plane)/remove(@plane) | airportHangar@Array[@string] | @void/@string
+
+An if statement is introduced in the remove fucntion, which first determines whether a specific plane is in the hangar. If true, then the plane can depart. If false, then the if else statement will return the string `"Plane is not in hangar."`

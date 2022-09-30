@@ -110,3 +110,28 @@ item = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Test 5a - Departing non-existing plane
+console.log("======================");
+console.log("Test 5a: Non-existing plane tries to depart ");
+
+//Arrange
+airport = new Airport();
+plane1 = { id: `plane1` };
+plane2 = { id: `plane2` };
+expected = `Plane is not in hangar`;
+
+//act
+airport.add(plane1);
+actual = airport.remove(plane2);
+
+//assert
+result = assertEquals(actual, expected);
+console.log(`Test 5a: Does program return "Plane is not in hangar?": ${result}`);
+
+//cleanup
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

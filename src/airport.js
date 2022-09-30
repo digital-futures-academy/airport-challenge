@@ -7,7 +7,7 @@ class Airport {
     if (this.airportHangar.length < this.hangarCapacity) {
       this.airportHangar.push(plane);
     } else {
-      return `Airport is full. ${plane} cannot land.`
+      return `Airport is full. Plane cannot land.`
     }
   };
 
@@ -16,11 +16,13 @@ class Airport {
   }
 
   remove = (plane) => {
-    // if (this.airportHangar.includes(plane)) {
-    let index = this.airportHangar.indexOf(plane);
-    this.airportHangar.splice(index, 1);
-    return `${plane} has departed airport.`
-    // }
+    if (this.airportHangar.includes(plane)) {
+      let index = this.airportHangar.indexOf(plane);
+      this.airportHangar.splice(index, 1);
+      return `Plane has departed airport.`
+    } else {
+      return `Plane is not in hangar`
+    }
   }
 };
 
