@@ -9,7 +9,9 @@ class Airport {
   }
 
   add = (plane) => {
-    this.landedPlanes.push(plane);
+    if (!this.isFull()) {
+      this.landedPlanes.push(plane);
+    }
   }
 
   isFull = () => {

@@ -115,3 +115,34 @@ plane3 = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`Test 3b: airport prevents landing if it is full`)
+
+//Arrange
+airport = new Airport(3);
+plane1 = new Plane();
+plane2 = new Plane();
+plane3 = new Plane();
+let plane4 = new Plane();
+expected = 3;
+
+//Act
+airport.add(plane1);
+airport.add(plane2);
+airport.add(plane3);
+airport.add(plane4);
+actual = airport.landedPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 3b: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+plane4 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
