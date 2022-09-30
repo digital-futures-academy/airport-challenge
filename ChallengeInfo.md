@@ -17,6 +17,14 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
+| Objects         | Properties              | Messages     | Output  |
+| :-------------- | :---------------------- | :----------- | :------ |
+| airport         | planeList@Array(@plane) | @land(plane) | @void   |
+| airportCapacity | @integer                | -            | @number |
+
+1. test the airport can take a capacity
+2. the airport capacity can be changed
+
 
 ```
 As an air traffic controller
