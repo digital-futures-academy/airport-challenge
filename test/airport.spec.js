@@ -169,3 +169,27 @@ plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`Test 4b: takeOff() method removes a specific plane from its list of landed planes`)
+
+//Arrange
+airport = new Airport(2);
+plane1 = new Plane();
+plane2 = new Plane();
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+expected = plane2;
+
+//Act
+airport.takeOff(plane1);
+actual = airport.landedPlanes[0];
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4a: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;

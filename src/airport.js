@@ -15,7 +15,8 @@ class Airport {
   }
 
   takeOff = (plane) => {
-    this.landedPlanes.pop();
+    let index = this.landedPlanes.indexOf(plane);
+    this.landedPlanes.splice(index, 1);
   }
 
   isFull = () => {
