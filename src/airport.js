@@ -1,5 +1,14 @@
 class Airport {
-  // here's a starting point for you
+
+  airportList;
+
+  constructor() {
+    this.airportList = [];
+  }
+
+  land(plane) {
+    this.airportList.push(plane);
+  }
 
 }
 
