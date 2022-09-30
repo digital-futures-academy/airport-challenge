@@ -1,4 +1,4 @@
-const { assertEquals } = require("../testing-framework");
+const { assertEquals } = require("../specRunner");
 const Airport = require("../src/airport");
 // const Item = require("../src/plane");
 
@@ -27,7 +27,7 @@ result = assertEquals(actual, expected);
 console.log(`Test 1: Plane lands in airport: ${result}`);
 
 // Clean up
-basket = null;
+airport = null;
 item = null;
 expected = undefined;
 actual = undefined;
@@ -36,23 +36,23 @@ result = undefined;
 // Test 2 - Increasing airport hangar capacity
 
 console.log(`===========================================`);
-console.log(`Test 1 - Does system designer increase hangar capacity?`);
+console.log(`Test 2 - Does system designer increase hangar capacity?`);
 
-// Arrange
+//Arrange
 airport = new Airport();
 plane = { id: `plane1` };
-expected = 1;
+expected = 3;
 
-// Act
-airport.add(plane);
-actual = airport.airportHangar.length;
+//act
+airport.increaseHangarCapacity(1);
+actual = airport.hangarCapacity;
 
-// Assert
+//assert
 result = assertEquals(actual, expected);
-console.log(`Test 1: Plane lands in airport: ${result}`);
+console.log(`Test 2: ${result}`);
 
-// Clean up
-basket = null;
+//cleanup
+airport = null;
 item = null;
 expected = undefined;
 actual = undefined;
