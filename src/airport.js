@@ -1,6 +1,9 @@
 class Airport {
-  // here's a starting point for you
+  add() {
+
+  };
 
 }
+
 
 module.exports = Airport;
