@@ -1,4 +1,5 @@
 const { Plane } = require("../src/plane")
+const { Airport } = require("../src/airport")
 const { assertEquals } = require("../testing-framework");
 
 console.log(`Test 5a: Plane contains an id and a method to return it`);
@@ -42,3 +43,25 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 plane = undefined;
+
+console.log(`Test 8a: Planes now have a airport variable that tracks which airport they are landed at`);
+
+//Arrange
+let airport = new Airport(1);
+plane = new Plane();
+expected = airport;
+
+//Act
+airport.landPlane(plane);
+actual = plane.airport;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8a: ${result}`);
+
+//Clean-up
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = undefined;
+airport = undefined;

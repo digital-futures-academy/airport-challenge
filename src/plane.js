@@ -1,6 +1,7 @@
 class Plane {
     id;
     landed;
+    airport;
 
     getID = () => {
         return this.id

@@ -89,7 +89,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log(`Test 3a: airport has a method called isFull() that returns true when the number of planes landed meets or exceeds the capacity`)
+console.log(`Test 3a: Airport has a method called isFull() that returns true when the number of planes landed meets or exceeds the capacity`)
 
 //Arrange
 airport = new Airport(3);
@@ -117,7 +117,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log(`Test 3b: airport prevents landing if it is full`)
+console.log(`Test 3b: Airport prevents landing if it is full`)
 
 //Arrange
 airport = new Airport(3);
@@ -148,7 +148,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log(`Test 4a: airport has a takeOff() method which removes a plane from its list of landed planes`)
+console.log(`Test 4a: Airport has a takeOff() method which removes a plane from its list of landed planes`)
 
 //Arrange
 airport = new Airport(1);
@@ -196,7 +196,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log(`Test 4c: airport has isLanded method that returns true if the specific plane is in the list of landed planes`)
+console.log(`Test 4c: Airport has isLanded method that returns true if the specific plane is in the list of landed planes`)
 
 //Arrange
 airport = new Airport(1);

@@ -14,6 +14,7 @@ class Airport {
     if (!this.isFull() && !plane.isLanded() && weather.getWeather() !== "stormy") {
       this.landedPlanes.push(plane);
       plane.landed = true;
+      plane.airport = this;
     }
   }
 
