@@ -99,11 +99,10 @@ expected = 0;
 airport.add(plane);
 airport.remove(plane);
 actual = airport.airportHangar.length;
-console.log(actual);
 
 //assert
 result = assertEquals(actual, expected);
-console.log(`Test 4: Plane departs airport ${result}`);
+console.log(`Test 4: Plane departs airport: ${result}`);
 
 //cleanup
 airport = null;

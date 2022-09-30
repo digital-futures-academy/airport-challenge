@@ -61,7 +61,7 @@ Domain Modelling
 | Plane | - | id@String | -
 | Airport Hangar | add(@plane) | airportHangar@Array[@string] | @void/@string
 
-Test 3 amends the add function defined in the Airport class. An if function is introduced with the parameter set so that if length of the array "airportHangar" (airportHangar.length) is less than hangarCapacity, planes will be added to the array. If airportHangar.length is equal to the hangarCapacity, then a string should be returned saying that the capacity is full and a plane will not be added to the array.
+Test 3 amends the add function defined in the Airport class. An if statement is introduced with the parameter set so that if length of the array "airportHangar" (airportHangar.length) is less than hangarCapacity, planes will be added to the array. If airportHangar.length is equal to the hangarCapacity, then a string should be returned saying that the capacity is full and a plane will not be added to the array.
 
 Test 4
 ---
@@ -77,3 +77,6 @@ Domain Modelling
 | ----------| ----------- | -- | --
 | Plane | - | id@String | -
 | Airport Hangar | remove(@plane) | airportHangar@Array[@string] | @void/@string
+
+A function called remove is introduced to the airport class. An let statement is introduced, which first determines the index position of a plane object in the airportHangar array. Once the index position has been determined, a .splice function is used to remove the plane object determined at the index position. A return function then declares the string: `'${plane} has departed airport.'`
+
