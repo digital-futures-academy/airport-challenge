@@ -7,7 +7,7 @@ let expected, actual, result;
 console.log(`Test 1a: landPlane() adds a plane to landedPlanes[]`)
 
 //Arrange
-let airport = new Airport();
+let airport = new Airport(1);
 let plane = new Plane();
 expected = 1;
 
@@ -29,7 +29,7 @@ result = undefined;
 console.log(`Test 1b: landPlane() adds a specific plane to landedPlanes[]`)
 
 //Arrange
-airport = new Airport();
+airport = new Airport(1);
 plane = new Plane();
 expected = plane;
 
@@ -254,6 +254,29 @@ actual = plane.isLanded();
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 5d: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`Test 5e: Planes can't land at airports they are already landed at`)
+
+//Arrange
+airport = new Airport(2);
+plane = new Plane();
+airport.landPlane(plane);
+expected = 1;
+
+//Act
+airport.landPlane(plane);
+actual = airport.landedPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5e: ${result}`);
 
 //Clean-up
 airport = undefined;

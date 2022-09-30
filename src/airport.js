@@ -9,7 +9,7 @@ class Airport {
   }
 
   landPlane = (plane) => {
-    if (!this.isFull()) {
+    if (!this.isFull() && !plane.isLanded()) {
       this.landedPlanes.push(plane);
       plane.landed = true;
     }
