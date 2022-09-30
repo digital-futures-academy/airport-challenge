@@ -1,7 +1,14 @@
 class Plane {
     id;
+    landed;
 
-    id = () => this.id;
+    getID = () => {
+        return this.id
+    };
+
+    isLanded = () => {
+        return this.landed;
+    }
 };
 
 module.exports = {
