@@ -44,36 +44,85 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Plane           | name @string       | landedPlanes()         | @array          |
+
+*Idea: Add the string name of the plane to an array of landed plans
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Airport         | @int               | airportCapacity()      | @int            |
+
+*Idea: Have a limit parameter in the class Airport which can be changed with the airportCapacity() method
 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Airport         | @int               | isAirportFull()        | @Bool           |
+
+*Idea: If the length of the landed planes array is >= airport capacity return false so the plane cannot lane
+or true if it is less than the capacity
+
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Plane           | @string            | planeTakeoff()         | @array          |
+| Plane           | @string            | landedPlanes()         | @Bool           |
+
+*Idea: Move the string of the plane name to from the landed planes array to the takeoff planes array and check the
+landed planes array for the string name of the plane to check its not there
+
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-```
 
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Plane           | @string            | canPlaneTakeoff()      | @Bool           |
+| Plane           | @string            | isPlaneInAirport()     | @Bool           |
+
+*Idea: Check the landed planes array to see if the desired plane to takeoff is in the airport currently, returning false if
+its not in the landed planes array. Then checking the landed planes array for a plane that has already landed, returning
+true if its already in the airport.
+
+```
 #### Extended Acceptance Criteria
 ```
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Weather         | @string            | safeToTakeoff()        | @Bool           |
+
+*Idea: Every plane has an id/name and also a random number representing the weather of that day, if the weather is stormy
+returns false so the plane cannot takeoff
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Weather         | @string            | safeToLand()           | @Bool           |
+
+*Idea: Every plane has an id/name and also a random number representing the weather of that day, if the weather is stormy
+returns false so the plane cannot land
+
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+|     Objects     |     Properties     |        Messages        |     Ouputs      |
+| Plane           | @string            | landedPlanes()         | @int            |
+
+*Idea: Prints the number of planes that have landed and are in the airport currently
+
 ```
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
