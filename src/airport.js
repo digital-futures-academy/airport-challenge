@@ -4,10 +4,10 @@ class Airport {
   airportCapacity;
   defaultCapacity;
 
-  constructor(size) {
+  constructor() {
     this.airportList = [];
-    this.airportCapacity = undefined;
-    this.defaultCapacity = 10
+    this.airportCapacity = 0;
+    this.defaultCapacity = 10;
   };
 
   land(plane) {
@@ -15,6 +15,11 @@ class Airport {
   };
 
   capacity(size) {
+    if (size === undefined) {
+      this.airportCapacity = this.defaultCapacity;
+    } else {
+      this.airportCapacity = size;
+    }
   };
 
 }

@@ -40,12 +40,13 @@ console.log(`Test 2 - The airport has a capacity that can also be changed.`);
 
 // Arrange
 airport = new Airport();
-airport2 = new Airport(5);
+airport2 = new Airport();
+size = 5;
 expected = airport != airport2;
 
 // Act
-airport.capacity(plane);
-airport2.capacity(plane);
+airport.capacity();
+airport2.capacity(size);
 actual = airport.airportCapacity != airport2.airportCapacity;
 
 // Assert
