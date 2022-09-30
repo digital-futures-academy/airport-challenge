@@ -5,8 +5,8 @@ let expected;
 let actual;
 let result;
 let airport;
-let airport2;
 let plane;
+let size;
 
 // Test 1 - has the plane landed at the airport?
 
@@ -33,29 +33,27 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Test 2 - does the airport have a addressable capacity?
+// Test 2 - does the airport have a capacity?
 
 console.log(`============================`);
-console.log(`Test 2 - The airport has a capacity that can also be changed.`);
+console.log(`Test 2 - The airport has a default capacity.`);
 
 // Arrange
 airport = new Airport();
-airport2 = new Airport();
-size = 5;
-expected = airport != airport2;
+expected = true;
 
 // Act
 airport.capacity();
-airport2.capacity(size);
-actual = airport.airportCapacity != airport2.airportCapacity;
+actual = airport.airportCapacity === Number;
 
 // Assert
 result = assertEquals(actual, expected);
-console.log(`Test 2: The airport has a changeable capacity: ${result}`);
+console.log(`Test 2: The airport has a capacity: ${result}`);
 
 // Clean up
 airport = null;
-plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+

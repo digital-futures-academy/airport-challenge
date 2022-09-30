@@ -17,13 +17,13 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
-| Objects         | Properties              | Messages     | Output  |
-| :-------------- | :---------------------- | :----------- | :------ |
-| airport         | planeList@Array(@plane) | @land(plane) | @void   |
-| airportCapacity | @integer                | -            | @number |
+| Objects | Properties              | Messages        | Output   |
+| :------ | :---------------------- | :-------------- | :------- |
+| airport | airportCapacity@Integer | @capacity(size) | @Integer |
+| size    | @integer                | -               | -        |
 
-1. test the airport can take a capacity
-2. the airport capacity can be changed
+1. test the airport can take a capacity 
+2. the airport capacity can be changed  
 
 
 ```
@@ -31,6 +31,12 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 ```
+| Objects | Properties                                           | Messages     | Output |
+| :------ | :--------------------------------------------------- | :----------- | :----- |
+| airport | planeList@Array(@plane) <br> airportCapacity@Integer | @land(plane) | @Void  |
+| plane   | @-                                                   | -            | -      |
+
+1. test to see if the airport capacity is full
 
 ```
 As an air traffic controller
