@@ -11,6 +11,10 @@ class Airport {
   add = (plane) => {
     this.landedPlanes.push(plane);
   }
+
+  isFull = () => {
+    return this.landedPlanes.length >= this.capacity;
+  }
 };
 
 module.exports = {

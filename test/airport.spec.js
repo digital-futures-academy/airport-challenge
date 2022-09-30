@@ -87,3 +87,31 @@ plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`Test 3a: airport has a method called isFull() that returns true when the number of planes landed meets or exceeds the capacity`)
+
+//Arrange
+airport = new Airport(3);
+let plane1 = new Plane();
+let plane2 = new Plane();
+let plane3 = new Plane();
+expected = true;
+
+//Act
+airport.add(plane1);
+airport.add(plane2);
+airport.add(plane3);
+actual = airport.isFull();
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 3a: ${result}`);
+
+//Clean-up
+airport = undefined;
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
