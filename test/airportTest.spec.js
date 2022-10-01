@@ -6,11 +6,11 @@ console.log(`============================`);
 
 // Arrange
 let airport = new Airport;
-let plane = { id: `Plane1` };
+let plane1 = { id: `Plane1` };
 let expected = 1;
 
 // Act 
-airport.landPlane(plane);
+airport.landPlane(plane1);
 let actual = airport.planeList.length;
 
 // Assert
@@ -39,8 +39,23 @@ expected = true;
 airport.changeCapacity(1);
 
 // Act
-actual = airport.isAirportfull();
+actual = airport.isAirportFull();
 
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 3: Checks if the airport is full => true is: ${result}`);
+
+// Test 4 - Prevent landing planes if the airport is full
+console.log(`============================`);
+
+// Arrange
+airport.planeList = [{ id: `Plane1` }, { id: `Plane2` }, { id: `Plane3` }];
+expected = false;
+
+// Act
+airport.takeOff(plane1);
+actual = airport.isPlaneAtAirport(plane1);
+
+// Assert 
+result = assertEquals(actual, expected);
+console.log(`Test 4: Checks if the plane has taken off from the airport => true is: ${result}`);
