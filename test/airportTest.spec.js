@@ -3,7 +3,6 @@ const { assertEquals } = require("../testing-framework.js");
 
 // Test 1 - Instructing the plane to land
 console.log(`============================`);
-console.log(`Test 1 - Lands a plane`);
 
 // Arrange
 let airport = new Airport;
@@ -20,7 +19,6 @@ console.log(`Test 1: Plane1 has landed at the airport => 1 is: ${result}`);
 
 // Test 2 - Changing the airport capacity
 console.log(`============================`);
-console.log(`Test 1 - Changes the capacity of the airport`);
 
 // Arrange
 expected = 2;
@@ -32,3 +30,17 @@ actual = airport.airportCapacity;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 2: Change capacity of the airport hangar => 2 is: ${result}`);
+
+// Test 3 - Prevent landing planes if the airport is full
+console.log(`============================`);
+
+// Arrange
+expected = true;
+airport.changeCapacity(1);
+
+// Act
+actual = airport.isAirportfull();
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 3: Checks if the airport is full => true is: ${result}`);
