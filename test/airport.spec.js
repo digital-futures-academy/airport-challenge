@@ -19,7 +19,7 @@ console.log(`Test 1 - check success of landPlane`);
 // Arrange
 myAirport = new Airport();
 control = myAirport.planeArray.length;
-plane = { id: `dfa-001` };
+plane = `dfa-001`;
 expected = control + 1;
 
 // Act
@@ -28,6 +28,13 @@ actual = myAirport.planeArray.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 1: Plane landed: ${result}`);
+
+// Add second plane
+plane = `dfa-002`;
+myAirport.landPlane(plane);
+result = assertEquals(actual, expected);
+console.log(`Test 1: Plane landed: ${result}`);
+console.log(myAirport.planeArray);
 
 // Clean up
 myAirport = null;
