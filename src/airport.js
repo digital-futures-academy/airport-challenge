@@ -1,10 +1,14 @@
 class Airport {
+  capacity = 10;
   planeArray = [];
   landPlane = function (plane) {
     this.planeArray.push(plane);
-    let newArrival = this.planeArray[this.planeArray.length - 1];
-    // console.log(this.planeArray);
-    console.log(`Flight ${newArrival} has landed.`);
+    console.log(
+      `Flight ${this.planeArray[this.planeArray.length - 1]} has landed.`
+    );
+  };
+  setCapacity = function (newCapacity) {
+    this.capacity = newCapacity;
   };
 }
 
