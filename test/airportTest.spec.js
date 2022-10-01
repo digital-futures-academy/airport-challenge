@@ -45,7 +45,7 @@ actual = airport.isAirportFull();
 result = assertEquals(actual, expected);
 console.log(`Test 3: Checks if the airport is full => true is: ${result}`);
 
-// Test 4 - Prevent landing planes if the airport is full
+// Test 4 - Instruct a plane to take off and check if it has left the airport
 console.log(`============================`);
 
 // Arrange
@@ -54,8 +54,23 @@ expected = false;
 
 // Act
 airport.takeOff(plane1);
-actual = airport.isPlaneAtAirport(plane1);
+actual = airport.isPlaneInAirport(plane1);
 
 // Assert 
 result = assertEquals(actual, expected);
 console.log(`Test 4: Checks if the plane has taken off from the airport => true is: ${result}`);
+
+// Test 5 - Prevent planes from taking off and landing if it does not exist in the airport
+console.log(`============================`);
+
+// Arrange
+expected = true;
+
+// Act
+// actual = airport.takeOff(plane1);
+airport.landPlane(plane1);
+actual = airport.isPlaneInAirport(plane1);
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 5: Checks if the plane is in the airport => true is: ${result}`);

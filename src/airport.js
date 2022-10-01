@@ -6,13 +6,15 @@ class Airport {
     }
 
     landPlane = plane => {
-        if (!this.isAirportFull()) {
+        if (!this.isAirportFull() && !this.isPlaneInAirport(plane)) {
             this.planeList.push(plane);
         }
     }
 
     takeOff = plane => {
-        this.planeList.pop(plane);
+        if (this.isPlaneInAirport(plane)) {
+            this.planeList.pop(plane);
+        }
     }
 
     changeCapacity = newCapacity => {
@@ -23,7 +25,7 @@ class Airport {
         return (this.airportCapacity === this.planeList.length) ? true : false;
     }
 
-    isPlaneAtAirport = plane => {
+    isPlaneInAirport = plane => {
         return this.planeList.includes(plane);
     }
 }
