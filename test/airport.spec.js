@@ -4,6 +4,7 @@ const { assertEquals } = require('../testing-framework');
 
 const Airport = require('../src/airport');
 
+let control;
 let expected;
 let actual;
 let result;
@@ -17,9 +18,9 @@ console.log(`Test 1 - check success of landPlane`);
 
 // Arrange
 myAirport = new Airport();
-
+control = myAirport.planeArray.length;
 plane = { id: `dfa-001` };
-expected = 1;
+expected = control + 1;
 
 // Act
 myAirport.landPlane(plane);
