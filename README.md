@@ -52,7 +52,7 @@ Plane -- [landPlane] --> Airport (array of planes)
 
 | Objects   | Properties                        | Messages                     | Output  |
 | --------- | --------------------------------- | ---------------------------- | ------- |
-| Airport   | arrPlanes(@array[@Plane])          | landPlane(@Plane)            | -       |
+| Airport   | arrPlanes(@array[@Plane])         | landPlane(@Plane)            | -       |
 | Plane     |
 
 **Tests**
@@ -70,6 +70,18 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
 
+**Domain Model**
+
+Airport -- defaultCapacity(@integer) -- [setCapacity] --> newCapacity(@Integer)
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| Airport   | Capacity(@integer, constant)      | setCapacity(@integer)        | -       |
+
+
+**Tests**
+1. Check default capacity
+2. Check new capacity
 
 ```
 As an air traffic controller
