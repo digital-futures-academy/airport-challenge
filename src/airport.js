@@ -8,6 +8,10 @@ class Airport {
     landPlane = plane => {
         this.planeList.push(plane);
     };
+
+    changeCapacity = newCapacity => {
+        this.airportCapacity = newCapacity;
+    }
 }
 
 module.exports = Airport;
