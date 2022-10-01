@@ -29,7 +29,7 @@
 **Proposed test/s**
 
 1. Check that array length has increased since function call
-2. Check that function returns a success message
+2. Check that landPlane function returns a success message
 
 > As the system designer
 > So that the software can be used for many different airports
@@ -38,6 +38,11 @@
 | **Objects** | **Properties**        | **Messages** | **Output** |
 | :---------- | :-------------------- | :----------- | :--------- |
 | Airport     | capacity @number = 10 | setCapacity  | void       |
+
+**Proposed test/s**
+
+1. Check that capacity value matches the default value supplied when a new airport object is created
+2. Check that setCapacity function changes the default capacity value
 
 > As an air traffic controller
 > To ensure safety
