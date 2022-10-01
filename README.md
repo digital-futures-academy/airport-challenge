@@ -38,24 +38,54 @@ Task
 
 We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
 
-#### Acceptance Criteria
+### Acceptance Criteria
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+```
 
+**Domain Model**
+
+Plane -- [landPlane] --> Airport (array of planes)
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| Airport   | arrPlanes(@array[@Plane])          | landPlane(@Plane)            | -       |
+| Plane     |
+
+**Tests**
+
+1(a). Return string confirming plane has landed, and/or
+
+1(b). Check array length, and/or
+
+1(c). If plane has ID, check ID of expected plane with the landed plane
+
+
+```
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+```
 
+
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+```
 
+
+```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
 
+
+```
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
