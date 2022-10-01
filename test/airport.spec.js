@@ -10,11 +10,14 @@ let actual;
 let result;
 let myAirport;
 let plane;
+let successMsg;
 
 // Test 1 - has the plane landed?
 
 console.log(`============================`);
-console.log(`Test 1 - check success of landPlane`);
+console.log(
+  `Test 1 - check success of landPlane: array length should change and success message should be logged`
+);
 
 // Arrange
 myAirport = new Airport();
@@ -34,7 +37,6 @@ plane = `dfa-002`;
 myAirport.landPlane(plane);
 result = assertEquals(actual, expected);
 console.log(`Test 1.2: Additional plane landed: ${result}`);
-console.log(myAirport.planeArray);
 
 // Clean up
 myAirport = null;
@@ -46,7 +48,9 @@ result = undefined;
 // Test 2 - Is there a default capacity on new airport instances and can it be changed?
 
 console.log(`============================`);
-console.log(`Test 2.1 - check that airport capacity has a default value of 10`);
+console.log(
+  `Test 2 - check that airport capacity has a default value of 10 and is successfully changed with setCapacity`
+);
 
 // Arrange
 myAirport = new Airport();
@@ -65,14 +69,12 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log(`Test 2.2 - check that setCapacity changes the default value`);
-
 // Arrange
 myAirport = new Airport();
-expected = myAirport.capacity !== 10;
+expected = true;
 
 // Act
-myAirport.setCapacity();
+myAirport.setCapacity(20);
 actual = myAirport.capacity !== 10;
 // Assert
 result = assertEquals(actual, expected);
