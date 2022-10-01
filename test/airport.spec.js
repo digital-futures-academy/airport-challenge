@@ -1,10 +1,8 @@
 /* eslint-disable quotes */
 'use strict';
-const {
-  assertEquals,
-  assertTrue,
-  assertFalse,
-} = require('../testing-framework');
+const { assertEquals } = require('../testing-framework');
+
+const Airport = require('../src/airport');
 
 let expected;
 let actual;
@@ -12,7 +10,7 @@ let result;
 let myAirport;
 let plane;
 
-// Test 1 - is anything added to the basket?
+// Test 1 - has the plane landed?
 
 console.log(`============================`);
 console.log(`Test 1 - check success of landPlane`);
@@ -20,7 +18,7 @@ console.log(`Test 1 - check success of landPlane`);
 // Arrange
 myAirport = new Airport();
 
-plane = { id: `plane1` };
+plane = { id: `dfa-001` };
 expected = 1;
 
 // Act
