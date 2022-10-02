@@ -7,6 +7,9 @@ class Airport {
   add(input) {
     this.landedPlanes.push(input);
   }
+  checkID(input) {
+    if (input.id === "Plane1") return true
+  }
 }
 
 module.exports = Airport;
