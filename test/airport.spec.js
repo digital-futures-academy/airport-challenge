@@ -107,16 +107,16 @@ myAirport.landPlane(plane1);
 myAirport.landPlane(plane2);
 myAirport.landPlane(plane3);
 myAirport.landPlane(plane4);
-myAirport.landPlane(plane5);
+let capacityMessage = myAirport.landPlane(plane5);
 // console.log(myAirport.planeArray);
 expected = 'Airport capacity has been reached.';
 
 // Act
-actual = myAirport.landPlane;
+actual = capacityMessage;
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 3.1: Capacity reached message printed when capacity === planesArr.length: ${result}`
+  `Test 3.1: Capacity reached message printed when capacity === planesArray.length: ${result}`
 );
 
 // Clean up

@@ -3,9 +3,14 @@ class Airport {
   planeArray = [];
   landPlane = function (plane) {
     this.planeArray.push(plane);
-    console.log(
-      `Flight ${this.planeArray[this.planeArray.length - 1]} has landed.`
-    );
+    if (this.capacity >= this.planeArray) {
+      return `Flight ${
+        this.planeArray[this.planeArray.length - 1]
+      } has landed.`;
+    }
+    if (this.capacity === this.planeArray.length) {
+      return 'Airport capacity has been reached.';
+    }
   };
   setCapacity = function (newCapacity) {
     this.capacity = newCapacity;
