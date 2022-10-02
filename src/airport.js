@@ -10,13 +10,12 @@ class Airport {
   }
 
   landPlane = (plane) => {
-    if (this.isAirportFull) {
-      return "Airport is Full.";
-    } else if (this.isPlaneAtAirport) {
-      return `${plane} is already in the airport`;
+    if (this.isPlaneAtAirport(plane)) {
+      return `${plane} is already at the Airport.`;
     } else {
-      this.planesAtAirport.push(plane);
+      return this.planesAtAirport.push(plane);
     }
+    return this.planesAtAirport;
   };
 
   overrideCapacity = (newCap) => {

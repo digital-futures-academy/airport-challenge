@@ -9,7 +9,7 @@ let plane;
 
 // Test 1 - Is plane landing to the Airport?
 
-console.log(`===========================================`);
+console.log(`========================================`);
 console.log(`Test 1 - palne is landing to the Airport`);
 
 // Arrange
@@ -18,12 +18,10 @@ plane = { id: `plane1` };
 expected = "plane1";
 
 // Act
-airport.landPlane(plane);
-actual = airport.planesAtAirport[0].id;
+airport.landPlane(plane.id);
+actual = airport.planesAtAirport.toString();
 
 // Assert
-// console.log(actual);
-// console.log(expected);
 result = assertEquals(actual, expected);
 console.log(`Plane is landing to the airport: ${result}`);
 
@@ -70,13 +68,13 @@ airport = new Airport(2);
 plane1 = { id: `plane1` };
 plane2 = { id: `plane2` };
 plane3 = { id: `plane3` };
-expected = "Airport is full. Do not land plane3";
+expected = true;
 
 // Act
 airport.landPlane(plane1);
 airport.landPlane(plane2);
 airport.landPlane(plane3);
-actual = airport.landplane(plane3.id);
+actual = airport.isAirportFull();
 
 // Assert
 result = assertEquals(actual, expected);
@@ -93,8 +91,8 @@ result = undefined;
 
 // Test 4a - Has plane taken off and no longer at the airport?
 
-console.log(`==================================================`);
-console.log(`Test 4 - Plane has taken off`);
+console.log(`============================`);
+console.log(`Test 4a - Plane has taken off`);
 
 // Arrange
 airport = new Airport();
@@ -123,9 +121,46 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+//Test 4b - confirming plane is no longet at airport after takeoff
+
+console.log(`=================================================`);
+console.log(`Test 4b - confirming plane is no longer at airport`);
+
+// Arrange
+airport = new Airport();
+plane1 = { id: `plane1` };
+plane2 = { id: `plane2` };
+plane3 = { id: `plane3` };
+plane4 = { id: `plane4` };
+plane5 = { id: `plane5` };
+expected = 3;
+
+// Act
+airport.landPlane(plane1.id);
+airport.landPlane(plane2.id);
+airport.landPlane(plane3.id);
+airport.landPlane(plane4.id);
+airport.confirmPlaneNotAtAirport(plane1.id);
+actual = airport.planesAtAirport.length;
+
+// Assert
+// console.log(actual);
+// console.log(expected);
+result = assertEquals(actual, expected);
+console.log(`confirming  Plane is no longer at airport: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 // Test 5a - Test to see if a plane is at the airport before telling it to take off
 
-console.log(`==================================================`);
+console.log(
+  `==========================================================================`
+);
 console.log(
   `Test 5a - See if a plane is at the airport before telling it to take off`
 );
@@ -150,6 +185,42 @@ actual = airport.takeOff(plane5.id);
 result = assertEquals(actual, expected);
 console.log(
   `See if a plane is at the airport before telling it to take off: ${result}`
+);
+
+// Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 5b - Test to see if a plane is at the airport before telling it to take off
+
+console.log(
+  `==========================================================================`
+);
+console.log(`Test 5b - See if plane is landed before asking it to land`);
+
+// Arrange
+airport = new Airport();
+plane1 = { id: `plane1` };
+plane2 = { id: `plane2` };
+plane3 = { id: `plane3` };
+plane4 = { id: `plane4` };
+plane5 = { id: `plane5` };
+expected = "plane1 is already at the Airport.";
+
+// Act
+airport.landPlane(plane1.id);
+airport.landPlane(plane2.id);
+airport.landPlane(plane3.id);
+airport.landPlane(plane4.id);
+actual = airport.landPlane(plane1.id);
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `See if plane is already landed before asking it to land: ${result}`
 );
 
 // Clean up
