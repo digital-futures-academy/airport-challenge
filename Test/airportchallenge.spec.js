@@ -85,3 +85,30 @@ expectedOutput = undefined;
 actualOutput = undefined;
 result = undefined;
 input = null;
+
+// Test 3: Prevent landing when airport full
+console.log('Start test 3')
+test = `Test 3 - Prevent landing when airport full`;
+
+// Arrange
+const airport3 = new Airport();
+airport3.add(input);
+airport3.add(input);
+airport3.add(input);
+airport3.add(input);
+airport3.add(input);
+expectedOutput = true;
+
+// Act
+actualOutput = airport3.isAirportFull();
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+console.log(`Test 3: Airport is full: ${result}`);
+console.log("End test 3")
+
+// CleanUp
+expectedOutput = undefined;
+actualOutput = undefined;
+result = undefined;
+input = null;
