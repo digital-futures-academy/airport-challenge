@@ -70,13 +70,13 @@ airport = new Airport(2);
 plane1 = { id: `plane1` };
 plane2 = { id: `plane2` };
 plane3 = { id: `plane3` };
-expected = true;
+expected = "Airport is full. Do not land plane3";
 
 // Act
 airport.landPlane(plane1);
 airport.landPlane(plane2);
 airport.landPlane(plane3);
-actual = airport.isAirportFull();
+actual = airport.landplane(plane3.id);
 
 // Assert
 result = assertEquals(actual, expected);
