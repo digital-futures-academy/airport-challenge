@@ -39,7 +39,6 @@ console.log('Start test 1b')
 test = `Test 1b - Is it the same item ID?`;
 
 // Arrange
-let airport2 = new Airport();
 input = { id: `Plane1` };
 expectedOutput = true;
 
@@ -59,3 +58,30 @@ actualOutput = undefined;
 result = undefined;
 input = null;
 
+// Test 2: Airport capacity that can be overridden
+console.log('Start test 2')
+test = `Test 2 - Airport capacity that can be overridden`;
+
+// Arrange
+const airport2 = new Airport();
+// input = { id: `Plane1` };
+airport2.add(input);
+airport2.add(input);
+airport2.add(input);
+airport2.add(input);
+airport2.add(input);
+expectedOutput = 5;
+
+// Act
+actualOutput = airport2.capacity;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+console.log(`Test 2: Can Airport capacity be overridden?: ${result}`);
+console.log("End test 2")
+
+// CleanUp
+expectedOutput = undefined;
+actualOutput = undefined;
+result = undefined;
+input = null;
