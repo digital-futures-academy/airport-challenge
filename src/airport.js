@@ -1,8 +1,9 @@
 class Airport {
 
-    constructor(airportCapacity = 1) {
+    constructor(airportCapacity = 1, planeList = []) {
         this.airportCapacity = airportCapacity;
-        this.planeList = [];
+        this.planeList = planeList;
+        this.weather = "Clear";
     }
 
     landPlane = plane => {
@@ -11,9 +12,10 @@ class Airport {
         }
     }
 
-    takeOff = plane => {
-        if (this.isPlaneInAirport(plane)) {
-            this.planeList.pop(plane);
+    takeOff = newPlane => {
+        if (this.isPlaneInAirport(newPlane) && this.checkWeather()) {
+            let newPlaneList = this.planeList.filter((plane) => plane.id !== newPlane.id);
+            this.planeList = newPlaneList;
         }
     }
 
@@ -22,11 +24,19 @@ class Airport {
     }
 
     isAirportFull = () => {
-        return (this.airportCapacity === this.planeList.length) ? true : false;
+        return (this.airportCapacity <= this.planeList.length) ? true : false;
     }
 
-    isPlaneInAirport = plane => {
-        return this.planeList.includes(plane);
+    isPlaneInAirport = testPlane => {
+        return this.planeList.some(plane => plane.id === testPlane.id);
+    }
+
+    checkWeather = () => {
+        if (this.weather === "Stormy") {
+            return false;
+        }
+
+        return true;
     }
 }
 

@@ -49,12 +49,14 @@ console.log(`Test 3: Checks if the airport is full => true is: ${result}`);
 console.log(`============================`);
 
 // Arrange
+airport.changeCapacity(3);
 airport.planeList = [{ id: `Plane1` }, { id: `Plane2` }, { id: `Plane3` }];
 expected = false;
+let plane2 = { id: `Plane2` };
 
 // Act
-airport.takeOff(plane1);
-actual = airport.isPlaneInAirport(plane1);
+airport.takeOff(plane2);
+actual = airport.isPlaneInAirport(plane2);
 
 // Assert 
 result = assertEquals(actual, expected);
@@ -67,10 +69,26 @@ console.log(`============================`);
 expected = true;
 
 // Act
-// actual = airport.takeOff(plane1);
+airport.takeOff(plane1);
 airport.landPlane(plane1);
 actual = airport.isPlaneInAirport(plane1);
 
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 5: Checks if the plane is in the airport => true is: ${result}`);
+
+// Test 6 - Prevent planes from taking off when the weather is stormy
+console.log(`============================`);
+
+// Arrange
+expected = false;
+airport.weather = "Stormy";
+
+// Act
+airport.takeOff(plane1);
+actual = airport.checkWeather();
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 6: Prevent planes from taking off when the weather is stormy => true is: ${result}`);
+console.log(airport.planeList);
