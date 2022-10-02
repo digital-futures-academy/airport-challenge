@@ -64,3 +64,39 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// User Story 3
+// As an air traffic controller
+// To ensure safety
+// I want to prevent landing when the airport is full
+
+// Tests: Check capacity and check array length
+console.log('..............Testing begins........................')
+console.log(`User Story 3: If capacity, land plane; if no capacity, don't land plane`)
+
+// Arrange
+airport = new Airport();
+airport.setCapacity(5);
+planes.forEach(plane => {
+    airport.land(plane);
+});
+newPlane = "DFA006";
+expected = 5;
+console.log(`Pilot to air traffic controller, ${newPlane} is looking to land, is ${newPlane} cleared for landing?`)
+
+// Act
+airport.isCapacityFull();
+airport.land(newPlane);
+actual = airport.arrPlanes.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+console.log(`Airport capacity is currently: ${airport.capacity}. Actual number of planes at the airport: ${actual}. Is the number of planes at airport as expected? ${result}`)
+
+//Clean Up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

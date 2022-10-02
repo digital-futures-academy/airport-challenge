@@ -40,6 +40,7 @@ We have a request from a client to write the software to control the flow of pla
 
 ### Acceptance Criteria
 
+**User Story 1**
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -64,6 +65,7 @@ Plane -- [landPlane] --> Airport (array of planes)
 1(c). If plane has ID, check ID of expected plane with the landed plane
 
 
+**User Story 2**
 ```
 As the system designer
 So that the software can be used for many different airports
@@ -76,18 +78,35 @@ Airport -- defaultCapacity(@integer) -- [setCapacity] --> newCapacity(@Integer)
 
 | Objects   | Properties                        | Messages                     | Output  |
 | --------- | --------------------------------- | ---------------------------- | ------- |
-| Airport   | Capacity(@integer, constant)      | setCapacity(@integer)        | -       |
+| Airport   | Capacity(@integer)                | setCapacity(@integer)        | -       |
 
 
 **Tests**
 1. Check default capacity
 2. Check new capacity
 
+
+**User Story 3**
 ```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 ```
+
+**Domain Model**
+
+Airport -- isCapacityFull(@boolean) -- if capacity:([landPlane] with message (@string)), if no capacity: send error message (@string)
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| Airport   | arrPlanes(@array[@Plane])         | landPlane(@Plane)            | @string ("[@Plane] cleared for landing!") 
+|           |                                   |                              | @string("Sorry, airport is full.")  |
+|           | Capacity(@integer)                | setCapacity(@integer)        | -       |
+|           |                                   | isCapacityFull(@boolean)     | @boolean|
+
+**Tests**
+1. When new plane is trying to land, check if set capacity has been reached. If there is capacity, [landPlane] with message "[plane] cleared for landing!". If no capacity, prevent landing with error message "Sorry, airport is full."
+2. Check array length of planes at the airport
 
 
 ```
