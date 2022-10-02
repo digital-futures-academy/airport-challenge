@@ -92,3 +92,18 @@ actual = airport.checkWeather();
 result = assertEquals(actual, expected);
 console.log(`Test 6: Prevent planes from taking off when the weather is stormy => true is: ${result}`);
 console.log(airport.planeList);
+
+// Test 7 - Prevent planes from taking off when the weather is stormy
+console.log(`============================`);
+
+// Arrange
+expected = false;
+
+// Act
+airport.landPlane(plane2);
+actual = airport.checkWeather();
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 7: Prevent planes from landing when the weather is stormy => true is: ${result}`);
+console.log(airport.planeList);

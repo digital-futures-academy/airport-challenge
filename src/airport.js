@@ -7,7 +7,7 @@ class Airport {
     }
 
     landPlane = plane => {
-        if (!this.isAirportFull() && !this.isPlaneInAirport(plane)) {
+        if (!this.isAirportFull() && !this.isPlaneInAirport(plane) && this.checkWeather()) {
             this.planeList.push(plane);
         }
     }
