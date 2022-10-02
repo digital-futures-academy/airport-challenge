@@ -145,3 +145,26 @@ expectedOutput = undefined;
 actualOutput = undefined;
 result = undefined;
 input = null;
+
+// Test 4b: Confirm plane that has taken off is not in the airport
+console.log('Start test 4b')
+test = `Test 4b - Confirm plane that has taken off is not in the airport`;
+console.log(test);
+
+// Arrange
+expectedOutput = true;
+
+// Act
+planeID = "Plane3";
+actualOutput = !airport4.isLanded(planeID);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+console.log(`Test 4b: Has plane left the airport? ${result}`);
+console.log("End test 4b")
+
+// CleanUp
+expectedOutput = undefined;
+actualOutput = undefined;
+result = undefined;
+input = null;

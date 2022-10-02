@@ -13,6 +13,9 @@ class Airport {
   isAirportFull() {
     if (this.landedPlanes.length === this.capacity) return true
   }
+  isLanded() {
+    return this.landedPlanes.includes(planeID);
+  }
   planeTakeOff(planeID) {
 
     let indexNumber = this.landedPlanes.findIndex((landedPlaneID) => {
@@ -28,8 +31,8 @@ class Airport {
       let message = `${planeID} has now taken off and isn't in the airport any longer`;
       return message;
     }
+
+
   }
-
-
 }
 module.exports = Airport;
