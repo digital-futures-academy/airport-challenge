@@ -11,6 +11,7 @@ console.log('All testing begins')
 //arrange
 console.log('Start test 1')
 test = `Test 1 - Instruct the airport to land a plane`;
+console.log(test);
 
 let airport1 = new Airport();
 
@@ -37,6 +38,7 @@ input = null;
 // Test1b: Is it the same item ID?
 console.log('Start test 1b')
 test = `Test 1b - Is it the same item ID?`;
+console.log(test);
 
 // Arrange
 input = { id: `Plane1` };
@@ -61,6 +63,7 @@ input = null;
 // Test 2: Airport capacity that can be overridden
 console.log('Start test 2')
 test = `Test 2 - Airport capacity that can be overridden`;
+console.log(test);
 
 // Arrange
 const airport2 = new Airport();
@@ -89,6 +92,7 @@ input = null;
 // Test 3: Prevent landing when airport full
 console.log('Start test 3')
 test = `Test 3 - Prevent landing when airport full`;
+console.log(test);
 
 // Arrange
 const airport3 = new Airport();
@@ -106,6 +110,35 @@ actualOutput = airport3.isAirportFull();
 result = assertEquals(expectedOutput, actualOutput);
 console.log(`Test 3: Airport is full: ${result}`);
 console.log("End test 3")
+
+// CleanUp
+expectedOutput = undefined;
+actualOutput = undefined;
+result = undefined;
+input = null;
+
+// Test 4: Let plane take off and confirm it's not in the airport
+console.log('Start test 4')
+test = `Test 4 - Let plane take off and confirm it's not in the airport`;
+console.log(test);
+
+// Arrange
+const airport4 = new Airport();
+airport4.landedPlanes = ["Plane1", "Plane2", "Plane3", "Plane4", "Plane5"];
+expectedOutput = true;
+input = "Plane3";
+
+expectedOutput = `${input} has now taken off and isn't in the airport any longer`;
+
+// Act
+actualOutput = airport4.planeTakeOff(input);
+console.log(actualOutput);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+console.log(airport4.landedPlanes);
+console.log(`Test 4: Has plane taken off and left airport? ${result ? `Pass` : `Fail`}`);
+console.log("End test 4")
 
 // CleanUp
 expectedOutput = undefined;

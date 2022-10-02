@@ -13,6 +13,23 @@ class Airport {
   isAirportFull() {
     if (this.landedPlanes.length === this.capacity) return true
   }
+  planeTakeOff(planeID) {
+
+    let indexNumber = this.landedPlanes.findIndex((landedPlaneID) => {
+      return landedPlaneID == planeID;
+    });
+
+    if (indexNumber === -1) {
+      let message = `${planeID} Error- Plane is not in Airport!`;
+      return message;
+    }
+    else {
+      this.landedPlanes.splice(indexNumber, 1);
+      let message = `${planeID} has now taken off and isn't in the airport any longer`;
+      return message;
+    }
+  }
+
 
 }
 module.exports = Airport;
