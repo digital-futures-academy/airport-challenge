@@ -3,6 +3,7 @@ class Airport {
   planesAtAirport = [];
   capacity;
   totalCapacity = 0;
+  confirmPalne = false;
 
   constructor(capacity) {
     this.capacity = capacity;
@@ -27,6 +28,34 @@ class Airport {
       return false;
     }
   }
+
+  takeOff = (plane) => {
+    if (this.isPlaneAtAirport(plane)) {
+      const index = this.planesAtAirport.indexOf(plane); //instructing the plane to takeoff
+      this.planesAtAirport.splice(index, 1);
+      this.confirmPalne = true;
+      return `${plane} has taken off`;
+    } else {
+      return `${plane} is not at the airport`;
+    }
+  };
+
+  // Checking :- is plane still at the Airport
+  isPlaneAtAirport = (plane) => {
+    if (this.planesAtAirport.includes(plane)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  confirmPlaneNotAtAirport = (plane) => {
+    this.takeOff(plane);
+    if (this.confirmPalne) {
+      return this.planesAtAirport.length - plane.length;
+    } else {
+      return this.planesAtAirport.length;
+    }
+  };
 }
 
 module.exports = Airport;

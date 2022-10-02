@@ -19,7 +19,7 @@ I want to land a plane to the Airport.
 
 | **Object** | **Properties**                | **Message**        | **output** |
 | ---------- | ----------------------------- | ------------------ | ---------- |
-| Airport    | planesAtAirport@Array[@plane] | landPlane[@String] | @String    |
+| Airport    | planesAtAirport@Array(@plane) | landPlane(@String) | @String    |
 
 **Run the File :**
 Include the spec file to specRunner.js , and then run the code with node specRunner.js
@@ -39,7 +39,7 @@ I would like to override the airport capacity as required
 
 | **Object** | **Properties**                | **Message**            | **output** |
 | ---------- | ----------------------------- | ---------------------- | ---------- |
-| Airport    | capacity[@int] const or final | overrideCapacity[@int] | @int       |
+| Airport    | capacity(@int) const or final | overrideCapacity(@int) | @int       |
 
 **Run the File :**
 Include the spec file to specRunner.js , and then run the code with node specRunner.js
@@ -57,7 +57,44 @@ As an ATC i want to prevent landing when Airport is full
 
 | **Object** | **Properties**                | **Message**     | **output** |
 | ---------- | ----------------------------- | --------------- | ---------- |
-| Airport    | capacity[@int] const or final | isAirportFull() | @boolean   |
+| Airport    | capacity(@int) const or final | isAirportFull() | @boolean   |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+
+## Domain Modelling
+
+### User Story 4a
+
+1. As an air traffic controller
+2. So I can get passengers on the way to their destination
+3. I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+**Domain Modelling for User Story 4a**
+
+1. As an ATC i want to instruct the airport to takeoff the plane.
+
+| **Object** | **Properties**                | **Message**               | **output** |
+| ---------- | ----------------------------- | ------------------------- | ---------- |
+| Airport    | planesAtAirport@Array(@plane) | takeOff(@string)          | @string    |
+|            |                               | isPlaneAtAirport(@string) | @boolean   |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+
+### User Story 4b
+
+1. As an air traffic controller
+2. So I can get passengers on the way to their destination
+3. I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+**Domain Modelling for User Story 4b**
+
+1. As ATC i want to confirm the plane is no longer at Airport.
+
+| **Object** | **Properties**                | **Message**                       | **output** |
+| ---------- | ----------------------------- | --------------------------------- | ---------- |
+| Airport    | planesAtAirport@Array(@plane) | confirmPlaneNotAtAirport(@string) | @int       |
 
 **Run the File :**
 Include the spec file to specRunner.js , and then run the code with node specRunner.js
