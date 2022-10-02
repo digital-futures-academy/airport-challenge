@@ -193,3 +193,28 @@ expectedOutput = undefined;
 actualOutput = undefined;
 result = undefined;
 input = null;
+
+// Test 5b: prevent landing a plane that's already landed
+console.log('Start test 5b')
+test = `Test 5b - prevent landing a plane that's already landed`;
+console.log(test);
+
+// Arrange
+let airport5b = new Airport;
+airport5b.landedPlanes = ["Plane1", "Plane2", "Plane4", "Plane5"];
+expectedOutput = true;
+
+// Act
+planeID = "Plane1";
+actualOutput = airport5b.isLanded(planeID);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+console.log(`Test 5b: Had plane already landed? ${result} - Error- Plane cannot land again!`);
+console.log("End test 5b")
+
+// CleanUp
+expectedOutput = undefined;
+actualOutput = undefined;
+result = undefined;
+input = null;
