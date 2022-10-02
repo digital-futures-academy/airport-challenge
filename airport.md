@@ -98,3 +98,23 @@ Include the spec file to specRunner.js , and then run the code with node specRun
 
 **Run the File :**
 Include the spec file to specRunner.js , and then run the code with node specRunner.js
+
+### User Story 5a and 5b
+
+1. As an air traffic controller
+2. To avoid confusion
+3. I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+**Domain Modelling for User Story 5a and 5b**
+
+1. As an ATC to avoid confusion see if a plane is at the airport before telling it to take off.
+2. As an ATC to avoid confusion see if plane is already at the airport before asking it to land.
+
+| **Object** | **Properties**                | **Message**               | **output** |
+| ---------- | ----------------------------- | ------------------------- | ---------- |
+| Airport    | planesAtAirport@Array(@plane) | takeOff(@string)          | @string    |
+|            |                               | landPlane(@String)        | @string    |
+|            |                               | isPlaneAtAirport(@String) | @boolean   |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js

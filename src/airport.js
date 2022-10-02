@@ -36,7 +36,7 @@ class Airport {
       this.confirmPalne = true;
       return `${plane} has taken off`;
     } else {
-      return `${plane} is not at the airport`;
+      return `${plane} cannot take off as it is not at the airport.`;
     }
   };
 
