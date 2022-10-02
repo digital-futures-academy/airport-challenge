@@ -168,3 +168,28 @@ expectedOutput = undefined;
 actualOutput = undefined;
 result = undefined;
 input = null;
+
+// Test 5: prevent asking the airport to let planes take-off which are not at the airport
+console.log('Start test 5')
+test = `Test 5 - prevent asking the airport to let planes take-off which are not at the airport`;
+console.log(test);
+
+// Arrange
+let airport5 = new Airport;
+airport5.landedPlanes = ["Plane1", "Plane2", "Plane3", "Plane4", "Plane5"];
+input = "PLANE6";
+expectedOutput = `${input} cannot Take Off  - It is not currently in the airport!`;
+
+// Act
+actualOutput = airport5.planeTakeOff(input);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+console.log(`Test 5: Is plane in airport? ${result} - Error- Plane cannot take off as it's not in Airport!`);
+console.log("End test 5")
+
+// CleanUp
+expectedOutput = undefined;
+actualOutput = undefined;
+result = undefined;
+input = null;
