@@ -16,6 +16,7 @@ Airport Challenge - Fahad
 User stories followed by the corresponding domain table
 ---------
 
+
 Test case 1:
 ```
 As an air traffic controller
@@ -23,11 +24,12 @@ So I can get passengers to a destination
 I want to instruct the airport to land a plane
 ```
       | Objects | Properties                      | Messages                  | Output   |
-      | airport | planesInAirport @ARRAY[@String] | landPlane(plane @Integer) | @Integer |
-      | plane   | uniqueID                        |                           | @Integer |
+      | airport | planesInAirport @ARRAY[@String] | landPlane(plane @String)  | @Integer |
+      | plane   | uniqueID                        |                           | @void    |
 
 1. Test that the particular object (plane ID) was added to the object's (airport) array (planesInAirport) by searching the array for an object (plane) with the same ID.
 2. Return true if the particular object (plane ID) was found in the array (planesInAirport).
+
 
 Test case 2:
 ```
@@ -36,11 +38,12 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
       | Objects | Properties                                              | Messages                  | Output   |
-      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @Integer) | @Integer |
-      | plane   | uniqueID                                                |                           | @Integer |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @String)  | @Integer |
+      | plane   | uniqueID                                                |                           | @void    |
 
 1. Test that there is a default capacity (planeCapacity) and also that the capacity can be changed.
 2. Return true if the specific capacity (planeCapacity) given is correctly assigned to the array (planesInAirport).
+
 
 Test case 3:
 ```
@@ -49,8 +52,21 @@ To ensure safety
 I want to prevent landing when the airport is full
 ```
       | Objects | Properties                                              | Messages                                          | Output   |
-      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @Integer), isFull(plane @Boolean) | @Integer |
-      | plane   | uniqueID                                                |                                                   | @Integer |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @String), isFull(plane @Boolean)  | @Integer |
+      | plane   | uniqueID                                                |                                                   | @void    |
 
 1. Test that whether the airport is full/reached its capacity (planesInAirport.length >= planeCapacity).
 2. Return true if the airport is full (planesInAirport.length >= planeCapacity) and a plane (object) is trying to be added.
+
+
+Test case 4:
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+      | Objects | Properties                                              | Messages                                                                             | Output   |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @String), isFull(plane @Boolean) instructPlaneTakeOff(plane @String) | @Integer |
+      | plane   | uniqueID                                                |                                                                                      | @void    |
+1. Test whether the plane leaves the airport (plane object not in planesInAirport).
+2. Return true if the plane is no longer in the airport.

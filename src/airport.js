@@ -31,6 +31,11 @@ class Airport {
 
     }
 
+    removePlane = plane => {
+
+
+    }
+
 }
 
 module.exports = Airport;

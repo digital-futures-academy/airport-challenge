@@ -118,3 +118,31 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+
+//Test 4 checking if the plane is being removed from the airport
+console.log("---------------------------------------------------------------------------------------------------------");
+console.log("Checking if the plane is being removed from the airport");
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+plane2 = { id: "plane2" };
+airport.landPlane(plane);
+airport.landPlane(plane2);
+expected = true;
+
+
+// Act
+actual = airport.removePlane(plane2);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4: Is the plane being removed from the airport successfully : ${result}`);
+
+// Clean up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
