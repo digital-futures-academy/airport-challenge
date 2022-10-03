@@ -92,11 +92,11 @@ console.log(`Test 4 - The airport capacity is full.`);
 // Arrange
 airport = new Airport();
 plane = { id: "plane1" };
-expected = 0;
+expected = true;
 
 // Act
-airport.fullCapacity();
-actual = airport.airportCapacity - airport.airportList.length;
+airport.isCapacityFull();
+actual = airport.airportCapacity === airport.airportList.length;
 
 
 // Assert
