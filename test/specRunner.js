@@ -50,3 +50,26 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+//Test 2b is the airport plane capacity the default value
+console.log("---------------------------------------------------------------------------------------------------------");
+console.log("Checking if the airport plane capacity can have an overridden value");
+
+// Arrange
+airport = new Airport(5);
+expected = 5;
+
+
+// Act
+actual = airport.planesInAirport.length
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 2b: Is the airport capacity overridden with a custom capacity : ${result}`);
+
+// Clean up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
