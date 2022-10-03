@@ -37,8 +37,8 @@ class Airport {
 
     removePlane = plane => {
         if (this.checkDuplicate(plane)) {
-            console.log("This plane already exists in the airport");
-            return true;
+            console.log("This plane does not exist in the airport");
+            return false;
         }
         for (let i = 0; i < this.planesInAirport.length; i++) {
             if (this.planesInAirport[i].id == plane.id) {
