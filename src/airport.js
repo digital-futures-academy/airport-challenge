@@ -10,6 +10,7 @@ class Airport {
 
     add = plane => {
 
+        this.planesInAirport.push(plane);
 
     }
 
