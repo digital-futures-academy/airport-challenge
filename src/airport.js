@@ -5,8 +5,8 @@ class Airport {
 
     constructor(capacity = 3) {
 
-        this.planesInAirport = new Array(3);
         this.planeCapacity = capacity;
+        this.planesInAirport = new Array(capacity);
 
     }
 
