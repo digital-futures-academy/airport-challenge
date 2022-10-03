@@ -68,160 +68,18 @@ airport = new Airport(2);
 plane1 = { id: `plane1` };
 plane2 = { id: `plane2` };
 plane3 = { id: `plane3` };
-expected = true;
-
-// Act
-airport.landPlane(plane1);
-airport.landPlane(plane2);
-airport.landPlane(plane3);
-actual = airport.isAirportFull();
-
-// Assert
-result = assertEquals(actual, expected);
-//console.log(actual);
-//console.log(expected);
-console.log(`Airport is Full: ${result}`);
-
-// Clean up
-airport = null;
-plane = null;
-expected = undefined;
-actual = undefined;
-result = undefined;
-
-// Test 4a - Has plane taken off and no longer at the airport?
-
-console.log(`============================`);
-console.log(`Test 4a - Plane has taken off`);
-
-// Arrange
-airport = new Airport();
-plane1 = { id: `plane1` };
-plane2 = { id: `plane2` };
-plane3 = { id: `plane3` };
 plane4 = { id: `plane4` };
-plane5 = { id: `plane5` };
-expected = "plane1 has taken off";
+expected = "Airport is Full.";
 
 // Act
 airport.landPlane(plane1.id);
 airport.landPlane(plane2.id);
-airport.landPlane(plane3.id);
-airport.landPlane(plane4.id);
-actual = airport.takeOff(plane1.id);
-
+actual = airport.landPlane(plane3.id);
 // Assert
 result = assertEquals(actual, expected);
-console.log(`Plane has taken off Successfully: ${result}`);
-
-// Clean up
-airport = null;
-plane = null;
-expected = undefined;
-actual = undefined;
-result = undefined;
-
-//Test 4b - confirming plane is no longet at airport after takeoff
-
-console.log(`=================================================`);
-console.log(`Test 4b - confirming plane is no longer at airport`);
-
-// Arrange
-airport = new Airport();
-plane1 = { id: `plane1` };
-plane2 = { id: `plane2` };
-plane3 = { id: `plane3` };
-plane4 = { id: `plane4` };
-plane5 = { id: `plane5` };
-expected = 3;
-
-// Act
-airport.landPlane(plane1.id);
-airport.landPlane(plane2.id);
-airport.landPlane(plane3.id);
-airport.landPlane(plane4.id);
-airport.confirmPlaneNotAtAirport(plane1.id);
-actual = airport.planesAtAirport.length;
-
-// Assert
 // console.log(actual);
 // console.log(expected);
-result = assertEquals(actual, expected);
-console.log(`confirming  Plane is no longer at airport: ${result}`);
-
-// Clean up
-airport = null;
-plane = null;
-expected = undefined;
-actual = undefined;
-result = undefined;
-
-// Test 5a - Test to see if a plane is at the airport before telling it to take off
-
-console.log(
-  `==========================================================================`
-);
-console.log(
-  `Test 5a - See if a plane is at the airport before telling it to take off`
-);
-
-// Arrange
-airport = new Airport();
-plane1 = { id: `plane1` };
-plane2 = { id: `plane2` };
-plane3 = { id: `plane3` };
-plane4 = { id: `plane4` };
-plane5 = { id: `plane5` };
-expected = "plane5 cannot take off as it is not at the airport.";
-
-// Act
-airport.landPlane(plane1.id);
-airport.landPlane(plane2.id);
-airport.landPlane(plane3.id);
-airport.landPlane(plane4.id);
-actual = airport.takeOff(plane5.id);
-
-// Assert
-result = assertEquals(actual, expected);
-console.log(
-  `See if a plane is at the airport before telling it to take off: ${result}`
-);
-
-// Clean up
-airport = null;
-plane = null;
-expected = undefined;
-actual = undefined;
-result = undefined;
-
-// Test 5b - Test to see if a plane is at the airport before telling it to take off
-
-console.log(
-  `==========================================================================`
-);
-console.log(`Test 5b - See if plane is landed before asking it to land`);
-
-// Arrange
-airport = new Airport();
-plane1 = { id: `plane1` };
-plane2 = { id: `plane2` };
-plane3 = { id: `plane3` };
-plane4 = { id: `plane4` };
-plane5 = { id: `plane5` };
-expected = "plane1 is already at the Airport.";
-
-// Act
-airport.landPlane(plane1.id);
-airport.landPlane(plane2.id);
-airport.landPlane(plane3.id);
-airport.landPlane(plane4.id);
-actual = airport.landPlane(plane1.id);
-
-// Assert
-result = assertEquals(actual, expected);
-console.log(
-  `See if plane is already landed before asking it to land: ${result}`
-);
+console.log(`Airport is Full: ${result}`);
 
 // Clean up
 airport = null;

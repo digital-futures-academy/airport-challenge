@@ -12,8 +12,10 @@ class Airport {
   landPlane = (plane) => {
     if (this.isPlaneAtAirport(plane)) {
       return `${plane} is already at the Airport.`;
+    } else if (this.isAirportFull()) {
+      return "Airport is Full.";
     } else {
-      return this.planesAtAirport.push(plane);
+      this.planesAtAirport.push(plane);
     }
     return this.planesAtAirport;
   };
