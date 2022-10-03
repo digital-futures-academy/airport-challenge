@@ -14,7 +14,7 @@ airport.landPlane(plane);
 expected = plane.id;
 
 // Act
-actual = airport.planesInAirport[0].id
+actual = airport.planesInAirport[0].id;
 
 //Assert
 result = assertEquals(expected, actual);
@@ -34,6 +34,13 @@ console.log("Checking if the airport plane capacity is it's default value");
 
 // Arrange
 airport = new Airport();
+plane = { id: "plane1" };
+plane2 = { id: "plane2" };
+plane3 = { id: "plane3" };
+airport.landPlane(plane);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+
 expected = 3;
 
 
@@ -58,6 +65,16 @@ console.log("Checking if the airport plane capacity can have an overridden value
 
 // Arrange
 airport = new Airport(5);
+plane = { id: "plane1" };
+plane2 = { id: "plane2" };
+plane3 = { id: "plane3" };
+plane4 = { id: "plane4" };
+plane5 = { id: "plane5" };
+airport.landPlane(plane);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
+airport.landPlane(plane5);
 expected = 5;
 
 
@@ -81,14 +98,15 @@ console.log("-------------------------------------------------------------------
 console.log("Checking if the airport capacity is full when trying to land a plane");
 
 // Arrange
-airport = new Airport();
+airport = new Airport(1);
 plane = { id: "plane1" };
+plane2 = { id: "plane2" };
 airport.landPlane(plane);
 expected = true;
 
 
 // Act
-actual = airport.landPlane()
+actual = airport.landPlane(plane2);
 
 //Assert
 result = assertEquals(expected, actual);
