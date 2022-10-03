@@ -33,7 +33,13 @@ class Airport {
 
     removePlane = plane => {
 
-
+        for (let i = 0; i < this.planesInAirport.length; i++) {
+            if (this.planesInAirport[i].id == plane.id) {
+                this.planesInAirport.pop[i];
+                return true;
+            }
+        }
+        return false;
     }
 
 }
