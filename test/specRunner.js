@@ -10,8 +10,8 @@ console.log("Landing the plane in the airport");
 // Arrange
 airport = new Airport();
 plane = { id: "plane1" };
+airport.landPlane(plane);
 expected = plane.id;
-airport.add(plane);
 
 // Act
 actual = airport.planesInAirport[0].id
@@ -51,6 +51,7 @@ result = undefined;
 airport = null;
 plane = null;
 
+
 //Test 2b is the airport plane capacity the default value
 console.log("---------------------------------------------------------------------------------------------------------");
 console.log("Checking if the airport plane capacity can have an overridden value");
@@ -66,6 +67,32 @@ actual = airport.planesInAirport.length
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 2b: Is the airport capacity overridden with a custom capacity : ${result}`);
+
+// Clean up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+
+//Test 3 checking if the airport capacity is full when trying to land a plane
+console.log("---------------------------------------------------------------------------------------------------------");
+console.log("Checking if the airport capacity is full when trying to land a plane");
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+airport.landPlane(plane);
+expected = true;
+
+
+// Act
+actual = airport.landPlane()
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 3: Is the airport full when trying to land a plane : ${result}`);
 
 // Clean up
 expected = undefined;

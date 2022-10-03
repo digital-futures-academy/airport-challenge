@@ -10,9 +10,14 @@ class Airport {
 
     }
 
-    add = plane => {
+    landPlane = plane => {
 
         this.planesInAirport[0] = (plane);
+        return false;
+
+    }
+
+    isFull = () => {
 
     }
 
