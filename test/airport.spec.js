@@ -79,5 +79,31 @@ actual = undefined;
 result = undefined;
 
 
+//-*****************************************************************************************************
+
+//Test 3 - prevent landing when airport is full
+console.log("==============================================");
+console.log("Test 3: check whether airport is at capacity");
+
+//Arrange
+airportA = new Airport(2);
+expected = true;
+
+//Act
+airportA.land("Big Red 1");
+airportA.land("Small Blue 2");
+actual = airportA.checkFull();
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 3: Airport is full ${result}`);
+
+//Clean Up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 
 
