@@ -11,14 +11,38 @@ console.log("Landing the plane in the airport");
 airport = new Airport();
 plane = { id: "plane1" };
 expected = plane.id;
+airport.add(plane);
 
 // Act
-airport.add(plane);
 actual = airport.planesInAirport[0].id
 
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 1: Is a plane landing in the airport: ${result}`);
+
+// Clean up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+
+//Test 2a is the airport plane capacity the default value
+console.log("---------------------------------------------------------------------------------------------------------");
+console.log("Checking if the airport plane capacity is it's default value");
+
+// Arrange
+airport = new Airport();
+expected = 3;
+
+
+// Act
+actual = airport.planesInAirport.length
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 2a: Is the airport capacity set to the default value? : ${result}`);
 
 // Clean up
 expected = undefined;
