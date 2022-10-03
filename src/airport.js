@@ -1,5 +1,17 @@
 class Airport {
-    // here's a starting point for you
+
+    planesInAirport;
+
+    constructor() {
+
+        this.planesInAirport = [];
+
+    }
+
+    add = plane => {
+
+
+    }
 
 }
 
