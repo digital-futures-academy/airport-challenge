@@ -146,3 +146,28 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+
+//Test 5 checking if the plane already exists in the airport
+console.log("---------------------------------------------------------------------------------------------------------");
+console.log("Checking if the plane already exists in the airport");
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+airport.landPlane(plane);
+expected = true;
+
+// Act
+actual = airport.checkDuplicate(plane);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5: Is the plane already in the airport : ${result}`);
+
+// Clean up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;

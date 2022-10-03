@@ -42,6 +42,11 @@ class Airport {
         return false;
     }
 
+    checkDuplicate = plane => {
+
+
+    }
+
 }
 
 module.exports = Airport;

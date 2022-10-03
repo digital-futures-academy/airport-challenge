@@ -66,7 +66,20 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
       | Objects | Properties                                              | Messages                                                                             | Output   |
-      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @String), isFull(plane @Boolean) instructPlaneTakeOff(plane @String) | @Integer |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @String), isFull(plane @Boolean), instructPlaneTakeOff(plane @String) | @Integer |
       | plane   | uniqueID                                                |                                                                                      | @void    |
 1. Test whether the plane leaves the airport (plane object not in planesInAirport).
 2. Return true if the plane is no longer in the airport.
+
+
+Test case 5:
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+      | Objects | Properties                                              | Messages                                                                                                              | Output   |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane @String), isFull(plane @Boolean), instructPlaneTakeOff(plane @String), checkDuplicate(plane @Boolean  | @Integer |
+      | plane   | uniqueID                                                |                                                                                                                       | @void    |
+1. Test whether the plane is already in the airport (plane object exists in the planesInAirport).
+2. Return true if the plane does exist in the airport.
