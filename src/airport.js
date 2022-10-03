@@ -5,13 +5,14 @@ class Airport {
 
     constructor(capacity = 3) {
 
-        this.planesInAirport = [];
+        this.planesInAirport = new Array(3);
         this.planeCapacity = capacity;
 
     }
 
     add = plane => {
-        this.planesInAirport.push(plane);
+
+        this.planesInAirport[0] = (plane);
 
     }
 
