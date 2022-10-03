@@ -1,6 +1,11 @@
-class Airport {
-  // here's a starting point for you
+class airport {
+  constructor() {
+    this.planeArr = [];
+  }
+  land = (plane) => {
+    this.planeArr.push(plane);
+  }
 
 }
 
-module.exports = Airport;
+module.exports = airport;
