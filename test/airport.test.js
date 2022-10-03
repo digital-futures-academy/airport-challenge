@@ -100,3 +100,44 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+// User Story 4
+// As an air traffic controller
+// So I can get passengers on the way to their destination
+// I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+// Tests: Check capacity and check array length
+console.log('..............Testing begins........................')
+console.log(`User Story 4: Cleared for take off, runway three four`)
+
+// Arrange
+console.log(`..............Setting up user story.................`)
+airport = new Airport();
+airport.setCapacity(5);
+planes.forEach(plane => {
+    airport.land(plane);
+});
+console.log(`..............Some time later........................`)
+planeToTakeOff = planes[1];
+expected = 4;
+console.log(`${planeToTakeOff} line up and wait`)
+
+// Act
+airport.takeOff(planeToTakeOff);
+actual = airport.arrPlanes.length;
+
+// Assert
+result = assertEquals(actual, expected);
+testID = assertTrue(airport.arrPlanes.includes(planeToTakeOff));
+
+console.log(`Test 1: See returned string above.`)
+console.log(`Test 2: Is ${planeToTakeOff} at airport? ${testID}. Currently available planes: ${airport.arrPlanes}`)
+console.log(`Test 3: Actual number of planes at the airport is currently ${actual}. Is the number of planes at airport as expected? ${result}`)
+
+//Clean Up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

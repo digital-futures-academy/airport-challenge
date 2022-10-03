@@ -25,6 +25,12 @@ class Airport {
     }
   }
 
+  takeOff(planeToTakeOff) {
+    let planeIndex = this.arrPlanes.indexOf(planeToTakeOff);
+    this.arrPlanes.splice(planeIndex, 1);
+    return console.log(`${planeToTakeOff} cleared for take off`);
+  }
+
 }
 
 module.exports = Airport;

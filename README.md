@@ -95,7 +95,7 @@ I want to prevent landing when the airport is full
 
 **Domain Model**
 
-Airport -- isCapacityFull(@boolean) -- if capacity:([landPlane] with message (@string)), if no capacity: send error message (@string)
+Airport(@array[@plane]) -- isCapacityFull(@boolean) -- if capacity:([landPlane] with message (@string)), if no capacity: send error message (@string)
 
 | Objects   | Properties                        | Messages                     | Output  |
 | --------- | --------------------------------- | ---------------------------- | ------- |
@@ -109,12 +109,26 @@ Airport -- isCapacityFull(@boolean) -- if capacity:([landPlane] with message (@s
 2. Check array length of planes at the airport
 
 
+**User Story 4**
 ```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
+**Domain Model**
 
+Airport (@array[@plane]) -- [takeOff[@plane]]
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| Airport   | arrPlanes(@array[@Plane])         | takeOff(@Plane)              | @string "[Plane] cleared to take off.")       |
+
+
+**Tests**
+
+1. Return string specifying ID of plane that has taken off
+2. Check plane ID against array of planes at airport, expect false result. Return array of planes after take off
+3. Check number of planes at airport before and after take off
 
 ```
 As an air traffic controller
