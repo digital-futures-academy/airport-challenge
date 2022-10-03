@@ -141,3 +141,81 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// User Story 5
+// As an air traffic controller
+// To avoid confusion
+// I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+// Tests 5(a): Check plane ID and check array length
+console.log('..............Testing begins........................')
+console.log(`User Story 5(a): Prevent planes from landing if it has already landed`)
+
+// Arrange
+console.log(`..............Setting up user story.................`)
+airport = new Airport();
+airport.setCapacity(6);
+planes.forEach(plane => {
+    airport.land(plane);
+});
+console.log(`..............Some time later........................`)
+testPlane = planes[2];
+expected = 5;
+console.log(`${testPlane} attempting to land`)
+
+// Act
+airport.land(testPlane);
+airport.checkPlaneID(testPlane)
+actual = airport.arrPlanes.length;
+
+// Assert
+result = assertEquals(actual, expected);
+testID = assertTrue(airport.arrPlanes.includes(testPlane));
+
+console.log("Test 1: See string above")
+console.log(`Test 2: Is ${testPlane} already at the airport? ${testID}. Currently available planes at the airport: ${airport.arrPlanes}`)
+console.log(`Test 3: Actual number of planes at the airport is currently ${actual}. Is the number of planes at airport as expected? ${result}`)
+
+//Clean Up
+airport = null;
+plane = null;
+testPlane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Tests 5(b): Check plane ID and check array length
+console.log(`User Story 5(b): Prevent planes from taking off if not at airport`)
+
+// Arrange
+console.log(`..............Setting up user story.................`)
+airport = new Airport();
+airport.setCapacity(6);
+planes.forEach(plane => {
+    airport.land(plane);
+});
+console.log(`..............Some time later........................`)
+testPlane = "DFA006";
+expected = 5;
+console.log(`${testPlane} attempting to take off`)
+
+// Act
+airport.takeOff(testPlane);
+airport.checkPlaneID(testPlane)
+actual = airport.arrPlanes.length;
+
+// Assert
+result = assertEquals(actual, expected);
+testID = assertTrue(airport.arrPlanes.includes(testPlane));
+
+console.log("Test 1: See string above")
+console.log(`Test 2: Is ${testPlane} already at the airport? ${testID}. Currently available planes at the airport: ${airport.arrPlanes}`)
+console.log(`Test 3: Actual number of planes at the airport is currently ${actual}. Is the number of planes at airport as expected? ${result}`)
+
+//Clean Up
+airport = null;
+plane = null;
+testPlane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

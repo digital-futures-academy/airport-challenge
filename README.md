@@ -130,11 +130,31 @@ Airport (@array[@plane]) -- [takeOff[@plane]]
 2. Check plane ID against array of planes at airport, expect false result. Return array of planes after take off
 3. Check number of planes at airport before and after take off
 
+
+**User Story 5**
 ```
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
+
+**Domain Model**
+
+Airport (@array[@plane]) -- checkPlaneID (@boolean) -- If plane[@plane] is looking to take off but is not at airport, prevent take off and return error message (@string)"Error: the plane is not currently at the airport". If plane[@plane] is looking to land but has already landed, prevent landing and return error mesage  (@string): "Error: the plane is already at the airport"
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| Airport   | arrPlanes(@array[@Plane])         | landPlane(@Plane)            | -       |
+| Airport   | arrPlanes(@array[@Plane])         | takeOff(@Plane)              | -       |
+|           |                                   | checkPlaneID(@boolean)       | @string ("Error: the plane is not currently at the airport.") |
+|           |                                   |                              | @string("Error: the plane is already at the airport.")  |
+
+**Tests**
+
+Preliminary: Based on previous user stories, if plane is able to land or take off, confirmatory string is returned. 
+1. Return error string for each scenario
+2. Check against the ID numbers of planes and display the list of planes currently available at the airport
+3. Check number of planes at airport
 
 #### Extended Acceptance Criteria
 ```
