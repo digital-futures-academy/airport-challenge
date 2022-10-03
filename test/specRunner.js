@@ -148,7 +148,7 @@ airport = null;
 plane = null;
 
 
-//Test 5 checking if the plane already exists in the airport
+//Test 5 checking if the plane already exists in the airport before trying to land a plane there
 console.log("---------------------------------------------------------------------------------------------------------");
 console.log("Checking if the plane already exists in the airport");
 
@@ -164,6 +164,31 @@ actual = airport.checkDuplicate(plane);
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 5: Is the plane already in the airport : ${result}`);
+
+// Clean up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+
+//Test 5b checking if the plane does not exists in the airport before trying to make it take off from the airport
+console.log("---------------------------------------------------------------------------------------------------------");
+console.log("Checking if the plane does not exist in the airport before trying to make it take off from the airport");
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+airport.landPlane(plane);
+expected = false;
+
+// Act
+actual = airport.removePlane(plane);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5b: Is the plane trying to take off; in the airport : ${result}`);
 
 // Clean up
 expected = undefined;

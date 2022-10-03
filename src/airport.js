@@ -20,6 +20,10 @@ class Airport {
     }
 
     landPlane = plane => {
+        if (this.checkDuplicate(plane)) {
+            console.log("This plane already exists in the airport");
+            return true;
+        }
         if (this.isFull()) {
             console.log("The airport is full so it cannot land another plane");
             return true;
@@ -32,7 +36,10 @@ class Airport {
     }
 
     removePlane = plane => {
-
+        if (this.checkDuplicate(plane)) {
+            console.log("This plane already exists in the airport");
+            return true;
+        }
         for (let i = 0; i < this.planesInAirport.length; i++) {
             if (this.planesInAirport[i].id == plane.id) {
                 this.planesInAirport.pop[i];
@@ -43,8 +50,11 @@ class Airport {
     }
 
     checkDuplicate = plane => {
-
-
+        for (let i = 0; i < this.planesInAirport.length; i++) {
+            if (this.planesInAirport[i].id == plane.id) {
+                return true;
+            }
+        }
     }
 
 }
