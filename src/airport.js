@@ -19,6 +19,11 @@ class Airport {
       this.airportCapacity = size;
     };
   };
+
+  fullCapacity() {
+    this.airportCapacity = 5;
+    this.airportList.push(`plane`, `plane`, `plane`, `plane`, `plane`);
+  }
 };
 
 

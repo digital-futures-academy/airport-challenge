@@ -37,6 +37,8 @@ I want to prevent landing when the airport is full
 | plane   | @-                                                   | -            | -      |
 
 1. test to see if the airport capacity is full
+2. test if a plane lands when capacity is full
+3. test if a plane lands when capacity isn't full
 
 ```
 As an air traffic controller
