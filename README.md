@@ -93,3 +93,8 @@ I want to instruct the airport to land a plane
 As the system designer
 So that the software can be used for different airports
 I would like a default airport capacity that can be overridden when appropriate
+
+|  Object  | Properties | Messages | Output |
+| :------: | :--------: | :------: | :----: |
+| Airport  |  Capacity  |          |        |
+| Airplane |            |          |        |
