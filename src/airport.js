@@ -5,13 +5,25 @@ class Airport {
     this.capacity = capacity;
   };
 
-  land(planeId) {
-    let plane = planeId;
-    console.log(`******* ${plane} WAS LANDED.*******`);
-    this.airportPlanes.push(planeId);
-    return 1
+  land(plane) {
+    console.log(`   **** ${plane} LANDED SAFELY.****`);
+    this.airportPlanes.push(plane);
   };
 
+  takeOff(plane) {
+    //if (this.airportPlanes.includes(plane) === true) {
+    // this.airportPlanes = this.airportPlanes.filter(value => !plane.includes(plane));
+    // }
+    this.airportPlanes.pop();
+    console.log(`   **** ${plane} TOOK OFF!! ****`);
+    console.log("Planes still in the airport: " + this.airportPlanes.join(", "));
+  };
+
+  checkFull() {
+    if (this.airportPlanes.length === this.capacity) {
+      return true
+    }
+  };
 
 };
 
