@@ -29,8 +29,8 @@ console.log(
 );
 
 //Clean up
-basket = null;
-item = null;
+airport = null;
+plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
@@ -58,8 +58,8 @@ console.log(
 );
 
 //Clean up
-basket = null;
-item = null;
+airport = null;
+plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
@@ -86,8 +86,7 @@ console.log(
 );
 
 //Clean up
-basket = null;
-item = null;
+airport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
