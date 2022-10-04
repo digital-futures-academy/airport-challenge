@@ -30,6 +30,9 @@ class Airport {
     }
   }
 
+  takeoff(plane) {
+
+  }
 };
 
 

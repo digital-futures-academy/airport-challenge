@@ -22,8 +22,8 @@ I would like a default airport capacity that can be overridden as appropriate
 | airport | airportCapacity@Integer | @capacity(size) | @Integer |
 | size    | @integer                | -               | -        |
 
-1. test the airport can take a capacity 
-2. the airport capacity can be changed  
+1. test the airport can take a capacity. 
+2. test the airport capacity can be changed.  
 
 
 ```
@@ -36,14 +36,22 @@ I want to prevent landing when the airport is full
 | airport | planeList@Array(@plane) <br> airportCapacity@Integer | @land(plane) | @Void  |
 | plane   | @-                                                   | -            | -      |
 
-1. test if a plane lands when capacity is full
-2. test if a plane lands when capacity isn't full
+1. test if the capacity is full.
+2. test that a plane doesn't land when capacity is full.
+
 
 ```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
+| Objects | Properties              | Messages        | Output |
+| :------ | :---------------------- | :-------------- | :----- |
+| airport | planeList@Array(@plane) | @takeoff(plane) | @Void  |
+| plane   | id@string               | -               | -      |
+
+1. test that a plane that has taken off is no longer at the airport.
+
 
 ```
 As an air traffic controller
