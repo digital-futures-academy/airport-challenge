@@ -1,11 +1,12 @@
 const Airport = require("../src/airport.js");
+const Plane = require("../src/plane.js");
 const { assertEquals } = require("../testing-framework.js");
 
 // Test 1 - Instructing the plane to land
 console.log(`============================`);
 
 // Arrange
-let airport = new Airport;
+let airport = new Airport("Heathrow");
 let plane1 = { id: `Plane1` };
 let expected = 1;
 
@@ -91,7 +92,6 @@ actual = airport.checkWeather();
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 6: Prevent planes from taking off when the weather is stormy => true is: ${result}`);
-console.log(airport.planeList);
 
 // Test 7 - Prevent planes from taking off when the weather is stormy
 console.log(`============================`);
@@ -106,4 +106,19 @@ actual = airport.checkWeather();
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 7: Prevent planes from landing when the weather is stormy => true is: ${result}`);
-console.log(airport.planeList);
+
+// Test 8 - Make sure planes land at an airport
+console.log(`============================`);
+
+// Arrange
+let newAirport = new Airport("Heathrow");
+expected = "Heathrow";
+planeClass = new Plane("1", "plane1");
+
+// Act
+newAirport.landPlane(planeClass);
+actual = planeClass.airport;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 8: Check if planes are at an airport => true is: ${result}`);

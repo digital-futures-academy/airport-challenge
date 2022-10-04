@@ -1,14 +1,16 @@
 class Airport {
 
-    constructor(airportCapacity = 1, planeList = []) {
+    constructor(airport, airportCapacity = 1, planeList = []) {
         this.airportCapacity = airportCapacity;
         this.planeList = planeList;
+        this.airport = airport;
         this.weather = "Clear";
     }
 
     landPlane = plane => {
         if (!this.isAirportFull() && !this.isPlaneInAirport(plane) && this.checkWeather()) {
             this.planeList.push(plane);
+            plane.airport = this.airport;
         }
     }
 
