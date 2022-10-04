@@ -25,7 +25,7 @@ which signafies landed planes at an airport. Also gave Plane object a planeId pr
 
 ### Tests
 
-Test 1a - Validation - check if the length of an empty parkedPlanes array increases by 1 when landPlane() is called - returns true if so
+Test 1a - Validation - check if the length of an empty parkedPlanes array increases by 1 when landPlane() is called - returns true if so <br>
 Test 1b - Verification - Check if a plane object is added to the parkedPlanes array when landPlane() is called - matches the return string from the landPlane() method call with the expected string for this method - returns true when matched
 
 2.
@@ -44,8 +44,8 @@ Reasoning: Proposed an airportCapacity property for Aiport objects. This will ha
 Proposed a setAirportCapacity() method that can allow the default value for the airportCapacity property to be overriden and assigned at the point of the method call on a given Airport object.
 
 ### Tests
-Test 2a - Check if the airportCapacity property for an Airport object has been set with the setAirportCapacity() method - returns true if airportCapacity's value matches the value used as a parameter for setAirportCapacity() 
-Test 2b - Check if the airportCapacity property for an Airport object has been set as the default value using the Airport class constructor - returns true if airportCapacity's value matches the default value of the constructor  
+Test 2a - Check if the airportCapacity property for an Airport object has been set with the setAirportCapacity() method - returns true if airportCapacity's value matches the value used as a parameter for setAirportCapacity(). <br>
+Test 2b - Check if the airportCapacity property for an Airport object has been set as the default value using the Airport class constructor - returns true if airportCapacity's value matches the default value of the constructor.  
 
 3.
 
@@ -65,6 +65,10 @@ I want to prevent landing when the airport is full
 Reasoning: Proposed an isAirportFull() method that returns a boolean value depending on if the length of the parkedPlanes array is equal to
 the the value of airportCapacity for an instance of the Aiport of the class. Proposed a landedPlane() method that returns a string to 
 signify that a plane can or cannot land depending on the result of the isAirportFull().
+
+### Tests
+Test 3a - Verification - Check that landPlane() returns a string stating that a given plane can not land at the airport as it is full
+
 
 4.
 

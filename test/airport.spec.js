@@ -97,3 +97,29 @@ result = undefined;
 actual = undefined;
 airport = null;
 plane = null;
+
+// Test 3a - Verification - Check that landPlane() returns a string stating that a given plane can not land at the airport as it is full
+console.log("---------------------");
+console.log("Checking that landPlane() returns a string stating that the plane can not land at at the airport as it is full")
+
+//Arrange 
+airport = new Airport(1); // Sets airport objects airportCapacity value to 1
+plane = new Plane(1);
+airport.landPlane(plane);
+plane2 = new Plane(2);
+expected = `Plane ${plane2.getId()} can not land as the airport is full`;
+
+//Actual
+actual = airport.landPlane(plane2);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 3a - Check that landPlane() returns a string stating that a given plane can not land at the airport as it is full: ${result} `);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;
+plane2 = null;
