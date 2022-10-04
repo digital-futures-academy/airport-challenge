@@ -2,14 +2,14 @@
 ```
 ==As an air traffic controller==
 ==So I can get passengers to a destination==
-I want to instruct the airport to land a plane==
+==I want to instruct the airport to land a plane==
 
 Objects   Properties                       Messages               Output
 |-----------------------------------------------------------------------------|
 airport   airportPlanes @ARRAY[@string]    land(plane@string)     @string
 
 1. Test that plane is added to an array - test array.length increases by 1.
-2. Test that ****land**** returns a string that confirms the plane has landed.
+2. Test that **land** returns a string that confirms the plane has landed.
 
 
 As the system designer
