@@ -82,40 +82,74 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 
 
+
+## **User story 1**
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-Object | Property | Message | Output
-airport | PlanesList @array [@planeId] | landPlane(@planeId) | @string
-Planes | - | planeId @ string | -
+## **Domain model**
+| Object  | Property                     | Message             | Output  |
+|---------|------------------------------|---------------------|---------|
+| airport | PlanesList @array [@planeId] | landPlane(@planeId) | @string |
+| Planes  | -                            | planeId @ string    | -       |
 
+## **Tests**
+Test 1 - Instruct the airport to land a plane  
+Test 1b - Is it the same item plane ID?
+
+## **User story 2**
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-Object | Property | Message | Output
-airport | capacity | airportCapacity(@number) | @number
+## **Domain model**
+| Object | Property | Message                  | Output  |
+|--------|----------|--------------------------|---------|
+|airport | capacity | airportCapacity(@number) | @number |
 
+## **Tests**
+Test 2 - Airport capacity that can be overridden
+
+## **User story 3**
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-Object | Property | Message | Output
-airport | airportCapacity | isAirportFull() | @boolean
+## **Domain model**
+| Object  | Property        | Message         | Output   |
+|---------|-----------------|-----------------|----------|
+| airport | airportCapacity | isAirportFull() | @boolean |
 
+## **Tests**
+Test 3: Prevent landing when airport full
+
+## **User story 4**
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-Object | Property | Message | Output
-airport | PlanesList | planeTakeOff(@planeId) | @string
-plane | planeLocation | landedPlanes [@planeId] | @string
+## **Domain model**
+| Object  | Property      | Message                 | Output  |
+|---------|---------------|-------------------------|---------|
+| airport | PlanesList    | planeTakeOff(@planeId)  | @string |
+| plane   | planeLocation | landedPlanes [@planeId] | @string |
 
+## **Tests**
+Test 4: Let plane take off and confirm it's not in the airport
+Test 4b: Confirm plane that has taken off is not in the airport
+
+## **User story 5**
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-Object | Property | Message | Output
-airport | PlanesList | landPlane(@planeId) | @string
-airport | PlanesList | planeTakeOff(@planeId) | @string
+## **Domain model**
+| Object  | Property   | Message                | Output  |
+|---------|------------|------------------------|---------|
+| airport | PlanesList | landPlane(@planeId)    | @string |
+| airport | PlanesList | planeTakeOff(@planeId) | @string |
+
+## **Tests**
+Test 5: prevent asking the airport to let planes take-off which are not at the airport
+Test 5b: prevent landing a plane that's already landed
