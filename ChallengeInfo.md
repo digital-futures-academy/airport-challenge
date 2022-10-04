@@ -59,3 +59,10 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
+| Objects | Properties              | Messages                          | Output |
+| :------ | :---------------------- | :-------------------------------- | :----- |
+| airport | planeList@Array(@plane) | @takeoff(plane) <br> @land(plane) | @Void  |
+| plane   | id@string               | -                                 | -      |
+
+1. test that the airport contains the plane that is taking off.
+2. test that the airport doesn't contain the plane that is landing.

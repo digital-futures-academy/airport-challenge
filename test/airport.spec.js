@@ -186,17 +186,11 @@ airport = new Airport();
 plane = { id: "plane1" };
 plane2 = { id: "plane2" };
 airport.airportList.push(plane, plane2);
-console.log(airport.airportList[0].id);
 expected = false;
-console.log(airport.airportList);
-
 
 // Act
 airport.takeoff(plane);
-console.log(airport.indexOfPlane);
-console.log(airport.airportList);
 actual = airport.airportList.includes(plane);
-
 
 // Assert
 result = assertEquals(actual, expected);
@@ -204,8 +198,37 @@ console.log(`Test 7: A plane that has taken off is no longer at the airport: ${r
 
 // Clean up
 airport = null;
-airportCapacity = null;
 plane = null
+plane2 = null
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Test 8 - test that the airport contains the plane that is taking off.
+
+console.log(`============================`);
+console.log(`Test 8 - A plane that is taking off is from the airport.`);
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+plane2 = { id: "plane2" };
+airport.airportList.push(plane2);
+expected = `${plane} has successfully departed from the airport.`;
+
+// Act
+airport.takeoff(plane);
+actual = airport.takeoff.departed;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 8: A plane that has taken off is from the correct airport: ${result}`);
+
+// Clean up
+airport = null;
+plane = null
+plane2 = null
 expected = undefined;
 actual = undefined;
 result = undefined;
