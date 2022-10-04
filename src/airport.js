@@ -8,9 +8,7 @@ class Airport {
     this.airportCapacity = airportCapacity;
   };
 
-  land(plane) {
-    this.airportList.push(plane);
-  }
+
 
   capacity(size) {
     if (size === undefined) {
@@ -25,6 +23,13 @@ class Airport {
       return true
     }
   }
+
+  land(plane) {
+    if (this.isCapacityFull() !== true) {
+      this.airportList.push(plane);
+    }
+  }
+
 };
 
 
