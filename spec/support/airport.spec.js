@@ -1,6 +1,8 @@
 //File that includes all of the tests for the Airport Challenge
 
-//Import the Airport class
+//--------------------------------------
+
+//Import the Airport and Weather classes
 import Airport from "/Users/oonaghparker/Desktop/debug/airport-challenge/src/airport.js"
 import Weather from "/Users/oonaghparker/Desktop/debug/airport-challenge/src/weather.js"
 
@@ -65,9 +67,12 @@ describe("Airport Challenge Testing Suite", () => {
 
         // Act
         airport.landPlane(plane);
+
+        // Let the plane takeoff from the airport
         airport.planeTakeoff(plane);
 
         // Assert
+        // Check the plane is no longer in the airport (landed planes array)
         expect(airport.landedPlanes.length).toBe(0);
     });
 
@@ -93,6 +98,8 @@ describe("Airport Challenge Testing Suite", () => {
         // Act
 
         // Assert
+        // Use the already defined isPlaneAlreadyInAirport() but the result is false
+        // as the plane has not landed in the airport and isnt in the landedPlanes array
         expect(airport.isPlaneAlreadyInAirport(plane.id)).toBe(false);
     });
 
@@ -100,13 +107,11 @@ describe("Airport Challenge Testing Suite", () => {
     it("Safe for takeoff?", () => {
         //Arrange
         let airport = new Airport();
-        let plane = { id: `Plane 1` };
 
         // Act
-        airport.landPlane(plane);
 
         // Assert
-        expect(airport.weatherCheck()).toBe(true);
+        expect(airport.weatherCheck()).toBeDefined();
     });
 
     // Test 8 - Safe for plane to land?
@@ -117,6 +122,24 @@ describe("Airport Challenge Testing Suite", () => {
         // Act
 
         // Assert
-        expect(airport.weatherCheck()).toBe(true);
+        expect(airport.weatherCheck()).toBeDefined();
+    });
+
+    // Test 9 - Landed planes are in the airport
+    it("Landed planes are in the airport", () => {
+        //Arrange
+        let airport = new Airport();
+        let plane = { id: `Plane 1` };
+        let plane2 = { id: `Plane 2` };
+        let plane3 = { id: `Plane 3` };
+
+        // Act
+        airport.landPlane(plane);
+        airport.landPlane(plane2);
+        airport.airportCapacity(2)
+
+        // Assert
+        // Planes that have landed are in the airport in the landedPlanes array
+        expect(airport.landedPlanes.length).toBe(2);
     });
 });

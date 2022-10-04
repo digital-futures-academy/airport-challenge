@@ -40,7 +40,6 @@ class Airport {
 
   weatherCheck = () => {
     if (weather.getWeather() === 'stormy') {
-      //console.log(`Getweather ${weather.getWeather()}`)
       return false
     }
     else {
