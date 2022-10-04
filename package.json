@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "node specRunner.js"
+    "test": "jasmine"
   },
   "author": "dearshrewdwit",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.22.0"
+  },
+  "dependencies": {
+    "jasmine": "^4.4.0"
   }
 }

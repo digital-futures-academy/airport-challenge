@@ -65,8 +65,8 @@ I want to prevent landing when the airport is full
 |     Objects     |     Properties     |        Messages        |     Ouputs      |
 | Airport         | @int               | isAirportFull()        | @Bool           |
 
-*Idea: If the length of the landed planes array is >= airport capacity return false so the plane cannot lane
-or true if it is less than the capacity
+*Idea: If the length of the landed planes array is >= airport capacity return true so the plane cannot land
+or false if it is less than the capacity
 
 As an air traffic controller
 So I can get passengers on the way to their destination
