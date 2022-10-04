@@ -2,13 +2,15 @@ class Airport {
 
   airportList;
   airportCapacity;
-  indexOfPlane
+  indexOfPlane;
+  departedMessage;
 
 
   constructor(airportCapacity = 5) {
     this.airportList = [];
     this.airportCapacity = airportCapacity;
     this.indexOfPlane = null;
+    this.departedMessage = ``;
   };
 
 
@@ -34,9 +36,11 @@ class Airport {
   }
 
   takeoff(plane) {
-    this.indexOfPlane = this.airportList.indexOf(plane);
-    this.airportList.splice(this.indexOfPlane, 1);
-    return this.airportList;
+    if (this.airportList.includes(plane) === true) {
+      this.indexOfPlane = this.airportList.indexOf(plane);
+      this.airportList.splice(this.indexOfPlane, 1);
+      this.departedMessage = `${plane} has successfully departed from the airport.`
+    }
   }
 };
 
