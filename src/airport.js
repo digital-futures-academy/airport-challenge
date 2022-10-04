@@ -1,8 +1,12 @@
 class Airport {
+    arrPlanes;
+    capacity;
+    weather;
 
     constructor() {
         this.arrPlanes = [];
         this.capacity = 3;
+        this.weather = Math.random();
     }
 
     land(plane) {
@@ -30,11 +34,13 @@ class Airport {
     }
 
     takeOff(planeToTakeOff) {
-        if (this.checkPlaneID(planeToTakeOff)) {
+        if (this.checkPlaneID(planeToTakeOff) && this.checkWeather()) {
             let planeIndex = this.arrPlanes.indexOf(planeToTakeOff);
             this.arrPlanes.splice(planeIndex, 1);
-            return console.log(`${planeToTakeOff} cleared for take off`);
-        } else {
+            return console.log(`The weather is sunny, ${planeToTakeOff} cleared for take off`);
+        } else if (!this.checkWeather()) {
+            return console.log('Alert: The weather is stormy, we are unable to allow take off due to the severe weather conditions.');
+        } else if (!this.checkPlaneID(planeToTakeOff)) {
             return console.log('Error: Plane is currently not at airport. Please double-check your ID number and make a new request to take off.');
         }
     }
@@ -45,6 +51,11 @@ class Airport {
         }
     }
 
+    checkWeather() {
+        if (this.weather >= 0.2) {
+            return true;
+        }
+    }
 }
 
 module.exports = Airport;

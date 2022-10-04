@@ -157,15 +157,35 @@ Preliminary: Based on previous user stories, if plane is able to land or take of
 3. Check number of planes at airport
 
 #### Extended Acceptance Criteria
+
+**User Story 6**
 ```
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+```
 
+**Domain Model**
+
+Weather(@array[@condition]) - takeOff(plane)
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| Airport   | arrPlanes(@array[@Plane])         | takeOff(@Plane)              | -
+| Weather   | weather(@integer)                 | checkWeather(@boolean)       | @string ("Alert: We are unable to allow take off due to the severe weather conditions." ) 
+
+
+**Tests**
+1. Return alert message if weather is stormy and plane unable to fly
+2. Check whether the plane trying to take off is still at the airport
+
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+```
 
+```
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
