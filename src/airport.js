@@ -40,6 +40,8 @@ class Airport {
       this.indexOfPlane = this.airportList.indexOf(plane);
       this.airportList.splice(this.indexOfPlane, 1);
       this.departedMessage = `${plane} has successfully departed from the airport.`
+    } else {
+      this.departedMessage = `This plane "${plane}" is not at this airport`;
     }
   }
 };

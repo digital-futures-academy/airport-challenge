@@ -235,7 +235,7 @@ result = undefined;
 // Test 9 - test that the airport doesn't contain the plane that is landing.
 
 console.log(`============================`);
-console.log(`Test 8 - A plane doesn't take off as it is not at the airport.`);
+console.log(`Test 9 - A plane doesn't take off as it is not at the airport.`);
 
 // Arrange
 airport = new Airport();
