@@ -158,23 +158,22 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-
+//-******************************************************************************************************
 //Test 5b - check if plane in airport before landing
 console.log("==============================================");
 console.log("Test 5b: check plane is in the airport - for landing");
 
 //Arrange
 airportA = new Airport();
-expected = false;
+expected = true;
 
 //Act
-airportA.land("Yellow 12");
 airportA.land("Orange 7");
-actual = airportA.land("Orange 7");
+actual = airportA.land("Big Red 1");
 
 //Assert
 result = assertEquals(actual, expected);
-console.log("Test 5a: Plane is in the airport: " + result);
+console.log("Test 5b: Plane can land: " + result);
 
 //Clean Up
 airport = null;
