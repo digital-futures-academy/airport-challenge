@@ -27,3 +27,26 @@ result = undefined;
 actual = undefined;
 airport = null;
 plane = null;
+
+// Test 1b - Verification - Check if a plane object is added to the parkedPlanes array when landPlane() is called - matches the expected return string from the landPlane() method call with the expected string for this method - returns true when matched
+console.log("--------------------");
+console.log("Landing a plane at the airport continued")
+
+//Arrange 
+airport = new Airport();
+plane = new Plane(1);
+expected = `Plane ${plane.getId()} has landed at the airport`;
+
+//Act
+actual = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 1b: - Verification - The plane object passed to the landPlane() method has been added to the parkedPlanes array as the id of this plane in the landPlane's return string is as expected: ${result}`);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;
