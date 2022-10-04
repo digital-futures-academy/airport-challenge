@@ -1,8 +1,10 @@
 class Airport {
 	// here's a starting point for you
 	#planesList;
-	constructor() {
+	#capacity;
+	constructor(capacity = 5) {
 		this.#planesList = [];
+		this.#capacity = capacity;
 	}
 	landPlane(plane) {
 		this.#planesList.push(plane);
@@ -11,7 +13,9 @@ class Airport {
 	getPlanesList() {
 		return this.#planesList;
 	}
-	getCapacity() {}
+	getCapacity() {
+		return this.#capacity;
+	}
 }
 
 module.exports = Airport;
