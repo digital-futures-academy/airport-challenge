@@ -11,7 +11,6 @@ console.log("Test 1: land a plane at an airport");
 
 //Arrange
 airportA = new Airport();
-//plane = { id: `plane1` };
 expected = 1;
 
 //Act
