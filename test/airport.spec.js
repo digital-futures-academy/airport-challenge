@@ -270,7 +270,7 @@ console.log(`Test 10 - A plane doesn't land at the airport as it is already ther
 airport = new Airport();
 plane = { id: "plane1" };
 airport.airportList.push(plane);
-expected = `This plane "${plane}" is already at this airport`;
+expected = `${plane} has has not landed at the airport as it is already there.`
 
 // Act
 airport.land(plane);

@@ -32,8 +32,11 @@ class Airport {
   }
 
   land(plane) {
-    if (this.isCapacityFull() !== true) {
+    if (this.isCapacityFull() !== true && this.airportList.includes(plane) === false) {
       this.airportList.push(plane);
+      this.landedMessage = `${plane} has successfully landed at the airport.`
+    } else {
+      this.landedMessage = `${plane} has has not landed at the airport as it is already there.`
     }
   }
 
