@@ -19,8 +19,8 @@ plane = new Plane("ABC123");
 expected = 1;
 
 //Act
-airport.add(plane);
-actual = airport.planesList.length;
+airport.landPlane(plane);
+actual = airport.getPlanesList().length;
 
 //Assert
 result = assertEquals(actual, expected);
