@@ -1,17 +1,18 @@
 class Airport {
 	// here's a starting point for you
-	#planesList;
+	#airportPlanes;
 	#capacity;
 	constructor(capacity = 5) {
-		this.#planesList = [];
+		this.#airportPlanes = [];
 		this.#capacity = capacity;
 	}
 	landPlane(plane) {
-		this.#planesList.push(plane);
-		return `The plane ${this.#planesList[0].getFlightNum()} has landed`;
+		this.#airportPlanes.push(plane);
+		return `The plane ${this.#airportPlanes[0].getFlightNum()} has landed`;
 	}
-	getPlanesList() {
-		return this.#planesList;
+	isAirportFull() {}
+	getAirportPlanes() {
+		return this.#airportPlanes;
 	}
 	getCapacity() {
 		return this.#capacity;

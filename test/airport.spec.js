@@ -7,6 +7,11 @@ let actual;
 let result;
 let airport;
 let plane;
+let plane2;
+let plane3;
+let plane4;
+let plane5;
+let plane6;
 
 //Test 1 - does the airport contain more planes when a plane is told to land?
 
@@ -20,7 +25,7 @@ expected = 1;
 
 //Act
 airport.landPlane(plane);
-actual = airport.getPlanesList().length;
+actual = airport.getAirportPlanes().length;
 
 //Assert
 result = assertEquals(actual, expected);
@@ -110,6 +115,43 @@ actual = airport.getCapacity();
 result = assertEquals(actual, expected);
 console.log(
 	`Test 4 - if the airport capacity changes when constructed with another value: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+//Test 5 - does isAirportFull return a truthy value when the airport is full
+
+console.log("===================================");
+console.log(
+	`Test 5 - does the isAirportFull function return a truthy value when the capacity = size of planes array`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+plane2 = new Plane("CBA123");
+plane3 = new Plane("ACB123");
+plane4 = new Plane("123ABC");
+plane5 = new Plane("321ABC");
+plane6 = new Plane("312ABC");
+expected = true;
+
+//Act
+airport.landPlane(plane);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
+airport.landPlane(plane5);
+actual = airport.landPlane(plane6);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 5 - does the isAirportFull function return a truthy value when the capacity = size of planes array: ${result}`
 );
 
 //Clean up

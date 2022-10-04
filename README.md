@@ -76,7 +76,8 @@ I want to prevent landing when the airport is full
 | | `airportPlanes`@ARRAY[@string]| `isAirportFull()` | @boolean |
 | `plane` | `flightNumber`@string | | |
 
-1. Test if the `isAirportFull()` rejects a landing when `landPlane` is called and `airportPlanes.length` matches `capacity`
+1. Test if `isAirportFull()` returns a truthy value when `airportPlanes.length` matches `capacity`
+2. Test if `landPlane()` rejects a landing when `airportPlanes.length` matches `capacity`
 
 #### User Story 4
 ```
