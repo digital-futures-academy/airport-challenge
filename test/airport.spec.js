@@ -1,6 +1,6 @@
-const Airport = require("../src/airport");
-const Plane = require("../src/plane");
-const { assertEquals } = require("../framework/testingFramework")
+const Airport = require("../src/airport.js");
+const Plane = require("../src/plane.js");
+const { assertEquals } = require("../framework/testingFramework.js")
 
 
 // Declare variables
@@ -15,12 +15,12 @@ let newCapacity;
 console.log(`=============================`)
 console.log(`Test 1 - Does a plane land in the airport?`)
 
-//Arrange
+//arrange
 airport = new Airport();
 plane = new Plane();
 expected = 1;
 
-//Act
+//act
 airport.landPlane(plane);
 actual = airport.planesAtAirport.length;
 
@@ -31,16 +31,18 @@ console.log(`Test 1: ${result}`);
 //Cleanup
 airport = null;
 plane = null;
+newCapacity = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
 
 // Test 2 - Can default capacity be overwritten?
 console.log(`=============================`)
-console.log(`Test 2a - Can capacity be changed from default to 10?`)
+console.log(`Test 2 - Can capacity be changed from default to 10?`)
 
 //Arrange
 airport = new Airport();
+defaultCapacity = airport.capacity;
 newCapacity = 10;
 expected = 10;
 
@@ -49,10 +51,41 @@ actual = airport.setCapacity(newCapacity);
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 2: ${result}`);
+console.log(`Test 2 - Default capacity is ${defaultCapacity} which can be overwritten to ${newCapacity}: ${result}`);
 
 //Cleanup
 airport = null;
+plane = null;
+newCapacity = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 3 - Cannot add plane when airport is full
+console.log(`=============================`)
+console.log(`Test 3 - Plane cannot be added when airport is full`)
+
+//Arrange
+airport = new Airport();
+plane1 = new Plane();
+plane2 = new Plane();
+plane3 = new Plane();
+airport.setCapacity(3);
+expected = 'Sorry, airport is full';
+
+//Act
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+actual = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 3: ${result}`);
+
+//Cleanup
+airport = null;
+plane = null;
 newCapacity = null;
 expected = undefined;
 actual = undefined;
