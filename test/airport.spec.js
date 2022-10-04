@@ -259,3 +259,30 @@ plane2 = null
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+// Test 10 - test that the airport doesn't land a plane that is already there.
+
+console.log(`============================`);
+console.log(`Test 10 - A plane doesn't land at the airport as it is already there.`);
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+airport.airportList.push(plane);
+expected = `This plane "${plane}" is already at this airport`;
+
+// Act
+airport.land(plane);
+actual = airport.landedMessage;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 10: A plane doesn't land at the airport: ${result}`);
+
+// Clean up
+airport = null;
+plane = null
+expected = undefined;
+actual = undefined;
+result = undefined;

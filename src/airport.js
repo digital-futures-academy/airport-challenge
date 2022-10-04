@@ -4,6 +4,7 @@ class Airport {
   airportCapacity;
   indexOfPlane;
   departedMessage;
+  landedMessage;
 
 
   constructor(airportCapacity = 5) {
@@ -11,6 +12,7 @@ class Airport {
     this.airportCapacity = airportCapacity;
     this.indexOfPlane = null;
     this.departedMessage = ``;
+    this.landedMessage = ``;
   };
 
 
