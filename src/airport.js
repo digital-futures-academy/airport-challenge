@@ -2,10 +2,13 @@ class Airport {
 
   airportList;
   airportCapacity;
+  indexOfPlane
+
 
   constructor(airportCapacity = 5) {
     this.airportList = [];
     this.airportCapacity = airportCapacity;
+    this.indexOfPlane = null;
   };
 
 
@@ -30,8 +33,10 @@ class Airport {
     }
   }
 
-  takeoff() {
-    this.airportList.pop();
+  takeoff(plane) {
+    this.indexOfPlane = this.airportList.indexOf(plane);
+    this.airportList.splice(this.indexOfPlane, 1);
+    return this.airportList;
   }
 };
 

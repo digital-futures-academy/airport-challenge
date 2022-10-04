@@ -6,6 +6,7 @@ let actual;
 let result;
 let airport;
 let plane;
+let plane2;
 let size;
 let airportCapacity;
 
@@ -178,24 +179,28 @@ result = undefined;
 // Test 7 - test that a plane that has taken off is no longer at the airport.
 
 console.log(`============================`);
-console.log(`Test 6 - A plane that has taken off is no longer at the airport.`);
+console.log(`Test 7 - A plane that has taken off is no longer at the airport.`);
 
 // Arrange
 airport = new Airport();
-airportCapacity = 1;
-airport.airportCapacity = airportCapacity;
 plane = { id: "plane1" };
 plane2 = { id: "plane2" };
 airport.airportList.push(plane, plane2);
+console.log(airport.airportList[0].id);
 expected = false;
+console.log(airport.airportList);
+
 
 // Act
 airport.takeoff(plane);
+console.log(airport.indexOfPlane);
+console.log(airport.airportList);
 actual = airport.airportList.includes(plane);
+
 
 // Assert
 result = assertEquals(actual, expected);
-console.log(`Test 6: A plane that has taken off is no longer at the airport: ${result}`);
+console.log(`Test 7: A plane that has taken off is no longer at the airport: ${result}`);
 
 // Clean up
 airport = null;
