@@ -43,6 +43,9 @@ I would like a default airport capacity that can be overridden as appropriate
 Reasoning: Proposed an airportCapacity property for Aiport objects. This will have a default value set to it by the constructor for this class.
 Proposed a setAirportCapacity() method that can allow the default value for the airportCapacity property to be overriden and assigned at the point of the method call on a given Airport object.
 
+### Tests
+Test 2a - Check if the airportCapacity property for an Airport object has been set with the setAirportCapacity() method - returns true if airportCapacity's value matches the value used as a parameter for setAirportCapacity() 
+
 3.
 
 ```

@@ -50,3 +50,28 @@ result = undefined;
 actual = undefined;
 airport = null;
 plane = null;
+
+// Test 2a - Check if the airportCapacity property for an Airport object has been set with the setAirportCapacity() method - returns true if airportCapacity's value matches the value used as a parameter for setAirportCapacity() 
+console.log("---------------------");
+console.log("Checking if the airport has an airportCapacity variable which was set using setAirportCapacity()")
+
+//Arrange 
+airport = new Airport();
+let requiredAirportCapacity = 1;
+expected = requiredAirportCapacity;
+
+//Act
+airport.setAirportCapacity(requiredAirportCapacity);
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 2a - The airportCapacity property of the Airport object matches the value used as the argument for setAirportCapacity(): ${result}`);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+requiredAirportCapacity = undefined;
+airport = null;
+plane = null;

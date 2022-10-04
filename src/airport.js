@@ -1,9 +1,11 @@
 class Airport {
   // here's a starting point for you
   parkedPlanes;
+  airportCapacity;
 
-  constructor() {
+  constructor(airportCapacity = 2) {
     this.parkedPlanes = [];
+    this.airportCapacity = airportCapacity;
   }
 
   landPlane = plane => {
@@ -11,6 +13,10 @@ class Airport {
 
     return `Plane ${plane.getId()} has landed at the airport`;
   };
+
+  setAirportCapacity = newAirportCapacity => {
+    this.airportCapacity = newAirportCapacity;
+  }
 
 }
 
