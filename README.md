@@ -100,3 +100,11 @@ I would like a default airport capacity that can be overridden when appropriate
 | Airplane |            |          |        |
 
 (3)
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+
+|  Object  | Properties | Messages |  Output  |
+| :------: | :--------: | :------: | :------: |
+| Airport  |  Capacity  |   Land   | @boolean |
+| Airplane |            |          |          |

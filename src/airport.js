@@ -3,7 +3,13 @@ class airport {
     this.planeArr = [];
     this.cap = capacity;
   }
-  land = (plane) => this.planeArr.push(plane);
+  land(plane) {
+    if (this.planeArr.length == this.cap){
+      return false;
+    }
+    this.planeArr.push(plane);
+    return true;
+  }
   changecap = (newcap => this.cap = newcap);
 }
 
