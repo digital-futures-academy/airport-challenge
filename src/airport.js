@@ -16,9 +16,12 @@ class Airport {
         if (this.checkPlaneID(plane)) {
             return console.log('Error: Plane is already at airport. Please double-check your ID number and make a new request to land.');
         }
+        if (!this.checkWeather()) {
+            return console.log("Alert: The weather is stormy, we are unable to allow landing due to the severe weather conditions.");
+        }
         else {
             this.arrPlanes.push(plane);
-            return console.log(`${plane} cleared for landing!`);
+            return console.log(`The weather is sunny, ${plane} cleared for landing!`);
         }
     }
 

@@ -167,29 +167,50 @@ I want to prevent takeoff when weather is stormy
 
 **Domain Model**
 
-Weather(@array[@condition]) - takeOff(plane)
+Weather(@integer) - checkWeather(@boolean) --> planeToTakeOff(@plane)
 
 | Objects   | Properties                        | Messages                     | Output  |
 | --------- | --------------------------------- | ---------------------------- | ------- |
 | Airport   | arrPlanes(@array[@Plane])         | takeOff(@Plane)              | -
-| Weather   | weather(@integer)                 | checkWeather(@boolean)       | @string ("Alert: We are unable to allow take off due to the severe weather conditions." ) 
+| Weather   | weather(@integer)                 | checkWeather(@boolean)       | @string ("Alert: The wether is stormy, we are unable to allow take off due to the severe weather conditions." ) 
 
 
 **Tests**
 1. Return alert message if weather is stormy and plane unable to fly
 2. Check whether the plane trying to take off is still at the airport
 
+
+**User Story 7**
 ```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 ```
+**Domain Model**
 
+Weather(@integer) - checkWeather(@boolean) --> land(@plane)
+
+| Objects   | Properties                        | Messages                     | Output  |
+| --------- | --------------------------------- | ---------------------------- | ------- |
+| Airport   | arrPlanes(@array[@Plane])         | land(@Plane)              | -
+| Weather   | weather(@integer)                 | checkWeather(@boolean)       | @string ("Alert: The weather is stormy, we are unable to allow landing due to the severe weather conditions.") 
+
+**Tests**
+1. Return alert message if weather is stormy and plane unable to fly
+2. Check whether the plane trying to land is at the airport and number of planes at airport.
+
+**User Story 8**
 ```
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 ```
+
+**Domain Model**
+
+
+**Tests**
+
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 

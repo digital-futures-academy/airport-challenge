@@ -221,7 +221,8 @@ actual = undefined;
 result = undefined;
 
 // Tests 6: Prevent take off when weather is stormy
-console.log(`User Story 6: Prevent planes if weather is stormy`)
+console.log('..............Testing begins........................')
+console.log(`User Story 6: Prevent planes from taking off if weather is stormy`)
 
 // Arrange
 console.log(`..............Setting up user story.................`)
@@ -243,6 +244,35 @@ testID = assertTrue(airport.arrPlanes.includes(testPlane));
 
 console.log(`Test 1: See string above.`)
 console.log(`Test 2: Is ${testPlane} still at the airport? ${testID}. Number of planes currently at airport: ${airport.arrPlanes.length}, specifically: ${airport.arrPlanes}`)
+
+//Clean Up
+airport = null;
+plane = null;
+testPlane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Tests 7: Prevent landing when weather is stormy
+console.log('..............Testing begins........................')
+console.log(`User Story 7: Prevent planes from landing if weather is stormy`)
+
+// Arrange
+airport = new Airport();
+airport.setCapacity(5);
+plane = planes[1];
+console.log(`${plane} requesting for landing`)
+
+// Act
+airport.checkWeather();
+airport.land(plane);
+
+// Assert
+testID = assertTrue(airport.arrPlanes.includes(plane));
+
+console.log(`Test 1: See string above.`)
+console.log(`Test 2: Is ${plane} at the airport? ${testID}. Planes at airport: ${airport.arrPlanes.length}.`)
 
 //Clean Up
 airport = null;
