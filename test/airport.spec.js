@@ -173,3 +173,34 @@ plane = null
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+// Test 7 - test that a plane that has taken off is no longer at the airport.
+
+console.log(`============================`);
+console.log(`Test 6 - A plane that has taken off is no longer at the airport.`);
+
+// Arrange
+airport = new Airport();
+airportCapacity = 1;
+airport.airportCapacity = airportCapacity;
+plane = { id: "plane1" };
+plane2 = { id: "plane2" };
+airport.airportList.push(plane, plane2);
+expected = false;
+
+// Act
+airport.takeoff(plane);
+actual = airport.airportList.includes(plane);
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 6: A plane that has taken off is no longer at the airport: ${result}`);
+
+// Clean up
+airport = null;
+airportCapacity = null;
+plane = null
+expected = undefined;
+actual = undefined;
+result = undefined;

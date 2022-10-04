@@ -50,7 +50,8 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | airport | planeList@Array(@plane) | @takeoff(plane) | @Void  |
 | plane   | id@string               | -               | -      |
 
-1. test that a plane that has taken off is no longer at the airport.
+1. test that a plane has taken off from the airport.
+2. test that a plane that has taken off is no longer at the airport.
 
 
 ```
