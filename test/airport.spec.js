@@ -75,3 +75,25 @@ actual = undefined;
 requiredAirportCapacity = undefined;
 airport = null;
 plane = null;
+
+// Test 2b - Check if the airportCapacity property for an Airport object has been set as the default value using the Airport class constructor - returns true if airportCapacity's value matches the default value of the constructor  
+console.log("---------------------");
+console.log("Checking if the airport has an airportCapacity variable which was set as the default value using the classes' constructor")
+
+//Arrange 
+airport = new Airport();
+expected = 2;
+
+//Actual
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 2b - The airportCapacity property of the Airport object matches the default value of 2 used in the constructor for the Airport class: ${result}`);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;

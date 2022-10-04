@@ -45,6 +45,7 @@ Proposed a setAirportCapacity() method that can allow the default value for the 
 
 ### Tests
 Test 2a - Check if the airportCapacity property for an Airport object has been set with the setAirportCapacity() method - returns true if airportCapacity's value matches the value used as a parameter for setAirportCapacity() 
+Test 2b - Check if the airportCapacity property for an Airport object has been set as the default value using the Airport class constructor - returns true if airportCapacity's value matches the default value of the constructor  
 
 3.
 
