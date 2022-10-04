@@ -90,3 +90,30 @@ airport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+//Test 4 - does the airport capacity value change when constructed with another value
+
+console.log("===================================");
+console.log(
+	`Test 4 - if the airport capacity changes when constructed with another value`
+);
+
+//Arrange
+airport = new Airport(6);
+expected = 6;
+
+//Act
+
+actual = airport.getCapacity();
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 4 - if the airport capacity changes when constructed with another value: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

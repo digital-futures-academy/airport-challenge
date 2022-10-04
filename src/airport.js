@@ -2,9 +2,9 @@ class Airport {
 	// here's a starting point for you
 	#planesList;
 	#capacity;
-	constructor(capacity = 5) {
+	constructor() {
 		this.#planesList = [];
-		this.#capacity = capacity;
+		this.#capacity = 5;
 	}
 	landPlane(plane) {
 		this.#planesList.push(plane);
