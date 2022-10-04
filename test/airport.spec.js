@@ -63,3 +63,31 @@ item = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+//Test 3 - does the airport have a default capacity when it's constructed?
+
+console.log("===================================");
+console.log(
+	`Test 3 - if the airport has a default capacity when it's constructed`
+);
+
+//Arrange
+airport = new Airport();
+expected = 5;
+
+//Act
+
+actual = airport.getCapacity();
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 3 - if the airport has a default capacity when it's constructed: ${result}`
+);
+
+//Clean up
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

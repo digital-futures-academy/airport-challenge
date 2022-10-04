@@ -11,6 +11,7 @@ class Airport {
 	getPlanesList() {
 		return this.#planesList;
 	}
+	getCapacity() {}
 }
 
 module.exports = Airport;
