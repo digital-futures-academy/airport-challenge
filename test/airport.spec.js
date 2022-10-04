@@ -28,7 +28,7 @@ actual = undefined;
 airport = null;
 plane = null;
 
-// Test 1b - Verification - Check if a plane object is added to the parkedPlanes array when landPlane() is called - matches the expected return string from the landPlane() method call with the expected string for this method - returns true when matched
+// Test 1b - Verification - Check if a plane object is added to the parkedPlanes array when landPlane() is called - matches the return string from the landPlane() method call with the expected string for this method - returns true when matched
 console.log("--------------------");
 console.log("Landing a plane at the airport continued")
 
