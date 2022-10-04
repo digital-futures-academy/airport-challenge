@@ -6,7 +6,7 @@ class Airport {
 	}
 	landPlane(plane) {
 		this.#planesList.push(plane);
-		return `The plane ${this.#planesList[0].flightNum} has landed`;
+		return `The plane ${this.#planesList[0].getFlightNum()} has landed`;
 	}
 	getPlanesList() {
 		return this.#planesList;

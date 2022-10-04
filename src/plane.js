@@ -1,7 +1,10 @@
 class Plane {
-	flightNum;
+	#flightNum;
 	constructor(flightNum) {
-		this.flightNum = flightNum;
+		this.#flightNum = flightNum;
+	}
+	getFlightNum() {
+		return this.#flightNum;
 	}
 }
 
