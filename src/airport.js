@@ -30,8 +30,8 @@ class Airport {
     }
   }
 
-  takeoff(plane) {
-
+  takeoff() {
+    this.airportList.pop();
   }
 };
 
