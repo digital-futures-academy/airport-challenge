@@ -11,7 +11,7 @@ console.log("Test 1: land a plane at an airport");
 
 //Arrange
 airportA = new Airport();
-plane = { id: `plane1` };
+//plane = { id: `plane1` };
 expected = 1;
 
 //Act
@@ -45,7 +45,7 @@ actual = airportA.capacity;
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 2: The airport has a capcity of 3: ${result}`);
+console.log(`Test 2: The airport has a capacity of 3: ${result}`);
 
 //Clean Up
 airport = null;
@@ -58,7 +58,7 @@ result = undefined;
 
 //Test 2b - create new airport with increased capacity of 5
 console.log("==============================================");
-console.log("Test 2: check new airport has capacity of 5");
+console.log("Test 2b: check new airport has capacity of 5");
 
 //Arrange
 airportA = new Airport(5);
@@ -96,7 +96,85 @@ actual = airportA.checkFull();
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 3: Airport is full ${result}`);
+console.log(`Test 3: Airport is full: ${result}`);
+
+//Clean Up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+//-******************************************************************************************************
+
+//Test 4 - instruct plane to take off and confirm it has
+console.log("==============================================");
+console.log("Test 4: remove plane from airport");
+
+//Arrange
+airportA = new Airport(2);
+expected = 1;
+
+//Act
+airportA.land("Yellow 12");
+airportA.land("Orange 7");
+airportA.takeOff("Orange 7");
+actual = airportA.airportPlanes.length;
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 4: Plane has taken off SAFELY: ${result}`);
+
+//Clean Up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+//-******************************************************************************************************
+
+//Test 5a - only take off or land if you can
+console.log("==============================================");
+console.log("Test 5a: check plane is in the airport - for take off");
+
+//Arrange
+airportA = new Airport();
+expected = true;
+
+//Act
+airportA.land("Yellow 12");
+airportA.land("Orange 7");
+actual = airportA.takeOff("Big Red 1");
+
+//Assert
+result = assertEquals(actual, expected);
+console.log("Test 5a: Plane is in the airport: " + result);
+
+//Clean Up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+//Test 5b - check if plane in airport before landing
+console.log("==============================================");
+console.log("Test 5b: check plane is in the airport - for landing");
+
+//Arrange
+airportA = new Airport();
+expected = false;
+
+//Act
+airportA.land("Yellow 12");
+airportA.land("Orange 7");
+actual = airportA.land("Orange 7");
+
+//Assert
+result = assertEquals(actual, expected);
+console.log("Test 5a: Plane is in the airport: " + result);
 
 //Clean Up
 airport = null;
