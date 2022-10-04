@@ -108,10 +108,12 @@ console.log(`Test 4: The airport is at full capacity: ${result}`);
 
 // Clean up
 airport = null;
-size = null;
+airportCapacity = null;
+plane = null
 expected = undefined;
 actual = undefined;
 result = undefined;
+
 
 // Test 5 - will a plane land if capacity is full?
 
@@ -120,12 +122,15 @@ console.log(`Test 5 - The plane won't land if the capacity is full.`);
 
 // Arrange
 airport = new Airport();
-plane = { id: `plane1` };
-expected = true;
+airportCapacity = 1;
+airport.airportCapacity = airportCapacity;
+plane = { id: "plane1" };
+airport.airportList.push(plane);
+expected = 0;
 
 // Act
-airport.fullCapacity(plane);
-actual = airport.airportCapacity === airport.airportList.length;
+airport.land(plane);
+actual = airport.airportCapacity - airport.airportList.length;
 
 // Assert
 result = assertEquals(actual, expected);
@@ -137,4 +142,3 @@ size = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
-
