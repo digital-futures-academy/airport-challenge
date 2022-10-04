@@ -36,9 +36,8 @@ I want to prevent landing when the airport is full
 | airport | planeList@Array(@plane) <br> airportCapacity@Integer | @land(plane) | @Void  |
 | plane   | @-                                                   | -            | -      |
 
-1. test to see if the airport capacity is full
-2. test if a plane lands when capacity is full
-3. test if a plane lands when capacity isn't full
+1. test if a plane lands when capacity is full
+2. test if a plane lands when capacity isn't full
 
 ```
 As an air traffic controller
