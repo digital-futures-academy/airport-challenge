@@ -232,7 +232,7 @@ actual = undefined;
 result = undefined;
 
 
-// Test 9 - test that the airport doesn't contain the plane that is landing.
+// Test 9 - test that the airport only lets planes that are at the airport takeoff.
 
 console.log(`============================`);
 console.log(`Test 9 - A plane doesn't take off as it is not at the airport.`);

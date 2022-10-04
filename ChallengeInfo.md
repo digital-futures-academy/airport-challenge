@@ -65,4 +65,5 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | plane   | id@string               | -                                 | -      |
 
 1. test that the airport contains the plane that is taking off.
-2. test that the airport doesn't contain the plane that is landing.
+2. test that the airport only lets planes that are at the airport takeoff.
+3. test that the airport doesn't contain the plane that is landing.
