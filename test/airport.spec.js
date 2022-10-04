@@ -34,3 +34,32 @@ item = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+//Test 2 - does the airport return a statement to confirm a plane has landed when it lands?
+
+console.log("===================================");
+console.log(
+	`Test 2 - if the airport returns a statement to confirm a plane has landed when the land function is called`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+expected = `The plane ABC123 has landed`;
+
+//Act
+
+actual = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 2 - if the airport returns a statement to confirm a plane has landed when the land function is called: ${result}`
+);
+
+//Clean up
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

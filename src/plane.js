@@ -1,5 +1,8 @@
 class Plane {
-	// here's a starting point for you
+	flightNum;
+	constructor(flightNum) {
+		this.flightNum = flightNum;
+	}
 }
 
 module.exports = Plane;
