@@ -42,11 +42,23 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 ```
-
 | Object | Properties | Message | Output |
 | ----------- | ----------- | ----------- | ----------- |
 | Airport | capacity @number| setCapacity(newCapacity @number) | @void|
-| Airport | planesAtAirport@Array[@string] | landPlane(@plane@string) | @string |
+| Airport | planesAtAirport@Array[@string] | isFull(@string) | @string |
 
 1. Test that if length of planesAtAirport >= capacity, plane cannot be added to the planesAtAirport array.
 2. If this is the case, return a string notifying that airport is full.
+
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+| Object | Properties | Message | Output |
+| ----------- | ----------- | ----------- | ----------- |
+| Airport | planesAtAirport @Array[@string]| takeOffPlane(plane@string) | @string|
+
+1. Test that plane is removed from the planesAtAirport array when passed through the takeOffPlane function followed by a string notifying that the plane has taken off.
+
+

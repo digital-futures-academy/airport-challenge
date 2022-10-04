@@ -5,11 +5,17 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (this.isFull()) {
-      return "Sorry, airport is full"
-    } else {
-      this.planesAtAirport.push(plane)
+    this.planesAtAirport.push(plane)
+    return this.planesAtAirport;
+  }
+
+  takeOffPlane(plane) {
+    if (this.planesAtAirport.includes(plane)) {
+      let index = this.planesAtAirport.indexOf(plane);
+      this.planesAtAirport.splice(index, 1);
       return this.planesAtAirport;
+    } else {
+      return "Error, plane is not in the airport";
     }
   }
 
@@ -17,8 +23,10 @@ class Airport {
     return this.capacity = newCapacity;
   }
 
-  isFull() {
-    return this.planesAtAirport.length >= this.capacity;
+  isFull(plane) {
+    if (this.planesAtAirport.length >= this.capacity) {
+      return "Sorry, airport is full"
+    }
   }
 
 }

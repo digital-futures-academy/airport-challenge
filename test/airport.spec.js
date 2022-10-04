@@ -15,12 +15,12 @@ let newCapacity;
 console.log(`=============================`)
 console.log(`Test 1 - Does a plane land in the airport?`)
 
-//arrange
+//Arrange
 airport = new Airport();
 plane = new Plane();
 expected = 1;
 
-//act
+//Act
 airport.landPlane(plane);
 actual = airport.planesAtAirport.length;
 
@@ -77,11 +77,36 @@ expected = 'Sorry, airport is full';
 airport.landPlane(plane1);
 airport.landPlane(plane2);
 airport.landPlane(plane3);
-actual = airport.landPlane(plane);
+actual = airport.isFull(plane);
 
 //Assert
 result = assertEquals(actual, expected);
 console.log(`Test 3: ${result}`);
+
+//Cleanup
+airport = null;
+plane = null;
+newCapacity = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 4 - Is a plane taken off from array?
+console.log(`=============================`)
+console.log(`Test 4 - Plane is taken off`)
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = 0;
+
+//Act
+airport.takeOffPlane(plane);
+actual = airport.planesAtAirport.length;
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 4: ${result}`);
 
 //Cleanup
 airport = null;
