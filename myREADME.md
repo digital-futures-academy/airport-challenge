@@ -23,6 +23,10 @@ I want to instruct the airport to land a plane
 Reasoning: Two objects of Airport and Plane. landPlane() method proposed to add Plane objects to a parkedPlanes array (of Plane objects)
 which signafies landed planes at an airport. Also gave Plane object a planeId property that returns a number that uniquely identifies a plane. lanePlane() method will use getId() method as string literal within a string return message that signifies which plane has landed. The planeId number will be set via a constructor.
 
+### Tests
+
+Test 1a - Validation - check if the length of an empty parkedPlanes array increases by 1 when landPlane() is called - returns true if so
+
 2.
 
 ```
