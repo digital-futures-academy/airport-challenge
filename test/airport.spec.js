@@ -298,3 +298,32 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 plane = null;
+
+//Test 10 - is a statement returned that tells the user that a plane has already landed when you attempt to land a plane in the airport
+
+console.log("===================================");
+console.log(
+	`Test 10 - if landPlane returns a statement when a plane already has landed`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+expected = `The ABC123 plane has already landed`;
+
+//Act
+airport.landPlane(plane);
+actual = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 10 - if landPlane returns a statement when a plane already has landed: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;
