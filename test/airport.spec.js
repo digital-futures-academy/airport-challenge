@@ -181,5 +181,27 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+//-******************************************************************************************************
+//Test 6 - check the weather conditions
+console.log("==============================================");
+console.log("Test 6: check weather conditions");
+
+//Arrange
+airportA = new Airport();
+expected = "stormy";
+
+//Act
+actual = airportA.checkWeather();
+
+//Assert
+result = assertEquals(actual, expected);
+console.log("Test 6: Weather conditions are " + actual);
+
+//Clean Up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
 
