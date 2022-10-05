@@ -269,3 +269,32 @@ plane2 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+//Test 9 - does isInAirport returns true when the plane exists in the airport
+
+console.log("===================================");
+console.log(
+	`Test 9 - does isInAirport returns true when the plane exists in the airport`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+expected = true;
+
+//Act
+airport.landPlane(plane);
+actual = airport.isInAirport(plane);
+
+//Assert
+result = assertTrue(actual);
+console.log(
+	`Test 9 - does isInAirport returns true when the plane exists in the airport: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;

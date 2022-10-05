@@ -18,6 +18,7 @@ class Airport {
 		this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane));
 		return `The plane ${plane.getFlightNum()} has departed`;
 	}
+	isInAirport() {}
 	isAirportFull() {
 		let full = false;
 		if (this.#airportPlanes.length === this.#capacity) {

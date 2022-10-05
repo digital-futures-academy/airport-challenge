@@ -106,8 +106,9 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | | | `isInAirport(`@plane`)` | @boolean |
 | `plane` | `flightNumber`@string | | |
 
-1. Test that when you attempt to "land" a plane and it already exists in the airport (`airportPlanes`) it returns a string to state that it had already landed
-2. Test that when you attempt to "depart" a plane and it has already departed from the airport (`airportPlanes`) it returns a string to state that it had already departed
+1. Test that `isInAirport()` returns true when a `plane` is passed through that already exists in the `airportPlanes` array
+2. Test that when you attempt to "land" a plane and it already exists in the airport (`airportPlanes`) it returns a string to state that it had already landed
+3. Test that when you attempt to "depart" a plane and it has already departed from the airport (`airportPlanes`) it returns a string to state that it had already departed
 #### Extended Acceptance Criteria
 ```
 As an air traffic controller
