@@ -238,3 +238,34 @@ plane2 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+//Test 8 - does the airport return a statement to confirm a plane has departed when it departs?
+
+console.log("===================================");
+console.log(
+	`Test 8 - if the airport returns a statement to confirm a plane has departed when the depart function is called`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+plane2 = new Plane("CBA123");
+expected = `The plane CBA123 has departed`;
+
+//Act
+
+actual = airport.departPlane(plane);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 8 - if the airport returns a statement to confirm a plane has departed when the depart function is called: ${result}`
+);
+
+//Clean up
+airport = null;
+plane = null;
+plane2 = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
