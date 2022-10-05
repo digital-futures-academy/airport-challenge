@@ -152,3 +152,32 @@ airport = null;
 plane = null;
 plane2 = null;
 airportCapacity = undefined;
+
+// Test 4a - Verification - The return string from the takeOffPlane() method call shows the correct plane object by it's planeID value has been removed from the parkedPlanes array - matches the return string from the takeOffPlane() method call with the expected return string for this method - returns true when matched
+console.log("---------------------");
+console.log("Plane taking off from airport")
+
+//Arrange 
+airportCapacity = 2;
+airport = new Airport(airportCapacity);
+plane = new Plane(1);
+airport.landPlane(plane);
+plane2 = new Plane(2);
+airport.landPlane(plane2);
+expected = `Plane ${plane2.getId()} has taken off from the airport`;
+
+//Actual
+actual = airport.takeOffPlane(plane2.getId());
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 4a - The return string from the takeOffPlane() method call shows the correct plane object by it's planeID value has been removed from the parkedPlanes array: ${result}`);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;
+plane2 = null;
+airportCapacity = undefined;

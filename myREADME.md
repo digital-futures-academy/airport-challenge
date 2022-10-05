@@ -87,6 +87,9 @@ Reasoning: Proposed a planeId property and getID() method for a Plane object tha
 parkedPlanes array and then pops it from the array. The takeOffPlane method also returns a string to signify the specific plane is no longer at
 the airport by using the getID() method for the Plane object and using it for the message it returns via string. 
 
+Test 4a - Verification - The return string from the takeOffPlane() method call shows the correct plane object by it's planeID value has been removed from the parkedPlanes array - matches the return string from the takeOffPlane() method call with the expected return string for this method - returns true when matched <br>
+Test 4b - Validation - check if the length of an empty parkedPlanes array decreases by 1 when takeOffPlane() is called - returns true if so 
+
 5.
 
 ```

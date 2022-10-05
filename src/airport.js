@@ -29,6 +29,16 @@ class Airport {
     }
   };
 
+  takeOffPlane = (planeID) => {
+    for (let i in this.parkedPlanes) {
+      if (this.parkedPlanes[i].getId() === planeID) {
+        let indexToSplice = this.parkedPlanes.indexOf(this.parkedPlanes[i]);
+        this.parkedPlanes.splice(indexToSplice, 1);
+        return `Plane ${planeID} has taken off from the airport`;
+      }
+    }
+  }
+
 }
 
 module.exports = Airport;
