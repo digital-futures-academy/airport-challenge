@@ -67,8 +67,8 @@ the the value of airportCapacity for an instance of the Aiport of the class. Pro
 signify that a plane can or cannot land depending on the result of the isAirportFull().
 
 ### Tests
-Test 3a - Verification - Check that landPlane() returns a string stating that a given plane can not land at the airport as it is full
-
+Test 3a - Verification - Check that landPlane() returns a string stating that a given plane can not land at the airport as it is full <br>
+Test 3b - Validation - Check that isAirportFull() returns true when planesLanded array length property matches the airportCapacity property
 
 4.
 

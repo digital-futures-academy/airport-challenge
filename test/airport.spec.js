@@ -66,7 +66,7 @@ actual = airport.airportCapacity;
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 2a - The airportCapacity property of the Airport object matches the value used as the argument for setAirportCapacity(): ${result}`);
+console.log(`Test 2a - airportCapacity property of the Airport object matches the value used as the argument for setAirportCapacity(): ${result}`);
 
 //Clean up
 expected = undefined
@@ -89,7 +89,7 @@ actual = airport.airportCapacity;
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 2b - The airportCapacity property of the Airport object matches the default value of 2 used in the constructor for the Airport class: ${result}`);
+console.log(`Test 2b - airportCapacity property of the Airport object matches the default value of 2 used in the constructor for the Airport class: ${result}`);
 
 //Clean up
 expected = undefined
@@ -103,7 +103,8 @@ console.log("---------------------");
 console.log("Checking that landPlane() returns a string stating that the plane can not land at at the airport as it is full")
 
 //Arrange 
-airport = new Airport(1); // Sets airport objects airportCapacity value to 1
+let airportCapacity = 1
+airport = new Airport(airportCapacity);
 plane = new Plane(1);
 airport.landPlane(plane);
 plane2 = new Plane(2);
@@ -114,7 +115,7 @@ actual = airport.landPlane(plane2);
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 3a - Check that landPlane() returns a string stating that a given plane can not land at the airport as it is full: ${result} `);
+console.log(`Test 3a - landPlane() returns a string stating that a given plane can not land at the airport as it is full: ${result} `);
 
 //Clean up
 expected = undefined
@@ -123,3 +124,31 @@ actual = undefined;
 airport = null;
 plane = null;
 plane2 = null;
+
+// Test 3b - Validation - Check that isAirportFull() returns true when planesLanded array length property matches the airportCapacity property
+console.log("---------------------");
+console.log("Checking that isAirportFull() returns true when planesLanded array length property equals the airportCapacity property")
+
+//Arrange 
+airportCapacity = 2;
+airport = new Airport(airportCapacity);
+plane = new Plane(1);
+airport.landPlane(plane);
+plane2 = new Plane(2);
+airport.landPlane(plane2);
+
+//Actual
+actual = airport.isAirportFull();
+
+//Assert
+result = assertTrue(actual);
+console.log(`Test 3b - isAirportFull() returns true when planesLanded array is full: ${result} `);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;
+plane2 = null;
+airportCapacity = undefined;
