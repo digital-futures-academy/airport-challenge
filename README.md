@@ -80,76 +80,102 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
-
-
+---
+---
+---
 
 ## **User story 1**
+```
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+```
 
 ## **Domain model**
-| Object  | Property                     | Message             | Output  |
-|---------|------------------------------|---------------------|---------|
-| airport | PlanesList @array [@planeId] | landPlane(@planeId) | @string |
-| Planes  | -                            | planeId @ string    | -       |
+| Object  | Property                       | Message          | Output  |
+| ------- | ------------------------------ | ---------------- | ------- |
+| airport | LandedPlanes @array [@planeId] | Add(@planeId)    | @string |
+|         |                                | checkID(input)   | @string |
+| Planes  |                                | planeId @ string |         |
+|         |                                |                  |         |
 
 ## **Tests**
-Test 1 - Instruct the airport to land a plane  
-Test 1b - Is it the same item plane ID?
+#### Test 1 - Test that in a new instance of airport you can add new plane into landedPlanes array using `add(input)` method and the length of the array equals 1 
+#### Test 1b - Test to see if it is the same item plane ID using `checkID` function
+
+---
 
 ## **User story 2**
+```
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+```
 
 ## **Domain model**
-| Object | Property | Message                  | Output  |
-|--------|----------|--------------------------|---------|
-|airport | capacity | airportCapacity(@number) | @number |
+| Object  | Property | Message       | Output  |
+| ------- | -------- | ------------- | ------- |
+| airport | capacity | add(@planeId) | @number |
+|         |          |               |         |
 
 ## **Tests**
-Test 2 - Airport capacity that can be overridden
+#### Test 2 - Test that in a new instance of airport you can add planes using `add(input)` method and then use capacity property to see the length of the array
+
+---
 
 ## **User story 3**
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+```
 
 ## **Domain model**
 | Object  | Property        | Message         | Output   |
-|---------|-----------------|-----------------|----------|
+| ------- | --------------- | --------------- | -------- |
 | airport | airportCapacity | isAirportFull() | @boolean |
+|         |                 |                 |          |
 
 ## **Tests**
-Test 3: Prevent landing when airport full
+#### Test 3: Test that in a new instance of airport you can use the `isAirportFull()` method to see if the airport has reached capacity, if so return true
+
+---
 
 ## **User story 4**
+```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
 
 ## **Domain model**
-| Object  | Property      | Message                 | Output  |
-|---------|---------------|-------------------------|---------|
-| airport | PlanesList    | planeTakeOff(@planeId)  | @string |
-| plane   | planeLocation | landedPlanes [@planeId] | @string |
+| Object  | Property     | Message                | Output  |
+| ------- | ------------ | ---------------------- | ------- |
+| airport | landedPlanes | planeTakeOff(@planeId) | @string |
+|         |              | isLanded(@planeId)     | @string |
+|         |              |                        |         |
 
 ## **Tests**
-Test 4: Let plane take off and confirm it's not in the airport
-Test 4b: Confirm plane that has taken off is not in the airport
+#### Test 4: Test that in a new instance of airport you can take an array of `landedPlanes` and use the `planeTakeOff(input)` method to remove one plane from the array
+#### Test 4b: Confirm plane that has taken off is not in the airport using the `isLanded(planeId)` method
+
+---
 
 ## **User story 5**
+```
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
 
 ## **Domain model**
 | Object  | Property   | Message                | Output  |
-|---------|------------|------------------------|---------|
-| airport | PlanesList | landPlane(@planeId)    | @string |
+| ------- | ---------- | ---------------------- | ------- |
 | airport | PlanesList | planeTakeOff(@planeId) | @string |
+| airport | PlanesList | isLanded(@planeId)     | @string |
+|         |            |                        |         |
 
 ## **Tests**
-Test 5: prevent asking the airport to let planes take-off which are not at the airport
-Test 5b: prevent landing a plane that's already landed
+#### Test 5: Test that in a new instance of airport you can take an array of `landedPlanes` and use the `planeTakeOff(input)` method with a plane that is not in the array and recieve an error message
+#### Test 5b: Test that in a new instance of airport you can take an array of `landedPlanes` and use the `isLanded(planeId)` function to check if plane is already landed, if so recieve an error message
+---

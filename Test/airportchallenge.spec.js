@@ -177,7 +177,7 @@ console.log(test);
 // Arrange
 let airport5 = new Airport;
 airport5.landedPlanes = ["Plane1", "Plane2", "Plane3", "Plane4", "Plane5"];
-input = "PLANE6";
+input = "Plane6";
 expectedOutput = `${input} cannot Take Off  - It is not currently in the airport!`;
 
 // Act
