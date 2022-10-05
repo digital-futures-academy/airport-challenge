@@ -1,4 +1,5 @@
 const { assertEquals } = require("./testing-framework");
+const { assertTrue } = require("./testing-framework");
 const Airport = require("../src/airport");
 const Plane = require("../src/plane");
 
@@ -137,8 +138,49 @@ plane2 = new Plane("CBA123");
 plane3 = new Plane("ACB123");
 plane4 = new Plane("123ABC");
 plane5 = new Plane("321ABC");
-plane6 = new Plane("312ABC");
 expected = true;
+
+//Act
+airport.landPlane(plane);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
+airport.landPlane(plane5);
+actual = airport.isAirportFull();
+
+//Assert
+result = assertTrue(actual);
+console.log(
+	`Test 5 - does the isAirportFull function return a truthy value when the capacity = size of planes array: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;
+plane2 = null;
+plane3 = null;
+plane4 = null;
+plane5 = null;
+
+//Test 5 - does landPlane reject a landing when isAirportFull returns true
+
+console.log("===================================");
+console.log(
+	`Test 6 - does landPlane reject a landing when isAirportFull returns true`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+plane2 = new Plane("CBA123");
+plane3 = new Plane("ACB123");
+plane4 = new Plane("123ABC");
+plane5 = new Plane("321ABC");
+plane6 = new Plane("312ABC");
+expected = "The airport is full so the plane can not land right now.";
 
 //Act
 airport.landPlane(plane);
@@ -151,7 +193,7 @@ actual = airport.landPlane(plane6);
 //Assert
 result = assertEquals(actual, expected);
 console.log(
-	`Test 5 - does the isAirportFull function return a truthy value when the capacity = size of planes array: ${result}`
+	`Test 6 - does landPlane reject a landing when isAirportFull returns true: ${result}`
 );
 
 //Clean up
@@ -159,3 +201,9 @@ airport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+plane = null;
+plane2 = null;
+plane3 = null;
+plane4 = null;
+plane5 = null;
+plane6 = null;

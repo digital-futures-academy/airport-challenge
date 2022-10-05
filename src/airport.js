@@ -10,7 +10,13 @@ class Airport {
 		this.#airportPlanes.push(plane);
 		return `The plane ${this.#airportPlanes[0].getFlightNum()} has landed`;
 	}
-	isAirportFull() {}
+	isAirportFull() {
+		let full = false;
+		if (this.#airportPlanes.length === this.#capacity) {
+			full = true;
+		}
+		return full;
+	}
 	getAirportPlanes() {
 		return this.#airportPlanes;
 	}

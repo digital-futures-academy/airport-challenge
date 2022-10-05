@@ -77,7 +77,7 @@ I want to prevent landing when the airport is full
 | `plane` | `flightNumber`@string | | |
 
 1. Test if `isAirportFull()` returns a truthy value when `airportPlanes.length` matches `capacity`
-2. Test if `landPlane()` rejects a landing when `airportPlanes.length` matches `capacity`
+2. Test if `landPlane()` rejects a landing when `isAirportFull()` returns `true`
 
 #### User Story 4
 ```
