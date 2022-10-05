@@ -115,3 +115,28 @@ newCapacity = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Test 5a - Prevent plane from taking off if it is not at the airport
+console.log(`=============================`)
+console.log(`Test 5a - Prevent plane taking off when it is not in the airport`)
+
+//Arrange
+airport = new Airport();
+airport.landPlane(plane);
+expected = "Error, plane is not in the airport";
+
+//Act
+
+actual = airport.takeOffPlane(plane);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 5a: ${result}`);
+
+//Cleanup
+airport = null;
+plane = null;
+newCapacity = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

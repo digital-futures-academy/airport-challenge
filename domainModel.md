@@ -59,6 +59,25 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | ----------- | ----------- | ----------- | ----------- |
 | Airport | planesAtAirport @Array[@string]| takeOffPlane(plane@string) | @string|
 
-1. Test that plane is removed from the planesAtAirport array when passed through the takeOffPlane function followed by a string notifying that the plane has taken off.
+1. Test that plane is removed from the planesAtAirport array when passed through the takeOffPlane function.
+
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+| Object | Properties | Message | Output |
+| ----------- | ----------- | ----------- | ----------- |
+| Airport | planesAtAirport @Array[@string]| takeOffPlane(plane@string) | @string|
+| | | landPlane(plane @string) | @string |
+| | | isPlaneAtAirport(plane @string) | @boolean |
+
+1. Test that isPlaneAtAirport returns true when plane is at the planesAtAirport array.
+2. Test that isPlaneAtAirport returns false when plane is NOT at the planesAtAirport array.
+3. Test that takeOffPlane returns string that notifies plane has taken off if isPlaneAtAirport returned true and reduces planeAtAirport array.
+4. Test that takeOffPlane returns an appropriate string if isPlaneAtAirport returned false and that the length of planeAtAirport is still the same as before.
+5. Test that landPlane returns message saying plane has landed if isPlaneAtAirport returned false and increase planesAtAirport array as a result.
+6. Test that landPlane returns a message saying plane is already at airport if isPlaneAtAirport returned true and does not add plane to the planesAtAirport array.
+
 
 

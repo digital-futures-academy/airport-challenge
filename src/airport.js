@@ -10,7 +10,7 @@ class Airport {
   }
 
   takeOffPlane(plane) {
-    if (this.planesAtAirport.includes(plane)) {
+    if (this.isPlaneAtAirport() === true) {
       let index = this.planesAtAirport.indexOf(plane);
       this.planesAtAirport.splice(index, 1);
       return this.planesAtAirport;
@@ -26,6 +26,14 @@ class Airport {
   isFull(plane) {
     if (this.planesAtAirport.length >= this.capacity) {
       return "Sorry, airport is full"
+    }
+  }
+
+  isPlaneAtAirport(plane) {
+    if (this.planesAtAirport.includes(plane)) {
+      return true;
+    } else {
+      return false;
     }
   }
 
