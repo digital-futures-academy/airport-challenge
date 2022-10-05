@@ -254,7 +254,7 @@ expected = `The plane CBA123 has departed`;
 
 //Act
 
-actual = airport.departPlane(plane);
+actual = airport.departPlane(plane2);
 
 //Assert
 result = assertEquals(actual, expected);

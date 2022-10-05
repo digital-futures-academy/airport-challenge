@@ -16,6 +16,7 @@ class Airport {
 	}
 	departPlane(plane) {
 		this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane));
+		return `The plane ${plane.getFlightNum()} has departed`;
 	}
 	isAirportFull() {
 		let full = false;
