@@ -10,7 +10,7 @@ console.log("==============================================");
 console.log("Test 1: land a plane at an airport");
 
 //Arrange
-airportA = new Airport();
+airportA = new Airport("calm");
 expected = 1;
 
 //Act
@@ -35,9 +35,8 @@ console.log("==============================================");
 console.log("Test 2: return default capacity of 3");
 
 //Arrange
-airportA = new Airport();
+airportA = new Airport("calm");
 expected = 3;
-
 
 //Act
 actual = airportA.capacity;
@@ -60,7 +59,7 @@ console.log("==============================================");
 console.log("Test 2b: check new airport has capacity of 5");
 
 //Arrange
-airportA = new Airport(5);
+airportA = new Airport("calm", 5);
 expected = 5;
 
 //Act
@@ -85,7 +84,7 @@ console.log("==============================================");
 console.log("Test 3: check whether airport is at capacity");
 
 //Arrange
-airportA = new Airport(2);
+airportA = new Airport("calm", 2);
 expected = true;
 
 //Act
@@ -111,7 +110,7 @@ console.log("==============================================");
 console.log("Test 4: remove plane from airport");
 
 //Arrange
-airportA = new Airport(2);
+airportA = new Airport("calm", 2);
 expected = 1;
 
 //Act
@@ -138,7 +137,7 @@ console.log("==============================================");
 console.log("Test 5a: check plane is in the airport - for take off");
 
 //Arrange
-airportA = new Airport();
+airportA = new Airport("calm");
 expected = true;
 
 //Act
@@ -163,7 +162,7 @@ console.log("==============================================");
 console.log("Test 5b: check plane is in the airport - for landing");
 
 //Arrange
-airportA = new Airport();
+airportA = new Airport("calm");
 expected = true;
 
 //Act
@@ -180,7 +179,7 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
-
+/*
 //-******************************************************************************************************
 //Test 6 - check the weather conditions
 console.log("==============================================");
@@ -203,5 +202,29 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+*/
+//-*************************************************************************************************
+
+//Test 7 - Test that take landing denied when weather is stormy.
+console.log("==============================================");
+console.log("Test 7: check that landing denied when weather is stormy.");
+
+//Arrange
+airportB = new Airport("calm");
+
+//Act
+actual = airportB.land("Mango 12");
+
+//Assert
+result = assertEquals(actual, expected);
+console.log("Test 7: plane has landed: " + actual);
+
+//Clean Up 
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 
 
