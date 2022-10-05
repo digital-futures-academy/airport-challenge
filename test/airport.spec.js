@@ -253,7 +253,8 @@ plane2 = new Plane("CBA123");
 expected = `The plane CBA123 has departed`;
 
 //Act
-
+airport.landPlane(plane);
+airport.landPlane(plane2);
 actual = airport.departPlane(plane2);
 
 //Assert
@@ -319,6 +320,36 @@ actual = airport.landPlane(plane);
 result = assertEquals(actual, expected);
 console.log(
 	`Test 10 - if landPlane returns a statement when a plane already has landed: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;
+
+//Test 11 - is a statement returned that tells the user that a plane is not at the airport when you attempt to depart a plane from the airport
+
+console.log("===================================");
+console.log(
+	`Test 11 - if departPlane returns a statement when a plane isn't in the airport`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+plane2 = new Plane("CBA123");
+expected = `The CBA123 plane is not at the airport.`;
+
+//Act
+airport.landPlane(plane);
+actual = airport.departPlane(plane2);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 11 - if departPlane returns a statement when a plane isn't in the airport: ${result}`
 );
 
 //Clean up

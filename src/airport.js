@@ -19,8 +19,12 @@ class Airport {
 		}
 	}
 	departPlane(plane) {
-		this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane));
-		return `The plane ${plane.getFlightNum()} has departed`;
+		if (this.isInAirport(plane)) {
+			this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane));
+			return `The plane ${plane.getFlightNum()} has departed`;
+		} else {
+			return `The ${plane.getFlightNum()} plane is not at the airport.`;
+		}
 	}
 	isInAirport(plane) {
 		let planeIsInAirport = false;
