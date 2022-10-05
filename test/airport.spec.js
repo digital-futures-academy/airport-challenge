@@ -180,7 +180,7 @@ plane3 = new Plane("ACB123");
 plane4 = new Plane("123ABC");
 plane5 = new Plane("321ABC");
 plane6 = new Plane("312ABC");
-expected = "The airport is full so the plane can not land right now.";
+expected = `The airport is full so the 312ABC plane can not land right now.`;
 
 //Act
 airport.landPlane(plane);
