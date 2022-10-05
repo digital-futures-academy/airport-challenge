@@ -207,3 +207,34 @@ plane3 = null;
 plane4 = null;
 plane5 = null;
 plane6 = null;
+
+//Test 7 - does the airport contain less planes when a plane is told to depart?
+
+console.log("===================================");
+console.log(`Test 7 - if depart function takes something out of the airport`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+plane2 = new Plane("CBA123");
+expected = 1;
+
+//Act
+airport.landPlane(plane);
+airport.landPlane(plane2);
+airport.departPlane(plane2);
+actual = airport.getAirportPlanes().length;
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 7 - if depart function takes something out of the airport: ${result}`
+);
+
+//Clean up
+airport = null;
+plane = null;
+plane2 = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
