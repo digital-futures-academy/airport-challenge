@@ -3,6 +3,21 @@ class Airport {
   constructor(capacity = 3) {
     this.airportPlanes = [];
     this.capacity = capacity;
+    //this.weather = weather;
+  };
+
+  checkWeather() {
+    let weather;
+    weather = Math.floor(Math.random() * 2) + 1;
+    if (weather === 1) {
+      return "stormy"
+      //console.log(conditions);
+    }
+    else {
+      return "calm";
+      // console.log(conditions);
+    };
+
   };
 
   land(plane) {
