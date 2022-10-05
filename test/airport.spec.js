@@ -181,3 +181,33 @@ airport = null;
 plane = null;
 plane2 = null;
 airportCapacity = undefined;
+
+// Test 4b - Validation - Check if the length of parkedPlanes array decreases by 1 when takeOffPlane() is called 
+console.log("---------------------");
+console.log("Plane taking off from airport continued")
+
+//Arrange 
+airportCapacity = 2;
+airport = new Airport(airportCapacity);
+plane = new Plane(1);
+airport.landPlane(plane);
+plane2 = new Plane(2);
+airport.landPlane(plane2);
+expected = airport.parkedPlanes.length - 1;
+
+//Actual
+airport.takeOffPlane(plane.getId());
+actual = airport.parkedPlanes.length;
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 4b - Check if the length of an parkedPlanes array decreases by 1 when takeOffPlane() is called: ${result}`);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;
+plane2 = null;
+airportCapacity = undefined;
