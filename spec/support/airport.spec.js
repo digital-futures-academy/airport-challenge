@@ -131,7 +131,6 @@ describe("Airport Challenge Testing Suite", () => {
         let airport = new Airport();
         let plane = { id: `Plane 1` };
         let plane2 = { id: `Plane 2` };
-        let plane3 = { id: `Plane 3` };
 
         // Act
         airport.landPlane(plane);
