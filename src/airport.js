@@ -14,7 +14,9 @@ class Airport {
 			return `The plane ${this.#airportPlanes[0].getFlightNum()} has landed`;
 		}
 	}
-	departPlane() {}
+	departPlane(plane) {
+		this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane));
+	}
 	isAirportFull() {
 		let full = false;
 		if (this.#airportPlanes.length === this.#capacity) {
