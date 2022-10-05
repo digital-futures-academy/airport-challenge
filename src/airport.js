@@ -7,11 +7,15 @@ class Airport {
 		this.#capacity = capacity;
 	}
 	landPlane(plane) {
-		if (this.isAirportFull()) {
-			return `The airport is full so the ${plane.getFlightNum()} plane can not land right now.`;
+		if (this.isInAirport(plane)) {
+			return `The ${plane.getFlightNum()} plane has already landed.`;
 		} else {
-			this.#airportPlanes.push(plane);
-			return `The plane ${this.#airportPlanes[0].getFlightNum()} has landed`;
+			if (this.isAirportFull()) {
+				return `The airport is full so the ${plane.getFlightNum()} plane can not land right now.`;
+			} else {
+				this.#airportPlanes.push(plane);
+				return `The plane ${this.#airportPlanes[0].getFlightNum()} has landed`;
+			}
 		}
 	}
 	departPlane(plane) {

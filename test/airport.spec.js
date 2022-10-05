@@ -309,7 +309,7 @@ console.log(
 //Arrange
 airport = new Airport();
 plane = new Plane("ABC123");
-expected = `The ABC123 plane has already landed`;
+expected = `The ABC123 plane has already landed.`;
 
 //Act
 airport.landPlane(plane);
