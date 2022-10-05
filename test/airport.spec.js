@@ -179,30 +179,7 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
-/*
-//-******************************************************************************************************
-//Test 6 - check the weather conditions
-console.log("==============================================");
-console.log("Test 6: check weather conditions");
 
-//Arrange
-airportA = new Airport();
-expected = "stormy";
-
-//Act
-actual = airportA.checkWeather();
-
-//Assert
-result = assertEquals(actual, expected);
-console.log("Test 6: Weather conditions are " + actual);
-
-//Clean Up
-airport = null;
-plane = null;
-expected = undefined;
-actual = undefined;
-result = undefined;
-*/
 //-*************************************************************************************************
 
 //Test 7 - Test that take landing denied when weather is stormy.
@@ -228,9 +205,9 @@ result = undefined;
 
 //-*************************************************************************************************
 
-//Test 8 - Test that take off denied when weather is stormy.
+//Test 6 - Test that take off denied when weather is stormy.
 console.log("==============================================");
-console.log("Test 7: check that take off denied when weather is stormy.");
+console.log("Test 6: check that take off denied when weather is stormy.");
 
 //Arrange
 airportB = new Airport("calm");
@@ -242,7 +219,7 @@ actual = airportB.takeOff("Big Red 1");
 
 //Assert
 result = assertEquals(actual, expected);
-console.log("Test 7: plane has taken off " + actual);
+console.log("Test 6: plane has taken off " + actual);
 
 //Clean Up 
 airport = null;
@@ -250,4 +227,57 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+//-*************************************************************************************************
+
+//Test 7 - Test that take landing denied when weather is stormy.
+console.log("==============================================");
+console.log("Test 7: check that landing denied when weather is stormy.");
+
+//Arrange
+airportB = new Airport("calm");
+
+//Act
+actual = airportB.land("Mango 12");
+
+//Assert
+result = assertEquals(actual, expected);
+console.log("Test 7: plane has landed: " + actual);
+
+//Clean Up 
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+//-*************************************************************************************************
+
+//Test 8 - Test that user can return list of planes in an airport
+console.log("==============================================");
+console.log("Test 8: check that user can return list of planes in an airport");
+
+//Arrange
+airportA = new Airport("calm");
+airportB = new Airport("calm");
+airportA.land("Mango 12");
+airportA.land("Orange 7");
+airportA.land("Spitfire 633")
+airportB.land("Big Red 1");
+
+//Act
+actual = airportA.trackPlanes();
+
+//Assert
+result = assertEquals(actual, expected);
+console.log("Test 8: list plane(s) in airport: " + actual);
+
+//Clean Up 
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 

@@ -29,7 +29,7 @@ class Airport {
       if (this.airportPlanes.includes(plane) === true) {
         this.airportPlanes = this.airportPlanes.filter(value => !plane.includes(value));
         console.log(`   **** ${plane} TOOK OFF!! ****`);
-        console.log("Airport contains: " + this.airportPlanes.join(", "));
+        console.log("Airport contains: " + this.airportPlanes.length + " plane(s): " + this.airportPlanes.join(", "));
         return true;
       }
       else {
@@ -37,17 +37,21 @@ class Airport {
       }
     }
     else {
-      console.log("ALERT: plane cannot land due to stormy weather!");
+      console.log("ALERT: plane cannot take off due to stormy weather!");
       return false;
     }
   };
 
   checkFull() {
+    console.log("Airport contains: " + this.airport + this.airportPlanes.join(", "));
     if (this.airportPlanes.length === this.capacity) {
-      console.log("Airport contains: " + this.airportPlanes.join(", "));
       return true
     }
 
+  };
+
+  trackPlanes() {
+    return "Airport contains: " + this.airportPlanes.length + " plane(s): " + this.airportPlanes.join(", ");
   };
 
 };
