@@ -226,5 +226,28 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+//-*************************************************************************************************
 
+//Test 8 - Test that take off denied when weather is stormy.
+console.log("==============================================");
+console.log("Test 7: check that take off denied when weather is stormy.");
+
+//Arrange
+airportB = new Airport("calm");
+airportB.land("Big Red 1");
+
+//Act
+airportB.conditions = "stormy";
+actual = airportB.takeOff("Big Red 1");
+
+//Assert
+result = assertEquals(actual, expected);
+console.log("Test 7: plane has taken off " + actual);
+
+//Clean Up 
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
