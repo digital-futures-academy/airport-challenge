@@ -26,7 +26,8 @@ which signafies landed planes at an airport. Also gave `Plane` object a `planeId
 ### Tests
 
 Test 1a - Validation - check if the length of an empty `parkedPlanes` array increases by 1 when `landPlane()` is called - returns true if so <br>
-Test 1b - Verification - Check if a plane object is added to the `parkedPlanes` array when `landPlane()` is called - matches the return string from the `landPlane()` method call with the expected string for this method - returns true when matched
+Test 1b - Verification - Check if a plane object is added to the `parkedPlanes` array when `landPlane()` is called - matches the return string from the `landPlane()` method call with the expected string for this method - returns true when matched <br>
+Test 1c - Check if calling `getID()` returns the correct `planeID` value for a `Plane` object
 
 2.
 
