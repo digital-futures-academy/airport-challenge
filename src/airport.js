@@ -29,7 +29,7 @@ class Airport {
   }
 
   land(plane) {
-    if (this.isCapacityFull() !== false && this.airportList.includes(plane) === false) {
+    if (this.isCapacityFull() !== false && this.airportList.includes(plane) === false && this.weather !== `stormy`) {
       this.airportList.push(plane);
       this.landedMessage = `${plane} has successfully landed at the airport.`
     } else {
