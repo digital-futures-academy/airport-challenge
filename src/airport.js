@@ -4,8 +4,12 @@ class Airport {
   airportCapacity;
   departedMessage;
   landedMessage;
+<<<<<<< HEAD
   airportWeather;
   randomNumber;
+=======
+  actualWeather;
+>>>>>>> parent of 25e57e2 (Test 13 pass but couldn't work out a failing test)
 
   constructor(airportCapacity = 5) {
     this.airportList = [];
