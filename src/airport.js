@@ -33,16 +33,16 @@ class Airport {
     console.log(this.capacity);
   }
 
-//   removePlane(plane) {
+   removePlane(plane) {
 //     if (!this.airport.includes(plane)) {
 //       return 'plane not in airport'
 //     }
 //     else {
-//       this.airport.pop(plane);
-//       return true;
+       this.airport.pop(plane);
+       return true;
 //     }
     
-//   }
+   }
 
 
 //   checkAirport(plane) {
