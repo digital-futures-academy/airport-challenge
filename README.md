@@ -44,10 +44,10 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 ```
-| Objects | Properties | Messages | Output |
-| :----   | :--------  | :------  | :----  |
-|`airport`  | `airportPlanes`@ARRAY[@string]| `landPlane(`@plane`)` | @string |
-| `plane` | `flightNumber`@string | | |
+| Objects   | Properties                     | Messages              | Output  |
+| :-------- | :----------------------------- | :-------------------- | :------ |
+| `airport` | `airportPlanes`@ARRAY[@string] | `landPlane(`@plane`)` | @string |
+| `plane`   | `flightNumber`@string          |                       |         |
 
 1. Test that the plane is added  to `airportPlanes` by checking that the length of `airportPlanes` increases after calling `landingPlanes(plane)`
 2. Test that `landPlane` returns a string that confirms that the plane has landed and is added to `airportPlane`
@@ -57,9 +57,9 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
-| Objects | Properties | Messages | Output |
-| :----   | :--------  | :------  | :----  |
-|`airport`  | `capacity`@number| `constructor(newCapacity`@number`)` | @void |
+| Objects   | Properties        | Messages                            | Output |
+| :-------- | :---------------- | :---------------------------------- | :----- |
+| `airport` | `capacity`@number | `constructor(newCapacity`@number`)` | @void  |
 
 1. Test that the `airport` has a default `capacity` when it is constructed
 2. Test that `capacity` increases to the correct amount when the newCapacity is changed
@@ -70,11 +70,11 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 ```
-| Objects | Properties | Messages | Output |
-| :----   | :--------  | :------  | :----  |
-|`airport`  | `capacity`@number| `landPlane(isAirportFull(),`@plane`)` |@string|
-| | `airportPlanes`@ARRAY[@string]| `isAirportFull()` | @boolean |
-| `plane` | `flightNumber`@string | | |
+| Objects   | Properties                     | Messages                              | Output   |
+| :-------- | :----------------------------- | :------------------------------------ | :------- |
+| `airport` | `capacity`@number              | `landPlane(isAirportFull(),`@plane`)` | @string  |
+|           | `airportPlanes`@ARRAY[@string] | `isAirportFull()`                     | @boolean |
+| `plane`   | `flightNumber`@string          |                                       |          |
 
 1. Test if `isAirportFull()` returns a truthy value when `airportPlanes.length` matches `capacity`
 2. Test if `landPlane()` rejects a landing when `isAirportFull()` returns `true`
@@ -85,10 +85,10 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
-| Objects | Properties | Messages | Output |
-| :----   | :--------  | :------  | :----  |
-|`airport`  | `airportPlanes`@ARRAY[@string]| `departPlane(`@plane`)` | @string |
-| `plane` | `flightNumber`@string | | |
+| Objects   | Properties                     | Messages                | Output  |
+| :-------- | :----------------------------- | :---------------------- | :------ |
+| `airport` | `airportPlanes`@ARRAY[@string] | `departPlane(`@plane`)` | @string |
+| `plane`   | `flightNumber`@string          |                         |         |
 
 1. Test that the `plane` is removed from `airportPlanes` by checking that the length of `airportPlanes` decreases after calling `departPlane(plane)`
 2. Test that `departPlane(plane)` returns a string to confirm that the `plane` has departed and no longer exists in `airportPlanes`
@@ -99,12 +99,12 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
-| Objects | Properties | Messages | Output |
-| :----   | :--------  | :------  | :----  |
-|`airport`  |`airportPlanes`@ARRAY[@string] | `landPlane(isInAirport,`@plane`)` |@string|
-| | | `departPlane(isInAirport,`@plane`)` | @string |
-| | | `isInAirport(`@plane`)` | @boolean |
-| `plane` | `flightNumber`@string | | |
+| Objects   | Properties                     | Messages                            | Output   |
+| :-------- | :----------------------------- | :---------------------------------- | :------- |
+| `airport` | `airportPlanes`@ARRAY[@string] | `landPlane(isInAirport,`@plane`)`   | @string  |
+|           |                                | `departPlane(isInAirport,`@plane`)` | @string  |
+|           |                                | `isInAirport(`@plane`)`             | @boolean |
+| `plane`   | `flightNumber`@string          |                                     |          |
 
 1. Test that `isInAirport()` returns true when a `plane` is passed through that already exists in the `airportPlanes` array
 2. Test that when you attempt to "land" a plane and it already exists in the airport (`airportPlanes`) it returns a string to state that it had already landed
@@ -114,15 +114,35 @@ I want to prevent asking the airport to let planes take-off which are not at the
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+```
+| Objects   | Properties                     | Messages                        | Output   |
+| :-------- | :----------------------------- | :------------------------------ | :------- |
+| `airport` | `airportPlanes`@ARRAY[@string] | `departPlane(weather,`@plane`)` | @string  |
+|           | `weather`@Weather              | `getWeather()`                  | @boolean |
+| `Weather` | `stormy`@boolean               | `constructor()`                 | @boolean |
+|           |                                | `getWeather()`                  | @boolean |
 
+1. Test that when a weather object is created it randomly generates for stormy to either be true or false
+2. Test that when the weather is stormy the `departPlane()` method rejects the plane from departing
+```
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+```
+| Objects   | Properties                     | Messages                        | Output   |
+| :-------- | :----------------------------- | :------------------------------ | :------- |
+| `airport` | `airportPlanes`@ARRAY[@string] | `landPlane(weather,`@plane`)` | @string  |
+|           | `weather`@Weather              | `getWeather()`                  | @boolean |
+| `Weather` | `stormy`@boolean               | `constructor()`                 | @boolean |
+|           |                                | `getWeather()`                  | @boolean |
 
+1. Test that when the weather is stormy the `landPlane()` method rejects the plane from landing 
+```
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 ```
+
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
