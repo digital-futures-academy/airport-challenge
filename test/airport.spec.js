@@ -390,3 +390,31 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 plane = null;
+
+//Test 13 - Does landPlane refuse to allow a plane to land if the weather is stormy
+
+console.log("===================================");
+console.log(
+	`Test 13 - if landPlane refuses to allow a plane to land when its stormy`
+);
+
+//Arrange
+airport = new Airport();
+plane = new Plane("ABC123");
+expected = `The weather is too stormy to land.`;
+
+//Act
+actual = airport.landPlane(plane, testWeather.getWeather());
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 13 - if landPlane refuses to allow a plane to land when its stormy: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;
