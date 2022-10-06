@@ -1,4 +1,28 @@
+Airport Challenge
+=================
+
+```
+         ______
+        __\____\___
+=  = ==(____DFA____)
+           \_____\__________________,-~~~~~~~`-.._
+          /     o o o o o o o o o o o o o o o o  |\_
+          `~-.__       __..----..__                  )
+                `---~~\___________/------------`````
+                =  ===(_________)
+
+```
+
+
+Task
+-----
+
+We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+
+
 #### Acceptance Criteria
+---
+## User Story 1
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -12,6 +36,7 @@ I want to instruct the airport to land a plane
 1. test the airport has added a plane to planeList via land function.
 ---
 
+## User Story 2
 ```
 As the system designer
 So that the software can be used for many different airports
@@ -26,6 +51,7 @@ I would like a default airport capacity that can be overridden as appropriate
 2. test the airport capacity can be changed.  
 ---
 
+## User Story 3
 ```
 As an air traffic controller
 To ensure safety
@@ -40,6 +66,7 @@ I want to prevent landing when the airport is full
 2. test that a plane doesn't land when capacity is full.
 ---
 
+## User Story 4
 ```
 As an air traffic controller
 So I can get passengers on the way to their destination
@@ -54,6 +81,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 2. test that a plane that has taken off is no longer at the airport.
 ---
 
+## User Story 5
 ```
 As an air traffic controller
 To avoid confusion
@@ -70,6 +98,8 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ---
 
 #### Extended Acceptance Criteria
+---
+## User Story 6
 ```
 As an air traffic controller
 To ensure safety
@@ -83,6 +113,7 @@ I want to prevent takeoff when weather is stormy
 1. test that takeoff is prevented when the weather is stormy.
 ---
 
+## User Story 7
 ```
 As an air traffic controller
 To ensure safety
@@ -96,6 +127,7 @@ I want to prevent landing when weather is stormy
 1. test that land is prevented when the weather is stormy.
 ---
 
+## User Story 8
 ```
 As an air traffic controller
 To count planes easily
