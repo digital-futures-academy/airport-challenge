@@ -30,13 +30,16 @@ class Airport {
   };
 
   takeOffPlane = (planeID) => {
-    for (let i in this.parkedPlanes) {
-      if (this.parkedPlanes[i].getId() === planeID) {
-        let indexToSplice = this.parkedPlanes.indexOf(this.parkedPlanes[i]);
-        this.parkedPlanes.splice(indexToSplice, 1);
-        return `Plane ${planeID} has taken off from the airport`;
+    if (this.isPlaneAtAirport(planeID)) {
+      for (let i in this.parkedPlanes) {
+        if (this.parkedPlanes[i].getId() === planeID) {
+          let indexToSplice = this.parkedPlanes.indexOf(this.parkedPlanes[i]);
+          this.parkedPlanes.splice(indexToSplice, 1);
+          return `Plane ${planeID} has taken off from the airport`;
+        }
       }
     }
+    return `Plane ${planeID} is not at the airport so it can not take off`;
   };
 
   isPlaneAtAirport = planeID => {
