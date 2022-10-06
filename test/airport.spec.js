@@ -358,3 +358,35 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 plane = null;
+
+//Test 12 - Does departPlane refuse to allow a plane to depart if the weather is stormy
+
+console.log("===================================");
+console.log(
+	`Test 12 - if departPlane refuses to allow a plane to depart when its stormy`
+);
+
+//Arrange
+const testWeather = {
+	getWeather: () => true,
+};
+airport = new Airport();
+plane = new Plane("ABC123");
+expected = `The weather is too stormy to depart.`;
+
+//Act
+airport.landPlane(plane);
+actual = airport.departPlane(plane, testWeather);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(
+	`Test 12 - if departPlane refuses to allow a plane to depart when its stormy: ${result}`
+);
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;

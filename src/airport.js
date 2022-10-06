@@ -18,7 +18,7 @@ class Airport {
 			}
 		}
 	}
-	departPlane(plane) {
+	departPlane(plane, weather) {
 		if (this.isInAirport(plane)) {
 			this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane));
 			return `The plane ${plane.getFlightNum()} has departed`;
