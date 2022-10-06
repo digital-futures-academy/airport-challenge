@@ -293,23 +293,52 @@ result = undefined;
 // Test 11 - test that the airport doesn't land a plane that is already there.
 
 console.log(`============================`);
-console.log(`Test 11 - test that takeoff is prevented when the weather is stormy`);
+console.log(`Test 11 - test that takeoff is prevented when the weather is stormy.`);
 
 // Arrange
 airport = new Airport();
 plane = { id: "plane1" };
-airport.airportList.push(plane);
 weather = `stormy`;
+airport.airportList.push(plane);
+airport.weather = weather;
 expected = `${plane} has not departed`
 
 // Act
-airport.weather = weather;
 airport.takeoff(plane);
 actual = airport.departedMessage;
 
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 11: A plane doesn't takeoff when the weather is stormy: ${result}`);
+
+// Clean up
+airport = null;
+plane = null
+weather = null
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Test 12 - test that land is prevented when the weather is stormy.
+
+console.log(`============================`);
+console.log(`Test 12 - test that land is prevented when the weather is stormy.`);
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+weather = `stormy`;
+airport.weather = weather;
+expected = `${plane} has not landed.`
+
+// Act
+airport.land(plane);
+actual = airport.landedMessage;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 12: A plane doesn't land at the airport when the weather is stormy: ${result}`);
 
 // Clean up
 airport = null;
