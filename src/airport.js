@@ -19,6 +19,9 @@ class Airport {
 		}
 	}
 	departPlane(plane, weather) {
+		if (weather === true) {
+			return `The weather is too stormy to depart.`;
+		}
 		if (this.isInAirport(plane)) {
 			this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane));
 			return `The plane ${plane.getFlightNum()} has departed`;

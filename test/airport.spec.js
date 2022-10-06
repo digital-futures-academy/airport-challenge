@@ -376,7 +376,7 @@ expected = `The weather is too stormy to depart.`;
 
 //Act
 airport.landPlane(plane);
-actual = airport.departPlane(plane, testWeather);
+actual = airport.departPlane(plane, testWeather.getWeather());
 
 //Assert
 result = assertEquals(actual, expected);
