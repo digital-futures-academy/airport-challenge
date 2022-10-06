@@ -3,140 +3,132 @@
 const { assertEquals } = require('../testing-framework');
 
 const Airport = require('../src/airport');
+const Plane = require('../src/plane');
 
-let control;
-let expected;
-let actual;
-let result;
-let myAirport;
-let plane;
-let successMsg;
+let control, expected, actual, result, testAirport, successMsg;
 
 // Test 1 - has the plane landed?
 
 console.log(`===================================================`);
 console.log(
-  `Test 1 - check success of landPlane: array length should change and success message should be logged`
+  `Test 1\n
+  - check success of landPlane: array length should change\n
+  - ensure additional planes can be added\n
+  `
 );
 
 // Arrange
-myAirport = new Airport();
-control = myAirport.planeArray.length;
-plane = `dfa-001`;
+testAirport = new Airport();
+control = testAirport.planeArray.length;
 expected = control + 1;
 
 // Act
-myAirport.landPlane(plane);
-actual = myAirport.planeArray.length;
+testAirport.landPlane(new Plane(`dfa001`));
+actual = testAirport.planeArray.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 1.1: Plane landed: ${result}`);
 
 // Add second plane
-plane = `dfa-002`;
-myAirport.landPlane(plane);
+testAirport.landPlane(new Plane(`dfa002`));
 result = assertEquals(actual, expected);
 console.log(`Test 1.2: Additional plane landed: ${result}`);
 
 // Clean up
-myAirport = null;
-plane = null;
+testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
 
 // Test 2 - Is there a default capacity on new airport instances and can it be changed?
 
-console.log(`===================================================`);
+console.log(`\n
+===================================================`);
 console.log(
-  `Test 2 - check that airport capacity has a default value of 10 and is successfully changed with setCapacity`
+  `Test 2\n
+  - check that airport capacity has a default value of 10\n
+  - check that capacity value is successfully changed with setCapacity\n
+  `
 );
 
 // Arrange
-myAirport = new Airport();
+testAirport = new Airport();
 expected = 10;
 
 // Act
-actual = myAirport.capacity;
+actual = testAirport.capacity;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 2.1: Correct default capacity: ${result}`);
 
 // Clean up
-myAirport = null;
-plane = null;
+testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
 
 // Arrange
-myAirport = new Airport();
+testAirport = new Airport();
 expected = true;
 
 // Act
-myAirport.setCapacity(20);
-actual = myAirport.capacity !== 10;
+testAirport.setCapacity(20);
+actual = testAirport.capacity !== 10;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 2.2: Capacity changed: ${result}`);
 
 // Clean up
-myAirport = null;
-plane = null;
+testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
 
 // Test 3: Has airport capacity been reached? Are planes prevented from landing if it has?
 
-console.log(`===================================================`);
+console.log(`\n
+===================================================`);
 console.log(
-  `Test 3 - check that airport capacity has been reached; check that planes cannot land if it has, and that appropriate messages are being returned to confirm`
+  `Test 3 \n
+  - check that a message confirming full capacity is returned\n
+  - check that planes cannot land after capacity has been reached\n
+  `
 );
 
 // Arrange
-let plane1 = 'dfa001',
-  plane2 = 'dfa002',
-  plane3 = 'dfa003',
-  plane4 = 'dfa004',
-  plane5 = 'dfa005';
-
-myAirport = new Airport();
-myAirport.setCapacity(5);
-myAirport.landPlane(plane1);
-myAirport.landPlane(plane2);
-myAirport.landPlane(plane3);
-myAirport.landPlane(plane4);
-let capacityMessage = myAirport.landPlane(plane5);
-// console.log(myAirport.planeArray);
-expected = 'Airport capacity has been reached.';
+testAirport = new Airport();
+testAirport.setCapacity(5);
+testAirport.landPlane(new Plane(`dfa-001`));
+testAirport.landPlane(new Plane(`dfa-002`));
+testAirport.landPlane(new Plane(`dfa-003`));
+testAirport.landPlane(new Plane(`dfa-004`));
+testAirport.landPlane(new Plane(`dfa-005`));
+expected = `Airport capacity has been reached.`;
 
 // Act
-actual = capacityMessage;
+actual = testAirport.capacityReached();
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 3.1: Capacity reached message printed when capacity === planesArray.length: ${result}`
+  `Test 3.1: capacityReached message returned when airport capacity is full ${result}`
+);
+
+// Arrange
+testAirport.landPlane(new Plane(`dfa-006`));
+expected = testAirport.capacity;
+// Act
+actual = testAirport.planeArray.length;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 3.2: plane is not added to planesArr when airport capacity is full: ${result}`
 );
 
 // Clean up
-myAirport = null;
-plane = null;
+testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Arrange
-
-// Act
-
-// Assert
-
-// Clean up
-myAirport = null;
-plane = null;
-expected = undefined;
-actual = undefined;
-result = undefined;
-
-console.log(`===================================================`);
+console.log(`\n
+===================================================`);
