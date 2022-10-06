@@ -3,20 +3,32 @@ class airport {
     this.planeArr = [];
     this.cap = capacity;
   }
+  isHere(plane) {
+    return this.planeArr.includes(plane);
+  }
   land(plane) {
-    if (this.planeArr.length == this.cap){
-      return false;
+    const planeIsHere = this.isHere(plane);
+    if (planeIsHere == false) {
+      if (this.planeArr.length == this.cap) {
+        return false;
+      }
+      this.planeArr.push(plane);
+      return true;
     }
-    this.planeArr.push(plane);
-    return true;
+    return false;
   }
   getIndex(plane) {
     return this.planeArr.indexOf(plane);
   }
   depart(plane) {
-    this.planeArr.splice(this.getIndex(plane), 1);
-    return !this.planeArr.includes(plane);
+    const planeIsHere = this.isHere(plane);
+    if (planeIsHere == true) {
+      this.planeArr.splice(this.getIndex(plane), 1);
+      return false;
+    }
+    return ("Not Here");
   }
+
   changecap = (newcap => this.cap = newcap);
 }
 

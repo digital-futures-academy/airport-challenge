@@ -70,13 +70,48 @@ result = undefined;
 airport1 = undefined;
 
 //arrange
-airport1 = new airport(0);
-let airplane1 = new airplane();
+airport1 = new airport(4);
+let airplane1 = new airplane("man42");
 airport1.land(airplane1);
-
 //act
 actual = airport1.depart(airplane1);
 
 //assert
-result = assertTrue(actual);
+result = assertFalse(actual);
 console.log(`Test to see if planes can depart from the airport ${result}`);
+
+//clean-up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport1 = undefined;
+
+//arrange
+airport1 = new airport(4);
+airplane1 = new airplane("man42");
+airport1.land(airplane1);
+
+//act
+actual = airport1.land(airplane1);
+
+//assert
+result = assertFalse(actual);
+console.log(`Test to see if an already landed plane can land at the airport ${result} `); 
+
+//clean-up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport1 = undefined;
+
+//arrange
+airport1 = new airport(4);
+airplane1 = new airplane("man42");
+expected = "Not Here";
+//act
+actual = airport1.depart(airplane1);
+
+//assert
+result = assertEquals(actual, expected);
+console.log(`Test to see if a non existant plane can't depart ${result} `); 
+

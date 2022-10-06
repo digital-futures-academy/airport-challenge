@@ -78,7 +78,7 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
-(1)
+## (1)
 
 > As an air traffic controller
 > So I can get passengers to their destination
@@ -90,7 +90,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 |          |                         |              |        |
 | Airplane |                         |              |        |
 
-(2)
+## (2)
 
 > As the system designer
 > So that the software can be used for different airports
@@ -101,7 +101,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 | Airport  |  Capacity  |          |        |
 | Airplane |            |          |        |
 
-##(3)
+## (3)
 
 > As an air traffic controller
 > To ensure safety
@@ -113,7 +113,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 |          | PlaneArr@array@Airplane | land@Airplane | @boolean |
 | Airplane |                         |               |          |
 
-##(4)
+## (4)
 
 > As an air traffic controller
 > So I can get passengers on the way to their destination
@@ -125,15 +125,27 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 |          |                         | contains@Airplane | @boolean |
 | Airplane |                         |                   |          |
 
-##(5)
+## (5)
 
 > As an air traffic controller
 > To avoid confusion
 > I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-|  Object  |       Properties        |    Messages    |  Output  |
-| :------: | :---------------------: | :------------: | :------: |
-| Airport  | PlaneArr@array@Airplane |     depart     | @boolean |
-|          |                         |      land      | @boolean |
-|          |                         | planeAtAirport | @boolean |
-| Airplane |                         |                |          |
+|  Object  |       Properties        | Messages |  Output  |
+| :------: | :---------------------: | :------: | :------: |
+| Airport  | PlaneArr@array@Airplane |  depart  | @boolean |
+|          |                         |   land   | @boolean |
+|          |                         |  IsHere  | @boolean |
+| Airplane |                         |          |          |
+
+## (Extended 1)
+
+> As an air traffic controller
+> To ensure safety
+> I want to prevent takeoff when weather is stormy
+
+|  Object  |       Properties        | Messages |  Output  |
+| :------: | :---------------------: | :------: | :------: |
+| Airport  | PlaneArr@array@Airplane |   land   | @boolean |
+| Airplane |                         |          |          |
+| Weather  |       Wind@String       |          |          |
