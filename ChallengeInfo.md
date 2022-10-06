@@ -10,7 +10,7 @@ I want to instruct the airport to land a plane
 | plane   | -                       | -            | -      |
 
 1. test the airport has added a plane to planeList via land function.
-
+---
 
 ```
 As the system designer
@@ -24,7 +24,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 1. test the airport can take a capacity. 
 2. test the airport capacity can be changed.  
-
+---
 
 ```
 As an air traffic controller
@@ -38,7 +38,7 @@ I want to prevent landing when the airport is full
 
 1. test if the capacity is full.
 2. test that a plane doesn't land when capacity is full.
-
+---
 
 ```
 As an air traffic controller
@@ -52,7 +52,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 1. test that a plane has taken off from the airport.
 2. test that a plane that has taken off is no longer at the airport.
-
+---
 
 ```
 As an air traffic controller
@@ -67,3 +67,21 @@ I want to prevent asking the airport to let planes take-off which are not at the
 1. test that the airport contains the plane that is taking off.
 2. test that the airport only lets planes that are at the airport takeoff.
 3. test that the airport doesn't contain the plane that is landing.
+---
+
+#### Extended Acceptance Criteria
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+```
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```

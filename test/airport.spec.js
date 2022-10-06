@@ -10,10 +10,11 @@ let plane2;
 let size;
 let airportCapacity;
 
+
 // Test 1 - test the airport has added a plane to planeList via land function.
 
 console.log(`============================`);
-console.log(`Test 1 - Land adds a plane to the airport.`);
+console.log(`Test 1 - test the airport has added a plane to planeList via land function.`);
 
 // Arrange
 airport = new Airport();
@@ -39,7 +40,7 @@ result = undefined;
 // Test 2 - test the airport can take a capacity.
 
 console.log(`============================`);
-console.log(`Test 2 - The airport has a default capacity.`);
+console.log(`Test 2 - test the airport can take a capacity.`);
 
 // Arrange
 airport = new Airport();
@@ -63,7 +64,7 @@ result = undefined;
 // Test 3 - test the airport capacity can be changed.
 
 console.log(`============================`);
-console.log(`Test 3 - The airport has a changeable capacity.`);
+console.log(`Test 3 - test the airport capacity can be changed.`);
 
 // Arrange
 airport = new Airport();
@@ -89,7 +90,7 @@ result = undefined;
 // Test 4 - test if the capacity is full.
 
 console.log(`============================`);
-console.log(`Test 4 - The airport capacity is full.`);
+console.log(`Test 4 - test if the capacity is full.`);
 
 // Arrange
 airport = new Airport();
@@ -119,7 +120,7 @@ result = undefined;
 // Test 5 - test that a plane doesn't land when capacity is full.
 
 console.log(`============================`);
-console.log(`Test 5 - The plane won't land if the capacity is full.`);
+console.log(`Test 5 - test that a plane doesn't land when capacity is full.`);
 
 // Arrange
 airport = new Airport();
@@ -149,7 +150,7 @@ result = undefined;
 // Test 6 - test that a plane has taken off from the airport.
 
 console.log(`============================`);
-console.log(`Test 6 - A plane has taken off from the airport.`);
+console.log(`Test 6 - test that a plane has taken off from the airport.`);
 
 // Arrange
 airport = new Airport();
@@ -179,7 +180,7 @@ result = undefined;
 // Test 7 - test that a plane that has taken off is no longer at the airport.
 
 console.log(`============================`);
-console.log(`Test 7 - A plane that has taken off is no longer at the airport.`);
+console.log(`Test 7 - test that a plane that has taken off is no longer at the airport.`);
 
 // Arrange
 airport = new Airport();
@@ -208,7 +209,7 @@ result = undefined;
 // Test 8 - test that the airport contains the plane that is taking off.
 
 console.log(`============================`);
-console.log(`Test 8 - A plane that is taking off is from the airport.`);
+console.log(`Test 8 - test that the airport contains the plane that is taking off.`);
 
 // Arrange
 airport = new Airport();
@@ -235,7 +236,7 @@ result = undefined;
 // Test 9 - test that the airport only lets planes that are at the airport takeoff.
 
 console.log(`============================`);
-console.log(`Test 9 - A plane doesn't take off as it is not at the airport.`);
+console.log(`Test 9 - test that the airport only lets planes that are at the airport takeoff.`);
 
 // Arrange
 airport = new Airport();
@@ -250,7 +251,7 @@ actual = airport.departedMessage;
 
 // Assert
 result = assertEquals(actual, expected);
-console.log(`Test 9: A plane that has not taken off from the airport: ${result}`);
+console.log(`Test 9: A plane has not taken off from the airport: ${result}`);
 
 // Clean up
 airport = null;
@@ -264,13 +265,13 @@ result = undefined;
 // Test 10 - test that the airport doesn't land a plane that is already there.
 
 console.log(`============================`);
-console.log(`Test 10 - A plane doesn't land at the airport as it is already there.`);
+console.log(`Test 10 - test that the airport doesn't land a plane that is already there.`);
 
 // Arrange
 airport = new Airport();
 plane = { id: "plane1" };
 airport.airportList.push(plane);
-expected = `${plane} has has not landed at the airport as it is already there.`
+expected = `${plane} has not landed at the airport as it is already there.`
 
 // Act
 airport.land(plane);

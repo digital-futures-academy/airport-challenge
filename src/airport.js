@@ -6,7 +6,6 @@ class Airport {
   departedMessage;
   landedMessage;
 
-
   constructor(airportCapacity = 5) {
     this.airportList = [];
     this.airportCapacity = airportCapacity;
@@ -14,7 +13,6 @@ class Airport {
     this.departedMessage = ``;
     this.landedMessage = ``;
   };
-
 
 
   capacity(size) {
@@ -32,16 +30,16 @@ class Airport {
   }
 
   land(plane) {
-    if (this.isCapacityFull() !== true && this.airportList.includes(plane) === false) {
+    if (this.isCapacityFull() !== false && this.airportList.includes(plane) === false) {
       this.airportList.push(plane);
       this.landedMessage = `${plane} has successfully landed at the airport.`
     } else {
-      this.landedMessage = `${plane} has has not landed at the airport as it is already there.`
+      this.landedMessage = `${plane} has not landed at the airport as it is already there.`
     }
   }
 
   takeoff(plane) {
-    if (this.airportList.includes(plane) === true) {
+    if (this.airportList.includes(plane)) {
       this.indexOfPlane = this.airportList.indexOf(plane);
       this.airportList.splice(this.indexOfPlane, 1);
       this.departedMessage = `${plane} has successfully departed from the airport.`
@@ -50,7 +48,5 @@ class Airport {
     }
   }
 };
-
-
 
 module.exports = Airport;
