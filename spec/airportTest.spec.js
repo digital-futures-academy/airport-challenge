@@ -1,6 +1,6 @@
 const airplane = require("../src/airplane");
 const airport = require("../src/airport");
-const { assertEquals, assertFalse } = require("../test/test-framework");
+const { assertEquals, assertFalse, assertTrue } = require("../test/test-framework");
 //arrange
 let plane1 = "MAN44"
 let airport1 = new airport;
@@ -61,4 +61,22 @@ actual = airport1.land(new airplane);
 
 //assert
 result = assertFalse(actual);
-console.log(`Test to see if planes cannot land at a full airport ${ result }`);
+console.log(`Test to see if planes cannot land at a full airport ${result}`);
+
+//clean-up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport1 = undefined;
+
+//arrange
+airport1 = new airport(0);
+let airplane1 = new airplane();
+airport1.land(airplane1);
+
+//act
+actual = airport1.depart(airplane1);
+
+//assert
+result = assertTrue(actual);
+console.log(`Test to see if planes can depart from the airport ${result}`);

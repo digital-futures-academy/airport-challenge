@@ -10,6 +10,13 @@ class airport {
     this.planeArr.push(plane);
     return true;
   }
+  getIndex(plane) {
+    return this.planeArr.indexOf(plane);
+  }
+  depart(plane) {
+    this.planeArr.splice(this.getIndex(plane), 1);
+    return !this.planeArr.includes(plane);
+  }
   changecap = (newcap => this.cap = newcap);
 }
 
