@@ -37,7 +37,15 @@ class Airport {
         return `Plane ${planeID} has taken off from the airport`;
       }
     }
-  }
+  };
+
+  isPlaneAtAirport = planeID => {
+    for (let i in this.parkedPlanes) {
+      if (this.parkedPlanes[i].getId() === planeID) {
+        return true;
+      }
+    }
+  };
 
 }
 

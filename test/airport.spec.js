@@ -211,3 +211,32 @@ airport = null;
 plane = null;
 plane2 = null;
 airportCapacity = undefined;
+
+// Test 5a - isPlaneAtAirport() returns true if a matching plane object identified by it's id is in the parkedPlanes array
+console.log("---------------------");
+console.log("Finding if a plane is at airport")
+
+//Arrange 
+airportCapacity = 2;
+airport = new Airport(airportCapacity);
+plane = new Plane(1);
+airport.landPlane(plane);
+plane2 = new Plane(2);
+airport.landPlane(plane2);
+expected = true;
+
+//Actual
+actual = airport.isPlaneAtAirport(plane2.getId());
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 5a - isPlaneAtAirport() returns true if a matching plane object identified by it's id is in the parkedPlanes array: ${result}`);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;
+plane2 = null;
+airportCapacity = undefined;
