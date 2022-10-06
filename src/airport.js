@@ -6,7 +6,10 @@ class Airport {
 		this.#airportPlanes = [];
 		this.#capacity = capacity;
 	}
-	landPlane(plane) {
+	landPlane(plane, weather) {
+		if (weather === true) {
+			return `The weather is too stormy to land.`;
+		}
 		if (this.isInAirport(plane)) {
 			return `The ${plane.getFlightNum()} plane has already landed.`;
 		} else {
