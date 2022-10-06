@@ -101,3 +101,9 @@ As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 ```
+| Objects     | Properties                | Messages | Output  |
+| :---------- | :------------------------ | :------- | :------ |
+| airport     | airportList@Array(@plane) | @land()  | @string |
+| airportList | @Array                    | -        | @void   |
+
+1. test that a plane that has landed is at an airport.

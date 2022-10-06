@@ -6,6 +6,7 @@ class Airport {
   landedMessage;
   actualWeather;
 
+
   constructor(airportCapacity = 5) {
     this.airportList = [];
     this.airportCapacity = airportCapacity;

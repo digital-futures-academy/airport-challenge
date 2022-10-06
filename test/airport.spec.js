@@ -347,3 +347,29 @@ weather = null
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+// Test 13 - test that a plane that has landed is at an airport.
+
+console.log(`============================`);
+console.log(`Test 13 - test that a plane that has landed is at an airport.`);
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+expected = true;
+
+// Act
+airport.land(plane);
+actual = airport.airportList.includes(plane);
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 13: A plane that has landed is at an airport: ${result}`);
+
+// Clean up
+airport = null;
+plane = null
+expected = undefined;
+actual = undefined;
+result = undefined;
