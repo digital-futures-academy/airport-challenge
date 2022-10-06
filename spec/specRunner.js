@@ -53,3 +53,25 @@ plane = null;
 expected = null;
 actual = null;
 result = null;
+
+console.log(`====================================================`);
+console.log(`Test 3 - Test that setCapacity changes when setCapacity is called.`);
+
+// Arrange 
+airport = new Airport();
+expected = 10;
+
+// Act
+airport.setCapacity(10);
+actual = airport.getCapacity();
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(` Test 3: Default capacity has changed : ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = null;
+actual = null;
+result = null;
