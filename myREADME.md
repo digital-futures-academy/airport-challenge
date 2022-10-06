@@ -111,5 +111,6 @@ Reasoning: Proposed `isPlaneAtAirport()` method that checks if the specified pla
 
 Test 5a - `isPlaneAtAirport()` returns true if a matching plane object identified by it's id is in the `parkedPlanes` array <br>
 Test 5b - `isPlaneAtAirport()` returns false if a plane object is not matched in the `parkedPlanes` array <br>
-Test 5c - `takeOffPlane()` returns a string stating that a plane is not at the airport if it is not in the `parkedPlanes` array <br>
+Test 5c - `takeOffPlane()` returns a string stating that a plane is not at the airport so it can not take off if it is not in the `parkedPlanes` array
+<br>
 Test 5d - `landPlane()` returns a string stating that a plane has already landed if it is in the parkedPlanes array
