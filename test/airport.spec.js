@@ -300,3 +300,34 @@ plane = null;
 plane2 = null;
 plane3 = null;
 airportCapacity = undefined;
+
+// Test 5d - `landPlane()` returns a string stating that a plane has already landed if it is in the parkedPlanes array
+
+console.log("---------------------");
+console.log("A plane can not land if it has already landed at the airport")
+
+//Arrange 
+airportCapacity = 2;
+airport = new Airport(airportCapacity);
+plane = new Plane(1);
+airport.landPlane(plane);
+plane2 = new Plane(2);
+airport.landPlane(plane2);
+expected = `Plane ${plane2.getId()} has already landed at the airport`;
+
+//Actual
+actual = airport.landPlane(plane2);
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 5d - landPlane() returns a string stating that a plane has already landed if it is in the parkedPlanes array: ${result}`);
+
+//Clean up
+expected = undefined
+result = undefined;
+actual = undefined;
+airport = null;
+plane = null;
+plane2 = null;
+plane3 = null;
+airportCapacity = undefined;

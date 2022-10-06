@@ -9,6 +9,9 @@ class Airport {
   };
 
   landPlane = plane => {
+    if (this.isPlaneAtAirport(plane.getId())) {
+      return `Plane ${plane.getId()} has already landed at the airport`;
+    }
     if (this.isAirportFull()) {
       return `Plane ${plane.getId()} can not land as the airport is full`;
     } else {
