@@ -10,6 +10,7 @@ class Airport {
     this.capacity = capacity;
   
   }
+  
   addPlane(plane) {
     if (this.isFull()) {
       return 'Airport full'
@@ -34,13 +35,13 @@ class Airport {
   }
 
    removePlane(plane) {
-//     if (!this.airport.includes(plane)) {
-//       return 'plane not in airport'
-//     }
-//     else {
+     if (!this.airport.includes(plane)) {
+       return 'plane not in airport'
+     }
+     else {
        this.airport.pop(plane);
        return true;
-//     }
+     }
     
    }
 
