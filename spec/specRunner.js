@@ -25,9 +25,29 @@ actual = airport.planesAtAirport.includes(plane);
 // Assert
 result = assertEquals(actual, expected);
 console.log(` Test 1: plane added in planesAtAirport: ${result}`);
-console.log(plane);
 
 // Clean up
+airport = null;
+plane = null;
+expected = null;
+actual = null;
+result = null;
+
+console.log(`====================================================`);
+console.log(`Test 2 - test that an airport object has a default capacity`)
+
+//Arrange
+expected = 0;
+
+//Act
+airport = new Airport();
+actual = airport.getCapacity();
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(` Test 2: Default capacity is set to 0: ${result}`);
+
+//Clean up
 airport = null;
 plane = null;
 expected = null;
