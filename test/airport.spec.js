@@ -9,6 +9,7 @@ let plane;
 let plane2;
 let size;
 let airportCapacity;
+let weather;
 
 
 // Test 1 - test the airport has added a plane to planeList via land function.
@@ -280,6 +281,34 @@ actual = airport.landedMessage;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 10: A plane doesn't land at the airport: ${result}`);
+
+// Clean up
+airport = null;
+plane = null
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Test 11 - test that the airport doesn't land a plane that is already there.
+
+console.log(`============================`);
+console.log(`Test 11 - test that takeoff is prevented when the weather is stormy`);
+
+// Arrange
+airport = new Airport();
+plane = { id: "plane1" };
+airport.airportList.push(plane);
+weather = airport.weather();
+expected = `${plane} has not departed`
+
+// Act
+airport.takeoff(plane);
+actual = airport.landedMessage;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 11: A plane doesn't takeoff when the weather is stormy: ${result}`);
 
 // Clean up
 airport = null;

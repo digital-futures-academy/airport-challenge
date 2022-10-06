@@ -2,18 +2,19 @@ class Airport {
 
   airportList;
   airportCapacity;
-  indexOfPlane;
   departedMessage;
   landedMessage;
 
   constructor(airportCapacity = 5) {
     this.airportList = [];
     this.airportCapacity = airportCapacity;
-    this.indexOfPlane = null;
     this.departedMessage = ``;
     this.landedMessage = ``;
   };
 
+  weather() {
+
+  }
 
   capacity(size) {
     if (size === undefined) {

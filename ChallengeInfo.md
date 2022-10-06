@@ -75,6 +75,15 @@ As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 ```
+| Objects | Properties     | Messages   | Output |
+| :------ | :------------- | :--------- | :----- |
+| airport | weather@String | @takeoff() | @Void  |
+| weather | @string        | -          | @void  |
+
+1. test that takeoff is prevented when the weather is stormy
+
+---
+
 ```
 As an air traffic controller
 To ensure safety
