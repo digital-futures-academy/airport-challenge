@@ -133,7 +133,7 @@ console.log(`Test 4b: ${result}`);
 
 //Cleanup
 airport = null;
-plane = null;
+plane1 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;

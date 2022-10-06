@@ -38,15 +38,14 @@ console.log(`=============================`)
 console.log(`Test 6b - Plane cannot be taken off when weather is stormy`)
 
 //Arrange
-weather = new Weather("stormy");
-airport = new Airport([plane1, plane2, plane3]);
-plane1 = new Plane();
-plane2 = new Plane();
-plane3 = new Plane()
+airport = new Airport(['LDN001', 'BEJ002', 'WSH003'], 5, "stormy");
+plane1 = new Plane('LDN001');
+plane2 = new Plane('BEJ002');
+plane3 = new Plane('WSH003');
 expected = 3;
 
 //Act
-airport.takeOffPlane(plane1)
+airport.takeOffPlane('LDN001')
 actual = airport.planesAtAirport.length;
 
 //Assert

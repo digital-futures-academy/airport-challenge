@@ -1,9 +1,10 @@
 const Weather = require("../src/weather.js")
 
 class Airport {
-  constructor(planesAtAirport = [], capacity = 0) {
+  constructor(planesAtAirport = [], capacity = 0, weather = new Weather()) {
     this.planesAtAirport = planesAtAirport;
     this.capacity = capacity;
+    this.weather = weather;
   }
 
   landPlane(plane) {
@@ -15,7 +16,9 @@ class Airport {
   }
 
   takeOffPlane(plane) {
-    if (this.isPlaneAtAirport(plane) === true) {
+    if (this.isPlaneAtAirport(plane) === true && this.weather === "stormy") {
+      return "It is stormy, plane unsafe to take off"
+    } else if (this.isPlaneAtAirport(plane) === true) {
       let index = this.planesAtAirport.indexOf(plane);
       this.planesAtAirport.splice(index, 1);
       return "Plane has taken off & no longer in the airport";
