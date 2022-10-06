@@ -14,9 +14,9 @@ class Airport {
     if (this.isFull()) {
       return 'Airport full'
     }
-    // else if (this.airport.includes(plane)) {
-    //   return 'plane already in airport'
-    // }
+     else if (this.airport.includes(plane)) {
+       return 'plane already in airport'
+     }
     
     else {
       this.airport.push(plane)

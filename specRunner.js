@@ -160,42 +160,36 @@ console.log(`Test 4: plane left airport ${result}`);
 
 
 
-// basket = null;
-// item = null;
-// expected = undefined;
-// actual = undefined;
-// result = undefined;
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
 
 
 
-// // As an air traffic controller
-// // To avoid confusion
-// // I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+// As an air traffic controller
+// To avoid confusion
+// I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
 
-// console.log(`============================`);
-// console.log(`Test 5 -land a plane that's already landed`);
+console.log(`============================`);
+console.log(`Test 5 -land a plane that's already landed`);
 
-// airport2 = new Airport(3);
-// plane = { id: `plane1` };
-// plane2 = { id: `plane2` };
-// expected = 'plane already in airport'
-
-
-// airport2.addPlane(plane);
-// airport2.addPlane(plane2);
-// airport2.addPlane(plane2);
-
-// airport2.removePlane(plane);
+airport = new Airport(3);
+plane = { id: `plane1` };
+plane2 = { id: `plane2` };
+expected = 'plane already in airport'
 
 
-// console.log(airport2);
+airport.addPlane(plane);
 
-// actual = airport2.addPlane(plane2);
+actual = airport.addPlane(plane);
+console.log(airport);
 
-// result = assertEquals(actual, expected);
-// console.log(`Test 5: plane is already in airport ${result}`);
+result = assertEquals(actual, expected);
+console.log(`Test 5: plane is already in airport ${result}`);
 
 
 
