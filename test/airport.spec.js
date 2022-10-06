@@ -9,6 +9,7 @@ let plane;
 let plane2;
 let size;
 let airportCapacity;
+let weather;
 
 
 // Test 1 - test the airport has added a plane to planeList via land function.
@@ -299,7 +300,7 @@ airport = new Airport();
 plane = { id: "plane1" };
 weather = `stormy`;
 airport.airportList.push(plane);
-airport.randomNumber = 6;
+airport.weather = weather;
 expected = `${plane} has not departed`
 
 // Act
@@ -313,7 +314,7 @@ console.log(`Test 11: A plane doesn't takeoff when the weather is stormy: ${resu
 // Clean up
 airport = null;
 plane = null;
-randomNumber = null;
+weather = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
@@ -327,7 +328,8 @@ console.log(`Test 12 - test that land is prevented when the weather is stormy.`)
 // Arrange
 airport = new Airport();
 plane = { id: "plane1" };
-airport.randomNumber = 6
+weather = `stormy`
+airport.weather = weather;
 expected = `${plane} has not landed.`
 
 // Act

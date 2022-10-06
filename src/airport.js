@@ -4,30 +4,17 @@ class Airport {
   airportCapacity;
   departedMessage;
   landedMessage;
-<<<<<<< HEAD
-  airportWeather;
-  randomNumber;
-=======
-  actualWeather;
-<<<<<<< HEAD
->>>>>>> parent of 25e57e2 (Test 13 pass but couldn't work out a failing test)
-=======
->>>>>>> parent of 25e57e2 (Test 13 pass but couldn't work out a failing test)
+  weather;
+
 
   constructor(airportCapacity = 5) {
     this.airportList = [];
     this.airportCapacity = airportCapacity;
     this.departedMessage = ``;
     this.landedMessage = ``;
-    this.airportWeather = `sunny`
-    this.randomNumber = Math.floor(Math.random() * 100)
+    this.weather = `sunny`;
   };
 
-  weather() {
-    if (randomNumber <= 5) {
-      this.airportWeather = `stormy`;
-    }
-  }
 
   capacity(size) {
     if (size === undefined) {
