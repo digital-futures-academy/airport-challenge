@@ -23,8 +23,10 @@ capacity = 1
 
 //act
 airport.addPlane(plane)
+airport.addPlane(plane)
 actual = airport.airport.length;
 console.log(airport.airport.length);
+
 //Assert
 
 result = assertEquals(actual, expected);
@@ -43,33 +45,33 @@ airport = undefined;
 // // So that the software can be used for many different airports
 // // I would like a default airport capacity that can be overridden as appropriate
 
-// console.log(`============================`);
-// console.log(`Test 2 - defualt airport capacity`);
+console.log(`============================`);
+console.log(`Test 2 - defualt airport capacity`);
 
-// airport = new Airport(3);
-// plane = { id: `plane1` };
-// expected = 3;
-
-
-// airport.addPlane(plane);
-// airport.addPlane(plane);
-// airport.addPlane(plane);
-// //airport2.addPlane(plane);
-
-// console.log(airport2);
-
-// actual = airport.airport.length;
-
-// result = assertEquals(actual, expected);
-// console.log(`Test 2: capacity default ${result}`);
+airport = new Airport(3);
+plane = { id: `plane1` };
+expected = 3;
 
 
-// basket = null;
-// item = null;
-// expected = undefined;
-// actual = undefined;
-// result = undefined;
-// airport = undefined;
+airport.addPlane(plane);
+airport.addPlane(plane);
+airport.addPlane(plane);
+//airport2.addPlane(plane);
+
+console.log(airport);
+
+actual = airport.airport.length;
+
+result = assertEquals(actual, expected);
+console.log(`Test 2: capacity default ${result}`);
+
+
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = undefined;
 
 
 // console.log(`============================`);
@@ -188,7 +190,7 @@ airport = undefined;
 // airport2.addPlane(plane2);
 // airport2.addPlane(plane2);
 
-// //airport2.removePlane(plane);
+// airport2.removePlane(plane);
 
 
 // console.log(airport2);
@@ -219,9 +221,9 @@ airport = undefined;
 // expected = 'plane not in airport'
 
 
-// //airport2.addPlane(plane);
-// //airport2.addPlane(plane2);
-// //airport2.addPlane(plane2);
+// airport2.addPlane(plane);
+// airport2.addPlane(plane2);
+// airport2.addPlane(plane2);
 
 // airport2.removePlane(plane);
 
