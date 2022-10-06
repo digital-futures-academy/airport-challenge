@@ -68,12 +68,24 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 | Object  | Properties                      | Message                         | Output   |
 | ------- | ------------------------------- | ------------------------------- | -------- |
-| Airport | planesAtAirport @Array[@string] | takeOffPlane(plane@string)      | @string  |
-|         |                                 | landPlane(plane @string)        | @string  |
+| Airport | planesAtAirport @Array[@string] | takeOffPlane(@plane)            | @void    |
+|         |                                 | landPlane(@plane)               | @void    |
 |         |                                 | isPlaneAtAirport(plane @string) | @boolean |
 
 1. Test that if plane is not in the planesAtAirport array, the plane will not be able to take off and subsequently the length of planesAtAirport array will not change.
 2. Test that if plane is in the planesAtAirport array, plane will not be added and length of planesAtAirport array will be unchanged.
 ---
+#### Extended Acceptance Criteria & Modelling
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+| Object  | Properties                      | Message                   | Output  |
+| ------- | ------------------------------- | ------------------------- | ------- |
+| Weather | weatherReport[@string]          | weatherGenerator(@string) | @string |
+| Airport | planesAtAirport @Array[@string] | takeOffPlane(@plane)      | @void   |
 
+1. Test that weatherReport generates either "stormy" or "sunny" string.
+2. Test that when weatherReport is stormy, plane cannot be added to the planesAtAirport array.
 
