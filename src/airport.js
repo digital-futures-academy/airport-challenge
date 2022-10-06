@@ -34,17 +34,16 @@ class Airport {
       this.airportList.push(plane);
       this.landedMessage = `${plane} has successfully landed at the airport.`
     } else {
-      this.landedMessage = `${plane} has not landed at the airport as it is already there.`
+      this.landedMessage = `${plane} has not landed.`
     }
   }
 
   takeoff(plane) {
     if (this.airportList.includes(plane)) {
-      this.indexOfPlane = this.airportList.indexOf(plane);
-      this.airportList.splice(this.indexOfPlane, 1);
+      this.airportList.splice(this.airportList.indexOf(plane), 1);
       this.departedMessage = `${plane} has successfully departed from the airport.`
     } else {
-      this.departedMessage = `This plane "${plane}" is not at this airport`;
+      this.departedMessage = `${plane} has not departed`;
     }
   }
 };

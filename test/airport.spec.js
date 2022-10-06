@@ -243,7 +243,7 @@ airport = new Airport();
 plane = { id: "plane1" };
 plane2 = { id: "plane2" };
 airport.airportList.push(plane2);
-expected = `This plane "${plane}" is not at this airport`;
+expected = `${plane} has not departed`;
 
 // Act
 airport.takeoff(plane);
@@ -271,7 +271,7 @@ console.log(`Test 10 - test that the airport doesn't land a plane that is alread
 airport = new Airport();
 plane = { id: "plane1" };
 airport.airportList.push(plane);
-expected = `${plane} has not landed at the airport as it is already there.`
+expected = `${plane} has not landed.`
 
 // Act
 airport.land(plane);
