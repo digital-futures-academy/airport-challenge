@@ -341,6 +341,7 @@ console.log(`Test 12: A plane doesn't land at the airport when the weather is st
 // Clean up
 airport = null;
 plane = null
+weather = null
 expected = undefined;
 actual = undefined;
 result = undefined;
