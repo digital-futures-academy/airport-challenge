@@ -89,4 +89,15 @@ I want to prevent takeoff when weather is stormy
 
 1. Test that weatherReport generates either "stormy" or "sunny" output.
 2. Test that when weatherReport is "stormy", plane cannot be taken off from the planesAtAirport array.
+---
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+| Object  | Properties                      | Message                   | Output  |
+| ------- | ------------------------------- | ------------------------- | ------- |
+| Weather | weatherReport[@string]          | weatherGenerator(@string) | @string |
+| Airport | planesAtAirport @Array[@string] | landPlane(@plane)         | @void   |
 
+1. Test that when weatherReport return "stormy", plane cannot be added to the planesAtAirport array.

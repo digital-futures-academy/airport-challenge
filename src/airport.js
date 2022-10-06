@@ -8,22 +8,23 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (!this.isPlaneAtAirport(plane) && !this.isFull()) {
+    if (!this.isPlaneAtAirport(plane) && this.weather === "stormy") {
+      return "Weather is unsafe to make a landing";
+    } else if (!this.isPlaneAtAirport(plane) && !this.isFull()) {
       this.planesAtAirport.push(plane)
-      return this.planesAtAirport;
+      return "Plane has made a landing";;
     }
-
   }
 
   takeOffPlane(plane) {
     if (this.isPlaneAtAirport(plane) === true && this.weather === "stormy") {
-      return "It is stormy, plane unsafe to take off"
+      return "It is stormy, plane unsafe to take off";
     } else if (this.isPlaneAtAirport(plane) === true) {
       let index = this.planesAtAirport.indexOf(plane);
       this.planesAtAirport.splice(index, 1);
       return "Plane has taken off & no longer in the airport";
     } else {
-      return "Error, plane is not in the airport";
+      return "Error, plane does not exist in the airport";
     }
   }
 
