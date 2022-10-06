@@ -4,6 +4,7 @@ class Airport {
   airportCapacity;
   departedMessage;
   landedMessage;
+  actualWeather;
 
   constructor(airportCapacity = 5) {
     this.airportList = [];
@@ -12,9 +13,6 @@ class Airport {
     this.landedMessage = ``;
   };
 
-  weather() {
-
-  }
 
   capacity(size) {
     if (size === undefined) {
@@ -40,7 +38,7 @@ class Airport {
   }
 
   takeoff(plane) {
-    if (this.airportList.includes(plane)) {
+    if (this.airportList.includes(plane) && this.weather !== `stormy`) {
       this.airportList.splice(this.airportList.indexOf(plane), 1);
       this.departedMessage = `${plane} has successfully departed from the airport.`
     } else {

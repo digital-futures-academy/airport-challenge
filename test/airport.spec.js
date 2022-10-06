@@ -299,12 +299,13 @@ console.log(`Test 11 - test that takeoff is prevented when the weather is stormy
 airport = new Airport();
 plane = { id: "plane1" };
 airport.airportList.push(plane);
-weather = airport.weather();
+weather = `stormy`;
 expected = `${plane} has not departed`
 
 // Act
+airport.weather = weather;
 airport.takeoff(plane);
-actual = airport.landedMessage;
+actual = airport.departedMessage;
 
 // Assert
 result = assertEquals(actual, expected);
