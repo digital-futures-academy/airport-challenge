@@ -1,3 +1,5 @@
+const Weather = require("../src/weather.js")
+
 class Airport {
   constructor(planesAtAirport = [], capacity = 0) {
     this.planesAtAirport = planesAtAirport;
@@ -5,7 +7,7 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (this.isPlaneAtAirport(plane) === false && !this.isFull()) {
+    if (!this.isPlaneAtAirport(plane) && !this.isFull()) {
       this.planesAtAirport.push(plane)
       return this.planesAtAirport;
     }
@@ -16,7 +18,7 @@ class Airport {
     if (this.isPlaneAtAirport(plane) === true) {
       let index = this.planesAtAirport.indexOf(plane);
       this.planesAtAirport.splice(index, 1);
-      return this.planesAtAirport;
+      return "Plane has taken off & no longer in the airport";
     } else {
       return "Error, plane is not in the airport";
     }

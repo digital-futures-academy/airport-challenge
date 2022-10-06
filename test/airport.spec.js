@@ -16,21 +16,22 @@ console.log(`=============================`)
 console.log(`Test 1 - Does a plane land in the airport?`)
 
 //Arrange
-airport = new Airport([plane2], 2);
-plane1 = new Plane();
+airport = new Airport(['LDN001'], 5);
+plane1 = new Plane('LDN001');
+plane2 = new Plane('BEJ002');
 expected = 2;
 
 //Act
-airport.landPlane(plane1);
+airport.landPlane('BEJ002');
 actual = airport.planesAtAirport.length;
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 1 - Plane1 is added to the planesAtAirport array: ${result}`);
+console.log(`Test 1 - A plane is added to the planesAtAirport array: ${result}`);
 
 //Cleanup
 airport = null;
-plane = null;
+plane1 = null;
 newCapacity = null;
 expected = undefined;
 actual = undefined;
@@ -43,7 +44,7 @@ console.log(`Test 2 - Can capacity be changed from default to 10?`)
 //Arrange
 airport = new Airport();
 defaultCapacity = airport.capacity;
-
+newCapacity = 10
 expected = 10;
 
 //Act
@@ -67,20 +68,18 @@ console.log(`=============================`)
 console.log(`Test 3 - Plane cannot be added when airport is full`)
 
 //Arrange
-airport = new Airport([plane1, plane2]);
-plane1 = new Plane();
-plane2 = new Plane();
+airport = new Airport(['LDN001', 'BEJ002'], 2);
+plane1 = new Plane('LDN001');
+plane2 = new Plane('BEJ002');
+plane3 = new Plane('WSH003');
 expected = "Sorry, airport is full";
 
 //Act
-airport.landPlane(plane1);
-airport.landPlane(plane2);
-airport.landPlane(plane3);
-airport.setCapacity(2);
+airport.landPlane('WSH003');
 actual = airport.isFull();
 
 //Assert
-result = assertEquals(actual, expected);
+result = assertEquals(actual, expected)
 console.log(`Test 3: ${result}`);
 
 //Cleanup
@@ -92,23 +91,45 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Test 4 - Is a plane taken off from array?
+// Test 4a - Is a plane taken off from array?
 console.log(`=============================`)
-console.log(`Test 4 - Plane is taken off when takeOffPlane function is called`)
+console.log(`Test 4a - Plane is taken off when takeOffPlane function is called`)
 
 //Arrange
-airport = new Airport([plane1]);
-plane = new Plane();
-plane = plane1;
+airport = new Airport(['LDN001'], 5);
+plane1 = new Plane('LDN001');
 expected = 0;
 
 //Act
-airport.takeOffPlane(plane1);
+airport.takeOffPlane('LDN001');
 actual = airport.planesAtAirport.length;
 
 //Assert
 result = assertEquals(actual, expected);
-console.log(`Test 4: ${result}`);
+console.log(`Test 4a: ${result}`);
+
+//Cleanup
+airport = null;
+plane1 = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Test 4b - Can we confirm when plane is taken off from airport?
+console.log(`=============================`)
+console.log(`Test 4b - Is a string passed when a plane takes off from the airport`)
+
+//Arrange
+airport = new Airport(['LDN001'], 5);
+plane1 = new Plane('LDN001');
+expected = "Plane has taken off & no longer in the airport";
+
+//Act
+actual = airport.takeOffPlane('LDN001');
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 4b: ${result}`);
 
 //Cleanup
 airport = null;
@@ -122,14 +143,14 @@ console.log(`=============================`)
 console.log(`Test 5a - Plane cannot take off if it is not at the planesAtAirport array`)
 
 //Arrange
-airport = new Airport([plane1, plane2]);
-plane1 = new Plane();
-plane2 = new Plane();
-plane3 = new Plane();
+airport = new Airport(['LDN001', 'WSH003'], 5);
+plane1 = new Plane('LDN001');
+plane2 = new Plane('BEJ002');
+plane3 = new Plane('WSH003');
 expected = 2;
 
 //Act
-airport.takeOffPlane(plane3)
+airport.takeOffPlane('BEJ002')
 actual = airport.planesAtAirport.length;
 
 //Assert
@@ -150,14 +171,14 @@ console.log(`=============================`)
 console.log(`Test 5b - Prevent plane from landing when plane is already in the planesAtAirport array`)
 
 //Arrange
-airport = new Airport([plane1, plane2, plane3]);
-plane1 = new Plane();
-plane2 = new Plane();
-plane3 = new Plane();
-expected = 3
+airport = new Airport(['LDN001', 'BEJ002', 'WSH003'], 5);
+plane1 = new Plane('LDN001');
+plane2 = new Plane('BEJ002');
+plane3 = new Plane('WSH003');
+expected = 3;
 
 //Act
-airport.landPlane(plane1);
+airport.landPlane('LDN001');
 actual = airport.planesAtAirport.length;
 
 //Assert

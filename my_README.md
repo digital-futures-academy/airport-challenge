@@ -60,6 +60,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | Airport | planesAtAirport @Array[@string] | takeOffPlane(plane@string) | @string |
 
 1. Test that plane is removed from the planesAtAirport array when passed through the takeOffPlane function.
+2. Test when a plane takes off, a string is passed notifying that the plane has departed from the airport.
 ---
 ```
 As an air traffic controller
