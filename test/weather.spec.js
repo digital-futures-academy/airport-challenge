@@ -11,7 +11,8 @@ console.log(`Test 1 - if weather class sets storm to be random boolean value`);
 
 //arrange
 weather = new Weather();
-expected = typeof "boolean";
+
+expected = "boolean";
 
 //act
 actual = typeof weather.getStormy();
