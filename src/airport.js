@@ -11,25 +11,27 @@ class Airport {
   
   }
   addPlane(plane) {
-    // if (this.isFull()) {
-    //   return 'Airport full'
-    // }
+    if (this.isFull()) {
+      return 'Airport full'
+    }
     // else if (this.airport.includes(plane)) {
     //   return 'plane already in airport'
     // }
     
-    // else {
+    else {
       this.airport.push(plane)
     }
     
-//   }
-//   isFull() {
-//     return this.airport.length >= this.capacity;
-//   }
-//   increaseCapacity(num) {
-//     this.capacity += num
-//     console.log(this.capacity);
-//   }
+   }
+  
+  isFull() {
+    return this.airport.length >= this.capacity;
+  }
+  
+  increaseCapacity(num) {
+    this.capacity += num
+    console.log(this.capacity);
+  }
 
 //   removePlane(plane) {
 //     if (!this.airport.includes(plane)) {

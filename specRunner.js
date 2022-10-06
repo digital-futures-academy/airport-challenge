@@ -74,56 +74,53 @@ result = undefined;
 airport = undefined;
 
 
-// console.log(`============================`);
-// console.log(`Test 2.5 - increase airport capacity`);
+console.log(`============================`);
+console.log(`Test 2.5 - increase airport capacity`);
 
-// airport2 = new Airport();
-// plane = { id: `plane1` };
-// expected = 2;
+airport = new Airport();
+plane = { id: `plane1` };
+expected = 2;
 
-// airport2.increaseCapacity(2)
-// airport2.addPlane(plane);
-// airport2.addPlane(plane);
-// //airport2.addPlane(plane);
-// //airport2.addPlane(plane);
+airport.increaseCapacity(2)
+airport.addPlane(plane);
+airport.addPlane(plane);
+//airport2.addPlane(plane);
+//airport2.addPlane(plane);
 
-// console.log(airport2);
+console.log(airport);
 
-// actual = airport2.airport.length;
+actual = airport.airport.length;
 
-// result = assertEquals(actual, expected);
-// console.log(`Test 2: capacity default increase ${result}`);
+result = assertEquals(actual, expected);
+console.log(`Test 2: capacity default increase ${result}`);
 
-// basket = null;
-// item = null;
-// expected = undefined;
-// actual = undefined;
-// result = undefined;
+basket = null;
+item = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
 // // As an air traffic controller
 // // To ensure safety
 // // I want to prevent landing when the airport is full
 
-// console.log(`============================`);
-// console.log(`Test 3 - when airport is full prevent landing`);
+console.log(`============================`);
+console.log(`Test 3 - when airport is full prevent landing`);
 
-// airport2 = new Airport(2);
-// plane = { id: `plane1` };
-// expected = 'Airport full'
+airport = new Airport(2);
+plane = { id: `plane1` };
+expected = 'Airport full'
 
+airport.addPlane(plane);
+airport.addPlane(plane);
+airport.addPlane(plane);
 
-// airport2.increaseCapacity(2)
-// airport2.addPlane(plane);
-// airport2.addPlane(plane);
-// airport2.addPlane(plane);
-// //airport2.addPlane(plane);
+console.log(airport);
 
-// console.log(airport2);
+actual = airport.addPlane(plane);
 
-// actual = airport2.addPlane(plane);
-
-// result = assertEquals(actual, expected);
-// console.log(`Test 2: prevented landing ${result}`);
+result = assertEquals(actual, expected);
+console.log(`Test 2: prevented landing ${result}`);
 
 
 
