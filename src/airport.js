@@ -1,4 +1,5 @@
-const Weather = require("../src/weather.js")
+const Weather = require("../src/weather.js");
+const Plane = require("./plane.js");
 
 class Airport {
   constructor(planesAtAirport = [], capacity = 0, weather = new Weather()) {
@@ -7,7 +8,7 @@ class Airport {
     this.weather = weather;
   }
 
-  landPlane(plane) {
+  landPlane(plane, weather) {
     if (!this.isPlaneAtAirport(plane) && this.weather === "stormy") {
       return "Weather is unsafe to make a landing";
     } else if (!this.isPlaneAtAirport(plane) && !this.isFull()) {
@@ -16,7 +17,7 @@ class Airport {
     }
   }
 
-  takeOffPlane(plane) {
+  takeOffPlane(plane, weather) {
     if (this.isPlaneAtAirport(plane) === true && this.weather === "stormy") {
       return "It is stormy, plane unsafe to take off";
     } else if (this.isPlaneAtAirport(plane) === true) {
@@ -44,6 +45,10 @@ class Airport {
     } else {
       return false;
     }
+  }
+
+  trackPlane() {
+    return this.planesAtAirport.join();
   }
 
 }

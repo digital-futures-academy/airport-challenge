@@ -193,3 +193,35 @@ plane3 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Test 8 - Planes that have landed must be at an airport
+console.log(`=============================`)
+console.log(`Test 8 - Airport is able to track all the planes that have already landed and ones that just made landing`)
+
+//Arrange
+airport = new Airport(['LDN001'], 5);
+plane1 = new Plane('LDN001');
+plane2 = new Plane('BEJ002');
+plane3 = new Plane('WSH003');
+expected = "LDN001,BEJ002,WSH003";
+
+//Act
+airport.landPlane('BEJ002');
+airport.landPlane('WSH003');
+actual = airport.trackPlane();
+
+//Assert
+result = assertEquals(actual, expected);
+console.log(`Test 8: ${result}`);
+
+//Cleanup
+airport = null;
+plane1 = null;
+plane2 = null;
+plane3 = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+

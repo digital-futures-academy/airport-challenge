@@ -55,9 +55,9 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
-| Object  | Properties                      | Message                    | Output  |
-| ------- | ------------------------------- | -------------------------- | ------- |
-| Airport | planesAtAirport @Array[@string] | takeOffPlane(plane@string) | @string |
+| Object  | Properties                      | Message              | Output  |
+| ------- | ------------------------------- | -------------------- | ------- |
+| Airport | planesAtAirport @Array[@string] | takeOffPlane(@plane) | @string |
 
 1. Test that plane is removed from the planesAtAirport array when passed through the takeOffPlane function.
 2. Test when a plane takes off, a string is passed notifying that the plane has departed from the airport.
@@ -101,3 +101,16 @@ I want to prevent landing when weather is stormy
 | Airport | planesAtAirport @Array[@string] | landPlane(@plane)         | @void   |
 
 1. Test that when weatherReport return "stormy", plane cannot be added to the planesAtAirport array.
+---
+```
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```
+| Object  | Properties             | Message           | Output  |
+| ------- | ---------------------- | ----------------- | ------- |
+| Plane   | ID @string             |                   |         |
+| Airport | trackPlane @Array[@id] | landPlane(@plane) | @string |
+
+1. Test that an airport is able to track planes that has already landed as well as planes that are making a landing by returning a list of all the plane ID.
+---
