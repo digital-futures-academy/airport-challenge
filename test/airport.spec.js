@@ -39,6 +39,7 @@ testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+control = undefined;
 
 // Test 2 - Is there a default capacity on new airport instances and can it be changed?
 
@@ -90,11 +91,30 @@ console.log(`\n
 ===================================================`);
 console.log(
   `Test 3 \n
+  - check that planeArray.length increases by 1 after plane successfully lands\n
   - check that landPlane returns a confirmation message after a plane lands\n
   - check that a message confirming full capacity is returned\n
   - check that planes cannot land after capacity has been reached\n
   `
 );
+
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(new Plane(`dfa-001`));
+control = 0;
+expected = control + 1;
+// Act
+actual = testAirport.planeArray.length;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 3.1: before capacity is reached, planeArray.length has increased by 1 after landing a plane: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
 // Arrange
 testAirport = new Airport();
@@ -105,7 +125,7 @@ actual = confirm;
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 3.1: landPlane has printed confirmation after a plane lands: ${result}`
+  `Test 3.2: landPlane has printed confirmation after a plane lands: ${result}`
 );
 // Clean up
 testAirport = null;
@@ -128,7 +148,7 @@ actual = testAirport.capacityReached();
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 3.2: capacityReached message returned when airport capacity is full ${result}`
+  `Test 3.3: capacityReached message returned when airport capacity is full ${result}`
 );
 
 // Arrange
@@ -139,7 +159,7 @@ actual = testAirport.planeArray.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 3.3: plane is not added to planesArr when airport capacity is full: ${result}`
+  `Test 3.4: plane is not added to planesArr when airport capacity is full: ${result}`
 );
 
 // Clean up
