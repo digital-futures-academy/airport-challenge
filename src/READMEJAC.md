@@ -1,7 +1,7 @@
 <h3 align="center">AIRPORT-CHALLENGE</h3>
 
   <p align="center">
-    A programme, created by using test driven development, to control the movement of planes in and out of airports.
+    A programme, created following the principles of test-driven development, to control the movement of planes in and out of airports.
     <br />
     <a href="https://github.com/JacDoesJS/airport-challenge.git"><strong>Explore the docs »</strong></a>
     <br />
@@ -9,12 +9,14 @@
   </p>
 </div>
 
-
+<p>
 As an air traffic controller  
-
-So I can get passengers to a destination   
+<br>
+So I can get passengers to a destination 
+<br>  
 I want to instruct the airport to land a plane
-
+<br>
+</p>
 
 | Objects | Properties                    | Messages           | Output  |
 | ------- | ----------------------------- | ------------------ | ------- |
@@ -23,7 +25,8 @@ I want to instruct the airport to land a plane
 1. Test that plane is added to an array - test array.length increases by 1.
 2. Test that land returns a string that confirms the plane has landed.
 
- <br />
+ <br>
+ <br>
 As the system designer  
 
 So that the software can be used for many different airports  
@@ -37,7 +40,8 @@ I would like a default airport capacity that can be overridden as appropriate
 1. Test that airport returns a default capacity.
 2. Test that airport returns increased capacity.
 
- <br />
+<br>
+<br>
 As an air traffic controller  
 
 To ensure safety  
@@ -52,7 +56,8 @@ I want to prevent landing when the airport is full
 1. Test whether airport is full.
 2. Test whether plane can land.
 
- <br />
+<br>
+<br>
 As an air traffic controller  
 
 So I can get passengers on the way to their destination  
@@ -65,7 +70,8 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 1. Test that plane is removed from an array - test array.length decreases by 1.
 2. Test that takeOff returns a string that confirms the plane has taken off.
 
- <br />
+<br>
+<br>
 
 As an air traffic controller  
 To avoid confusion  
@@ -78,7 +84,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 1. Test whether plane is already in the airport.
 2. Test whether plane can take off / land.
 
-```
+
 
 #### Extended Acceptance Criteria
 
@@ -98,7 +104,8 @@ I want to prevent take off when weather is stormy
 
 1. Test that take off denied when weather is stormy.
 
- <br />
+<br>
+<br>
 As an air traffic controller  
 
 To ensure safety  
@@ -111,7 +118,8 @@ I want to prevent landing when weather is stormy
 
 1. Test that landing denied when weather is stormy.
 
- <br />
+<br>
+<br>
 As an air traffic controller  
 
 To count planes easily  
@@ -123,22 +131,26 @@ Planes that have landed must be at an airport
 | airport | airportPlanes @array | airportPlanes.join   | @string |
 
 1. Test that user can return number and list of planes in an airport
+NB I wrote the trackPlanes() method earlier as a way of easily being able to check planes had been added to airports in order that a plane could only take off if it was in an airport, for an earlier test.
 
-```
+<br>
+<br>
 
-#### REVIEW
-```
+<h2 align="center">***** REVIEW *****</h2>
+<br>
 
-
-This was a great opportunity to practise new skills in test driven development and creating a constructor class in javaScript.
+This was a great opportunity to practise new skills in test driven development. I can totally see the sense of working this way around. This was only my second time creating a class object with a constructor, in javaScript. This is my first attempt at a comprehensive README file.
 
 WHAT I WOULD DO DIFFERENTLY IN FUTURE
-The test file is cumbersome in terms of navigation and reading results in the terminal. I have just learned how to set up a testing environment using npm and Jasmine. I now want to create a project where my code is structured in a loosely-coupled way. Each module would be in its own .js file and tested using a single .spec.js file. Not only would this make for cleaner and more secure code but it would also make the results of testing easier to follow. 
+<br>
+The test file is cumbersome in terms of navigation and makes it difficult to read result results in the terminal. I have just learned how to set up a testing environment using npm and Jasmine. I now want to create a project where my code is structured in a loosely-coupled way. Each module would be in its own .js file and tested using a single .spec.js file. Not only would this make for cleaner and more secure code but it would also make the results of testing easier to follow. 
+
+I will look at the guidance for commit messages and perhaps leave out "whoop!".
 
 NOTES
-I originally interpreted the final user story as requiring a random weather generator. I want to find a way to test random variables. Aside from an imaginary world, the weather cannot be controlled by a user of course so it feels somehow unrealistic to give them the power! I wrote some code which gives a 50-50 chance of stormy weather. On reflection I would change this to be a 1 in 4 chance as this seems more likely.
+I originally interpreted the final user story as requiring a random weather generator. I am interested in finding a way to test random variables. Aside from an imaginary world, the weather cannot be controlled by a user, so it feels somehow unrealistic to give them the power! I wrote some code which gives a 50-50 chance of stormy weather. On reflection a 1 in 4 chance seems more appropriate. For interest, the code is below.
 
-```
+
 
 ```
 
