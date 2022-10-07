@@ -8,8 +8,13 @@ class Airport {
     this.capacity = newCapacity;
   }
 
-  landPlane = plane => {
-    this.planesAtAirport.push(plane);
+  landPlane(plane) {
+    if (this.planesAtAirport.length >= this.capacity) {
+      return "airport is full";
+    } else {
+      this.planesAtAirport.push(plane);
+      return "the plane has landed ";
+    }
   }
 
   getCapacity() {
