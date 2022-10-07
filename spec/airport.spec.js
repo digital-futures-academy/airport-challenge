@@ -44,6 +44,45 @@ console.log(`Plane has successfully landed: ${result}`)
 // Clean up
 newAirport = null;
 actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('====================================')
+console.log('Test 2: Airport/airstrip has a default capacity ')
+//Arrange
+newAirport = new Airport()
+expected = 3;
+
+//Act
+actual = newAirport.capacity
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`The airport can only land 3 planes on the airstrip: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('====================================')
+console.log('Test 2.5: Airport/airstrip capacity can be changed')
+//Arrange
+newAirport = new Airport()
+expected = 6;
+
+//Act
+newAirport.changeCapacity(6)
+actual = newAirport.capacity
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`The airport can now land 6 planes on the airstrip: ${result}`)
+
+// Clean up
+newAirport = null;
 actual = undefined;
 expected = undefined;
 result = undefined;
