@@ -4,8 +4,10 @@ class Weather {
 
 
     isStormy() {
-        if (this.actualWeather = "stormy") {
+        if (this.actualWeather === "stormy") {
             return true;
+        } else {
+            return false;
         }
     }
 }

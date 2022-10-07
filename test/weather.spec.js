@@ -37,7 +37,7 @@ result = undefined;
 // Test 2 - test that weather can be not stormy.
 
 console.log(`============================`);
-console.log(`Test 1 - test that weather can be not stormy.`);
+console.log(`Test 2 - test that weather can be not stormy.`);
 
 // Arrange
 weather = new Weather();
@@ -50,7 +50,7 @@ actual = weather.isStormy();
 
 // Assert
 result = assertEquals(actual, expected);
-console.log(`Test 1: Weather is stormy: ${result}`);
+console.log(`Test 2: Weather is not stormy: ${result}`);
 
 // Clean up
 weather = null;
