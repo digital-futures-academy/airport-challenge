@@ -89,8 +89,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 1. Check that initTakeoff returns a confirmation message when a plane leaves the airport
 2. Check that initTakeoff reduces planeArray.length by one
-3. Check that initTakeoff increases planesEnroute.length by one
-4. Check that initTakeoff removes the plane passed to it from planeArray
+3. Check that initTakeoff removes the plane passed to it from planeArray
 
 ```
 5.

@@ -3,6 +3,7 @@
 class Airport {
   capacity = 10;
   planeArray = [];
+  planesEnroute = [];
   landPlane = function (plane) {
     if (this.capacity > this.planeArray.length) {
       this.planeArray.push(plane);
@@ -20,7 +21,7 @@ class Airport {
     }
   };
   initTakeoff = function (plane) {
-    let index = this.planeArray.findIndex(plane => plane.id === `dfa-001`);
+    let index = this.planeArray.findIndex(plane => plane.id);
     let departedPlane = this.planeArray.splice(index, 1);
     return `Flight ${plane.id} has departed. Remaining capacity: ${
       this.capacity - this.planeArray.length
