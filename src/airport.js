@@ -17,6 +17,11 @@ class Airport {
     }
   }
 
+  takeOffPlane(plane) {
+    this.planesAtAirport.pop(plane);
+    return "the plane has taken off";
+  }
+
   getCapacity() {
     return this.capacity;
   }

@@ -139,4 +139,34 @@ expected = null;
 actual = null;
 result = null;
 
+console.log(`====================================================`);
+console.log(`Test 6 - let a plane take off and confirm that it is no longer in the airport`);
 
+// Arrange 
+airport = new Airport(10);
+
+plane = { id: `british airways` };
+const plane8 = { id: `kata airways` };
+const plane9 = { id: `KLM airways` };
+const plane10 = { id: `Zimbabwe airways` };
+
+expected = "the plane has taken off";
+
+airport.landPlane(plane);
+airport.landPlane(plane8);
+airport.landPlane(plane9);
+airport.landPlane(plane10);
+
+// Act
+
+actual = airport.takeOffPlane(plane10);
+// Assert
+result = assertEquals(actual, expected);
+console.log(` Test 6: plane removed from planesAtAirport array: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = null;
+actual = null;
+result = null;
