@@ -119,7 +119,7 @@ result = undefined;
 // Arrange
 testAirport = new Airport();
 let confirm = testAirport.landPlane(new Plane(`dfa-001`));
-expected = `Flight dfa-001 has landed`;
+expected = `Flight dfa-001 has landed. Remaining capacity: ${9}`;
 // Act
 actual = confirm;
 // Assert
@@ -132,6 +132,7 @@ testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+confirm = undefined;
 
 // Arrange
 testAirport = new Airport();
@@ -148,7 +149,7 @@ actual = testAirport.capacityReached();
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 3.3: capacityReached message returned when airport capacity is full ${result}`
+  `Test 3.3: capacityReached message returned when airport capacity is full: ${result}`
 );
 
 // Arrange
@@ -170,3 +171,27 @@ result = undefined;
 
 console.log(`\n
 ===================================================`);
+console.log(
+  `Test 4 \n
+  - check that initTakeoff returns a confirmation message when a plane leaves the airport\n
+  - check that initTakeoff removes the plane passed to it from planeArray\n
+  `
+);
+
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(new Plane(`dfa-001`));
+confirm = testAirport.initTakeoff(testAirport.planeArray[0]);
+expected = `Flight dfa-001 has departed. Remaining capacity: ${10}`;
+// Act
+actual = confirm;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 4.1: initTakeoff returns a confirmation message when a plane leaves the airport: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
