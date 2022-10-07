@@ -11,6 +11,7 @@ class Airport {
         if (!this.isAirportFull() && !this.isPlaneInAirport(plane) && this.checkWeather()) {
             this.planeList.push(plane);
             plane.airport = this.airport;
+            plane.landed = "landed";
         }
     }
 

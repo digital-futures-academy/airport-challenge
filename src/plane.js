@@ -4,6 +4,7 @@ class Plane {
         this.id = id;
         this.name = name;
         this.airport = "";
+        this.landed = "";
     }
 }
 
