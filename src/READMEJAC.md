@@ -1,10 +1,15 @@
-#### AIRPORT-CHALLENGE
-```
-DESCRIPTION
+<h3 align="center">AIRPORT-CHALLENGE</h3>
 
-A programme, created by using test driven development, to control the movement of planes in and out of airports.
-```
- <br />
+  <p align="center">
+    A programme, created by using test driven development, to control the movement of planes in and out of airports.
+    <br />
+    <a href="https://github.com/JacDoesJS/airport-challenge.git"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+  </p>
+</div>
+
+
 As an air traffic controller  
 
 So I can get passengers to a destination   
@@ -74,7 +79,10 @@ I want to prevent asking the airport to let planes take-off which are not at the
 2. Test whether plane can take off / land.
 
 ```
+
 #### Extended Acceptance Criteria
+
+```
 
 Note = these next two user stories have been tested in reverse order.
 ```
@@ -115,3 +123,38 @@ Planes that have landed must be at an airport
 | airport | airportPlanes @array | airportPlanes.join   | @string |
 
 1. Test that user can return number and list of planes in an airport
+
+```
+
+#### REVIEW
+```
+
+
+This was a great opportunity to practise new skills in test driven development and creating a constructor class in javaScript.
+
+WHAT I WOULD DO DIFFERENTLY IN FUTURE
+The test file is cumbersome in terms of navigation and reading results in the terminal. I have just learned how to set up a testing environment using npm and Jasmine. I now want to create a project where my code is structured in a loosely-coupled way. Each module would be in its own .js file and tested using a single .spec.js file. Not only would this make for cleaner and more secure code but it would also make the results of testing easier to follow. 
+
+NOTES
+I originally interpreted the final user story as requiring a random weather generator. I want to find a way to test random variables. Aside from an imaginary world, the weather cannot be controlled by a user of course so it feels somehow unrealistic to give them the power! I wrote some code which gives a 50-50 chance of stormy weather. On reflection I would change this to be a 1 in 4 chance as this seems more likely.
+
+```
+
+```
+
+ checkWeather() {
+        weather = Math.floor(Math.random() * 2) + 1;
+        if (weather === 1) {
+            conditions = "stormy"
+        }
+        else {
+            conditions = "calm";
+        };
+    };
+
+
+```
+
+
+Contact
+Jac McKeigue: jac.mckeigue@outlook.com
