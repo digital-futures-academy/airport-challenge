@@ -68,7 +68,7 @@ I want to prevent landing when the airport is full
 
 **Proposed test/s**
 
-1. If a plane lands **before capacity** is reached, check that planesArray increases by 1.
+1. If a plane lands **before capacity** is reached, check that planesArray increases by one.
 2. If a plane lands, check that landPlane has printed confirmation
 3. Check that capacityReached message returned when airport capacity is full
 4. Check that plane is not added to planesArr when airport capacity is full
@@ -80,10 +80,17 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
 
-| **Objects** | **Properties** | **Messages** | **Output** |
-| :---------- | :------------- | :----------- | :--------- |
-| Airport     | planesArr      | @initTakeoff | none       |
-|             | capacity       | @initTakeoff | boolean    |
+| **Objects** | **Properties**                | **Messages** | **Output** |
+| ----------- | ----------------------------- | ------------ | ---------- |
+| Airport     | planesArr                     | @initTakeoff | @string    |
+|             | planesEnroute @array[objects] |              |            |
+
+**Propsed Tests**
+
+1. Check that initTakeoff returns a confirmation message when a plane leaves the airport
+2. Check that initTakeoff reduces planeArray.length by one
+3. Check that initTakeoff increases planesEnroute.length by one
+4. Check that initTakeoff removes the plane passed to it from planeArray
 
 ```
 5.
@@ -94,5 +101,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 | **Objects** | **Properties** | **Messages**    | **Output** |
 | :---------- | :------------- | :-------------- | :--------- |
-| Airport     | planesArr      | @hasPlaneLeft   | boolean    |
-|             | planesArr      | @hasPlaneLanded | boolean    |
+| Airport     | planesArr      | @initTakeoff    | @string    |
+|             |                | @landPlane      | @string    |
+|             |                | @hasPlaneLanded | @boolean   |
