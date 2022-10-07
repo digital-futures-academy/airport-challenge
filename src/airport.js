@@ -6,7 +6,7 @@ class Airport {
   landPlane = function (plane) {
     if (this.capacity > this.planeArray.length) {
       this.planeArray.push(plane);
-      return `Flight ${plane.id} has landed.`;
+      return `Flight ${plane.id} has landed`;
     }
   };
   setCapacity = function (newCapacity) {
