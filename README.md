@@ -144,25 +144,34 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ### Steps
 * Install project dependencies by using `npm install` command
 * Develop Domain Model by reading User Stories
-* Create test folder contains specification and testing-framework files
-* Create properity file contains messages
+* Create a test folder containing specification and testing-framework files
+* Create a property file containing messages
 * Start to run the first test
 * Start to run the next tests
 
 ### Error
-1. ![alt text](http://url/to/img.png)
+1. 'MODULE_NOT_FOUND'
+![Alt text](errors/cantFindModule.png)
 
+2. TypeError: airport.land is not a function
+![Alt text](errors/noFunc.png)
 
+3. SyntaxError: Unexpected token '.'
+![Alt text](errors/UnexpectedToken.png)
 
-```
-code blocks for commands
-```
+4. ReferenceError: airportPlanes is not defined
+![Alt text](errors/notDefined.png)
 
+5. false test1
+![Alt text](errors/testFalse.png)
 
+6. false test2
+![Alt text](errors/testFalse2.png)
 
 ## Authors
 
 Qian Zhang
 
 ## Acknowledgments
-
+* Thank You Lucas Chagas
+* Thank You Chung Yan Ho
