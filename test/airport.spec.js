@@ -175,6 +175,7 @@ console.log(
   `Test 4 \n
   - check that initTakeoff returns a confirmation message when a plane leaves the airport\n
   - Check that initTakeoff reduces planeArray.length by one\n
+  - Check that initTakeoff increases planesEnroute.length by one\n
   - check that initTakeoff removes the plane passed to it from planeArray\n
   `
 );
@@ -183,7 +184,7 @@ console.log(
 testAirport = new Airport();
 testAirport.landPlane(new Plane(`dfa-001`));
 confirm = testAirport.initTakeoff(testAirport.planeArray[0]);
-expected = `Flight dfa-001 has departed. Remaining capacity: ${9}`;
+expected = `Flight dfa-001 has departed. Remaining capacity: ${10}`;
 // Act
 actual = confirm;
 // Assert
@@ -200,7 +201,8 @@ confirm = undefined;
 
 // Arrange
 testAirport = new Airport();
-confirm = testAirport.landPlane(new Plane(`dfa-001`));
+testAirport.landPlane(new Plane(`dfa-001`));
+confirm = testAirport.planeArray.length;
 testAirport.initTakeoff(testAirport.planeArray[0]);
 expected = confirm - 1;
 // Act

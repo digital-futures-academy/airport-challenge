@@ -20,6 +20,8 @@ class Airport {
     }
   };
   initTakeoff = function (plane) {
+    let index = this.planeArray.findIndex(plane => plane.id === `dfa-001`);
+    let departedPlane = this.planeArray.splice(index, 1);
     return `Flight ${plane.id} has departed. Remaining capacity: ${
       this.capacity - this.planeArray.length
     }`;
