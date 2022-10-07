@@ -1,14 +1,13 @@
 class Weather {
 
-    weather = ""
+    actualWeather = ""
+
 
     isStormy() {
-        if (Math.floor((Math.random() * 100))) {
-            this.weather = "stormy";
-        } else {
-            this.weather = "sunny";
-        }
-        return this.weather;
-    }
 
-} module.exports = Weather;
+    }
+}
+
+
+
+module.exports = Weather;

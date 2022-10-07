@@ -87,10 +87,10 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
-| Objects | Properties              | Messages                          | Output |
-| :------ | :---------------------- | :-------------------------------- | :----- |
-| airport | planeList@Array(@plane) | @takeoff(plane) <br> @land(plane) | @Void  |
-| plane   | id@string               | -                                 | -      |
+| Objects | Properties                                                                    | Messages                          | Output |
+| :------ | :---------------------------------------------------------------------------- | :-------------------------------- | :----- |
+| airport | planeList@Array(@plane) <br> landedMessage@String <br> takenOffMessage@String | @takeoff(plane) <br> @land(plane) | @Void  |
+| plane   | id@string                                                                     | -                                 | -      |
 
 1. test that the airport contains the plane that is taking off.
 2. test that the airport only lets planes that are at the airport takeoff.
@@ -110,7 +110,9 @@ I want to prevent takeoff when weather is stormy
 | airport | weather@String | @takeoff() | @string |
 | weather | @string        | -          | @void   |
 
-1. test that takeoff is prevented when the weather is stormy.
+1. test that weather can be stormy.
+2. test that weather can not be stormy.
+3. test that takeoff is prevented when the weather is stormy.
 ---
 
 ## User Story 7
