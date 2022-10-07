@@ -300,9 +300,8 @@ console.log(`Test 11 - test that takeoff is prevented when the weather is stormy
 // Arrange
 airport = new Airport();
 plane = new Plane(`Plane1`);
-weather = new Weather();
+airport.weather = `stormy`;
 airport.airportList.push(plane);
-airport.weather = weather.isStormy();
 expected = `${plane} has not departed`
 
 // Act
@@ -316,7 +315,6 @@ console.log(`Test 11: A plane doesn't takeoff when the weather is stormy: ${resu
 // Clean up
 airport = null;
 plane = null;
-weather = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
@@ -330,9 +328,8 @@ console.log(`Test 12 - test that land is prevented when the weather is stormy.`)
 // Arrange
 airport = new Airport();
 plane = new Plane(`Plane1`);
-weather = new Weather();
+airport.weather = `stormy`;
 airport.airportList.push(plane);
-airport.weather = weather.isStormy();
 expected = `${plane} has not landed.`
 
 // Act

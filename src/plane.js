@@ -10,8 +10,8 @@ class Plane {
         this.airport = "";
     }
 
-    isLanded() {
-
+    isLanded(boolean) {
+        this.status = boolean;
     }
 
     airportName(airportName) {
