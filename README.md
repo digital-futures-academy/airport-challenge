@@ -142,10 +142,22 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 > As an air traffic controller
 > To ensure safety
-> I want to prevent takeoff when weather is stormy
+> I want to prevent landings when weather is stormy
 
 |  Object  |       Properties        | Messages |  Output  |
 | :------: | :---------------------: | :------: | :------: |
 | Airport  | PlaneArr@array@Airplane |   land   | @boolean |
+|          |     weather@string      |          |          |
 | Airplane |                         |          |          |
-| Weather  |       Wind@String       |          |          |
+
+## (Extended 2)
+
+> As an air traffic controller
+> To ensure safety
+> I want to prevent departures when the weather is stormy
+
+|  Object  |       Properties        | Messages |  Output  |
+| :------: | :---------------------: | :------: | :------: |
+| Airport  | PlaneArr@array@Airplane |  depart  | @boolean |
+|          |     weather@string      |          |          |
+| Airplane |                         |          |          |
