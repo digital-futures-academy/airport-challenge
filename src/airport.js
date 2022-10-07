@@ -1,5 +1,4 @@
 const Weather = require("../src/weather.js");
-const Plane = require("./plane.js");
 
 class Airport {
   constructor(planesAtAirport = [], capacity = 0, weather = new Weather()) {

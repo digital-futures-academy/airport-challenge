@@ -7,7 +7,7 @@ const { assertEquals } = require("../framework/testingFramework.js")
 let expected;
 let actual;
 let result;
-let airport;
+let airport, airport1, airport2;
 let plane, plane1, plane2, plane3;
 let newCapacity;
 
@@ -196,27 +196,27 @@ result = undefined;
 
 // Test 8 - Planes that have landed must be at an airport
 console.log(`=============================`)
-console.log(`Test 8 - Airport is able to track all the planes that have already landed and ones that just made landing`)
+console.log(`Test 8 - All airports is able to track all the planes that have already landed and/or ones that just made landing`)
 
 //Arrange
-airport = new Airport(['LDN001'], 5);
-plane1 = new Plane('LDN001');
+airport1 = new Airport(['LDN001'], 5);
+airport2 = new Airport([], 10)
 plane2 = new Plane('BEJ002');
 plane3 = new Plane('WSH003');
-expected = "LDN001,BEJ002,WSH003";
+expected = "LDN001,BEJ002" + "WSH003";
 
 //Act
-airport.landPlane('BEJ002');
-airport.landPlane('WSH003');
-actual = airport.trackPlane();
+airport1.landPlane('BEJ002');
+airport2.landPlane('WSH003');
+actual = airport1.trackPlane() + airport2.trackPlane();
 
 //Assert
 result = assertEquals(actual, expected);
 console.log(`Test 8: ${result}`);
 
 //Cleanup
-airport = null;
-plane1 = null;
+airport1 = null;
+airport2 = null;
 plane2 = null;
 plane3 = null;
 expected = undefined;
