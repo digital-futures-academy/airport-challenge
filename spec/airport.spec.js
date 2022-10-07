@@ -86,3 +86,49 @@ newAirport = null;
 actual = undefined;
 expected = undefined;
 result = undefined;
+
+console.log('====================================')
+console.log('Test 3: Plane is not added to array when capacity is full ')
+//Arrange
+newAirport = new Airport()
+expected = 3;
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 267')
+newAirport.landplane('Boeing 123')
+newAirport.landplane('Boeing 334')
+actual = newAirport.planesAtAirstrip.length
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Airstrip currently has 3 planes can not land any more: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('====================================')
+console.log('Test 3.5: Message returned when plane is not added to array when capacity is full ')
+//Arrange
+newAirport = new Airport()
+expected = 'Im Sorry you can not land here, the airstrip is full';
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 267')
+newAirport.landplane('Boeing 123')
+actual = newAirport.landplane('Boeing 334')
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Airport is full, you cannot land here: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;

@@ -9,6 +9,9 @@ class Airport {
 
 
   landplane = (plane) => {
+    if (this.planesAtAirstrip.length >= this.capacity) {
+      return 'Im Sorry you can not land here, the airstrip is full'
+    }
     this.planesAtAirstrip.push(plane)
     return 'Plane has successfully landed at the airstrip'
 
