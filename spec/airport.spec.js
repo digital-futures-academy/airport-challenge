@@ -132,3 +132,51 @@ newAirport = null;
 actual = undefined;
 expected = undefined;
 result = undefined;
+
+console.log('====================================')
+console.log('Test 4: Plane has been removed from the array ')
+//Arrange
+newAirport = new Airport()
+expected = 2;
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 267')
+newAirport.landplane('Boeing 123')
+newAirport.planeTakesOff()
+actual = newAirport.planesAtAirstrip.length
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Plane has taken off, there is currently 2 plane on the airstrip: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+
+
+console.log('====================================')
+console.log('Test 4.5: Message returned when plane has been removed from array ')
+//Arrange
+newAirport = new Airport()
+expected = 'Plane has succesfully taken off and left the airstrip';
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 267')
+newAirport.landplane('Boeing 123')
+actual = newAirport.planeTakesOff()
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Plane has successfully taken off confirmation: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;

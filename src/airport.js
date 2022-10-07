@@ -21,6 +21,14 @@ class Airport {
     this.capacity = number
   }
 
+
+  planeTakesOff = () => {
+    this.planesAtAirstrip.pop()
+    return 'Plane has succesfully taken off and left the airstrip'
+
+  }
+
+
 }
 
 module.exports = Airport;
