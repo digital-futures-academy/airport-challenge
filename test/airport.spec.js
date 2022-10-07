@@ -182,7 +182,8 @@ console.log(
 testAirport = new Airport();
 testAirport.landPlane(new Plane(`dfa-001`));
 confirm = testAirport.initTakeoff(testAirport.planeArray[0]);
-expected = `Flight dfa-001 has departed. Remaining capacity: ${10}`;
+console.log(confirm);
+expected = `Flight dfa-001 has departed. Remaining capacity: ${9}`;
 // Act
 actual = confirm;
 // Assert
@@ -195,3 +196,4 @@ testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+confirm = undefined;

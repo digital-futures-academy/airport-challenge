@@ -20,7 +20,9 @@ class Airport {
     }
   };
   initTakeoff = function (plane) {
-    return `Some string`;
+    return `Flight ${plane.id} has departed. Remaining capacity: ${
+      this.capacity - this.planeArray.length
+    }`;
   };
 }
 
