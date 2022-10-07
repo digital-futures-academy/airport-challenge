@@ -1,18 +1,25 @@
+const Weather = require("./weather");
+
 class Airport {
 
+  airportName;
   airportList;
   airportCapacity;
   departedMessage;
   landedMessage;
+  status;
   weather;
 
 
-  constructor(airportCapacity = 5) {
+
+  constructor(airportName, airportCapacity = 5) {
+    this.airportName = airportName;
     this.airportList = [];
     this.airportCapacity = airportCapacity;
     this.departedMessage = ``;
     this.landedMessage = ``;
-    this.weather = `sunny`;
+    this.status = ``;
+    this.weather = ``;
   };
 
 
@@ -30,10 +37,12 @@ class Airport {
     }
   }
 
-  land(plane) {
-    if (this.isCapacityFull() !== false && this.airportList.includes(plane) === false && this.weather !== `stormy`) {
+  land(plane, airportName) {
+    if (this.isCapacityFull() !== false && this.airportList.includes(plane) === false && new Weather !== `stormy`) {
+      plane.airportName(airportName);
+      plane.isLanded(true);
       this.airportList.push(plane);
-      this.landedMessage = `${plane} has successfully landed at the airport.`
+      this.landedMessage = `${plane} has successfully landed at ${airportName}.`
     } else {
       this.landedMessage = `${plane} has not landed.`
     }
@@ -41,6 +50,7 @@ class Airport {
 
   takeoff(plane) {
     if (this.airportList.includes(plane) && this.weather !== `stormy`) {
+      plane.airportName(undefined);
       this.airportList.splice(this.airportList.indexOf(plane), 1);
       this.departedMessage = `${plane} has successfully departed from the airport.`
     } else {

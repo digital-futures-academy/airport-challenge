@@ -1,5 +1,7 @@
 const { assertEquals } = require("../test/TestingFrameworks");
 const Airport = require("../src/airport");
+const Plane = require("../src/plane");
+const Weather = require("../src/weather");
 
 let expected;
 let actual;
@@ -12,14 +14,14 @@ let airportCapacity;
 let weather;
 
 
-// Test 1 - test the airport has added a plane to planeList via land function.
+// Test 1 - test the airport can add a plane to it's plane list.
 
 console.log(`============================`);
-console.log(`Test 1 - test the airport has added a plane to planeList via land function.`);
+console.log(`Test 1 - test the airport can add a plane to it's plane list.`);
 
 // Arrange
 airport = new Airport();
-plane = { id: "plane1" };
+plane = new Plane(`Plane1`);
 expected = 1;
 
 // Act
@@ -88,15 +90,15 @@ actual = undefined;
 result = undefined;
 
 
-// Test 4 - test if the capacity is full.
+// Test 4 - test if the airport capacity is full.
 
 console.log(`============================`);
-console.log(`Test 4 - test if the capacity is full.`);
+console.log(`Test 4 - test if the airport capacity is full.`);
 
 // Arrange
 airport = new Airport();
 airportCapacity = 1;
-plane = { id: "plane1" };
+plane = new Plane(`Plane1`);
 airport.airportList.push(plane);
 airport.airportCapacity = airportCapacity
 expected = true;
@@ -127,7 +129,7 @@ console.log(`Test 5 - test that a plane doesn't land when capacity is full.`);
 airport = new Airport();
 airportCapacity = 1;
 airport.airportCapacity = airportCapacity;
-plane = { id: "plane1" };
+plane = new Plane(`Plane1`);
 airport.airportList.push(plane);
 expected = 0;
 
@@ -157,7 +159,7 @@ console.log(`Test 6 - test that a plane has taken off from the airport.`);
 airport = new Airport();
 airportCapacity = 1;
 airport.airportCapacity = airportCapacity;
-plane = { id: "plane1" };
+plane = new Plane(`Plane1`);
 airport.airportList.push(plane);
 expected = 0;
 
@@ -185,8 +187,8 @@ console.log(`Test 7 - test that a plane that has taken off is no longer at the a
 
 // Arrange
 airport = new Airport();
-plane = { id: "plane1" };
-plane2 = { id: "plane2" };
+plane = new Plane(`Plane1`);
+plane2 = new Plane(`Plane2`);
 airport.airportList.push(plane, plane2);
 expected = false;
 
@@ -214,7 +216,7 @@ console.log(`Test 8 - test that the airport contains the plane that is taking of
 
 // Arrange
 airport = new Airport();
-plane = { id: "plane1" };
+plane = new Plane(`Plane1`);
 airport.airportList.push(plane);
 expected = `${plane} has successfully departed from the airport.`;
 
@@ -241,8 +243,8 @@ console.log(`Test 9 - test that the airport only lets planes that are at the air
 
 // Arrange
 airport = new Airport();
-plane = { id: "plane1" };
-plane2 = { id: "plane2" };
+plane = new Plane(`Plane1`);
+plane2 = new Plane(`Plane2`);
 airport.airportList.push(plane2);
 expected = `${plane} has not departed`;
 
@@ -270,7 +272,7 @@ console.log(`Test 10 - test that the airport doesn't land a plane that is alread
 
 // Arrange
 airport = new Airport();
-plane = { id: "plane1" };
+plane = new Plane(`Plane1`);
 airport.airportList.push(plane);
 expected = `${plane} has not landed.`
 
@@ -297,10 +299,10 @@ console.log(`Test 11 - test that takeoff is prevented when the weather is stormy
 
 // Arrange
 airport = new Airport();
-plane = { id: "plane1" };
-weather = `stormy`;
+plane = new Plane(`Plane1`);
+weather = new Weather();
 airport.airportList.push(plane);
-airport.weather = weather;
+airport.weather = weather.isStormy();
 expected = `${plane} has not departed`
 
 // Act
@@ -327,9 +329,10 @@ console.log(`Test 12 - test that land is prevented when the weather is stormy.`)
 
 // Arrange
 airport = new Airport();
-plane = { id: "plane1" };
-weather = `stormy`
-airport.weather = weather;
+plane = new Plane(`Plane1`);
+weather = new Weather();
+airport.airportList.push(plane);
+airport.weather = weather.isStormy();
 expected = `${plane} has not landed.`
 
 // Act
@@ -343,7 +346,32 @@ console.log(`Test 12: A plane doesn't land at the airport when the weather is st
 // Clean up
 airport = null;
 plane = null
-weather = null
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Test 13 - test that a landed plane is at the specified airport.
+
+console.log(`============================`);
+console.log(`Test 13 - test that a landed plane is at the specified airport.`);
+
+// Arrange
+airport = new Airport(`Airport1`);
+plane = new Plane(`Plane1`)
+expected = `Airport1`
+
+// Act
+airport.land(plane, airport.airportName);
+actual = plane.airport;
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 13: A plane is at the airport it landed at: ${result}`);
+
+// Clean up
+airport = null;
+plane = null
 expected = undefined;
 actual = undefined;
 result = undefined;
