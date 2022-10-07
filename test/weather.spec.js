@@ -7,7 +7,9 @@ let actual;
 let result;
 let testWeather;
 
-
+console.log(``)
+console.log(`WEATHER TESTS`)
+console.log(`****************************`)
 // Test 1 - test that weather can be stormy.
 
 console.log(`============================`);

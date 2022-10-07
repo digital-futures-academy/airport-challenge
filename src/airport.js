@@ -1,5 +1,3 @@
-const Weather = require("./weather");
-
 class Airport {
 
   airportName;
@@ -38,7 +36,7 @@ class Airport {
   }
 
   land(plane, airportName) {
-    if (this.isCapacityFull() !== false && this.airportList.includes(plane) === false && new Weather !== `stormy`) {
+    if (this.isCapacityFull() !== false && this.airportList.includes(plane) === false && this.weather !== `stormy`) {
       plane.airportName(airportName);
       plane.isLanded(true);
       this.airportList.push(plane);

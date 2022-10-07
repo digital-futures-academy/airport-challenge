@@ -1,7 +1,6 @@
 const { assertEquals } = require("../test/TestingFrameworks");
 const Airport = require("../src/airport");
 const Plane = require("../src/plane");
-const Weather = require("../src/weather");
 
 let expected;
 let actual;
@@ -11,9 +10,10 @@ let plane;
 let plane2;
 let size;
 let airportCapacity;
-let weather;
 
-
+console.log(``)
+console.log(`AIRPORT TESTS`)
+console.log(`****************************`)
 // Test 1 - test the airport can add a plane to it's plane list.
 
 console.log(`============================`);

@@ -1,4 +1,3 @@
-const Airport = require("../src/airport");
 const Plane = require("../src/plane");
 const { assertEquals } = require("../test/TestingFrameworks");
 
@@ -7,6 +6,9 @@ let actual;
 let result;
 let plane;
 
+console.log(``)
+console.log(`PLANE TESTS`)
+console.log(`****************************`)
 // Test 1 - test that plane tells if it is landed.
 
 console.log(`============================`);
