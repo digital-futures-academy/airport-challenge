@@ -174,6 +174,7 @@ console.log(`\n
 console.log(
   `Test 4 \n
   - check that initTakeoff returns a confirmation message when a plane leaves the airport\n
+  - Check that initTakeoff reduces planeArray.length by one\n
   - check that initTakeoff removes the plane passed to it from planeArray\n
   `
 );
@@ -182,7 +183,6 @@ console.log(
 testAirport = new Airport();
 testAirport.landPlane(new Plane(`dfa-001`));
 confirm = testAirport.initTakeoff(testAirport.planeArray[0]);
-console.log(confirm);
 expected = `Flight dfa-001 has departed. Remaining capacity: ${9}`;
 // Act
 actual = confirm;
@@ -197,3 +197,41 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 confirm = undefined;
+
+// Arrange
+testAirport = new Airport();
+confirm = testAirport.landPlane(new Plane(`dfa-001`));
+testAirport.initTakeoff(testAirport.planeArray[0]);
+expected = confirm - 1;
+// Act
+actual = testAirport.planeArray.length;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 4.2: initTakeoff reduces planeArray.length by one: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+confirm = undefined;
+
+// // Arrange
+// testAirport = new Airport();
+// testAirport.landPlane(new Plane(`dfa-001`));
+// testAirport.initTakeoff(testAirport.planeArray[0]);
+// expected = `dfa-001`;
+// // Act
+// actual = testAirport.planeArray[0].id;
+// // Assert
+// result = assertEquals(actual, expected);
+// console.log(
+//   `Test 4.2: initTakeoff removes the plane passed to it from planeArray: ${result}`
+// );
+// // Clean up
+// testAirport = null;
+// expected = undefined;
+// actual = undefined;
+// result = undefined;
+// confirm = undefined;
