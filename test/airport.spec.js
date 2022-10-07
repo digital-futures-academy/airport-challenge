@@ -14,10 +14,10 @@ let plane4;
 let plane5;
 let plane6;
 
-//Test 1 - does the airport contain more planes when a plane is told to land?
+//Test 1a - does the airport contain more planes when a plane is told to land?
 
 console.log("===================================");
-console.log(`Test 1 - if land function puts something into the airport`);
+console.log(`Test 1a - if land function puts something into the airport`);
 
 //Arrange
 airport = new Airport();
@@ -31,7 +31,7 @@ actual = airport.getAirportPlanes().length;
 //Assert
 result = assertEquals(actual, expected);
 console.log(
-	`Test 1 - if land function puts something into the airport: ${result}`
+	`Test 1a - if land function puts something into the airport: ${result}`
 );
 
 //Clean up

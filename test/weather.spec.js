@@ -5,9 +5,11 @@ let actual;
 let result;
 let weather;
 
-//Test 1 - does the weather set the storm to be a random boolean value when it is constructed
+//Test 1c - does the weather set the storm to be a random boolean value when it is constructed
 console.log("===================================");
-console.log(`Test 1 - if weather class sets storm to be random boolean value`);
+console.log(
+	`Test 1c - if weather class sets storm to be random boolean value & if getStormy returns that`
+);
 
 //arrange
 weather = new Weather();
@@ -20,5 +22,5 @@ actual = typeof weather.getStormy();
 //assert
 result = assertEquals(expected, actual);
 console.log(
-	`Test 1 - if weather class sets storm to be random boolean value: ${result}`
+	`Test 1c - if weather class sets storm to be random boolean value & if getStormy returns that: ${result}`
 );

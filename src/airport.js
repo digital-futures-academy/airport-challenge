@@ -32,6 +32,7 @@ class Airport {
 			return `The ${plane.getFlightNum()} plane is not at the airport.`;
 		}
 	}
+	//I had originally implemented isInAirport() using .includes but then you mentioned you would prefer we did a deeper search hence the use of the for loop to get the actual flight number
 	isInAirport(plane) {
 		let planeIsInAirport = false;
 		for (let flight of this.#airportPlanes) {
