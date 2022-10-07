@@ -6,6 +6,8 @@ let expected;
 let actual;
 let result;
 let testWeather;
+
+
 // Test 1 - test that weather can be stormy.
 
 console.log(`============================`);
@@ -26,7 +28,33 @@ console.log(`Test 1: Weather is stormy: ${result}`);
 
 // Clean up
 weather = null;
-stormyWeather = null;
+testWeather = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Test 2 - test that weather can be not stormy.
+
+console.log(`============================`);
+console.log(`Test 1 - test that weather can be not stormy.`);
+
+// Arrange
+weather = new Weather();
+testWeather = `sunny`
+weather.actualWeather = testWeather
+expected = false;
+
+// Act
+actual = weather.isStormy();
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(`Test 1: Weather is stormy: ${result}`);
+
+// Clean up
+weather = null;
+testWeather = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
