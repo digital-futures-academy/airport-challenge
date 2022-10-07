@@ -13,7 +13,7 @@ class Airport {
       return "airport is full";
     } else {
       this.planesAtAirport.push(plane);
-      return "the plane has landed ";
+      return "the plane has landed";
     }
   }
 

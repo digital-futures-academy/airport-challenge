@@ -83,16 +83,16 @@ console.log(`Test 4 - check if plane is not added to planesAtAirport array when 
 airport = new Airport(3);
 
 plane = { id: `british airways` };
-const plane2 = { id: `kata airways` };
-const plane3 = { id: `KLM airways` };
-const plane4 = { id: `Zimbabwe airways` };
+const plane5 = { id: `kata airways` };
+const plane6 = { id: `KLM airways` };
+const plane7 = { id: `Zimbabwe airways` };
 expected = "airport is full";
 
 
 // Act
-airport.landPlane(plane2);
-airport.landPlane(plane3);
-airport.landPlane(plane4);
+airport.landPlane(plane5);
+airport.landPlane(plane6);
+airport.landPlane(plane7);
 
 actual = airport.landPlane(plane);
 
@@ -106,4 +106,37 @@ plane = null;
 expected = null;
 actual = null;
 result = null;
+
+console.log(`====================================================`);
+console.log(`Test 5 - check if plane is added to planesAtAirport array when capacity is not full`);
+
+// Arrange 
+airport = new Airport(10);
+
+plane = { id: `british airways` };
+const plane2 = { id: `kata airways` };
+const plane3 = { id: `KLM airways` };
+const plane4 = { id: `Zimbabwe airways` };
+
+expected = "the plane has landed";
+
+
+// Act
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
+
+actual = airport.landPlane(plane);
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(` Test 5: plane added to planesAtAirport array: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = null;
+actual = null;
+result = null;
+
 
