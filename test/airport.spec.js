@@ -125,8 +125,6 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-/*
-
 //test5.2-Prevent landing a plane that's already landed 
 console.log('=====================');
 console.log('test5.2-Prevent landing a plane that\'s already landed')
@@ -146,6 +144,8 @@ plane7 = null
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+/*
 
 
 //test6-prevent takeoff when weather is stormy 
