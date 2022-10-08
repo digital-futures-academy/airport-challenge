@@ -19,12 +19,12 @@ console.log(
 
 // Arrange
 testAirport = new Airport();
-control = testAirport.planeArray.length;
+control = testAirport.planesAtAirport.length;
 expected = control + 1;
 
 // Act
 testAirport.landPlane(new Plane(`dfa001`));
-actual = testAirport.planeArray.length;
+actual = testAirport.planesAtAirport.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 1.1: Plane landed: ${result}`);
@@ -91,7 +91,7 @@ console.log(`\n
 ===================================================`);
 console.log(
   `Test 3 \n
-  - check that planeArray.length increases by 1 after plane successfully lands\n
+  - check that planesAtAirport.length increases by 1 after plane successfully lands\n
   - check that landPlane returns a confirmation message after a plane lands\n
   - check that a message confirming full capacity is returned\n
   - check that planes cannot land after capacity has been reached\n
@@ -104,11 +104,11 @@ testAirport.landPlane(new Plane(`dfa-001`));
 control = 0;
 expected = control + 1;
 // Act
-actual = testAirport.planeArray.length;
+actual = testAirport.planesAtAirport.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 3.1: before capacity is reached, planeArray.length has increased by 1 after landing a plane: ${result}`
+  `Test 3.1: before capacity is reached, planesAtAirport.length has increased by 1 after landing a plane: ${result}`
 );
 // Clean up
 testAirport = null;
@@ -156,7 +156,7 @@ console.log(
 testAirport.landPlane(new Plane(`dfa-006`));
 expected = testAirport.capacity;
 // Act
-actual = testAirport.planeArray.length;
+actual = testAirport.planesAtAirport.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(
@@ -174,15 +174,15 @@ console.log(`\n
 console.log(
   `Test 4 \n
   - check that initTakeoff returns a confirmation message when a plane leaves the airport\n
-  - Check that initTakeoff reduces planeArray.length by one\n
-  - check that initTakeoff removes the plane passed to it from planeArray\n
+  - Check that initTakeoff reduces planesAtAirport.length by one\n
+  - check that initTakeoff removes the plane passed to it from planesAtAirport\n
   `
 );
 
 // Arrange
 testAirport = new Airport();
 testAirport.landPlane(new Plane(`dfa-001`));
-confirm = testAirport.initTakeoff(testAirport.planeArray[0]);
+confirm = testAirport.initTakeoff(testAirport.planesAtAirport[0]);
 expected = `Flight dfa-001 has departed. Remaining capacity: ${10}`;
 // Act
 actual = confirm;
@@ -201,15 +201,15 @@ confirm = undefined;
 // Arrange
 testAirport = new Airport();
 testAirport.landPlane(new Plane(`dfa-001`));
-confirm = testAirport.planeArray.length;
-testAirport.initTakeoff(testAirport.planeArray[0]);
+confirm = testAirport.planesAtAirport.length;
+testAirport.initTakeoff(testAirport.planesAtAirport[0]);
 expected = confirm - 1;
 // Act
-actual = testAirport.planeArray.length;
+actual = testAirport.planesAtAirport.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 4.2: initTakeoff reduces planeArray.length by one: ${result}`
+  `Test 4.2: initTakeoff reduces planesAtAirport.length by one: ${result}`
 );
 // Clean up
 testAirport = null;
@@ -221,14 +221,45 @@ confirm = undefined;
 // Arrange
 testAirport = new Airport();
 testAirport.landPlane(new Plane(`dfa-001`));
-testAirport.initTakeoff(testAirport.planeArray[0]);
+testAirport.initTakeoff(testAirport.planesAtAirport[0]);
 expected = false;
 // Act
-actual = testAirport.planeArray.includes(plane => plane.id === `dfa-001`);
+actual = testAirport.planesAtAirport.includes(plane => plane.id === `dfa-001`);
 // Assert
 result = assertEquals(actual, expected);
 console.log(
-  `Test 4.4: initTakeoff removes the plane passed to it from planeArray: ${result}`
+  `Test 4.3: initTakeoff removes the plane passed to it from planesAtAirport: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`\n
+===================================================`);
+console.log(
+  `Test 5 \n
+  - Check that when plane is in planesAtAirport array, planeAtAirport returns true\n
+  - \n
+  - \n
+  - \n
+  - \n
+  - \n
+  - \n
+  `
+);
+
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(new Plane(`dfa-001`));
+expected = true;
+// Act
+actual = testAirport.planeIsAtAirport;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 5.1: if plane is in planesAtAirport array, planeIsAtAirport returns true: ${result}`
 );
 // Clean up
 testAirport = null;

@@ -1,14 +1,15 @@
 'use strict';
-
 class Airport {
   capacity = 10;
-  planeArray = [];
-  planesEnroute = [];
+  planesAtAirport = [];
+  planeIsAtAirport;
+
   landPlane = function (plane) {
-    if (this.capacity > this.planeArray.length) {
-      this.planeArray.push(plane);
+    if (this.capacity > this.planesAtAirport) {
+      this.planesAtAirport.push(plane);
+      this.planeIsAtAirport = true;
       return `Flight ${plane.id} has landed. Remaining capacity: ${
-        this.capacity - this.planeArray.length
+        this.capacity - this.planesAtAirport.length
       }`;
     }
   };
@@ -16,15 +17,15 @@ class Airport {
     this.capacity = newCapacity;
   };
   capacityReached = function () {
-    if (this.capacity === this.planeArray.length) {
+    if (this.capacity === this.planesAtAirport.length) {
       return `Airport capacity has been reached.`;
     }
   };
   initTakeoff = function (plane) {
-    let index = this.planeArray.findIndex(plane => plane.id);
-    let departedPlane = this.planeArray.splice(index, 1);
+    let index = this.planesAtAirport.findIndex(plane => plane.id);
+    this.planesAtAirport.splice(index, 1);
     return `Flight ${plane.id} has departed. Remaining capacity: ${
-      this.capacity - this.planeArray.length
+      this.capacity - this.planesAtAirport.length
     }`;
   };
 }
