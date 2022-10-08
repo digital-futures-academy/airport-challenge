@@ -42,9 +42,6 @@ expected = undefined;
 actual = undefined;
 result = undefined
 
-
-
-/*
 //test3-Prevent landing when the airport is full
 console.log('=====================');
 console.log('test3-Prevent landing when the airport is full')
@@ -68,7 +65,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-
+/*
 //test4.1-let a plane take off 
 console.log('=====================');
 console.log('test4.1-let a plane take off')
