@@ -11,9 +11,16 @@ class Airport {
   landplane = (plane) => {
     if (this.planesAtAirstrip.length >= this.capacity) {
       return 'Im Sorry you can not land here, the airstrip is full'
+
+    } else if (this.isPlaneAtAirport(plane) === false) {
+
+      this.planesAtAirstrip.push(plane)
+      return 'Plane has successfully landed at the airstrip'
+
     }
-    this.planesAtAirstrip.push(plane)
-    return 'Plane has successfully landed at the airstrip'
+    else return 'PLane is already at the airport'
+
+
 
   }
 
@@ -22,9 +29,15 @@ class Airport {
   }
 
 
-  planeTakesOff = () => {
-    this.planesAtAirstrip.pop()
-    return 'Plane has succesfully taken off and left the airstrip'
+  planeTakesOff = (plane) => {
+
+    if (this.isPlaneAtAirport(plane) === true) {
+      let currentPlanes = this.planesAtAirstrip.filter(item => item !== plane)
+      this.planesAtAirstrip = currentPlanes
+      return 'Plane has succesfully taken off and left the airstrip'
+    }
+
+
 
   }
 

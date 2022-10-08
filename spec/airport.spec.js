@@ -227,3 +227,51 @@ newAirport = null;
 actual = undefined;
 expected = undefined;
 result = undefined;
+
+console.log('====================================')
+console.log('Test 5.2: Checks if plane exists in airport array returns message ')
+//Arrange
+newAirport = new Airport()
+expected = 'PLane is already at the airport';
+
+//Act
+newAirport.landplane('Boeing 244')
+
+actual = newAirport.landplane('Boeing 244')
+
+
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Boeing 244 is already at the airport: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('====================================')
+console.log('Test 5.3: Checks if plane exists in airport array its can be removed from list ')
+//Arrange
+newAirport = new Airport()
+expected = 'Plane has succesfully taken off and left the airstrip';
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 246')
+newAirport.landplane('Boeing 454')
+
+actual = newAirport.planeTakesOff('Boeing 246')
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Boeing 246 has taken off and left the airstrip: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
