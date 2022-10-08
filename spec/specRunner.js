@@ -158,8 +158,8 @@ airport.landPlane(plane9);
 airport.landPlane(plane10);
 
 // Act
+actual = airport.takeOffPlane(plane8);
 
-actual = airport.takeOffPlane(plane10);
 // Assert
 result = assertEquals(actual, expected);
 console.log(` Test 6: plane removed from planesAtAirport array: ${result}`);
@@ -170,3 +170,37 @@ plane = null;
 expected = null;
 actual = null;
 result = null;
+
+console.log(`====================================================`);
+console.log(`Test 7 - check if plane is in the planesAtAirport array`);
+
+// Arrange 
+airport = new Airport(7);
+
+plane = { id: `british airways` };
+const plane200 = { id: `kata airways` };
+const plane201 = { id: `KLM airways` };
+const plane202 = { id: `Zimbabwe airways` };
+
+expected = false;
+
+airport.landPlane(plane);
+airport.landPlane(plane200);
+airport.landPlane(plane201);
+airport.landPlane(plane202);
+
+// Act
+
+actual = airport.isPlaneAtAirport(plane10);
+// Assert
+result = assertEquals(actual, expected);
+console.log(` Test 7: plane not in planesAtAirport array: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = null;
+actual = null;
+result = null;
+
+

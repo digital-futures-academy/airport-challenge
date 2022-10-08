@@ -17,9 +17,11 @@ class Airport {
     }
   }
 
+
   takeOffPlane(plane) {
-    this.planesAtAirport.pop(plane);
-    return "the plane has taken off";
+    if (this.planesAtAirport.pop(plane)) {
+      return "the plane has taken off";
+    }
   }
 
   getCapacity() {
@@ -28,6 +30,14 @@ class Airport {
 
   setCapacity(newCapacity) {
     this.capacity = newCapacity;
+  }
+
+  isPlaneAtAirport(plane) {
+    if (this.planesAtAirport.includes(plane)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
