@@ -105,8 +105,6 @@ plane5 = null;
 actual = undefined;
 result = undefined;
 
-/*
-
 //test5.1-Prevent let planes take-off which are not at the airport 
 console.log('=====================');
 console.log('test5.1-Prevent let planes take-off which are not at the airport')
@@ -126,6 +124,8 @@ plane6 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+/*
 
 //test5.2-Prevent landing a plane that's already landed 
 console.log('=====================');
