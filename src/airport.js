@@ -1,15 +1,8 @@
 class Airport {
     defaultCapacity = 2;
     airportPlanes = [];
-    weather = ["sunny", "stormy", "rainning", "cloudy"]
     land = (plane) => {
-        if (this.airportPlanes.includes(plane)) {
-            return "Sorry, this plane is already at the airport so it cannot land"
-        }
-        else {
-            this.airportPlanes.push(plane);
-            return "Please land this plane"
-        }
+        this.airportPlanes.push(plane);
     }
 
     isFull = () => {
@@ -23,13 +16,33 @@ class Airport {
     }
 
     send = (plane) => {
+        this.airportPlanes.pop(plane);
+    }
+
+    takeoffConfirm = (plane) => {
+        if (this.airportPlanes.includes(plane) == false) {
+            return "Sorry, this plane is already taken off"
+
+        }
+    }
+
+    planeHasTakenOff = (plane) => {
         if (this.airportPlanes.includes(plane) == false) {
             return "Sorry, this plane is not at the airport so it cannot take off"
         }
-        else {
-            this.airportPlanes.pop(plane);
-            return "Please let this plane take off"
-        }
     }
+
+    planeHasLanded = (plane) => {
+        let landArry;
+        landArry = []
+        if (landArry.includes(plane) == false) {
+            landArry.push(plane)
+        }
+
+        return "Sorry, this plane is already at the airport so it cannot land"
+    }
+
+
 }
+
 module.exports = Airport;
