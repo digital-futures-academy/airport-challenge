@@ -29,6 +29,20 @@ class Airport {
   }
 
 
+  isPlaneAtAirport = (plane) => {
+    return this.planesAtAirstrip.includes(plane)
+
+  }
+
+
+
+
+
+
+
+
+
+
 }
 
 module.exports = Airport;

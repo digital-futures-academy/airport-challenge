@@ -148,7 +148,7 @@ actual = newAirport.planesAtAirstrip.length
 
 //Assert
 result = assertEquals(expected, actual)
-console.log(`Plane has taken off, there is currently 2 plane on the airstrip: ${result}`)
+console.log(`Plane has taken off, there is currently 2 planes on the airstrip: ${result}`)
 
 // Clean up
 newAirport = null;
@@ -180,3 +180,28 @@ newAirport = null;
 actual = undefined;
 expected = undefined;
 result = undefined;
+
+
+console.log('====================================')
+console.log('Test 5: Checks if plane is at airport ')
+//Arrange
+newAirport = new Airport()
+expected = true;
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 267')
+newAirport.landplane('Boeing 123')
+actual = newAirport.isPlaneAtAirport('Boeing 267')
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Boeing 267 is currently at the airstrip: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
