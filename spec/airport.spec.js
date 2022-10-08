@@ -205,3 +205,25 @@ actual = undefined;
 expected = undefined;
 result = undefined;
 
+console.log('====================================')
+console.log('Test 5.1: Checks if plane does not exists at airport ')
+//Arrange
+newAirport = new Airport()
+expected = false;
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 267')
+newAirport.landplane('Boeing 123')
+actual = newAirport.isPlaneAtAirport('Boeing 787')
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`Boeing 787 is not at the airport: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
