@@ -5,6 +5,7 @@ let weather = new Weather();
 class Airport {
   landedPlanes = [];
 
+  //Set the default airport capacity to 1
   constructor(capacity = 1) {
     this.capacity = capacity
   }
@@ -18,7 +19,7 @@ class Airport {
   };
 
   isAirportFull = () => {
-    return (this.landedPlanes.length >= this.capacity)
+    return (this.landedPlanes.length === this.capacity)
   };
 
   planeTakeoff = plane => {
