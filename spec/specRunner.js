@@ -146,19 +146,18 @@ console.log(`Test 6 - let a plane take off and confirm that it is no longer in t
 airport = new Airport(10);
 
 plane = { id: `british airways` };
-const plane8 = { id: `kata airways` };
-const plane9 = { id: `KLM airways` };
-const plane10 = { id: `Zimbabwe airways` };
-
+const plane20 = { id: `kata airways` };
+const plane21 = { id: `KLM airways` };
+const plane22 = { id: `Zimbabwe airways` };
 expected = "the plane has taken off";
 
 airport.landPlane(plane);
-airport.landPlane(plane8);
-airport.landPlane(plane9);
-airport.landPlane(plane10);
+airport.landPlane(plane20);
+airport.landPlane(plane21);
+airport.landPlane(plane22);
 
 // Act
-actual = airport.takeOffPlane(plane8);
+actual = airport.takeOffPlane(plane20);
 
 // Assert
 result = assertEquals(actual, expected);
@@ -191,7 +190,7 @@ airport.landPlane(plane202);
 
 // Act
 
-actual = airport.isPlaneAtAirport(plane10);
+actual = airport.isPlaneAtAirport(plane2);
 // Assert
 result = assertEquals(actual, expected);
 console.log(` Test 7: plane not in planesAtAirport array: ${result}`);
@@ -202,5 +201,4 @@ plane = null;
 expected = null;
 actual = null;
 result = null;
-
 

@@ -17,10 +17,12 @@ class Airport {
     }
   }
 
-
   takeOffPlane(plane) {
-    if (this.planesAtAirport.pop(plane)) {
-      return "the plane has taken off";
+    if (this.isPlaneAtAirport = true) {
+      this.planesAtAirport.splice(this.planesAtAirport.indexOf(plane), 1);
+      return "the plane has taken off"
+    } else {
+      return "cannot take off";
     }
   }
 
