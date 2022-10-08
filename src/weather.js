@@ -1,15 +1,19 @@
 class weather {
-    landStormy = 
+    constructor(weather) {
+        this.weather = weather
+    }
+
+    weathergenerator = () => {
+        Math.floor(Math.random() * max);
+        res = getRandomInt(2)
+        return res
+
+    }
+
 
 }
 
-module.exports = plane;
+module.exports = weather;
 
 
-weathergenerator()
 
-
-landStormy()
-
-
-takeoffStormy()

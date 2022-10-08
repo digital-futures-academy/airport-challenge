@@ -1,6 +1,7 @@
 const { assertEquals } = require('./testing-framework');
 const Airport = require('../src/Airport');
 const plane = require('../src/plane')
+const weather = require('../src/weather')
 
 let airport, expected, actual, result;
 
@@ -91,7 +92,7 @@ console.log('test4.2-Confirm that the plane taking off is no longer at the airpo
 //arrange
 airport = new Airport();
 plane5 = new plane();
-//airport.send(plane5)
+airport.send(plane5)
 expected = "Sorry, this plane is already taken off";
 //act
 actual = airport.takeoffConfirm(plane5);
@@ -145,22 +146,16 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-/*
-
-
 //test6-prevent takeoff when weather is stormy 
 console.log('=====================');
 console.log('test6-prevent takeoff when weather is stormy')
 //arrange
 airport = new Airport();
 let plane8 = new plane;
-
-
-
-airport.planeHasLanded(plane7)
-expected = "Sorry, this plane is already at the airport so it cannot land";
+airport.weathergenerator(plane8)
+expected = "Sorry, as weather is stormy the plane cannot take off";
 //act
-actual = airport.planeHasLanded(plane7);
+actual = airport.stormyTakeOff(plane8);
 //assert
 result = assertEquals(actual, expected);
 console.log(`test6-prevent takeoff when weather is stormy; ${result}`)
@@ -170,5 +165,5 @@ plane7 = null
 expected = undefined;
 actual = undefined;
 result = undefined;
-*/
+
 

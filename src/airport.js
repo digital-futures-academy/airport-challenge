@@ -38,8 +38,18 @@ class Airport {
         if (landArry.includes(plane) == false) {
             landArry.push(plane)
         }
-
         return "Sorry, this plane is already at the airport so it cannot land"
+    }
+
+    weathergenerator = () => {
+        return Math.floor(Math.random() * 2) + 1;
+    }
+
+    stormyTakeOff = () => {
+        let res = Math.floor(Math.random() * 2) + 1
+        if (res == 2) {
+            return "Sorry, as weather is stormy the plane cannot take off"
+        }
     }
 
 
