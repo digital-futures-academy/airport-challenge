@@ -24,9 +24,6 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-
-/*
-
 //test2-create a airport capacity
 console.log('=====================');
 console.log('test2-create a airport capacity')
@@ -43,8 +40,11 @@ console.log(`Test2: Create a airport capacity; ${result}`)
 airport = null;
 expected = undefined;
 actual = undefined;
-result = undefined;
+result = undefined
 
+
+
+/*
 //test3-Prevent landing when the airport is full
 console.log('=====================');
 console.log('test3-Prevent landing when the airport is full')
