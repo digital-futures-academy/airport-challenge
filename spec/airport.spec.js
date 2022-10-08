@@ -253,7 +253,34 @@ expected = undefined;
 result = undefined;
 
 console.log('====================================')
-console.log('Test 5.3: Checks if plane exists in airport array its can be removed from list ')
+console.log('Test 5.3: Checks if plane exists in airport array does not get added to array ')
+//Arrange
+newAirport = new Airport()
+expected = 2;
+
+//Act
+newAirport.landplane('Boeing 244')
+newAirport.landplane('Boeing 277')
+newAirport.landplane('Boeing 277')
+
+actual = newAirport.planesAtAirstrip.length
+
+
+
+
+//Assert
+result = assertEquals(expected, actual)
+console.log(`There is currently 2 planes at the airport: ${result}`)
+
+// Clean up
+newAirport = null;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+
+console.log('====================================')
+console.log('Test 5.4: Checks if plane exists in airport array its can be removed from list ')
 //Arrange
 newAirport = new Airport()
 expected = 'Plane has succesfully taken off and left the airstrip';
