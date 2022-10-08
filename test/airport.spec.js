@@ -85,8 +85,6 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-/*
-
 //test4.2-Confirm that the plane taking off is no longer at the airport 
 console.log('=====================');
 console.log('test4.2-Confirm that the plane taking off is no longer at the airport')
@@ -106,6 +104,8 @@ expected = undefined;
 plane5 = null;
 actual = undefined;
 result = undefined;
+
+/*
 
 //test5.1-Prevent let planes take-off which are not at the airport 
 console.log('=====================');
