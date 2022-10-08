@@ -226,13 +226,13 @@ how you approached the problem:
 * setCapacity() - set a default airport capacity for use for many different airports
 * isFull() - determine if airport is full
 * send() - take off a plane
-* takeoffConfirm() - Confirmation of taking off a plane
+* takeoffConfirm() - confirmation of taking off a plane
 * planeHasTakenOff() - prevent taking off if the plane is not at the airport
 * planeHasLanded() - prevent landing if the plane is at the airport
 * weathergenerator() - generate a random weather condition
-* stormyTakeOff() - Prevent takeoff when the weather is stormy
+* stormyTakeOff() - prevent takeoff when the weather is stormy
 * stormyLand() - prevent land when the weather is stormy
-* countAirplanes() - Make sure the plane land at the same airport
+* countAirplanes() - make sure the plane land at the same airport
 
 ### Error
 1. 'MODULE_NOT_FOUND'
@@ -252,6 +252,9 @@ how you approached the problem:
 
 6. false test2
 ![Alt text](errors/testFalse2.png)
+
+7. Max is not defined
+![Alt text](errors/maxNotDefined.png)
 
 ## Authors
 
