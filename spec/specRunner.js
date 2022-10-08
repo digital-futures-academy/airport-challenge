@@ -13,7 +13,7 @@ console.log(`====================================================`);
 console.log(`Test 1 - Check if plane is added in planesAtAirport`);
 
 // Arrange 
-airport = new Airport;
+airport = new Airport(1);
 
 plane = { id: `british airways`, };
 expected = true;
