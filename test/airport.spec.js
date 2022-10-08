@@ -161,7 +161,27 @@ result = assertEquals(actual, expected);
 console.log(`test6-prevent takeoff when weather is stormy; ${result}`)
 //cleanup
 airport = null;
-plane7 = null
+plane8 = null
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+//test7-prevent landing when weather is stormy
+console.log('=====================');
+console.log('test7-prevent landing when weather is stormy')
+//arrange
+airport = new Airport();
+let plane9 = new plane;
+airport.weathergenerator(plane9)
+expected = "Sorry, as weather is stormy the plane cannot land";
+//act
+actual = airport.stormyLand(plane9);
+//assert
+result = assertEquals(actual, expected);
+console.log(`test7-prevent landing when weather is stormy; ${result}`)
+//cleanup
+airport = null;
+plane8 = null
 expected = undefined;
 actual = undefined;
 result = undefined;

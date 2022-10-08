@@ -52,7 +52,12 @@ class Airport {
         }
     }
 
-
+    stormyLand = () => {
+        let res = Math.floor(Math.random() * 2) + 1
+        if (res == 2) {
+            return "Sorry, as weather is stormy the plane cannot land"
+        }
+    }
 }
 
 module.exports = Airport;
