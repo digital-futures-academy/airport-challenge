@@ -255,7 +255,7 @@ testAirport = new Airport();
 testAirport.landPlane(new Plane(`dfa-001`));
 expected = true;
 // Act
-actual = testAirport.planeIsAtAirport;
+actual = testAirport.planeIsAtAirport(`dfa-001`);
 // Assert
 result = assertEquals(actual, expected);
 console.log(

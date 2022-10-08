@@ -2,15 +2,18 @@
 class Airport {
   capacity = 10;
   planesAtAirport = [];
-  planeIsAtAirport;
 
   landPlane = function (plane) {
     if (this.capacity > this.planesAtAirport) {
       this.planesAtAirport.push(plane);
-      this.planeIsAtAirport = true;
       return `Flight ${plane.id} has landed. Remaining capacity: ${
         this.capacity - this.planesAtAirport.length
       }`;
+    }
+  };
+  planeIsAtAirport = function (planeID) {
+    if (this.planesAtAirport.some(el => el.id === planeID)) {
+      return true;
     }
   };
   setCapacity = function (newCapacity) {
