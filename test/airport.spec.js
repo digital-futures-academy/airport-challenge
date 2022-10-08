@@ -65,7 +65,6 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-/*
 //test4.1-let a plane take off 
 console.log('=====================');
 console.log('test4.1-let a plane take off')
@@ -85,6 +84,8 @@ plane4 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+/*
 
 //test4.2-Confirm that the plane taking off is no longer at the airport 
 console.log('=====================');
