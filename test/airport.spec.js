@@ -1,7 +1,6 @@
 const { assertEquals } = require('./testing-framework');
 const Airport = require('../src/Airport');
 const plane = require('../src/plane')
-const weather = require('../src/weather')
 
 let airport, expected, actual, result;
 
@@ -185,5 +184,26 @@ plane8 = null
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+//test8-Planes that have landed must be at an airport
+console.log('=====================');
+console.log('test8-Planes that have landed must be at an airport')
+//arrange
+airport = new Airport();
+let plane10 = new plane;
+airport.land(plane10)
+expected = "The plane land at a different airport";
+//act
+actual = airport.countAirplanes();
+//assert
+result = assertEquals(actual, expected);
+console.log(`test8-Planes that have landed must be at an airport; ${result}`)
+//cleanup
+airport = null;
+plane8 = null
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 
 

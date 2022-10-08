@@ -1,12 +1,12 @@
 class Airport {
-    defaultCapacity = 2;
+    AirpCapacity = 2;
     airportPlanes = [];
     land = (plane) => {
         this.airportPlanes.push(plane);
     }
 
     isFull = () => {
-        if (this.airportPlanes.length >= this.defaultCapacity) {
+        if (this.airportPlanes.length >= this.AirpCapacity) {
             return "Sorry, the airport is full"
         }
     }
@@ -58,6 +58,15 @@ class Airport {
             return "Sorry, as weather is stormy the plane cannot land"
         }
     }
+
+    countAirplanes = (plane) => {
+        let count = 0
+        if (this.airportPlanes.includes(plane)) {
+            count += 1
+        }
+        return "The plane land at a different airport"
+    }
+
 }
 
 module.exports = Airport;

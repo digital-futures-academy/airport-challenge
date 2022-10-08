@@ -1,4 +1,4 @@
-# AIRPORT CHALLENGE
+# Airport Challenge
 
 This software is used to control the flow of planes at an airport
 
@@ -24,6 +24,18 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
 ```
 
 ## Domain Models
@@ -38,12 +50,10 @@ I want to instruct the airport to land a plane
 
 #### Domain Model
 
-| Objects | Properties                  | Messages     | Output   |
-| ------- | --------------------------- | ------------ | -------- |
-| Airport | airportPlanes@Array[@plane] | land(@plane) | @Boolean |
-|         |                             |              |          |
-| Plane   | planeID@Plane               | land()       | @void    |
-|         |                             |              |          |
+| Objects | Properties                  | Messages     | Output |
+| ------- | --------------------------- | ------------ | ------ |
+| Airport | airportPlanes@Array[@plane] | land(@plane) | @void  |
+| Plane   | planeID@Plane               | land()       | @void  |
 
 #### Tests
 1. Test if a plane is landed at the airport when land is called with plane
@@ -63,9 +73,6 @@ I would like a default airport capacity that can be overridden as appropriate
 | Objects | Properties                  | Messages             | Output |
 | ------- | --------------------------- | -------------------- | ------ |
 | Airport | airportPlanes@Array[@plane] | setCapacity(@number) | @void  |
-|         |                             |                      |        |
-| Plane   | planeID@Plane               | setCapacity()        | @void  |
-|         |                             |                      |        |
 
 #### Tests
 1. Test if a default airport capacity can be overridden as appropriate
@@ -85,9 +92,7 @@ I want to prevent landing when the airport is full
 | Objects | Properties                  | Messages | Output   |
 | ------- | --------------------------- | -------- | -------- |
 | Airport | airportPlanes@Array[@plane] | isFull() | @Boolean |
-|         |                             |          |          |
 | Plane   | planeID@Plane               | isFull() | @Boolean |
-|         |                             |          |          |
 
 #### Tests
 1. Test if the plane landing is prevented when the airport is full
@@ -104,12 +109,12 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 #### Domain Model
 
-| Objects | Properties                  | Messages | Output   |
-| ------- | --------------------------- | -------- | -------- |
-| Airport | airportPlanes@Array[@plane] | send()   | @Boolean |
-|         |                             |          |          |
-| Plane   | planeID@Plane               | send()   | @void    |
-|         |                             |          |          |
+| Objects | Properties                  | Messages               | Output   |
+| ------- | --------------------------- | ---------------------- | -------- |
+| Airport | airportPlanes@Array[@plane] | send(@plane)           | @void    |
+|         |                             | takeoffConfirm(@plane) | @Boolean |
+| Plane   | planeID@Plane               | send()                 | @void    |
+|         |                             | takeoffConfirm()       | @Boolean |
 
 #### Tests
 1. Test if the plane is taken off from the airport when send is called
@@ -127,27 +132,107 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 #### Domain Model
 
-| Objects | Properties                  | Messages | Output   |
-| ------- | --------------------------- | -------- | -------- |
-| Airport | airportPlanes@Array[@plane] | land()   | @Boolean |
-|         |                             | send()   | @Boolean |
-|         |                             |          |          |
-| Plane   | planeID@Plane               | land()   | @Boolean |
-|         |                             | send()   | @Boolean |
+| Objects | Properties                  | Messages           | Output   |
+| ------- | --------------------------- | ------------------ | -------- |
+| Airport | airportPlanes@Array[@plane] | planeHasTakenOff() | @Boolean |
+|         |                             | planeHasLanded()   | @Boolean |
+|         |                             |                    |          |
+| Plane   | planeID@Plane               | planeHasTakenOff() | @Boolean |
+|         |                             | planeHasLanded()   | @Boolean |
 
 #### Tests
 1. Test if prevent letting a plane take off when they are not at the airport
 2. Test if prevent landing a plane when that's already landed
 
+---
+
+## User Story 6
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+
+#### Domain Model
+
+| Objects | Properties                  | Messages           | Output   |
+| ------- | --------------------------- | ------------------ | -------- |
+| Airport | airportPlanes@Array[@plane] | stormyTakeOff()    | @Boolean |
+| Plane   | planeID@Plane               | stormyTakeOff()    | @Boolean |
+| Weather | Weather@stormy              | weathergenerator() | @Boolean |
+|         |                             | stormyTakeOff()    | @Boolean |
+
+#### Tests
+1. Test if prevent takeoff when weather is stormy
+
+---
+
+## User Story 7
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+
+#### Domain Model
+
+| Objects | Properties                  | Messages           | Output   |
+| ------- | --------------------------- | ------------------ | -------- |
+| Airport | airportPlanes@Array[@plane] | stormyLand()       | @Boolean |
+| Plane   | planeID@Plane               | stormyLand()       | @Boolean |
+| Weather | Weather@stormy              | weathergenerator() | @Boolean |
+|         |                             | stormyLand()       | @Boolean |
+
+#### Tests
+1. Test if prevent landing when weather is stormy
+
+---
+
+## User Story 8
+
+```
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```
+
+#### Domain Model
+
+| Objects | Properties                  | Messages         | Output   |
+| ------- | --------------------------- | ---------------- | -------- |
+| Airport | airportPlanes@Array[@plane] | countAirplanes() | @Boolean |
+| Plane   | planeID@Plane               | countAirplanes() | @number  |
+
+#### Tests
+1. Test if planes that have landed at an airport
+
+---
 ## Executing program
 
 ### Steps
+how to run the tests:
 * Install project dependencies by using `npm install` command
 * Develop Domain Model by reading User Stories
 * Create a test folder containing specification and testing-framework files
 * Create a property file containing messages
 * Start to run the first test
 * Start to run the next tests
+
+### Methods
+how you approached the problem:
+* land() - land a plane
+* setCapacity() - set a default airport capacity for use for many different airports
+* isFull() - determine if airport is full
+* send() - take off a plane
+* takeoffConfirm() - Confirmation of taking off a plane
+* planeHasTakenOff() - prevent taking off if the plane is not at the airport
+* planeHasLanded() - prevent landing if the plane is at the airport
+* weathergenerator() - generate a random weather condition
+* stormyTakeOff() - Prevent takeoff when the weather is stormy
+* stormyLand() - prevent land when the weather is stormy
+* countAirplanes() - Make sure the plane land at the same airport
 
 ### Error
 1. 'MODULE_NOT_FOUND'
@@ -173,5 +258,5 @@ I want to prevent asking the airport to let planes take-off which are not at the
 Qian Zhang
 
 ## Acknowledgments
-* Thank You Lucas Chagas
-* Thank You Chung Yan Ho
+* Lucas Chagas
+* Chung Yan Ho
