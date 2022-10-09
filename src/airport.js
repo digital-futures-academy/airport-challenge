@@ -36,7 +36,7 @@ class Airport {
     }
 
     removePlane = plane => {
-        if (this.checkDuplicate(plane)) {
+        if (!(this.checkDuplicate(plane))) {
             console.log("This plane does not exist in the airport");
             return false;
         }
