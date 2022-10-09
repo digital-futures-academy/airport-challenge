@@ -2,12 +2,20 @@
 class Airport {
   capacity = 10;
   planesAtAirport = [];
+  planesDeparted = [];
 
   planeIsAtAirport = function (plane) {
     if (this.planesAtAirport.includes(plane)) {
       return true;
     } else {
       return false;
+    }
+  };
+  checkWeather = function (weather) {
+    if (weather.stormStatus === true) {
+      return `Weather is too stormy for takeoff or landing`;
+    } else {
+      `Weather is clear for takeoff or landing`;
     }
   };
   landPlane = function (plane) {
@@ -35,6 +43,7 @@ class Airport {
     if (landedStatus === true) {
       for (let index = 0; index < this.planesAtAirport.length; index++) {
         this.planesAtAirport.splice(index, 1);
+        this.planesDeparted.push(plane);
       }
       return `Flight ${plane.id} has departed. Remaining capacity: ${
         this.capacity - this.planesAtAirport.length

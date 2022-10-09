@@ -4,6 +4,7 @@ const { assertEquals } = require('../testing-framework');
 
 const Airport = require('../src/airport');
 const Plane = require('../src/plane');
+const Weather = require('../src/weather');
 
 let control, expected, actual, result, testAirport, successMsg;
 const dfa001 = new Plane(`dfa-001`);
@@ -111,7 +112,7 @@ console.log(
 
 // Arrange
 testAirport = new Airport();
-testAirport.landPlane(new Plane(`dfa-001`));
+testAirport.landPlane(dfa001);
 control = 0;
 expected = control + 1;
 // Act
@@ -130,7 +131,7 @@ result = undefined;
 // Arrange
 testAirport = new Airport();
 let confirm = testAirport.landPlane(dfa001);
-expected = `Flight dfa-001 has landed. Remaining capacity: ${9}`;
+expected = `Flight dfa-001 is now landing. Remaining capacity: ${9}`;
 // Act
 actual = confirm;
 // Assert
@@ -187,6 +188,7 @@ console.log(
   - check that initTakeoff returns a confirmation message when a plane leaves the airport\n
   - Check that initTakeoff reduces planesAtAirport.length by one\n
   - check that initTakeoff removes the plane passed to it from planesAtAirport\n
+  - Check that initTakeoff adds the departed plane to planesDeparted\n
   `
 );
 
@@ -231,7 +233,7 @@ confirm = undefined;
 
 // Arrange
 testAirport = new Airport();
-testAirport.landPlane(new Plane(`dfa-001`));
+testAirport.landPlane(dfa001);
 testAirport.initTakeoff(testAirport.planesAtAirport[0]);
 expected = false;
 // Act
@@ -240,6 +242,25 @@ actual = testAirport.planesAtAirport.includes(plane => plane.id === `dfa-001`);
 result = assertEquals(actual, expected);
 console.log(
   `Test 4.3: initTakeoff removes the plane passed to it from planesAtAirport: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(dfa001);
+testAirport.initTakeoff(dfa001);
+control = 0;
+expected = control + 1;
+// Act
+actual = testAirport.planesDeparted.length;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 4.4: before capacity is reached, planesDeparted.length has increased by 1 after landing a plane: ${result}`
 );
 // Clean up
 testAirport = null;
@@ -256,7 +277,7 @@ console.log(
   - Check that landPlane returns an error message when plane is already at airport\n
   - Check that landPlane does not land a plane that is already at the airport\n
   - Check that initTakeoff returns an error message when plane is not at airport\n
-  - Check that initTakeoff does not take-off a plane that is not at the airport\n
+  - Check that initTakeoff does not take-off a plane that is not at the airport by checking planesDeparted\n
   `
 );
 
@@ -326,3 +347,74 @@ testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Arrange
+testAirport = new Airport();
+testAirport.initTakeoff(dfa001);
+expected = `Error: Flight dfa-001 is not at this airport`;
+// Act
+actual = testAirport.initTakeoff(dfa001);
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 5.5: initTakeoff returns an error message when plane is not at airport: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Arrange
+testAirport = new Airport();
+testAirport.initTakeoff(dfa001);
+expected = 0;
+// Act
+actual = testAirport.planesDeparted.length;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 5.6: initTakeoff does not take-off a plane that is not at the airport: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`\n
+===================================================`);
+console.log(
+  `Test 6 \n
+  - Check that checkWeather returns an appropriate message for stormy conditions\n
+  - Check that checkWeather returns an appropriate message for clear condition\n
+  - Check that stormy weather prevents plane from taking off\n
+  `
+);
+// Arrange
+const goodWeather = new Weather();
+const badWeather = new Weather(true);
+testAirport = new Airport();
+testAirport.checkWeather(badWeather);
+console.log(testAirport.checkWeather(badWeather));
+expected = `Weather is too stormy for takeoff or landing`;
+// Act
+actual = testAirport.checkWeather(badWeather);
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 6.1: checkWeather returns an appropriate message for stormy conditions: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`\n
+===================================================`);
+console.log(
+  `Test 7 \n
+  - Check that stormy weather prevents plane from landing\n
+  `
+);
