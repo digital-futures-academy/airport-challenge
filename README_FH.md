@@ -88,3 +88,19 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 1. Test whether the plane is already in the airport (plane object exists in the planesInAirport).
 2. Return true if the plane does exist in the airport.
+
+
+Extended Criteria
+
+Test case 6:
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+      | Objects | Properties                                              | Messages               | Output   |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | removePlane(plane)     | @Boolean |
+      | plane   | uniqueID @String                                        |                        |          | 
+
+1. Test whether the plane is removed if the weather is stormy.
+2. Test whether the plane is not removed if the weather is anything but stormy.
