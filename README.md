@@ -13,26 +13,6 @@ Airport Challenge
 
 ```
 
-Instructions
----------
-
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
-
-Steps
--------
-
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
-
 Task
 -----
 
@@ -76,6 +56,72 @@ To count planes easily
 Planes that have landed must be at an airport
 ```
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+#### Domain Models
+```
+| Objects | Properties              | Messages            | Output  |
+| ------- | ----------------------- | ------------------- | ------- |
+| Airport | - name @String          | - landPlane(@Plane) | - @Void |
+| Plane   | - Planes @Array[@Plane] |                     |         |
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+Test - Check the length of the Planes array to see if it increases after calling the `landPlane` function.
+
+| Objects | Properties             | Messages               | Output  |
+| ------- | ---------------------- | ---------------------- | ------- |
+| Airport | - airportCapacity @int | - changeCapacity(@int) | - @Void |
+
+Test - Check to see if the function changes the maximum capacity of the airport by comparing the expected outcome with the `airportCapacity` variable.
+
+| Objects | Properties              | Messages          | Output     |
+| ------- | ----------------------- | ----------------- | ---------- |
+| Airport | - Planes @Array[@Plane] | - isAirportFull() | - @Boolean |
+
+Test - Change the capacity to equal the length of the array to test if 'isAirportFull() returns true.
+
+| Objects | Properties              | Messages          | Output  |
+| ------- | ----------------------- | ----------------- | ------- |
+| Airport | - Planes @Array[@Plane] | - takeOff(@Plane) | - @Void |
+
+Test - Check to see if the `Planes` array does not contain the `Plane` object anymore.
+
+| Objects | Properties              | Messages                   | Output     |
+| ------- | ----------------------- | -------------------------- | ---------- |
+| Airport | - Planes @Array[@Plane] | - isPlaneInAirport(@Plane) | - @Boolean |
+| Plane   | - id @String            |                            |            |
+
+Test - Check if the `Plane` object id matches with another in the `Planes` array.
+
+```
+
+```
+| Objects | Properties              | Messages          | Output     |
+| ------- | ----------------------- | ----------------- | ---------- |
+| Weather | - Weather @String       | - checkWeather()  | - @Boolean |
+| Airport | - Planes @Array[@Plane] | - takeOff(@Plane) | - @Void    |
+| Plane   | - name @String          |                   |            |
+
+Test - Given the `Weather` call the `checkWeather` function to not allow the `takeOff` function to execute and then check to see if the `Plane` object is still in the array.
+
+| Objects | Properties              | Messages            | Output     |
+| ------- | ----------------------- | ------------------- | ---------- |
+| Weather | - Weather @String       | - checkWeather()    | - @Boolean |
+| Airport | - Planes @Array[@Plane] | - landPlane(@Plane) | - @Void    |
+| Plane   | - name @String          |                     |            |
+
+Test - Given the `Weather` call the `checkWeather` function to not allow the `landPlane` function to execute and then check to see if the `Plane` object was added to the array.
+
+| Objects | Properties              | Messages            | Output  |
+| ------- | ----------------------- | ------------------- | ------- |
+| airport | - name @String          | - landPlane(@Plane) | - @Void |
+|         | - planes @Array[@Plane] |                     |         |
+| Plane   | - airport(@String)      |                     |         |
+
+Test - Check to see if the `landPlane` function adds the airport to the `Plane` object to see if that object exists in that particular airport.
+```
+
+## Reflections
+
+Had I had the opportunity to start over again, there are numerous things I could have done better:
+- After learning about the  Jasmine framework I would make use of that as it makes test driven development more convenient.
+- Doing more thorough tests, and to improve the validation and edge cases with further testing.
+- For this project to make testing robust I could have added randomisation and proper cleanup to the testing.
+- Improve classes using private with getters and setters and other object oriented programming techniques.
