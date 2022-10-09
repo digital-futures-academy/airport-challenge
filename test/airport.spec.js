@@ -387,16 +387,15 @@ console.log(`\n
 console.log(
   `Test 6 \n
   - Check that checkWeather returns an appropriate message for stormy conditions\n
-  - Check that checkWeather returns an appropriate message for clear condition\n
+  - Check that checkWeather returns an appropriate message for clear conditions\n
   - Check that stormy weather prevents plane from taking off\n
   `
 );
 // Arrange
-const goodWeather = new Weather();
+const goodWeather = new Weather(false);
 const badWeather = new Weather(true);
 testAirport = new Airport();
 testAirport.checkWeather(badWeather);
-console.log(testAirport.checkWeather(badWeather));
 expected = `Weather is too stormy for takeoff or landing`;
 // Act
 actual = testAirport.checkWeather(badWeather);
@@ -404,6 +403,23 @@ actual = testAirport.checkWeather(badWeather);
 result = assertEquals(actual, expected);
 console.log(
   `Test 6.1: checkWeather returns an appropriate message for stormy conditions: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Arrange
+testAirport = new Airport();
+testAirport.checkWeather(goodWeather);
+expected = `Weather is clear for takeoff or landing`;
+// Act
+actual = testAirport.checkWeather(goodWeather);
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 6.2: checkWeather returns an appropriate message for clear conditions: ${result}`
 );
 // Clean up
 testAirport = null;
