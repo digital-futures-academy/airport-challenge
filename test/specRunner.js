@@ -225,52 +225,52 @@ airport = null;
 plane = null;
 
 
-//Test 6 checking whether the plane is removed if the weather is stormy
-console.log("---------------------------------------------------------------------------------------------------------");
-console.log("Checking whether the plane is removed if the weather is stormy");
+// //Test 6 checking whether the plane is removed if the weather is stormy
+// console.log("---------------------------------------------------------------------------------------------------------");
+// console.log("Checking whether the plane is removed if the weather is stormy");
 
-// Arrange
-airport = new Airport();
-plane = { id: "plane1" };
-airport.landPlane(plane);
-expected = false;
-console.log(airport.checkWeather());
+// // Arrange
+// airport = new Airport();
+// plane = { id: "plane1" };
+// airport.landPlane(plane);
+// expected = false;
+// console.log(airport.checkWeather());
 
-// Act
-actual = airport.removePlane(plane);
+// // Act
+// actual = airport.removePlane(plane);
 
-//Assert
-result = assertEquals(expected, actual);
-console.log(`Test 6: Is the plane being prevented from taking off when the weather is stormy : ${result}`);
+// //Assert
+// result = assertEquals(expected, actual);
+// console.log(`Test 6: Is the plane being prevented from taking off when the weather is stormy : ${result}`);
 
-// Clean up
-expected = undefined;
-actual = undefined;
-result = undefined;
-airport = null;
-plane = null;
+// // Clean up
+// expected = undefined;
+// actual = undefined;
+// result = undefined;
+// airport = null;
+// plane = null;
 
 
-//Test 7 checking whether the plane is landing if the weather is stormy
-console.log("---------------------------------------------------------------------------------------------------------");
-console.log("Checking whether the plane is landing if the weather is stormy");
+// //Test 7 checking whether the plane is landing if the weather is stormy
+// console.log("---------------------------------------------------------------------------------------------------------");
+// console.log("Checking whether the plane is landing if the weather is stormy");
 
-// Arrange
-airport = new Airport();
-plane = { id: "plane1" };
-expected = false;
-console.log(airport.checkWeather());
+// // Arrange
+// airport = new Airport();
+// plane = { id: "plane1" };
+// expected = true;
+// console.log(airport.checkWeather());
 
-// Act
-actual = airport.removePlane(plane);
+// // Act
+// actual = airport.landPlane(plane);
 
-//Assert
-result = assertEquals(expected, actual);
-console.log(`Test 7: Is the plane being prevented from landing when the weather is stormy : ${result}`);
+// //Assert
+// result = assertEquals(expected, actual);
+// console.log(`Test 7: Is the plane being prevented from landing when the weather is stormy : ${result}`);
 
-// Clean up
-expected = undefined;
-actual = undefined;
-result = undefined;
-airport = null;
-plane = null;
+// // Clean up
+// expected = undefined;
+// actual = undefined;
+// result = undefined;
+// airport = null;
+// plane = null;

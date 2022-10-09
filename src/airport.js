@@ -32,15 +32,12 @@ class Airport {
             this.planesInAirport.push(plane);
             return false;
         }
-
     }
 
     removePlane = plane => {
         if (!(this.checkDuplicate(plane))) {
             console.log("This plane does not exist in the airport");
-        }
-        if (this.checkWeather() === "Stormy"); {
-            console.log("Weather is stormy so cannot take off any planes");
+            return false;
         }
         for (let i = 0; i < this.planesInAirport.length; i++) {
             if (this.planesInAirport[i].id == plane.id) {
@@ -48,7 +45,7 @@ class Airport {
                 return true;
             }
         }
-        return false;
+
     }
 
     checkDuplicate = plane => {
@@ -59,11 +56,9 @@ class Airport {
         }
     }
 
-    checkWeather = () => {
-        const weather = ["Sunny", "Cloudy", "Stormy"];
-        let rand = Math.floor(Math.random() * weather.length);
-        return weather[rand];
-    }
 }
+const weather = ["Sunny", "Cloudy", "Stormy"];
+let rand = Math.floor(Math.random() * weather.length);
+let setWeather = weather[rand];
 
 module.exports = Airport;

@@ -90,7 +90,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 2. Return true if the plane does exist in the airport.
 
 
-Extended Criteria
+Extended Criteria (not working at the moment)
 
 Test case 6:
 ```
@@ -114,9 +114,9 @@ To ensure safety
 I want to prevent landing when weather is stormy
 ```
       | Objects | Properties                                              | Messages               | Output   |
-      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane)     | @Boolean |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane)       | @Boolean |
       | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | checkWeather(plane)    | @Boolean |
       | plane   | uniqueID @String                                        |                        |          | 
 
-1. Test whether the plane is removed if the weather is stormy.
-2. Test whether the plane is not removed if the weather is anything but stormy.
+1. Test whether the plane is landed if the weather is stormy.
+2. Test whether the plane is not landed if the weather is anything but stormy.
