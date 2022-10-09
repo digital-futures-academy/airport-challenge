@@ -27,7 +27,7 @@ I want to instruct the airport to land a plane
 | ----------- | ------------------------------- | ------------ | ---------- |
 | Airport     | planesAtAirport @array[objects] | @landPlane   | @string    |
 |             |                                 |              |            |
-| Plane       | id                              |              |            |
+| Plane       | id @string                      |              |            |
 
 **Proposed test/s**
 
@@ -42,7 +42,7 @@ I would like a default airport capacity that can be overridden as appropriate
 ```
 
 | **Objects** | **Properties**        | **Messages** | **Output** |
-| :---------- | :-------------------- | :----------- | :--------- |
+| ----------- | --------------------- | ------------ | ---------- |
 | Airport     | capacity @number = 10 | @setCapacity | none       |
 |             |                       |              |            |
 | Plane       | id                    |              |            |
@@ -80,16 +80,17 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
 
-| **Objects** | **Properties**                | **Messages** | **Output** |
-| ----------- | ----------------------------- | ------------ | ---------- |
-| Airport     | planesAtAirport               | @initTakeoff | @string    |
-|             | planesEnroute @array[objects] |              |            |
+| **Objects** | **Properties**          | **Messages** | **Output** |
+| ----------- | ----------------------- | ------------ | ---------- |
+| Airport     | planesAtAirport         | @initTakeoff | @string    |
+|             | @planesDeparted[@array] |              |            |
 
 **Propsed Tests**
 
 1. Check that initTakeoff returns a confirmation message when a plane leaves the airport
-2. Check that initTakeoff reduces planeArray.length by one
-3. Check that initTakeoff removes the plane passed to it from planeArray
+2. Check that initTakeoff reduces planesAtAirport.length by one
+3. Check that initTakeoff removes the plane passed to it from planesAtAirport
+4. Check that initTakeoff adds the departed plane to planesDeparted
 
 ```
 5.
@@ -98,12 +99,13 @@ To avoid confusion
 I want to prevent asking the airport to let planes take off which are not at the airport, or land a plane that's already landed
 ```
 
-| **Objects** | **Properties**  | **Messages**      | **Output** |
-| :---------- | :-------------- | :---------------- | :--------- |
-| Airport     | planesAtAirport | @initTakeoff      | @string    |
-|             |                 | @landPlane        | @string    |
-|             |                 | @planeIsAtAirport | @boolean   |
-|             |                 | @getPlaneStatus   | @string    |
+| **Objects** | **Properties**          | **Messages**      | **Output** |
+| ----------- | ----------------------- | ----------------- | ---------- |
+| Airport     | planesAtAirport         | @initTakeoff      | @string    |
+|             |                         | @landPlane        | @string    |
+|             |                         | @planeIsAtAirport | @boolean   |
+|             |                         |                   | @string    |
+|             | @planesDeparted[@array] |                   |            |
 
 **Propsed Tests**
 
@@ -113,3 +115,24 @@ I want to prevent asking the airport to let planes take off which are not at the
 4. Check that landPlane does not land a plane that is already at the airport
 5. Check that initTakeoff returns an error message when plane is not at airport
 6. Check that initTakeoff does not take-off a plane that is not at the airport
+
+```
+6.
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff or landing when weather is stormy
+```
+
+| **Objects** | **Properties**          | **Messages**  | **Output** |
+| ----------- | ----------------------- | ------------- | ---------- |
+| Airport     | planesAtAirport         | @initTakeoff  | @string    |
+|             |                         |               | @boolean   |
+|             |                         | @checkWeather | @string    |
+|             | @planesDeparted[@array] |               |            |
+|             |                         |               |            |
+| Weather     | @stormStatus @boolean   |               |            |
+
+**Propsed Tests**
+
+1. Check that checkWeather returns an appropriate message for stormy conditions
+2. Check that checkWeather returns an appropriate message for clear conditions
