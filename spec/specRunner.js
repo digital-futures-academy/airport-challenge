@@ -235,3 +235,35 @@ expected = null;
 actual = null;
 result = null;
 
+console.log(`====================================================`);
+console.log(`Test 9 - prevent landing a plane that's already landed`);
+
+// Arrange 
+airport = new Airport(10);
+
+plane = { id: `british airways` };
+const plane11 = { id: `kata airways` };
+const plane12 = { id: `KLM airways` };
+const plane13 = { id: `Zimbabwe airways` };
+expected = "cannot land plane already in the airport";
+
+airport.landPlane(plane);
+airport.landPlane(plane11);
+airport.landPlane(plane12);
+airport.landPlane(plane13);
+
+// Act
+
+actual = airport.landPlane(plane13);
+
+// Assert
+result = assertEquals(actual, expected);
+console.log(` Test 9: plane already in the planesAtAirport array: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected = null;
+actual = null;
+result = null;
+

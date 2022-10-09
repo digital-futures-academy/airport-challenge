@@ -9,7 +9,9 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (this.planesAtAirport.length >= this.capacity) {
+    if (this.isPlaneAtAirport(plane) === true) {
+      return "cannot land plane already in the airport";
+    } else if (this.planesAtAirport.length >= this.capacity) {
       return "airport is full";
     } else {
       this.planesAtAirport.push(plane);
