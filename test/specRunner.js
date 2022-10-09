@@ -234,6 +234,7 @@ airport = new Airport();
 plane = { id: "plane1" };
 airport.landPlane(plane);
 expected = false;
+console.log(airport.checkWeather());
 
 // Act
 actual = airport.removePlane(plane);
