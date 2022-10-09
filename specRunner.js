@@ -23,7 +23,6 @@ capacity = 1
 
 //act
 airport.addPlane(plane)
-airport.addPlane(plane)
 actual = airport.airport.length;
 console.log(airport.airport.length);
 
@@ -59,12 +58,14 @@ console.log(`Test 2 - defualt airport capacity`);
 
 airport = new Airport(3);
 plane = { id: `plane1` };
+plane1 = { id: `plane2` };
+plane2 = { id: `plane3` };
 expected = 3;
 
 
 airport.addPlane(plane);
-airport.addPlane(plane);
-airport.addPlane(plane);
+airport.addPlane(plane1);
+airport.addPlane(plane2);
 //airport2.addPlane(plane);
 
 console.log(airport);
@@ -95,11 +96,13 @@ console.log(`Test 2.5 - increase airport capacity`);
 
 airport = new Airport();
 plane = { id: `plane1` };
+plane1 = { id: `plane2` };
+
 expected = 2;
 
 airport.increaseCapacity(2)
 airport.addPlane(plane);
-airport.addPlane(plane);
+airport.addPlane(plane1);
 //airport2.addPlane(plane);
 //airport2.addPlane(plane);
 
@@ -132,11 +135,13 @@ console.log(`Test 3 - when airport is full prevent landing`);
 
 airport = new Airport(2);
 plane = { id: `plane1` };
-expected = 'Airport full'
+plane1 = { id: `plane2` };
+plane2 = { id: `plane3` };
+expected = true; 
 
 airport.addPlane(plane);
-airport.addPlane(plane);
-airport.addPlane(plane);
+airport.addPlane(plane1);
+airport.addPlane(plane2);
 
 console.log(airport);
 
@@ -155,9 +160,9 @@ actual = undefined;
 result = undefined;
 airport = undefined;
 
-// // As an air traffic controller
-// // So I can get passengers on the way to their destination
-// // I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+// As an air traffic controller
+// So I can get passengers on the way to their destination
+// I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
 
 
@@ -204,8 +209,7 @@ console.log(`Test 5 -land a plane that's already landed`);
 
 airport = new Airport(3);
 plane = { id: `plane1` };
-plane2 = { id: `plane2` };
-expected = 'plane already in airport'
+expected = true;
 
 
 airport.addPlane(plane);
@@ -234,12 +238,11 @@ console.log(`Test 5.2 - I want to prevent asking the airport to let planes take-
 airport = new Airport(3);
 plane = { id: `plane1` };
 plane2 = { id: `plane2` };
-expected = 'plane not in airport'
-
+expected = true; 
 
 airport.addPlane(plane2);
-airport.addPlane(plane2);
 
+console.log(airport.airport.length);
 console.log(airport);
 
 actual = airport.removePlane(plane);

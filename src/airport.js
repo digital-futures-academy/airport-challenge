@@ -13,10 +13,12 @@ class Airport {
   
   addPlane(plane) {
     if (this.isFull()) {
-      return 'Airport full'
+      console.log('airport is full')
+      return true;
     }
-     else if (this.airport.includes(plane)) {
-       return 'plane already in airport'
+    else if (this.airport.includes(plane)) {
+      console.log("plane already in airport")
+      return true;
      }
     
     else {
@@ -36,7 +38,8 @@ class Airport {
 
    removePlane(plane) {
      if (!this.airport.includes(plane)) {
-       return 'plane not in airport'
+       console.log('plane not in airport')
+       return true;
      }
      else {
        this.airport.pop(plane);
