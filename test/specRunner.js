@@ -208,7 +208,7 @@ console.log("Checking if the plane does not exist in the airport before trying t
 airport = new Airport();
 plane = { id: "plane1" };
 airport.landPlane(plane);
-expected = false;
+expected = true;
 
 // Act
 actual = airport.removePlane(plane);
