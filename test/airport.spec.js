@@ -6,6 +6,16 @@ const Airport = require('../src/airport');
 const Plane = require('../src/plane');
 
 let control, expected, actual, result, testAirport, successMsg;
+const dfa001 = new Plane(`dfa-001`);
+const dfa002 = new Plane(`dfa-002`);
+const dfa003 = new Plane(`dfa-003`);
+const dfa004 = new Plane(`dfa-004`);
+const dfa005 = new Plane(`dfa-005`);
+const dfa006 = new Plane(`dfa-006`);
+const dfa007 = new Plane(`dfa-007`);
+const dfa008 = new Plane(`dfa-008`);
+const dfa009 = new Plane(`dfa-009`);
+const dfa0010 = new Plane(`dfa-0010`);
 
 // Test 1 - has the plane landed?
 
@@ -23,14 +33,14 @@ control = testAirport.planesAtAirport.length;
 expected = control + 1;
 
 // Act
-testAirport.landPlane(new Plane(`dfa001`));
+testAirport.landPlane(dfa001);
 actual = testAirport.planesAtAirport.length;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 1.1: Plane landed: ${result}`);
 
 // Add second plane
-testAirport.landPlane(new Plane(`dfa002`));
+testAirport.landPlane(dfa002);
 result = assertEquals(actual, expected);
 console.log(`Test 1.2: Additional plane landed: ${result}`);
 
@@ -63,18 +73,18 @@ result = assertEquals(actual, expected);
 console.log(`Test 2.1: Correct default capacity: ${result}`);
 
 // Clean up
-testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
 
 // Arrange
-testAirport = new Airport();
+let capacityBeforeChange = testAirport.capacity;
+testAirport.setCapacity(20);
 expected = true;
 
 // Act
-testAirport.setCapacity(20);
-actual = testAirport.capacity !== 10;
+
+actual = capacityBeforeChange !== testAirport.capacity;
 // Assert
 result = assertEquals(actual, expected);
 console.log(`Test 2.2: Capacity changed: ${result}`);
@@ -84,6 +94,7 @@ testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+capacityBeforeChange = undefined;
 
 // Test 3: Has airport capacity been reached? Are planes prevented from landing if it has?
 
@@ -118,7 +129,7 @@ result = undefined;
 
 // Arrange
 testAirport = new Airport();
-let confirm = testAirport.landPlane(new Plane(`dfa-001`));
+let confirm = testAirport.landPlane(dfa001);
 expected = `Flight dfa-001 has landed. Remaining capacity: ${9}`;
 // Act
 actual = confirm;
@@ -137,11 +148,11 @@ confirm = undefined;
 // Arrange
 testAirport = new Airport();
 testAirport.setCapacity(5);
-testAirport.landPlane(new Plane(`dfa-001`));
-testAirport.landPlane(new Plane(`dfa-002`));
-testAirport.landPlane(new Plane(`dfa-003`));
-testAirport.landPlane(new Plane(`dfa-004`));
-testAirport.landPlane(new Plane(`dfa-005`));
+testAirport.landPlane(dfa001);
+testAirport.landPlane(dfa002);
+testAirport.landPlane(dfa003);
+testAirport.landPlane(dfa004);
+testAirport.landPlane(dfa005);
 expected = `Airport capacity has been reached.`;
 
 // Act
@@ -153,7 +164,7 @@ console.log(
 );
 
 // Arrange
-testAirport.landPlane(new Plane(`dfa-006`));
+testAirport.landPlane(dfa006);
 expected = testAirport.capacity;
 // Act
 actual = testAirport.planesAtAirport.length;
@@ -181,8 +192,8 @@ console.log(
 
 // Arrange
 testAirport = new Airport();
-testAirport.landPlane(new Plane(`dfa-001`));
-confirm = testAirport.initTakeoff(testAirport.planesAtAirport[0]);
+testAirport.landPlane(dfa001);
+confirm = testAirport.initTakeoff(dfa001);
 expected = `Flight dfa-001 has departed. Remaining capacity: ${10}`;
 // Act
 actual = confirm;
@@ -242,20 +253,20 @@ console.log(
   `Test 5 \n
   - Check that when plane is in planesAtAirport array, planeAtAirport returns true\n
   - Check that when plane is not in planesAtAirport array, planeIsAtAirport returns false\n
-  - \n
-  - \n
-  - \n
-  - \n
+  - Check that landPlane returns an error message when plane is already at airport\n
+  - Check that landPlane does not land a plane that is already at the airport\n
+  - Check that initTakeoff returns an error message when plane is not at airport\n
+  - Check that initTakeoff does not take-off a plane that is not at the airport\n
   - \n
   `
 );
 
 // Arrange
 testAirport = new Airport();
-testAirport.landPlane(new Plane(`dfa-001`));
+testAirport.landPlane(dfa001);
 expected = true;
 // Act
-actual = testAirport.planeIsAtAirport(`dfa-001`);
+actual = testAirport.planeIsAtAirport(dfa001);
 // Assert
 result = assertEquals(actual, expected);
 console.log(
@@ -266,15 +277,32 @@ actual = undefined;
 result = undefined;
 
 // Arrange
-testAirport.initTakeoff(testAirport.planesAtAirport[0]);
-console.log(testAirport.planesAtAirport);
+testAirport.initTakeoff(dfa001);
 expected = false;
 // Act
-actual = testAirport.planeIsAtAirport(`dfa-001`);
+actual = testAirport.planeIsAtAirport(dfa001);
 // Assert
 result = assertEquals(actual, expected);
 console.log(
   `Test 5.2: if plane is not in planesAtAirport array, planeIsAtAirport returns false: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(dfa001);
+testAirport.landPlane(dfa001);
+expected = `Error: Flight dfa-001 has already landed`;
+// Act
+actual = testAirport.landPlane(dfa001);
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 5.3: landPlane returns an error message when plane is already at airport: ${result}`
 );
 // Clean up
 testAirport = null;

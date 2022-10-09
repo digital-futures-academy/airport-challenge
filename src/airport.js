@@ -3,19 +3,23 @@ class Airport {
   capacity = 10;
   planesAtAirport = [];
 
-  landPlane = function (plane) {
-    if (this.capacity > this.planesAtAirport.length) {
-      this.planesAtAirport.push(plane);
-      return `Flight ${plane.id} has landed. Remaining capacity: ${
-        this.capacity - this.planesAtAirport.length
-      }`;
-    }
-  };
-  planeIsAtAirport = function (planeID) {
-    if (this.planesAtAirport.some(el => el.id === planeID)) {
+  planeIsAtAirport = function (plane) {
+    if (this.planesAtAirport.includes(plane)) {
       return true;
     } else {
       return false;
+    }
+  };
+  landPlane = function (plane) {
+    let landedStatus = this.planeIsAtAirport(plane);
+    if (this.capacity > this.planesAtAirport.length && landedStatus === false) {
+      this.planesAtAirport.push(plane);
+      return `Flight ${plane.id} is now landing. Remaining capacity: ${
+        this.capacity - this.planesAtAirport.length
+      }`;
+    }
+    if (landedStatus === true) {
+      return `Error: Flight ${plane.id} has already landed`;
     }
   };
   setCapacity = function (newCapacity) {
@@ -27,11 +31,18 @@ class Airport {
     }
   };
   initTakeoff = function (plane) {
-    let index = this.planesAtAirport.findIndex(plane => plane.id);
-    this.planesAtAirport.splice(index, 1);
-    return `Flight ${plane.id} has departed. Remaining capacity: ${
-      this.capacity - this.planesAtAirport.length
-    }`;
+    let landedStatus = this.planeIsAtAirport(plane);
+    if (landedStatus === true) {
+      for (let index = 0; index < this.planesAtAirport.length; index++) {
+        this.planesAtAirport.splice(index, 1);
+      }
+      return `Flight ${plane.id} has departed. Remaining capacity: ${
+        this.capacity - this.planesAtAirport.length
+      }`;
+    }
+    if (landedStatus === false) {
+      return `Error: Flight ${plane.id} is not at this airport`;
+    }
   };
 }
 
