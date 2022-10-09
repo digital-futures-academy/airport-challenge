@@ -159,7 +159,7 @@ airport.landPlane(plane);
 expected = true;
 
 // Act
-actual = airport.checkDuplicate(plane);
+actual = airport.landPlane(plane);
 
 //Assert
 result = assertEquals(expected, actual);
