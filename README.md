@@ -61,6 +61,127 @@ To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
 
+## Domain Models
+
+### User Story 1
+
+```
+As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+```
+
+#### Domain Model
+
+| Objects     | Properties                  | Messages   | Output   |
+| ----------- | ---------------             | ---------- | -------- |
+| Airport     | planesAtAirstrip@Array      | landplane(plane)@String| @String |
+
+
+#### Tests
+
+1. Test that a plane is added to the array
+2. Test that when plane is added it returns a string
+
+
+---
+
+## User Story 2
+
+```
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+```
+
+#### Domain Model
+
+| Objects     | Properties | Messages     | Output   |
+| ----------- | ---------- | ------------ | -------- |
+| Airport | capacity@Number | changeCapacity(capacity@Number)  | @Void |
+
+
+
+#### Tests
+
+1. Test that the capacity can be set and changed when airport is created
+
+
+---
+
+## User Story 3
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+### Domain Model
+
+| Objects     | Properties      | Messages     | Output   |
+| ----------- | --------------- | ------------ | -------- |
+| Airport | capacity@Number | changeCapacity(capacity@Number)  | @Void |
+|     | planesAtAirstrip@Array      | landplane(plane)@String| @String |
+
+#### Tests
+1. Test that the if the planes array length is greater or equal to the capacity, the plane should not be added.
+2. Test that landplane function can return a string confirming either plane can land or airport is full.
+
+---
+
+## User Story 4 
+
+
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+
+### Domain Model
+
+| Objects     | Properties             | Messages         | Output   |
+| ----------- | ---------------------- | ---------------- | -------- |
+| Airport     | planesAtAirstrip@Array      | planesTakeOff(plane)@String| @String |
+|             |                        |                  |          |
+
+#### Tests
+
+1. Test that calling planesTakeOff removes plane from the array
+2. Test that calling planesTakeOff returns a string when plane is removed
+
+---
+
+## User Story 5 
+
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+
+### Domain Model
+
+| Objects     | Properties             | Messages         | Output          |
+| ----------- | ---------------------- | ---------------- | --------------- |
+| Airport     | planesAtAirstrip@Array      | landplane(plane)@String| @String |
+|     | planesAtAirstrip@Array      | planesTakeOff(plane)@String| @String |
+|             |                        | isPlaneAtAirport(plane)@String  |@Boolean        |
+
+#### Test
+
+1. Test that calling isPlaneAtAirport returns true when plane is within the array
+2. Test that calling isPlaneAtAirport returns false when plane is not in the array
+3. Test that if plane exists in airport array returns a message
+4. Test that if plane does not exists in airport array returns a message
+5. Test that if plane exists in airport array does not get added to the array
+6. Test that if plane exists in airport array its can be removed from list
+
+
+---
+
+
 #### Extended Acceptance Criteria
 ```
 As an air traffic controller
