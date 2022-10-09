@@ -105,3 +105,18 @@ I want to prevent takeoff when weather is stormy
 
 1. Test whether the plane is removed if the weather is stormy.
 2. Test whether the plane is not removed if the weather is anything but stormy.
+
+
+Test case 7:
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+      | Objects | Properties                                              | Messages               | Output   |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | landPlane(plane)     | @Boolean |
+      | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | checkWeather(plane)    | @Boolean |
+      | plane   | uniqueID @String                                        |                        |          | 
+
+1. Test whether the plane is removed if the weather is stormy.
+2. Test whether the plane is not removed if the weather is anything but stormy.
