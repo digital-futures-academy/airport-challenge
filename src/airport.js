@@ -18,9 +18,9 @@ class Airport {
   }
 
   takeOffPlane(plane) {
-    if (this.isPlaneAtAirport = true) {
-      this.planesAtAirport.splice(this.planesAtAirport.indexOf(plane), 1);
-      return "the plane has taken off"
+    if (this.isPlaneAtAirport(plane) === true) {
+      this.planesAtAirport.splice(this.planesAtAirport.indexOf(plane), 1)
+      return "the plane has taken off";
     } else {
       return "cannot take off";
     }
