@@ -44,6 +44,15 @@ class Airport {
     }
   }
 
+  isStormy() {
+    var i = Math.floor((Math.random() * 10) + 1)
+    if (i < 5) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
 
 module.exports = Airport;
