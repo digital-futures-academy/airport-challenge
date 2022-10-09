@@ -257,7 +257,6 @@ console.log(
   - Check that landPlane does not land a plane that is already at the airport\n
   - Check that initTakeoff returns an error message when plane is not at airport\n
   - Check that initTakeoff does not take-off a plane that is not at the airport\n
-  - \n
   `
 );
 
@@ -303,6 +302,24 @@ actual = testAirport.landPlane(dfa001);
 result = assertEquals(actual, expected);
 console.log(
   `Test 5.3: landPlane returns an error message when plane is already at airport: ${result}`
+);
+// Clean up
+testAirport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Arrange
+testAirport = new Airport();
+testAirport.landPlane(dfa001);
+testAirport.landPlane(dfa001);
+expected = 1;
+// Act
+actual = testAirport.planesAtAirport.length;
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 5.4: landPlane does not land a plane that is already at airport: ${result}`
 );
 // Clean up
 testAirport = null;
