@@ -241,7 +241,7 @@ console.log(`\n
 console.log(
   `Test 5 \n
   - Check that when plane is in planesAtAirport array, planeAtAirport returns true\n
-  - \n
+  - Check that when plane is not in planesAtAirport array, planeIsAtAirport returns false\n
   - \n
   - \n
   - \n
@@ -262,8 +262,22 @@ console.log(
   `Test 5.1: if plane is in planesAtAirport array, planeIsAtAirport returns true: ${result}`
 );
 // Clean up
+actual = undefined;
+result = undefined;
+
+// Arrange
+testAirport.initTakeoff(testAirport.planesAtAirport[0]);
+console.log(testAirport.planesAtAirport);
+expected = false;
+// Act
+actual = testAirport.planeIsAtAirport(`dfa-001`);
+// Assert
+result = assertEquals(actual, expected);
+console.log(
+  `Test 5.2: if plane is not in planesAtAirport array, planeIsAtAirport returns false: ${result}`
+);
+// Clean up
 testAirport = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
-confirm = undefined;
