@@ -24,10 +24,11 @@ I want to instruct the airport to land a plane
 ```
       | Objects | Properties                      | Messages                   | Output   |
       | airport | planesInAirport @ARRAY[@String] | landPlane(plane)           | @Boolean |
+      | airport | planesInAirport @ARRAY[@String] | checkDuplicate(plane)      | @Boolean |
       | plane   | uniqueID @String                |                            | @void    |
 
-1. Test that the particular object (plane ID) was added to the object's (airport) array (planesInAirport) by searching the array for an object (plane) with the same ID.
-2. Return true if the particular object (plane ID) was found in the array (planesInAirport).
+1. Validate that the method landPlane worked by checking if length of the array increased by one.
+2. Verify that the method landPlane worked by checking if the plane object with the correct uniqueID is included in the array planesInAirport.
 
 
 Test case 2:
@@ -84,6 +85,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
       | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | removePlane(plane)     | @Boolean |
       | airport | planesInAirport @ARRAY[@String], planeCapacity @Integer | checkDuplicate(plane)  | @Boolean |
       | plane   | uniqueID @String                                        |                        |          | 
-      
+
 1. Test whether the plane is already in the airport (plane object exists in the planesInAirport).
 2. Return true if the plane does exist in the airport.

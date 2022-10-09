@@ -3,7 +3,34 @@ const Airport = require("../src/airport");
 
 let expected, actual, result, airport, plane;
 
-//Test 1 is the plane landing in the airport
+//Test 1 is if the array length increases by one when landPlane is called.
+console.log("---------------------------------------------------------------------------------------------------------");
+console.log("Landing the plane in the airport");
+
+// Arrange
+airport = new Airport();
+let initialLength = airport.planesInAirport.length;
+plane = { id: "plane1" };
+airport.landPlane(plane);
+expected = initialLength + 1;
+
+// Act
+actual = airport.planesInAirport.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 1: has the array increased by one: ${result}`);
+
+// Clean up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+initialLength = null;
+
+
+//Test 1b is the specific plane object existing in the array after the plane has been landed.
 console.log("---------------------------------------------------------------------------------------------------------");
 console.log("Landing the plane in the airport");
 
@@ -11,14 +38,14 @@ console.log("Landing the plane in the airport");
 airport = new Airport();
 plane = { id: "plane1" };
 airport.landPlane(plane);
-expected = plane.id;
+expected = true;
 
 // Act
-actual = airport.planesInAirport[0].id;
+actual = airport.checkDuplicate(plane);
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 1: Is a plane landing in the airport: ${result}`);
+console.log(`Test 1b: is the specific plane object in the array after the plane has landed: ${result}`);
 
 // Clean up
 expected = undefined;
