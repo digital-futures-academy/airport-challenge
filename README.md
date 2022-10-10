@@ -122,3 +122,16 @@ Domain models
 | Plane <br> &nbsp; <br> &nbsp;               | id@String <br> landed@Bool <br> airport@Airport                          | id() <br> isLanded() <br> airport()                                                            | @String <br> @Bool <br> @Airport       |
 | Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane, @Weather) <br> isFull() <br> takeOff(@Plane, @Weather) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Bool |
 | Weather                                     | weather@String                                                           | getWeather()                                                                                   | @String                                |
+
+## Project review
+* What were my main takeaways from this project?
+  * JavaScript is capable of circular object containment but I feel uneasy about it
+  * If I were rebuilding the project I would make proper use of encapsulation (currently classes do not hide their members and do not provide getters and setters), and loose coupling (the airport class includes the weather class which is not ideal). I'd also give airports IDs and make proper use of the plane ID variable instead of passing objects around directly, to avoid that weird circular dependence
+* Where could this project go next
+  * A user interface to pass commands to land or take off various planes from various airports
+  * Airports with multiple runways and a notion of when a particular runway is free or in use
+  * A runway class to enact the above idea
+  * Some sort of queueing system to automatically match planes to empty runways or leave them in the air if no runway is available?
+  * More detailed planes i.e. type, fuel capacity and status, does a plane need refuelling, how many passengers can it take, where is it departing to or arriving from, what time is it departing or arriving, passenger lists
+  * A passenger list class containing passenger objects, and a passenger class containing things like names, ticket numbers, and so on
+  * Really this could go any number of ways depending on what the scope of the project ended up being 
