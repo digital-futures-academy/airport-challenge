@@ -78,7 +78,7 @@ Self-review
 #### What have I learnt
 - Solidified my knowledge on class objects and how to call arguments on it through using the parameters
 - Stubbing different scenarios in my test to ensure reliable test behaviour
-- Improved knowledge on how to convert each user story into domain models and writing step by test tests based on the table.
+- Improved knowledge on how to convert each user story into domain models and writing step by step tests based on the table
 
 #### What could I do differently?
 - Could have wrote more detailed tests on some of the user stories 
