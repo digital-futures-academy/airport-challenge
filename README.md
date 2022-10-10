@@ -128,3 +128,20 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+
+Project Review and Roadmap
+-----
+
+From this project, I learnt about how to use multiple classes in Javascript and how to import them correctly to other files. By 
+using TDD and Jasmine, I was able to produce that solved specific user stories given to me in the specification and how to correctly
+write tests for code. 
+
+If I were to complete this project again I would use a planes class rather than have them as an object in the
+airport class, with their own plane id and status (eg. landed, inflight etc) parameters. To add, I would also return a string statement
+of the weather in the console to explain why a plane couldn't land/takeoff eg. if the weather was stormy.
+
+If I were to continue developing this project further, I would like to add different terminals and runways to my airport so the client
+would easily be able to not only know if a plane was in the airport but where exactly in the airport if could be found eg. what gate it is at?
+This would also mean if a plane wanted to land in the airport, not only could we know the airport wasn't at full capacity we could see where in 
+the airport there were spaces for the plane to land, what runway it could use and what gate the plane could park at.
