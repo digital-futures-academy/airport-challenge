@@ -216,6 +216,15 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
-***Notes**
+**What I've learnt**
+- I was able to gain a better understanding of domain models and its application.
+- Unit testing and its importance.
+
+**If I were to do it again**
 - If I were to do this challenge again, I would take a more object-oriented design approach and have the plane and the weather as separate, respecitive objects. The modularity would have offered more flexibility, made troubleshooting even easier and the plane object would have enabled me to complete the last extended criteria.
 - I would also tidy up some of the testing methods, especially some of the more elaborate arragements. 
+- Use the Jasmine testing framework.
+
+**Future ideas**
+- Have multiple airports and diverting planes in and out of different airports.
+- Track distance travelled of each plane and whether it needs to re-fuel
