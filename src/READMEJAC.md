@@ -1,3 +1,4 @@
+### readme-top
 <h3 align="center">AIRPORT-CHALLENGE</h3>
 
   <p align="center">
@@ -8,6 +9,125 @@
     <br />
   </p>
 </div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#About the Project">About the Project</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+### About The Project
+
+This was a first attempt at creating a project using a class object in javaScript, following the principles of test-driven development.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+ABOUT THE PROJECT
+<br />
+
+
+### Built With
+
+* JavaScript https://www.javascript.com/
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+GETTING STARTED
+<br />
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/JacDoesJS/airport-challenge.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+   to install project dependencies
+
+<br />  
+PROJECT STRUCTURE
+<br />
+Please note that the main project file, "airport.js" is located in the "src" folder. ("Weather" and "Land" will be referred to in the Project Review, below).
+<br/>
+The test file, "airport.spec.js" is located in the "test" folder.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br />
+
+### Roadmap
+<br /> 
+
+I have always developed my code in small chunks, ensuring the first tiny bit works, before adding anything of any further complexity. It has been gratifying learning about test-driven development and then being able to apply these methods in this project. I can absolutely see the sense of working in a test driven way, to create better, more secure code.
+
+This is my first attempt at a comprehensive README file. 
+<br />
+
+WHAT I WOULD DO DIFFERENTLY IN FUTURE
+<br>
+The test file is cumbersome in terms of navigation and makes it difficult to read result results in the terminal. I have just learned how to set up a testing environment using npm and Jasmine. I now want to create a project where my code is structured in a loosely-coupled way. Each module would be in its own ".js" file and tested using a single ".spec.js file". Not only would this make for cleaner and more secure code but it would also make the results of testing easier to read and follow. 
+
+I will look at the guidance for commit messages and perhaps leave out "whoop!".
+
+WHERE COULD THIS PROJECT GO NEXT
+I originally interpreted the final user story as requiring a random weather generator. I am interested in finding a way to test random variables. Aside from an imaginary world, the weather cannot be controlled by a user, so it feels somehow unrealistic to give them the power! I wrote some code which gives a 50-50 chance of stormy weather. On reflection a 1 in 4 chance seems more appropriate. For interest, the code is below. It can also be seen in the "weather.js" file.
+
+It would be helpful to include an option to set the airport city name, when creating a new airport, so that the user can return a list of, e.g. all planes landed at Manchester airport. Ideally they would be able to return a list of all planes landed at all airports. 
+
+Another further possibility would be to include a time-stamp for each landing and take-off.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+```
+
+ checkWeather() {
+        weather = Math.floor(Math.random() * 2) + 1;
+        if (weather === 1) {
+            conditions = "stormy"
+        }
+        else {
+            conditions = "calm";
+        };
+    };
+
+
+```
+
+### Acknowledgements
+
+This is a great README file template:
+https://github.com/othneildrew/Best-README-Template
+
+
+### Contact
+
+Jac McKeigue: jac.mckeigue@outlook.com
+
+<br />
+PROBLEM STATEMENTS
+<br />
+Here below are detailed user stories with their respective domain models and tests.
 
 <p>
 As an air traffic controller  
@@ -57,6 +177,7 @@ I want to prevent landing when the airport is full
 2. Test whether plane can land.
 
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <br>
 As an air traffic controller  
 
@@ -119,6 +240,7 @@ I want to prevent landing when weather is stormy
 1. Test that landing denied when weather is stormy.
 
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <br>
 As an air traffic controller  
 
@@ -134,39 +256,8 @@ Planes that have landed must be at an airport
 NB I wrote the trackPlanes() method earlier as a way of easily being able to check planes had been added to airports in order that a plane could only take off if it was in an airport, for an earlier test.
 
 <br>
-<br>
 
-<h2 align="center">***** REVIEW *****</h2>
-<br>
-
-This was a great opportunity to practise new skills in test driven development. I can totally see the sense of working this way around. This was only my second time creating a class object with a constructor, in javaScript. This is my first attempt at a comprehensive README file.
-
-WHAT I WOULD DO DIFFERENTLY IN FUTURE
-<br>
-The test file is cumbersome in terms of navigation and makes it difficult to read result results in the terminal. I have just learned how to set up a testing environment using npm and Jasmine. I now want to create a project where my code is structured in a loosely-coupled way. Each module would be in its own .js file and tested using a single .spec.js file. Not only would this make for cleaner and more secure code but it would also make the results of testing easier to follow. 
-
-I will look at the guidance for commit messages and perhaps leave out "whoop!".
-
-NOTES
-I originally interpreted the final user story as requiring a random weather generator. I am interested in finding a way to test random variables. Aside from an imaginary world, the weather cannot be controlled by a user, so it feels somehow unrealistic to give them the power! I wrote some code which gives a 50-50 chance of stormy weather. On reflection a 1 in 4 chance seems more appropriate. For interest, the code is below.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-```
-
- checkWeather() {
-        weather = Math.floor(Math.random() * 2) + 1;
-        if (weather === 1) {
-            conditions = "stormy"
-        }
-        else {
-            conditions = "calm";
-        };
-    };
-
-
-```
-
-
-Contact
-Jac McKeigue: jac.mckeigue@outlook.com
