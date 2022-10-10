@@ -1,6 +1,5 @@
-Airport Challenge
+Airport challenge
 =================
-
 ```
          ______
         __\____\___
@@ -13,49 +12,32 @@ Airport Challenge
 
 ```
 
-Instructions
----------
-
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
-
-Steps
--------
-
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
-
-Task
------
-
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+User stories
+------------
 
 #### Acceptance Criteria
 ```
+1.
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+2.
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
+3.
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+4.
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+5.
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
@@ -63,19 +45,80 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 #### Extended Acceptance Criteria
 ```
+6.
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
+7.
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+8.
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 ```
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+Domain models
+-------------
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+1. Basic domain model features Plane objects and Airport objects, the Airport object contains an array for Planes and a method to land a Plane by pushing it onto the array
+
+| Object  | Properties                 | Messages          | Outputs |
+| ------- | -------------------------- | ----------------- | ------- |
+| Plane   |                            |                   |         |
+| Airport | landedPlanes@Array[@Plane] | landPlane(@Plane) | @Void   |
+
+2. Second domain model features only the addition of a capacity member variable, which will be set by the constructor, and have a default value. I don't think the constructor itself needs to go in the domain model?
+
+| Object              | Properties                                       | Messages                      | Outputs           |
+| ------------------- | ------------------------------------------------ | ----------------------------- | ----------------- |
+| Plane               |                                                  |                               |                   |
+| Airport <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer | landPlane(@Plane) <br> &nbsp; | @Void <br> &nbsp; |
+
+3. Third domain model has an isFull method which compares the length of the landedPlanes array to the capacity and prevents landing if it's not less than that
+
+| Object              | Properties                                       | Messages                        | Outputs          |
+| ------------------- | ------------------------------------------------ | ------------------------------- | ---------------- |
+| Plane               |                                                  |                                 |                  |
+| Airport <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer | landPlane(@Plane) <br> isFull() | @Void <br> @Bool |
+
+4. Fourth domain model has a takeOff method to remove a plane from the landedPlanes array, and an isLanded method which checks whether a particular plane is landed or not (the idea being that after the plane has been removed, we can run isLanded on that plane to confirm it's gone).
+
+| Object                                      | Properties                                                               | Messages                                                                   | Outputs                                |
+| ------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------- | -------------------------------------- |
+| Plane                                       |                                                                          |                                                                            |                                        |
+| Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane) <br> isFull() <br> takeOff(@Plane) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Bool |
+
+5. Fifth domain model now gives Plane an ID member and method to access it so we can be sure not to land a Plane that already exists at the airport (verified by matching Plane IDs). Plane object also now keep track themselves of whether they are landed or not
+
+| Object                                      | Properties                                                               | Messages                                                                   | Outputs                                |
+| ------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------- | -------------------------------------- |
+| Plane <br> &nbsp;                           | id@String <br> landed@Bool                                               | id() <br> isLanded()                                                       | @String <br> @Bool                     |
+| Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane) <br> isFull() <br> takeOff(@Plane) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Bool |
+
+6. There is now a weather object, which contains a string detailing the weather (either sunny or stormy). The weather can be randomly set using the setWeather method, which uses a random number to pick sunny or stormy weather. The takeOff function now takes in a weather object and uses it to check whether the weather is sunny or stormy
+
+| Object                                      | Properties                                                               | Messages                                                                             | Outputs                                |
+| ------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | -------------------------------------- |
+| Plane <br> &nbsp;                           | id@String <br> landed@Bool                                               | id() <br> isLanded                                                                   | @String <br> @Bool                     |
+| Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane) <br> isFull() <br> takeOff(@Plane, @Weather) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Bool |
+| Weather                                     | weather@String                                                           | getWeather()                                                                         | @String                                |
+
+7. As before but now the landPlane function also checks the weather is sunny before allowing landing
+
+| Object                                      | Properties                                                               | Messages                                                                                       | Outputs                                |
+| ------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | -------------------------------------- |
+| Plane <br> &nbsp;                           | id@String <br> landed@Bool                                               | id() <br> isLanded()                                                                           | @String <br> @Bool                     |
+| Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane, @Weather) <br> isFull() <br> takeOff(@Plane, @Weather) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Bool |
+| Weather                                     | weather@String                                                           | getWeather()                                                                                   | @String                                |
+
+8. Plane objects now keep track of which airport they are landed at, which will be null when they are not landed and will be modified by the takeOff and landPlane methods when taking off or landing
+
+| Object                                      | Properties                                                               | Messages                                                                                       | Outputs                                |
+| ------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | -------------------------------------- |
+| Plane <br> &nbsp; <br> &nbsp;               | id@String <br> landed@Bool <br> airport@Airport                          | id() <br> isLanded() <br> airport()                                                            | @String <br> @Bool <br> @Airport       |
+| Airport <br> &nbsp; <br> &nbsp; <br> &nbsp; | landedPlanes@Array[@Plane] <br> capacity@Integer <br> &nbsp; <br> &nbsp; | landPlane(@Plane, @Weather) <br> isFull() <br> takeOff(@Plane, @Weather) <br> isLanded(@Plane) | @Void <br> @Bool <br> @Void <br> @Bool |
+| Weather                                     | weather@String                                                           | getWeather()                                                                                   | @String                                |
