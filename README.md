@@ -7,6 +7,8 @@ Airport Challenge
 * The project was set on the 30/09/22 and the deadline date was 10/10/22.
 * The task was to test drive the creation of a set of classes/objects to satisfy the defined user stories below
 
+* This project was the first software engineering project I've undertaken using JavaScript
+
 This project aims to test my understanding of which I had gained in Week 1 of the Academy: 
 1. Using User Stories 
 2. Creating Domain Models from user stories
@@ -248,3 +250,25 @@ Test 5c - `takeOffPlane()` returns a string stating that a plane is not at the a
 <br>
 Test 5d - `landPlane()` returns a string stating that a plane has already landed if it is in the parkedPlanes array
 
+## Project Review
+
+What did I learn from this project?
+
+I learnt a lot from undertaking this project such as how to do Domain Modelling, how to drive development using TDD and how to use a simple test framework to drive TDD. I will now utilise my knowledge of Domain Modelling and the methodology of TDD for all my future software engineering projects in my career. 
+
+What would I do differently if I were to approach this project again?
+
+After attending Week 2 of the Academy and learning more, the way I would approach this project would be different. In Week 2 of the Academy I have learnt a lot about Object-Oriented Design (OOD). I have learnt about Encapsulation (Single Responsibility), Decoupling (or loosely-coupled code), using Jasmine as testing framework and about decoupling tests with the use of mock objects.
+
+My source code classes `Airport` and `Plane` lack encapsulation as the properties of these classes are public. To make them `private` I would use `#` before the properties' names. I would also then have to make sure I write methods that act as accessors and mutators to these values. My current methods would be okay to do that I believe however I would need to write code that refers to class properties in these methods with the `#` before the name of the property.
+
+Without inherently knowing about the importance of loosely coupled code, I made my `Airport` and `Plane` classes loosely-coupled which is good practice. 
+However my test files airport.spec.js is a test file that shows it uses tightly-coupled code with the plane.js file. As seen with `const Plane = require("../src/plane");` at the top of the file. This could be solved by creating mock Plane objects to be used for tests. However if I was to do this, using the simple test frame work designed here would not be optimable. Instead I would use Jasmine as test-frame work to write spec files for the class under test (CUT) as it allows me to create mock objects that the CUT may be dependent on. Therefore I would be able to successfully write decoupled tests. Jasmine is a more complex framework that would allow me to deploy a SPY on mock objects and also provides many matchers therefore I could write better tests.
+
+Also, I believe that my parameter for the `takeOffPlane()` and `isPlaneAtAirport()` methods being a `planeID` of a `Plane` instance isn't the best approach. The way my code is written doesn't explicitly make sure the `planeID` property for each plane is unique upon instantiation of a `Plane` object. So maybe it would be better to assure that this value for each `Plane` object is unique upon creation of each `Plane` object. I will research and learn how to do this. I think this relates to the use of the `static` keyword. Also a different approach I could have taken for these methods is to pass the `Plane` object as an argument to these methods. Then using the `indexOf()` method I could have seen if the passed `Plane` object was contained within the `parkedPlanes` array and at which index. Then using the `splice()` method on the `parkedPlanes` array I could make sure to remove the identically matching `Plane` object (by reference to memory location) at that index of the array. These are two different approaches I could use to solve this issue.
+
+Where could this project go next?
+
+- To advance this project I would like to fulfill the extended criteria and write implementation that fulfills the remaining user stories.
+- I would like to make sure all the code including the test files are decoupled and tested using the Jasmine testing framework.
+- I think it would be nice to include GUI animations to show a plane taking off or landing at an airport when these `landPlane()` or `takeOffPlane()` methods are called. 
