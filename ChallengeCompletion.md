@@ -1,42 +1,8 @@
 # Airport Challenge
 
-## About the Project
+This software is used to control the flow of planes at an airport
 
-### Why does this project exist?
-* This software is used to control the flow of planes at an airport
-* This project is one of the Digital Futures Academy Challenges
-* This project approach - Test-driven development
-
-### I completed the project on Sept.8th 2022. The project was completed when I learned how to build a user story and domain model and Test-driven development
-
-## Built With
-* JavaScript
-* macOS Catalina
-* node_modules packages
-* npm test packages
-
-## Getting Started
-
-### How can the viewer set up the project locally?
-* Fork this repo, and clone to your local machine
-* npm install to install project dependencies
-* Convert stories into a representative domain model and test-drive your work.
-* Run your tests using npm test or node specRunner.js
-
-### Project Structure
-* src folder
-1. airport.js
-2. plane.js
-   
-* test folder
-1. airport.spec.js
-2. testing-framework.js
-
-## Problem Statements
-
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.
-
-### User Stories
+## User Stories
 
 ```
 As an air traffic controller
@@ -242,30 +208,58 @@ Planes that have landed must be at an airport
 #### Tests
 1. Test if planes that have landed at an airport
 
-## Project Review and Roadmap
+---
+## Executing program
 
-### What were your main takeaways from this project?
+### Steps
+how to run the tests:
+* Install project dependencies by using `npm install` command
+* Develop Domain Model by reading User Stories
+* Create a test folder containing specification and testing-framework files
+* Create a property file containing messages
+* Start to run the first test
+* Start to run the next tests
 
-* I have learned to create user stories and build domain models for each user story. This helps me know what the client's requirements for the application are and what I need to develop and test for each requirement(user story)
-* I also have learned TDD development
-* I obtained the testing-framework.js
+### Methods
+how you approached the problem:
+* land() - land a plane
+* setCapacity() - set a default airport capacity for use for many different airports
+* isFull() - determine if airport is full
+* send() - take off a plane
+* takeoffConfirm() - confirmation of taking off a plane
+* planeHasTakenOff() - prevent taking off if the plane is not at the airport
+* planeHasLanded() - prevent landing if the plane is at the airport
+* weathergenerator() - generate a random weather condition
+* stormyTakeOff() - prevent takeoff when the weather is stormy
+* stormyLand() - prevent land when the weather is stormy
+* countAirplanes() - make sure the plane land at the same airport
 
-### What would you do differently if you were to approach this again?
+### Error
+1. 'MODULE_NOT_FOUND'
+![Alt text](errors/cantFindModule.png)
 
-* I would think about decoupling and encapsulation
-* I would think about creating each class for each object which could make the story more readable
+2. TypeError: airport.land is not a function
+![Alt text](errors/noFunc.png)
 
-### Where could this project go next?
+3. SyntaxError: Unexpected token '.'
+![Alt text](errors/UnexpectedToken.png)
 
-* I would consider more weather condition
-* I would set the airport capacity at the start, e.g. if the airport capacity is zero, then no need for the next steps
-* I would create an object for the air traffic controller
+4. ReferenceError: airportPlanes is not defined
+![Alt text](errors/notDefined.png)
 
-## Acknowledgements
+5. false test1
+![Alt text](errors/testFalse.png)
 
-* Digital Futures Academy
-  
+6. false test2
+![Alt text](errors/testFalse2.png)
 
+7. Max is not defined
+![Alt text](errors/maxNotDefined.png)
 
+## Authors
 
+Qian Zhang
 
+## Acknowledgments
+* Lucas Chagas
+* Chung Yan Ho
