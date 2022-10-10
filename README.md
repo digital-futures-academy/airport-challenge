@@ -13,25 +13,20 @@ Airport Challenge
 
 ```
 
-Instructions
----------
+About the project
+-------
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
+To test drive the creation of a set of classes/objects to satisfy all the user stories. I will also need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In my tests, I'll need to stub random behaviour to ensure consistent test behaviour.
 
 Steps
 -------
 
-1. Fork this repo, and clone to your local machine
+1. Forked main repo, and cloned this to my local machine
 2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+3. Convert stories into a representative domain model and test-drive my work 
+4. Created my own README detailing on how I approached each problem
+5. Created seperate files for different calss and spec
+6. Run my tests using `npm test` or `node specRunner.js`
 
 Task
 -----
@@ -76,6 +71,21 @@ To count planes easily
 Planes that have landed must be at an airport
 ```
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
-
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+Self-review
+-------
+#### What have I learnt
+- Solidified my knowledge on class objects and how to call arguments on it through using the parameters
+- Stubbing different scenarios in my test to ensure reliable test behaviour
+- Improved knowledge on how to convert each user story into domain models and writing step by test tests based on the table.
+
+#### What could I do differently?
+- Could have wrote more detailed tests on some of the user stories 
+- Using different testing framework such as Jasmine
+- Testing with single responsibility: encapsulation, mocking objects, spies in tests etc...
+
+#### What additional/enhanced features I could add to develop this project further?
+- Testing for pollution (air, noise etc) that each landing & takeoff generates
+- Adding in availability of different runways
+- Take into account air traffic control - level of collision risk
