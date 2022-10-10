@@ -4,11 +4,8 @@
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
   "scripts": {
-    "test": "node specRunner.js"
+    "test": "node test/airport.spec.js"
   },
   "author": "dearshrewdwit",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^7.22.0"
-  }
+  "license": "ISC"
 }

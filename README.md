@@ -1,6 +1,8 @@
 Airport Challenge
 =================
 
+This one of the first challenges completed at the Digital Futures Academy. Here, a list of user requirements were converted into a functioning programme developed test-first. To run these tests, go into the test folder and run airport.spec.js or run `npm test` in terminal.
+
 ```
          ______
         __\____\___
@@ -70,12 +72,7 @@ I want to prevent takeoff when weather is stormy
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
-
-As an air traffic controller
-To count planes easily
-Planes that have landed must be at an airport
 ```
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
