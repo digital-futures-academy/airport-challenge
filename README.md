@@ -74,6 +74,191 @@ To count planes easily
 Planes that have landed must be at an airport
 ```
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+# About This Project
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+### Project Name : - Airport Challange
+
+```
+This Project gives yoy the basic understanding of using JavaScript,node.js and Testing Framework.
+In this Project with JavaScript you can enhance your knowledgde of Variable Declarations,conditional
+statements and loops ect..
+With node.js hou you can install Dependencies and run the specRunner.js
+With Testing Framework you can try to make your code with less bugs or Errorfree.
+```
+
+## Pre-Requisite and Installation
+
+```
+1. Fork the Airport Challnge repo into your github Account
+2. Clone into your local directory.
+3. Open a Terminal and run the npm install command to download the dependencies.
+```
+
+# Solution For the Airport Challange
+
+## Domain Modelling
+
+### User Story 1
+
+```
+1. As an air traffic controller
+2. So I can get passengers to a destination
+3. I want to instruct the airport to land a plane
+
+**Domain Modelling for User Story 1**
+
+As a Air Traffic Controller
+I want to land a plane to the Airport.
+
+| **Object** | **Properties**                | **Message**        | **output** |
+| ---------- | ----------------------------- | ------------------ | ---------- |
+| Airport    | planesAtAirport@Array(@plane) | landPlane(@String) | @String    |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+```
+
+## Domain Modelling
+
+### User Story 2
+
+```
+1. As the system designer
+2. So that the software can be used for many different airports
+3. I would like a default airport capacity that can be overridden as appropriate
+
+**Domain Modelling for User Story 2**
+
+As a System Manager
+I would like to override the airport capacity as required
+
+| **Object** | **Properties**                | **Message**            | **output** |
+| ---------- | ----------------------------- | ---------------------- | ---------- |
+| Airport    | capacity(@int) const or final | overrideCapacity(@int) | @int       |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+```
+
+## Domain Modelling
+
+### User Story 3
+
+```
+1. As an air traffic controller
+2. To ensure safety ,I want to prevent landing when the airport is full
+
+**Domain Modelling for User Story 3**
+
+As an ATC i want to prevent landing when Airport is full
+
+| **Object** | **Properties**                | **Message**     | **output** |
+| ---------- | ----------------------------- | --------------- | ---------- |
+| Airport    | capacity(@int) const or final | isAirportFull() | @boolean   |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+```
+
+## Domain Modelling
+
+### User Story 4a
+
+```
+1. As an air traffic controller
+2. So I can get passengers on the way to their destination
+3. I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+**Domain Modelling for User Story 4a**
+
+1. As an ATC i want to instruct the airport to takeoff the plane.
+
+| **Object** | **Properties**                | **Message**               | **output** |
+| ---------- | ----------------------------- | ------------------------- | ---------- |
+| Airport    | planesAtAirport@Array(@plane) | takeOff(@string)          | @string    |
+|            |                               | isPlaneAtAirport(@string) | @boolean   |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+```
+
+### User Story 4b
+
+```
+1. As an air traffic controller
+2. So I can get passengers on the way to their destination
+3. I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+**Domain Modelling for User Story 4b**
+
+1. As ATC i want to confirm the plane is no longer at Airport.
+
+| **Object** | **Properties**                | **Message**                       | **output** |
+| ---------- | ----------------------------- | --------------------------------- | ---------- |
+| Airport    | planesAtAirport@Array(@plane) | confirmPlaneNotAtAirport(@string) | @int       |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+```
+
+### User Story 5a and 5b
+
+```
+1. As an air traffic controller
+2. To avoid confusion
+3. I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+**Domain Modelling for User Story 5a and 5b**
+
+1. As an ATC to avoid confusion see if a plane is at the airport before telling it to take off.
+2. As an ATC to avoid confusion see if plane is already at the airport before asking it to land.
+
+| **Object** | **Properties**                | **Message**               | **output** |
+| ---------- | ----------------------------- | ------------------------- | ---------- |
+| Airport    | planesAtAirport@Array(@plane) | takeOff(@string)          | @string    |
+|            |                               | landPlane(@String)        | @string    |
+|            |                               | isPlaneAtAirport(@String) | @boolean   |
+
+**Run the File :**
+Include the spec file to specRunner.js , and then run the code with node specRunner.js
+```
+
+# Project Review and RoadMap
+
+### My Learning and Takeaway from this Project..
+
+```
+My Learning Journey :
+- Learn about javascript ,how to write a code with loops and conditional statement etc.
+- Learn about the importance of Testing Framework to make a Error free Code.
+- Learn about the Version Control System (github).
+For Improvisation for this code :
+- I have breakdown this code more in details.
+- I might have written more test than right now.
+- My Domain Model also will have more detailed structure.
+- I have applied my knowledge of Encapsulation ,Single Responsiblities TDD framework in Project.
+- I might have more cleaner code than right now.
+
+```
+
+### Where could this project go next?
+
+```
+ Airport Challange Enhanced Critetia
+
+ - Landing and TakeOff criteria change depending on weather condition.
+ - If there is a delay(more than 1 hour) in Landing or takeOff regardless of any reason ,Some kind of compensation
+   is provided.
+ - If there is cancellation then refurd is Provided.
+```
+
+### Acknowledgement
+
+```
+- Code Acadamy.
+- W3School.
+- Generic google search
+- Array and String methods.
+- Youtube videos on the topic.
+- Mdn
+```
