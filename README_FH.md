@@ -1,3 +1,18 @@
+===================================================
+Summary
+---------
+This challenge was to create some code around objects. I created a testing framework defining assertEquals to create an exhaustive list of tests.
+At this point in my experience I wasn't aware of creating objects by making it an instance of a class, encapsulation of the classes to privatize the information within the class such as the planesInAirport array.
+
+Improvements
+---------
+If I was to do this again I would:
+- Create a jasmine testing environment for clearer and well structured tests instead of using a testing framework.
+- Use encapsulation and getter and setter methods to privatize information within classes.
+- I would decouple the js files.
+===================================================
+
+
 Airport Challenge - Fahad
 =================
 
