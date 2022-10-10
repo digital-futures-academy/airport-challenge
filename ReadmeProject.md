@@ -20,7 +20,27 @@ the same testing style follows. a Capacity of 3 is set in the instance; an expec
 ||        ||                 ||                    ||               ||
 || Airport||  airport@Array  || AddPlane(IsFull()) || @Boolean      ||
 ||        ||                 || RemovePlane()      || @Boolean      ||
-||        ||                 || IsFull()           || @int          ||
-||        ||   Capacity@int  || IncreaseCapacity() || @Boolean      ||
+||        ||                 || IsFull()           || @Boolean      ||
+||        ||   Capacity@int  || IncreaseCapacity() || @Int          ||
 
-||Plane   || id@int          ||                                       
+||Plane   || id@int          ||                  
+
+
+
+
+
+
+Improvements to be made and Lessons learnt.
+
+- take a more systematic approach to testing. Rather than speed through writting tests and code, I should take each task individually and commit each task as such. The purpose of doing things this way it to avoid confusion, procedural errors, and keep code tidy. 
+- Read tasks carefully
+- Produce domain models prior to programming to aid in the logic and reasoning aspect of the tasks.
+- Work on making test instructions more clear/simple 
+- Potentially add Comments to code, especially for more complex tasks in the future
+- Understand how this task can be refactored to reflect newly learnt knowledge
+- Potentially submit a finnished extended task code for the future
+
+- I have become comfortable coding in Javascript and understanding its peculiarities 
+- More comfortable using classes 
+- More comfortable testing work prior to using it 
+- More comfortable using Git
