@@ -119,9 +119,18 @@ Test - Check to see if the `landPlane` function adds the airport to the `Plane` 
 ```
 
 ## Reflections
+The main takeaway I got from completeing this project is learning about test driven development.
 
 Had I had the opportunity to start over again, there are numerous things I could have done better:
-- After learning about the  Jasmine framework I would make use of that as it makes test driven development more convenient.
+- After learning about the Jasmine framework I would make use of that as it makes test driven development more convenient.
 - Doing more thorough tests, and to improve the validation and edge cases with further testing.
 - For this project to make testing robust I could have added randomisation and proper cleanup to the testing.
 - Improve classes using private with getters and setters and other object oriented programming techniques.
+
+There are numerous of ways the project could be further enhanced such as:
+- Implementing a proper ID system for the planes.
+- Had a better way to track planes inflight.
+- Let plane objects track what airport they came from.
+- Estimated flight time/delays tracker.
+- Not let planes land/takeoff if a plane is currently on the airport runway.
+- Visualise plane routes from different airports.
