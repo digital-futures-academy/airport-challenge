@@ -14,7 +14,7 @@ expected = 1;
 
 airport = new Airport(3);
 plane = new Plane("asd123");
-airport.landPlane(plane);
+airport.landPlane(plane, "sunny");
 
 actual = airport.landedPlanes.length;
 result = assertEquals(expected, actual);
@@ -37,7 +37,7 @@ expected = 0;
 
 airport = new Airport(3);
 plane = new Plane("asd123");
-airport.landPlane("plane");
+airport.landPlane("plane", "sunny");
 
 actual = airport.landedPlanes.length;
 result = assertEquals(expected, actual);
@@ -67,13 +67,13 @@ airp2 = new Plane("plane2");
 airp3 = new Plane("plane3");
 airp4 = new Plane("plane4");
 
-airport.landPlane(airp1);
-airport.landPlane(airp2);
-airport.landPlane(airp3);
+airport.landPlane(airp1, "sunny");
+airport.landPlane(airp2, "sunny");
+airport.landPlane(airp3, "sunny");
 
 airport.increaseAirportCapacityTo(5);
 
-airport.landPlane(airp4);
+airport.landPlane(airp4, "sunny");
 
 console.log(`New airport cap is: ${airport.airportCap}`);
 
@@ -104,10 +104,10 @@ airp2 = new Plane("plane2");
 airp3 = new Plane("plane3");
 airp4 = new Plane("plane4");
 
-airport.landPlane(airp1);
-airport.landPlane(airp2);
-airport.landPlane(airp3);
-airport.landPlane(airp4);
+airport.landPlane(airp1, "sunny");
+airport.landPlane(airp2, "sunny");
+airport.landPlane(airp3, "sunny");
+airport.landPlane(airp4, "sunny");
 
 actual = airport.landedPlanes.length;
 
@@ -140,13 +140,13 @@ airp2 = new Plane("plane2");
 airp3 = new Plane("plane3");
 airp4 = new Plane("plane4");
 
-airport.landPlane(airp1);
-airport.landPlane(airp2);
-airport.landPlane(airp3);
-airport.landPlane(airp4);
+airport.landPlane(airp1, "sunny");
+airport.landPlane(airp2, "sunny");
+airport.landPlane(airp3, "sunny");
+airport.landPlane(airp4, "sunny");
 
 console.log(typeof airp2);
-airport.letPlaneTakeOff(airp2.id);
+airport.letPlaneTakeOff(airp2.id, "sunny");
 
 actual = airport.landedPlanes.length;
 
@@ -179,10 +179,10 @@ airp2 = new Plane("plane2");
 airp3 = new Plane("plane3");
 airp4 = new Plane("plane4");
 
-airport.landPlane(airp1);
-airport.landPlane(airp2);
-airport.landPlane(airp3);
-airport.landPlane(airp4);
+airport.landPlane(airp1, "sunny");
+airport.landPlane(airp2, "sunny");
+airport.landPlane(airp3, "sunny");
+airport.landPlane(airp4, "sunny");
 
 actual = airport.planeIsAtTheAirport(airp3);
 console.log(airport);
@@ -207,7 +207,7 @@ result = undefined;
 
 console.log("\n========== Test 7 ==========\n");
 
-expected = 4;
+expected = 2;
 
 airport = new Airport(4);
 
@@ -216,18 +216,12 @@ airp2 = new Plane("plane2");
 airp3 = new Plane("plane3");
 airp4 = new Plane("plane4");
 
-/* I check the weather here specifically so it doesn't mess with the other previous tests, but to implement 
- this check on all flight landings and take offs, put an if statement into the methods of landPlane() 
- and letPlaneTakeOff() | if(this.checkWeather === "Sunny") |*/
-
 airport.checkWeather();
 
-if (airport.checkWeather() === "Sunny") {
-  airport.landPlane(airp1);
-  airport.landPlane(airp2);
-  airport.landPlane(airp3);
-  airport.landPlane(airp4);
-}
+airport.landPlane(airp1, airport.checkWeather());
+airport.landPlane(airp2, airport.checkWeather());
+airport.landPlane(airp3, airport.checkWeather());
+airport.landPlane(airp4, airport.checkWeather());
 
 actual = airport.landedPlanes.length;
 console.log(airport);
@@ -235,9 +229,10 @@ console.log(airport);
 result = assertEquals(expected, actual);
 
 console.log(
-  `Test 7: Preventing landing in bad weather, run the tests multiple times, no planes on the airport or all 4 can land: ${
-    result ? "Passed" : "Failed"
-  }`
+  `Test 7: Checking how many planes can land based on the random weather(chances are 50-50, 
+    but results can vary between 0-4, most probable is 2, so the expected is that): ${
+      result ? "Passed" : "Failed"
+    }`
 );
 
 airport = null;
@@ -249,9 +244,10 @@ airp4 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
 console.log("\n========== Test 8 ==========\n");
 
-expected = 0;
+expected = 2;
 
 airport = new Airport(4);
 
@@ -260,18 +256,15 @@ airp2 = new Plane("plane2");
 airp3 = new Plane("plane3");
 airp4 = new Plane("plane4");
 
-/* I check the weather here specifically so it doesn't mess with the other previous tests, but to implement 
- this check on all flight landings and take offs, put an if statement into the methods of landPlane() 
- and letPlaneTakeOff() | if(this.checkWeather === "Sunny") |*/
+airport.landPlane(airp1, "sunny");
+airport.landPlane(airp2, "sunny");
+airport.landPlane(airp3, "sunny");
+airport.landPlane(airp4, "sunny");
 
-airport.checkWeather();
-
-if (airport.checkWeather() === "Sunny") {
-  airport.letPlaneTakeOff(airp1);
-  airport.letPlaneTakeOff(airp2);
-  airport.letPlaneTakeOff(airp3);
-  airport.letPlaneTakeOff(airp4);
-}
+airport.letPlaneTakeOff(airp1.id, airport.checkWeather());
+airport.letPlaneTakeOff(airp2.id, airport.checkWeather());
+airport.letPlaneTakeOff(airp3.id, airport.checkWeather());
+airport.letPlaneTakeOff(airp4.id, airport.checkWeather());
 
 actual = airport.landedPlanes.length;
 console.log(airport);
@@ -279,8 +272,7 @@ console.log(airport);
 result = assertEquals(expected, actual);
 
 console.log(
-  `Test 8: Similarly to test number 7, there are 2 outcomes, either all planes stay because of bad weather, 
-  or all planes can take off because of good weather, pass if sunny: ${
+  `Test 8: Similarly to test number 7, checking if the planes can take off, expected is set to 2, but result can vary between 0-4: ${
     result ? "Passed" : "Failed"
   }`
 );
