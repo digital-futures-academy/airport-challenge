@@ -39,6 +39,7 @@ Task
 We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
 
 #### Acceptance Criteria
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -46,10 +47,10 @@ I want to instruct the airport to land a plane
 
 ## Part 1 - Domain Models
 
-| Objects | Properties                   | Messages          | Outputs |
-| ------- | ---------------------------- | ----------------- | ------- |
-| Airport | planesAtAirpot @Array[@Plane]| landPlane(@Plane) | @Void   |
-| Plane   | planeId @String              | getId()           | @String |
+| Objects | Properties                    | Messages          | Outputs |
+| ------- | ----------------------------- | ----------------- | ------- |
+| Airport | planesAtAirpot @Array[@Plane] | landPlane(@Plane) | @Void   |
+| Plane   | planeId @String               | getId()           | @String |
 
 ### Tests
 
@@ -60,6 +61,8 @@ Initial thoughts:
 4. Planes at Airport does not increase when something that is not a plane lands
 
 **Test 1** - `planesAtAirport` length increases when `landPlane` is called with an *instance of `Item`*
+
+**Test 2** - `landPlane` should only add `Plane` instances to the `planesAtAirport`
 
 
 As the system designer
@@ -80,6 +83,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 
 #### Extended Acceptance Criteria
+
 ```
 As an air traffic controller
 To ensure safety
