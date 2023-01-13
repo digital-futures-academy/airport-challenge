@@ -43,6 +43,10 @@ I Need an Airport
 I Need to Land a Plane at the Airport
 Airport Plain count should increase by 1 when Plane has landed
 
+Tests:
+Test 1 - Airport Plane count increases when Plane is at the Airport 
+
 Building Test 1:
 Make file /specRunner.js in test folder to run ALL tests from 1 location (Populate with required files as created using require(`./`))
-Make file /testing-framework.js in test folder to house functions required for testing
+Make file /testing-framework.js in test folder to house functions required for testing?
+
