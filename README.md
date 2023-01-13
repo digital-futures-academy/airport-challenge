@@ -44,6 +44,24 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+## Part 1 - Domain Models
+
+| Objects | Properties                   | Messages          | Outputs |
+| ------- | ---------------------------- | ----------------- | ------- |
+| Airport | planesAtAirpot @Array[@Plane]| landPlane(@Plane) | @Void   |
+| Plane   | planeId @String              | getId()           | @String |
+
+### Tests
+
+Initial thoughts:
+1. Need an airport
+2. Plane able to land in the Airport
+3. Planes at Airport should increase by 1 when a plane lands
+4. Planes at Airport does not increase when something that is not a plane lands
+
+**Test 1** - `planesAtAirport` length increases when `landPlane` is called with an *instance of `Item`*
+
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
