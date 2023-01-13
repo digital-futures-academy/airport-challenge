@@ -98,7 +98,7 @@ plane = null;
 console.log(`===============================================`);
 // End of Test 4
 
-// Test 5
+// Test 5 - Setting up deafault capacity when instantiating an Airport
 //Arrange
 airport = new Airport(20);
 expected = 20;
@@ -123,7 +123,7 @@ console.log(`===============================================`);
 // Test 6
 //Arrange
 airport = new Airport("30");
-expected = 10;
+expected = 5;
 
 //Act
 actual = airport.capacity;
@@ -141,3 +141,45 @@ airport = null;
 plane = null;
 console.log(`===============================================`);
 // End of Test 6
+
+// Test 7 - Check setCapacity() to set the capacity of the Airport after initialization.
+//Arrange
+airport = new Airport();
+expected = 5;
+
+//Act
+airport.setCapacity(`20`);
+actual = airport.capacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(
+  `Test 7: Change capacity of Airport using setCapacity(): ${result}`
+);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+console.log(`===============================================`);
+
+// Test 8 - Check isAirportFull() logic is working by comparing capacity and planesInAirport.length.
+//Arrange
+airport = new Airport();
+expected = false;
+
+//Act
+actual = airport.isAirportFull();
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8: Is Airport full: ${result}`);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+console.log(`===============================================`);

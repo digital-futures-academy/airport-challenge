@@ -52,9 +52,7 @@ Initial thoughts:
 
 | Objects               | Properties                        | Messages            | Outputs |
 | --------------------  | -------------------------         | -----------------   | ------- |
-|                       |                                   |                     |         |
 | Airport               |   planesInAirport @Array[@Plane]  |  landPlane(@Plane)  |  @Void  |
-|                       |                                   |                     |         |
 
 As the system designer
 So that the software can be used for many different airports
@@ -66,11 +64,10 @@ Initial Thoughts:
 
 ## Domain Models
 
-
 | Objects               | Properties                        | Messages            | Outputs |
 | --------------------  | -------------------------         | -----------------   | ------- |
 |                       |                                   |                     |         |
-| Airport               |  capacity @Integer                |                     |  @Void  |
+| Airport               |  capacity @Integer                | setCapacity(@Integer)|  @Void  |
 |                       |                                   |                     |         |
 
 As an air traffic controller
