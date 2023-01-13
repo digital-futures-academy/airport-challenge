@@ -96,3 +96,25 @@ expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
 console.log('======= Test Four Done =======');
 console.log(` `); //blank space to split up tests
+
+// Test Five - changeAirportCapacity will change the value of airportCapacity
+console.log('======= Test Five =======');
+console.log(`changeAirportCapacity will change the value of airportCapacity`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create a new airport for the test
+expected = 5; // we will try to change the capacity of the airport to 5
+
+// Act
+airport.changeAirportCapacity(5); // call function of change the airport capacity
+actual = airport.airportCapacity; // look for the value of the airportCapacity
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Five - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Five Done =======');
+console.log(` `); //blank space to split up tests
