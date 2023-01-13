@@ -18,9 +18,10 @@ class Airport {
       (plane) => plane_id === plane.id
     );
     if (planeIndex === -1) {
-      console.log("Item doesn't exist");
+      console.log("Plane you are looking for is not at the airport");
     } else {
       this.landedPlanes.splice(planeIndex, 1);
+      console.log("Plane left the airport.");
     }
   };
 }
