@@ -41,10 +41,10 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ## Part 2 - Domain Model
 
-| Objects | Properties                | Messages                                     | Outputs |
-| ------- | ------------------------- | -------------------------------------------- | ------- |
-| Airport | airportCapacity @Integer  | changeAirportCapacity(@airportID, @Integer)  | @Void   |
-|         | airportID @String         | getAirportID()                               | @String |
+| Objects | Properties                | Messages                         | Outputs |
+| ------- | ------------------------- | -------------------------------- | ------- |
+| Airport | airportCapacity @Integer  | changeAirportCapacity(@Integer)  | @Void   |
+
 
 ## Part 2 - Tests
 
@@ -71,15 +71,31 @@ i want to prevent landing when the airport is full
 
 ## Part 3 - Domain Model
 
-| Objects | Properties                      | Messages                                     | Outputs  |
-| ------- | ------------------------------- | -------------------------------------------- | -------- |
-| Airport | groundedPlanes @Array[@Planes]  | isAirportFull()                              | @Boolean |
-|         | airportCapacity @Integer        | getAirportCapacity()                         | @Integer |
-|         | airportID @String               | getAirportID()                               | @String  |
-|         |                                 | changeAirportCapacity(@airportID, @Integer)  | @Void    |
-| Planes  | planeID @String                 | getID()                                      | @String  |
+| Objects | Properties                      | Messages                           | Outputs  |
+| ------- | ------------------------------- | ---------------------------------- | -------- |
+| Airport | groundedPlanes @Array[@Planes]  | isAirportFull()                    | @Boolean |
+|         | airportCapacity @Integer        | getAirportCapacity()               | @Integer |
+|         |                                 | landPlane(@Plane)                  | @String  |
+|         |                                 | changeAirportCapacity(@Integer)    | @Void    |
+| Planes  | planeID @String                 | getID()                            | @String  |
 
 ## Part 3 - Tests
+
+Initial Thoughts:
+
+1. Need to check the capacity of the airport before plane lands
+2. Allow plane to land if airport is not full
+3. Do not allow plane to land if airport is full
+
+**Test 7** - `getAirportCapacity()` returns the capacity of the airport
+
+**Test 8** - `isAirportFull()` checks if `groundedPlanes.length` is equal to `airportCapacity`
+
+**Test 9** - when `landPlane` is called run `isAirportFull()`
+
+**Test 10** - if `isAirportFull()` is false, add `Plane` to `groundedPlanes` and give a string confirmation
+
+**Test 11** - if `isAirportFull()` is true, do not add `Plane` to `groundedPlanes` and give a string confirmation
 
 ---
 
