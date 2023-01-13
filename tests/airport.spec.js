@@ -53,4 +53,26 @@ airport, item = null;
 console.log('======= Test Two Done =======');
 console.log(` `); //blank space to split up tests
 
+// Test Three - falsy values should not be added to groundedPlanes
+console.log('======= Test Three =======');
+console.log(`null value items should not be added`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for test
+plane = null; // input is null
+expected = 0; // result should be zero as null should not be added to groundedPlanes
+
+// Act
+airport.landPlane(plane); // lands plane to airport
+actual = airport.groundedPlanes.length; // checking the length of the array
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Three - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Three Done =======');
+console.log(` `); //blank space to split up tests
 
