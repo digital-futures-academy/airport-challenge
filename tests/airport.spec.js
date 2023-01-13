@@ -141,5 +141,5 @@ console.log(`Test Six - ${result ? `Passed` : `Failed`}`); // states if the test
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
-console.log('======= Test Five Done =======');
+console.log('======= Test Six Done =======');
 console.log(` `); //blank space to split up tests
