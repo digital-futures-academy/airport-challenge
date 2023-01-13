@@ -1,4 +1,4 @@
-# Airport Challenge Domain Models [Elle Ordona]
+# Airport Challenge Domain Models [Elle Ordoña]
 
 ## Part 1 - User Stories
 
@@ -47,6 +47,17 @@ I would like a default airport capacity that can be overridden as appropriate
 |         | airportID @String         | getAirportID()                               | @String |
 
 ## Part 2 - Tests
+
+Initial Thoughts:
+
+1. Need to give any airport created a default value for capacity
+2. Need a function to be able to change the capacity
+
+**Test 4** - when an `Airport` is created a default value of 10 is given for `airportCapacity`
+
+**Test 5** - `changeAirportCapacity` will change the `airportCapacity` to the value inputted
+
+**Test 6** - Edge Case - `airportCapacity` can only be a number
 
 ---
 
