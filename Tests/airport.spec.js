@@ -22,6 +22,7 @@ actual = airport.slotsOccupied.length;
 //Assert
 result = testEquals(expected, actual);
 console.log(`Airports Occupied slots increased ${result}`);
+console.log('--------------------')
 
 //Cleanup
 expected = undefined;
