@@ -24,5 +24,13 @@ class Airport {
       console.log("Plane left the airport.");
     }
   };
+  planeIsAtTheAirport = (plane) => {
+    if (this.landedPlanes.includes(plane)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  checkWeather = () => {};
 }
 module.exports = Airport;

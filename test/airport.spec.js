@@ -164,3 +164,76 @@ airp4 = null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log("\n========== Test 6 ==========\n");
+
+expected = true;
+
+airport = new Airport(4);
+
+airp1 = new Plane("plane1");
+airp2 = new Plane("plane2");
+airp3 = new Plane("plane3");
+airp4 = new Plane("plane4");
+
+airport.landPlane(airp1);
+airport.landPlane(airp2);
+airport.landPlane(airp3);
+airport.landPlane(airp4);
+
+actual = airport.planeIsAtTheAirport(airp3);
+console.log(airport);
+result = assertTrue(actual);
+
+console.log(
+  `Test 6: Checking if plane3 is at the airport: ${
+    result ? "Passed" : "Failed"
+  }`
+);
+
+airport = null;
+plane = null;
+airp1 = null;
+airp2 = null;
+airp3 = null;
+airp4 = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log("\n========== Test 7 ==========\n");
+
+expected = 3;
+
+airport = new Airport(4);
+
+airp1 = new Plane("plane1");
+airp2 = new Plane("plane2");
+airp3 = new Plane("plane3");
+airp4 = new Plane("plane4");
+
+airport.landPlane(airp1);
+airport.landPlane(airp2);
+airport.landPlane(airp3);
+
+airport.checkWeather();
+
+airport.landPlane(airp4);
+
+actual = airport.landedPlanes.length;
+console.log(airport);
+result = assertEquals(expected, actual);
+
+console.log(
+  `Test 7: Preventing landing in bad weather: ${result ? "Passed" : "Failed"}`
+);
+
+airport = null;
+plane = null;
+airp1 = null;
+airp2 = null;
+airp3 = null;
+airp4 = null;
+expected = undefined;
+actual = undefined;
+result = undefined;

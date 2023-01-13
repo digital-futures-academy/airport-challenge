@@ -118,5 +118,5 @@ Planes that have landed must be at an airport
 |         | airportCapacity @Integer    | getAirportCapacity()                | @Integer |
 |         |                             | increaseAirportCapacityTo(@Integer) | @Void    |
 |         |                             | isAirportFull()                     | @Boolean |
-| Plane   | id @String                  | letPlaneTakeOff()                   | @boolean |
+| Plane   | id @String                  | isPlaneAtTheAirport()               | @boolean |
 |         |                             | getId()                             | @String  |
