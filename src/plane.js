@@ -1,10 +1,10 @@
 // Plane Class
 
 class Plane {
-    id;
+    planeID;
 
-    constructor(id) {
-        this.id = id;
+    constructor(planeID) {
+        this.planeID = planeID;
     }
 }
 

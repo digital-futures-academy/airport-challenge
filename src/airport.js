@@ -1,8 +1,13 @@
 // Airport Class
 
-class Airport {
-  // here's a starting point for you
+const Plane = require(`./plane.js`);
 
+class Airport {
+
+  groundedPlanes = []; //array for planes in the airport
+
+  //functions of airport
+  landPlane = plane => this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array
 }
 
 module.exports = Airport;
