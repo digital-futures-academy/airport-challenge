@@ -1,5 +1,9 @@
 class Airport {
-  // here's a starting point for you
+  airportPlanes = [];
+
+  landPlane(){
+    return "You are free to land, I repeat, you are free to land. Over."
+  }
 
 }
 

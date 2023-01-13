@@ -79,3 +79,48 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+
+***************************
+**       SOLUTION        **
+***************************
+
+
+## Part 1 - Domain Models
+
+**User story 1** Nouns: Airport, plane. Verbs: land 
+
+| Objects | Properties                | Messages          | Outputs |
+| ------- | ------------------------- | ----------------- | ------- |
+| Airport | airportPlanes[@Plane]     | landPlane(@Plane) | @Void   |
+| Plane   | id @String                | getId()           | @String |
+
+**User story 2** Nouns: Airport. Verbs: overriden 
+
+| Objects | Properties                | Messages          | Outputs |
+| ------- | ------------------------- | ----------------- | ------- |
+| Airport | Capacity @Int             | getCapacity()     | @Int    |
+|         | airportPlanes[@Plane]     |                   |         | 
+ 
+
+**User story 3** Noun: Airport. Verbs: Prevent
+| Objects | Properties                | Messages          | Outputs |
+| ------- | ------------------------- | ----------------- | ------- |
+| Airport | airportPlanes[@Plane]     | isAirportFull()   | @String | 
+          | Capacity @Int             |                   |         |
+
+**User story 4** Noun: Airport, Plane. Verbs: Instruct, let, confirm
+| Objects | Properties                | Messages                  | Outputs |
+| ------- | ------------------------- | -----------------         | ------- |
+| Airport | airportPlanes[@Plane]     | letTakeOff(@Plane)        | @String |
+|         |                           | confirmTakeOff(@Plane)    | @String |
+| Plane   | id @String                | getId()                   | @String |
+
+**User story 5** Nouns: Airport, Plane. Verbs: Prevent (asking), let, land
+| Objects | Properties                | Messages             | Outputs |
+| ------- | ------------------------- | -----------------    | ------- |
+| Airport | listOfPlanes[@Plane]      | planeExists(@Plane)  | @Boolean|
+| Plane   | id @String                | getId()              | @String |
+
+
+
