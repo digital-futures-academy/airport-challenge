@@ -122,13 +122,11 @@ console.log(`===============================================`);
 
 // Test 6
 //Arrange
-airport = new Airport("10");
+airport = new Airport("30");
 expected = 10;
 
 //Act
 actual = airport.capacity;
-console.log(typeof actual);
-
 //Assert
 result = assertEquals(expected, actual);
 console.log(

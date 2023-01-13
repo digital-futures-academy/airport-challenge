@@ -60,6 +60,13 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
+Initial Thoughts:
+1. Each Airport should have a default capacity.
+2. Each Airport should be able to set the default capacity.
+
+## Domain Models
+
+
 | Objects               | Properties                        | Messages            | Outputs |
 | --------------------  | -------------------------         | -----------------   | ------- |
 |                       |                                   |                     |         |
@@ -69,6 +76,19 @@ I would like a default airport capacity that can be overridden as appropriate
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+
+Initial thoughts:
+1. Check the capacity of the Airport
+2. If planesInAirport.length >= capacity, then isAirportFull() returns true;
+3. If isAirportFull() returns true, then landPlane() should not push planes to the planesInAirport array.
+
+## Domain Models
+
+| Objects               | Properties                        | Messages            | Outputs  |
+| --------------------  | -------------------------         | -----------------   | -------  |
+|                       |                                   |                     |          |
+| Airport               |  capacity @Integer                |   isAirportFull()   | @Boolean |
+|                       |  planesInAirport @Array[@Plane]   |   landPlane(@Plane) | @Void    |
 
 As an air traffic controller
 So I can get passengers on the way to their destination
