@@ -5,7 +5,8 @@ const { assertEquals } = require(`../testing-frameworks.js`);
 const Airport = require(`../src/airport.js`);
 const Plane = require(`../src/plane.js`);
 
-let expected, actual, result, airport, plane; //create empty variables for the tests
+// initialize variables used in tests
+let expected, actual, result, airport, plane, input; //create empty variables for the tests
 
 // Test One - when landPlane is called, Plane should be added to the Airports groundedPlanes increasing the length to 1
 console.log('======= Test One =======');
@@ -103,15 +104,39 @@ console.log(`changeAirportCapacity will change the value of airportCapacity`); /
 
 // Arrange
 airport = new Airport(); // create a new airport for the test
+input = 5; // the number we are changing the capacity to
 expected = 5; // we will try to change the capacity of the airport to 5
 
 // Act
-airport.changeAirportCapacity(5); // call function of change the airport capacity
+airport.changeAirportCapacity(input); // call function of change the airport capacity
 actual = airport.airportCapacity; // look for the value of the airportCapacity
 
 // Assert
 result = assertEquals(expected, actual); // is expected and actual the same??
 console.log(`Test Five - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Five Done =======');
+console.log(` `); //blank space to split up tests
+
+// Test Six - airportCapacity can only be a number
+console.log('======= Test Six =======');
+console.log(`airportCapacity can only be a number`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for test
+input = 'five'; // try to input a string to airportCapacity
+expected = 10; // the airportCapacity should not change
+
+// Act
+airport.changeAirportCapacity(input); // call function to change airportCapacity
+actual = airport.airportCapacity; // look for the value of airportCapacity
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Six - ${result ? `Passed` : `Failed`}`); // states if the test passed
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
