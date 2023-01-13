@@ -10,7 +10,4 @@ class Airport {
 
 }
 
-console.log(Airport.slotsOccupied)
-
-
 module.exports = Airport;

@@ -11,7 +11,7 @@ let airport;
 
 //1st Test
 console.log('--------------------');
-console.log('1. addTailNumber adds Plane to the Airport');
+console.log('1. addPlane adds Plane to the Airport slotsOccupied array?');
 
 //Arrange
 airport = new Airport();
@@ -24,7 +24,7 @@ actual = airport.slotsOccupied.length;
 
 //Assert
 result = testEquals(expected, actual) ? 'Yes, the Plane has landed at the airport' : 'No, the Plane is still in the sky';
-console.log(`Airports Occupied slots increased ${result}`);
+console.log(`Airports Occupied slots increased? ${result}`);
 console.log('--------------------');
 
 //Cleanup
