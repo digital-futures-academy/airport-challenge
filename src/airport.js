@@ -1,5 +1,10 @@
 class Airport {
-  // here's a starting point for you
+
+  slotsOccupied = [];
+
+  addPlane = tailNumber => {
+    if (tailNumber instanceof plane) this.occupiedSlots.push(tailNumber)
+  };
 
 }
 

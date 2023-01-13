@@ -1,4 +1,5 @@
 const { testEquals } = require('./testing-framework');
+const Airport = require('../src/airport');
 
 let expected;
 let actual;
@@ -8,7 +9,7 @@ let airport;
 
 //1st Test
 console.log('--------------------');
-console.log('1. addtailNumber adds Plane to the Airport');
+console.log('1. addTailNumber adds Plane to the Airport');
 
 //Arrange
 airport = new Airport();
@@ -16,13 +17,13 @@ plane = new Plane();
 expected = 1;
 
 //Act
-airport.addplane(tailNumber);
+airport.addPlane(tailNumber);
 actual = airport.slotsOccupied.length;
 
 //Assert
 result = testEquals(expected, actual);
 console.log(`Airports Occupied slots increased ${result}`);
-console.log('--------------------')
+console.log('--------------------');
 
 //Cleanup
 expected = undefined;
