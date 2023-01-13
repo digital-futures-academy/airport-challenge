@@ -25,7 +25,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 **Story Breakdown**  
 Nouns: airport, capacity  
-Verbs: override  
+Verbs: override (update)  
 
 | Object  | Properties        | Messages                        | Output |
 |---------|-------------------|---------------------------------|--------|
