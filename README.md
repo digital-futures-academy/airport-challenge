@@ -64,8 +64,6 @@ Initial thoughts:
 
 **Test 2** - `landPlane` should only add `Plane` instances to the `planesAtAirport`
 
-**Test 3** - Edge Case - falsy values should not be added to `planesAtAirport`
-
 
 As the system designer
 So that the software can be used for many different airports
