@@ -71,7 +71,7 @@ actual = `The new capacity is ${airport.capacity}`
 // Assert
 result = assertEquals(expected, actual);
 
-console.log(`Test 2: Only a plane can be instructed to land: ${result}`);
+console.log(`Test 3: Airport capacity overriden: ${result}`);
 
 // Clean up
 airport = null;
@@ -79,4 +79,28 @@ plane= null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Test 4 - Prevent landing when airport is full. Full is 50 planes.
+console.log(`============================`);
+console.log(`Test 4 - Prevent landing when airport is full. Full is 50 planes.`);
+
+// Arrange
+airport = new Airport(60, 50);
+expected = `You cannot land, Airport is at capacity`
+// Act
+
+actual = airport.isAtCapacity()
+// Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 4: No landing when airport is full with 50 planes: ${result}`);
+
+// Clean up
+airport = null;
+plane= null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
 
