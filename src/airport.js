@@ -1,7 +1,8 @@
 const Plane = require("./Plane");
-
+const weatherArray = ["Sunny", "Stormy"];
 class Airport {
   landedPlanes = [];
+
   constructor(airportCap) {
     this.airportCap = airportCap;
   }
@@ -24,6 +25,7 @@ class Airport {
       console.log("Plane left the airport.");
     }
   };
+
   planeIsAtTheAirport = (plane) => {
     if (this.landedPlanes.includes(plane)) {
       return true;
@@ -31,6 +33,9 @@ class Airport {
       return false;
     }
   };
-  checkWeather = () => {};
+  checkWeather = () => {
+    var randomNumber = Math.floor(Math.random() * weatherArray.length);
+    return weatherArray[randomNumber];
+  };
 }
 module.exports = Airport;

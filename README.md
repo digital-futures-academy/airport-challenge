@@ -1,3 +1,21 @@
+| Objects | Properties                  | Messages                            | Outputs  |
+| ------- | --------------------------- | ----------------------------------- | -------- |
+| Airport | landedPlanes @Array[@Plane] | landPlane()(@Plane)                 | @Void    |
+|         | airportCapacity @Integer    | getAirportCapacity()                | @Integer |
+|         |                             | increaseAirportCapacityTo(@Integer) | @Void    |
+|         |                             | isAirportFull()                     | @Boolean |
+|         |                             | isPlaneAtTheAirport()               | @boolean |
+|         |                             | checkWeather()                      | @String  |
+| Plane   | id @String                  | getId()                             | @String  |
+
+## 1. Clone to your system
+
+## 2. In terminal type node specRunner.js
+
+## 3. run multiple tests because of test number 7 and 8 (weather landing check)
+
+## 4. With the exception of test number 7 and 8, all tests should pass on every run
+
 # Airport Challenge
 
 ``````
@@ -111,12 +129,3 @@ I want to prevent landing when weather is stormy
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
-
-| Objects | Properties                  | Messages                            | Outputs  |
-| ------- | --------------------------- | ----------------------------------- | -------- |
-| Airport | landedPlanes @Array[@Plane] | landPlane()(@Plane)                 | @Void    |
-|         | airportCapacity @Integer    | getAirportCapacity()                | @Integer |
-|         |                             | increaseAirportCapacityTo(@Integer) | @Void    |
-|         |                             | isAirportFull()                     | @Boolean |
-| Plane   | id @String                  | isPlaneAtTheAirport()               | @boolean |
-|         |                             | getId()                             | @String  |
