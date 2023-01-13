@@ -27,3 +27,35 @@ console.log('Running tests for airport.js');
 	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
 	console.log('Output: ' + result);
 }
+
+{
+	console.log('------------------------------');
+	console.log('Test 2. (land() test). Empty airport, invalid plane. => Throws Error')
+
+	let input, expected, actual, result, airport, plane, weather;
+	
+	//1 Arrange
+	plane = 'invalidPlane';
+	airport = new Airport();
+	expected = new Error();
+
+	//2.Act
+	actual = airport.land(plane);
+
+	//3. Assert
+	result = testFramework.assertThrows(actual)
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
+//Clear
+// input = undefined;
+// expected = undefined;
+// actual = undefined;
+// result=undefined;
+// airport = undefined;
+// plant = undefined;
+// weather = undefined;
+
