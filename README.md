@@ -60,7 +60,7 @@ I would like a default airport capacity that can be overridden as appropriate
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
 | Plane   | - | - | - |
-| Airport | planes [@Plane]          | increaseCapacity(@Integer) | @Void |
+| Airport | planes [@Plane]          | changeCapacity(@Integer) | @Void |
 |         | airportCapacity @Integer | - | - |
 ---
 
@@ -107,12 +107,12 @@ I want to prevent asking the airport to let planes take-off which are not at the
 --------------------------
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String        | getFlightNum()             | @String  |
-| Airport | planes [@Plane]          | land(@Plane)               | @Void    |
-|         | airportCapacity @Integer | takeOff(@Plane)            | @Void    |
-|         | -                        | isAtAirport(@Plane)        | @Boolean |
-|         | -                        | isFull()                   | @Boolean |
-|         | -                        | increaseCapacity(@Integer) | @Void    |
+| Plane   | flightNum @String        | getFlightNum()           | @String  |
+| Airport | planes [@Plane]          | land(@Plane)             | @Void    |
+|         | airportCapacity @Integer | takeOff(@Plane)          | @Void    |
+|         | -                        | isAtAirport(@Plane)      | @Boolean |
+|         | -                        | isFull()                 | @Boolean |
+|         | -                        | changeCapacity(@Integer) | @Void    |
 ---
 <br>
 <br>
