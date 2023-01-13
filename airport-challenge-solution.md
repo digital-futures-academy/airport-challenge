@@ -45,7 +45,6 @@ I would like a default airport capacity that can be overridden as appropriate
 | ------- | ------------------------- | -------------------------------- | ------- |
 | Airport | airportCapacity @Integer  | changeAirportCapacity(@Integer)  | @Void   |
 
-
 ## Part 2 - Tests
 
 Initial Thoughts:
