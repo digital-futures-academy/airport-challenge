@@ -127,7 +127,7 @@ console.log(`airportCapacity can only be a number`); // stating the test being c
 
 // Arrange
 airport = new Airport(); // create new airport for test
-input = 'five'; // try to input a string to airportCapacity
+input = null; // try to input a string to airportCapacity
 expected = 10; // the airportCapacity should not change
 
 // Act
