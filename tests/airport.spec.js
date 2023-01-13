@@ -20,7 +20,7 @@ actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 1: Land Plane in a Airport: ${result}`);
+console.log(`Test 1: Land Plane in an Airport: ${result}`);
 
 //Clear up
 expected = undefined;
@@ -43,7 +43,7 @@ actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 2: Land a string in a Airport: ${result}`);
+console.log(`Test 2: Try to land a string in an Airport: ${result}`);
 
 //Clear up
 expected = undefined;
@@ -66,7 +66,7 @@ actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 3: Try to land falsy value in a Airport: ${result}`);
+console.log(`Test 3: Try to land falsy value in an Airport: ${result}`);
 
 //Clear up
 expected = undefined;
@@ -76,3 +76,70 @@ airport = null;
 plane = null;
 console.log(`===============================================`);
 // End of Test 3
+
+// Test 4 - Check the default capacity of Planes in an Airport
+//Arrange
+airport = new Airport();
+expected = 10;
+
+//Act
+actual = airport.capacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4: Expected capacity of planes in an Airport: ${result}`);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+console.log(`===============================================`);
+// End of Test 4
+
+// Test 5
+//Arrange
+airport = new Airport(20);
+expected = 20;
+
+//Act
+actual = airport.capacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5: Overridden capacity of Planes in an Airport: ${result}`);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+console.log(`===============================================`);
+
+// End of Test 5
+
+// Test 6
+//Arrange
+airport = new Airport("10");
+expected = 10;
+
+//Act
+actual = airport.capacity;
+console.log(typeof actual);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(
+  `Test 6: Overridden wrong type of capacity of Planes in an Airport: ${result}`
+);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+console.log(`===============================================`);
+// End of Test 6
