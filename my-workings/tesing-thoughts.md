@@ -31,3 +31,5 @@ I would like a default airport capacity that can be overridden as appropriate
 2. The capacity needs to be able to be updated
 
 **Test 2 -** when an ``Airport`` is created, it should have a default capacity of 7
+
+**Test 3 -** After an Airport is created, ``updateAirportCapacity`` can be called to change it's capacity

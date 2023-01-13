@@ -51,7 +51,24 @@ console.log(`===================================== Test End ====================
 
 // Clean up
 airport = undefined;
-plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+//Test 3 - After an Airport is created, it's capacity can be updated
+console.log(`=== Test 3 - After an Airport is created, it's capacity can be updated ===`);
+
+// Arrange
+airport = new Airport();
+expected = 21;
+
+// Act
+airport.updateAirportCapacity(21);
+actual = airport.capacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Test 3 - After an Airport is created, it's capacity can be updated: ${result ? `Passed` : `Failed`}`);
+console.log(`===================================== Test End =====================================\n`)
