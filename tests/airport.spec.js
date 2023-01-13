@@ -93,3 +93,24 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 4 ***`)
+
+//Test 5 - `increaseAirportCapacity` increases `airportCapacity` by the Integer passed as parameter (2)
+console.log(`\n*** START TEST 5 - \`increaseAirportCapacity\` increases \`airportCapacity\` by the Integer passed as parameter (2)`)
+
+//Arrange
+airport = new Airport();
+expected = 12;
+
+//Act
+airport.increaseAirportCapacity(2);
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 5 - \`increaseAirportCapacity\` increases \`airportCapacity\` by the Integer passed as parameter (2): ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 5 ***`)

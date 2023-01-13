@@ -15,6 +15,10 @@ class Airport {
     }
   };
 
+  increaseAirportCapacity = addCapacity => {
+    this.airportCapacity += addCapacity;
+  }
+
 }
 
 module.exports = Airport;

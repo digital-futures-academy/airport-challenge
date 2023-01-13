@@ -86,6 +86,8 @@ Initial thoughts:
 
 **Test 4** - Set a default airport capacity to 10
 
+**Test 5** - `increaseAirportCapacity` increases `airportCapacity` by the Integer passed as parameter (2)
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
