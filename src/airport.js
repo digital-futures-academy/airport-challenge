@@ -17,6 +17,9 @@ class Airport {
     if (typeof capacity === 'number') this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
   }
 
+  getAirportCapacity = () => {
+    return this.airportCapacity; // returns the value of airportCapacity
+  }
 }
 
 module.exports = Airport; // export Airport so it can be used in other codes
