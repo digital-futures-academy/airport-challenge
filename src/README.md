@@ -31,11 +31,11 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-| Objects | Properties                     | Messages                   | Outputs |
-| ------- | ------------------------------ | -------------------------- | ------- |
-| Plane   | tailNumber @string             | gettailNumber()            | @string |
-| Airport | airportName @array[tailNumber] | addtailNumber(@tailNumber) | @void   |
-|         |                                |                            |         |
+| Objects | Properties                 | Messages                   | Outputs |
+| ------- | -------------------------- | -------------------------- | ------- |
+| Plane   | tailNumber @string         | gettailNumber()            | @string |
+| Airport | airport @array[tailNumber] | addtailNumber(@tailNumber) | @void   |
+|         |                            |                            |         |
 
 Thoughts First User Story:
 
