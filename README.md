@@ -90,6 +90,8 @@ Initial thoughts:
 
 **Test 6** - Edge Case -`increaseAirportCapacity` should not increase `airportCapacity` when an Integer is not passed (`a`) and keep default capacity
 
+**Test 7** - Edge Case - falsy values should not be added to `airportCapacity`
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
