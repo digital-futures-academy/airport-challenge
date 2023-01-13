@@ -82,7 +82,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 
 ***************************
-**       SOLUTION        **
+**SOLUTION** 
 ***************************
 
 

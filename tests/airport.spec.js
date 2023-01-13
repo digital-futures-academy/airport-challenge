@@ -54,3 +54,29 @@ plane= null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+// Test 3 - Airport capacity can be overriden by a new capacity
+console.log(`============================`);
+console.log(`Test 3 - Airport capacity can be overriden by a new capacity`);
+
+// Arrange
+airport = new Airport(10);
+expected = `The new capacity is 10`
+
+// Act
+
+actual = `The new capacity is ${airport.capacity}`
+
+// Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 2: Only a plane can be instructed to land: ${result}`);
+
+// Clean up
+airport = null;
+plane= null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
