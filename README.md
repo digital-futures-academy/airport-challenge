@@ -17,11 +17,9 @@ Instructions
 ---------
 
 * Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
 * You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
 * Use your own test framework and evidence your test-driven development by committing on passing tests.
 * Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
 * Please create separate files for every class, module, and spec.
 
 Steps
@@ -62,7 +60,7 @@ I would like a default airport capacity that can be overridden as appropriate
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
 | Plane   | - | - | - |
-| Airport | planes [@Plane]          | increaseAirportCapacity(@Integer) | @Void |
+| Airport | planes [@Plane]          | increaseCapacity(@Integer) | @Void |
 |         | airportCapacity @Integer | - | - |
 ---
 
@@ -109,12 +107,12 @@ I want to prevent asking the airport to let planes take-off which are not at the
 --------------------------
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String        | getFlightNum()                    | @String  |
-| Airport | planes [@Plane]          | land(@Plane)                      | @Void    |
-|         | airportCapacity @Integer | takeOff(@Plane)                   | @Void    |
-|         | -                        | isAtAirport(@Plane)               | @Boolean |
-|         | -                        | isFull()                          | @Boolean |
-|         | -                        | increaseAirportCapacity(@Integer) | @Void    |
+| Plane   | flightNum @String        | getFlightNum()             | @String  |
+| Airport | planes [@Plane]          | land(@Plane)               | @Void    |
+|         | airportCapacity @Integer | takeOff(@Plane)            | @Void    |
+|         | -                        | isAtAirport(@Plane)        | @Boolean |
+|         | -                        | isFull()                   | @Boolean |
+|         | -                        | increaseCapacity(@Integer) | @Void    |
 ---
 <br>
 <br>
@@ -175,3 +173,7 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+```
+
+Notes:
+- https://api.qunitjs.com/assert/ (Referenced for types of assertion tests)
