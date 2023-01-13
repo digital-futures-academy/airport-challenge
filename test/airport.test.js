@@ -3,7 +3,9 @@ const assertEquals = require(`../test-framework`);
 const Airport = require(`../src/Airport`);
 const Plane = require(`../src/Plane`);
 
-let airport, plane, expected, actual, result;
+let airport;
+let plane, plane2;
+let expected, actual, result;
 
 // remember:  Arrange, Act, Assert, Clean up
 
@@ -16,13 +18,13 @@ plane = new Plane();
 expected = airport.planeList.length + 1;
 
 // Act
-airport.landPlane(plane);
+airport.addPlane(plane);
 actual = airport.planeList.length;
 
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
-console.log(`Test 1 - when a Plane is landed, planeList should increase by 1: ${result ? `Passed` : `Failed`}`);
+console.log(`Test 1 - when a Plane is landed, planeList should increase by 1: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
 
 // Clean up
@@ -46,7 +48,7 @@ actual = airport.capacity;
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
-console.log(`Test 2 - when an Airport is created, it should have a default capacity of 7: ${result ? `Passed` : `Failed`}`);
+console.log(`Test 2 - when an Airport is created, it should have a default capacity of 7: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
 
 // Clean up
@@ -70,5 +72,38 @@ actual = airport.capacity;
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
-console.log(`Test 3 - After an Airport is created, it's capacity can be updated: ${result ? `Passed` : `Failed`}`);
+console.log(`Test 3 - After an Airport is created, it's capacity can be updated: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
+
+// Clean up
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+//Test 4 - If planeList is at max capacity, addPlane will not add another Plane
+console.log(`=== Test 4 - If planeList is at max capacity, addPlane will not add another Plane ===`)
+
+// Arrange
+airport = new Airport(1);  //lowering capacity for the sake of time
+plane = new Plane();
+plane2 = new Plane();
+airport.addPlane(plane)  //filling the list to capacity
+expected = airport.planeList.length;
+
+// Act
+airport.addPlane(plane2);
+actual = airport.planeList.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Test 4 - If planeList is at max capacity, addPlane will not add another Plane: ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`)
+
+// Clean up
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;

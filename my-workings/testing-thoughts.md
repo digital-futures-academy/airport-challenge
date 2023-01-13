@@ -33,3 +33,17 @@ I would like a default airport capacity that can be overridden as appropriate
 **Test 2 -** when an ``Airport`` is created, it should have a default capacity of 7
 
 **Test 3 -** After an Airport is created, ``updateAirportCapacity`` can be called to change it's capacity
+
+
+### **User Story 3**
+```
+As an air traffic controller  
+To ensure safety  
+I want to prevent landing when the airport is full 
+```
+
+**Thoughts**  
+1. Need a function to check if the airport is full
+2. Need a check before allowing planes to land
+
+**Test 4 -** If ``planeList`` is at max capacity, ``addPlane`` will not add another ``Plane``  
