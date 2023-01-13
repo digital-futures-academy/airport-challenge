@@ -11,6 +11,9 @@ class Airport {
   landPlane = plane => {
     if (plane instanceof Plane) this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array
   }
+
+  changeAirportCapacity = capacity => this.airportCapacity = capacity;
+  
 }
 
 module.exports = Airport;
