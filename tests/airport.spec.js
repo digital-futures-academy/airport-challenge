@@ -76,3 +76,23 @@ airport, item = null;
 console.log('======= Test Three Done =======');
 console.log(` `); //blank space to split up tests
 
+// Test Four - when an Airport is created a default value of 10 is given for airportCapacity
+console.log('======= Test Four =======');
+console.log(`when an airport is created there should be a default capacity of 10`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create a new airport for the test
+expected = 10; // the capacity of the airport should be set as 10 when no input is initialized
+
+// Act
+actual = airport.airportCapacity; // look for the value of the airportCapacity
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Four - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Four Done =======');
+console.log(` `); //blank space to split up tests
