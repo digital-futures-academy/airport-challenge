@@ -4,6 +4,8 @@ const Plane = require(`../src/Plane`);
 
 let expected, actual, result, airport, plane;
 
+// ******************** USER CASE 1 ****************************
+
 //Test 1 - `planesAtAirport` length increases when `landPlane` is called with an instance of `Item`
 console.log(`\n*** START TEST 1 - \`planesAtAirport\` length increases when \`landPlane\` is called with an instance of \`Item\` ***`)
 
@@ -69,3 +71,25 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 3 ***`)
+
+// ******************** USER CASE 2 ****************************
+
+//Test 4 - Set a default airport capacity to 10
+console.log(`\n*** START TEST 4 - Set a default airport capacity to 10`)
+
+//Arrange
+airport = new Airport();
+expected = 10;
+
+//Act
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 4 - Set a default airport capacity to 10: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 4 ***`)

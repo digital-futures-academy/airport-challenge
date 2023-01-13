@@ -41,11 +41,12 @@ We have a request from a client to write the software to control the flow of pla
 #### Acceptance Criteria
 
 ```
+### USER CASE 1
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-## Part 1 - Domain Models
+## Domain Model
 
 | Objects | Properties                    | Messages          | Outputs |
 | ------- | ----------------------------- | ----------------- | ------- |
@@ -66,10 +67,24 @@ Initial thoughts:
 
 **Test 3** - Edge Case - falsy values should not be added to `planesAtAirport`
 
-
+### USER CASE 2
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+## Domain Model
+
+| Objects | Properties                    | Messages                          | Outputs    |
+| ------- | ----------------------------- | --------------------------------- | ---------- |
+| Airport | airportCapacity @Integer      | increaseAirportCapacity(@Integer) | @Integer   |
+
+Initial thoughts:
+1. Need an airport
+2. Need a default airport capacity
+3. increaseAirportCapacity should increase by the number declared
+4. increaseAirportCapacity should only accept numbers
+
+**Test 4** - Set a default airport capacity to 10
 
 As an air traffic controller
 To ensure safety
