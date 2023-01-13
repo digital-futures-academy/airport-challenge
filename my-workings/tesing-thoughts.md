@@ -17,3 +17,17 @@ I want to instruct the airport to land a plane
 
 
 **Test 1 -** when a ``Plane`` is landed, ``planeList`` should increase by 1
+
+
+### **User Story 2**
+```
+As the system designer  
+So that the software can be used for many different airports  
+I would like a default airport capacity that can be overridden as appropriate
+```
+
+**Thoughts**  
+1. Airport needs a default capacity
+2. The capacity needs to be able to be updated
+
+**Test 2 -** when an ``Airport`` is created, it should have a default capacity of 7
