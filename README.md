@@ -1,7 +1,6 @@
-Airport Challenge
-=================
+# Airport Challenge
 
-```
+``````
          ______
         __\____\___
 =  = ==(____DFA____)
@@ -11,21 +10,19 @@ Airport Challenge
                 `---~~\___________/------------`````
                 =  ===(_________)
 
-```
+``````
 
-Instructions
----------
+## Instructions
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
+- Feel free to use google, your notes, books, etc. but work on your own.
+- Keep it SIMPLE - it's not nearly as complicated as it first may look.
+- You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
+- Use your own test framework and evidence your test-driven development by committing on passing tests.
+- Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
+- If you refer to the solution of another coach or student, please put a link to that in your README.
+- Please create separate files for every class, module, and spec.
 
-Steps
--------
+## Steps
 
 1. Fork this repo, and clone to your local machine
 2. `npm install` to install project dependencies
@@ -33,20 +30,41 @@ Steps
 4. Run your tests using `npm test` or `node specRunner.js`
 5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
 
-Task
------
+## Task
 
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off. Here are the user stories that we worked out in collaboration with the client:
 
 #### Acceptance Criteria
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+Initial thoughts:
+1. Need an Air Traffic Controller.
+2. Air traffic controller need to be able to instruct Airport.
+3. Airport should be able to land a plane.
+
+**Test 1** - `basketItems` length increases when `addItem` is called with *instance of `Item`*
+
+## Domain Models
+
+| Objects               | Properties                        | Messages            | Outputs |
+| --------------------  | -------------------------         | -----------------   | ------- |
+|                       |                                   |                     |         |
+| Airport               |   planesInAirport @Array[@Plane]  |  landPlane(@Plane)  |  @Void  |
+|                       |                                   |                     |         |
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+| Objects               | Properties                        | Messages            | Outputs |
+| --------------------  | -------------------------         | -----------------   | ------- |
+|                       |                                   |                     |         |
+| Airport               |  capacity @Integer                |                     |  @Void  |
+|                       |                                   |                     |         |
 
 As an air traffic controller
 To ensure safety
@@ -62,6 +80,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 
 #### Extended Acceptance Criteria
+
 ```
 As an air traffic controller
 To ensure safety
