@@ -88,6 +88,8 @@ Initial thoughts:
 
 **Test 5** - `increaseAirportCapacity` increases `airportCapacity` by the Integer passed as parameter (2)
 
+**Test 6** - Edge Case -`increaseAirportCapacity` should not increase `airportCapacity` when an Integer is not passed (`a`) and keep default capacity
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full

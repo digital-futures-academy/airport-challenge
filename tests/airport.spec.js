@@ -114,3 +114,26 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 5 ***`)
+
+//Test 5 - Edge Case -`increaseAirportCapacity` should not increase `airportCapacity` when an Integer is not passed (`a`) and keep default capacity
+console.log(`\n*** START TEST 6 - Edge Case - \`increaseAirportCapacity\` should not increase \`airportCapacity\` when an Integer is not 
+                passed (\`a\`) and keep default capacity`)
+
+//Arrange
+airport = new Airport();
+expected = 10;
+
+//Act
+airport.increaseAirportCapacity(`a`);
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 6 - Edge Case - \`increaseAirportCapacity\` should not increase \`airportCapacity\` when an Integer is not 
+                passed (\`a\`) and keep default capacity: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 6 ***`)
