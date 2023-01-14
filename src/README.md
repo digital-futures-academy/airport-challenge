@@ -31,11 +31,11 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-| Objects | Properties                 | Messages                   | Outputs |
-| ------- | -------------------------- | -------------------------- | ------- |
-| Plane   | tailNumber @string         | gettailNumber()            | @string |
-| Airport | airport @array[tailNumber] | addtailNumber(@tailNumber) | @void   |
-|         |                            |                            |         |
+| Objects | Properties                       | Messages              | Outputs  |
+| ------- | -------------------------------- | --------------------- | -------- |
+| Plane   | tailNumber @string               | gettailNumber(Plane)  | @string  |
+| Airport | slotsOccupied @array[tailNumber] | addPlane(@tailNumber) | @boolean |
+|         |                                  |                       |          |
 
 Thoughts First User Story:
 
@@ -45,8 +45,25 @@ Airport Plain count should increase by 1 when Plane has landed
 
 Tests:
 Test 1 - Airport Plane count increases when Plane is at the Airport 
-
+         
 Building Test 1:
 Make file /specRunner.js in test folder to run ALL tests from 1 location (Populate with required files as created using require(`./`))
 Make file /testing-framework.js in test folder to house functions required for testing?
+Built Airport.spec.js, initial tests failed as no Airport or Plan class set up. Built Airport class and plane class, test failed as no plane string present in the airport array. Test passed when plane class was run. 
 
+Second User Story:
+
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+
+| Objects | Properties                             | Messages | Outputs  |
+| ------- | -------------------------------------- | -------- | -------- |
+| Airport | slotsAvailable @integer(slotsOccupied) | slots()  | @integer |
+|         |                                        |          |          |
+|         |                                        |          |          |
+
+Building Test 2:
+
+Class Airport already exists so adding additional function to the class.
+Test wether the expected number of slots is the same as the actual number of slots
