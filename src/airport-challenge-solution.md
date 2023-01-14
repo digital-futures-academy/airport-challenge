@@ -10,11 +10,11 @@ I want to instruct the airport to land a plane
 
 ## Part 1 Domain Model
 
-| Objects | Properties                  | Messages                  | Outputs |
-| ------- | --------------------------- | ------------------------- | ------- |
-| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)         | @Void   |
-|         |                             | ??getLandedPlaneCount()?? |         |
-| Plane   | id @String                  | getId()                   | @String |
+| Objects | Properties                  | Messages          | Outputs |
+| ------- | --------------------------- | ----------------- | ------- |
+| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane) | @Void   |
+|         |                             |                   |         |
+| Plane   | id @String                  | getId()           | @String |
 
 ## Tests
 
@@ -73,6 +73,9 @@ I want to prevent landing when the airport is full
 
 a Need to check if is AirportFull True prevents Plane going into 'landedPlanes'
 b Need to check if is AirportFull False allows Plane to go into 'landedPlanes'
+
+**Test 5**: xxxxxxxxxx
+**Test 6**: xxxxxxxxxx
 
 ## Part 4 User Story
 
