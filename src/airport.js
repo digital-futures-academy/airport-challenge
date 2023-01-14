@@ -15,7 +15,7 @@ class Airport {
   }
 
   changeAirportCapacity = capacity => {
-    if (typeof capacity === 'number') this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
+    if (typeof capacity === 'number' && capacity >= 0) this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
   }
 
   getAirportCapacity = () => {
