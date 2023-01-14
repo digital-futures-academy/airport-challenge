@@ -14,7 +14,7 @@ console.log(`landPlane puts the Plane into the Airports groundedPlanes`); // sta
 
 // Arrange
 airport = new Airport(); // creating a new airport for the test
-plane = new Plane(); // creating a plane for the test
+plane = new Plane('Boeing'); // creating a plane for the test
 expected = 1; // the expected result
 
 // Act
@@ -216,7 +216,7 @@ console.log(`if the Airport is not full, the plane should land`); // stating the
 
 // Arrange
 airport = new Airport(); // create new airport for the test
-plane = new Plane(); // create new plane for the test
+plane = new Plane('Boeing'); // create new plane for the test
 expected = 1; // expected value of test
 
 // Act

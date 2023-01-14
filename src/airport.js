@@ -11,7 +11,10 @@ class Airport {
 
   //functions of airport
   landPlane = plane => {
-    if (plane instanceof Plane) this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
+    if (plane instanceof Plane) {
+      this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
+      return console.log(`The airport is not full, ${plane.planeID} has landed. There are ${this.groundedPlanes.length} plane(s) at this airport.`);
+    }// show message that the plane has landed
   }
 
   changeAirportCapacity = capacity => {
