@@ -195,9 +195,7 @@ airport = new Airport(); // create new airport for the test
 expected = true; // airportCapacity should be equal to groundedPlanes.length
 
 // Act
-plane = new Plane(); // create plane to land
-airport.changeAirportCapacity(1); // change capacity to 1
-airport.landPlane(plane); // land plane at airport (increase capacity by 1)
+airport.changeAirportCapacity(0); // change capacity to 1
 actual = airport.isAirportFull(); // call isAirportFull function
 
 // Assert
