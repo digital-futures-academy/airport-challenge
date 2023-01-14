@@ -210,9 +210,9 @@ airport, item = null;
 console.log('======= Test Eight Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Nine - create function that will output the capacity of the airport to the user
+// Test Nine - if the airport is not full then the plane should land
 console.log('======= Test Nine =======');
-console.log(`if the Airport is not full, the plane should land`); // stating the test being carried out
+console.log(`if the Airport is not full, the Plane should land`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for the test
@@ -220,7 +220,7 @@ plane = new Plane('Boeing'); // create new plane for the test
 expected = 1; // expected value of test
 
 // Act
-airport.landPlane(plane); // if the airport is not full the plane should land nad give a strong confirmation
+airport.landPlane(plane); // if the airport is not full the plane should land nad give a string confirmation
 actual = airport.groundedPlanes.length; // find the length of the array
 
 // Assert
@@ -232,3 +232,28 @@ expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
 console.log('======= Test Nine Done =======');
 console.log(` `); //blank space to split up tests
+
+// Test Ten - if the airport is full the plane shouldn't land
+console.log('======= Test Ten =======');
+console.log(`if the Airport is full, the Plane should not land`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane('Boeing'); // create new plane for the test
+airport.changeAirportCapacity(0); // change capacity of the airport
+expected = 0; // expected value of test
+
+// Act
+airport.landPlane(plane); // try to land a plane
+actual = airport.groundedPlanes.length; // find the length of the array
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Ten - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Ten Done =======');
+console.log(` `); //blank space to split up tests
+
