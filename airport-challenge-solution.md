@@ -88,7 +88,7 @@ Initial Thoughts:
 
 **Test 7** - `getAirportCapacity()` returns the capacity of the airport
 
-**Test 8** - `isAirportFull()` checks if `groundedPlanes.length` is equal to `airportCapacity`
+**Test 8** - `isAirportFull()` checks if `groundedPlanes.length` is equal to `airportCapacity` (test both full and not full)
 
 **Test 9** - when `landPlane` is called run `isAirportFull()`
 

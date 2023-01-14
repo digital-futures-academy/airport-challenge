@@ -1,5 +1,6 @@
 // Airport Class
 
+const { assertEquals } = require("../testing-frameworks.js");
 const Plane = require(`./plane.js`);
 
 class Airport {
@@ -20,6 +21,11 @@ class Airport {
   getAirportCapacity = () => {
     return this.airportCapacity; // returns the value of airportCapacity
   }
+
+  isAirportFull = () => {
+    return assertEquals(this.airportCapacity, this.groundedPlanes.length);
+  }
+
 }
 
 module.exports = Airport; // export Airport so it can be used in other codes
