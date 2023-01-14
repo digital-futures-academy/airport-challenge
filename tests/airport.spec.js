@@ -171,6 +171,7 @@ console.log(`isAirportFull() checks if groundedPlanes.length is equal to airport
 
 // Airport is not Full
 // Arrange
+console.log(` `); //blank space to split up tests
 console.log(`=== Test Eight.One - Airport is not full ===`)
 airport = new Airport(); // create new airport for the test
 expected = false; // airportCapacity should be less than groundedPlanes.length
@@ -188,6 +189,7 @@ airport, item = null;
 
 // Airport is Full
 // Arrange
+console.log(` `); //blank space to split up tests
 console.log(`=== Test Eight.Two - Airport is Full ===`)
 airport = new Airport(); // create new airport for the test
 expected = true; // airportCapacity should be equal to groundedPlanes.length
@@ -206,4 +208,27 @@ console.log(`Test Eight.Two - ${result ? `Passed` : `Failed`}`); // states if th
 expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
 console.log('======= Test Eight Done =======');
+console.log(` `); //blank space to split up tests
+
+// Test Nine - create function that will output the capacity of the airport to the user
+console.log('======= Test Nine =======');
+console.log(`if the Airport is not full, the plane should land`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane(); // create new plane for the test
+expected = 1; // expected value of test
+
+// Act
+airport.landPlane(plane); // if the airport is not full the plane should land nad give a strong confirmation
+actual = airport.groundedPlanes.length; // find the length of the array
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Nine - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Nine Done =======');
 console.log(` `); //blank space to split up tests

@@ -90,11 +90,9 @@ Initial Thoughts:
 
 **Test 8** - `isAirportFull()` checks if `groundedPlanes.length` is equal to `airportCapacity` (test both full and not full)
 
-**Test 9** - when `landPlane` is called run `isAirportFull()`
+**Test 9** - if `isAirportFull()` is false, add `Plane` to `groundedPlanes` and give a string confirmation
 
-**Test 10** - if `isAirportFull()` is false, add `Plane` to `groundedPlanes` and give a string confirmation
-
-**Test 11** - if `isAirportFull()` is true, do not add `Plane` to `groundedPlanes` and give a string confirmation
+**Test 10** - if `isAirportFull()` is true, do not add `Plane` to `groundedPlanes` and give a string confirmation
 
 ---
 
