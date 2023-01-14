@@ -1,0 +1,123 @@
+## Catherine's airport challenge solution
+
+## Part 1 User Story
+
+As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+
+--airport is basket, plane is (bagel) item--
+
+## Part 1 Domain Model
+
+| Objects | Properties                  | Messages                  | Outputs |
+| ------- | --------------------------- | ------------------------- | ------- |
+| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)         | @Void   |
+|         |                             | ??getLandedPlaneCount()?? |         |
+| Plane   | id @String                  | getId()                   | @String |
+
+## Tests
+
+a Need an Airport
+b Need to be able to give the Airport a Plane
+c LandedPlanes list length should increase by 1 when a Plane is added to the empty LandedPlanes list
+
+**Test 1** - `landedPlanes` length increases by 1 when `landPlane` is called with _instance of `Plane`_
+
+**Test 2** - `landPlane` should only add `Plane` instances to the `landedPlanes`
+
+**Test 3** - edge Case - falsy values should not be added to the Airport
+
+## Part 2 User Story
+
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+
+## Part 2 Domain Model (added to from above)
+
+| Objects | Properties                  | Messages                    | Outputs  |
+| ------- | --------------------------- | --------------------------- | -------- |
+| Airport | landedPlanes @Array[@Plane] | land Plane(@Plane)          | @Void    |
+|         | landedCapacity @Integer     | isAirportFull()             | @Boolean |
+|         |                             | getLandedCapacity()         | @Integer |
+|         |                             | newLandedCapacity(@Integer) | @Void    |
+|         |                             |                             |          |
+| Plane   | id @String                  | getId()                     | @String  |
+
+## Tests
+
+a Need to have an Airport but does not necessarily need to have a Plane in it (getLandedCapacity may be zero)
+b Try to land another Plane and make sure the number of Planes in landedPlanes has increased
+
+**Test 4**: `landedPlanes` length increases according to the newLandedCapacity method integer
+
+## Part 3 User Story
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+
+## Part 3 Domain Model (not added to) - already fine from above??
+
+| Objects | Properties                  | Messages                    | Outputs  |
+| ------- | --------------------------- | --------------------------- | -------- |
+| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)           | @Void    |
+|         | landedCapacity @Integer     | isAirportFull()             | @Boolean |
+|         |                             | getLandedCapacity()         | @Integer |
+|         |                             | newLandedCapacity(@Integer) | @Void    |
+|         |                             | getLandedPlaneCount()       | @Integer |
+| Plane   | id @String                  | getId()                     | @String  |
+
+## Tests
+
+a Need to check if is AirportFull True prevents Plane going into 'landedPlanes'
+b Need to check if is AirportFull False allows Plane to go into 'landedPlanes'
+
+## Part 4 User Story
+
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+# Part 4 Domain Model
+
+| Objects | Properties                  | Messages                    | Outputs  |
+| ------- | --------------------------- | --------------------------- | -------- |
+| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)           | @Void    |
+|         | landedCapacity @Integer     | isAirportFull()             | @Boolean |
+|         |                             | getLandedCapacity()         | @Integer |
+|         |                             | newLandedCapacity(@Integer) | @Void    |
+|         |                             | getLandedPlaneCount()       | @Integer |
+|         |                             | takeOffPlane(@Plane)        | @Void    |
+|         |                             | isPlanePresent(@Plane)      | @Boolean |
+| Plane   | id @String                  | getId()                     | @String  |
+
+## Tests
+
+a check isPlanePresent True
+b takeOffPlane
+c check isPlanePresent False
+
+## Part 5 User Story
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+## Part 5 Domain Model (not added to) - already fine from above??
+
+| Objects | Properties                  | Messages                    | Outputs  |
+| ------- | --------------------------- | --------------------------- | -------- |
+| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)           | @Void    |
+|         | landedCapacity @Integer     | isAirportFull()             | @Boolean |
+|         |                             | getLandedCapacity()         | @Integer |
+|         |                             | newLandedCapacity(@Integer) | @Void    |
+|         |                             | getLandedPlaneCount()       | @Integer |
+|         |                             | takeOffPlane(@Plane)        | @Void    |
+|         |                             | isPlanePresent(@Plane)      | @Boolean |
+| Plane   | id @String                  | getId()                     | @String  |
+
+## Tests
+
+a
