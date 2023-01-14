@@ -56,7 +56,7 @@ console.log(` `); //blank space to split up tests
 
 // Test Three - falsy values should not be added to groundedPlanes
 console.log('======= Test Three =======');
-console.log(`null value items should not be added`); // stating the test being carried out
+console.log(`falsy value items should not be added`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for test
@@ -123,11 +123,11 @@ console.log(` `); //blank space to split up tests
 
 // Test Six - airportCapacity can only be a number
 console.log('======= Test Six =======');
-console.log(`airportCapacity can only be a number`); // stating the test being carried out
+console.log(`airportCapacity can only be a positive number`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for test
-input = null; // try to input a string to airportCapacity
+input = -5; // try to input a value that shouldn't work
 expected = 10; // the airportCapacity should not change
 
 // Act

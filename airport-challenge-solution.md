@@ -56,7 +56,7 @@ Initial Thoughts:
 
 **Test 5** - `changeAirportCapacity` will change the `airportCapacity` to the value inputted
 
-**Test 6** - Edge Case - `airportCapacity` can only be a number
+**Test 6** - Edge Case - `airportCapacity` can only be a positive number
 
 ---
 
