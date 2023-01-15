@@ -15,9 +15,9 @@ class Airport {
   }
 
   landPlane = (plane) => {
-    if (this.isAirportFull() === false && plane instanceof Plane)
+    if (!this.isAirportFull() && plane instanceof Plane)
       this.planesInAirport.push(plane);
-    return;
+    return false;
   };
 
   isAirportFull = () => {
@@ -28,6 +28,20 @@ class Airport {
     if (typeof newCapacity !== "number") return this.capacity;
     this.capacity = newCapacity;
   }
+
+  takeOffPlane = (planeID) => {
+    const indexOfPlane = this.planesInAirport.findIndex(
+      (plane) => planeID === plane.id
+    );
+
+    if (indexOfPlane > -1) {
+      this.planesInAirport.splice(indexOfPlane, 1);
+    }
+  };
+
+  doesPlaneExist = (planeID) => {
+    return this.planesInAirport.includes(planeID);
+  };
 }
 
 module.exports = Airport;

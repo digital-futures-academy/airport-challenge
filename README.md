@@ -92,9 +92,23 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+Initial thoughts:
+1. Just think of removing the plane from the array.
+2. Check if the length of array is reduced after removing the plane.
+
+| Objects               | Properties                        | Messages                   | Outputs  |
+| --------------------  | -------------------------         | -----------------          | -------  |
+| Airport               |                                   |   takeOffPlane(@planeID)   | @Boolean |
+| Plane                 |    planeID @Integer               |   getID()                  | @Integer |
+
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+Initial thoughts:
+1. getID of each plane in the airport.
+2. when taking off, check if the plane exists in the airport (planesInAirport)
+3. when landing a plane, check the id of the plane and compare it to the id of planes in planesInAirport.
 ```
 
 #### Extended Acceptance Criteria
