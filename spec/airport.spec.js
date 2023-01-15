@@ -32,4 +32,49 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Test 2: The airport is at its default capacity of 3.
+console.log(`=============================`)
+console.log(`Test 2: The airport has a default capacity.`)
+
+//Arrange
+airport = new Airport();
+let plane1 = new Plane();
+let plane2 = new Plane();
+let plane3 = new Plane();
+let plane4 = new Plane();
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+expected = true;
+//Act
+
+actual = airport.isFull();
+//Assert
+result = assertEquals(expected, actual); 
+console.log(`Test 2: Airport is at its default capacity of 3: ${result}`)
+
+//Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;
+
+//Test 3: The airport is not at its default capacity.
+console.log(`=============================`)
+console.log(`Test 3: The airport is not at its default capacity.`)
+
+//Arrange 
+airport = new Airport();
+let plane5 = new Plane();
+let plane6= new Plane();
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+expected = false;
+//Act
+actual = airport.isFull();
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 3: The airport is at its default capacity: ${result}`)
+//Clean up
 
