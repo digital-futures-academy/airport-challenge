@@ -28,7 +28,7 @@ class Airport {
 	}
 
 	land(plane) {
-		if (plane instanceof Plane === false || this.isAtAirport(plane) === false) return new Error('Invalid plane passed as argument.');
+		if (plane instanceof Plane === false || this.isAtAirport(plane) === true) return new Error('Invalid plane passed as argument.');
 		this.planes.push(plane);
 	}
 
