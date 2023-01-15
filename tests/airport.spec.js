@@ -179,3 +179,26 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 7 - capacity change is rejected new capacity is < 0
+console.log(`==========`);
+console.log(`Test 7 - capacity change is rejected new capacity is < 0`);
+
+// Arrange
+airport = new Airport();
+airport.changeCapacity(-1);
+expected = 10;
+
+// Act 
+actual = airport.capacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 7 - capacity change is rejected new capacity is < 0: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;

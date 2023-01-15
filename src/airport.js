@@ -10,7 +10,7 @@ class Airport {
     };
 
     changeCapacity = capacity => {
-        if (typeof capacity === Number) this.capacity = capacity;
+        if (typeof capacity === "number" && capacity > 0) this.capacity = capacity;
     }
 }
 
