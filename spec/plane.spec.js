@@ -15,7 +15,7 @@ console.log('Running tests for plane.js');
 	plane = new Plane('XA-FCV');
 	expected = 'XA-FCV';
 
-	//2.Act
+	//2. Act
 	actual = plane.getFlightNum();
 
 	//3. Assert

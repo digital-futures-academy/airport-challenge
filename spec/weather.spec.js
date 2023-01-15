@@ -1,7 +1,6 @@
 const testFramework = require('../test_framework.js');
 const Weather = require('../src/weather.js');
 const seedrandom = require('seedrandom');
-const srandom = new seedrandom('stub');
 
 // Top 5 seed values
 // 0.10388572860170014
@@ -18,15 +17,40 @@ console.log('Running tests for weather.js');
 	console.log('------------------------------');
 	console.log('Test 1. (getWeather() test). Valid weather => "Sunny"')
 
-	let input, expected, actual, result, airport, plane, weather;
+	let input, expected, actual, result, airport, plane, weather, srandom;
 	
 	//1. Arrange
 	weather = new Weather();
+	srandom = new seedrandom('stub');
 	srandom();
 	weather.status = (srandom() > 0.3 ? 'Sunny' : 'Stormy');
 	expected = 'Sunny';
 
-	//2.Act
+	//2. Act
+	actual = weather.getWeather();
+
+	//3. Assert
+	result = testFramework.assertEquals(expected, actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
+// Test 2
+{
+	console.log('------------------------------');
+	console.log('Test 1. (getWeather() test). Valid weather => "Stormy"')
+
+	let input, expected, actual, result, airport, plane, weather, srandom;
+	
+	//1. Arrange
+	weather = new Weather();
+	srandom = new seedrandom('stub');
+	weather.status = (srandom() > 0.3 ? 'Sunny' : 'Stormy');
+	expected = 'Stormy';
+
+	//2. Act
 	actual = weather.getWeather();
 
 	//3. Assert
