@@ -34,7 +34,8 @@ class Airport {
 
     takeoffPlane = plane => {
       if (plane instanceof Plane) this.groundedPlanes.pop(plane);
-    }
+  }
+  
   }
 
 

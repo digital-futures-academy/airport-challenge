@@ -255,9 +255,9 @@ airport, item = null;
 console.log('======= Test Ten Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Eleven - takeoffPlane should take plane off of groundedPlane
+// Test Eleven - takeoffPlane should take plane off of groundedPlanes
 console.log('======= Test Eleven =======');
-console.log(`takeoffPlane gets rid of a plane in groundedPlane`); // stating the test being carried out
+console.log(`groundedPlane length decreases by 1 when takeoffPlane is called`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for the test
@@ -277,4 +277,38 @@ console.log(`Test Eleven - ${result ? `Passed` : `Failed`}`); // states if the t
 expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
 console.log('======= Test Eleven Done =======');
+console.log(` `); //blank space to split up tests
+
+// Test Twelve - takeoff specific plane from groundedPlanes
+console.log('======= Test Twelve =======');
+console.log(`takeoffPlane will take off specific plane from groundedPlanes`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane('Boeing'); // create new plane for the test
+let plane2 = new Plane(`Concord`);
+let plane3 = new Plane(`Airbus`);
+expected = ['Boeing', 'Concord'];
+
+// Act
+airport.landPlane(plane); // land plane at airport
+airport.landPlane(plane2);
+// airport.landPlane(plane3)
+// airport.takeoffPlane(plane2); // takeoff plane from airport
+actual = airport.groundedPlanes.map(function(plane) {
+    return plane['planeID']
+}); // find the array
+
+// Assert
+console.log(expected);
+console.log(typeof expected);
+console.log(actual);
+console.log(typeof actual);
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Twelve - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Twelve Done =======');
 console.log(` `); //blank space to split up tests

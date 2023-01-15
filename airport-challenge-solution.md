@@ -120,7 +120,7 @@ Initial Thoughts:
 
 **Test 11** - `takeoffPlane` will get rid of `Plane` from `groundedPlanes`
 
-**Test 12** - `takeoffPlane` will find the `planeID` and use that to take of the correct plane from `groundedPlanes`
+**Test 12** - `takeoffPlane` will find the `planeID` and use that to take of the correct plane from `groundedPlanes` and give string confirmation
 
 (The next user story covers falsy values)
 
