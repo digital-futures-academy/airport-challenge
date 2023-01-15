@@ -146,6 +146,30 @@ console.log('Running tests for airport.js');
 	console.log('Output: ' + result);
 }
 
+// Test 7
+{
+	console.log('------------------------------');
+	console.log('Test 7. (changeCapacity(), getCapacity() test). Increase to "Twenty" => Capacity remains 10')
+
+	let input, expected, actual, result, airport, plane, weather;
+	
+	//1 Arrange
+	airport = new Airport();
+	input = 'Twenty';
+	expected = 10;
+
+	//2.Act
+	airport.changeCapacity(input);
+	actual = airport.getCapacity();
+
+	//3. Assert
+	result = testFramework.assertEquals(expected, actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
 //Clear
 // input = undefined;
 // expected = undefined;
