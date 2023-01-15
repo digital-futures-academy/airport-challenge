@@ -6,7 +6,7 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
---airport is basket, plane is (bagel) item--
+--think of airport as basket, and plane as (bagel)item from Bob's Bagels exercise--
 
 ## Part 1 Domain Model
 
@@ -16,7 +16,7 @@ I want to instruct the airport to land a plane
 |         |                             |                   |         |
 | Plane   | id @String                  | getId()           | @String |
 
-## Tests
+## Tests 1-3
 
 a Need an Airport
 b Need to be able to give the Airport a Plane
@@ -27,6 +27,8 @@ c LandedPlanes list length should increase by 1 when a Plane is added to the emp
 **Test 2** - `landPlane` should only add `Plane` instances to the `landedPlanes`
 
 **Test 3** - edge Case - falsy values should not be added to the Airport
+
+//I am not clear if if Test 2 and 3 are the same explicitly?
 
 ## Part 2 User Story
 
@@ -45,7 +47,7 @@ I would like a default airport capacity that can be overridden as appropriate
 |         |                             |                             |          |
 | Plane   | id @String                  | getId()                     | @String  |
 
-## Tests
+## Tests 4
 
 a Need to have an Airport but does not necessarily need to have a Plane in it (getLandedCapacity may be zero)
 b Try to land another Plane and make sure the number of Planes in landedPlanes has increased

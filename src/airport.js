@@ -2,41 +2,25 @@ const Plane = require('./Plane');
 
 class Airport {
   landedPlanes = [];
+  landedCapacity;
 
+  constructor(defaultLandedCapacity) {
+    this.landedCapacity = defaultLandedCapacity;
+
+  }
     landPlane = plane => {
         if (plane instanceof Plane) this.landedPlanes.push(plane);
     };
-
+    getLandedCapacity() {
+        return this.landedCapacity;
+    }
+    newLandedCapacity(newCapacity) {
+      this.landedCapacity = newCapacity;
+    }
 }
 
 module.exports = Airport;
 
-
-/*
-const Item = require(`./Item`);
-
-class Basket {
-    basketItems = [];
-
-    addItem = item => {
-        if (item instanceof Item) this.basketItems.push(item);
-    };
-
-    removeItem = item => {
-
-        const indexOfItemInBasketItems = this.basketItems.findIndex(basketItem => basketItem.id === item.id);
-
-        if (indexOfItemInBasketItems > -1) {
-            this.basketItems.splice(indexOfItemInBasketItems, 1);
-        }
-
-        // if (this.basketItems.findIndex(basketItem => basketItem.id === item.id) > -1) {
-        //     this.basketItems.splice(this.basketItems.findIndex(basketItem => basketItem.id === item.id), 1);
-        // }
-    };
-}
-
-module.exports = Basket; */
 
 
 /*
