@@ -14,7 +14,7 @@ class Airport {
 	}
 
 	changeCapacity(size) {
-		if (typeof size !== 'number' || size < 0) return new Error('Invalid new capacity passed as argument.')
+		if (typeof size !== 'number' || size < 0) return new Error('Invalid new capacity passed as argument.');
 		this.airportCapacity = size;
 	}
 	
@@ -23,17 +23,17 @@ class Airport {
 	}
 
 	takeOff(plane) {
-		if (plane instanceof Plane === false || this.isAtAirport(plane) === false) return new Error('Invalid plane passed as argument');
+		if (plane instanceof Plane === false || this.isAtAirport(plane) === false) return new Error('Invalid plane passed as argument.');
 		this.planes.splice(this.planes.indexOf(plane), 1);
 	}
 
 	land(plane) {
-		if (plane instanceof Plane === false || this.isAtAirport(plane) === true) return new Error('Invalid plane passed as argument.');
+		if (plane instanceof Plane === false) return new Error('Invalid plane passed as argument.');
+		if (this.isAtAirport(plane) === true || this.isFull() == true) return new Error('The plane is already at the airport / Airport full.');
 		this.planes.push(plane);
 	}
 
 	isFull() {
-		console.log(this.planes.length)
 		return this.planes.length == this.getCapacity();
 	}
 
