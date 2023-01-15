@@ -9,8 +9,9 @@ class Airport {
     if (plane instanceof Plane) this.planesLanded.push(plane);
     };
 
-    changeCapacity = capacity => this.capacity = capacity;
-
+    changeCapacity = capacity => {
+        if (typeof capacity === Number) this.capacity = capacity;
+    }
 }
 
 module.exports = Airport;

@@ -156,3 +156,26 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 6 - capacity change is rejected if NaN
+console.log(`==========`);
+console.log(`Test 6 - capacity change is rejected and remains at default if NaN is passed to changeCapacity`);
+
+// Arrange
+airport = new Airport();
+airport.changeCapacity(`notANumber`);
+expected = 10;
+
+// Act 
+actual = airport.capacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6 - capacity change is rejected if NaN: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
