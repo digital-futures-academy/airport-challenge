@@ -255,3 +255,26 @@ airport, item = null;
 console.log('======= Test Ten Done =======');
 console.log(` `); //blank space to split up tests
 
+// Test Eleven - takeoffPlane should take plane off of groundedPlane
+console.log('======= Test Eleven =======');
+console.log(`takeoffPlane gets rid of a plane in groundedPlane`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane('Boeing'); // create new plane for the test
+expected = 0;
+
+// Act
+airport.landPlane(plane); // land plane at airport
+airport.takeoffPlane(plane); // takeoff plane from airport
+actual = airport.groundedPlanes.length; // find the length of the array
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Eleven - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Eleven Done =======');
+console.log(` `); //blank space to split up tests
