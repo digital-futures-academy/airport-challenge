@@ -94,9 +94,22 @@ Initial thoughts:
 
 **Test 8** - Edge Case - `increaseAirportCapacity` should not accept negative numbers
 
+### USER CASE 3
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
+
+## Domain Model
+
+| Objects | Properties                    | Messages            | Outputs |
+| ------- | ----------------------------- | ------------------- | ------- |
+| Airport | planesAtAirpot @Array[@Plane] | landPlane(@Plane)   | @Void   |
+
+Initial thoughts:
+1. Need an airport
+2. Need to include a condition to use `landPlane` method.
+
+**Test 9** - When `planesAtAirpot` = `airportCapacity` then `landPlane` does not add planes to the airport
 
 As an air traffic controller
 So I can get passengers on the way to their destination

@@ -179,3 +179,30 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 8 ***`)
+
+// ******************** USER CASE 3 ****************************
+
+//Test 9 - When `planesAtAirpot` = `airportCapacity` then `landPlane` does not add planes to the airport
+console.log(`\n*** START TEST 9 - When \`planesAtAirpot\` = \`airportCapacity\` then \`landPlane\` does not add planes to the airport`)
+
+//Arrange
+airport = new Airport();
+let planes = 10;
+for (let i = 0; i < planes; i++) {
+    airport.planesAtAirport.push(new Plane(`plane${i}`));
+}
+expected = 10;
+
+//Act
+airport.landPlane(new Plane(`OverflowPlane`));
+actual = airport.planesAtAirport.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 9 - When \`planesAtAirpot\` = \`airportCapacity\` then \`landPlane\` does not add planes to the airport: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 9 ***`)

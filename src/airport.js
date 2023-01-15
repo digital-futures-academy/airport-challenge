@@ -10,7 +10,7 @@ class Airport {
   }
 
   landPlane = plane => {
-    if (plane instanceof Plane) {
+    if (plane instanceof Plane && this.planesAtAirport.length < this.airportCapacity) {
       this.planesAtAirport.push(plane)
     }
   };
