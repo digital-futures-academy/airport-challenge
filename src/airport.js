@@ -2,10 +2,10 @@ const Plane = require(`./Plane`);
 
 class Airport {
   
-  planesLanded = [];
+    planesLanded = [];
 
-  landPlane = plane => {
-    this.planesLanded.push(plane);
+    landPlane = plane => {
+    if (plane instanceof Plane) this.planesLanded.push(plane);
   };
 
 }

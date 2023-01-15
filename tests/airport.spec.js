@@ -46,3 +46,27 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 2 - Only allow object of type "Plane" to land
+console.log(`==========`);
+console.log(`Test 2 - Only allow object of type "Plane" to land`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+expected = 0;
+
+// Act 
+airport.landPlane('notAPlane');
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 2 - Only allow object of type "Plane" to land: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
