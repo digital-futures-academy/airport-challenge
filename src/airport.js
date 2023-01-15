@@ -23,13 +23,13 @@ class Airport {
 	}
 
 	takeOff(plane) {
-		if (plane instanceof Plane === false || this.isAtAirport(plane) === false) return new Error('Invalid plane passed as argument.');
+		if (plane instanceof Plane == false || this.isAtAirport(plane) == false) return new Error('Invalid plane passed as argument.');
 		this.planes.splice(this.planes.indexOf(plane), 1);
 	}
 
 	land(plane) {
-		if (plane instanceof Plane === false) return new Error('Invalid plane passed as argument.');
-		if (this.isAtAirport(plane) === true || this.isFull() == true) return new Error('The plane is already at the airport / Airport full.');
+		if (plane instanceof Plane == false) return new Error('Invalid plane passed as argument.');
+		if (this.isAtAirport(plane) == true || this.isFull() == true) return new Error('The plane is already at the airport / Airport full.');
 		this.planes.push(plane);
 	}
 
