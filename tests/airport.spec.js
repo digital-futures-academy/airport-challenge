@@ -180,9 +180,9 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 7 - capacity change is rejected new capacity is < 0
+// Test 7 - capacity change is rejected if new capacity is < 0
 console.log(`==========`);
-console.log(`Test 7 - capacity change is rejected new capacity is < 0`);
+console.log(`Test 7 - capacity change is rejected if new capacity is < 0`);
 
 // Arrange
 airport = new Airport();
@@ -194,7 +194,30 @@ actual = airport.capacity;
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 7 - capacity change is rejected new capacity is < 0: ${result}`);
+console.log(`Test 7 - capacity change is rejected if new capacity is < 0: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 8 - capacity change is rejected if not an integer
+console.log(`==========`);
+console.log(`Test 8 - capacity change is rejected if not an integer`);
+
+// Arrange
+airport = new Airport();
+airport.changeCapacity(2.5);
+expected = 10;
+
+// Act 
+actual = airport.capacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8 - capacity change is rejected if not an integer: ${result}`);
 
 // Clean Up
 expected = undefined;
