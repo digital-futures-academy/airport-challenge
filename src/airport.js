@@ -13,15 +13,21 @@ class Airport {
 		return this.airportCapacity;
 	}
 
+	changeCapacity(size) {
+		if (typeof size !== 'number' || size < 0) return new Error('Invalid new capacity passed as argument.')
+		this.airportCapacity = size;
+	}
+	
+	takeoff(plane) {
+		this.planes.splice(this.planes.indexOf(plane), 1);
+	}
+
 	land(plane) {
 		if (plane instanceof Plane === false) return new Error('Invalid plane passed as argument.');
 		this.planes.push(plane);
 	}
 
-	changeCapacity(size) {
-		if (typeof size !== 'number' || size < 0) return new Error('Invalid new capacity passed as argument.')
-		this.airportCapacity = size;
-	}
+	
 
 }
 

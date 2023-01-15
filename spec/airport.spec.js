@@ -170,6 +170,31 @@ console.log('Running tests for airport.js');
 	console.log('Output: ' + result);
 }
 
+// Test 8
+{
+	console.log('------------------------------');
+	console.log('Test 8. (takeOff() test). At airport, valid plane => 0')
+
+	let input, expected, actual, result, airport, plane, weather;
+	
+	//1 Arrange
+	plane = new Plane('XA-FCV');
+	airport = new Airport();
+	airport.land(plane);
+	expected = 0;
+
+	//2.Act
+	airport.takeoff(plane);
+	actual = airport.planes.length;
+
+	//3. Assert
+	result = testFramework.assertEquals(expected, actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
 //Clear
 // input = undefined;
 // expected = undefined;
