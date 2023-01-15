@@ -7,7 +7,9 @@ class Airport {
 
     landPlane = plane => {
     if (plane instanceof Plane) this.planesLanded.push(plane);
-  };
+    };
+
+    changeCapacity = capacity => this.capacity = capacity;
 
 }
 

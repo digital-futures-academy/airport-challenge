@@ -133,3 +133,26 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 5 - capacity changes to 20 when requested
+console.log(`==========`);
+console.log(`Test 5 - capacity changes to 20 when requested`);
+
+// Arrange
+airport = new Airport();
+airport.changeCapacity(20);
+expected = 20;
+
+// Act 
+actual = airport.capacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5 - capacity changes to 20 when requested: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
