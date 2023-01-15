@@ -13,6 +13,13 @@ class Airport {
   isAirportFull = () => {
     return assertEquals(this.airportCapacity, this.groundedPlanes.length);
   }
+    changeAirportCapacity = capacity => {
+    if (typeof capacity === 'number' && capacity >= 0) this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
+  }
+
+  getAirportCapacity = () => {
+    return this.airportCapacity; // returns the value of airportCapacity
+  }
 
   landPlane = plane => {
     if (plane instanceof Plane && this.isAirportFull() === false) {
@@ -25,16 +32,10 @@ class Airport {
     }
   }
 
-  changeAirportCapacity = capacity => {
-    if (typeof capacity === 'number' && capacity >= 0) this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
+    takeoffPlane = plane => {
+      if (plane instanceof Plane) this.groundedPlanes.pop(plane);
+    }
   }
 
-  getAirportCapacity = () => {
-    return this.airportCapacity; // returns the value of airportCapacity
-  }
-
-  
-
-}
 
 module.exports = Airport; // export Airport so it can be used in other codes
