@@ -1,5 +1,12 @@
+const Plane = require(`./Plane`);
+
 class Airport {
-  // here's a starting point for you
+  
+  planesLanded = [];
+
+  landPlane = plane => {
+    this.planesLanded.push(plane);
+  };
 
 }
 

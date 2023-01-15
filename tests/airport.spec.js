@@ -1,4 +1,6 @@
-const { assertEquals } = require('../test-framework.js');
+const { assertEquals } = require('../test-framework');
+const Airport = require(`../src/Airport`);
+const Plane = require(`../src/Plane`)
 
 let expected, actual, result, airport, plane;
  
@@ -20,17 +22,19 @@ Initial thoughts:
 3. I need to tell it which plane is landing
 */
 
-// Test 1 - Tell an airport to land a plane
+// Test 1 - planesLanded length increases to 1 when an empty airport is told to land a plane
 console.log(`==========`);
-console.log(`Test 1 - Tell an airport to land a plane`);
+console.log(`planesLanded length increases to 1 when an airport is told to land a plane`);
 
 // Arrange
 airport = new Airport();
-expected = 1; 
+plane = new Plane();
+expected = 1;
 
 // Act 
-airport.landPlane();
-actual = airport.planesLanded.Length;
+airport.landPlane(plane);
+actual = airport.planesLanded.length;
+console.log(actual);
 
 // Assert
 result = assertEquals(expected, actual);
