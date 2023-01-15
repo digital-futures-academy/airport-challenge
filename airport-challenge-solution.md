@@ -113,6 +113,17 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 ## Part 4 - Tests
 
+Initial Thoughts:
+
+1. `Plane` should be take off `groundedPlanes` when `takeoffPlane` is called
+2. Need to give `Plane` a `planeID` so that it can be used to take it off `groundedPlanes`
+
+**Test 11** - `takeoffPlane` will get rid of `Plane` from `groundedPlanes`
+
+**Test 12** - `takeoffPlane` will find the `planeID` and use that to take of the correct plane from `groundedPlanes`
+
+(The next user story covers falsy values)
+
 ---
 
 ## Part 5 - User Stories
