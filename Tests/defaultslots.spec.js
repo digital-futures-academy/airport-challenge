@@ -1,6 +1,6 @@
 const { testEquals } = require('./testing-framework');
 const Airport = require('../src/airport');
-const Plane = require('../src/plane');
+//const Plane = require('../src/plane');
 
 let expected;
 let actual;
@@ -11,15 +11,15 @@ let airport;
 
 //2nd Test
 console.log('--------------------');
-console.log('2. slotsOccupied array has a default number of strings from Plane that can be changed');
+console.log('2. slotsOccupied array has a default number of 10');
 
 //Arrange
 airport = new Airport();
 expected = 10;
 
 //Act
-airport.slotsAvailable(10)
-actule = airport.slotsOccupied.length = 10;
+airport.slotsOccupied()
+actual = airport.slotsOccupied.length;
 
 //Assert
 result = testEquals(expected, actual) ? 'There is a default value in the slotsOccupied integer' : 'There is no default value set'

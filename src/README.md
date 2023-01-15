@@ -66,5 +66,5 @@ I would like a default airport capacity that can be overridden as appropriate
 Building Test 2:
 
 Class Airport already exists so adding additional function to the class.
-Test wether the expected number of slots is the same as the actual number of slots
+Test wether the expected number of slots is the same as the actual number of slots 
 Look into sparse arrays?
