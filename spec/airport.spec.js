@@ -55,7 +55,7 @@ console.log('Running tests for airport.js');
 // Test 3
 {
 	console.log('------------------------------');
-	console.log('Test 3. (changeCapacity() test). Increase to 15 => 15')
+	console.log('Test 3. (changeCapacity() test). Change to 15 => 15')
 
 	let input, expected, actual, result, airport, plane, weather;
 	
@@ -79,14 +79,37 @@ console.log('Running tests for airport.js');
 // Test 4
 {
 	console.log('------------------------------');
-	console.log('Test 4. (changeCapacity() test). Increase to -20 => Throws Error')
+	console.log('Test 4. (changeCapacity() test). Change to -20 => Throws Error')
 
 	let input, expected, actual, result, airport, plane, weather;
 	
 	//1 Arrange
 	airport = new Airport();
 	input = -20;
-	expected = 10;
+	expected = new Error();
+
+	//2.Act
+	actual = airport.changeCapacity(input);
+
+	//3. Assert
+	result = testFramework.assertThrows(actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
+// Test 5
+{
+	console.log('------------------------------');
+	console.log('Test 5. (changeCapacity() test). Change to "Twenty" => Throws Error')
+
+	let input, expected, actual, result, airport, plane, weather;
+	
+	//1 Arrange
+	airport = new Airport();
+	input = 'Twenty';
+	expected = new Error();
 
 	//2.Act
 	actual = airport.changeCapacity(input);

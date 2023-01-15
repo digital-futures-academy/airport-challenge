@@ -15,7 +15,7 @@ class Airport {
 	}
 
 	changeCapacity(size) {
-		if (size < 0) return new Error('Invalid new capacity passed as argument.')
+		if (typeof size !== 'number' || size < 0) return new Error('Invalid new capacity passed as argument.')
 		this.airportCapacity = size;
 	}
 
