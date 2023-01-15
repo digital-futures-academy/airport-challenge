@@ -18,6 +18,10 @@ class Airport {
 		this.airportCapacity = size;
 	}
 	
+	isAtAirport(plane) {
+		return this.planes.includes(plane);
+	}
+
 	takeoff(plane) {
 		if (plane instanceof Plane === false) return new Error('Invalid plane passed as argument');
 		this.planes.splice(this.planes.indexOf(plane), 1);
