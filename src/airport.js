@@ -32,7 +32,10 @@ class Airport {
 		this.planes.push(plane);
 	}
 
-	
+	isFull() {
+		console.log(this.planes.length)
+		return this.planes.length == this.getCapacity();
+	}
 
 }
 
