@@ -597,6 +597,30 @@ console.log('Running tests for airport.js');
 	console.log('Output: ' + result);
 }
 
+// Test 25
+{
+	console.log('------------------------------');
+	console.log('Test 25. (land() test). Stormy, landing => Throws Error')
+
+	let input, expected, actual, result, airport, plane, weather, srandom;
+	
+	//1. Arrange
+	airport = new Airport();
+	srandom = new seedrandom('stub');
+	airport.weather.status = (srandom() > 0.3 ? 'Sunny' : 'Stormy');
+	expected = new Error();
+
+	//2. Act
+	actual = airport.land(new Plane('XA-FCV'));
+
+	//3. Assert
+	result = testFramework.assertThrows(actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
 console.log('------------------------------');
 //Clear
 // input = undefined;
