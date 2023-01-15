@@ -70,3 +70,27 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 3 - Edge Case - Falsy item is not added
+console.log(`==========`);
+console.log(`Test 3 - Edge Case - Falsy item is not added`);
+
+// Arrange
+airport = new Airport();
+plane = null;
+expected = 0;
+
+// Act 
+airport.landPlane(plane);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 3 - Edge Case - Falsy item is not added: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
