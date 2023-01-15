@@ -1,5 +1,4 @@
 const testFramework = require('../test_framework.js');
-const Airport = require('../src/airport.js');
 const Plane = require('../src/plane.js');
 
 console.log('------------------------------');
@@ -12,8 +11,7 @@ console.log('Running tests for plane.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
-	airport = new Airport();
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	expected = 'XA-FCV';
 
@@ -22,6 +20,27 @@ console.log('Running tests for plane.js');
 
 	//3. Assert
 	result = testFramework.assertEquals(expected, actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
+// Test 2
+{
+	console.log('------------------------------');
+	console.log('Test 2. (constructor test). Invalid name => Throws Error')
+
+	let input, expected, actual, result, airport, plane, weather;
+	
+	//1. Arrange
+	expected = new Error();
+
+	//2. Act
+	actual = new Plane();
+
+	//3. Assert
+	result = testFramework.assertThrows(actual);
 	
 	if (result) console.log("Test Passed.");
 	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);

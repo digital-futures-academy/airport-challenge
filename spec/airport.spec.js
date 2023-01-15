@@ -12,12 +12,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	airport = new Airport();
 	expected = 1;
 
-	//2.Act
+	//2. Act
 	airport.land(plane);
 	actual = airport.planes.length;
 
@@ -36,12 +36,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = 'invalidPlane';
 	airport = new Airport();
 	expected = new Error();
 
-	//2.Act
+	//2. Act
 	actual = airport.land(plane);
 
 	//3. Assert
@@ -59,12 +59,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	input = 15;
 	expected = 15;
 
-	//2.Act
+	//2. Act
 	airport.changeCapacity(input);
 	actual = airport.airportCapacity;
 
@@ -83,12 +83,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	input = -20;
 	expected = new Error();
 
-	//2.Act
+	//2. Act
 	actual = airport.changeCapacity(input);
 
 	//3. Assert
@@ -106,12 +106,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	input = 'Twenty';
 	expected = new Error();
 
-	//2.Act
+	//2. Act
 	actual = airport.changeCapacity(input);
 
 	//3. Assert
@@ -129,12 +129,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	input = -20;
 	expected = 10;
 
-	//2.Act
+	//2. Act
 	airport.changeCapacity(input);
 	actual = airport.getCapacity();
 
@@ -153,12 +153,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	input = 'Twenty';
 	expected = 10;
 
-	//2.Act
+	//2. Act
 	airport.changeCapacity(input);
 	actual = airport.getCapacity();
 
@@ -177,13 +177,13 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	airport = new Airport();
 	airport.land(plane);
 	expected = 0;
 
-	//2.Act
+	//2. Act
 	airport.takeOff(plane);
 	actual = airport.planes.length;
 
@@ -202,13 +202,13 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = 'invalidPlane';
 	airport = new Airport();
 	airport.planes.push(plane);
 	expected = new Error();
 
-	//2.Act
+	//2. Act
 	actual = airport.takeOff(plane);
 
 	//3. Assert
@@ -226,13 +226,13 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	airport = new Airport();
 	airport.land(plane);
 	expected = true;
 	
-	//2.Act
+	//2. Act
 	actual = airport.isAtAirport(plane);
 
 	//3. Assert
@@ -250,12 +250,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	airport = new Airport();
 	expected = false;
 	
-	//2.Act
+	//2. Act
 	actual = airport.isAtAirport(plane);
 
 	//3. Assert
@@ -273,13 +273,13 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	airport = new Airport();
 	airport.land(plane);
 	expected = new Error();
 	
-	//2.Act
+	//2. Act
 	actual = airport.land(plane);
 
 	//3. Assert
@@ -297,13 +297,13 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	airport = new Airport();
 	airport.land(plane);
 	expected = 1;
 	
-	//2.Act
+	//2. Act
 	airport.land(plane);
 	actual = airport.planes.length;
 
@@ -322,12 +322,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');
 	airport = new Airport();
 	expected = new Error();
 	
-	//2.Act
+	//2. Act
 	actual = airport.takeOff(plane);
 
 	//3. Assert
@@ -345,14 +345,14 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	plane = new Plane('XA-FCV');	// At airport.
 	plane2 = new Plane('XB-LSW');	// Not at airport.
 	airport = new Airport();
 	airport.land(plane);
 	expected = 1;
 	
-	//2.Act
+	//2. Act
 	airport.takeOff(plane2);
 	actual = airport.planes.length;
 
@@ -371,12 +371,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	for (let i=0; i<10; i++) airport.land(new Plane('XA-FCV'));
 	expected = true;
 	
-	//2.Act
+	//2. Act
 	actual = airport.isFull();
 
 	//3. Assert
@@ -394,12 +394,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	for (let i=0; i<7; i++) airport.land(new Plane('XA-FCV'));
 	expected = false;
 	
-	//2.Act
+	//2. Act
 	actual = airport.isFull();
 
 	//3. Assert
@@ -417,12 +417,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	for (let i=0; i<10; i++) airport.land(new Plane('XA-FCV'));
 	expected = new Error();
 	
-	//2.Act
+	//2. Act
 	actual = airport.land(new Plane('XB-LSW'));
 
 	//3. Assert
@@ -440,12 +440,12 @@ console.log('Running tests for airport.js');
 
 	let input, expected, actual, result, airport, plane, weather;
 	
-	//1 Arrange
+	//1. Arrange
 	airport = new Airport();
 	for (let i=0; i<10; i++) airport.land(new Plane('XA-FCV'));
 	expected = 10;
 	
-	//2.Act
+	//2. Act
 	airport.land(new Plane('XB-LSW'));
 	actual = airport.planes.length;
 
