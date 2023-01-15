@@ -94,3 +94,42 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+/*User Story 2
+
+As the system designer.
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+
+| Objects       | Properties    | Messages              | Outputs |
+|---------      |------------   |----------             |---------|
+| Airport       | capacity @int | changeCapacity(@int)  | @void |
+|               | defaultCapacity @int ||
+
+Initial thoughts:
+
+1. Does the airport have a default capacity?
+2. Can I change this capacity?
+*/
+
+// Test 4 - Does the airport have a default capacity?
+console.log(`==========`);
+console.log(`Test 4 - Does the airport have a default capacity of 10?`);
+
+// Arrange
+airport = new Airport();
+expected = 10;
+
+// Act 
+actual = airport.capacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4 - Does the airport have a default capacity of 10?: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
