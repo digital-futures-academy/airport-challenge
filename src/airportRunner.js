@@ -11,3 +11,8 @@ airportEDI.landPlane(new Plane(`British Airways`));
 
 console.log(airportEDI.planesAtAirport);
 console.log(airportGLA.planesAtAirport);
+
+console.log(`\n*** Testing \`increaseAirportCapacity\` method ***`);
+console.log(`airportEdi Default Capacity: ${airportEDI.airportCapacity}`);
+airportEDI.increaseAirportCapacity(5);
+console.log(`airportEdi New Capacity: ${airportEDI.airportCapacity}`);
