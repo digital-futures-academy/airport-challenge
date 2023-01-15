@@ -26,6 +26,7 @@ class Airport {
 
 	takeOff(plane) {
 		if (plane instanceof Plane == false || this.isAtAirport(plane) == false) return new Error('Invalid plane passed as argument.');
+		if (this.weather.getWeather() == 'Stormy') return new Error('Due to current poor weather conditions the plane is not be able to take off.');
 		this.planes.splice(this.planes.indexOf(plane), 1);
 	}
 
