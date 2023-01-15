@@ -33,6 +33,7 @@ class Airport {
 	land(plane) {
 		if (plane instanceof Plane == false) return new Error('Invalid plane passed as argument.');
 		if (this.isAtAirport(plane) == true || this.isFull() == true) return new Error('The plane is already at the airport / Airport full.');
+		if (this.weather.getWeather() == 'Stormy') return new Error('Due to current poor weather conditions the plane is not be able to land.');
 		this.planes.push(plane);
 	}
 
