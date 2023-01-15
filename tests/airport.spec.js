@@ -20,7 +20,9 @@ actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 1: Land Plane in an Airport: ${result}`);
+console.log(
+  `Test 1: Land Plane in an Airport: ${result ? `Passed` : `Failed`}`
+);
 
 //Clear up
 expected = undefined;
@@ -43,7 +45,9 @@ actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 2: Try to land a string in an Airport: ${result}`);
+console.log(
+  `Test 2: Try to land a string in an Airport: ${result ? `Passed` : `Failed`}`
+);
 
 //Clear up
 expected = undefined;
@@ -66,7 +70,11 @@ actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 3: Try to land falsy value in an Airport: ${result}`);
+console.log(
+  `Test 3: Try to land falsy value in an Airport: ${
+    result ? `Passed` : `Failed`
+  }`
+);
 
 //Clear up
 expected = undefined;
@@ -80,14 +88,18 @@ console.log(`===============================================`);
 // Test 4 - Check the default capacity of Planes in an Airport
 //Arrange
 airport = new Airport();
-expected = 10;
+expected = 3;
 
 //Act
 actual = airport.capacity;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 4: Expected capacity of planes in an Airport: ${result}`);
+console.log(
+  `Test 4: Expected capacity of planes in an Airport: ${
+    result ? `Passed` : `Failed`
+  }`
+);
 
 //Clear up
 expected = undefined;
@@ -108,7 +120,11 @@ actual = airport.capacity;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 5: Overridden capacity of Planes in an Airport: ${result}`);
+console.log(
+  `Test 5: Overridden capacity of Planes in an Airport: ${
+    result ? `Passed` : `Failed`
+  }`
+);
 
 //Clear up
 expected = undefined;
@@ -123,14 +139,16 @@ console.log(`===============================================`);
 // Test 6
 //Arrange
 airport = new Airport("30");
-expected = 5;
+expected = 3;
 
 //Act
 actual = airport.capacity;
 //Assert
 result = assertEquals(expected, actual);
 console.log(
-  `Test 6: Overridden wrong type of capacity of Planes in an Airport: ${result}`
+  `Test 6: Overridden wrong type of capacity of Planes in an Airport: ${
+    result ? `Passed` : `Failed`
+  }`
 );
 
 //Clear up
@@ -143,9 +161,10 @@ console.log(`===============================================`);
 // End of Test 6
 
 // Test 7 - Check setCapacity() to set the capacity of the Airport after initialization.
+
 //Arrange
 airport = new Airport();
-expected = 5;
+expected = 3;
 
 //Act
 airport.setCapacity(`20`);
@@ -154,7 +173,9 @@ actual = airport.capacity;
 //Assert
 result = assertEquals(expected, actual);
 console.log(
-  `Test 7: Change capacity of Airport using setCapacity(): ${result}`
+  `Test 7: Change capacity of Airport using setCapacity(): ${
+    result ? `Passed` : `Failed`
+  }`
 );
 
 //Clear up
@@ -168,13 +189,21 @@ console.log(`===============================================`);
 // Test 8 - Check isAirportFull() logic is working by comparing capacity and planesInAirport.length.
 //Arrange
 airport = new Airport();
-expected = false;
+plane = new Plane();
+plane1 = new Plane();
+plane2 = new Plane();
+expected = true;
 
 //Act
+
+airport.landPlane(plane);
+airport.landPlane(plane1);
+airport.landPlane(plane2);
 actual = airport.isAirportFull();
+
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 8: Is Airport full: ${result}`);
+console.log(`Test 8: Is Airport full: ${result ? `Passed` : `Failed`}`);
 
 //Clear up
 expected = undefined;

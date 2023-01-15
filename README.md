@@ -61,6 +61,8 @@ I would like a default airport capacity that can be overridden as appropriate
 Initial Thoughts:
 1. Each Airport should have a default capacity.
 2. Each Airport should be able to set the default capacity.
+3. setCapacity should be a number that sets the capacity.
+4. Falsy parameters will return the default capacity value.
 
 ## Domain Models
 
@@ -83,7 +85,6 @@ Initial thoughts:
 
 | Objects               | Properties                        | Messages            | Outputs  |
 | --------------------  | -------------------------         | -----------------   | -------  |
-|                       |                                   |                     |          |
 | Airport               |  capacity @Integer                |   isAirportFull()   | @Boolean |
 |                       |  planesInAirport @Array[@Plane]   |   landPlane(@Plane) | @Void    |
 

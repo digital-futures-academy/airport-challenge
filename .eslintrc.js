@@ -5,6 +5,7 @@ module.exports = {
     es2021: true,
   },
   extends: "eslint:recommended",
+  parser: "babel-eslint", // added this to removed unexpected token parser error messages
   parserOptions: {
     ecmaVersion: 12,
   },
