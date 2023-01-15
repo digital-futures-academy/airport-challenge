@@ -4,7 +4,7 @@ const Plane = require(`./Plane`);
 const airportEDI = new Airport();
 const airportGLA = new Airport();
 
-//Test landPlane method
+console.log(`*** Testing \`landPlane\` method ***`)
 airportEDI.landPlane(new Plane(`Ryanair`));
 airportGLA.landPlane(new Plane(`British Airways`));
 airportEDI.landPlane(new Plane(`British Airways`));

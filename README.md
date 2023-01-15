@@ -92,6 +92,8 @@ Initial thoughts:
 
 **Test 7** - Edge Case - falsy values should not be added to `airportCapacity`
 
+**Test 8** - Edge Case - `increaseAirportCapacity` should not accept negative numbers
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full

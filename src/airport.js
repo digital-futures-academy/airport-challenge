@@ -16,7 +16,7 @@ class Airport {
   };
 
   increaseAirportCapacity = addCapacity => {
-    if (Number.isSafeInteger(addCapacity)) {
+    if (Number.isSafeInteger(addCapacity) && addCapacity > 0) {
       this.airportCapacity += addCapacity;
     }
   }

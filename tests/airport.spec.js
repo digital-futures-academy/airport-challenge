@@ -158,3 +158,24 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 7 ***`)
+
+//Test 8 - Edge Case - `increaseAirportCapacity` should not accept negative numbers
+console.log(`\n*** START TEST 8 - Edge Case - \`increaseAirportCapacity\` should not accept negative numbers`)
+
+//Arrange
+airport = new Airport();
+expected = 10;
+
+//Act
+airport.increaseAirportCapacity(-1);
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 8 - Edge Case - \`increaseAirportCapacity\` should not accept negative numbers: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 8 ***`)
