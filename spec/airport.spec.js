@@ -1,6 +1,14 @@
 const testFramework = require('../test_framework.js');
 const Airport = require('../src/airport.js');
 const Plane = require('../src/plane.js');
+const seedrandom = require('seedrandom');
+
+// Top 5 seed values
+// 0.10388572860170014
+// 0.7055594681824928
+// 0.7587790771905167
+// 0.03904401179222965
+// 0.6040060955540055
 
 console.log('------------------------------');
 console.log('Running tests for airport.js');
@@ -447,6 +455,34 @@ console.log('Running tests for airport.js');
 	
 	//2. Act
 	airport.land(new Plane('XB-LSW'));
+	actual = airport.planes.length;
+
+	//3. Assert
+	result = testFramework.assertEquals(expected, actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
+// Test 20
+{
+	console.log('------------------------------');
+	console.log('Test 20. (takeOff() test). Sunny, taking off => 0')
+
+	let input, expected, actual, result, airport, plane, weather, srandom;
+	
+	//1. Arrange
+	plane = new Plane('XA-FCV');
+	airport = new Airport();
+	airport.land(plane);
+	srandom = new seedrandom('stub');
+	srandom();
+	airport.weather.status = (srandom() > 0.3 ? 'Sunny' : 'Stormy');
+	expected = 0;
+
+	//2. Act
+	airport.takeOff(plane);
 	actual = airport.planes.length;
 
 	//3. Assert

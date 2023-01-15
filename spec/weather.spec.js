@@ -40,7 +40,7 @@ console.log('Running tests for weather.js');
 // Test 2
 {
 	console.log('------------------------------');
-	console.log('Test 1. (getWeather() test). Valid weather => "Stormy"')
+	console.log('Test 2. (getWeather() test). Valid weather => "Stormy"')
 
 	let input, expected, actual, result, airport, plane, weather, srandom;
 	

@@ -1,4 +1,5 @@
 const Plane = require('./plane.js');
+const Weather = require('./weather.js');
 
 class Airport {
 
@@ -7,6 +8,7 @@ class Airport {
 	constructor(airportCapacity = this.DEF_CAPACITY) {
 		this.planes = [];
 		this.airportCapacity = airportCapacity;
+		this.weather = new Weather();
 	}
 
 	getCapacity() {
