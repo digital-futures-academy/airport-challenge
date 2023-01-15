@@ -457,6 +457,7 @@ console.log('Running tests for airport.js');
 	console.log('Output: ' + result);
 }
 
+console.log('------------------------------');
 //Clear
 // input = undefined;
 // expected = undefined;
@@ -465,4 +466,3 @@ console.log('Running tests for airport.js');
 // airport = undefined;
 // plant = undefined;
 // weather = undefined;
-
