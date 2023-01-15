@@ -9,6 +9,10 @@ class Airport {
 		this.airportCapacity = airportCapacity;
 	}
 
+	getCapacity() {
+		return this.airportCapacity;
+	}
+
 	land(plane) {
 		if (plane instanceof Plane === false) return new Error('Invalid plane passed as argument.');
 		this.planes.push(plane);
