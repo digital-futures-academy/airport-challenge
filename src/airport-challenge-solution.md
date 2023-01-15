@@ -47,12 +47,11 @@ I would like a default airport capacity that can be overridden as appropriate
 |         |                             |                             |          |
 | Plane   | id @String                  | getId()                     | @String  |
 
-## Tests 4
+## Tests 4 & 5
 
 a Need to have an Airport but does not necessarily need to have a Plane in it (getLandedCapacity may be zero)
-b Try to land another Plane and make sure the number of Planes in landedPlanes has increased
-
-**Test 4**: `landedPlanes` length increases according to the newLandedCapacity method integer
+//this is not the test. need to make default and make sure it is set up when airport is created
+b use default capacity, run newcapacity and check this changes the default capacity
 
 ## Part 3 User Story
 
@@ -75,6 +74,7 @@ I want to prevent landing when the airport is full
 
 a Need to check if is AirportFull True prevents Plane going into 'landedPlanes'
 b Need to check if is AirportFull False allows Plane to go into 'landedPlanes'
+//this approach requires the caller to ask if airport is full, whereas would be better to have prevention of landPlane if full
 
 **Test 5**: xxxxxxxxxx
 **Test 6**: xxxxxxxxxx

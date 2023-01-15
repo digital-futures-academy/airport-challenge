@@ -8,16 +8,23 @@ class Airport {
     this.landedCapacity = defaultLandedCapacity;
 
   }
-    landPlane = plane => {
-        if (plane instanceof Plane) this.landedPlanes.push(plane);
-    };
+  landPlane = plane => {
+    if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity()) {
+      this.landedPlanes.push(plane);
+    }
+
+  }
     getLandedCapacity() {
         return this.landedCapacity;
     }
     newLandedCapacity(newCapacity) {
       this.landedCapacity = newCapacity;
+     }
+    getLandedPlaneCount() {
+        return this.landedPlanes.length;
     }
-}
+    }
+
 
 module.exports = Airport;
 

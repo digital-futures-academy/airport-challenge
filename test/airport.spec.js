@@ -128,6 +128,35 @@ result = undefined;
 
 console.log(`============================`);
 
+// Test 6 -  when landedPlanes length equals landedCapacity, do not allow landPlane
+console.log(`============================`);
+console.log(`Test 6 - landedPlanes length equals landedCapacity`);
 
+// Arrange - this is setting up the variables required for the test
+airport = new Airport(2); //create a new airport that has only the capacity to land two planes
+//create three planes that we will attempt to land
+plane1 = new Plane('Delta');
+plane2 = new Plane('BA');
+plane3 = new Plane('Ryanir');
+
+// Act - this is running the methods to be tested and collecting the actual results
+airport.landPlane(plane1); //land plane one
+airport.landPlane(plane2); //try to land plane two
+airport.landPlane(plane3); //but it shouldn't be succesful as airport only has capacity for 2
+expected = 2; // we only expect two planes to land
+actual = airport.getLandedPlaneCount(); //let's see how many actually landed
+
+// Assert - testing the actual results against expected results
+result = assertEquals(expected, actual);
+console.log(`Test 6 - 'landPlane cannot happen': ${result}`);
+
+// Clean up - here we are clearing the variables ready for next test, to avoid contamination
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
 
 
