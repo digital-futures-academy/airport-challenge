@@ -3,24 +3,6 @@ const Airport = require(`../src/Airport`);
 const Plane = require(`../src/Plane`)
 
 let expected, actual, result, airport, plane;
- 
-/* User Story 1
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
-
-Objects     Properties	        Messages            Outputs
-Plane	    id @str
-            destination @str
-Airport     id @str	            landPLane(@Plane)	@str
-            planesLanded @Array[@Plane]
-
-Initial thoughts:
-
-1. I need an airport to land a plane
-2. I need to be able to send a message to tell the airport to allow a plane to land
-3. I need to tell it which plane is landing
-*/
 
 // Test 1 - planesLanded length increases to 1 when an empty airport is told to land a plane
 console.log(`==========`);
@@ -95,23 +77,6 @@ result = undefined;
 airport = null;
 plane = null;
 
-/*User Story 2
-
-As the system designer.
-So that the software can be used for many different airports
-I would like a default airport capacity that can be overridden as appropriate
-
-| Objects       | Properties    | Messages              | Outputs |
-|---------      |------------   |----------             |---------|
-| Airport       | capacity @int | changeCapacity(@int)  | @void |
-|               | defaultCapacity @int ||
-
-Initial thoughts:
-
-1. Does the airport have a default capacity?
-2. Can I change this capacity?
-*/
-
 // Test 4 - Does the airport have a default capacity?
 console.log(`==========`);
 console.log(`Test 4 - Does the airport have a default capacity of 10?`);
@@ -157,9 +122,9 @@ result = undefined;
 airport = null;
 plane = null;
 
-// Test 6 - capacity change is rejected if NaN
+// Test 6 - capacity change is rejected if not type number
 console.log(`==========`);
-console.log(`Test 6 - capacity change is rejected and remains at default if NaN is passed to changeCapacity`);
+console.log(`Test 6 - capacity change is rejected and remains at default if not type number is passed to changeCapacity`);
 
 // Arrange
 airport = new Airport();
@@ -171,7 +136,7 @@ actual = airport.capacity;
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 6 - capacity change is rejected if NaN: ${result}`);
+console.log(`Test 6 - capacity change is rejected if not type number: ${result}`);
 
 // Clean Up
 expected = undefined;
@@ -218,6 +183,33 @@ actual = airport.capacity;
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 8 - capacity change is rejected if not an integer: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 9 - If the number of planes in planesLanded is equal to the capacity the plane cannot land
+console.log(`==========`);
+console.log(`Test 9 - If the number of planes in planesLanded is equal to the capacity the plane cannot land`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+for (let i = 0; i < 10; i++) {
+    airport.landPlane(plane);
+}
+expected = 10;
+
+// Act
+airport.landPlane(plane);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 9 - If the number of planes in planesLanded is equal to the capacity the plane cannot land: ${result}`);
 
 // Clean Up
 expected = undefined;
