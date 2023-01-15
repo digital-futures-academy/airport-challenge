@@ -184,7 +184,7 @@ console.log('Running tests for airport.js');
 	expected = 0;
 
 	//2.Act
-	airport.takeoff(plane);
+	airport.takeOff(plane);
 	actual = airport.planes.length;
 
 	//3. Assert
@@ -209,7 +209,7 @@ console.log('Running tests for airport.js');
 	expected = new Error();
 
 	//2.Act
-	actual = airport.takeoff(plane);
+	actual = airport.takeOff(plane);
 
 	//3. Assert
 	result = testFramework.assertThrows(actual);
@@ -309,6 +309,29 @@ console.log('Running tests for airport.js');
 
 	//3. Assert
 	result = testFramework.assertEquals(expected, actual);
+	
+	if (result) console.log("Test Passed.");
+	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	console.log('Output: ' + result);
+}
+
+// Test 14
+{
+	console.log('------------------------------');
+	console.log('Test 14. (takeOff(), isAtAirport() test). At airport, taking off => Throws Error')
+
+	let input, expected, actual, result, airport, plane, weather;
+	
+	//1 Arrange
+	plane = new Plane('XA-FCV');
+	airport = new Airport();
+	expected = new Error();
+	
+	//2.Act
+	actual = airport.takeOff(plane);
+
+	//3. Assert
+	result = testFramework.assertThrows(actual);
 	
 	if (result) console.log("Test Passed.");
 	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
