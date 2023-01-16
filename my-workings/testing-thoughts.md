@@ -16,7 +16,7 @@ I want to instruct the airport to land a plane
 5. The plane list should increase by one when a plane is landed
 
 
-**Test 1 -** when a ``Plane`` is landed, ``planeList`` should increase by 1
+**Airport Test 1 -** when a ``Plane`` is landed, ``planeList`` should increase by 1
 
 
 ### **User Story 2**
@@ -30,9 +30,9 @@ I would like a default airport capacity that can be overridden as appropriate
 1. Airport needs a default capacity
 2. The capacity needs to be able to be updated
 
-**Test 2 -** when an ``Airport`` is created, it should have a default capacity of 7
+**Airport Test 2 -** when an ``Airport`` is created, it should have a default capacity of 7
 
-**Test 3 -** After an Airport is created, ``updateAirportCapacity`` can be called to change it's capacity
+**Airport Test 3 -** After an Airport is created, ``updateAirportCapacity`` can be called to change it's capacity
 
 
 ### **User Story 3**
@@ -46,7 +46,7 @@ I want to prevent landing when the airport is full
 1. Need a function to check if the airport is full
 2. Need a check before allowing planes to land
 
-**Test 4 -** If ``planeList`` is at max capacity, ``land`` will not add another ``Plane``  
+**Airport Test 4 -** If ``planeList`` is at max capacity, ``land`` will not add another ``Plane``  
 
 
 ## **User Story 4**
@@ -60,7 +60,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 1. Need to be able to remove planes from the airport
 2. Should be able to remove a specific plane (need the plane id)
 
-**Test 5 -** When ``takeOff`` is called, the length of ``planeList`` should decrease by 1
+**Airport Test 5 -** When ``takeOff`` is called, the length of ``planeList`` should decrease by 1
 
 ## **User Story 5**
 ```
@@ -73,5 +73,12 @@ I want to prevent asking the airport to let planes take-off which are not at the
 1. Need to make a check before allowing planes to land or take off
 2. Should check if the plane is at the airport or not (check planeList)
 3. Should also take into account trying to land 'nothing'/ let 'nothing' take off
+4. Planes need an unique id
 
-**Test 6 -** ``land`` cannot land a plane that is aleady in ``planeList``
+**Airport Test 6 -** ``land`` can't add a ``Plane`` that's aleady in ``planeList``
+
+**Plane Test 1 -** Planes are created with an id
+
+**Plane Test 2 -** Planes can't be created without an id
+
+~~**Airport Test 7 -** ``takeOff`` can't remove a ``Plane`` that's not in ``planeList``~~
