@@ -13,7 +13,7 @@ class Airport {
   isAirportFull = () => {
     return assertEquals(this.airportCapacity, this.groundedPlanes.length);
   }
-    changeAirportCapacity = capacity => {
+  changeAirportCapacity = capacity => {
     if (typeof capacity === 'number' && capacity >= 0) this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
   }
 

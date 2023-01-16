@@ -285,25 +285,21 @@ console.log(`takeoffPlane will take off specific plane from groundedPlanes`); //
 
 // Arrange
 airport = new Airport(); // create new airport for the test
-plane = new Plane('Boeing'); // create new plane for the test
+plane = new Plane('Boeing'); // create new planes for the test
 let plane2 = new Plane(`Concord`);
 let plane3 = new Plane(`Airbus`);
-expected = ['Boeing', 'Concord'];
+expected = JSON.stringify(["Boeing","Airbus"]); // expected array
 
 // Act
-airport.landPlane(plane); // land plane at airport
+airport.landPlane(plane); 
 airport.landPlane(plane2);
-// airport.landPlane(plane3)
-// airport.takeoffPlane(plane2); // takeoff plane from airport
-actual = airport.groundedPlanes.map(function(plane) {
+airport.landPlane(plane3); // land multiple planes at airport
+airport.takeoffPlane(plane2); // takeoff plane from airport
+actual = JSON.stringify(airport.groundedPlanes.map(function (plane) {
     return plane['planeID']
-}); // find the array
+})); // find the array as a list of plane names
 
 // Assert
-console.log(expected);
-console.log(typeof expected);
-console.log(actual);
-console.log(typeof actual);
 result = assertEquals(expected, actual); // is expected and actual the same??
 console.log(`Test Twelve - ${result ? `Passed` : `Failed`}`); // states if the test passed
 
