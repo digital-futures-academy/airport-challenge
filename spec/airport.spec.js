@@ -91,21 +91,11 @@ console.log(`=============================`)
 console.log(`Test 4: The airport capacity can be overridden when appropriate.`)
 
 //Arrange 
-airport = new Airport();
-let plane8 = new Plane();
-let plane9 = new Plane();
-let plane10 = new Plane();
-let plane26 = new Plane();
-airport.landPlane(plane8);
-airport.landPlane(plane9);
-airport.landPlane(plane10);
-airport.landPlane(plane26);
-this.weather;
-expected = 4;
+airport = new Airport(1);
+expected = 1;
 
 //Act
-actual = airport.isFull();
-airport.airportPlanes.length;
+actual = airport.capacity;
 
 //Assert
 result = assertEquals(expected, actual);
@@ -119,3 +109,57 @@ expected = undefined;
 actual = undefined;
 result = undefined; 
 
+//Test 5: The airport prevents landing when the airport capacity is full.
+console.log(`===========================`)
+console.log(`Test 5: The airport prevents landing when the airport capacity is full.`)
+
+//Arrange
+airport = new Airport();
+let plane11 = new Plane();
+let plane12 = new Plane();
+let plane13 = new Plane();
+let plane14 = new Plane();
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+expected = true;
+//Act
+
+actual = airport.isFull();
+
+//Assert
+result = assertEquals(expected, actual); 
+console.log(`Test 5: The airport prevents landing when the airport capacity is full. : ${result}`)
+
+//Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined; 
+
+//Test 6: The airport can confirm that a plane is not in the airportPlanes array 
+console.log(`=============================`)
+console.log(`Test 6: The airport can confirm that a plane is not in the airportPlanes array using the TakeOff method.`)
+
+//Arrange  
+airport = new Airport();
+plane = new Plane('RyanAir')
+airport.landPlane(plane);
+airport.landPlane(new Plane(`AmericanAirlines`))
+expected = airport.airportPlanes.length - 1;
+
+//Act
+airport.TakeOff(plane);
+actual = airport.airportPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6: The airport can confirm that a plane is not in the airportPlanes array using the TakeOff method: ${result}`)
+
+//Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined; 
