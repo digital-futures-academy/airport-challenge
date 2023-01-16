@@ -6,6 +6,9 @@ class Airport {
     capacity = 10;
 
     landPlane = plane => {
+        if (this.planesLanded.includes(plane))
+            return console.log(`This plane is on the ground.`);
+
         if (plane instanceof Plane && this.planesLanded.length < this.capacity) this.planesLanded.push(plane);
     };
 

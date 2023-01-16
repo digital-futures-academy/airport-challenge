@@ -280,12 +280,37 @@ airport.landPlane(new Plane(`test2`));
 expected = 1;
 
 // Act
-airport.takeOff(plane); // passed a plane that has not landed
+airport.takeOff(plane);
 actual = airport.planesLanded.length;
 
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 12 - Confirm that a plane has left the airport: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 13 - don't allow a plane to land if it is already at the airport
+console.log(`==========`);
+console.log(`Test 13 - don't allow a plane to land if it is already at the airport`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`test1`);
+airport.landPlane(plane);
+expected = 1;
+
+// Act
+airport.landPlane(plane);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 13 - don't allow a plane to land if it is already at the airport: ${result}`);
 
 // Clean Up
 expected = undefined;
