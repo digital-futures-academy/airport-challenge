@@ -318,3 +318,28 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 14 - don't allow a plane to take off if it is not at the airport
+console.log(`==========`);
+console.log(`Test 14 - don't allow a plane to take off if it is not at the airport`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`test1`);
+airport.landPlane(new Plane(`test2`));
+expected = 1;
+
+// Act
+airport.takeOff(plane);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 14 - don't allow a plane to take off if it is not at the airport: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;

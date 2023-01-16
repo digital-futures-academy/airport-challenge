@@ -26,6 +26,8 @@ class Airport {
             else
                 console.log(`There are no planes on the ground.`);
         }
+        else
+            console.log(`${plane.id} is not at the airport.`);
     }
 
     changeCapacity = capacity => {
