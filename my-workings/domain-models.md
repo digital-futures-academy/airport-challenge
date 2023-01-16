@@ -1,5 +1,11 @@
 # Domain Models and User Stories
 
+```
+UPDATES
+- addPlane was renamed to land
+- removePlane was renamed to takeOff
+```
+
 ## Acceptance Criteria User Stories
 
 ### **User Story 1**

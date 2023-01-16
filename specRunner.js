@@ -1,3 +1,3 @@
-console.log(`Running all tests...`)
+console.log(`============== *** Running all tests *** ==============`);
 
-require(`./test/airport.test`)
+require(`./test/airport.test`);

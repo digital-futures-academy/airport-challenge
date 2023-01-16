@@ -18,7 +18,7 @@ plane = new Plane();
 expected = airport.planeList.length + 1;
 
 // Act
-airport.addPlane(plane);
+airport.land(plane);
 actual = airport.planeList.length;
 
 // Assert
@@ -82,24 +82,50 @@ actual = undefined;
 result = undefined;
 
 
-//Test 4 - If planeList is at max capacity, addPlane will not add another Plane
-console.log(`=== Test 4 - If planeList is at max capacity, addPlane will not add another Plane ===`)
+//Test 4 - If planeList is at max capacity, land will not add another Plane
+console.log(`=== Test 4 - If planeList is at max capacity, land will not add another Plane ===`)
 
 // Arrange
 airport = new Airport(1);  //lowering capacity for the sake of time
 plane = new Plane();
 plane2 = new Plane();
-airport.addPlane(plane)  //filling the list to capacity
+airport.land(plane)  //filling the list to capacity
 expected = airport.planeList.length;
 
 // Act
-airport.addPlane(plane2);
+airport.land(plane2);
 actual = airport.planeList.length;
 
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
-console.log(`Test 4 - If planeList is at max capacity, addPlane will not add another Plane: ${result ? `Passed` : `FAILED`}`);
+console.log(`Test 4 - If planeList is at max capacity, land will not add another Plane: ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`)
+
+// Clean up
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+//**Test 5 -** When takeOff is called, the length of planeList should decrease by 1
+console.log(`=== Test 5 - When takeOff is called, the length of planeList should decrease by 1 ===`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+expected = airport.planeList.length;  // length before anything is added
+airport.land(plane);
+
+// Act
+airport.takeOff(plane);
+actual = airport.planeList.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Test 5 - When takeOff is called, the length of planeList should decrease by 1: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
 
 // Clean up
