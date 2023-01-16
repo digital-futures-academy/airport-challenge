@@ -61,3 +61,17 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 2. Should be able to remove a specific plane (need the plane id)
 
 **Test 5 -** When ``takeOff`` is called, the length of ``planeList`` should decrease by 1
+
+## **User Story 5**
+```
+As an air traffic controller  
+To avoid confusion  
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed 
+```
+
+**Thoughts**  
+1. Need to make a check before allowing planes to land or take off
+2. Should check if the plane is at the airport or not (check planeList)
+3. Should also take into account trying to land 'nothing'/ let 'nothing' take off
+
+**Test 6 -** ``land`` cannot land a plane that is aleady in ``planeList``

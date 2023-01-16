@@ -109,7 +109,7 @@ actual = undefined;
 result = undefined;
 
 
-//**Test 5 -** When takeOff is called, the length of planeList should decrease by 1
+//Test 5 - When takeOff is called, the length of planeList should decrease by 1
 console.log(`=== Test 5 - When takeOff is called, the length of planeList should decrease by 1 ===`);
 
 // Arrange
@@ -126,6 +126,32 @@ actual = airport.planeList.length;
 result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Test 5 - When takeOff is called, the length of planeList should decrease by 1: ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`)
+
+// Clean up
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+//Test 6 - land cannot land a plane that is aleady in planeList
+console.log(`=== Test 6 - land cannot land a plane that is aleady in planeList ===`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+airport.land(plane);
+expected = airport.planeList.length;
+
+// Act
+airport.land(plane);
+actual = airport.planeList.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Test 6 - land cannot land a plane that is aleady in planeList: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
 
 // Clean up
