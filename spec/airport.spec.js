@@ -163,3 +163,30 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined; 
+
+//Test 7: The airport does not allow planes to takeOff that are not in the airportPlanes array.
+console.log(`===============================`)
+console.log(`Test 7: The airport does not allow planes to execute the takeOff method that are not included in the airportPlanes array.`)
+
+//Arrange 
+airport = new Airport();
+plane1 = new Plane();
+plane2 = new Plane();
+airport.landPlane(plane1);
+expected = 1;
+
+
+//Act 
+airport.TakeOff(plane1);
+actual = airport.airportPlanes.length
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 7: The airport does not allow planes to execute the takeOff method that are not included in the airportPlanes array: ${result}`)
+
+//Clean up 
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined; 
