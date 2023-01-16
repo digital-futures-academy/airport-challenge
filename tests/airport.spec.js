@@ -254,12 +254,38 @@ airport.landPlane(plane);
 expected = 1;
 
 // Act
-airport.takeOff(`plane`);
+airport.takeOff(`plane`); // Passed a string, not a Plane
 actual = airport.planesLanded.length;
 
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 11 - Only remove a plane that exists in planesLanded: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 12 - Confirm that a plane has left the airport
+console.log(`==========`);
+console.log(`Test 12 - Confirm that a plane has left the airport`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`test1`);
+airport.landPlane(plane);
+airport.landPlane(new Plane(`test2`));
+expected = 1;
+
+// Act
+airport.takeOff(plane); // passed a plane that has not landed
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 12 - Confirm that a plane has left the airport: ${result}`);
 
 // Clean Up
 expected = undefined;

@@ -14,6 +14,14 @@ class Airport {
 
         if (indexOfPlane > -1) {
             this.planesLanded.splice(indexOfPlane, 1);
+            console.log(`${plane.id} has taken off.`); 
+            if (this.planesLanded.length > 0) {
+                console.log(`The remaining planes are:`);
+                for (let i = 0; i < this.planesLanded.length; i++)
+                    console.log(this.planesLanded[i].id);
+            }
+            else
+                console.log(`There are no planes on the ground.`);
         }
     }
 
