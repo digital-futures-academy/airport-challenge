@@ -18,11 +18,12 @@ airport = new Airport();
 expected = 10;
 
 //Act
-airport.slotsOccupied()
+airport.slotsOccupied.length;
+//airport.checkSlots()
 actual = airport.slotsOccupied.length;
 
 //Assert
-result = testEquals(expected, actual) ? 'There is a default value in the slotsOccupied integer' : 'There is no default value set'
+result = testEquals(expected, actual) ? 'There is a default number of slots available' : 'There is no default value set'
 console.log(result)
 console.log('--------------------')
 
