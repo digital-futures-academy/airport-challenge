@@ -14,7 +14,7 @@ console.log(`Test 1 - addPlane lands a Plane into the Airport`);
 
 // Arrange
 airport = new Airport();
-plane = new Plane();
+plane = 'easyJet';
 expected = 1;
 
 // Act
@@ -32,7 +32,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Test 2: The airport is at its default capacity of 3.
+// Test 2: The airport has a default capacity of 3.
 console.log(`=============================`)
 console.log(`Test 2: The airport has a default capacity.`)
 
@@ -51,7 +51,7 @@ expected = true;
 actual = airport.isFull();
 //Assert
 result = assertEquals(expected, actual); 
-console.log(`Test 2: Airport is at its default capacity of 3: ${result}`)
+console.log(`Test 2: Airport has a default capacity of 3: ${result}`)
 
 //Clean up
 airport = null;
@@ -68,13 +68,54 @@ console.log(`Test 3: The airport is not at its default capacity.`)
 airport = new Airport();
 let plane5 = new Plane();
 let plane6= new Plane();
-airport.landPlane(plane1);
-airport.landPlane(plane2);
-expected = false;
+airport.landPlane(plane5);
+airport.landPlane(plane6);
+expected = true;
+
 //Act
 actual = airport.isFull();
+
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 3: The airport is at its default capacity: ${result}`)
+console.log(`Test 3: The airport is not at its default capacity: ${result}`)
+
 //Clean up
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane = null;
+
+//Test 4: The airport capacity can be overridden when appropriate. 
+console.log(`=============================`)
+console.log(`Test 4: The airport capacity can be overridden when appropriate.`)
+
+//Arrange 
+airport = new Airport();
+let plane8 = new Plane();
+let plane9 = new Plane();
+let plane10 = new Plane();
+let plane26 = new Plane();
+airport.landPlane(plane8);
+airport.landPlane(plane9);
+airport.landPlane(plane10);
+airport.landPlane(plane26);
+this.weather;
+expected = 4;
+
+//Act
+actual = airport.isFull();
+airport.airportPlanes.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4: The airport capacity can be overridden when appropriate: ${result}`)
+
+
+//Clean up 
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined; 
 
