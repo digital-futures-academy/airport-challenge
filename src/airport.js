@@ -11,11 +11,10 @@ class Airport {
 
     takeOff = plane => {
         const indexOfPlane = this.planesLanded.findIndex(planeLanded => planeLanded.id === plane.id);
-        console.log(indexOfPlane);
 
-        //if (indexOfPlane) {
+        if (indexOfPlane > -1) {
             this.planesLanded.splice(indexOfPlane, 1);
-       // }
+        }
     }
 
     changeCapacity = capacity => {

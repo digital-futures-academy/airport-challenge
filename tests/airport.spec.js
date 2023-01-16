@@ -217,3 +217,53 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 10 - remove a plane from the planesLanded array
+console.log(`==========`);
+console.log(`Test 10 - remove a plane from the planesLanded array`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`test1`);
+airport.landPlane(plane);
+expected = 0;
+
+// Act
+airport.takeOff(plane);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 10 - remove a plane from the planesLanded array: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+// Test 11 - Only remove a plane that exists in planesLanded
+console.log(`==========`);
+console.log(`Test 11 - Only remove a plane that exists in planesLanded`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`test1`);
+airport.landPlane(plane);
+expected = 1;
+
+// Act
+airport.takeOff(`plane`);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 11 - Only remove a plane that exists in planesLanded: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
