@@ -10,14 +10,14 @@ class Airport {
   airportCapacity = 10; // sets the capacity of the airport to 10
 
   //functions of airport
-  isAirportFull = () => {
+  isAirportFull() {
     return assertEquals(this.airportCapacity, this.groundedPlanes.length);
   }
   changeAirportCapacity = capacity => {
     if (typeof capacity === 'number' && capacity >= 0) this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
   }
 
-  getAirportCapacity = () => {
+  getAirportCapacity() {
     return this.airportCapacity; // returns the value of airportCapacity
   }
 
@@ -33,7 +33,7 @@ class Airport {
   }
 
     takeoffPlane = plane => {
-      if (plane instanceof Plane) this.groundedPlanes.pop(plane);
+      if (plane instanceof Plane) this.groundedPlanes.pop(plane); // take off the last element of the array
   }
   
   }
