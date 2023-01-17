@@ -36,3 +36,32 @@ plane = null;
 
 console.log(`---------------------------------------------`);
 
+// TEST 5: 
+console.log(`---------------------------------------------`)
+console.log(`Test 5: The defaultCapacity of the airport increases to 10 when increaseCapacity is called`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = 10;
+
+//Act
+airport.increaseCapacityTo();
+actual = airport.NewDefaultCapacity;
+
+//Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 5 Result: ${result}`);
+
+// Clean Up
+expected = null;
+actual = null;
+result = undefined;
+airport = undefined;
+plane = null;
+
+console.log(`---------------------------------------------`);
+
+
+
