@@ -1,5 +1,12 @@
+const Plane = require(`./Plane`);
+
 class Airport {
-  // here's a starting point for you
+  airportPlanes = [];
+
+  addPlane = plane => {
+    if (plane instanceof Plane) this.airportPlanes.push(plane);
+  };
+  
 
 }
 
