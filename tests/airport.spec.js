@@ -388,7 +388,7 @@ expected = true;
 // Act
 airport.landPlane(plane);
 airport.landPlane(plane); // try to land the same plane twice
-actual = 'Boeing is already at this airport, cannot land';
+actual = airport.planeExists(plane);
 
 // Assert
 result = assertEquals(expected, actual); // is expected and actual the same??

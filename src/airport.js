@@ -27,11 +27,13 @@ class Airport {
   }
 
   landPlane = plane => {
-    if (plane instanceof Plane && this.isAirportFull() === false) {
+    if (plane instanceof Plane && this.isAirportFull() === false && this.planeExists(plane) === false) {
       this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
       return console.log(`The airport is not full, ${plane.planeID} has landed. There are ${this.groundedPlanes.length} plane(s) at this airport.`); // show message that the plane has landed
-    } else if (plane instanceof Plane && this.isAirportFull() === true) {
+    } else if (plane instanceof Plane && this.isAirportFull() === true && this.planeExists(plane) === false) {
       return console.log(`The airport is full, ${plane.planeID} has not landed.`) // show a message that the plane has on landed
+    } else if (this.planeExists(plane) === true) {
+      return console.log(`${plane.planeID} is already at airport and cannot land`);
     } else {
       return console.log(`Invalid input, please try again`) // message for any invalid inputs put into the system
     }
