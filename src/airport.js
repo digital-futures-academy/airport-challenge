@@ -6,18 +6,22 @@ class Airport {
 
   constructor(capacity = 3) {
     // if the overridden value is not a number, by default the value is 10;
+    // else it will be set to the given number
     if (typeof capacity !== "number") {
       this.capacity = 3;
-      // else it will be set to the given number
     } else {
       this.capacity = capacity;
     }
   }
 
   landPlane = (plane) => {
-    if (!this.isAirportFull() && plane instanceof Plane)
-      this.planesInAirport.push(plane);
-    return false;
+    if (this.doesPlaneExist(plane)) {
+      return `Plane already exists in this airport.`;
+    } else {
+      if (!this.isAirportFull() && plane instanceof Plane)
+        this.planesInAirport.push(plane);
+      return false;
+    }
   };
 
   isAirportFull = () => {
@@ -30,17 +34,18 @@ class Airport {
   }
 
   takeOffPlane = (planeID) => {
-    const indexOfPlane = this.planesInAirport.findIndex(
-      (plane) => planeID === plane.id
-    );
-
-    if (indexOfPlane > -1) {
-      this.planesInAirport.splice(indexOfPlane, 1);
+    if (this.planesInAirport.findIndex((plane) => plane.id === planeID) != -1) {
+      this.planesInAirport.splice(
+        this.planesInAirport.findIndex((plane) => plane.id === planeID),
+        1
+      );
+    } else {
+      return `Plane does not exist in this airport.`;
     }
   };
 
-  doesPlaneExist = (planeID) => {
-    return this.planesInAirport.includes(planeID);
+  doesPlaneExist = (plane) => {
+    return this.planesInAirport.includes(plane);
   };
 }
 

@@ -188,7 +188,6 @@ console.log(`===============================================`);
 // End of Test 7
 
 // Test 8 - Check isAirportFull() logic is working by comparing capacity and planesInAirport.length.
-
 //Arrange
 airport = new Airport();
 plane = new Plane();
@@ -225,16 +224,13 @@ airport = new Airport();
 plane1 = new Plane(1);
 plane2 = new Plane(2);
 plane3 = new Plane(3);
-expected = 2;
-
-//Act
 airport.landPlane(plane1);
 airport.landPlane(plane2);
 airport.landPlane(plane3);
-console.log(airport.planesInAirport.length);
+expected = 2;
 
+//Act
 airport.takeOffPlane(plane2.getID());
-console.log(airport.planesInAirport.length);
 actual = airport.planesInAirport.length;
 
 //Assert
@@ -262,7 +258,7 @@ expected = true;
 //Act
 airport.landPlane(plane1);
 airport.landPlane(plane2);
-actual = airport.doesPlaneExist(plane2);
+actual = airport.doesPlaneExist(plane1);
 //Assert
 result = assertEquals(expected, actual);
 console.log(
@@ -282,16 +278,14 @@ console.log(`===============================================`);
 // Test 11 - Take off non-existent Plane
 //Arrange
 airport = new Airport();
+airport2 = new Airport();
 plane1 = new Plane(1);
-expected = true;
+expected = `Plane does not exist in this airport.`;
 
 //Act
 airport.landPlane(plane1);
-console.log(airport.doesPlaneExist(plane1));
-console.log(airport.planesInAirport.length);
-airport.takeOffPlane(plane1);
-console.log(airport.doesPlaneExist(plane1));
-console.log(airport.planesInAirport.length);
+
+actual = airport2.takeOffPlane(plane1.getID());
 
 //Assert
 result = assertEquals(expected, actual);
@@ -308,3 +302,29 @@ plane1 = null;
 plane2 = null;
 console.log(`===============================================`);
 // End of Test 11
+
+// Test 12 - Landing a plane that already exists
+//Arrange
+airport = new Airport();
+plane1 = new Plane(1);
+expected = `Plane already exists in this airport.`;
+
+//Act
+airport.landPlane(plane1);
+actual = airport.landPlane(plane1);
+console.log(`Actual: ${actual}`);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(
+  `Test 12: Existing plane take off: ${result ? `Passed` : `Failed`}`
+);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane1 = null;
+plane2 = null;
+console.log(`===============================================`);
