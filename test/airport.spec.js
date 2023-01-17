@@ -182,6 +182,7 @@ actual = airport.isPlanePresent(plane1);
 //Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
 console.log(`Test 7 - 'Plane is present': ${result}`);
+console.log(`============================`);
 
 // Clean up - here we are clearing the variables ready for next test, to avoid contamination
 airport = null;
@@ -190,22 +191,26 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log(`============================`);
+//Test 8 - takeOffPlane Plane(id) and check if isPlanePresent(T / F)
 
 console.log(`============================`);
 console.log(`Test 8 - takeOffPlane Plane(id) from airport`);
 
 // Arrange - this is setting up the variables required for the test
-
+airport = new Airport(1);
+plane1 = new Plane('Delta');
+expected = false;
 
 // Act - this is running the methods to be tested and collecting the actual results
-
+airport.landPlane(plane1);
+airport.takeOffPlane(plane1);
+actual = airport.isPlanePresent(plane1);
 
 //Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
 console.log(`Test 8 - 'Plane is not present': ${result}`);
 
-// Clean up - here we are clearing the variables ready for next test, to avoid contamination
+// // Clean up - here we are clearing the variables ready for next test, to avoid contamination
 airport = null;
 plane = null;
 expected = undefined;

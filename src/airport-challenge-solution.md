@@ -122,6 +122,16 @@ I want to prevent asking the airport to let planes take-off which are not at the
 |         |                             | isPlanePresent(@Plane)      | @Boolean |
 | Plane   | id @String                  | getId()                     | @String  |
 
-## Tests
+## Tests 9&10
 
-a
+set plane status to not at airport (in Class Plane)
+if Plane status strictly equals not at airport, plane cannot take off
+set plane status to at airport (in Class Plane)
+if Plane status does not equal not at airport, plane can take off (not sure test 10 is needed)
+
+// Test to check that planes cannot take off when they are not at the airport
+const planeStatus = 'notAtAirport';
+
+if (planeStatus === 'notAtAirport') {
+assert.strictEqual(takeOff(), false, 'Cannot take off when plane is not at the airport')
+}

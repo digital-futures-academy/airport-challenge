@@ -6,7 +6,7 @@ class Airport {
 
   constructor(defaultLandedCapacity) {
     this.landedCapacity = defaultLandedCapacity;
-  }
+   }
     landPlane = plane => {
         if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity()) {
       this.landedPlanes.push(plane);
@@ -25,7 +25,15 @@ class Airport {
       const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
       return indexOfPlaneInLandedPlanes > -1;
     }
-}
+  takeOffPlane = plane => {
+    const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
+    
+    if (indexOfPlaneInLandedPlanes > -1) {
+            this.landedPlanes.splice(indexOfPlaneInLandedPlanes, 1);
+        }
+    }
+    }
+    
 
 module.exports = Airport;
 
