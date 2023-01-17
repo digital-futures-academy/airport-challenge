@@ -161,7 +161,7 @@ Initial Thoughts:
 2. Create a message when they try to `takeoffPlane` that is not in `groundedPlanes`
 3. Create a message when they try to `landPlane` that is already in `groundedPlanes`
 
-**Test 13** - `planeExists` checks if `Plane` is already in `groundedPlanes`
+**Test 13** - `planeExists` checks if `Plane` is already in `groundedPlanes` (test both true and false)
 
 **Test 14** - an error message will appear when `planeExists` is false when `takeoffPlane` is called
 

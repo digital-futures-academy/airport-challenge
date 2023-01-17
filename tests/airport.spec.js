@@ -257,7 +257,7 @@ console.log(` `); //blank space to split up tests
 
 // Test Eleven - takeoffPlane should take plane off of groundedPlanes
 console.log('======= Test Eleven =======');
-console.log(`groundedPlane length decreases by 1 when takeoffPlane is called`); // stating the test being carried out
+console.log(`groundedPlane length decreases by 1 when takeoffPlane() is called`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for the test
@@ -281,7 +281,7 @@ console.log(` `); //blank space to split up tests
 
 // Test Twelve - takeoff specific plane from groundedPlanes
 console.log('======= Test Twelve =======');
-console.log(`takeoffPlane will take off specific plane from groundedPlanes`); // stating the test being carried out
+console.log(`takeoffPlane() will take off specific plane from groundedPlanes`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for the test
@@ -305,4 +305,49 @@ console.log(`Test Twelve - ${result ? `Passed` : `Failed`}`); // states if the t
 expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
 console.log('======= Test Twelve Done =======');
+console.log(` `); //blank space to split up tests
+
+// Test Thirteen - create a function that will check if the Plane exists in groundedPlanes
+console.log('======= Test Thirteen =======');
+console.log(`planeExists() will check if the Plane exists in groundedPlanes`); // stating the test being carried out
+
+// Plane Exists in groundedPlanes
+// Arrange
+console.log(` `); //blank space to split up tests
+console.log(`=== Test Thirteen.One - Plane Exists (aka true) ===`)
+airport = new Airport(); // create new airport for the test
+plane = new Plane('Boeing');
+expected = true; // should show that the plane exists in array
+
+// Act
+airport.landPlane(plane); // land plane
+actual = airport.planeExists(plane); // call planeExists function
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Thirteen.One - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+
+// Plane does now exist in groundedPlanes
+// Arrange
+console.log(` `); //blank space to split up tests
+console.log(`=== Test Eight.Two - Plane does not exist (aka false) ===`)
+airport = new Airport(); // create new airport for the test
+plane = new Plane('Boeing');// create new plane for the test
+expected = false; // should show that the plane does not exist in array
+
+// Act
+actual = airport.planeExists(plane); // call planeExists function
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Thirteen.Two - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Thirteen Done =======');
 console.log(` `); //blank space to split up tests
