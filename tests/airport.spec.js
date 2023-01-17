@@ -9,7 +9,7 @@ const Plane = require(`../src/plane.js`);
 // initialize variables used in tests
 let expected, actual, result, airport, plane, input; //create empty variables for the tests
 
-// Test One - when landPlane is called, Plane should be added to the Airports groundedPlanes increasing the length to 1
+//* Test One - when landPlane is called, Plane should be added to the Airports groundedPlanes increasing the length to 1
 console.log('======= Test One =======');
 console.log(`landPlane puts the Plane into the Airports groundedPlanes`); // stating the test being carried out
 
@@ -32,7 +32,7 @@ airport, item = null;
 console.log('======= Test One Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Two - landPlane should only add Planes instances to groundedPlanes
+//* Test Two - landPlane should only add Planes instances to groundedPlanes
 console.log('======= Test Two =======');
 console.log(`landPlane only adds Plane instances to groundedPlanes`); // stating the test being carried out
 
@@ -55,7 +55,7 @@ airport, item = null;
 console.log('======= Test Two Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Three - falsy values should not be added to groundedPlanes
+//* Test Three - falsy values should not be added to groundedPlanes
 console.log('======= Test Three =======');
 console.log(`falsy value items should not be added`); // stating the test being carried out
 
@@ -78,7 +78,7 @@ airport, item = null;
 console.log('======= Test Three Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Four - when an Airport is created a default value of 10 is given for airportCapacity
+//* Test Four - when an Airport is created a default value of 10 is given for airportCapacity
 console.log('======= Test Four =======');
 console.log(`when an airport is created there should be a default capacity of 10`); // stating the test being carried out
 
@@ -99,7 +99,7 @@ airport, item = null;
 console.log('======= Test Four Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Five - changeAirportCapacity will change the value of airportCapacity
+//* Test Five - changeAirportCapacity will change the value of airportCapacity
 console.log('======= Test Five =======');
 console.log(`changeAirportCapacity will change the value of airportCapacity`); // stating the test being carried out
 
@@ -122,7 +122,7 @@ airport, item = null;
 console.log('======= Test Five Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Six - airportCapacity can only be a number
+//* Test Six - airportCapacity can only be a number
 console.log('======= Test Six =======');
 console.log(`airportCapacity can only be a positive number`); // stating the test being carried out
 
@@ -145,7 +145,7 @@ airport, item = null;
 console.log('======= Test Six Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Seven - create function that will output the capacity of the airport to the user
+//* Test Seven - create function that will output the capacity of the airport to the user
 console.log('======= Test Seven =======');
 console.log(`getAirportCapacity() shows the capacity of the airport`); // stating the test being carried out
 
@@ -166,7 +166,7 @@ airport, item = null;
 console.log('======= Test Seven Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Eight - create a function that compares the values of airportCapacity and groundedPlanes.length
+//* Test Eight - create a function that compares the values of airportCapacity and groundedPlanes.length
 console.log('======= Test Eight =======');
 console.log(`isAirportFull() checks if groundedPlanes.length is equal to airportCapacity`); // stating the test being carried out
 
@@ -209,7 +209,7 @@ airport, item = null;
 console.log('======= Test Eight Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Nine - if the airport is not full then the plane should land
+//* Test Nine - if the airport is not full then the plane should land
 console.log('======= Test Nine =======');
 console.log(`if the Airport is not full, the Plane should land`); // stating the test being carried out
 
@@ -232,7 +232,7 @@ airport, item = null;
 console.log('======= Test Nine Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Ten - if the airport is full the plane shouldn't land
+//* Test Ten - if the airport is full the plane shouldn't land
 console.log('======= Test Ten =======');
 console.log(`if the Airport is full, the Plane should not land`); // stating the test being carried out
 
@@ -256,7 +256,7 @@ airport, item = null;
 console.log('======= Test Ten Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Eleven - takeoffPlane should take plane off of groundedPlanes
+//* Test Eleven - takeoffPlane should take plane off of groundedPlanes
 console.log('======= Test Eleven =======');
 console.log(`groundedPlane length decreases by 1 when takeoffPlane() is called`); // stating the test being carried out
 
@@ -280,7 +280,7 @@ airport, item = null;
 console.log('======= Test Eleven Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Twelve - takeoff specific plane from groundedPlanes
+//* Test Twelve - takeoff specific plane from groundedPlanes
 console.log('======= Test Twelve =======');
 console.log(`takeoffPlane() will take off specific plane from groundedPlanes`); // stating the test being carried out
 
@@ -308,7 +308,7 @@ airport, item = null;
 console.log('======= Test Twelve Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Thirteen - create a function that will check if the Plane exists in groundedPlanes
+//* Test Thirteen - create a function that will check if the Plane exists in groundedPlanes
 console.log('======= Test Thirteen =======');
 console.log(`planeExists() will check if the Plane exists in groundedPlanes`); // stating the test being carried out
 
@@ -332,7 +332,7 @@ console.log(`Test Thirteen.One - ${result ? `Passed` : `Failed`}`); // states if
 expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
 
-// Plane does now exist in groundedPlanes
+// Plane does not exist in groundedPlanes
 // Arrange
 console.log(` `); //blank space to split up tests
 console.log(`=== Test Thirteen.Two - Plane does not exist (aka false) ===`)
@@ -353,7 +353,7 @@ airport, item = null;
 console.log('======= Test Thirteen Done =======');
 console.log(` `); //blank space to split up tests
 
-// Test Fourteen - an error message will appear when planeExists is false when takeoffPlane is called
+//* Test Fourteen - an error message will appear when planeExists is false when takeoffPlane is called
 console.log('======= Test Fourteen =======');
 console.log(`when takeoffPlane() is called, planeExists() run before proceeding`); // stating the test being carried out
 
