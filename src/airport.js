@@ -10,9 +10,18 @@ class Airport {
     }
   }
 
-  addPlane = tailNumber => {
+  addPlane(tailNumber) {
+    if (this.slotsOccupied.length === 10) {
+      return
+    } else {
+      this.slotsOccupied.push(tailNumber instanceof Plane)
+    }
+  }
+
+
+  /*addPlane = tailNumber => {
     if (tailNumber instanceof Plane) this.slotsOccupied.push(tailNumber)
-  };
+  };*/
 
 }
 
