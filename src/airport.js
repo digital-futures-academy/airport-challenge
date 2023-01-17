@@ -5,7 +5,9 @@ class Airport {
     this.capacity = capacity;
   };
 
-  land = plane => { if (!this.airportFull() && !this.planeAtAirport(plane)) this.planeList.push(plane) };
+  land = plane => {
+    if (!this.airportFull() && !this.planeAtAirport(plane) && plane.id != -1) this.planeList.push(plane);
+  };
 
   takeOff = plane => {
     const planeIndexToRemove = this.planeList.findIndex(currentPlane => currentPlane.id === plane.id);

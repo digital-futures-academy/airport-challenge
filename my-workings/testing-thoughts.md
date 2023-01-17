@@ -32,7 +32,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 **Airport Test 2 -** when an ``Airport`` is created, it should have a default capacity of 7
 
-**Airport Test 3 -** After an Airport is created, ``updateAirportCapacity`` can be called to change it's capacity
+**Airport Test 3 -** After an Airport is created, ``updateAirportCapacity()`` can be called to change it's capacity
 
 
 ### **User Story 3**
@@ -46,7 +46,7 @@ I want to prevent landing when the airport is full
 1. Need a function to check if the airport is full
 2. Need a check before allowing planes to land
 
-**Airport Test 4 -** If ``planeList`` is at max capacity, ``land`` will not add another ``Plane``  
+**Airport Test 4 -** If ``planeList`` is at max capacity, ``land()`` will not add another ``Plane``  
 
 
 ## **User Story 4**
@@ -60,7 +60,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 1. Need to be able to remove planes from the airport
 2. Should be able to remove a specific plane (need the plane id)
 
-**Airport Test 5 -** When ``takeOff`` is called, the length of ``planeList`` should decrease by 1
+**Airport Test 5 -** When ``takeOff()`` is called, the length of ``planeList`` should decrease by 1
 
 ## **User Story 5**
 ```
@@ -81,4 +81,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 **Plane Test 2 -** If a Plane isn't supplied with an id upon creation, it should have a placeholder id of -1
 
-**Airport Test 7 -** ``takeOff`` can't remove a ``Plane`` that's not in ``planeList``
+**Airport Test 7 -** ``takeOff()`` can't remove a ``Plane`` that's not in ``planeList``
+
+**Airport Test 8 -** ``land()`` can't add a ``Plane`` that doesn't have an id (an id of -1)
+

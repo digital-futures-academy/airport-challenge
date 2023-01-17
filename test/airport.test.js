@@ -7,6 +7,9 @@ let airport;
 let plane, plane2;
 let expected, actual, result;
 
+let specs = 0;
+let failed = 0;
+
 // remember:  Arrange, Act, Assert, Clean up
 
 // Ariport Test 1 - when a Plane is landed, planeList should increase by 1
@@ -14,7 +17,7 @@ console.log(`=== Ariport Test 1 - when a Plane is landed, planeList should incre
 
 // Arrange
 airport = new Airport();
-plane = new Plane();
+plane = new Plane(1);
 expected = airport.planeList.length + 1;
 
 // Act
@@ -26,6 +29,8 @@ result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Ariport Test 1 - when a Plane is landed, planeList should increase by 1: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Ariport Test End =====================================\n`)
+if (result) { specs += 1 }
+else { failed += 1 }
 
 // Clean up
 airport = undefined;
@@ -50,6 +55,8 @@ result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Ariport Test 2 - when an Airport is created, it should have a default capacity of 7: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
+if (result) { specs += 1 }
+else { failed += 1 }
 
 // Clean up
 airport = undefined;
@@ -74,6 +81,8 @@ result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Ariport Test 3 - After an Airport is created, it's capacity can be updated: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
+if (result) { specs += 1 }
+else { failed += 1 }
 
 // Clean up
 airport = undefined;
@@ -101,6 +110,8 @@ result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Ariport Test 4 - If planeList is at max capacity, land will not add another Plane: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
+if (result) { specs += 1 }
+else { failed += 1 }
 
 // Clean up
 airport = undefined;
@@ -129,6 +140,8 @@ result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Ariport Test 5 - When takeOff is called, the length of planeList should decrease by 1: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
+if (result) { specs += 1 }
+else { failed += 1 }
 
 // Clean up
 airport = undefined;
@@ -156,6 +169,8 @@ result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Ariport Test 6 - land cannot land a plane that is aleady in planeList: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
+if (result) { specs += 1 }
+else { failed += 1 }
 
 // Clean up
 airport = undefined;
@@ -183,6 +198,8 @@ result = assertEquals(expected, actual);
 console.log(`Expected: ${expected} || Actual: ${actual}`);
 console.log(`Ariport Test 7 - takeOff can't remove a plane that's not in planeList: ${result ? `Passed` : `FAILED`}`);
 console.log(`===================================== Test End =====================================\n`)
+if (result) { specs += 1 }
+else { failed += 1 }
 
 // Clean up
 airport = undefined;
@@ -191,3 +208,34 @@ plane2 = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+// Airport Test 8 - land() can't add a Plane that doesn't have an id (an id of -1)
+console.log(`=== Airport Test 8 - land() can't add a Plane that doesn't have an id (an id of -1) ===`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+expected = airport.planeList.length;
+
+// Act
+airport.land(plane);
+actual = airport.planeList.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Airport Test 8 - land() can't add a Plane that doesn't have an id (an id of -1): ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`);
+if (result) { specs += 1 }
+else { failed += 1 }
+
+// Clean up
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`Specs: ${specs} || Failed: ${failed}`)
+console.log(`===================================== AIRPORT TESTS END =====================================\n\n`);
