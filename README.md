@@ -1,6 +1,133 @@
 Airport Challenge
 =================
 
+====================================================================
+My notes:
+
+**COME BACK TO THIS
+
+"We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off."
+
+Objects   Properties                    Methods(messages)            Outputs 
+Weather                                 isSunny()                    @Boolean
+
+Thoughts:
+
+1. Need to specify weather conditions.
+2. Need to restrict plane activity (i.e. do nothing) if weather is stormy.
+3. Need to proceed with plane activity if weather is sunny.
+
+Test - When isSunny() returns false then nothing happens.
+Test - When isSunny() returns true then plane method(s) can run.
+
+*****************************************
+
+User Story 1
+
+As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+
+Objects   Properties                    Methods(messages) Outputs 
+Plane     id @String                    getId()           @String
+Airport   airportPlanes @Array[@Plane]  landPlane(@Plane) @Void
+
+Initial thoughts for Test:
+
+1. Need an Airport
+2. Need to be able to land a Plane at the Airport
+3. Need airportPlanes list length to increase by 1 when a Plane is landed (added).
+
+Test 1 - airportPlanes length increases when landPlane is called.
+Test 2 - landPlane should only add Plane instances to the airportPlanes list.
+Test 3 - Edge case: Falsy values (null, undefined, zero, false) should not be added to the airportPlanes list.
+
+---------
+
+User Story 2
+
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+
+Objects   Properties                    Methods(messages)            Outputs 
+Plane     id @String                    getId()                      @String
+Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
+          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+                                        
+
+Inital thoughts:
+
+1. Need to set capacity
+2. Need to make sure capacity can't be exceeded (i.e. no additional Planes can land when capacity is reached)
+3. Need to make sure capacity can be overridden
+
+Test 4 - Default capacity is set on Airport.
+Test 5 - Additional Planes cannot land (i.e. be added to airportPlanes list) once capacity is reached.
+Test 6 - Default capacity can be overriden.
+
+---------
+
+User Story 3
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+
+Objects   Properties                    Methods(messages)            Outputs 
+Plane     id @String                    getId()                      @String
+Airport   airportPlanes @Array[@Plane]  isAirportFull()              @Boolean
+                                        landPlane(@Plane)            @Void
+          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+
+
+Thoughts:
+
+1. I've tested for this already (got ahead of myself):
+
+Test 5 - Additional Planes cannot land (i.e. be added to airportPlanes list) once capacity is reached.
+
+---------
+
+User Story 4
+
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+Objects   Properties                    Methods(messages)            Outputs 
+Plane     id @String                    getId()                      @String
+Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
+                                        takeoffPlane(@Plane)         @Void
+          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+
+
+Thoughts:
+
+1. Need to identify Plane IDs in the airportPlanes array
+2. Need to remove specified ID(s) from the array (takeoffPlane(@Plane))
+3. Need to confirm that the Plane has left the airport
+
+Test 7 - takeoffPlane from Airport.
+
+
+
+---------
+
+
+
+
+
+Resources used:
+https://www.youtube.com/watch?v=IASaK1239y4
+https://www.youtube.com/watch?v=0DFvcZwqbDQ
+testing-framework.js file copied from Bob's bagels
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
+
+=====================================================================
+
+
+
 ```
          ______
         __\____\___
@@ -33,6 +160,7 @@ Steps
 4. Run your tests using `npm test` or `node specRunner.js`
 5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
 
+
 Task
 -----
 
@@ -59,6 +187,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
 ```
 
 #### Extended Acceptance Criteria
