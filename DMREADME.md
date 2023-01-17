@@ -11,10 +11,9 @@ I want to instruct the airport to land a plane
 | Plane   |planeID @String                |                   |         |
 
 ## Tests
-
-*Test 1* - Length of planesAtAirport array at the Airport increases by 1 when planeLands
-*Test 2* - Check that only Plane types are able to land at the Airport when planeLands
-*Test 3* - Check for edge cases
+*Test 1* - Check that only Plane types are able to land at the Airport when planeLands
+*Test 2* - Length of planesAtAirport array at the Airport increases by 1 when planeLands
+*Test 3* - Check that edge cases such as 'null' as a type are unable to land at the airport
 
 **User Story 2**
 As the system designer

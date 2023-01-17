@@ -1,7 +1,8 @@
+const Plane = require('./Plane.js')
 class Airport {
   planesAtAirport = []
   planeLands = (planeID) => {
-    this.planesAtAirport.push(planeID)
+    planeID instanceof Plane ? this.planesAtAirport.push(planeID) : "This is not a plane"
   };
 
 }
