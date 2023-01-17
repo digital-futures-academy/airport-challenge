@@ -10,7 +10,7 @@ class Airport {
   }
 
   landPlane = plane => {
-    if (plane instanceof Plane && this.planesAtAirport.length < this.airportCapacity && this.checkPlanesAtAirport(plane) === false) {
+    if (plane instanceof Plane && this.planesAtAirport.length < this.airportCapacity && this.checkPlanesAtAirport(plane) == false) {
       this.planesAtAirport.push(plane)
     }
   };
@@ -22,22 +22,20 @@ class Airport {
   };
 
   takeOffPlane = plane => {
-    const indexOfPlanesAtAirport = this.planesAtAirport.findIndex(planeTakingOff => planeTakingOff.planeId === plane.planeId);
-
-    if (indexOfPlanesAtAirport > -1 && this.checkPlanesAtAirport(plane) === true) {
+    const indexOfPlanesAtAirport = this.planesAtAirport.findIndex(planeTakingOff => planeTakingOff.planeId == plane.planeId);
+    if (indexOfPlanesAtAirport > -1 && this.checkPlanesAtAirport(plane) == true) {
       this.planesAtAirport.splice(indexOfPlanesAtAirport, 1);
     }
   };
 
   checkPlanesAtAirport = plane => {
+    let planeFound = false;
     for (let i = 0; i < this.planesAtAirport.length; i++) {
-      if (this.planesAtAirport[i] === plane) {
-        return true;
-      }
-      else {
-        return false;
+      if (this.planesAtAirport[i].planeId == plane.planeId) {
+        planeFound = true;
       }
     }
+    return planeFound;
   };
 
 }

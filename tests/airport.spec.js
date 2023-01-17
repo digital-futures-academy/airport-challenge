@@ -11,7 +11,7 @@ console.log(`\n*** START TEST 1 - \`planesAtAirport\` length increases when \`la
 
 //Arrange
 airport = new Airport();
-plane = new Plane();
+plane = new Plane(`plane1`);
 expected = 1;
 
 //Act
@@ -329,3 +329,29 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 14 ***`)
+
+//Test 15 - `takeOffPlane` decrease `planesAtAirport` by 1 when a Plane is in `planesAtAirport`
+console.log(`\n*** START TEST 15 - \`takeOffPlane\` decrease \`planesAtAirport\` by 1 when a Plane is in \`planesAtAirport\``)
+
+//Arrange
+airport = new Airport();
+planes = 5;
+for (let i = 0; i < planes; i++) {
+    airport.planesAtAirport.push(new Plane(`plane${i}`));
+}
+expected = 4;
+
+//Act
+plane = new Plane(`plane2`);
+airport.takeOffPlane(plane);
+actual = airport.planesAtAirport.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 15 - \`takeOffPlane\` decrease \`planesAtAirport\` by 1 when a Plane is in \`planesAtAirport\`: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 15 ***`)

@@ -153,6 +153,8 @@ Initial thoughts:
 **Test 13** - `landPlane` increase `planesAtAirport` by 1 when a Plane is not in `planesAtAirport`
 
 **Test 14** - `takeOffPlane` does not decrease `planesAtAirport` when a Plane is not in `planesAtAirport`
+
+**Test 15** - `takeOffPlane` decrease `planesAtAirport` by 1 when a Plane is in `planesAtAirport`
 ```
 
 #### Extended Acceptance Criteria
