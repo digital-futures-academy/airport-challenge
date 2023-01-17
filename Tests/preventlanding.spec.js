@@ -1,5 +1,4 @@
 const { testIncrease } = require('./testing-framework');
-const { testEqualsGreater } = require('./testing-framework');
 const Airport = require('../src/airport');
 
 let expected;
@@ -19,11 +18,11 @@ expected = 10;
 airport.setLength();
 airport.addPlane();
 actual = airport.slotsOccupied.length;
-console.log(actual)
+
 //Assert
-result = testIncrease(expected, actual) ? 'Plane has landed' : 'Landing rejected as you will exceed default slots' //the actual remains at the default number of slots (10) and does not increase.
-console.log(result)
-console.log('--------------------')
+result = testIncrease(expected, actual) ? 'Plane has landed' : 'Landing rejected as you will exceed default slots'; //the actual remains at the default number of slots (10) and does not increase.
+console.log(result);
+console.log('--------------------');
 
 //Cleanup
 expected = undefined;
