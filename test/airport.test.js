@@ -242,13 +242,12 @@ console.log(`Airport Test 9 - takeOff() can't remove a Plane that doesn't have a
 
 // Arrange
 airport = new Airport();
-plane = new Plane(1);
-plane2 = new Plane();
+plane = new Plane();
 airport.land(plane);
 expected = airport.planeList.length;
 
 // Act
-airport.takeOff(plane2);
+airport.takeOff(plane);
 actual = airport.planeList.length;
 
 // Assert
@@ -258,6 +257,13 @@ console.log(`Airport Test 9 - takeOff() can't remove a Plane that doesn't have a
 console.log(`===================================== Test End =====================================\n`);
 if (result) { specs += 1 }
 else { failed += 1 }
+
+// Clean up
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
 console.log(`Specs: ${specs} || Failed: ${failed}`)
 console.log(`===================================== AIRPORT TESTS END =====================================\n\n`);
