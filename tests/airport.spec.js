@@ -5,6 +5,7 @@ const { assertEquals } = require(`../testing-frameworks.js`);
 const Airport = require(`../src/airport.js`);
 const Plane = require(`../src/plane.js`);
 
+
 // initialize variables used in tests
 let expected, actual, result, airport, plane, input; //create empty variables for the tests
 
