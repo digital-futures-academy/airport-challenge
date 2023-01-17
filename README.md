@@ -132,9 +132,23 @@ Initial thoughts:
 
 **Test 11** - confirm that the plane has taken off and is not longer in `planesAtAirport`
 
+### USER CASE 5
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+## Domain Model
+
+| Objects | Properties                    | Messages                     | Outputs  |
+| ------- | ----------------------------- | ---------------------------- | -------- |
+| Airport | planesAtAirport @Array[@Plane]| checkPlanesAtAirport(@Plane) | @Boolean |
+
+Initial thoughts:
+1. Populate `planesAtAirport` with some instances of Plane
+2. Check `planesAtAirport` for one Plane that is already in the Array, so it cannot land because is landed
+3. Check `planesAtAirport` for one Plane that is not in the Array, so it cannot take off because is already away
+
+**Test 12** - `landPlane` does not increase `planesAtAirport` when a Plane is already in `planesAtAirport`
 ```
 
 #### Extended Acceptance Criteria

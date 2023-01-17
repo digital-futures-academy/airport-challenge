@@ -254,3 +254,28 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 11 ***`)
+
+//Test 12 - `landPlane` does not increase `planesAtAirport` when a Plane is already in `planesAtAirport`
+console.log(`\n*** START TEST 12 - \`landPlane\` does not increase \`planesAtAirport\` when a Plane is already in \`planesAtAirport\``)
+
+//Arrange
+airport = new Airport();
+planes = 5;
+for (let i = 0; i < planes; i++) {
+    airport.planesAtAirport.push(new Plane(`plane${i}`));
+}
+expected = 5;
+
+//Act
+airport.landPlane(`plane2`);
+actual = airport.planesAtAirport.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 12 - \`landPlane\` does not increase \`planesAtAirport\` when a Plane is already in \`planesAtAirport\`: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 12 ***`)
