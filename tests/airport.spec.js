@@ -173,7 +173,8 @@ console.log(` `); //blank space to split up tests
 
 // Airport is not Full
 // Arrange
-console.log(`=== Test Eight.One - Airport is not full ===`)
+console.log(`=== Test Eight.One ===`);
+console.log(`Airport is not full`);
 airport = new Airport(); // create new airport for the test
 expected = false; // airportCapacity should be less than groundedPlanes.length
 
@@ -191,7 +192,8 @@ console.log(` `); //blank space to split up tests
 
 // Airport is Full
 // Arrange
-console.log(`=== Test Eight.Two - Airport is Full ===`)
+console.log(`=== Test Eight.Two ===`);
+console.log(`Airport is Full`);
 airport = new Airport(); // create new airport for the test
 expected = true; // airportCapacity should be equal to groundedPlanes.length
 
@@ -315,7 +317,8 @@ console.log(`planeExists() will check if the Plane exists in groundedPlanes`); /
 // Plane Exists in groundedPlanes
 // Arrange
 console.log(` `); //blank space to split up tests
-console.log(`=== Test Thirteen.One - Plane Exists (aka true) ===`)
+console.log(`=== Test Thirteen.One ===`);
+console.log(`Plane Exists (aka true)`);
 airport = new Airport(); // create new airport for the test
 plane = new Plane('Boeing');
 expected = true; // should show that the plane exists in array
@@ -335,7 +338,8 @@ airport, plane = null;
 // Plane does not exist in groundedPlanes
 // Arrange
 console.log(` `); //blank space to split up tests
-console.log(`=== Test Thirteen.Two - Plane does not exist (aka false) ===`)
+console.log(`=== Test Thirteen.Two ===`);
+console.log(`Plane does not exist (aka false)`);
 airport = new Airport(); // create new airport for the test
 plane = new Plane('Boeing');// create new plane for the test
 expected = false; // should show that the plane does not exist in array
