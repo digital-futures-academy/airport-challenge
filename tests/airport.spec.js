@@ -335,7 +335,7 @@ airport, item = null;
 // Plane does now exist in groundedPlanes
 // Arrange
 console.log(` `); //blank space to split up tests
-console.log(`=== Test Eight.Two - Plane does not exist (aka false) ===`)
+console.log(`=== Test Thirteen.Two - Plane does not exist (aka false) ===`)
 airport = new Airport(); // create new airport for the test
 plane = new Plane('Boeing');// create new plane for the test
 expected = false; // should show that the plane does not exist in array
@@ -351,4 +351,27 @@ console.log(`Test Thirteen.Two - ${result ? `Passed` : `Failed`}`); // states if
 expected, actual, result = undefined; // resetting variables for a next test
 airport, item = null;
 console.log('======= Test Thirteen Done =======');
+console.log(` `); //blank space to split up tests
+
+// Test Fourteen - an error message will appear when planeExists is false when takeoffPlane is called
+console.log('======= Test Fourteen =======');
+console.log(`when takeoffPlane() is called, planeExists() run before proceeding`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane('Boeing'); // create new plane for the test
+expected = 'Boeing does not exist, cannot takeoff';
+
+// Act
+airport.takeoffPlane(plane); // takeoff plane from airport
+actual = airport.groundedPlanes.length; // find the length of the array
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Fourteen - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined; // resetting variables for a next test
+airport, item = null;
+console.log('======= Test Fourteen Done =======');
 console.log(` `); //blank space to split up tests
