@@ -286,15 +286,13 @@ console.log(`takeoffPlane will take off specific plane from groundedPlanes`); //
 // Arrange
 airport = new Airport(); // create new airport for the test
 plane = new Plane('Boeing'); // create new planes for the test
-let plane2 = new Plane(`Concord`);
-let plane3 = new Plane(`Airbus`);
-expected = JSON.stringify(["Boeing","Airbus"]); // expected array
+expected = JSON.stringify(["Concord","Airbus"]); // expected array
 
 // Act
-airport.landPlane(plane); 
-airport.landPlane(plane2);
-airport.landPlane(plane3); // land multiple planes at airport
-airport.takeoffPlane(plane2); // takeoff plane from airport
+airport.landPlane(new Plane(`Concord`)); 
+airport.landPlane(plane);
+airport.landPlane(new Plane(`Airbus`)); // land multiple planes at airport
+airport.takeoffPlane(plane); // takeoff plane from airport
 actual = JSON.stringify(airport.groundedPlanes.map(function (plane) {
     return plane['planeID']
 })); // find the array as a list of plane names

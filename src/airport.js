@@ -33,7 +33,8 @@ class Airport {
   }
 
     takeoffPlane = plane => {
-      if (plane instanceof Plane) this.groundedPlanes.pop(plane); // take off the last element of the array
+      this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1); // takes off plane when identified in the groundedPlanes array
+      return console.log(`${plane.planeID} has taken off.`)
   }
   
   }
