@@ -15,8 +15,9 @@ plane = new Plane();
 expected = 1;
 
 //Act
-airport.landPlane(plane);
+airport.landPlane(plane, `Sunny`);
 actual = airport.planesInAirport.length;
+console.log(actual);
 
 //Assert
 result = assertEquals(expected, actual);
@@ -197,9 +198,9 @@ plane3 = new Plane();
 expected = true;
 
 //Act
-airport.landPlane(plane);
-airport.landPlane(plane1);
-airport.landPlane(plane2);
+airport.landPlane(plane, `Sunny`);
+airport.landPlane(plane1, `Sunny`);
+airport.landPlane(plane2, `Sunny`);
 actual = airport.isAirportFull();
 
 //Assert
@@ -227,11 +228,14 @@ plane3 = new Plane(3);
 airport.landPlane(plane1);
 airport.landPlane(plane2);
 airport.landPlane(plane3);
-expected = 2;
+expected = `Stormy Weather, unable to take off!`;
 
 //Act
-airport.takeOffPlane(plane2.getID());
-actual = airport.planesInAirport.length;
+console.log(`No. of planes: ${airport.planesInAirport.length}`);
+actual = airport.takeOffPlane(plane2.getID(), `Stormy`);
+console.log(`No. of planes after take off: ${airport.planesInAirport.length}`);
+
+//actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
@@ -256,8 +260,8 @@ plane2 = new Plane(2);
 expected = true;
 
 //Act
-airport.landPlane(plane1);
-airport.landPlane(plane2);
+airport.landPlane(plane1, `Sunny`);
+airport.landPlane(plane2, `Sunny`);
 actual = airport.doesPlaneExist(plane1);
 //Assert
 result = assertEquals(expected, actual);
@@ -283,14 +287,12 @@ plane1 = new Plane(1);
 expected = `Plane does not exist in this airport.`;
 
 //Act
-airport.landPlane(plane1);
-
-actual = airport2.takeOffPlane(plane1.getID());
+actual = airport2.takeOffPlane(plane1.getID(), `Sunny`);
 
 //Assert
 result = assertEquals(expected, actual);
 console.log(
-  `Test 11: Existing plane take off: ${result ? `Passed` : `Failed`}`
+  `Test 11: Non - existent plane take off: ${result ? `Passed` : `Failed`}`
 );
 
 //Clear up
@@ -298,8 +300,9 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 airport = null;
+airport2 = null;
 plane1 = null;
-plane2 = null;
+
 console.log(`===============================================`);
 // End of Test 11
 
@@ -310,9 +313,8 @@ plane1 = new Plane(1);
 expected = `Plane already exists in this airport.`;
 
 //Act
-airport.landPlane(plane1);
-actual = airport.landPlane(plane1);
-console.log(`Actual: ${actual}`);
+airport.landPlane(plane1, `Sunny`);
+actual = airport.landPlane(plane1, `Sunny`);
 
 //Assert
 result = assertEquals(expected, actual);
@@ -326,5 +328,29 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane1 = null;
-plane2 = null;
+
 console.log(`===============================================`);
+// End of Test 12
+
+// Test 13 - Check weather
+//Arrange
+airport = new Airport();
+expected = `Sunny` || `Stormy`;
+
+//Act
+actual = airport.defaultWeather;
+console.log(actual);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 13: Valid weather: ${result ? `Passed` : `Failed`}`);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane1 = null;
+
+console.log(`===============================================`);
+// End of Test 13
