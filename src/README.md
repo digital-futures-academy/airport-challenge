@@ -85,4 +85,10 @@ I want to prevent landing when the airport is full
 
 Building Test 3:
 
-Need to check the slotsOccupied array contents and the remaining slotsAvailable value. If an additional plane would cause this to exceed the default value then prevent it from being added to the array.
+Need to check the slotsOccupied array contents and the remaining slotsAvailable value. If an additional plane would cause this to exceed the default value then prevent it from being added to the array. I have edited the if statement following addPlane to check the .length value of the slotsAvailable array. If the value is equal to or greater than it will return if its less it will run addPlane.
+
+Fourth User Story:
+
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
