@@ -6,14 +6,16 @@ My notes:
 
 **COME BACK TO THIS
 
-"We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off."
+"We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.
+
+You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour."
 
 Objects   Properties                    Methods(messages)            Outputs 
 Weather                                 isSunny()                    @Boolean
 
 Thoughts:
 
-1. Need to specify weather conditions.
+1. 
 2. Need to restrict plane activity (i.e. do nothing) if weather is stormy.
 3. Need to proceed with plane activity if weather is sunny.
 
@@ -110,7 +112,30 @@ Thoughts:
 
 Test 7 - takeoffPlane from Airport.
 
+---------
 
+User Story 4
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+Objects   Properties                    Methods(messages)            Outputs 
+Plane     id @String                    getId()                      @String
+                                        atAirport()                  @Boolean
+Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
+                                        takeoffPlane(@Plane)         @Void
+          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+
+
+Thoughts:
+
+1. Check airportPlanes array for Plane ID
+2. If PlaneID does not exist in the airportPlanes array when takeoffPlane(@Plane) is called, do nothing
+3. If PlaneID exists in the airportPlanes array when landPlane(@Plane) is called, do nothing
+
+Test 8 - Planes which are not at the airport cannot take off.
+Test 9 - Planes which are already at the airport cannot land.
 
 ---------
 

@@ -7,10 +7,12 @@ class Airport {
   airportPlanes = [];
 
   landPlane = plane => {
-    if (plane instanceof Plane && this.airportPlanes < this.airportCapacity) this.airportPlanes.push(plane);
+    if (this.airportPlanes.includes(plane)) return;
+    if (plane instanceof Plane && this.airportPlanes.length < this.airportCapacity) this.airportPlanes.push(plane);
   };
 
   takeoffPlane = plane => {
+    if (!this.airportPlanes.includes(plane)) return;
     const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlane => airportPlane.id === plane.id);
     if (indexOfPlaneInAirportPlanes > -1) {
       this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
@@ -20,3 +22,4 @@ class Airport {
 }
 
 module.exports = Airport;
+
