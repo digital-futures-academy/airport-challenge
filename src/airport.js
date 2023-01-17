@@ -1,5 +1,8 @@
 class Airport {
-  // here's a starting point for you
+  planesAtAirport = []
+  planeLands = (planeID) => {
+    this.planesAtAirport.push(planeID)
+  };
 
 }
 

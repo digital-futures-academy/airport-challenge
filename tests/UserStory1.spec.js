@@ -2,27 +2,27 @@ const { assertEquals } = require('./testingFrameworks.js');
 const Airport = require('../src/Airport');
 
 // Test 1
-console.log(`***Length of listOfPlanes array at the Airport increases by 1 when planeLands ***`);
+console.log(`***Length of planeAtAiport array at the Airport increases by 1 when planeLands ***`);
 
 let expectedOutput;
 let input;
 let actualOutput, result;
 
 // Arrange
-expectedOutput;
-input;
+const airport1 = new Airport
+expectedOutput = 1;
+input = 'plane1';
 actualOutput, result;
 
 // Act
-actualOutput = basket.addItem(input);
+airport1.planeLands(input)
+actualOutput = airport1.planesAtAirport.length;
 
 // Assert
-console.log(actualOutput instanceof Basket)
-console.log(expectedOutput instanceof Basket)
 result = assertEquals(expectedOutput, actualOutput);
 
 // Report
-console.log(`item added ${result}`);
+console.log(`plane landed: ${result}`);
 
 // Clean-Up
 actualOutput = undefined;
