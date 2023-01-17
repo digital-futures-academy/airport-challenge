@@ -45,7 +45,6 @@ expected = 10;
 airport.setLength();
 airport.addPlane(plane);
 actual = airport.slotsOccupied.length;
-console.log(airport.slotsOccupied.length);
 
 //Assert
 result = testEqualsGreater(expected, actual) ? 'You have increased the number of slots available' : 'You are still set at the default number of slots'

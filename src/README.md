@@ -68,3 +68,21 @@ Building Test 2:
 Class Airport already exists so adding additional function to the class.
 Test wether the expected number of slots is the same as the actual number of slots 
 Look into sparse arrays?
+Have run an if statement to check length of slotsOccupied array and set to a default length of 10.
+Able to add a plane and override the default length.
+
+Third User Story:
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+
+| Objects | Properties                             | Messages | Outputs  |
+| ------- | -------------------------------------- | -------- | -------- |
+| Airport | slotsAvailable @integer(slotsOccupied) | slots()  | @integer |
+|         |                                        | return() | @string  |
+|         |                                        |          |          |
+
+Building Test 3:
+
+Need to check the slotsOccupied array contents and the remaining slotsAvailable value. If an additional plane would cause this to exceed the default value then prevent it from being added to the array.
