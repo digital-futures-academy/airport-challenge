@@ -2,27 +2,25 @@ const { assertEquals } = require('./testingFrameworks.js');
 const Airport = require('../src/Airport');
 
 // Test 1
-console.log(`***Length of listOfPlanes array at the Airport increases by 1 when planeLands ***`);
+console.log(`*** Check the value returned for default airport capacity ***`);
 
 let expectedOutput;
 let input;
 let actualOutput, result;
 
 // Arrange
-expectedOutput;
-input;
+const airport1 = new Airport
+expectedOutput = 10;
 actualOutput, result;
 
 // Act
-actualOutput = basket.addItem(input);
+actualOutput = airport1.airportCapacity;
 
 // Assert
-console.log(actualOutput instanceof Basket)
-console.log(expectedOutput instanceof Basket)
 result = assertEquals(expectedOutput, actualOutput);
 
 // Report
-console.log(`item added ${result}`);
+console.log(`correct default capacity: ${result}`);
 
 // Clean-Up
 actualOutput = undefined;
