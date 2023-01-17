@@ -237,5 +237,27 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Airport Test 9 - takeOff() can't remove a Plane that doesn't have an id (an id of -1)
+console.log(`Airport Test 9 - takeOff() can't remove a Plane that doesn't have an id (an id of -1)`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(1);
+plane2 = new Plane();
+airport.land(plane);
+expected = airport.planeList.length;
+
+// Act
+airport.takeOff(plane2);
+actual = airport.planeList.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Airport Test 9 - takeOff() can't remove a Plane that doesn't have an id (an id of -1): ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`);
+if (result) { specs += 1 }
+else { failed += 1 }
+
 console.log(`Specs: ${specs} || Failed: ${failed}`)
 console.log(`===================================== AIRPORT TESTS END =====================================\n\n`);

@@ -85,3 +85,4 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 **Airport Test 8 -** ``land()`` can't add a ``Plane`` that doesn't have an id (an id of -1)
 
+**Airport Test 9 -** ``takeOff()`` can't remove a ``Plane`` that doesn't have an id (an id of -1)
