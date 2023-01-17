@@ -360,11 +360,12 @@ console.log(`when takeoffPlane() is called, planeExists() run before proceeding`
 // Arrange
 airport = new Airport(); // create new airport for the test
 plane = new Plane('Boeing'); // create new plane for the test
-expected = 'Boeing does not exist, cannot takeoff';
+expected = false;
 
 // Act
 airport.takeoffPlane(plane); // takeoff plane from airport
-actual = airport.groundedPlanes.length; // find the length of the array
+actual = airport.planeExists(plane);
+
 
 // Assert
 result = assertEquals(expected, actual); // is expected and actual the same??

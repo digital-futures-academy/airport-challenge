@@ -23,8 +23,7 @@ class Airport {
   }
 
   planeExists = plane => {
-    const indexOfPlane = this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID);
-    return assertMoreThan(-1, indexOfPlane);
+    return assertMoreThan(-1, this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID));
   }
 
   landPlane = plane => {
@@ -39,8 +38,12 @@ class Airport {
   }
 
     takeoffPlane = plane => {
-      this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1); // takes off plane when identified in the groundedPlanes array
-      return console.log(`${plane.planeID} has taken off.`)
+      if (this.planeExists(plane) === true) {
+        this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
+        return console.log(`${plane.planeID} has taken off`)
+      } else {
+        return console.log(`${plane.planeID} is not at airport and cannot takeoff`)
+      }
   }
   
   }
