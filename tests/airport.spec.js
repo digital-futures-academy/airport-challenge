@@ -229,3 +229,28 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 10 ***`)
+
+//Test 11 - confirm that the plane has taken off and is not longer in `planesAtAirport`
+console.log(`\n*** START TEST 11 - confirm that the plane has taken off and is not longer in \`planesAtAirport\``)
+
+//Arrange
+airport = new Airport();
+plane1 = new Plane(`plane1`);
+plane2 = new Plane(`plane2`);
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+expected = false;
+
+//Act
+airport.takeOffPlane(plane2);
+actual = airport.checkPlanesAtAirport(plane2);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 11 - confirm that the plane has taken off and is not longer in \`planesAtAirport\`: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 11 ***`)

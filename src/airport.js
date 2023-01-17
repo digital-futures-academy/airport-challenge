@@ -29,6 +29,11 @@ class Airport {
     }
   };
 
+  checkPlanesAtAirport = plane => {
+    console.log(`checkPlanesAtAirport`);
+    return false;
+  };
+
 }
 
 module.exports = Airport;

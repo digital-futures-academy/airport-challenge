@@ -50,7 +50,7 @@ I want to instruct the airport to land a plane
 
 | Objects | Properties                    | Messages          | Outputs |
 | ------- | ----------------------------- | ----------------- | ------- |
-| Airport | planesAtAirpot @Array[@Plane] | landPlane(@Plane) | @Void   |
+| Airport | planesAtAirport @Array[@Plane]| landPlane(@Plane) | @Void   |
 | Plane   | planeId @String               | getId()           | @String |
 
 ### Tests
@@ -103,7 +103,7 @@ I want to prevent landing when the airport is full
 
 | Objects | Properties                    | Messages            | Outputs |
 | ------- | ----------------------------- | ------------------- | ------- |
-| Airport | planesAtAirpot @Array[@Plane] | landPlane(@Plane)   | @Void   |
+| Airport | planesAtAirport @Array[@Plane]| landPlane(@Plane)   | @Void   |
 
 Initial thoughts:
 1. Need an airport
@@ -118,17 +118,19 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 ## Domain Model
 
-| Objects | Properties                    | Messages                            | Outputs  |
-| ------- | ----------------------------- | ----------------------------------- | -------- |
-| Airport | planesAtAirpot @Array[@Plane] | takeOffPlane(@Plane)                | @Void    |
-|         |                               | checkPlanesAtAirport(@Array[@Plane])| @Boolean |
+| Objects | Properties                    | Messages                     | Outputs  |
+| ------- | ----------------------------- | ---------------------------- | -------- |
+| Airport | planesAtAirport @Array[@Plane]| takeOffPlane(@Plane)         | @Void    |
+|         |                               | checkPlanesAtAirport(@Plane) | @Boolean |
 
 Initial thoughts:
 1. Need an airport with at least one identifiable Plane in it
 2. Try to remove the identifiable Plane
 3. Confirm that the `planesAtAirport` length is reduced by 1 from initial value
 
-**Test 10** - `planesAtAirpot` length decreases to 0 when Plane is found and removed
+**Test 10** - `planesAtAirport` length decreases to 0 when Plane is found and removed
+
+**Test 11** - confirm that the plane has taken off and is not longer in `planesAtAirport`
 
 As an air traffic controller
 To avoid confusion
