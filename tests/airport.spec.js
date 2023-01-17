@@ -28,7 +28,7 @@ console.log(`Test One - ${result ? `Passed` : `Failed`}`); // states if the test
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test One Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -51,7 +51,7 @@ console.log(`Test Two - ${result ? `Passed` : `Failed`}`); // states if the test
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Two Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -74,7 +74,7 @@ console.log(`Test Three - ${result ? `Passed` : `Failed`}`); // states if the te
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Three Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -95,7 +95,7 @@ console.log(`Test Four - ${result ? `Passed` : `Failed`}`); // states if the tes
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Four Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -118,7 +118,7 @@ console.log(`Test Five - ${result ? `Passed` : `Failed`}`); // states if the tes
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Five Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -141,7 +141,7 @@ console.log(`Test Six - ${result ? `Passed` : `Failed`}`); // states if the test
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Six Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -162,17 +162,17 @@ console.log(`Test Seven - ${result ? `Passed` : `Failed`}`); // states if the te
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Seven Done =======');
 console.log(` `); //blank space to split up tests
 
 //* Test Eight - create a function that compares the values of airportCapacity and groundedPlanes.length
 console.log('======= Test Eight =======');
 console.log(`isAirportFull() checks if groundedPlanes.length is equal to airportCapacity`); // stating the test being carried out
+console.log(` `); //blank space to split up tests
 
 // Airport is not Full
 // Arrange
-console.log(` `); //blank space to split up tests
 console.log(`=== Test Eight.One - Airport is not full ===`)
 airport = new Airport(); // create new airport for the test
 expected = false; // airportCapacity should be less than groundedPlanes.length
@@ -186,11 +186,11 @@ console.log(`Test Eight.One - ${result ? `Passed` : `Failed`}`); // states if th
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
+console.log(` `); //blank space to split up tests
 
 // Airport is Full
 // Arrange
-console.log(` `); //blank space to split up tests
 console.log(`=== Test Eight.Two - Airport is Full ===`)
 airport = new Airport(); // create new airport for the test
 expected = true; // airportCapacity should be equal to groundedPlanes.length
@@ -205,7 +205,7 @@ console.log(`Test Eight.Two - ${result ? `Passed` : `Failed`}`); // states if th
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Eight Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -228,7 +228,7 @@ console.log(`Test Nine - ${result ? `Passed` : `Failed`}`); // states if the tes
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Nine Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -252,7 +252,7 @@ console.log(`Test Ten - ${result ? `Passed` : `Failed`}`); // states if the test
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Ten Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -276,7 +276,7 @@ console.log(`Test Eleven - ${result ? `Passed` : `Failed`}`); // states if the t
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Eleven Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -304,7 +304,7 @@ console.log(`Test Twelve - ${result ? `Passed` : `Failed`}`); // states if the t
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Twelve Done =======');
 console.log(` `); //blank space to split up tests
 
@@ -330,7 +330,7 @@ console.log(`Test Thirteen.One - ${result ? `Passed` : `Failed`}`); // states if
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 
 // Plane does not exist in groundedPlanes
 // Arrange
@@ -349,13 +349,13 @@ console.log(`Test Thirteen.Two - ${result ? `Passed` : `Failed`}`); // states if
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Thirteen Done =======');
 console.log(` `); //blank space to split up tests
 
 //* Test Fourteen - an error message will appear when planeExists is false when takeoffPlane is called
 console.log('======= Test Fourteen =======');
-console.log(`when takeoffPlane() is called, planeExists() run before proceeding`); // stating the test being carried out
+console.log(`when takeoffPlane() is called, planeExists() runs before proceeding`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for the test
@@ -366,13 +366,36 @@ expected = false;
 airport.takeoffPlane(plane); // takeoff plane from airport
 actual = airport.planeExists(plane);
 
-
 // Assert
 result = assertEquals(expected, actual); // is expected and actual the same??
 console.log(`Test Fourteen - ${result ? `Passed` : `Failed`}`); // states if the test passed
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, item = null;
+airport, plane = null;
 console.log('======= Test Fourteen Done =======');
 console.log(` `); //blank space to split up tests
+
+//* Test Fifteen - an error message will appear when planeExists is true when landPlane
+console.log(`======= Test Fifteen =======`);
+console.log(`when landPlane() is called, planeExists() runs before proceeding`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane(`Boeing`); // create new plane for the test;
+expected = true;
+
+// Act
+airport.landPlane(plane);
+airport.landPlane(plane); // try to land the same plane twice
+actual = 'Boeing is already at this airport, cannot land';
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Fifteen - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined;
+airport, plane = null;
+console.log(`======= Test Fifteen Done =======`);
+console.log(` `); // blank space to split up tests
