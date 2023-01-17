@@ -74,7 +74,7 @@ I want to prevent landing when the airport is full
 
 a Need to check if is AirportFull True prevents Plane going into 'landedPlanes'
 b Need to check if is AirportFull False allows Plane to go into 'landedPlanes'
-//this approach requires the caller to ask if airport is full, whereas would be better to have prevention of landPlane if full
+//this approach requires the caller to ask if airport is full first (then do something), whereas would be better to have prevention of landPlane if full
 
 **Test 5**: xxxxxxxxxx
 **Test 6**: xxxxxxxxxx
@@ -98,11 +98,10 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 |         |                             | isPlanePresent(@Plane)      | @Boolean |
 | Plane   | id @String                  | getId()                     | @String  |
 
-## Tests
+## Tests - 7&8
 
-a check isPlanePresent True
-b takeOffPlane
-c check isPlanePresent False
+a landPlane Plane(id) and check if isPlanePresent (T/F)
+b in the same way - takeOffPlane Plane(id) and check if isPlanePresent (T/F)
 
 ## Part 5 User Story
 

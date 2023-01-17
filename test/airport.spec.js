@@ -20,7 +20,7 @@ console.log(`============================`);
 console.log(`Test 1 - landPlane puts a Plane into the airport`);
 
 // Arrange - this is setting up the variables required for the test
-airport = new Airport();
+airport = new Airport(3); //have had to add a defaultAirportCapacity value here to allow for introducing it in later test (or planes cannot land)
 plane = new Plane();
 expected = 1;
 
@@ -57,7 +57,7 @@ plane = new Plane();
 expected = 0;
 
 // Act - this is running the methods to be tested and collecting the actual results
-airport.landPlane(4); //tried to land a 'potato' and '4'
+airport.landPlane(4); //tried to land a 'potato' and '4'(in this case)
 actual = airport.landedPlanes.length; //should really use a method here getPlaneCount (which I've not created until a later domain model), than checking a property of the array??
 
 // Assert - testing the actual results against expected results
@@ -100,6 +100,8 @@ result = undefined;
 
 console.log(`============================`);
 
+//Test 1 starts failing after set up of Test 4, as defaultLandedCapacity now exists for Airport class and is not defined in earlier tests, so likely assumes 0
+
 // Test 5 -  set newLandedCapacity
 
 console.log(`============================`);
@@ -129,6 +131,7 @@ result = undefined;
 console.log(`============================`);
 
 // Test 6 -  when landedPlanes length equals landedCapacity, do not allow landPlane
+
 console.log(`============================`);
 console.log(`Test 6 - landedPlanes length equals landedCapacity`);
 
@@ -137,18 +140,70 @@ airport = new Airport(2); //create a new airport that has only the capacity to l
 //create three planes that we will attempt to land
 plane1 = new Plane('Delta');
 plane2 = new Plane('BA');
-plane3 = new Plane('Ryanir');
+plane3 = new Plane('Ryanair');
 
 // Act - this is running the methods to be tested and collecting the actual results
 airport.landPlane(plane1); //land plane one
-airport.landPlane(plane2); //try to land plane two
-airport.landPlane(plane3); //but it shouldn't be succesful as airport only has capacity for 2
+airport.landPlane(plane2); //land plane two
+airport.landPlane(plane3); //try to land plane three but it shouldn't be succesful as airport only has capacity for 2
 expected = 2; // we only expect two planes to land
 actual = airport.getLandedPlaneCount(); //let's see how many actually landed
 
 // Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
 console.log(`Test 6 - 'landPlane cannot happen': ${result}`);
+//console.log(actual);
+
+// Clean up - here we are clearing the variables ready for next test, to avoid contamination
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+// Test 7 - landPlane of Plane(id) and check if isPlanePresent (T/F)
+//7 landPlane Plane(id) and check if isPlanePresent (T/F)
+//8 in the same way - takeOffPlane Plane(id) and check if isPlanePresent(T / F)
+    
+console.log(`============================`);
+console.log(`Test 7 - landPlane into airport`);
+
+// Arrange - this is setting up the variables required for the test
+airport = new Airport(1); //I'm putting a value in here for defaultAirportCapacity, otherwise 0 is default and no plane can land
+plane1 = new Plane('Delta');
+expected = true;
+
+// Act - this is running the methods to be tested and collecting the actual results
+airport.landPlane(plane1);
+actual = airport.isPlanePresent(plane1);
+
+//Assert - testing the actual results against expected results
+result = assertEquals(expected, actual);
+console.log(`Test 7 - 'Plane is present': ${result}`);
+
+// Clean up - here we are clearing the variables ready for next test, to avoid contamination
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+console.log(`============================`);
+console.log(`Test 8 - takeOffPlane Plane(id) from airport`);
+
+// Arrange - this is setting up the variables required for the test
+
+
+// Act - this is running the methods to be tested and collecting the actual results
+
+
+//Assert - testing the actual results against expected results
+result = assertEquals(expected, actual);
+console.log(`Test 8 - 'Plane is not present': ${result}`);
 
 // Clean up - here we are clearing the variables ready for next test, to avoid contamination
 airport = null;
@@ -160,3 +215,15 @@ result = undefined;
 console.log(`============================`);
 
 
+/*
+| Objects | Properties                  | Messages                    | Outputs  |
+| ------- | --------------------------- | --------------------------- | -------- |
+| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)           | @Void    |
+|         | landedCapacity @Integer     | isAirportFull()             | @Boolean |
+|         |                             | getLandedCapacity()         | @Integer |
+|         |                             | newLandedCapacity(@Integer) | @Void    |
+|         |                             | getLandedPlaneCount()       | @Integer |
+|         |                             | takeOffPlane(@Plane)        | @Void    |
+|         |                             | isPlanePresent(@Plane)      | @Boolean |
+| Plane   | id @String                  | getId()                     | @String  |
+*/
