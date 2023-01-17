@@ -279,3 +279,28 @@ expected, actual, result = undefined;
 airport, plane = null;
 
 console.log(`\n *** END TEST 12 ***`)
+
+//Test 13 - `landPlane` increase `planesAtAirport` by 1 when a Plane is not in `planesAtAirport`
+console.log(`\n*** START TEST 13 - \`landPlane\` increase \`planesAtAirport\` by 1 when a Plane is not in \`planesAtAirport\``)
+
+//Arrange
+airport = new Airport();
+planes = 5;
+for (let i = 0; i < planes; i++) {
+    airport.planesAtAirport.push(new Plane(`plane${i}`));
+}
+expected = 6;
+
+//Act
+airport.landPlane(new Plane(`plane6`));
+actual = airport.planesAtAirport.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 13 - \`landPlane\` increase \`planesAtAirport\` by 1 when a Plane is not in \`planesAtAirport\`: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 13 ***`)
