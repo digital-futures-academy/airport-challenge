@@ -149,9 +149,22 @@ I want to prevent asking the airport to land a plane that has already landed
 | Objects | Properties                      | Messages              | Outputs  |
 | ------- | ------------------------------- | --------------------- | -------- |
 | Airport | groundedPlanes @Array[@Planes]  | takeoffPlane(@Plane)  | @String  |
-|         | airportID @String               | planeExists(@Plane)   | @Boolean |
+|         |                                 | landPlane(@Plane)     | @String  |
+|         |                                 | planeExists(@Plane)   | @Boolean |
 | Plane   | planeID @String                 | getPlaneID()          | @String  |
 
 ## Part 5 - Tests
+
+Initial Thoughts: 
+
+1. Need to check through `groundedPlanes` when `takeoffPlane` and `landPlane` are called
+2. Create a message when they try to `takeoffPlane` that is not in `groundedPlanes`
+3. Create a message when they try to `landPlane` that is already in `groundedPlanes`
+
+**Test 13** - `planeExists` checks if `Plane` is already in `groundedPlanes`
+
+**Test 14** - an error message will appear when `planeExists` is false when `takeoffPlane` is called
+
+**Test 15** - an error message will appear when `planeExists` is true when `landPlane` is called
 
 ---
