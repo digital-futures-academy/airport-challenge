@@ -1,7 +1,5 @@
 class Plane {
-    id;
-
-    constructor(id) {
+    constructor(id = -1) {
         this.id = id;
     }
 };

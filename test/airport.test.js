@@ -165,29 +165,29 @@ actual = undefined;
 result = undefined;
 
 //Ariport Test 7 - takeOff can't remove a plane that's not in planeList
-// console.log(`=== Ariport Test 7 - takeOff can't remove a plane that's not in planeList ===`);
+console.log(`=== Ariport Test 7 - takeOff can't remove a plane that's not in planeList ===`);
 
-// // Arrange
-// airport = new Airport();
-// plane = new Plane();
-// plane2 = new Plane();
-// airport.land(plane);
-// expected = airport.planeList.length;
+// Arrange
+airport = new Airport();
+plane = new Plane(1);
+plane2 = new Plane(2);
+airport.land(plane);
+expected = airport.planeList.length;
 
-// // Act
-// airport.takeOff(plane2);
-// actual = airport.planeList.length;
+// Act
+airport.takeOff(plane2);
+actual = airport.planeList.length;
 
-// // Assert
-// result = assertEquals(expected, actual);
-// console.log(`Expected: ${expected} || Actual: ${actual}`);
-// console.log(`Ariport Test 7 - takeOff can't remove a plane that's not in planeList: ${result ? `Passed` : `FAILED`}`);
-// console.log(`===================================== Test End =====================================\n`)
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Ariport Test 7 - takeOff can't remove a plane that's not in planeList: ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`)
 
-// // Clean up
-// airport = undefined;
-// plane = undefined;
-// plane2 = undefined;
-// expected = undefined;
-// actual = undefined;
-// result = undefined;
+// Clean up
+airport = undefined;
+plane = undefined;
+plane2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;

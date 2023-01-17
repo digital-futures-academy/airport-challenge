@@ -26,3 +26,25 @@ plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Plane Test 2 - If a Plane isn't supplied with an id upon creation, it should have a placeholder id of -1
+console.log(`=== Plane Test 2 - If a Plane isn't supplied with an id upon creation, it should have a placeholder id of -1 ===`)
+
+// Arrange
+expected = -1;
+
+// Act
+plane = new Plane();
+actual = plane.id;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Plane Test 2 - If a Plane isn't supplied with an id upon creation, it should have a placeholder id of -1: ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`)
+
+// Clean up
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;

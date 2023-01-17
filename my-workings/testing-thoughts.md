@@ -73,12 +73,12 @@ I want to prevent asking the airport to let planes take-off which are not at the
 1. Need to make a check before allowing planes to land or take off
 2. Should check if the plane is at the airport or not (check planeList)
 3. Should also take into account trying to land 'nothing'/ let 'nothing' take off
-4. Planes need an unique id
+4. Planes need a unique id
 
 **Airport Test 6 -** ``land`` can't add a ``Plane`` that's aleady in ``planeList``
 
 **Plane Test 1 -** Planes are created with an id
 
-**Plane Test 2 -** Planes can't be created without an id
+**Plane Test 2 -** If a Plane isn't supplied with an id upon creation, it should have a placeholder id of -1
 
-~~**Airport Test 7 -** ``takeOff`` can't remove a ``Plane`` that's not in ``planeList``~~
+**Airport Test 7 -** ``takeOff`` can't remove a ``Plane`` that's not in ``planeList``
