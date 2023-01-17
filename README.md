@@ -111,9 +111,24 @@ Initial thoughts:
 
 **Test 9** - When `planesAtAirpot` = `airportCapacity` then `landPlane` does not add planes to the airport
 
+### USER CASE 4
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+## Domain Model
+
+| Objects | Properties                    | Messages                            | Outputs  |
+| ------- | ----------------------------- | ----------------------------------- | -------- |
+| Airport | planesAtAirpot @Array[@Plane] | takeOffPlane(@Plane)                | @Void    |
+|         |                               | checkPlanesAtAirport(@Array[@Plane])| @Boolean |
+
+Initial thoughts:
+1. Need an airport with at least one identifiable Plane in it
+2. Try to remove the identifiable Plane
+3. Confirm that the `planesAtAirport` length is reduced by 1 from initial value
+
+**Test 10** - `planesAtAirpot` length decreases to 0 when Plane is found and removed
 
 As an air traffic controller
 To avoid confusion

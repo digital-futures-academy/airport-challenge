@@ -19,7 +19,15 @@ class Airport {
     if (Number.isSafeInteger(addCapacity) && addCapacity > 0) {
       this.airportCapacity += addCapacity;
     }
-  }
+  };
+
+  takeOffPlane = plane => {
+    const indexOfPlanesAtAirport = this.planesAtAirport.findIndex(planeTakingOff => planeTakingOff.id === plane.id);
+
+    if (indexOfPlanesAtAirport > -1) {
+      this.planesAtAirport.splice(indexOfPlanesAtAirport, 1);
+    }
+  };
 
 }
 

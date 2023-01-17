@@ -203,6 +203,29 @@ console.log(`\n TEST 9 - When \`planesAtAirpot\` = \`airportCapacity\` then \`la
 
 //Clean up
 expected, actual, result = undefined;
-airport, plane = null;
+airport, plane, planes = null;
 
 console.log(`\n *** END TEST 9 ***`)
+
+//Test 10 - `planesAtAirpot` length decreases to 0 when Plane is found and removed
+console.log(`\n*** START TEST 10 - \`planesAtAirpot\` length decreases to 0 when Plane is found and removed`)
+
+//Arrange
+airport = new Airport();
+plane = new Plane(`plane1`);
+airport.landPlane(plane);
+expected = airport.planesAtAirport.length - 1;
+
+//Act
+airport.takeOffPlane(plane);
+actual = airport.planesAtAirport.length;
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 10 - \`planesAtAirpot\` length decreases to 0 when Plane is found and remove: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airport, plane = null;
+
+console.log(`\n *** END TEST 10 ***`)
