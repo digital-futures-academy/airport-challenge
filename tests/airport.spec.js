@@ -1,6 +1,7 @@
 const { assertEquals } = require('../test-framework');
 const Airport = require(`../src/Airport`);
-const Plane = require(`../src/Plane`)
+const Plane = require(`../src/Plane`);
+const Weather = require('../src/Weather');
 
 let expected, actual, result, airport, plane;
 
@@ -343,3 +344,57 @@ actual = undefined;
 result = undefined;
 airport = null;
 plane = null;
+
+// Test 15 - prevent takeOff when the weather is stormy 
+console.log(`==========`);
+console.log(`Test 15 - prevent takeOff when the weather is stormy`);
+
+// Arrange
+var testWeather = { isItStormy: () => true };
+airport = new Airport(testWeather);
+plane = new Plane(`test1`);
+airport.planesLanded = [plane];
+expected = 1;
+
+// Act
+airport.takeOff(plane);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 15 - prevent takeOff when the weather is stormy: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+testWeather = undefined;
+
+// Test 16 - prevent landing when the weather is not stormy
+console.log(`==========`);
+console.log(`Test 16 - prevent landing when the weather is not stormy`);
+
+// Arrange
+testWeather = { isItStormy: () => true };
+airport = new Airport(testWeather);
+plane = new Plane(`test1`);
+expected = 0;
+
+// Act
+airport.landPlane(plane);
+actual = airport.planesLanded.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 16 - prevent landing when the weather is not stormy: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+testWeather = undefined;
+

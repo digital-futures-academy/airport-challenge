@@ -1,23 +1,40 @@
 const Plane = require(`./Plane`);
+const Weather = require("./Weather");
+const weather = require(`./Weather`);
 
 class Airport {
-    
+
     planesLanded = [];
     capacity = 10;
+    weather;
+    id;
+
+    constructor(weather = new Weather()) {
+        this.weather = weather;
+    }
+
+    isItStormy = () => this.weather.isItStormy();
 
     landPlane = plane => {
-        if (this.planesLanded.includes(plane))
-            return console.log(`This plane is on the ground.`);
+        if (this.isItStormy())
+            return console.log(`Landing is not allowed in a storm`);
 
-        if (plane instanceof Plane && this.planesLanded.length < this.capacity) this.planesLanded.push(plane);
+        if (this.planesLanded.includes(plane))
+            return console.log(`${plane.id}: This plane is on the ground.`);
+
+        if (plane instanceof Plane && this.planesLanded.length < this.capacity)
+            this.planesLanded.push(plane);
     };
 
-    takeOff = plane => {
+    takeOff = (plane) => {
+        if (this.isItStormy())
+            return console.log(`Take-off is not allowed in a storm`);
+
         const indexOfPlane = this.planesLanded.findIndex(planeLanded => planeLanded.id === plane.id);
 
         if (indexOfPlane > -1) {
             this.planesLanded.splice(indexOfPlane, 1);
-            console.log(`${plane.id} has taken off.`); 
+            console.log(`${plane.id}: This plane has taken off.`);
             if (this.planesLanded.length > 0) {
                 console.log(`The remaining planes are:`);
                 for (let i = 0; i < this.planesLanded.length; i++)
@@ -27,11 +44,12 @@ class Airport {
                 console.log(`There are no planes on the ground.`);
         }
         else
-            console.log(`${plane.id} is not at the airport.`);
+            console.log(`${plane.id}: This plane is not at the airport.`);
     }
 
     changeCapacity = capacity => {
-        if (typeof capacity === "number" && capacity > 0 && capacity % 1 === 0) this.capacity = capacity;
+        if (typeof capacity === "number" && capacity > 0 && capacity % 1 === 0)
+            this.capacity = capacity;
     }
 }
 
