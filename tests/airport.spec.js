@@ -38,7 +38,7 @@ console.log(`---------------------------------------------`);
 
 // TEST 2: 
 console.log(`---------------------------------------------`)
-console.log(`Test 2: addPlane should only add planes with the correct flightNumber to airportPlanes`);
+console.log(`Test 2: check that the plane to land has the correct flightNumber`);
 
 //Arrange
 airport = new Airport();

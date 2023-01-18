@@ -29,12 +29,12 @@ class Airport {
     }
   }
 
-  landCorrectPlane(plane) {
+  landCorrectPlane() {
     
     if (this.flightNumber === this.planeToLand) {
       this.landingPlane = true;
     }
-    
+  
   }
 };
   

@@ -20,8 +20,8 @@ I want to instruct the airport to land a plane
 4. The number of planes in the airport needs to increase by 1 when the plane lands
 
 ### Tests For User Story 1
-1. `airportPlanes` length increases to 1when `addPlane` is called with an instance of `plane` //DONE
-2. `addPlane` should only add planes with the correct `flightNumber` to `airportPlanes` //DONE
+1. `airportPlanes` length increases to when `addPlane` is called with an instance of `plane` //DONE
+2. Check that the `planeToLand`has the correct `flightNumber`//DONE
 3. Edge case - check that the plane is not already in `airportPlanes`
 
 ---------------
