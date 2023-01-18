@@ -15,7 +15,7 @@ Weather                                 isSunny()                    @Boolean
 
 Thoughts:
 
-1. 
+1. Weather object containing random number generator? 
 2. Need to restrict plane activity (i.e. do nothing) if weather is stormy.
 3. Need to proceed with plane activity if weather is sunny.
 
@@ -58,7 +58,7 @@ Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
           airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
                                         
 
-Inital thoughts:
+Initial thoughts:
 
 1. Need to set capacity
 2. Need to make sure capacity can't be exceeded (i.e. no additional Planes can land when capacity is reached)
@@ -66,7 +66,7 @@ Inital thoughts:
 
 Test 4 - Default capacity is set on Airport.
 Test 5 - Additional Planes cannot land (i.e. be added to airportPlanes list) once capacity is reached.
-Test 6 - Default capacity can be overriden.
+Test 6 - Default capacity can be overridden.
 
 ---------
 
@@ -148,6 +148,7 @@ https://www.youtube.com/watch?v=IASaK1239y4
 https://www.youtube.com/watch?v=0DFvcZwqbDQ
 testing-framework.js file copied from Bob's bagels
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 
 =====================================================================
 
