@@ -6,6 +6,7 @@ class Airport {
   airportWeather;
 
   constructor(weather, capacity = 3) {
+    // takes in a new Weather object.
     this.airportWeather = weather;
     // if the overridden value is not a number, by default the value is 10;
     // else it will be set to the given number
@@ -19,16 +20,15 @@ class Airport {
   // To land, check the weather first, must be `Sunny`.
   // Then check if plane exists in the airport.
   // If it doesnt exist, only then add it to the airport array.
-  landPlane = (plane) => {
+  landPlane = (planeID) => {
     if (this.airportWeather.defaultWeather === `Stormy`) {
       return `Stormy Weather, unable to land!`;
     } else {
-      if (this.doesPlaneExist(plane)) {
+      if (this.doesPlaneExist(planeID)) {
         return `Plane already exists in this airport.`;
       } else {
-        if (!this.isAirportFull() && plane instanceof Plane)
-          this.planesInAirport.push(plane);
-        return false;
+        if (!this.isAirportFull() && planeID instanceof Plane)
+          this.planesInAirport.push(planeID);
       }
     }
   };

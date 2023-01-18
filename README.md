@@ -69,7 +69,7 @@ Initial Thoughts:
 | Objects               | Properties                        | Messages            | Outputs |
 | --------------------  | -------------------------         | -----------------   | ------- |
 |                       |                                   |                     |         |
-| Airport               |  capacity @Integer                | setCapacity(@Integer)|  @Void  |
+| Airport               |  capacity @Number                 |setCapacity(@Number) |  @Void  |
 |                       |                                   |                     |         |
 
 As an air traffic controller
@@ -85,7 +85,7 @@ Initial thoughts:
 
 | Objects               | Properties                        | Messages            | Outputs  |
 | --------------------  | -------------------------         | -----------------   | -------  |
-| Airport               |  capacity @Integer                |   isAirportFull()   | @Boolean |
+| Airport               |  capacity @Number                 |   isAirportFull()   | @Boolean |
 |                       |  planesInAirport @Array[@Plane]   |   landPlane(@Plane) | @Void    |
 
 As an air traffic controller
@@ -99,7 +99,7 @@ Initial thoughts:
 | Objects               | Properties                        | Messages                   | Outputs  |
 | --------------------  | -------------------------         | -----------------          | -------  |
 | Airport               |                                   |   takeOffPlane(@planeID)   | @Boolean |
-| Plane                 |    planeID @Integer               |   getID()                  | @Integer |
+| Plane                 |    planeID @Number                |   getID()                  | @Number  |
 
 As an air traffic controller
 To avoid confusion
@@ -126,6 +126,24 @@ As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 ```
+
+### Domain Models
+
+| Objects | Properties                        | Messages               | Outputs  |
+| ------- | --------------------------------- | ---------------------- | -------- |
+| Airport | capacity @Number                  | setCapacity(@Number)   | @Void    |
+|         | airportWeather @Object {@Weather} |                        | @Weather |
+|         | planesInAirport @Array[@Plane]    | isAirportFull()        | @Boolean |
+|         |                                   | landPlane(@Plane)      | @String  |
+|         |                                   |                        | @Void    |
+|         |                                   | takeOffPlane(@Plane)   | @String  |
+|         |                                   |                        | @Void    |
+|         |                                   | doesPlaneExist(@Plane) | @Boolean |
+|         |                                   |                        |          |
+| Plane   | id @Number                        | getID()                | @Number  |
+|         |                                   |                        | @Void    |
+| Weather | defaultWeather @String            | getRandomNumber()      | @Number  |
+|         |                                   | getRandomWeather()     | @String  |
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
