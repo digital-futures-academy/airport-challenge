@@ -7,8 +7,7 @@ class Airport {
     constructor(airportCapacity = 10) {
         this.airportCapacity = airportCapacity;
     }
-
-
+    
     landPlane(plane, weather) {
         if (weather === `sunny` && plane instanceof Plane) {
             if (!this.isFull() && !this.isPlaneAtAirport(plane.getID())) {
@@ -38,7 +37,6 @@ class Airport {
         } return false;
     }
 
-
     increaseCapacity = capacity => {
         this.airportCapacity += capacity;
     }
@@ -51,6 +49,5 @@ class Airport {
         return this.planesAtAirport.length >= this.airportCapacity ? true : false;
     }
 }
-
 
 module.exports = Airport;
