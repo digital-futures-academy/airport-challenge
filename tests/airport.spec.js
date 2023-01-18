@@ -95,7 +95,7 @@ console.log(``);
 
 // Test 4 - 
 console.log(`=======================`);
-console.log(`Test 4- Each airport default capacity for landedPlanes should be 10`);
+console.log(`Test 4- Each airport default capacity should be 10`);
 
 // Arrange
 airport = new Airport();
@@ -106,7 +106,32 @@ actual = airport.capacity;
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 4: landedPlanes capacity is 10 : ${result}`);
+console.log(`Test 4: Airport capacity is 10 : ${result}`);
+
+// Clean up 
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+console.log(`=======================`);
+console.log(``);
+
+// Test 4 - 
+console.log(`=======================`);
+console.log(`Test 5- capacity can be changed to another value e.g 15`);
+
+// Arrange
+airport = new Airport(15);
+expected = 15;
+
+// Act
+actual = airport.capacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5: Airport capacity is 15 : ${result}`);
 
 // Clean up 
 expected = undefined;
