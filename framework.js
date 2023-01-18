@@ -27,4 +27,5 @@ module.exports = {
   assertEquals,
   assertTrue,
   assertFalse,
+  assertLessThan,
 };

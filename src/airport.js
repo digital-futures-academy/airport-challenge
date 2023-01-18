@@ -4,7 +4,6 @@ class Airport {
   airportPlanes = [];
 
   constructor(capacity) {
-    this.planes = [];
     this.capacity = capacity;
   }
 
@@ -12,9 +11,9 @@ class Airport {
     if (plane instanceof Plane) this.airportPlanes.push(plane);
   };
 
-  checkCapacity() {
-    return this.planes.length === this.capacity;
-  }
+  fullCapacity = (full) => {
+    this.capacity += full;
+  };
 }
 
 module.exports = Airport;
