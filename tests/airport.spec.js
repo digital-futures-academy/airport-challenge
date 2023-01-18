@@ -404,8 +404,4 @@ airport, plane = null;
 console.log(`======= Test Fifteen Done =======`);
 console.log(` `); // blank space to split up tests
 
-//? if plane is at another airport, it cannot land in a different airport without taking off first
 
-//? planes that have taken off cannot take off again until it has landed at an airport
-
-//! EXTENSION TESTS

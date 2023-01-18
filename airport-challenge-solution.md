@@ -168,3 +168,10 @@ Initial Thoughts:
 **Test 15** - an error message will appear when `planeExists` is true when `landPlane` is called
 
 ---
+
+After thoughts/Edge Cases:
+
+1. if plane is at another airport, it cannot land in a different airport without taking off first
+2. planes that have taken off cannot take off again until it has landed at an airport
+
+Solution: create a way to collect the groundedPlanes array from each airport and put them into a single array that can be filtered through every time take off and land is called
