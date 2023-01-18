@@ -1,15 +1,15 @@
-| Objects     | Properties                     | Methods                     | Output   |
-| ----------- | -----------                    | ---------                   | ---------|
-| Plane       | ID @String                     | getID()                     | @String  |
-|             |                                |                             |          |
-| Airport     | planesAtAirport @Array[@plane] | landPlane (@plane, @weather)   | @void    |
-|             | airportCapacity @Integer       | planeTakeOff (@plane, @weather)| @void    |
-|             |                                | increaseCapacity()          | @void    |
-|             |                                | decreaseCapacity()          | @void    |
-|             |                                | isFull()                    | @boolean |
-|             |                                | isPlaneAtAirport (@ID)       | @boolean |
-|             |                                |                             |          |
-| Weather     |                                | getWeather()                | @String  |
+| Objects     | Properties                     | Methods                         | Output   |
+| ----------- | -----------                    | ---------                       | ---------|
+| Plane       | ID @String                     | getID()                         | @String  |
+|             |                                |                                 |          |
+| Airport     | planesAtAirport @Array[@plane] | landPlane (@plane, @weather)    | @void    |
+|             | airportCapacity @Integer       | planeTakeOff (@plane, @weather) | @void    |
+|             |                                | increaseCapacity()              | @void    |
+|             |                                | decreaseCapacity()              | @void    |
+|             |                                | isFull()                        | @boolean |
+|             |                                | isPlaneAtAirport (@ID)          | @boolean |
+|             |                                |                                 |          |
+| Weather     |                                | getWeather()                    | @String  |
 
 
 ```
