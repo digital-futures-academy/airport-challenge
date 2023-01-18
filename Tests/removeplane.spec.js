@@ -1,3 +1,4 @@
+const { testDecrease } = require('./testing-framework.js')
 const Airport = require('../src/airport');
 const Plane = require('../src/plane');
 
@@ -13,14 +14,15 @@ console.log('5. Plane has left the airport');
 //Arrange
 airport = new Airport();
 plane = new Plane()
-expected = airport.addPlane()
-
+airport.addPlane() //Populate the array with a value of 1
+expected = airport.slotsOccupied.length
+console.log(expected)
 //Act
 airport.removePlane();
 actual = airport.slotsOccupied.length;
-
+console.log(actual)
 //Assert
-result = testIncrease(expected, actual) ? 'Plane has landed' : 'Landing rejected as you will exceed default slots';
+result = testDecrease(expected, actual) ? 'Plane has left the Airport' : 'Plane is still at the Airport';
 console.log(result);
 console.log('--------------------');
 
