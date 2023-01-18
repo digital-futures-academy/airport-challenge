@@ -142,6 +142,8 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | Objects | Properties                    | Messages                     | Outputs  |
 | ------- | ----------------------------- | ---------------------------- | -------- |
 | Airport | planesAtAirport @Array[@Plane]| checkPlanesAtAirport(@Plane) | @Boolean |
+|         |                               | landPlane(@Plane)            | @Void    |
+|         |                               | takeOffPlane(@Plane)         | @Void    |
 
 Initial thoughts:
 1. Populate `planesAtAirport` with some instances of Plane
@@ -160,9 +162,26 @@ Initial thoughts:
 #### Extended Acceptance Criteria
 
 ```
+### USER CASE 6
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+
+## Domain Model
+
+| Objects | Properties                    | Messages                     | Outputs  |
+| ------- | ----------------------------- | ---------------------------- | -------- |
+| Weather | storm @Boolean                | isStormy(@Weather)           | @Boolean |
+|         |                               | weatherGenerator()           | @String  |
+| ------- | ----------------------------- | ---------------------------- | -------- |
+| Airport |                               | takeOffPlane(@Plane)         | @Void    |
+
+Initial thoughts:
+1. Need a weather class
+2. Need a weather generator
+3. takeOffPlane needs to take the output of the weather class
+
+**Test 16** - check if the weather generator returns a weather
 
 As an air traffic controller
 To ensure safety

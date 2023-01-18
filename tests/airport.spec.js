@@ -42,7 +42,7 @@ actual = airport.planesAtAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`\n TEST 2 - \`landPlane\` should only add \`Plane\` instances to the \`planesAtAirport\`: ${result ? `Passed` : `Failed`}`);
+console.log(`\n TEST 2 - \`landPlane\` should only add \`Plane\` instances to the \`planesAtAirport\`: ${result ? `Passed` : `Failed`} ***`);
 
 //Clean up
 expected, actual, result = undefined;
@@ -51,7 +51,7 @@ airport, plane = null;
 console.log(`\n *** END TEST 2 ***`)
 
 //Test 3 - Edge Case - falsy values should not be added to `planesAtAirport`
-console.log(`\n*** START TEST 3 - Edge Case - falsy values should not be added to \`planesAtAirport\``)
+console.log(`\n*** START TEST 3 - Edge Case - falsy values should not be added to \`planesAtAirport\` ***`)
 
 //Arrange
 airport = new Airport();
@@ -75,7 +75,7 @@ console.log(`\n *** END TEST 3 ***`)
 // ******************** USER CASE 2 ****************************
 
 //Test 4 - Set a default airport capacity to 10
-console.log(`\n*** START TEST 4 - Set a default airport capacity to 10`)
+console.log(`\n*** START TEST 4 - Set a default airport capacity to 10 ***`)
 
 //Arrange
 airport = new Airport();
@@ -95,7 +95,7 @@ airport, plane = null;
 console.log(`\n *** END TEST 4 ***`)
 
 //Test 5 - `increaseAirportCapacity` increases `airportCapacity` by the Integer passed as parameter (2)
-console.log(`\n*** START TEST 5 - \`increaseAirportCapacity\` increases \`airportCapacity\` by the Integer passed as parameter (2)`)
+console.log(`\n*** START TEST 5 - \`increaseAirportCapacity\` increases \`airportCapacity\` by the Integer passed as parameter (2) ***`)
 
 //Arrange
 airport = new Airport();
@@ -117,7 +117,7 @@ console.log(`\n *** END TEST 5 ***`)
 
 //Test 6 - Edge Case -`increaseAirportCapacity` should not increase `airportCapacity` when an Integer is not passed (`a`) and keep default capacity
 console.log(`\n*** START TEST 6 - Edge Case - \`increaseAirportCapacity\` should not increase \`airportCapacity\` when an Integer is not 
-                passed (\`a\`) and keep default capacity`)
+                passed (\`a\`) and keep default capacity ***`)
 
 //Arrange
 airport = new Airport();
@@ -139,7 +139,7 @@ airport, plane = null;
 console.log(`\n *** END TEST 6 ***`)
 
 //Test 7 - Edge Case - falsy values should not be added to `airportCapacity`
-console.log(`\n*** START TEST 7 - Edge Case - falsy values should not be added to \`airportCapacity\``)
+console.log(`\n*** START TEST 7 - Edge Case - falsy values should not be added to \`airportCapacity\` ***`)
 
 //Arrange
 airport = new Airport();
@@ -160,7 +160,7 @@ airport, plane = null;
 console.log(`\n *** END TEST 7 ***`)
 
 //Test 8 - Edge Case - `increaseAirportCapacity` should not accept negative numbers
-console.log(`\n*** START TEST 8 - Edge Case - \`increaseAirportCapacity\` should not accept negative numbers`)
+console.log(`\n*** START TEST 8 - Edge Case - \`increaseAirportCapacity\` should not accept negative numbers ***`)
 
 //Arrange
 airport = new Airport();
@@ -183,7 +183,7 @@ console.log(`\n *** END TEST 8 ***`)
 // ******************** USER CASE 3 ****************************
 
 //Test 9 - When `planesAtAirpot` = `airportCapacity` then `landPlane` does not add planes to the airport
-console.log(`\n*** START TEST 9 - When \`planesAtAirpot\` = \`airportCapacity\` then \`landPlane\` does not add planes to the airport`)
+console.log(`\n*** START TEST 9 - When \`planesAtAirpot\` = \`airportCapacity\` then \`landPlane\` does not add planes to the airport ***`)
 
 //Arrange
 airport = new Airport();
@@ -207,8 +207,10 @@ airport, plane, planes = null;
 
 console.log(`\n *** END TEST 9 ***`)
 
+// ******************** USER CASE 4 ****************************
+
 //Test 10 - `planesAtAirpot` length decreases to 0 when Plane is found and removed
-console.log(`\n*** START TEST 10 - \`planesAtAirpot\` length decreases to 0 when Plane is found and removed`)
+console.log(`\n*** START TEST 10 - \`planesAtAirpot\` length decreases to 0 when Plane is found and removed ***`)
 
 //Arrange
 airport = new Airport();
@@ -231,7 +233,7 @@ airport, plane = null;
 console.log(`\n *** END TEST 10 ***`)
 
 //Test 11 - confirm that the plane has taken off and is not longer in `planesAtAirport`
-console.log(`\n*** START TEST 11 - confirm that the plane has taken off and is not longer in \`planesAtAirport\``)
+console.log(`\n*** START TEST 11 - confirm that the plane has taken off and is not longer in \`planesAtAirport\` ***`)
 
 //Arrange
 airport = new Airport();
@@ -251,12 +253,14 @@ console.log(`\n TEST 11 - confirm that the plane has taken off and is not longer
 
 //Clean up
 expected, actual, result = undefined;
-airport, plane = null;
+airport, plane1, plane2 = null;
 
 console.log(`\n *** END TEST 11 ***`)
 
+// ******************** USER CASE 5 ****************************
+
 //Test 12 - `landPlane` does not increase `planesAtAirport` when a Plane is already in `planesAtAirport`
-console.log(`\n*** START TEST 12 - \`landPlane\` does not increase \`planesAtAirport\` when a Plane is already in \`planesAtAirport\``)
+console.log(`\n*** START TEST 12 - \`landPlane\` does not increase \`planesAtAirport\` when a Plane is already in \`planesAtAirport\` ***`)
 
 //Arrange
 airport = new Airport();
@@ -276,12 +280,12 @@ console.log(`\n TEST 12 - \`landPlane\` does not increase \`planesAtAirport\` wh
 
 //Clean up
 expected, actual, result = undefined;
-airport, plane = null;
+airport, planes = null;
 
 console.log(`\n *** END TEST 12 ***`)
 
 //Test 13 - `landPlane` increase `planesAtAirport` by 1 when a Plane is not in `planesAtAirport`
-console.log(`\n*** START TEST 13 - \`landPlane\` increase \`planesAtAirport\` by 1 when a Plane is not in \`planesAtAirport\``)
+console.log(`\n*** START TEST 13 - \`landPlane\` increase \`planesAtAirport\` by 1 when a Plane is not in \`planesAtAirport\` ***`)
 
 //Arrange
 airport = new Airport();
@@ -301,12 +305,12 @@ console.log(`\n TEST 13 - \`landPlane\` increase \`planesAtAirport\` by 1 when a
 
 //Clean up
 expected, actual, result = undefined;
-airport, plane = null;
+airport, planes = null;
 
 console.log(`\n *** END TEST 13 ***`)
 
 //Test 14 - `landPlane` increase `planesAtAirport` by 1 when a Plane is not in `planesAtAirport`
-console.log(`\n*** START TEST 14 - \`takeOffPlane\` does not decrease \`planesAtAirport\` when a Plane is not in \`planesAtAirport\``)
+console.log(`\n*** START TEST 14 - \`takeOffPlane\` does not decrease \`planesAtAirport\` when a Plane is not in \`planesAtAirport\` ***`)
 
 //Arrange
 airport = new Airport();
@@ -326,12 +330,12 @@ console.log(`\n TEST 14 - \`takeOffPlane\` does not decrease \`planesAtAirport\`
 
 //Clean up
 expected, actual, result = undefined;
-airport, plane = null;
+airport, planes = null;
 
 console.log(`\n *** END TEST 14 ***`)
 
 //Test 15 - `takeOffPlane` decrease `planesAtAirport` by 1 when a Plane is in `planesAtAirport`
-console.log(`\n*** START TEST 15 - \`takeOffPlane\` decrease \`planesAtAirport\` by 1 when a Plane is in \`planesAtAirport\``)
+console.log(`\n*** START TEST 15 - \`takeOffPlane\` decrease \`planesAtAirport\` by 1 when a Plane is in \`planesAtAirport\` ***`)
 
 //Arrange
 airport = new Airport();
@@ -352,6 +356,6 @@ console.log(`\n TEST 15 - \`takeOffPlane\` decrease \`planesAtAirport\` by 1 whe
 
 //Clean up
 expected, actual, result = undefined;
-airport, plane = null;
+airport, plane, planes = null;
 
 console.log(`\n *** END TEST 15 ***`)
