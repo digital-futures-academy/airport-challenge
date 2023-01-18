@@ -1,6 +1,8 @@
 # Testing Plans
 Here's where I plan my tests.
 
+## Acceptance Criteria
+
 ### **User Story 1**
 ```
 As an air traffic controller   

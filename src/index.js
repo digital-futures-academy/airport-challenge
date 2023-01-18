@@ -2,6 +2,7 @@ const Airport = require("./Airport");
 const Plane = require("./Plane");
 
 const port = new Airport();
+const port2 = new Airport();
 
 console.log(`Planes at airport initially: ${port.planeList.length}`);
 
