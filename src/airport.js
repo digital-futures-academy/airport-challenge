@@ -13,6 +13,10 @@ class Airport {
     if (plane instanceof Plane) this.airportPlanes.push(plane);
   };
 
+  getCapacity(){
+    return this.defaultCapacity;
+  }
+
   increaseCapacityTo = () => {
     this.NewDefaultCapacity = this.defaultCapacity + 1;
   }

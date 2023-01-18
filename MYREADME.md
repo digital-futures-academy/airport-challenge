@@ -47,7 +47,7 @@ I would like a default airport capacity that can be overridden as appropriate
 3. Need to change the default capacity of the airport by a given number of planes
 
 ### Tests For User Story 2
-4. The maximum length of `airportPlanes` is output as `defaultCapacity`
+4. The maximum length of `airportPlanes` is output as `defaultCapacity` |DONE|
 5. The `defaultCapacity` of the airport increases when `increaseCapacity()` is called |DONE|
 6. The `defaultCapacity` of the airport decreases when `decreaseCapacity()` is called |DONE|
 ---------------
@@ -75,8 +75,8 @@ I want to prevent landing when the airport is full
 4. If the airport has not reached it's capacity then it can land
 
 ### Tests For User Story 3
-7. `atDefaultCapacity()` returns true if `airportPlanes` has reached it's `defaultCapacity` //DONE
-8. `preventAirportPush()` should return true if `atDefaultCapacity()` returns true //DONE
+7. `atDefaultCapacity()` returns true if `airportPlanes` has reached it's `defaultCapacity` |DONE|
+8. `preventAirportPush()` should return true if `atDefaultCapacity()` returns true |DONE|
 ---------------
 
 

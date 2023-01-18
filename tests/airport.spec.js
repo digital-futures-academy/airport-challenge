@@ -59,39 +59,37 @@ expected = null;
 actual = null;
 result = undefined;
 airport = undefined;
-flightNumber = undefined;
 plane = null;
 
 console.log(`---------------------------------------------`);
 
 
-// TEST 4: 
-// console.log(`---------------------------------------------`)
-// console.log(`Test 4: The maximum length of airportPlanes is output as `defaultCapacity``);
+//TEST 4: 
+console.log(`---------------------------------------------`)
+console.log(`Test 4: The maximum length of airportPlanes is output as defaultCapacity`);
 
-// //Arrange
-// airport = new Airport();
-// plane = new Plane();
-// expected = true;
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = 0;
 
-// //Act
-// airport.landCorrectPlane();
-// actual = airport.landingPlane;
+//Act
+airport.getCapacity();
+actual = airport.defaultCapacity;
 
-// //Assert
-// result = assertEquals(expected, actual);
+//Assert
+result = assertEquals(expected, actual);
 
-// console.log(`Test 2 Result: ${result}`);
+console.log(`Test 4 Result: ${result}`);
 
-// // Clean Up
-// expected = null;
-// actual = null;
-// result = undefined;
-// airport = undefined;
-// flightNumber = undefined;
-// plane = null;
+// Clean Up
+expected = null;
+actual = null;
+result = undefined;
+airport = undefined;
+plane = null;
 
-// console.log(`---------------------------------------------`);
+console.log(`---------------------------------------------`);
 
 
 // TEST 5: 
