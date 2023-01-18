@@ -1,11 +1,7 @@
 const Airport = require('../src/airport');
 const Plane = require('../src/plane');
 
-const airport = new Airport
-
-console.log(airport.slotsOccupied.length)
-
-/*let expected;
+let expected;
 let actual;
 let result;
 let airport;
@@ -32,4 +28,4 @@ console.log('--------------------');
 expected = undefined;
 actual = undefined;
 result = undefined;
-airport = undefined;*/
+airport = undefined;

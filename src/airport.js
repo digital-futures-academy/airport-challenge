@@ -18,6 +18,12 @@ class Airport {
     }
   }
 
+  /*removePlane = tailNumber => {
+    const indexOfPlanesInSlotsOccupied = this.slotsOccupied.findIndex(tailNumber => tailNumber === tailNumber);
+    if (indexOfPlanesInSlotsOccupied > -1) {
+      this.indexOfPlanesInSlotsOccupied.splice(indexOfPlanesInSlotsOccupied, 1);
+    }*/
+
 }
 
 module.exports = Airport;
