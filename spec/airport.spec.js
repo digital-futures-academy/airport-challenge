@@ -190,3 +190,28 @@ plane = null;
 expected = undefined;
 actual = undefined;
 result = undefined; 
+
+//Test 8: The airport does not allow planes to land which have already landed.
+console.log(`================================`)
+console.log(`Test 8: The airport does not allow planes to land which have already landed.`)
+
+//Arrange
+airport = new Airport();
+plane1 = new Plane();
+airport.landPlane(Plane);
+expected = 1
+
+//Act
+airport.landPlane(Plane)
+actual = airport.airportPlanes.length
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8: The airport does not allow planes to land which have already landed. ${result}`)
+
+//Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined; 
