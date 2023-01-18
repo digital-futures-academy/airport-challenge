@@ -1,12 +1,14 @@
 const Plane = require("./Plane");
+// const Weather = require('./Weather')
 
 class Airport {
   // here's a starting point for you
   landedList = []
   airportCapacity
   
-  addPlane(plane) {
-    if(plane instanceof Plane){ this.landedList.push(Plane) }
+  addPlane(plane,weather) {
+    if (plane instanceof Plane && weather !== 'stormy') { this.landedList.push(plane) }
+    else if (weather === 'stormy'){return false}
   }
 
   //capacity 
@@ -15,20 +17,30 @@ class Airport {
   }
 
   isFullCheck() {
-    if (this.landedList.length === this.airportCapacity){ return true}
+    if (this.landedList.length >= this.airportCapacity){ return true}
   }
 
-  removePlane(plane) {
+  removePlane(plane , weather) {
     const myId = this.landedList.findIndex(item => item.id === plane.id)
-    if (myId > -1) { this.landedList.splice(myId, 1) }
+    if (myId > -1 && weather !== 'stormy') { this.landedList.splice(myId, 1) }
+    else if (myId > -1 || weather === 'stormy') { return false }
   }
 
   checkList(plane) {
     if(this.landedList.includes(plane) === false){ return true }
   }
-  // getCapacity(plane) {
-  //   if(this.landedList.length < this.airportCapacity){this.addPlane(plane)}
-  // }
+
+  
+  isPlaneThere(plane) {
+
+    if (this.landedList.includes(plane) === true ) {
+      // console.log(this.landedList.includes(plane))
+      return true
+    } else{ return false}
+  } 
+
+
+
 
 }
 
