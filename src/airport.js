@@ -16,6 +16,11 @@ class Airport {
   increaseCapacityTo = () => {
     this.NewDefaultCapacity = this.defaultCapacity + 1;
   }
+
+  decreaseCapacityTo = () => {
+     this.NewDefaultCapacity = this.defaultCapacity - 1;
+  }
+  
   
   atDefaultCapacity () {
     if (this.airportPlanes.length == this.defaultCapacity || this.airportPlanes.length == this.newDefaultCapacity ) {

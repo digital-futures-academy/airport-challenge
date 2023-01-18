@@ -65,9 +65,38 @@ plane = null;
 console.log(`---------------------------------------------`);
 
 
+// TEST 4: 
+// console.log(`---------------------------------------------`)
+// console.log(`Test 4: The maximum length of airportPlanes is output as `defaultCapacity``);
+
+// //Arrange
+// airport = new Airport();
+// plane = new Plane();
+// expected = true;
+
+// //Act
+// airport.landCorrectPlane();
+// actual = airport.landingPlane;
+
+// //Assert
+// result = assertEquals(expected, actual);
+
+// console.log(`Test 2 Result: ${result}`);
+
+// // Clean Up
+// expected = null;
+// actual = null;
+// result = undefined;
+// airport = undefined;
+// flightNumber = undefined;
+// plane = null;
+
+// console.log(`---------------------------------------------`);
+
+
 // TEST 5: 
 console.log(`---------------------------------------------`)
-console.log(`Test 5: The defaultCapacity of the airport increases to 10 when increaseCapacity is called`);
+console.log(`Test 5: The defaultCapacity of the airport increases to 1 when increaseCapacity is called`);
 
 //Arrange
 airport = new Airport();
@@ -92,18 +121,19 @@ plane = null;
 
 console.log(`---------------------------------------------`);
 
+
 // TEST 6: 
 console.log(`---------------------------------------------`)
-console.log(`Test 6: atDefaultCapacity() returns true if airportPlanes has reached it's defaultCapacity`);
+console.log(`Test 6: The defaultCapacity of the airport decreases when decreaseCapacity() is called`);
 
 //Arrange
 airport = new Airport();
 plane = new Plane();
-expected = true;
+expected = -1;
 
 //Act
-airport.atDefaultCapacity();
-actual = airport.airportFull;
+airport.decreaseCapacityTo();
+actual = airport.NewDefaultCapacity;
 
 //Assert
 result = assertEquals(expected, actual);
@@ -119,10 +149,37 @@ plane = null;
 
 console.log(`---------------------------------------------`);
 
-
 // TEST 7: 
 console.log(`---------------------------------------------`)
-console.log(`Test 7: preventAirportPush() should return true if airportFull`);
+console.log(`Test 7: atDefaultCapacity() returns true if airportPlanes has reached it's defaultCapacity`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = true;
+
+//Act
+airport.atDefaultCapacity();
+actual = airport.airportFull;
+
+//Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 7 Result: ${result}`);
+
+// Clean Up
+expected = null;
+actual = null;
+result = undefined;
+airport = undefined;
+plane = null;
+
+console.log(`---------------------------------------------`);
+
+
+// TEST 8: 
+console.log(`---------------------------------------------`)
+console.log(`Test 8: preventAirportPush() should return true if airportFull`);
 
 //Arrange
 airport = new Airport();
@@ -136,7 +193,7 @@ actual = airport.noLandings;
 //Assert
 result = assertEquals(expected, actual);
 
-console.log(`Test 7 Result: ${result}`);
+console.log(`Test 8 Result: ${result}`);
 
 // Clean Up
 expected = null;
