@@ -2,7 +2,7 @@
 | ----------- | -----------                    | ---------                   | ---------|
 | Plane       | ID @String                     | getID()                     | @String  |
 |             |                                |                             |          |
-| Ariport     | planesAtAirport @Array[@plane] | landPlane (@plane, @weather)   | @void    |
+| Airport     | planesAtAirport @Array[@plane] | landPlane (@plane, @weather)   | @void    |
 |             | airportCapacity @Integer       | planeTakeOff (@plane, @weather)| @void    |
 |             |                                | increaseCapacity()          | @void    |
 |             |                                | decreaseCapacity()          | @void    |
