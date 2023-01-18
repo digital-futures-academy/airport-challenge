@@ -14,7 +14,7 @@ try {
 catch (error) {
     console.log(`${error}`)
 }
-//Error is thrown when plane is created without and ID
+//Error is thrown when plane is created without an ID
 
 console.log(`==============================================`)
 
