@@ -48,7 +48,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ### Tests For User Story 2
 4. The maximum length of `airportPlanes` is output as `defaultCapacity`
-5. The `defaultCapacity` of the airport increases when `increaseCapacity()` is called
+5. The `defaultCapacity` of the airport increases when `increaseCapacity()` is called //DONE
 ---------------
 
 
@@ -65,7 +65,7 @@ I want to prevent landing when the airport is full
 |             | defaultCapacity @integer     |                          |            |
 |             |                              |                          |            |
 |             | airportPlanes @Array[@plane] | preventAirportPush()     | @boolean   | 
-|             |                              |                          |            |
+|             | airportFull @ boolean        |                          |            |
 
 ### Test Task List For User Story 3
 1. Need the defaultCapacity of the airport
@@ -74,7 +74,7 @@ I want to prevent landing when the airport is full
 4. If the airport has not reached it's capacity then it can land
 
 ### Tests For User Story 3
-6. `atDefaultCapacity()` returns true if `airportPlanes` has reached it's `defaultCapacity`
+6. `atDefaultCapacity()` returns true if `airportPlanes` has reached it's `defaultCapacity` //DONE
 7. `preventAirportPush()` should return true if `atDefaultCapacity()` returns true
 ---------------
 

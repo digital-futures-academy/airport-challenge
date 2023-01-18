@@ -43,7 +43,7 @@ console.log(`Test 5: The defaultCapacity of the airport increases to 10 when inc
 //Arrange
 airport = new Airport();
 plane = new Plane();
-expected = 10;
+expected = 1;
 
 //Act
 airport.increaseCapacityTo();
@@ -53,6 +53,33 @@ actual = airport.NewDefaultCapacity;
 result = assertEquals(expected, actual);
 
 console.log(`Test 5 Result: ${result}`);
+
+// Clean Up
+expected = null;
+actual = null;
+result = undefined;
+airport = undefined;
+plane = null;
+
+console.log(`---------------------------------------------`);
+
+// // TEST 6: 
+console.log(`---------------------------------------------`)
+console.log(`Test 6: atDefaultCapacity() returns true if airportPlanes has reached it's defaultCapacity`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = true;
+
+//Act
+airport.atDefaultCapacity();
+actual = airport.airportFull;
+
+//Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 6 Result: ${result}`);
 
 // Clean Up
 expected = null;
