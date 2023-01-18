@@ -2,7 +2,18 @@ const Plane = require(`./plane`);
 
 class Airport {
   // here's a starting point for you
-  landedPlanes = [];
+
+  // landedPlanes = [];
+  // maximumCap;
+
+  // constructor(capacity = 10, maximumCap) {
+  //   this.capacity = capacity;
+  //   this.maximumCap = maximumCap;
+  // }
+  constructor(capacity = 10) {
+    this.landedPlanes = [];
+    this.capacity = capacity;
+  }
 
   landPlane = plane => {
     if (plane instanceof Plane) {
