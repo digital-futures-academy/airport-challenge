@@ -101,4 +101,4 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 Building Test 4:
 
-Need to check the value of 
+Need to check the value of slotsOccupied has decreased after removeTailNumber function has been run.
