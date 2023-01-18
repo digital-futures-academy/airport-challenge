@@ -21,6 +21,7 @@ expected = 1;
 //Act
 airport.addPlane(plane);
 actual = airport.slotsOccupied.length;
+console.log(airport.slotsOccupied)
 
 //Assert
 result = testEquals(expected, actual) ? 'Yes, the Plane has landed at the airport' : 'No, the Plane is still in the sky';
