@@ -397,4 +397,3 @@ result = undefined;
 airport = null;
 plane = null;
 testWeather = undefined;
-

@@ -1,19 +1,19 @@
 const Plane = require(`./Plane`);
 const Weather = require("./Weather");
-const weather = require(`./Weather`);
 
 class Airport {
 
+    // In future I would make these properties private
     planesLanded = [];
     capacity = 10;
     weather;
-    id;
 
-    constructor(weather = new Weather()) {
+    // Each airport receives its own named instance of weather, or a default instance
+    constructor(weather = new Weather(), id) {
         this.weather = weather;
     }
 
-    isItStormy = () => this.weather.isItStormy();
+    isItStormy = () => this.weather.isItStormy?.();
 
     landPlane = plane => {
         if (this.isItStormy())
@@ -24,7 +24,7 @@ class Airport {
 
         if (plane instanceof Plane && this.planesLanded.length < this.capacity)
             this.planesLanded.push(plane);
-    };
+    }
 
     takeOff = (plane) => {
         if (this.isItStormy())
