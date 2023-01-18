@@ -144,14 +144,13 @@ console.log(`Test 6: The airport can confirm that a plane is not in the airportP
 
 //Arrange  
 airport = new Airport();
-plane = new Plane('RyanAir')
-airport.landPlane(plane);
-airport.landPlane(new Plane(`AmericanAirlines`))
-expected = airport.airportPlanes.length - 1;
+plane30 = new Plane();
+plane31 = new Plane();
+expected = "This plane is not at the airport"
 
 //Act
-airport.TakeOff(plane);
-actual = airport.airportPlanes.length;
+airport.landPlane(plane30);
+actual = airport.TakeOff(plane31)
 
 //Assert
 result = assertEquals(expected, actual);
@@ -171,8 +170,6 @@ console.log(`Test 7: The airport does not allow planes to execute the takeOff me
 //Arrange 
 airport = new Airport();
 plane1 = new Plane();
-plane2 = new Plane();
-airport.landPlane(plane1);
 expected = 1;
 
 
@@ -198,16 +195,16 @@ console.log(`Test 8: The airport does not allow planes to land which have alread
 //Arrange
 airport = new Airport();
 plane1 = new Plane();
-airport.landPlane(Plane);
-expected = 1
+airport.landPlane(plane1);
+expected = 1;
 
 //Act
-airport.landPlane(Plane)
-actual = airport.airportPlanes.length
+airport.landPlane(plane1);
+actual = airport.airportPlanes.length;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 8: The airport does not allow planes to land which have already landed. ${result}`)
+console.log(`Test 8: The airport does not allow planes to land which have already landed. ${result}`);
 
 //Clean up
 airport = null;
