@@ -53,7 +53,4 @@ class Airport {
 }
 
 
-
-// return this.planesAtAirport[i].getID() === planeID ? true : false;
-
 module.exports = Airport;
