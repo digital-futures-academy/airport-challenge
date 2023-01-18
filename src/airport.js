@@ -8,7 +8,7 @@ class Airport {
     this.landedCapacity = defaultLandedCapacity;
    }
     landPlane = plane => {
-        if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity()) {
+        if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity() && !this.isPlanePresent(plane)) {
       this.landedPlanes.push(plane);
     }
     }
@@ -25,7 +25,7 @@ class Airport {
       const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
       return indexOfPlaneInLandedPlanes > -1;
     }
-  takeOffPlane = plane => {
+    takeOffPlane = plane => {
     const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
     
     if (indexOfPlaneInLandedPlanes > -1) {

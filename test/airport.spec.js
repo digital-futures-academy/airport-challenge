@@ -219,16 +219,35 @@ result = undefined;
 
 console.log(`============================`);
 
+//Test 9 - try to take off a plane(id) which is not in the airport (landedPlanes)
 
-/*
-| Objects | Properties                  | Messages                    | Outputs  |
-| ------- | --------------------------- | --------------------------- | -------- |
-| Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)           | @Void    |
-|         | landedCapacity @Integer     | isAirportFull()             | @Boolean |
-|         |                             | getLandedCapacity()         | @Integer |
-|         |                             | newLandedCapacity(@Integer) | @Void    |
-|         |                             | getLandedPlaneCount()       | @Integer |
-|         |                             | takeOffPlane(@Plane)        | @Void    |
-|         |                             | isPlanePresent(@Plane)      | @Boolean |
-| Plane   | id @String                  | getId()                     | @String  |
-*/
+console.log(`============================`);
+console.log(`Test 9 - try to takeOffPlane Plane(id) that is not in landedPlanes`);
+
+// Arrange - this is setting up the variables required for the test
+airport = new Airport(2);
+plane1 = new Plane('Delta');
+plane2 = new Plane('BA');
+expected = false;
+
+// Act - this is running the methods to be tested and collecting the actual results
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.takeOffPlane(plane2);
+actual = airport.isPlanePresent(plane2);
+
+//Assert - testing the actual results against expected results
+result = assertEquals(expected, actual);
+console.log(`Test 9 - 'Plane is not present for take-off': ${result}`);
+
+// // Clean up - here we are clearing the variables ready for next test, to avoid contamination
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+
+
