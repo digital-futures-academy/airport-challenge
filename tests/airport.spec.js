@@ -3,8 +3,6 @@ const Airport = require('../src/airport');
 const Plane = require('../src/Plane');
 const Weather = require('../src/Weather');
 
-
-
 let expected;
 let actual;
 let result;
@@ -511,8 +509,3 @@ actual = undefined;
 result = undefined;
 
 console.log(`=======================================`);
-
-
-
-
-
