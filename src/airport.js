@@ -5,6 +5,7 @@ class Airport {
   defaultCapacity = 0;
   NewDefaultCapacity = null;
   airportFull;
+  noLandings;
 
   addPlane = plane => {
     if (plane instanceof Plane) this.airportPlanes.push(plane);
@@ -15,10 +16,16 @@ class Airport {
   }
   
   atDefaultCapacity () {
-    if (this.airportPlanes.length == this.defaultCapacity) {
+    if (this.airportPlanes.length == this.defaultCapacity || this.airportPlanes.length == this.newDefaultCapacity ) {
       this.airportFull = true;
        } 
+  }
+  
+  preventAirportPush() {
+    if (this.airportPlanes.length == this.defaultCapacity || this.airportPlanes.length == this.newDefaultCapacity) {
+      this.noLandings = true;
     }
+  }
 };
   
 

@@ -75,7 +75,7 @@ I want to prevent landing when the airport is full
 
 ### Tests For User Story 3
 6. `atDefaultCapacity()` returns true if `airportPlanes` has reached it's `defaultCapacity` //DONE
-7. `preventAirportPush()` should return true if `atDefaultCapacity()` returns true
+7. `preventAirportPush()` should return true if `atDefaultCapacity()` returns true //DONE
 ---------------
 
 
