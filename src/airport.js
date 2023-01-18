@@ -3,10 +3,10 @@ const Plane = require("./Plane");
 class Airport {
   // here's a starting point for you
   planesInAirport = [];
-  #weather;
+  airportWeather;
 
   constructor(weather, capacity = 3) {
-    this.#weather = weather;
+    this.airportWeather = weather;
     // if the overridden value is not a number, by default the value is 10;
     // else it will be set to the given number
     if (typeof capacity !== "number") {
@@ -16,16 +16,12 @@ class Airport {
     }
   }
 
-  getAirportWeather = () => {
-    return this.#weather.getWeather();
-  };
-
   // To land, check the weather first, must be `Sunny`.
   // Then check if plane exists in the airport.
   // If it doesnt exist, only then add it to the airport array.
   landPlane = (plane) => {
-    if (this.getAirportWeather() === `Stormy`) {
-      return `Stormy Weather, unable to take off!`;
+    if (this.airportWeather.defaultWeather === `Stormy`) {
+      return `Stormy Weather, unable to land!`;
     } else {
       if (this.doesPlaneExist(plane)) {
         return `Plane already exists in this airport.`;
@@ -50,7 +46,7 @@ class Airport {
   // Only lets the plane takeOff if plane index is found and the weather is `Sunny`.
   takeOffPlane = (planeID) => {
     if (this.planesInAirport.findIndex((plane) => plane.id === planeID) != -1) {
-      if (this.getAirportWeather() == `Stormy`) {
+      if (this.airportWeather.defaultWeather == `Stormy`) {
         return `Stormy Weather, unable to take off!`;
       } else {
         this.planesInAirport.splice(

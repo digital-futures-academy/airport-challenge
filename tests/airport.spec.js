@@ -12,14 +12,12 @@ let plane;
 // Test 1 - landPlane() should only add Plane instances to increase the number of planes in the Airport.
 //Arrange
 airport = new Airport(new Weather());
-console.log(airport.getAirportWeather());
 plane = new Plane();
 expected = 1;
 
 //Act
 airport.landPlane(plane);
 actual = airport.planesInAirport.length;
-console.log(actual);
 
 //Assert
 result = assertEquals(expected, actual);
@@ -334,14 +332,15 @@ console.log(`===============================================`);
 
 // Test 13 - Check weather
 //Arrange
-airport = new Airport(new Weather());
-expected = `Sunny` || `Stormy`;
+airport = new Airport(new Weather("Stormy"));
+expected1 = `Sunny`;
+expected2 = `Stormy`;
 
 //Act
-actual = airport.getAirportWeather();
+actual = airport.airportWeather.defaultWeather;
 
 //Assert
-result = assertEquals(expected, actual);
+result = assertEquals(expected1, actual) || assertEquals(expected2, actual);
 console.log(`Test 13: Valid weather: ${result ? `Passed` : `Failed`}`);
 
 //Clear up
@@ -351,3 +350,58 @@ result = undefined;
 airport = null;
 console.log(`===============================================`);
 // End of Test 13
+
+// Test 14 - Land plane in stormy weather
+//Arrange
+airport = new Airport(new Weather("Stormy"));
+plane = new Plane(1);
+expected = `Stormy Weather, unable to land!`;
+
+//Act
+actual = airport.landPlane(plane);
+
+//Assert
+result = assertEquals(expected, actual);
+console.log(
+  `Test 14: Tried to land plane in STORMY weather: ${
+    result ? `Passed` : `Failed`
+  }`
+);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+console.log(`===============================================`);
+// End of Test 14
+
+// Test 15 - Land plane with random weather
+//Arrange
+airport = new Airport(new Weather());
+plane = new Plane(1);
+expected = `Stormy Weather, unable to land!`;
+expected1 = 1;
+console.log(airport.capacity);
+
+//Act
+actual = airport.landPlane(plane);
+actual1 = airport.planesInAirport.length;
+
+//Assert
+result = assertEquals(expected, actual) || assertEquals(expected1, actual1);
+console.log(
+  `Test 15: Tried to land plane in random weather: ${
+    result ? `Passed` : `Failed`
+  }`
+);
+
+//Clear up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+console.log(`===============================================`);
+// End of Test 15
