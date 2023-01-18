@@ -77,11 +77,11 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-| Objects | Properties                             | Messages | Outputs  |
-| ------- | -------------------------------------- | -------- | -------- |
-| Airport | slotsAvailable @integer(slotsOccupied) | slots()  | @integer |
-|         |                                        | return() | @string  |
-|         |                                        |          |          |
+| Objects | Properties                             | Messages               | Outputs  |
+| ------- | -------------------------------------- | ---------------------- | -------- |
+| Airport | slotsAvailable @integer(slotsOccupied) | gerslotsOccupied()     | @integer |
+|         |                                        | returnslotsAvailable() | @array   |
+|         |                                        |                        |          |
 
 Building Test 3:
 
@@ -92,3 +92,13 @@ Fourth User Story:
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+| Objects | Properties                         | Messages            | Outputs  |
+| ------- | ---------------------------------- | ------------------- | -------- |
+| Airport | slotsOccupied @integer(tailNumber) | getavailableSlots() | @integer |
+|         |                                    |                     |          |
+| Plane   | removeTailNumber @array(Plane)     | getslotsOccupied()  | @integer |
+
+Building Test 4:
+
+Need to check the value of 
