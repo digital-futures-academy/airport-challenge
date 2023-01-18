@@ -9,7 +9,10 @@ class Airport {
    }
     landPlane = plane => {
         if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity() && !this.isPlanePresent(plane)) {
-      this.landedPlanes.push(plane);
+          this.landedPlanes.push(plane);
+          return true;
+        } else {
+          return false;
     }
     }
     getLandedCapacity() {
@@ -25,6 +28,8 @@ class Airport {
       const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
       return indexOfPlaneInLandedPlanes > -1;
     }
+  // The function then checks if the index is greater than -1, which is a boolean expression returning true or false depending on if the plane has been found in the array. If the index is greater than -1, the function will return true(plane is present), otherwise it will return false(plane is not present)
+  
     takeOffPlane = plane => {
     const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
     

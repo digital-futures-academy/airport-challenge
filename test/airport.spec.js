@@ -249,5 +249,34 @@ result = undefined;
 
 console.log(`============================`);
 
+//Test 10 - try to land a second instance of the same plane
 
+console.log(`============================`);
+console.log(`Test 10 - try to landPlane Plane(id) that is already in landedPlanes`);
+
+// Arrange - this is setting up the variables required for the test
+airport = new Airport(4); //set capacity higher than planes going in, so the capacity is not what blocks a re-landing plane
+plane1 = new Plane('Delta');
+plane2 = new Plane('BA');
+plane3 = new Plane('Ryanair');
+expected = false;
+
+// Act - this is running the methods to be tested and collecting the actual results
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3); //these three planes should now be landed at the airport
+actual = airport.landPlane(plane3); //need to add a Boolean to this function in airport
+
+//Assert - testing the actual results against expected results
+result = assertEquals(expected, actual);
+console.log(`Test 10 - 'Plan cannot land if already landed': ${result}`);
+
+// // Clean up - here we are clearing the variables ready for next test, to avoid contamination
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
 
