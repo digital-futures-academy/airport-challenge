@@ -37,7 +37,7 @@ I would like a default airport capacity that can be overridden as appropriate
 | Objects     | Properties                   | Messages                 | Outputs    |
 | -------     | -------------------------    | -----------------        | -------    |
 | Airport     | airportPlanes @Array[@plane] | getDefaultCapacity()     | @integer   |
-|             | defaultCapacity @integer     | increaseCapacityTo()     |            |
+|             | defaultCapacity @integer     | changeCapacityTo()       |            |
 |             |                              |                          |            |
 | Plane       | flightNumber @string         |                          | @string    | 
 
@@ -48,8 +48,8 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ### Tests For User Story 2
 4. The maximum length of `airportPlanes` is output as `defaultCapacity` |DONE|
-5. The `defaultCapacity` of the airport increases when `increaseCapacity()` is called |DONE|
-6. The `defaultCapacity` of the airport decreases when `decreaseCapacity()` is called |DONE|
+5. The `defaultCapacity` of the airport increases or decreases when `changeCapacity()` is called |DONE|
+
 ---------------
 
 

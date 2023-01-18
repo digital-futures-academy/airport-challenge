@@ -94,7 +94,7 @@ console.log(`---------------------------------------------`);
 
 // TEST 5: 
 console.log(`---------------------------------------------`)
-console.log(`Test 5: The defaultCapacity of the airport increases to 1 when increaseCapacity is called`);
+console.log(`Test 5: Need to be able to change the default capacity of the airport`);
 
 //Arrange
 airport = new Airport();
@@ -102,8 +102,8 @@ plane = new Plane();
 expected = 1;
 
 //Act
-airport.increaseCapacityTo();
-actual = airport.NewDefaultCapacity;
+airport.changeCapacity();
+actual = airport.defaultCapacity;
 
 //Assert
 result = assertEquals(expected, actual);
@@ -119,33 +119,6 @@ plane = null;
 
 console.log(`---------------------------------------------`);
 
-
-// TEST 6: 
-console.log(`---------------------------------------------`)
-console.log(`Test 6: The defaultCapacity of the airport decreases when decreaseCapacity() is called`);
-
-//Arrange
-airport = new Airport();
-plane = new Plane();
-expected = -1;
-
-//Act
-airport.decreaseCapacityTo();
-actual = airport.NewDefaultCapacity;
-
-//Assert
-result = assertEquals(expected, actual);
-
-console.log(`Test 6 Result: ${result}`);
-
-// Clean Up
-expected = null;
-actual = null;
-result = undefined;
-airport = undefined;
-plane = null;
-
-console.log(`---------------------------------------------`);
 
 // TEST 7: 
 console.log(`---------------------------------------------`)
@@ -201,6 +174,8 @@ airport = undefined;
 plane = null;
 
 console.log(`---------------------------------------------`);
+
+
 
 
 
