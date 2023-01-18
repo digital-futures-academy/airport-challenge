@@ -36,7 +36,7 @@ console.log('TEST 2: addPlane should only allow planes that are instances to lan
 
 //1. Arrange
 airport = new Airport();
-plane = 'something'
+plane = 'car'
 expected = 0;
 
 //2. Act
@@ -48,6 +48,52 @@ actual = airport.airportPlanes.length;
 //3. Assert
 result = assertEquals(actual, expected);
 console.log(`Test 2:Only Plane instances landed at airport: ${result}`);
+
+//4. CleanUp
+airport = null;
+plane = null;
+result = undefined;
+actual = undefined;
+expected = undefined;
+
+console.log(`=================================`);
+//TEST 3
+console.log('TEST 3: Check if Airport has a default capacity ')
+
+//1. Arrange
+airport = new Airport();
+expected = 500;
+
+//2. Act
+actual = airport.airportCapacity;
+// console.log(`${actual}`)
+
+
+//3. Assert
+result = assertEquals(actual, expected);
+console.log(`Test 3:Airport has a default capacity: ${result}`);
+
+//4. CleanUp
+airport = null;
+plane = null;
+result = undefined;
+actual = undefined;
+expected = undefined;
+
+console.log(`=================================`);
+//TEST 4
+console.log('TEST 3: Override default capacity of airport by creating an airport with a bigger capacity')
+//1. Arrange
+airport = new Airport(1000);
+expected = 1000;
+
+//2. Act
+actual = airport.airportCapacity;
+// console.log(`${actual}`)
+
+//3. Assert
+result = assertEquals(actual, expected);
+console.log(`Test 4:Airport has a new capacity: ${result}`);
 
 //4. CleanUp
 airport = null;

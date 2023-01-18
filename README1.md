@@ -32,6 +32,10 @@ I would like a default airport capacity that can be overridden as appropriate
 |||getconfirmation()|@string |
 | Plane   | id @String                | getId()             | @String |
 
+*Tests*
+*The airport must have a default air capacity which is assigned to a new airport
+*Assigning a different airport capacity should override the default capacity.
+
 **User Story 3**
 As an air traffic controller
 To ensure safety
