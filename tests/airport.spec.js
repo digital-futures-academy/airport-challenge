@@ -36,6 +36,35 @@ plane = null;
 
 console.log(`---------------------------------------------`);
 
+// TEST 2: 
+console.log(`---------------------------------------------`)
+console.log(`Test 2: addPlane should only add planes with the correct flightNumber to airportPlanes`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = true;
+
+//Act
+airport.landCorrectPlane();
+actual = airport.landingPlane;
+
+//Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 2 Result: ${result}`);
+
+// Clean Up
+expected = null;
+actual = null;
+result = undefined;
+airport = undefined;
+flightNumber = undefined;
+plane = null;
+
+console.log(`---------------------------------------------`);
+
+
 // TEST 5: 
 console.log(`---------------------------------------------`)
 console.log(`Test 5: The defaultCapacity of the airport increases to 10 when increaseCapacity is called`);

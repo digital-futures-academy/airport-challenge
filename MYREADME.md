@@ -21,7 +21,7 @@ I want to instruct the airport to land a plane
 
 ### Tests For User Story 1
 1. `airportPlanes` length increases to 1when `addPlane` is called with an instance of `plane` //DONE
-2. `addPlane` should only add planes with a `flightNumber` to `airportPlanes`
+2. `addPlane` should only add planes with the correct `flightNumber` to `airportPlanes` //DONE
 3. Edge case - check that the plane is not already in `airportPlanes`
 
 ---------------

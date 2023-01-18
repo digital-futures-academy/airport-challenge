@@ -6,11 +6,13 @@ class Airport {
   NewDefaultCapacity = null;
   airportFull;
   noLandings;
+  planeToLand;
+  landingPlane;
 
   addPlane = plane => {
     if (plane instanceof Plane) this.airportPlanes.push(plane);
   };
-  
+
   increaseCapacityTo = () => {
     this.NewDefaultCapacity = this.defaultCapacity + 1;
   }
@@ -26,10 +28,15 @@ class Airport {
       this.noLandings = true;
     }
   }
+
+  landCorrectPlane(plane) {
+    
+    if (this.flightNumber === this.planeToLand) {
+      this.landingPlane = true;
+    }
+    
+  }
 };
   
-
-
-
 
 module.exports = Airport;
