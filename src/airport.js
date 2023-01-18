@@ -3,9 +3,10 @@ const Plane = require("./Plane");
 class Airport {
   // here's a starting point for you
   planesInAirport = [];
-  defaultWeather = `Sunny`;
+  #weather;
 
-  constructor(capacity = 3) {
+  constructor(weather, capacity = 3) {
+    this.#weather = weather;
     // if the overridden value is not a number, by default the value is 10;
     // else it will be set to the given number
     if (typeof capacity !== "number") {
@@ -15,17 +16,15 @@ class Airport {
     }
   }
 
-  // number generator
-  getRandomNumber = () => {
-    return Math.floor(Math.random() * 2) + 1;
-  };
-  getWeather = () => {
-    let randomNumber = this.getRandomNumber();
-    return randomNumber == 1 ? `Sunny` : `Stormy`;
+  getAirportWeather = () => {
+    return this.#weather.getWeather();
   };
 
-  landPlane = (plane, weather) => {
-    if (weather !== this.defaultWeather) {
+  // To land, check the weather first, must be `Sunny`.
+  // Then check if plane exists in the airport.
+  // If it doesnt exist, only then add it to the airport array.
+  landPlane = (plane) => {
+    if (this.getAirportWeather() === `Stormy`) {
       return `Stormy Weather, unable to take off!`;
     } else {
       if (this.doesPlaneExist(plane)) {
@@ -47,20 +46,20 @@ class Airport {
     this.capacity = newCapacity;
   }
 
-  takeOffPlane = (planeID, weather) => {
-    if (weather !== this.defaultWeather) {
-      return `Stormy Weather, unable to take off!`;
-    } else {
-      if (
-        this.planesInAirport.findIndex((plane) => plane.id === planeID) != -1
-      ) {
+  // Find the index of the plane in the airport, then check the weather in the airport.
+  // Only lets the plane takeOff if plane index is found and the weather is `Sunny`.
+  takeOffPlane = (planeID) => {
+    if (this.planesInAirport.findIndex((plane) => plane.id === planeID) != -1) {
+      if (this.getAirportWeather() == `Stormy`) {
+        return `Stormy Weather, unable to take off!`;
+      } else {
         this.planesInAirport.splice(
           this.planesInAirport.findIndex((plane) => plane.id === planeID),
           1
         );
-      } else {
-        return `Plane does not exist in this airport.`;
       }
+    } else {
+      return `Plane does not exist in this airport.`;
     }
   };
 

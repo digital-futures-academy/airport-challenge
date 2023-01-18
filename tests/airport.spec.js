@@ -1,6 +1,7 @@
 const { assertEquals } = require(`./testing-framework`);
 const Airport = require(`../src/Airport`);
 const Plane = require(`../src/Plane`);
+const Weather = require("../src/Weather");
 
 let expected;
 let actual;
@@ -10,12 +11,13 @@ let plane;
 
 // Test 1 - landPlane() should only add Plane instances to increase the number of planes in the Airport.
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
+console.log(airport.getAirportWeather());
 plane = new Plane();
 expected = 1;
 
 //Act
-airport.landPlane(plane, `Sunny`);
+airport.landPlane(plane);
 actual = airport.planesInAirport.length;
 console.log(actual);
 
@@ -36,7 +38,7 @@ console.log(`===============================================`);
 
 // Test 2 - Only instances of Plane can be added to the array of planes in the Airport.
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 plane = "new Plane";
 expected = 0;
 
@@ -61,7 +63,7 @@ console.log(`===============================================`);
 
 // Test 3 - Try and land falsy values in the Airport
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 plane = null;
 expected = 0;
 
@@ -88,7 +90,7 @@ console.log(`===============================================`);
 
 // Test 4 - Check the default capacity of Planes in an Airport
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 expected = 3;
 
 //Act
@@ -113,10 +115,11 @@ console.log(`===============================================`);
 
 // Test 5 - Setting up deafault capacity when instantiating an Airport
 //Arrange
-airport = new Airport(20);
+airport = new Airport(new Weather());
 expected = 20;
 
 //Act
+airport.setCapacity(20);
 actual = airport.capacity;
 
 //Assert
@@ -139,7 +142,7 @@ console.log(`===============================================`);
 
 // Test 6
 //Arrange
-airport = new Airport("30");
+airport = new Airport(new Weather(), "30");
 expected = 3;
 
 //Act
@@ -164,7 +167,7 @@ console.log(`===============================================`);
 // Test 7 - Check setCapacity() to set the capacity of the Airport after initialization.
 
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 expected = 3;
 
 //Act
@@ -190,7 +193,7 @@ console.log(`===============================================`);
 
 // Test 8 - Check isAirportFull() logic is working by comparing capacity and planesInAirport.length.
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 plane = new Plane();
 plane1 = new Plane();
 plane2 = new Plane();
@@ -221,21 +224,18 @@ console.log(`===============================================`);
 
 // Test 9 - Take off Plane should reduce the length of planesInAirport
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 plane1 = new Plane(1);
 plane2 = new Plane(2);
 plane3 = new Plane(3);
 airport.landPlane(plane1);
 airport.landPlane(plane2);
 airport.landPlane(plane3);
-expected = `Stormy Weather, unable to take off!`;
+expected = 2;
 
 //Act
-console.log(`No. of planes: ${airport.planesInAirport.length}`);
-actual = airport.takeOffPlane(plane2.getID(), `Stormy`);
-console.log(`No. of planes after take off: ${airport.planesInAirport.length}`);
-
-//actual = airport.planesInAirport.length;
+airport.takeOffPlane(plane2.getID());
+actual = airport.planesInAirport.length;
 
 //Assert
 result = assertEquals(expected, actual);
@@ -254,7 +254,7 @@ console.log(`===============================================`);
 
 // Test 10 - Check if Plane exists in Airport
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 plane1 = new Plane(1);
 plane2 = new Plane(2);
 expected = true;
@@ -281,13 +281,13 @@ console.log(`===============================================`);
 
 // Test 11 - Take off non-existent Plane
 //Arrange
-airport = new Airport();
-airport2 = new Airport();
+airport = new Airport(new Weather());
+airport2 = new Airport(new Weather());
 plane1 = new Plane(1);
 expected = `Plane does not exist in this airport.`;
 
 //Act
-actual = airport2.takeOffPlane(plane1.getID(), `Sunny`);
+actual = airport2.takeOffPlane(plane1.getID());
 
 //Assert
 result = assertEquals(expected, actual);
@@ -308,7 +308,7 @@ console.log(`===============================================`);
 
 // Test 12 - Landing a plane that already exists
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 plane1 = new Plane(1);
 expected = `Plane already exists in this airport.`;
 
@@ -334,12 +334,11 @@ console.log(`===============================================`);
 
 // Test 13 - Check weather
 //Arrange
-airport = new Airport();
+airport = new Airport(new Weather());
 expected = `Sunny` || `Stormy`;
 
 //Act
-actual = airport.defaultWeather;
-console.log(actual);
+actual = airport.getAirportWeather();
 
 //Assert
 result = assertEquals(expected, actual);
@@ -350,7 +349,5 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 airport = null;
-plane1 = null;
-
 console.log(`===============================================`);
 // End of Test 13
