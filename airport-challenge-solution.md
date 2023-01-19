@@ -193,6 +193,7 @@ I want to prevent landing a plane that is already at another airport.
 2. create a way to collect the groundedPlanes array from each airport and put them into a single array that can be filtered through every time land is called
 3. could show what airport the plane is in if this error occurs
 4. could adjust the `planeExists` function to look through `allLandedPlanes` instead of `groundedPlanes`
+5. use static method for `Airports`
 
 **Test 16** - `Airports` will create an array of all the airports that have been created
 
