@@ -5,7 +5,7 @@ class Airport {
     this.airportCapacity = airportCapacity
   }
   planeLands = (planeID) => {
-    planeID instanceof Plane ? this.planesAtAirport.push(planeID) : "This is not a plane"
+    return planeID instanceof Plane ? this.planesAtAirport.push(planeID) : "Unable to land";
   };
 
 }
