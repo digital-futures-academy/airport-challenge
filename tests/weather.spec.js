@@ -39,7 +39,6 @@ expected = true;
 
 // Act
 actual = weather.weatherOn();
-console.log(actual);
 
 // Assert
 result = assertEquals(expected, actual); // is expected and actual the same??
