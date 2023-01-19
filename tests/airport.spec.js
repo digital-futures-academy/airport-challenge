@@ -195,13 +195,12 @@ airport = new Airport(new Weather());
 plane = new Plane();
 plane1 = new Plane();
 plane2 = new Plane();
-plane3 = new Plane();
 expected = true;
 
 //Act
-airport.landPlane(plane, `Sunny`);
-airport.landPlane(plane1, `Sunny`);
-airport.landPlane(plane2, `Sunny`);
+airport.landPlane(plane);
+airport.landPlane(plane1);
+airport.landPlane(plane2);
 actual = airport.isAirportFull();
 
 //Assert
@@ -216,7 +215,6 @@ airport = null;
 plane = null;
 plane1 = null;
 plane2 = null;
-plane3 = null;
 console.log(`===============================================`);
 // End  of Test 8
 
@@ -258,8 +256,8 @@ plane2 = new Plane(2);
 expected = true;
 
 //Act
-airport.landPlane(plane1, `Sunny`);
-airport.landPlane(plane2, `Sunny`);
+airport.landPlane(plane1);
+airport.landPlane(plane2);
 actual = airport.doesPlaneExist(plane1);
 //Assert
 result = assertEquals(expected, actual);
@@ -311,8 +309,8 @@ plane1 = new Plane(1);
 expected = `Plane already exists in this airport.`;
 
 //Act
-airport.landPlane(plane1, `Sunny`);
-actual = airport.landPlane(plane1, `Sunny`);
+airport.landPlane(plane1);
+actual = airport.landPlane(plane1);
 
 //Assert
 result = assertEquals(expected, actual);
@@ -424,7 +422,9 @@ actual1 = airport.planesInAirport.length;
 //Assert
 result = assertEquals(expected, actual) || assertEquals(expected1, actual1);
 console.log(
-  `Test 16: Tried to takeOff in random weather: ${result ? `Passed` : `Failed`}`
+  `Test 16: Tried to take off in RANDOM weather: ${
+    result ? `Passed` : `Failed`
+  }`
 );
 
 //Clear up
