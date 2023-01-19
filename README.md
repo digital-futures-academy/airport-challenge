@@ -175,7 +175,7 @@ I want to prevent takeoff when weather is stormy
 |         |                               | weatherGenerator()           | @String  |
 | ------- | ----------------------------- | ---------------------------- | -------- |
 | Airport |                               | takeOffPlane(@Plane)         | @Void    |
-|         | planesAtAirport @Array[@Plane]| checkPlanesAtAirport(@Plane) | @Boolean |
+|         | planesAtAirport @Array[@Plane]| planesAtAirport.length       | @Integer |
 
 Initial thoughts:
 1. Need a weather class
@@ -186,9 +186,25 @@ Initial thoughts:
 
 **Test 17** - prevent a plane does not take off when the weather is stormy by checking it stays in `planesAtAirport`
 
+### USER CASE 7
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+
+## Domain Model
+
+| Objects | Properties                    | Messages                     | Outputs  |
+| ------- | ----------------------------- | ---------------------------- | -------- |
+| Weather | storm @Boolean                | isStormy(@Weather)           | @Boolean |
+| ------- | ----------------------------- | ---------------------------- | -------- |
+| Airport |                               | landPlane(@Plane)            | @Void    |
+|         | planesAtAirport @Array[@Plane]| planesAtAirport.length       | @Integer |
+
+Initial thoughts:
+1. Need a weather class
+2. landPlane needs to take the output of the weather class
+
+**Test 18** - prevent a plane of landing when the weather is stormy by checking it is not added to `planesAtAirport`
 
 As an air traffic controller
 To count planes easily

@@ -361,7 +361,7 @@ airport, plane, planes = null;
 
 console.log(`\n *** END TEST 15 ***`)
 
-// ******************** USER CASE 16 ****************************
+// ******************** USER CASE 6 ****************************
 
 //Test 16 - check if the weather generator returns a weather
 console.log(`\n*** START TEST 16 - check if the weather generator returns a weather ***`);
@@ -392,20 +392,18 @@ kindOfWeather, weather, weatherToday = null;
 
 console.log(`\n *** END TEST 16 ***`)
 
-// ******************** USER CASE 17 ****************************
-
 //Test 17 - prevent a plane does not take off when the weather is stormy by checking it stays in `planesAtAirport`
 console.log(`\n*** START TEST 17 - prevent a plane does not take off when the weather is stormy by checking it stays in \`planesAtAirport\` ***`);
 
 // Arrange
 weather = new Weather();
-weatherToday = weather.isStormy(`sunny`);
+weatherToday = weather.isStormy(`stormy`);
 airport = new Airport();
 plane1 = new Plane(`plane1`);
 plane2 = new Plane(`plane2`);
 airport.landPlane(plane1);
 airport.landPlane(plane2);
-expected = 1;
+expected = 2;
 
 // Act
 airport.takeOffPlane(plane2, weatherToday);
@@ -420,3 +418,29 @@ expected, actual, result = undefined;
 kindOfWeather, weather, weatherToday = null;
 
 console.log(`\n *** END TEST 17 ***`)
+
+// ******************** USER CASE 7 ****************************
+
+//Test 18 - prevent a plane of landing when the weather is stormy by checking it is not added to `planesAtAirport`
+console.log(`\n*** START TEST 18 - prevent a plane of landing when the weather is stormy by checking it is not added to \`planesAtAirport\` ***`);
+
+// Arrange
+weather = new Weather();
+weatherToday = weather.isStormy(`stormy`);
+airport = new Airport();
+plane = new Plane(`plane1`);
+expected = 0;
+
+// Act
+airport.landPlane(plane, weatherToday);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 18 - prevent a plane of landing when the weather is stormy by checking it is not added to \`planesAtAirport\`: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+kindOfWeather, weather, weatherToday = null;
+
+console.log(`\n *** END TEST 18 ***`)
