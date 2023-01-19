@@ -1,14 +1,14 @@
-class Plane {
+export default class Plane {
+
+	#flightNum;
 
 	constructor(num) {
 		if (typeof num !== 'string') return new Error('Invalid flight number passed as argument.');
-		this.flightNum = num;
+		this.#flightNum = num;
 	}
 
-	getFlightNum() {
-		return this.flightNum;
+	get flightNum() {
+		return this.#flightNum;
 	}
 
 }
-
-module.exports = Plane;

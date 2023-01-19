@@ -6,11 +6,11 @@ const assertTypeOf = (expected, actual) => expected === typeof actual;
 const assertThrows = actual => typeof actual === typeof new Error();
 // const assertPropEqual = (expected, actual) => 
 
-module.exports = {
-    assertEquals,
+export {
+	assertEquals,
 	assertNotEquals,
-    assertTrue,
+	assertTrue,
 	assertFalse,
 	assertTypeOf,
-	assertThrows	//, assertPropEqual,
-}
+	assertThrows //, assertPropEqual,
+};

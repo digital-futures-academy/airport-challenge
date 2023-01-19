@@ -1,13 +1,13 @@
-class Weather {
+export default class Weather {
 
-	constructor() {
-		this.status = Math.random() > 0.3 ? 'Sunny' : 'Stormy';
-	}
+	#status = Math.random() > 0.3 ? 'Sunny' : 'Stormy';
 
 	getWeather() {
-		return this.status;
+		return this.#status;
+	}
+
+	setStatus(status) {
+		this.#status = status;
 	}
 
 }
-
-module.exports = Weather;

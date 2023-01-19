@@ -1,46 +1,51 @@
-const Plane = require('./plane.js');
-const Weather = require('./weather.js');
+export default class Airport {
 
-class Airport {
-
-	DEF_CAPACITY = 10;
-
-	constructor(airportCapacity = this.DEF_CAPACITY) {
-		this.planes = [];
-		this.airportCapacity = airportCapacity;
-		this.weather = new Weather();
+	#DEF_CAPACITY = 10;
+	#planes = [];
+	#airportCapacity;
+	#weather;
+	
+	constructor(weather, airportCapacity = this.#DEF_CAPACITY) {
+		this.#airportCapacity = airportCapacity;
+		this.#weather = weather;
 	}
 
-	getCapacity() {
-		return this.airportCapacity;
+	get airportCapacity() {
+		return this.#airportCapacity;
+	}
+
+	get planes() {
+		return this.#planes;
+	}
+
+	set weather(status) {
+		this.#weather = status;
 	}
 
 	changeCapacity(size) {
-		if (typeof size !== 'number' || size < 0) return new Error('Invalid new capacity passed as argument.');
-		this.airportCapacity = size;
+		if (isNaN(size) || size < 0) return new Error('Invalid new capacity passed as argument.');
+		this.#airportCapacity = size;
 	}
 	
 	isAtAirport(plane) {
-		return this.planes.includes(plane);
+		return this.#planes.includes(plane);
 	}
 
-	takeOff(plane) {
-		if (plane instanceof Plane == false || this.isAtAirport(plane) == false) return new Error('Invalid plane passed as argument.');
-		if (this.weather.getWeather() == 'Stormy') return new Error('Due to current poor weather conditions the plane is not be able to take off.');
-		this.planes.splice(this.planes.indexOf(plane), 1);
+	takeOff(plane, planeIsInstanceOf) {
+		if (planeIsInstanceOf === false || this.isAtAirport(plane) == false) return new Error('Invalid plane passed as argument.');
+		if (this.#weather.getWeather() == 'Stormy') return new Error('Due to current poor weather conditions the plane is not be able to take off.');
+		this.#planes.splice(this.#planes.indexOf(plane), 1);
 	}
 
-	land(plane) {
-		if (plane instanceof Plane == false) return new Error('Invalid plane passed as argument.');
+	land(plane, planeIsInstanceOf) {
+		if (planeIsInstanceOf === false) return new Error('Invalid plane passed as argument.');
 		if (this.isAtAirport(plane) == true || this.isFull() == true) return new Error('The plane is already at the airport / Airport full.');
-		if (this.weather.getWeather() == 'Stormy') return new Error('Due to current poor weather conditions the plane is not be able to land.');
-		this.planes.push(plane);
+		if (this.#weather.getWeather() == 'Stormy') return new Error('Due to current poor weather conditions the plane is not be able to land.');
+		this.#planes.push(plane);
 	}
 
 	isFull() {
-		return this.planes.length == this.getCapacity();
+		return this.#planes.length == this.airportCapacity;
 	}
 
 }
-
-module.exports = Airport;

@@ -1,13 +1,14 @@
-const testFramework = require('../test_framework.js');
-const Plane = require('../src/plane.js');
+import Plane from '../src/plane.js';
+import { assertEquals, assertThrows } from '../test_framework.js';
 
 console.log('------------------------------');
 console.log('Running tests for plane.js');
+let passCount = 0, failCount = 0;
 
 // Test 1
 {
 	console.log('------------------------------');
-	console.log('Test 1. (getFlightNum() test). Valid name => "XA-FCV"')
+	console.log('Test 1. (get flightNum test). Valid name => "XA-FCV"')
 
 	let input, expected, actual, result, airport, plane, weather;
 	
@@ -16,13 +17,13 @@ console.log('Running tests for plane.js');
 	expected = 'XA-FCV';
 
 	//2. Act
-	actual = plane.getFlightNum();
+	actual = plane.flightNum;
 
 	//3. Assert
-	result = testFramework.assertEquals(expected, actual);
+	result = assertEquals(expected, actual);
 	
-	if (result) console.log("Test Passed.");
-	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	if (result) {console.log("Test Passed."); passCount += 1;}
+	else {console.log(`Test Failed. Expected ${expected} but received ${actual}.`); failCount += 1;}
 	console.log('Output: ' + result);
 }
 
@@ -40,19 +41,13 @@ console.log('Running tests for plane.js');
 	actual = new Plane();
 
 	//3. Assert
-	result = testFramework.assertThrows(actual);
+	result = assertThrows(actual);
 	
-	if (result) console.log("Test Passed.");
-	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	if (result) {console.log("Test Passed."); passCount += 1;}
+	else {console.log(`Test Failed. Expected ${expected} but received ${actual}.`); failCount += 1;}
 	console.log('Output: ' + result);
 }
 
 console.log('------------------------------');
-//Clear
-// input = undefined;
-// expected = undefined;
-// actual = undefined;
-// result=undefined;
-// airport = undefined;
-// plant = undefined;
-// weather = undefined;
+console.log(`Passed: ${passCount}. Failed: ${failCount}. Total: ${passCount+failCount}`);
+console.log('------------------------------');

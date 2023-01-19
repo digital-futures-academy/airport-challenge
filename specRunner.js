@@ -1,3 +1,3 @@
-const airportSpec = require('./spec/airport.spec.js');
-const planeSpec = require('./spec/plane.spec.js');
-const weatherSpec = require('./spec/weather.spec.js');
+import './spec/airport.spec.js';
+import './spec/plane.spec.js';
+import './spec/weather.spec.js';

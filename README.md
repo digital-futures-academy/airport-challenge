@@ -178,4 +178,3 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 Notes:
 - https://api.qunitjs.com/assert/ (Referenced for types of assertion tests)
-- npm install seedrandom

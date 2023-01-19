@@ -1,16 +1,9 @@
-const testFramework = require('../test_framework.js');
-const Weather = require('../src/weather.js');
-const seedrandom = require('seedrandom');
-
-// Top 5 seed values
-// 0.10388572860170014
-// 0.7055594681824928
-// 0.7587790771905167
-// 0.03904401179222965
-// 0.6040060955540055
+import Weather from '../src/weather.js';
+import { assertEquals } from '../test_framework.js';
 
 console.log('------------------------------');
 console.log('Running tests for weather.js');
+let passCount = 0, failCount = 0;
 
 // Test 1
 {
@@ -21,19 +14,17 @@ console.log('Running tests for weather.js');
 	
 	//1. Arrange
 	weather = new Weather();
-	srandom = new seedrandom('stub');
-	srandom();
-	weather.status = (srandom() > 0.3 ? 'Sunny' : 'Stormy');
+	weather.setStatus('Sunny');
 	expected = 'Sunny';
 
 	//2. Act
 	actual = weather.getWeather();
 
 	//3. Assert
-	result = testFramework.assertEquals(expected, actual);
+	result = assertEquals(expected, actual);
 	
-	if (result) console.log("Test Passed.");
-	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	if (result) {console.log("Test Passed."); passCount += 1;}
+	else {console.log(`Test Failed. Expected ${expected} but received ${actual}.`); failCount += 1;}
 	console.log('Output: ' + result);
 }
 
@@ -46,27 +37,20 @@ console.log('Running tests for weather.js');
 	
 	//1. Arrange
 	weather = new Weather();
-	srandom = new seedrandom('stub');
-	weather.status = (srandom() > 0.3 ? 'Sunny' : 'Stormy');
+	weather.setStatus('Stormy');
 	expected = 'Stormy';
 
 	//2. Act
 	actual = weather.getWeather();
 
 	//3. Assert
-	result = testFramework.assertEquals(expected, actual);
+	result = assertEquals(expected, actual);
 	
-	if (result) console.log("Test Passed.");
-	else console.log(`Test Failed. Expected ${expected} but received ${actual}.`);
+	if (result) {console.log("Test Passed."); passCount += 1;}
+	else {console.log(`Test Failed. Expected ${expected} but received ${actual}.`); failCount += 1;}
 	console.log('Output: ' + result);
 }
 
 console.log('------------------------------');
-//Clear
-// input = undefined;
-// expected = undefined;
-// actual = undefined;
-// result=undefined;
-// airport = undefined;
-// plant = undefined;
-// weather = undefined;
+console.log(`Passed: ${passCount}. Failed: ${failCount}. Total: ${passCount+failCount}`);
+console.log('------------------------------');
