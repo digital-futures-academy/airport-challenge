@@ -50,12 +50,14 @@ I want to prevent landing when the airport is full
 | Objects | Properties                   | Messages          | Outputs |
 | ------- | -------------------------    | ----------------- | ------- |
 | Airport |planesAtAirport @Array[@Plane]| planeLands(@Plane)| @Void   |
-|         |airportCapacity @Integer      | preventLanding()  |@String  |
+|         |airportCapacity @Integer      | atCapacity()      |@Boolean |
 | Plane   |plane id @String              |                   |         |
 
 ## Tests
 
 *Test 1* - When the length of planesAtAirport and airportCapacity are the same, the test returns true
+*Test 2* - When the length of planesAtAirport and airportCapacity are the same (1), atCapacity returns true
+*Test 3* - When the length of planesAtAirport and airportCapacity are different, atCapacity returns false
 *Test 2* - When planeLands and length of planesAtAirport is the same as airportCapacity, planeLands returns preventLanding
 *Test 3* - When planeLands and length of planesAtAirport is smaller than airportCapacity, planeLands is successful and length of planesAtAirport increases by 1
 
@@ -69,7 +71,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | Objects | Properties                   | Messages                          | Outputs |
 | ------- | -------------------------    | -----------------------------     | ------- |
 | Airport |planesAtAirport @Array[@Plane]| planeLands(@Plane)                | @Void   |
-|         |airportCapacity @Integer      | preventLanding()                  | @String |
+|         |airportCapacity @Integer      | atCapacity()                      |@Boolean |
 |         |                              | planeTakesOff()                   | @Void   |
 |         |                              | planeIsAtAirport(@planesAtAirport)| @Boolean|
 | Plane   |planeID @String               | getId()                           | @String |
@@ -90,7 +92,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | Objects | Properties                    | Messages                          | Outputs |
 | ------- | ----------------------------  | ----------------------------      | ------- |
 | Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane)                | @Void   |
-|         |airportCapacity @Integer       | preventLanding()                  | @String |
+|         |airportCapacity @Integer       | atCapacity()                      |@Boolean |
 |         |                               | planeTakesOff()                   | @Void   |
 |         |                               | preventTakeOff()                  | @String |
 |         |                               | planeIsAtAirport(@planesAtAirport)| @Boolean|

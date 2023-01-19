@@ -26,7 +26,7 @@ actualOutput = airport1.planesAtAirport.length === airport1.airportCapacity;
 result = assertEquals(expectedOutput, actualOutput);
 
 // Report
-console.log(`Capacity reached: ${result}`);
+console.log(`At capacity: ${result}`);
 
 // Clean-Up
 actualOutput = undefined;
@@ -39,7 +39,6 @@ console.log(`*** When the length of planesAtAirport and airportCapacity are the 
 
 // Arrange
 airport1 = new Airport(1)
-plane1 = new Plane()
 expectedOutput = true;
 actualOutput, result;
 
@@ -51,7 +50,30 @@ actualOutput = airport1.atCapacity()
 result = assertEquals(expectedOutput, actualOutput);
 
 // Report
-console.log(`Capacity reached: ${result}`);
+console.log(`At capacity: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 3.3
+console.log(`*** When the length of planesAtAirport and airportCapacity are different, atCapacity returns false***`);
+
+// Arrange
+airport1 = new Airport(1)
+expectedOutput = false;
+actualOutput, result;
+
+// Act;
+actualOutput = airport1.atCapacity()
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Not at capacity: ${result}`);
 
 // Clean-Up
 actualOutput = undefined;
