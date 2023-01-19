@@ -62,3 +62,6 @@ First, you will need to clone the repository, change the directory and install t
 6. Run all your tests by simply typing `npm test` in the integrated terminal.
 
 ## Screenshots: 
+<img width="430" alt="Screenshot 2023-01-19 214048" src="https://user-images.githubusercontent.com/105486018/213572739-eee57a12-8620-40f8-8cc7-b8ab0d7d3581.png">
+<img width="568" alt="Screenshot 2023-01-19 214119" src="https://user-images.githubusercontent.com/105486018/213572799-8c8ef06a-4b1a-4455-8664-5988323b1d24.png">
+
