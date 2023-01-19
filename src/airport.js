@@ -39,6 +39,15 @@ class Airport {
     }
     return true;
   };
+
+  displayPlanes = () => {
+    if (this.airportPlanes.length === 0) {
+      console.log("No planes have landed at the airport");
+    } else {
+      console.log("Planes landed at the airport:");
+      this.airportPlanes.forEach(({ id }) => console.log(id));
+    }
+  };
 }
 
 module.exports = Airport;

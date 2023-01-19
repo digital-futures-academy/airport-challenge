@@ -248,3 +248,24 @@ console.log(`=============================✈️✈️✈️✈️`);
 console.log(
   ` Test 8  : Check the weather to see if the plane can take off ${result} `
 );
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = undefined;
+plane = undefined;
+
+plane1 = undefined;
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 9  : The planes thst landed check `);
+
+airport = new Airport();
+plane1 = new Plane("plane1");
+
+airport.landPlane(plane1);
+expected = plane1;
+actual = airport.displayPlanes();
+result = assertEquals(expected.actual);
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 9  : must be in the aiport ${result} `);
