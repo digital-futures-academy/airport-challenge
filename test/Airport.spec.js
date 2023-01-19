@@ -68,6 +68,7 @@ expected = 0
 
 //Act
 airport.addPlane(plane)
+console.log(airport.landedList)
 actual = airport.landedList.length
 
 //Assert 
@@ -314,7 +315,7 @@ actual = airport.landedList.length
 console.log(airport.landedList)
 //Assert 
 result = assertEquals(expected, actual)
-console.log(`Test 10: total number of planes in the airport: ${result ? `Passed` : `Failed`}`)
+console.log(`Test 10: Total number of planes in the airport: ${result ? `Passed` : `Failed`}`)
 
 //Clean up 
 expected = undefined
