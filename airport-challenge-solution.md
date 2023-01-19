@@ -1,6 +1,8 @@
 # Airport Challenge Domain Models [Elle Ordoña]
 
-## Part 1 - User Stories
+## Airport Tests
+
+### Part 1 - User Stories
 
 ```sh
 As an air traffic controller
@@ -8,14 +10,14 @@ So i can get passengers to a destination
 I want to instruct the airport to land a plane
 ```
 
-## Part 1 - Domain Model
+### Part 1 - Domain Model
 
 | Objects | Properties                      | Messages          | Outputs |
 | ------- | ------------------------------- | ----------------- | ------- |
 | Airport | groundedPlanes @Array[@Plane]   | landPlane(@Plane) | @String |
 | Plane   | planeID @String                 | getPlaneId()      | @String |
 
-## Part 1 - Tests
+### Part 1 - Tests
 
 Initial Thoughts:
 
@@ -31,7 +33,7 @@ Initial Thoughts:
 
 ---
 
-## Part 2 - User Stories
+### Part 2 - User Stories
 
 ```sh
 As the systems designer
@@ -39,13 +41,13 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 ```
 
-## Part 2 - Domain Model
+### Part 2 - Domain Model
 
 | Objects | Properties                | Messages                         | Outputs |
 | ------- | ------------------------- | -------------------------------- | ------- |
 | Airport | airportCapacity @Integer  | changeAirportCapacity(@Integer)  | @String |
 
-## Part 2 - Tests
+### Part 2 - Tests
 
 Initial Thoughts:
 
@@ -60,7 +62,7 @@ Initial Thoughts:
 
 ---
 
-## Part 3 - User Stories
+### Part 3 - User Stories
 
 ```sh
 As an air traffic controller
@@ -68,7 +70,7 @@ To ensure safety
 i want to prevent landing when the airport is full
 ```
 
-## Part 3 - Domain Model
+### Part 3 - Domain Model
 
 | Objects | Properties                      | Messages                           | Outputs  |
 | ------- | ------------------------------- | ---------------------------------- | -------- |
@@ -78,7 +80,7 @@ i want to prevent landing when the airport is full
 |         |                                 | changeAirportCapacity(@Integer)    | @String  |
 | Planes  | planeID @String                 | getID()                            | @String  |
 
-## Part 3 - Tests
+### Part 3 - Tests
 
 Initial Thoughts:
 
@@ -96,7 +98,7 @@ Initial Thoughts:
 
 ---
 
-## Part 4 - User Stories
+### Part 4 - User Stories
 
 ```sh
 As an air traffic controller
@@ -104,14 +106,14 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 ```
 
-## Part 4 - Domain Model
+### Part 4 - Domain Model
 
 | Objects | Properties                      | Messages             | Outputs |
 | ------- | ------------------------------- | -------------------- | ------- |
 | Airport | groundedPlanes @Array[@Plane]   | takeoffPlane(@Plane) | @String |
 | Plane   | planeID @String                 | getPlaneID()         | @String |
 
-## Part 4 - Tests
+### Part 4 - Tests
 
 Initial Thoughts:
 
@@ -126,7 +128,7 @@ Initial Thoughts:
 
 ---
 
-## Part 5 - User Stories
+### Part 5 - User Stories
 
 ```sh
 As an air traffic controller
@@ -144,7 +146,7 @@ To avoid confusion
 I want to prevent asking the airport to land a plane that has already landed
 ```
 
-## Part 5 - Domain Model
+### Part 5 - Domain Model
 
 | Objects | Properties                      | Messages              | Outputs  |
 | ------- | ------------------------------- | --------------------- | -------- |
@@ -153,7 +155,7 @@ I want to prevent asking the airport to land a plane that has already landed
 |         |                                 | planeExists(@Plane)   | @Boolean |
 | Plane   | planeID @String                 | getPlaneID()          | @String  |
 
-## Part 5 - Tests
+### Part 5 - Tests
 
 Initial Thoughts:
 
@@ -169,7 +171,7 @@ Initial Thoughts:
 
 ---
 
-## Extra Tests
+### Extra Tests
 
 stuff i thought of and added after the construction of the original program
 
@@ -181,7 +183,15 @@ stuff i thought of and added after the construction of the original program
 
 ---
 
-## Extended Criteria: Part 1 - User Story
+## Plane Tests
+
+**Test 1** - when an instance of `Plane` is created `isPlane` has default value of true
+
+---
+
+## Extended Criteria
+
+### Extended Criteria: Part 1 - User Story
 
 ```sh
 As an air traffic controller
@@ -189,15 +199,16 @@ To ensure safety
 I want to prevent takeoff when weather is stormy
 ```
 
-## Extended Criteria: Part 1 - Domain Model
+### Extended Criteria: Part 1 - Domain Model
 
 | Objects | Properties                      | Messages              | Outputs  |
 | ------- | ------------------------------- | --------------------- | -------- |
 | Airport | groundedPlanes @Array[@Plane]   | takeoffPlane(@Plane)  | @String  |
 |         |                                 | getWeather()          | @Integer |
 | Plane   | planeID @String                 | getPlaneID()          | @String  |
+| Weather | currentWeather @Integer         | getWeather()          | @Integer |
 
-## Extended Criteria: Part 1 - Tests
+### Extended Criteria: Part 1 - Tests
 
 Initial Thoughts:
 
@@ -205,13 +216,17 @@ Initial Thoughts:
 2. stormy weather needs to be rare, so numbers 45-50 will be considered stormy weather (aka has a 10% chance of occurring)
 3. when `takeoffPlane` is called it needs to look at the number generated by `getWeather`
 
-**Test A** - `getWeather` generates a number between 1 and 50
+**Test A** - `getWeather` generates a number between 1 and 50 in `Weather` class
 
-**Test B** -
+**Test B** - `getWeather` in `Airport` class calls the function `getWeather` within an object
+
+**Test C** - when `getWeather` is below 45, `takeoffPlane` is executed
+
+**Test D** - when `getWeather` is 45 or above, `takeoffPlane` an error occurs and the plane cannot takeoff
 
 ---
 
-## Extended Criteria: Part 2 - User Story
+### Extended Criteria: Part 2 - User Story
 
 ```sh
 As an air traffic controller
@@ -219,19 +234,20 @@ To ensure safety
 I want to prevent landing when weather is stormy
 ```
 
-## Extended Criteria: Part 2 - Domain Model
+### Extended Criteria: Part 2 - Domain Model
 
 | Objects | Properties                      | Messages              | Outputs  |
 | ------- | ------------------------------- | --------------------- | -------- |
 | Airport | groundedPlanes @Array[@Plane]   | landPlane(@Plane)     | @String  |
 |         |                                 | getWeather()          | @Integer |
 | Plane   | planeID @String                 | getPlaneID()          | @String  |
+| Weather | currentWeather @Integer         | getWeather()          | @Integer |
 
-## Extended Criteria: Part 2 - Tests
+### Extended Criteria: Part 2 - Tests
 
 ---
 
-## Extended Criteria: Part 3 - User Story
+### Extended Criteria: Part 3 - User Story
 
 ```sh
 As an air traffic controller
@@ -239,11 +255,11 @@ To count planes easily
 Planes that have landed must be at an airport
 ```
 
-## Extended Criteria: Part 3 - Domain Model
+### Extended Criteria: Part 3 - Domain Model
 
 | Objects | Properties                      | Messages          | Outputs |
 | ------- | ------------------------------- | ----------------- | ------- |
 | Airport | groundedPlanes @Array[@Plane]   | landPlane(@Plane) | @String |
 | Plane   | planeID @String                 | getPlaneId()      | @String |
 
-## Extended Criteria: Part 3 - Tests
+### Extended Criteria: Part 3 - Tests
