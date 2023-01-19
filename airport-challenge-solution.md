@@ -169,9 +169,36 @@ Initial Thoughts:
 
 ---
 
-After thoughts/Edge Cases:
+## After thoughts/Edge Cases - User Stories
+
+```sh
+As an air traffic controller.
+To avoid confusion
+I want to prevent landing a plane that is already at another airport.
+```
+
+## After thoughts - Domain Model
+
+| Objects  | Properties                      | Messages              | Outputs  |
+| -------- | ------------------------------- | --------------------- | -------- |
+| Airport  | groundedPlanes @Array[@Planes]  | takeoffPlane(@Plane)  | @String  |
+|          |                                 | landPlane(@Plane)     | @String  |
+|          |                                 | planeExists(@Plane)   | @Boolean |
+| Plane    | planeID @String                 | getPlaneID()          | @String  |
+| Airports | airportList @Array[@Airport]    | allLandedPlanes()     | @Array   |
+
+## After thoughts - Tests
 
 1. if plane is at another airport, it cannot land in a different airport without taking off first
-2. planes that have taken off cannot take off again until it has landed at an airport
+2. create a way to collect the groundedPlanes array from each airport and put them into a single array that can be filtered through every time land is called
+3. could show what airport the plane is in if this error occurs
 
-Solution: create a way to collect the groundedPlanes array from each airport and put them into a single array that can be filtered through every time take off and land is called
+**Test 16** - `Airports` will create an array of all the airports that have been created
+
+**Test 17** - `allLandedPlanes` will show every airport and what planes are grounded
+
+**Test 18** - when `landPlane` is called it will search if the plane exists in `allLandedPlanes`
+
+**Test 19** - `landPlane` will prevent landing if the plane exists in `allLandedPlanes`, and will allow `landPlane` if the plane is not in `allLandedPlanes`
+
+---

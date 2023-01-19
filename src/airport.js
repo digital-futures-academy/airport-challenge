@@ -5,19 +5,19 @@ const Plane = require(`./plane.js`);
 
 class Airport {
   
-  //properties of Airport
+  //* properties of Airport
   groundedPlanes = []; //array for planes in the airport
 
-  // constructor for airport
+  //* constructor for airport
   constructor(airportID = 'the airport', airportCapacity = 10) {
     this.airportID = airportID;
     this.airportCapacity = airportCapacity;
-  } // set default values for these properties and they can be set when creating the airport
+  }; // set default values for these properties and they can be set when creating the airport
 
-  //functions of airport
+  //* functions of airport
   isAirportFull() {
     return assertEquals(this.airportCapacity, this.groundedPlanes.length); // true or false
-  }
+  };
 
   changeAirportCapacity = capacity => {
     if (typeof capacity === 'number' && capacity >= 0) {
@@ -25,17 +25,16 @@ class Airport {
       return console.log(`The capacity of ${this.airportID} has changed to ${this.airportCapacity}.`); // tell the user command has changed the airport capacity
     } else {
       return console.log(`Invalid input, ${this.airportID} capacity has not changed.`) // tell the user that the input is invalid and nothing has changed
-    }
-
-  }
+    };
+  };
 
   getAirportCapacity() {
     return console.log(`${this.airportID} has a capacity of ${this.airportCapacity}.`); // returns the value of airportCapacity
-  }
+  };
 
   planeExists = plane => {
     return assertMoreThan(-1, this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID)); // true or false
-  }
+  };
 
   landPlane = plane => {
     if (plane instanceof Plane && this.isAirportFull() === false && this.planeExists(plane) === false) {
@@ -47,21 +46,21 @@ class Airport {
       return console.log(`${plane.planeID} is already at ${this.airportID} and cannot land.`);
     } else {
       return console.log(`Invalid input, nothing has landed at ${this.airportID}.`) // message for any invalid inputs put into the system
-    }
-  }
+    };
+  };
 
-    takeoffPlane = plane => {
-      if (plane instanceof Plane && this.planeExists(plane) === true) {
-        this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
-        return console.log(`${plane.planeID} has taken off from ${this.airportID}.`)
-      } else if (plane instanceof Plane && this.planeExists(plane) === false) {
-        return console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`)
-      } else {
-        return console.log(`Invalid input, nothing has taken off from ${this.airportID}.`) // message for any invalid inputs put into the system
-      }
-  }
+  takeoffPlane = plane => {
+    if (plane instanceof Plane && this.planeExists(plane) === true) {
+      this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
+      return console.log(`${plane.planeID} has taken off from ${this.airportID}.`)
+    } else if (plane instanceof Plane && this.planeExists(plane) === false) {
+      return console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`)
+    } else {
+      return console.log(`Invalid input, nothing has taken off from ${this.airportID}.`) // message for any invalid inputs put into the system
+    };
+  };
   
-}
+};
   
 
 

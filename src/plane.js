@@ -5,7 +5,7 @@ class Plane {
 
     constructor(planeID = 'the plane') {
         this.planeID = planeID;
-    }
-}
+    };
+};
 
 module.exports = Plane;
