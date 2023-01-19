@@ -8,7 +8,7 @@ let actualOutput, result;
 let airport1 = new Airport()
 let plane1 = new Plane()
 //USER STORY 1
-// Test 1
+// Test 1.1
 console.log(`*** Check that only Plane types are able to land at the Airport when planeLands ***`);
 
 // Arrange
@@ -34,7 +34,7 @@ result = undefined;
 input = undefined;
 expectedOutput = undefined;
 
-// Test 2
+// Test 1.2
 console.log(`***Length of planeAtAirport array at the Airport increases by 1 when planeLands ***`);
 
 
@@ -62,7 +62,7 @@ input = undefined;
 expectedOutput = undefined;
 
 
-// Test 3
+// Test 1.3
 console.log(`*** Check that edge cases such as 'null' as a type are unable to land at the airport***`);
 
 // Arrange
@@ -87,7 +87,7 @@ result = undefined;
 input = undefined;
 expectedOutput = undefined;
 
-// Test 4
+// Test 1.4
 console.log(`***When something that isn't a plane attempts to land at the airport, a message is returned***`);
 
 // Arrange

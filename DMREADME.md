@@ -15,6 +15,7 @@ I want to instruct the airport to land a plane
 *Test 2* - Length of planesAtAirport array at the Airport increases by 1 when planeLands
 *Test 3* - Check that edge cases such as 'null' as a type are unable to land at the airport and length of planesAtAirport remains at 0
 *Test 4* - Check that when something that isn't a plane attempts to land at the airport, a message is returned
+*Test 5* - When a new plane instance is created from the plane class, it contains a planeID property
 
 **User Story 2**
 As the system designer
