@@ -141,9 +141,32 @@ actual = undefined;
 result = undefined;
 
 console.log(`============================`);
-//Test 6 TO DO
-
-//Test 7 - Airport default can be changed to 100  
 
 
+//Test 6 -   Need to know if airport is full
+
+console.log(`============================`);
+console.log(`Test 6 - Is Airport full?`);
+
+//Arrange
+
+airport = new Airport();
+expected = 10;
+
+//Act
+airport.isAirportFull();
+actual = airport.capacity;
+    
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6: Airport is full: ${result}`);
+
+//Clean up
+plane = null;
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
 

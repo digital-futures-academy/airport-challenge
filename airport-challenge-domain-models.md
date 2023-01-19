@@ -47,11 +47,9 @@ Initial thoughts
 
 1. Need an airport with a default capacity
 2. Need to be able to change this default capacity.
-3. Airport capacity should only accept integer values.
 
 **Test 4** - `Airport` has a default `capacity`.
 **Test 5** - `airportCapacity` can be changed when a new value is entered
-TO DO**Test 6** - `airportCapacity` can be only accept integers
 
 ## User story 3
 
