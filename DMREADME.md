@@ -58,8 +58,9 @@ I want to prevent landing when the airport is full
 *Test 1* - When the length of planesAtAirport and airportCapacity are the same, the test returns true
 *Test 2* - When the length of planesAtAirport and airportCapacity are the same (1), atCapacity returns true
 *Test 3* - When the length of planesAtAirport and airportCapacity are different, atCapacity returns false
-*Test 2* - When planeLands and length of planesAtAirport is the same as airportCapacity, planeLands returns preventLanding
-*Test 3* - When planeLands and length of planesAtAirport is smaller than airportCapacity, planeLands is successful and length of planesAtAirport increases by 1
+*Test 4* - When atCapacity is true, planeLands returns an error message
+*Test 5* - When atCapacity is true, planeLands doesn't change the length of planesAtAirport array 
+*Test 6* - When atCapacity is false, planeLands increases length of planesAtAirport array by 1
 
 **User Story 4**
 As an air traffic controller

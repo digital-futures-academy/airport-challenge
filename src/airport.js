@@ -10,7 +10,7 @@ class Airport {
   };
 
   planeLands = (planeID) => {
-    return planeID instanceof Plane ? this.planesAtAirport.push(planeID) : "Unable to land";
+    return planeID instanceof Plane && this.atCapacity() === false ? this.planesAtAirport.push(planeID) : "Unable to land";
   };
 
   atCapacity = () => {

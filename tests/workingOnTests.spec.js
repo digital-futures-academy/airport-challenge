@@ -81,28 +81,27 @@ result = undefined;
 input = undefined;
 expectedOutput = undefined;
 
-// // Test 3.3
-// console.log(`***When planeLands and length of planesAtAirport is the same as airportCapacity, planeLands returns preventLanding***`);
+// Test 3.4
+console.log(`****When atCapacity is true, planeLands returns an error message***`)
 
-// // Arrange
-// airport1 = new Airport(1)
-// plane1 = new Plane()
-// expectedOutput = 1;
-// actualOutput, result;
+// Arrange
+airport1 = new Airport(1)
+plane1 = new Plane()
+expectedOutput = "Unable to land";
+actualOutput, result;
 
-// // Act
-// airport1.planesAtAirport.length = airport1.airportCapacity
-// airport1.planeLands(plane1)
-// actualOutput = airport1.planesAtAirport.length;
+// Act
+airport1.planesAtAirport.length = airport1.airportCapacity
+actualOutput = airport1.planeLands(plane1);
 
-// // Assert
-// result = assertEquals(expectedOutput, actualOutput);
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
 
-// // Report
-// console.log(`Landing prevented: ${result}`);
+// Report
+console.log(`Error message sent: ${result}`);
 
-// // Clean-Up
-// actualOutput = undefined;
-// result = undefined;
-// input = undefined;
-// expectedOutput = undefined;
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
