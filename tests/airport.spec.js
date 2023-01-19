@@ -584,9 +584,9 @@ weather = { getWeather: () => 47 }; // dummy weather simulate rng got 10
 expected = 1; // expect plane not to take off as weather is considered stormy
 
 // Act
-airport.toggleWeather(); // make weather true
 airport.getWeather(weather); // get the value of getWeather
 airport.landPlane(plane); // land plane at airport so it can take off
+airport.toggleWeather(); // make weather true
 airport.takeoffPlane(plane); // attempt to take off plane
 actual = airport.groundedPlanes.length; // get the value of groundedPlanes array length
 
