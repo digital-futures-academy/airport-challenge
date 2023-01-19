@@ -10,11 +10,11 @@ class Airport {
     }
   }
 
-  addPlane(tailNumber) {
+  addPlane(plane) {
     if (this.slotsOccupied.length === 10) {
       return
     } else {
-      this.slotsOccupied.push(tailNumber instanceof Plane ? 'PlaneA' : 'PlaneB')
+      this.slotsOccupied.push(plane = new Plane(plane.tailNumber))
     }
   }
 
@@ -23,10 +23,7 @@ class Airport {
   //}
 
   removePlane = () => {
-    const planesAtAirport = this.slotsOccupied.indexOf(this.tailNumber instanceof Plane)
-    if (planesAtAirport > -1) {
-      this.slotsOccupied.splice(planesAtAirport, '')
-    }
+    const planesAtAirport = this.slotsOccupied.pop('Plane')
   }
 
 }

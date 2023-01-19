@@ -9,18 +9,18 @@ let airport;
 
 //2nd Test
 console.log('--------------------');
-console.log('5. Plane has left the airport');
+console.log('5. Remove and report Plane has left the airport');
 
 //Arrange
 airport = new Airport();
 plane = new Plane()
-airport.addPlane() //Populate the array with a value of 1
+airport.addPlane(plane) //Populate the array with a value of 1
 expected = airport.slotsOccupied.length
-console.log(expected)
+
 //Act
 airport.removePlane();
 actual = airport.slotsOccupied.length;
-console.log(actual)
+
 //Assert
 result = testDecrease(expected, actual) ? 'Plane has left the Airport' : 'Plane is still at the Airport';
 console.log(result);
