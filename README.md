@@ -2,27 +2,6 @@ Airport Challenge
 =================
 
 ====================================================================
-My notes:
-
-**COME BACK TO THIS
-
-"We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.
-
-You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour."
-
-Objects   Properties                    Methods(messages)            Outputs 
-Weather                                 isSunny()                    @Boolean
-
-Thoughts:
-
-1. Weather object containing random number generator? 
-2. Need to restrict plane activity (i.e. do nothing) if weather is stormy.
-3. Need to proceed with plane activity if weather is sunny.
-
-Test - When isSunny() returns false then nothing happens.
-Test - When isSunny() returns true then plane method(s) can run.
-
-*****************************************
 
 User Story 1
 
@@ -30,9 +9,10 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-Objects   Properties                    Methods(messages) Outputs 
-Plane     id @String                    getId()           @String
-Airport   airportPlanes @Array[@Plane]  landPlane(@Plane) @Void
+Objects |  Properties                   | Methods(messages) | Outputs 
+---------------------------------------------------------------------
+Plane   |  id @String                   | getId()           |@String
+Airport |  airportPlanes @Array[@Plane] | landPlane(@Plane) |@Void
 
 Initial thoughts for Test:
 
@@ -52,10 +32,11 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-Objects   Properties                    Methods(messages)            Outputs 
-Plane     id @String                    getId()                      @String
-Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
-          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+Objects  | Properties                   | Methods(messages)            |Outputs 
+-------------------------------------------------------------------------------
+Plane    | id @String                   | getId()                      |@String
+Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)            |@Void
+         | airportCapacity @Integer     | increaseCapacityTo(@Integer) |@Void
                                         
 
 Initial thoughts:
@@ -76,11 +57,12 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-Objects   Properties                    Methods(messages)            Outputs 
-Plane     id @String                    getId()                      @String
-Airport   airportPlanes @Array[@Plane]  isAirportFull()              @Boolean
-                                        landPlane(@Plane)            @Void
-          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+Objects  | Properties                   | Methods(messages)           | Outputs 
+---------------------------------------------------------------------------------
+Plane    | id @String                   | getId()                     | @String
+Airport  | airportPlanes @Array[@Plane] | isAirportFull()             | @Boolean
+         |                              | landPlane(@Plane)           | @Void
+         | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
@@ -97,11 +79,12 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-Objects   Properties                    Methods(messages)            Outputs 
-Plane     id @String                    getId()                      @String
-Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
-                                        takeoffPlane(@Plane)         @Void
-          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+Objects  | Properties                   | Methods(messages)           | Outputs
+-------------------------------------------------------------------------------- 
+Plane    | id @String                   | getId()                     | @String
+Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
+         |                              | takeoffPlane(@Plane)        | @Void
+         | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
@@ -120,12 +103,13 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-Objects   Properties                    Methods(messages)            Outputs 
-Plane     id @String                    getId()                      @String
-                                        atAirport()                  @Boolean
-Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
-                                        takeoffPlane(@Plane)         @Void
-          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+Objects  | Properties                   | Methods(messages)           | Outputs 
+---------------------------------------------------------------------------------
+Plane    | id @String                   | getId()                     | @String
+         |                              | atAirport()                 | @Boolean
+Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
+         |                              | takeoffPlane(@Plane)        | @Void
+         | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
@@ -138,6 +122,58 @@ Test 8 - Planes which are not at the airport cannot take off.
 Test 9 - Planes which are already at the airport cannot land.
 
 ---------
+
+Optional additional criteria (I have started thinking about this but not coded... would like to revisit once my existing code is improved and corrected following feedback, and hopefully approach it with a bit more confidence):
+
+User Story A
+
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+
+Objects   Properties                    Methods(messages)      Outputs 
+Weather                                 isSunny()              @Boolean               
+
+Thoughts:
+
+1. Weather object needed (random number generator for weather outcomes?)
+2. Need to restrict plane activity (i.e. do nothing) if takeoffPlane is called when weather is stormy.
+
+Test 1a - Do nothing (return) if isSunny() === false when takeoffPlane is called.
+
+User Story B
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+
+Objects   Properties                    Methods(messages)      Outputs 
+Weather                                 isSunny()              @Boolean  
+
+Thoughts:
+
+1. Need to restrict plane activity (i.e. do nothing) if landPlane is called when weather is stormy.
+
+Test 1b - Do nothing (return) if isSunny() === false when landPlane is called.
+
+User Story C
+
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+
+Objects   Properties                    Methods(messages)            Outputs
+Weather                                 isSunny()                    @Boolean 
+Plane     id @String                    getId()                      @String
+                                        atAirport()                  @Boolean
+Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
+                                        takeoffPlane(@Plane)         @Void
+          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+
+Thoughts: 
+
+1. 
+*****************************************
 
 
 
