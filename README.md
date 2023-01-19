@@ -175,6 +175,7 @@ I want to prevent takeoff when weather is stormy
 |         |                               | weatherGenerator()           | @String  |
 | ------- | ----------------------------- | ---------------------------- | -------- |
 | Airport |                               | takeOffPlane(@Plane)         | @Void    |
+|         | planesAtAirport @Array[@Plane]| checkPlanesAtAirport(@Plane) | @Boolean |
 
 Initial thoughts:
 1. Need a weather class
@@ -182,6 +183,8 @@ Initial thoughts:
 3. takeOffPlane needs to take the output of the weather class
 
 **Test 16** - check if the weather generator returns a weather
+
+**Test 17** - prevent a plane does not take off when the weather is stormy by checking it stays in `planesAtAirport`
 
 As an air traffic controller
 To ensure safety

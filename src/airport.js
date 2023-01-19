@@ -1,4 +1,5 @@
 const Plane = require("./Plane");
+const Weather = require(`./Weather`);
 
 class Airport {
 
@@ -21,9 +22,9 @@ class Airport {
     }
   };
 
-  takeOffPlane = plane => {
+  takeOffPlane = (plane, weather) => {
     const indexOfPlanesAtAirport = this.planesAtAirport.findIndex(planeTakingOff => planeTakingOff.planeId == plane.planeId);
-    if (indexOfPlanesAtAirport > -1 && this.checkPlanesAtAirport(plane) == true) {
+    if (indexOfPlanesAtAirport > -1 && this.checkPlanesAtAirport(plane) == true && weather === false) {
       this.planesAtAirport.splice(indexOfPlanesAtAirport, 1);
     }
   };

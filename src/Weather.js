@@ -1,18 +1,33 @@
 class Weather {
 
-    weatherGenerator() {
-        let weatherNow, randomNum;
+    weatherNow;
 
-        randomNum = Math.floor(Math.random() * (4 - 2 + 1) + 2);
+    constructor(weatherNow = `sunny`) {
+        this.weatherNow = weatherNow;
+    }
+
+    weatherGenerator() {
+
+        let randomNum = Math.floor(Math.random() * (4 - 2 + 1) + 2);
 
         if (randomNum === 1 || randomNum === 2 || randomNum === 3) {
-            weatherNow = `sunny`;
+            this.weatherNow = `sunny`;
         }
         else {
-            weatherNow = `stormy`;
+            this.weatherNow = `stormy`;
         }
 
-        return weatherNow;
+        return this.weatherNow;
+    };
+
+    isStormy(weatherNow) {
+
+        let storm = false;
+        if (weatherNow === `stormy`) {
+            storm = true;
+        }
+
+        return storm;
     }
 }
 

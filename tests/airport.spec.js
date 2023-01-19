@@ -1,8 +1,9 @@
 const { assertEquals } = require(`../testing-framework`);
 const Airport = require(`../src/Airport`);
 const Plane = require(`../src/Plane`);
+const Weather = require(`../src/Weather`);
 
-let expected, actual, result, airport, plane;
+let expected, actual, result, airport, plane, weather;
 
 // ******************** USER CASE 1 ****************************
 
@@ -359,3 +360,63 @@ expected, actual, result = undefined;
 airport, plane, planes = null;
 
 console.log(`\n *** END TEST 15 ***`)
+
+// ******************** USER CASE 16 ****************************
+
+//Test 16 - check if the weather generator returns a weather
+console.log(`\n*** START TEST 16 - check if the weather generator returns a weather ***`);
+
+// Arrange
+let kindOfWeather = [`sunny`, `stormy`];
+weather = new Weather();
+let weatherToday = weather.weatherGenerator();
+expected = true;
+
+// Act
+for (let i = 0; i < kindOfWeather.length; i++) {
+    if (kindOfWeather[i].match(weatherToday)) {
+        actual = true;
+        break;
+    } else {
+        actual = false;
+    }
+};
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 16 - check if the weather generator returns a weather: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+kindOfWeather, weather, weatherToday = null;
+
+console.log(`\n *** END TEST 16 ***`)
+
+// ******************** USER CASE 17 ****************************
+
+//Test 17 - prevent a plane does not take off when the weather is stormy by checking it stays in `planesAtAirport`
+console.log(`\n*** START TEST 17 - prevent a plane does not take off when the weather is stormy by checking it stays in \`planesAtAirport\` ***`);
+
+// Arrange
+weather = new Weather();
+weatherToday = weather.isStormy(`sunny`);
+airport = new Airport();
+plane1 = new Plane(`plane1`);
+plane2 = new Plane(`plane2`);
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+expected = 1;
+
+// Act
+airport.takeOffPlane(plane2, weatherToday);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 17 - prevent a plane does not take off when the weather is stormy by checking it stays in \`planesAtAirport\`: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+kindOfWeather, weather, weatherToday = null;
+
+console.log(`\n *** END TEST 17 ***`)
