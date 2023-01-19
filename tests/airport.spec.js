@@ -406,7 +406,7 @@ console.log(` `); // blank space to split up tests
 
 //* Test Sixteen - changeAirportCapacity cannot change airportCapacity to a value lower than the amount of planes already at the airport
 console.log(`======= Test Sixteen =======`);
-console.log(`changeAirportCapacity cannot change airportCapacity to a value lower than groundedPlanes.length`); // stating the test being carried out
+console.log(`changeAirportCapacity() cannot change airportCapacity to a value lower than groundedPlanes.length`); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new airport for the test
@@ -427,4 +427,28 @@ console.log(`Test Sixteen - ${result ? `Passed` : `Failed`}`); // states if the 
 expected, actual, result = undefined;
 airport, plane = null;
 console.log(`======= Test Sixteen Done =======`);
+console.log(` `); // blank space to split up tests
+
+//* Test Seventeen - getPlanesAtAirport() gives an array of the planes at the airport
+console.log(`======= Test Seventeen =======`);
+console.log(`getPlanesAtAirport() shows an array of the Plane.planeID in groundedPlanes`); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane(`Boeing`); // create new plane for the test;
+expected = JSON.stringify(["Boeing", "Concord"]); // expect a string of the planeID at the airport
+
+// Act
+airport.landPlane(plane);
+airport.landPlane(new Plane('Concord')); // land two planes at airport
+actual = airport.getPlanesAtAirport();// check the output of getPlanesAtAirport()
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Seventeen - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined;
+airport, plane = null;
+console.log(`======= Test Seventeen Done =======`);
 console.log(` `); // blank space to split up tests
