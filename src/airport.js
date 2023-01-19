@@ -71,7 +71,4 @@ class Airport {
   
 };
   
-
-
-
 module.exports = Airport; // export Airport so it can be used in other codes

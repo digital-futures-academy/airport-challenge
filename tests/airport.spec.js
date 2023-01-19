@@ -452,3 +452,8 @@ expected, actual, result = undefined;
 airport, plane = null;
 console.log(`======= Test Seventeen Done =======`);
 console.log(` `); // blank space to split up tests
+
+//! EXTENDED CRITERIA TESTS
+console.log(`These are tests for the Extended Criteria`);
+
+

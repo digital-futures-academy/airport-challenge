@@ -2,7 +2,7 @@
 
 ## Part 1 - User Stories
 
-```sh
+```
 As an air traffic controller
 So i can get passengers to a destination
 I want to instruct the airport to land a plane
@@ -12,8 +12,8 @@ I want to instruct the airport to land a plane
 
 | Objects | Properties                      | Messages          | Outputs |
 | ------- | ------------------------------- | ----------------- | ------- |
-| Airport | groundedPlanes @Array[@Plane]   | landPlane(@Plane) | @Void   |
-| Plane   | planeID @String                 | getId()           | @String |
+| Airport | groundedPlanes @Array[@Plane]   | landPlane(@Plane) | @String |
+| Plane   | planeID @String                 | getPlaneId()      | @String |
 
 ## Part 1 - Tests
 
@@ -33,7 +33,7 @@ Initial Thoughts:
 
 ## Part 2 - User Stories
 
-```sh
+```
 As the systems designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
@@ -43,7 +43,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 | Objects | Properties                | Messages                         | Outputs |
 | ------- | ------------------------- | -------------------------------- | ------- |
-| Airport | airportCapacity @Integer  | changeAirportCapacity(@Integer)  | @Void   |
+| Airport | airportCapacity @Integer  | changeAirportCapacity(@Integer)  | @String |
 
 ## Part 2 - Tests
 
@@ -62,7 +62,7 @@ Initial Thoughts:
 
 ## Part 3 - User Stories
 
-```sh
+```
 As an air traffic controller
 To ensure safety
 i want to prevent landing when the airport is full
@@ -75,7 +75,7 @@ i want to prevent landing when the airport is full
 | Airport | groundedPlanes @Array[@Plane]   | isAirportFull()                    | @Boolean |
 |         | airportCapacity @Integer        | getAirportCapacity()               | @Integer |
 |         |                                 | landPlane(@Plane)                  | @String  |
-|         |                                 | changeAirportCapacity(@Integer)    | @Void    |
+|         |                                 | changeAirportCapacity(@Integer)    | @String  |
 | Planes  | planeID @String                 | getID()                            | @String  |
 
 ## Part 3 - Tests
@@ -98,7 +98,7 @@ Initial Thoughts:
 
 ## Part 4 - User Stories
 
-```sh
+```
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
@@ -128,7 +128,7 @@ Initial Thoughts:
 
 ## Part 5 - User Stories
 
-```sh
+```
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane thats already landed
@@ -178,3 +178,60 @@ stuff i thought of and added after the construction of the original program
 **Test 17** - `getPlanesAtAirport` will give a nice array of the `Plane` that are in `groundedPlanes`
 
 ---
+
+## Extended Criteria: Part 1 - User Story
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+
+## Extended Criteria: Part 1 - Domain Model
+
+| Objects | Properties                      | Messages              | Outputs  |
+| ------- | ------------------------------- | --------------------- | -------- |
+| Airport | groundedPlanes @Array[@Plane]   | takeoffPlane(@Plane)  | @String  |
+|         |                                 | getWeather()          | @Integer |
+| Plane   | planeID @String                 | getPlaneID()          | @String  |
+
+## Extended Criteria: Part 1 - Tests
+
+---
+
+## Extended Criteria: Part 2 - User Story
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+
+## Extended Criteria: Part 2 - Domain Model
+
+| Objects | Properties                      | Messages              | Outputs  |
+| ------- | ------------------------------- | --------------------- | -------- |
+| Airport | groundedPlanes @Array[@Plane]   | landPlane(@Plane)     | @String  |
+|         |                                 | getWeather()          | @Integer |
+| Plane   | planeID @String                 | getPlaneID()          | @String  |
+
+## Extended Criteria: Part 2 - Tests
+
+---
+
+## Extended Criteria: Part 3 - User Story
+
+```
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```
+
+## Extended Criteria: Part 3 - Domain Model
+
+| Objects | Properties                      | Messages          | Outputs |
+| ------- | ------------------------------- | ----------------- | ------- |
+| Airport | groundedPlanes @Array[@Plane]   | landPlane(@Plane) | @String |
+| Plane   | planeID @String                 | getPlaneId()      | @String |
+
+## Extended Criteria: Part 3 - Tests
