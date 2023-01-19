@@ -61,7 +61,7 @@ class Airport {
 
     getWeather(weather) {
         this.weather = weather;
-        return this.weather.getWeather();
+        return this.weather = this.weather.getWeather();
     }
 
     landPlane(plane) {
@@ -78,6 +78,10 @@ class Airport {
     }
 
     takeoffPlane(plane) {
+        if (this.#weatherOn === true && this.weather >= 45) {
+            console.log(`Cannot take off ${plane.planeID}, the weather is stormy`);
+        }
+
         if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
             this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
             console.log(`${plane.planeID} has taken off from ${this.airportID}.`);

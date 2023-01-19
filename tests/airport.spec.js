@@ -526,7 +526,7 @@ console.log(' '); //blank space to split up tests
 
 //* Test E - toggleWeather will toggle the state of weatherOn
 console.log('======= Test E =======');
-console.log('setWeather will call setWeather function within object'); // stating the test being carried out
+console.log('toggleWeather will toggle the state of weatherOn'); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new instance of airport
@@ -546,17 +546,19 @@ airport, plane, input, weather = null;
 console.log('======= Test E Done =======');
 console.log(' '); //blank space to split up tests
 
-//* Test F - toggleWeather will toggle the state of weatherOn
+//* Test F - when getWeather is below 45, takeoffPlane is executed
 console.log('======= Test F =======');
-console.log('setWeather will call setWeather function within object'); // stating the test being carried out
+console.log('when getWeather is below 45, takeoffPlane is executed'); // stating the test being carried out
 
 // Arrange
 airport = new Airport(); // create new instance of airport
 plane = new Plane('Boeing'); // create new instance of plane
-weather = { getWeather: () => 10 }; // dummy weather
+weather = { getWeather: () => 10 }; // dummy weather simulate rng got 10
 expected = 0; // expect plane to take off as weather is considered sunny
 
 // Act
+airport.toggleWeather(); // make weather true
+airport.getWeather(weather); // get the value of getWeather
 airport.landPlane(plane); // land plane at airport so it can take off
 airport.takeoffPlane(plane); // attempt to take off plane
 actual = airport.groundedPlanes.length; // get the value of groundedPlanes array length
