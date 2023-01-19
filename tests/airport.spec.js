@@ -481,3 +481,23 @@ console.log(' '); // blank space to split up tests
 console.log('These are tests for the Extended Criteria');
 console.log(' '); // blank space to split up tests
 
+//* Test C - when Airport instance is created, weatherOn is default false
+console.log('======= Test B =======');
+console.log('when Airport instance is created, weatherOn is false by default'); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new instance of Weather
+expected = false;
+
+// Act
+actual = airport.weatherOn();
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test B - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, result, actual = undefined;
+weather = null;
+console.log('======= Test B Done =======');
+console.log(' '); //blank space to split up tests
