@@ -81,7 +81,9 @@ I decided to work on the extended requirement (the weather feature) after the ma
 ## Screenshots
 
 terminal after running the tests:
+
 ![terminal after running the tests](./screenshots/testRun.jpg)
 
-terminal after running the land/takeOff function with random weather
+terminal after running the land/takeOff function with random weather:
+
 ![terminal after running the land/takeOff function with random weather](./screenshots/randomWeatherEx.png)
