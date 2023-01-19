@@ -39,7 +39,7 @@ console.log('landPlane only adds Plane instances to groundedPlanes'); // stating
 
 // Arrange
 airport = new Airport(); // create new airport for test
-plane = 'test'; // input is a string
+plane = 'Boeing'; // input is not a plane 
 expected = 0; // result should be zero as 'plane' should not be added to groundedPlanes
 
 // Act

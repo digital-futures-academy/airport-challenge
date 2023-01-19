@@ -47,10 +47,10 @@ class Airport {
     }
 
     landPlane(plane) {
-        if (plane instanceof Plane && this.isAirportFull() === false && this.planeExists(plane) === false) {
+        if (this.isPlane(plane) === true && this.isAirportFull() === false && this.planeExists(plane) === false) {
             this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
             console.log(`${this.airportID} is not full, ${plane.planeID} has landed. There are ${this.groundedPlanes.length} plane(s) at ${this.airportID}.`); // show message that the plane has landed
-        } else if (plane instanceof Plane && this.isAirportFull() === true && this.planeExists(plane) === false) {
+        } else if (this.isPlane(plane) === true && this.isAirportFull() === true && this.planeExists(plane) === false) {
             console.log(`${this.airportID} is full, ${plane.planeID} has not landed.`); // show a message that the plane has on landed
         } else if (this.planeExists(plane) === true) {
             console.log(`${plane.planeID} is already at ${this.airportID} and cannot land.`);
@@ -60,16 +60,15 @@ class Airport {
     }
 
     takeoffPlane(plane) {
-        if (plane instanceof Plane && this.planeExists(plane) === true) {
+        if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
             this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
             console.log(`${plane.planeID} has taken off from ${this.airportID}.`);
-        } else if (plane instanceof Plane && this.planeExists(plane) === false) {
+        } else if (this.isPlane(plane) === true && this.planeExists(plane) === false) {
             console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`);
         } else {
             console.log(`Invalid input, nothing has taken off from ${this.airportID}.`); // message for any invalid inputs put into the system
         }
     }
-  
 }
   
 module.exports = Airport; // export Airport so it can be used in other codes
