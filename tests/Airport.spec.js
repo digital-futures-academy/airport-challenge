@@ -116,6 +116,7 @@ expectedOutput = undefined;
 console.log(`*** Check the value returned for default airport capacity ***`);
 
 // Arrange
+airport1 = new Airport()
 expectedOutput = 10;
 actualOutput, result;
 
@@ -127,6 +128,102 @@ result = assertEquals(expectedOutput, actualOutput);
 
 // Report
 console.log(`correct default capacity: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 2.2
+console.log(`*** Check the value returned when capacity changed with positive integer ***`);
+
+// Arrange
+input = 15
+expectedOutput = 15;
+actualOutput, result;
+
+// Act
+airport1 = new Airport(input)
+actualOutput = airport1.airportCapacity;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Capacity changed from default: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 2.3
+console.log(`****Return an error message when capacity is inputted as below 0***`);
+
+// Arrange
+input = -5
+expectedOutput = "Capacity not set, must be a positive integer";
+actualOutput, result;
+
+// Act
+airport1 = new Airport(input)
+actualOutput = airport1.airportCapacity;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Error returned: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 2.4
+console.log(`****Return an error message when capacity is inputted as null***`);
+
+// Arrange
+input = null
+expectedOutput = "Capacity not set, must be a positive integer";
+actualOutput, result;
+
+// Act
+airport1 = new Airport(input)
+actualOutput = airport1.airportCapacity;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Error returned: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 2.5
+console.log(`****Return an error message when capacity is inputted as a non-numerical string***`);
+
+// Arrange
+input = 'hello'
+expectedOutput = "Capacity not set, must be a positive integer";
+actualOutput, result;
+
+// Act
+airport1 = new Airport(input)
+actualOutput = airport1.airportCapacity;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Error returned: ${result}`);
 
 // Clean-Up
 actualOutput = undefined;

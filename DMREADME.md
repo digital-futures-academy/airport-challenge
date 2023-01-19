@@ -27,18 +27,18 @@ I would like a default airport capacity that can be overridden as appropriate
 | Objects | Properties                   | Messages          | Outputs |
 | ------- | -------------------------    | ----------------- | ------- |
 | Airport |planesAtAirport @Array[@Plane]| planeLands(@Plane)| @Void   |
-|         |airportCapacity @Integer      | changeCapacity()  | @String |
-| Plane   | plane id @String             |                   |         |
+|         |airportCapacity @Integer      |                   | @String |
+| Plane   |planeID @String               |                   |         |
 
 ## Tests
 
 *Test 1* - Check the value returned for default airport capacity
-*Test 2* - Check the value returned when changeCapacity() is used and capacity increased
-*Test 3* - Check the value returned when changeCapacity() is used and capacity decreased
-*Test 4* - Check the value returned when changeCapacity() is used and capacity stays the same
-*Test 5* - Return an error message when changeCapacity() is used and capacity is below 0
-edge case
+*Test 2* - Check the value returned when capacity changed with positive integer
+*Test 3* - Return an error message when capacity is inputted as below 0
+*Test 4* - Return an error message when capacity is inputted as null
+*Test 5* - Return an error message when capacity is inputted as a non-numerical string
 
+To note: For tests 2.3 - 2.5, I wanted to throw an error rather than set the capacity as a string, however I then couldn't run the tests.
 
 **User Story 3**
 As an air traffic controller
@@ -50,8 +50,7 @@ I want to prevent landing when the airport is full
 | Objects | Properties                   | Messages          | Outputs |
 | ------- | -------------------------    | ----------------- | ------- |
 | Airport |planesAtAirport @Array[@Plane]| planeLands(@Plane)| @Void   |
-|         |airportCapacity @Integer      | changeCapacity()  |@Void    |
-|         |                              | preventLanding()  |@String  |
+|         |airportCapacity @Integer      | preventLanding()  |@String  |
 | Plane   |plane id @String              |                   |         |
 
 ## Tests
@@ -71,8 +70,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | Objects | Properties                   | Messages                          | Outputs |
 | ------- | -------------------------    | -----------------------------     | ------- |
 | Airport |planesAtAirport @Array[@Plane]| planeLands(@Plane)                | @Void   |
-|         |airportCapacity @Integer      | changeCapacity()                  | @Void   |
-|         |                              | preventLanding()                  | @String |
+|         |airportCapacity @Integer      | preventLanding()                  | @String |
 |         |                              | planeTakesOff()                   | @Void   |
 |         |                              | planeIsAtAirport(@planesAtAirport)| @Boolean|
 | Plane   |planeID @String               | getId()                           | @String |
@@ -93,8 +91,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | Objects | Properties                    | Messages                          | Outputs |
 | ------- | ----------------------------  | ----------------------------      | ------- |
 | Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane)                | @Void   |
-|         |airportCapacity @Integer       | changeCapacity()                  | @Void   |
-|         |                               | preventLanding()                  | @String |
+|         |airportCapacity @Integer       | preventLanding()                  | @String |
 |         |                               | planeTakesOff()                   | @Void   |
 |         |                               | preventTakeOff()                  | @String |
 |         |                               | planeIsAtAirport(@planesAtAirport)| @Boolean|
