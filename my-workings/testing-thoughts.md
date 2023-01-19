@@ -88,3 +88,27 @@ I want to prevent asking the airport to let planes take-off which are not at the
 **Airport Test 8 -** ``land()`` can't add a ``Plane`` that doesn't have an id (an id of -1)
 
 **Airport Test 9 -** ``takeOff()`` can't remove a ``Plane`` that doesn't have an id (an id of -1)
+
+
+## **Edge Case(s)**
+And other tests I forgot to make
+
+**Airport Test 10 -** a plane that is currently landed anywhere can't be landed again
+
+---
+
+# Extended Acceptance Criteria
+
+## **User Story 6**
+```
+As an air traffic controller  
+To ensure safety  
+I want to prevent takeoff when weather is stormy  
+```
+
+**Thoughts**
+- Weather object should always have a value (no such thing as no weather)
+- Weather should be able to be changed once even after being set
+
+**Tests**
+1. Weather 

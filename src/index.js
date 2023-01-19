@@ -1,32 +1,44 @@
 const Airport = require("./Airport");
 const Plane = require("./Plane");
 
-const port = new Airport();
-const port2 = new Airport();
+// User Story 1
+const airport = new Airport();
+const plane = new Plane(0);
 
-console.log(`Planes at airport initially: ${port.planeList.length}`);
+console.log(`No of planes at airport initially: ${airport.planeList.length}`);
+airport.land(plane);
+console.log(`No of planes at airport after landing a plane: ${airport.planeList.length}`);
 
-const plane1 = new Plane();
-port.land(plane1);
-console.log(`Planes at airport after trying to land the plane with the id ${plane1.id}: ${port.planeList.length}`);  // can't add unidentified planes
+// User Story 2
+const airportLarge = new Airport(10);
+console.log(`Default capacity: ${new Airport().capacity} || Overridden capacity: ${airportLarge.capacity}`);
 
-const plane2 = new Plane(2);
-port.land(plane2);
-console.log(`Planes at airport after trying to land the plane with the id ${plane2.id}: ${port.planeList.length}`);
+// User Story 3
+let planes = []
+for (let i = 0; i < 10; i++) {
+    planes.push(new Plane(i + 1));
+    airportLarge.land(planes[i]);  // filling the large airport
+}
 
-port.land(plane2);  // shouldn't be able to land this plane again
-console.log(`Planes at airport after trying to re-land the plane with the id ${plane2.id}: ${port.planeList.length}`);
+console.log(`Planes in large airport: ${airportLarge.planeList} (count: ${airportLarge.planeList.length})`);
 
-const plane3 = new Plane(3);
-const plane4 = new Plane(4);
+const plane11 = new Plane(11);
+airportLarge.land(plane11);
+console.log(`No of planes in large airport after attempting to land an 11th one (plane11): ${airportLarge.planeList.length}`);
 
-port.land(plane3);
+// User Story 4
+airportLarge.takeOff(planes[0]);
+console.log(`No of planes in large airport after plane1 (planes[0]) takes off: ${airportLarge.planeList.length}`);
 
-console.log(`Planes at airport after trying to land the plane with the id ${plane3.id}: ${port.planeList.length}`);
+// User Story 5
 
-port.takeOff(plane4);
+// No take-off for non-landed plane
+airportLarge.takeOff(plane11);
+console.log(`No of planes in large airport after trying to take-off non-landed plane (plane11): ${airportLarge.planeList.length}`);
 
-console.log(`Planes at airport after trying to remove the plane with the id ${plane4.id}: ${port.planeList.length}`);
+airportLarge.land(planes[1]); // trying to land a plane that has already landed (part 1)
+console.log(`No of planes in large airport after trying to land a plane that's already at the airport: ${airportLarge.planeList.length}`);
 
-port.takeOff(plane2);
-console.log(`Planes at airport after trying to remove the plane with the id ${plane2.id}: ${port.planeList.length}`);
+console.log(`No of planes at airport: ${airport.planeList.length}`);
+airport.land(planes[1]); // part 2
+console.log(`No of planes at airport after trying to land a plane that's at a different airport: ${airport.planeList.length}`);

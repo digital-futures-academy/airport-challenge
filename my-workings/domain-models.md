@@ -111,3 +111,35 @@ As there's a lot of overlap, I want the final thing in one place for an easy ref
 |         | capacity                 | isAirportFull()          | @Boolean |
 |         |                          | removePlane(@Plane)      | Void     |
 |         |                          | isPlaneAtAirport(@Plane) | @Boolean |
+
+---
+
+## Extended Acceptance Criteria User Stories
+
+### **User Story 6**
+As an air traffic controller  
+To ensure safety  
+I want to prevent takeoff when weather is stormy  
+
+| Object  | Properties      | Messages                      | Output   |
+|---------|-----------------|-------------------------------|----------|
+| Weather | stormy @Boolean | isStormy()                    | @Boolean |
+| Airport |                 | removePlane(@Plane, @Weather) | Void     |
+
+---
+
+### **User Story 7**
+As an air traffic controller  
+To ensure safety  
+I want to prevent landing when weather is stormy  
+
+| Object  | Properties      | Messages                   | Output   |
+|---------|-----------------|----------------------------|----------|
+| Weather | stormy @Boolean | isStormy()                 | @Boolean |
+| Airport |                 | addPlane(@Plane, @Weather) | Void     |
+
+---
+
+As an air traffic controller  
+To count planes easily  
+Planes that have landed must be at an airport  

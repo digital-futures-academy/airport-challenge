@@ -6,13 +6,19 @@ class Airport {
   };
 
   land = plane => {
-    if (!this.airportFull() && !this.planeAtAirport(plane) && plane.id != -1) this.planeList.push(plane);
+    if (!this.airportFull() && plane.id != -1 && !plane.landed) {
+      this.planeList.push(plane);
+      plane.land();
+    }
   };
 
   takeOff = plane => {
     const planeIndexToRemove = this.planeList.findIndex(currentPlane => currentPlane.id === plane.id);
 
-    if (planeIndexToRemove > -1) this.planeList.splice(planeIndexToRemove, 1);
+    if (planeIndexToRemove > -1) {
+      this.planeList.splice(planeIndexToRemove, 1);
+      plane.takeOff();
+    }
   };
 
   updateAirportCapacity = capacity => { this.capacity = capacity };

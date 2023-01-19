@@ -3,7 +3,7 @@ const assertEquals = require(`../test-framework`);
 const Airport = require(`../src/Airport`);
 const Plane = require(`../src/Plane`);
 
-let airport;
+let airport, airport2;
 let plane, plane2;
 let expected, actual, result;
 
@@ -264,6 +264,29 @@ plane = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// Airport Test 10 - a plane that is currently landed anywhere can't be landed again
+console.log(`Airport Test 10 - a plane that is currently landed anywhere can't be landed again`);
+
+// Arrange
+airport = new Airport();
+airport2 = new Airport();
+plane = new Plane(1);
+airport.land(plane);
+expected = airport2.planeList.length;
+
+// Act
+airport2.land(plane);
+actual = airport2.planeList.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Expected: ${expected} || Actual: ${actual}`);
+console.log(`Airport Test 10 - a plane that is currently landed anywhere can't be landed again: ${result ? `Passed` : `FAILED`}`);
+console.log(`===================================== Test End =====================================\n`);
+if (result) { specs += 1 }
+else { failed += 1 }
+
 
 console.log(`Specs: ${specs} || Failed: ${failed}`)
 console.log(`===================================== AIRPORT TESTS END =====================================\n\n`);
