@@ -1,9 +1,13 @@
 class Plane {
     tailNumber;
 
-    constructor(tailNumber) {
-        this.tailNumber = Math.round(Math.random() * (1000 - 9999) + 9999);
+    constructor() {
+        this.tailNumber = 'IAmAPlane'
     }
+
+    /*constructor(tailNumber) {
+        this.tailNumber = Math.round(Math.random() * (1000 - 9999) + 9999);
+    }*/
 
     //addPlane(tailNumber) {
     // if (Airport.slotsOccupied.length === 10) {

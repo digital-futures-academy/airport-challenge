@@ -93,12 +93,29 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-| Objects | Properties                         | Messages            | Outputs  |
-| ------- | ---------------------------------- | ------------------- | -------- |
-| Airport | slotsOccupied @integer(tailNumber) | getavailableSlots() | @integer |
-|         |                                    |                     |          |
-| Plane   | removeTailNumber @array(Plane)     | getslotsOccupied()  | @integer |
+| Objects | Properties                        | Messages            | Outputs  |
+| ------- | --------------------------------- | ------------------- | -------- |
+| Airport | slotsOccupied @string(tailNumber) | getavailableSlots() | @integer |
+|         |                                   |                     |          |
+| Plane   | removeTailNumber @array(Plane)    | getslotsOccupied()  | @integer |
 
 Building Test 4:
 
-Need to check the value of slotsOccupied has decreased after removeTailNumber function has been run.
+Need to check the value of slotsOccupied has decreased after removeTailNumber function has been run and return a True value.
+
+Fifth User Story:
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+| Objects | Properties                        | Messages         | Outputs  |
+| ------- | --------------------------------- | ---------------- | -------- |
+| Airport | slotsOccupied @string(tailNumber) | planeAtAirport() | @boolean |
+|         |                                   |                  |          |
+|         |                                   |                  |          |
+
+Building Test 5:
+
+Need to test if IAmAPlane is at the airport if it is allow it to leave if not return false.
+

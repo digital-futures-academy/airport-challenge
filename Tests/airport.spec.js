@@ -19,7 +19,7 @@ plane = new Plane();
 expected = 1;
 
 //Act
-airport.addPlane(plane);
+airport.addPlane();
 actual = airport.slotsOccupied.length;
 
 //Assert

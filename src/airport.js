@@ -14,19 +14,35 @@ class Airport {
     if (this.slotsOccupied.length === 10) {
       return
     } else {
-      this.slotsOccupied.push(plane = new Plane(plane.tailNumber))
+      this.slotsOccupied.push(plane = new Plane)
     }
   }
 
-  //addPlane(tailNumber) {
-  //if (tailNumber instanceof Plane) this.slotsOccupied.push(tailNumber)
-  //}
-
   removePlane = () => {
-    const planesAtAirport = this.slotsOccupied.pop('Plane')
+    const planesAtAirport = this.slotsOccupied.pop()
   }
+
+  planeAtAirport = () => {
+    const isItHere = this.slotsOccupied.find(planes => planes === 'Plane');
+  };
+
+
+  //const isThePlaneHere = this.slotsOccupied.findIndex(this.slotsOccupied === 'IAmAPlane')
+  //if (this.slotsOccupied.findMatch = '') {
+  //return
+  //}
 
 }
 
+
+
+const airport = new Airport
+const plane = new Plane
+
+airport.addPlane()
+console.log(airport.slotsOccupied)
+airport.planeAtAirport()
+console.log(airport.isItHere)
+console.log(airport.slotsOccupied.find(plane => plane = 'sausage') ? 'True' : 'False')
 
 module.exports = Airport;
