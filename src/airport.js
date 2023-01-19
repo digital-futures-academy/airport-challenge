@@ -55,6 +55,10 @@ class Airport {
         return this.#weatherOn; // return if weather is effecting the airport
     }
 
+    toggleWeather() {
+        return this.#weatherOn = !this.#weatherOn;
+    }
+
     landPlane(plane) {
         if (this.isPlane(plane) === true && this.isAirportFull() === false && this.planeExists(plane) === false) {
             this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
