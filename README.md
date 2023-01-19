@@ -60,7 +60,7 @@ Planes that have landed must be at an airport
 |         | planesLanded @Array[Plane] | land()    | @Boolean |
 |         |                            | takeOff() | @Boolean |
 | Plane   | id @String                 |           |          |
-| Plane   | status @String             |           |          |
+|         | status @String             |           |          |
 
 ## Approach
 
@@ -81,4 +81,4 @@ I decided to work on the extended requirement (the weather feature) after the ma
 ## Screenshots
 
 ![terminal after running the tests](./screenshots/testRun.jpg)
-![terminal after running the land/takeOff function with random weather](./screenshots/randomWeather.jpg)
+![terminal after running the land/takeOff function with random weather](./screenshots/randomWeatherEx.png)
