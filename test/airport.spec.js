@@ -170,3 +170,15 @@ console.log(`=============================✈️✈️✈️✈️`);
 console.log(
   `Test 5 : Let the airport know when a plane is taking off ${result}`
 );
+
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = undefined;
+plane = undefined;
+
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+plane4 = undefined;
+plane5 = undefined;

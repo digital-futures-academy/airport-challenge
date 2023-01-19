@@ -24,9 +24,9 @@ class Airport {
       (plane) => idPlane === plane.id
     );
     planeIndex === -1
-      ? console.log(`The plane took off`)
+      ? console.log(`The plane is not in the airp`)
       : this.airportPlanes.splice(planeIndex, 1),
-      console.log(`Plane still in the airport`);
+      console.log(`the Plane took off`);
   };
 }
 
