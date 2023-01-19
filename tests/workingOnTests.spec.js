@@ -105,3 +105,29 @@ actualOutput = undefined;
 result = undefined;
 input = undefined;
 expectedOutput = undefined;
+
+// Test 3.4
+console.log(`****When atCapacity is true, planeLands doesn't change the length of planesAtAirport array ***`)
+
+// Arrange
+airport1 = new Airport(1)
+plane1 = new Plane()
+expectedOutput = 1;
+actualOutput, result;
+
+// Act
+airport1.planesAtAirport.length = airport1.airportCapacity
+airport1.planeLands(plane1)
+actualOutput = airport1.planesAtAirport.length;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`listOfPlanes is unchanged: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
