@@ -9,13 +9,18 @@ class Airport {
     } else { this.airportCapacity = "Capacity not set, must be a positive integer" };
   };
 
+  atCapacity = () => {
+    return this.planesAtAirport.length === this.airportCapacity ? true : false  //Can this be written in a simpler way?
+  }
+
   planeLands = (planeID) => {
     return planeID instanceof Plane && this.atCapacity() === false ? this.planesAtAirport.push(planeID) : "Unable to land";
   };
 
-  atCapacity = () => {
-    return this.planesAtAirport.length === this.airportCapacity ? true : false  //Can this be written in a simpler way?
-  }
+  planeTakesOff = (planeID) => {
+    const index = this.planesAtAirport.indexOf(planeID);
+    this.planesAtAirport.splice(index, 1);
+  };
 
 }
 
