@@ -18,6 +18,16 @@ class Airport {
   raisingCapacity = (newCapacity) => {
     this.capacity = newCapacity;
   };
+
+  takingOff = (idPlane) => {
+    let planeIndex = this.airportPlanes.findIndex(
+      (plane) => idPlane === plane.id
+    );
+    planeIndex === -1
+      ? console.log(`The plane took off`)
+      : this.airportPlanes.splice(planeIndex, 1),
+      console.log(`Plane still in the airport`);
+  };
 }
 
 module.exports = Airport;

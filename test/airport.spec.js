@@ -143,3 +143,30 @@ plane2 = undefined;
 plane3 = undefined;
 plane4 = undefined;
 plane5 = undefined;
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 5  : Let the airport know when a plane is taking off `);
+
+airport = new Airport(5);
+plane1 = new Plane("plane1");
+plane2 = new Plane("plane2");
+plane3 = new Plane("plane3");
+plane4 = new Plane("plane4");
+plane5 = new Plane("plane5");
+
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
+airport.landPlane(plane5);
+
+airport.takingOff(plane5.id);
+
+expected = 4;
+actual = airport.airportPlanes.length;
+result = assertEquals(expected, actual);
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(
+  `Test 5 : Let the airport know when a plane is taking off ${result}`
+);
