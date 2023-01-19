@@ -152,7 +152,7 @@ airport = new Airport();
 for (let i = 0; i < airport.capacity; i++) {
     airport.landPlane(new Plane());
 }
-expected = true;
+expected = false;
 
 // Act
 actual = airport.isFull();
@@ -189,6 +189,59 @@ actual = airport.landPlane(plane);
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 7: landPlane cannot continue if isFull is true : ${result}`);
+
+// Clean up 
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+console.log(`=======================`);
+console.log(``);
+
+// Test  8- 
+console.log(`=======================`);
+console.log(`Test 8- testing that we cannot land a plane that is in the airport`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+airport.landPlane(plane);
+expected = false;
+
+// Act
+actual = airport.landPlane(plane);
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8: Preventing a plane to land that is already landed : ${result}`);
+
+// Clean up 
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+console.log(`=======================`);
+console.log(``);
+
+// Test  9- 
+console.log(`=======================`);
+console.log(`Test 9- We cannot let a plane take off that is not at the airport `);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+expected = false;
+
+// Act
+actual = airport.flyPlane(plane);
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 9: Plane does not take off if it does not exist in the airport : ${result}`);
 
 // Clean up 
 expected = undefined;
