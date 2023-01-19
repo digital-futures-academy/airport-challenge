@@ -11,7 +11,12 @@ class Airport {
 
   landPlane = plane => {
     if (plane instanceof Plane && !this.isAirportFull()) this.airportPlanes.push(plane);
-    };
+  };
+  
+  takeOffPlane = (plane) => {
+    if (plane instanceof Plane) this.airportPlanes.pop(plane);
+
+  }
 
   changeCapacity = capacity => {
       this.capacity = capacity;

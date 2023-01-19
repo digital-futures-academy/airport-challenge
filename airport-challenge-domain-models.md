@@ -12,7 +12,7 @@ I want to instruct the airport to land a plane
 | ------- | ---------------------------- | ----------------- | ------- |
 | Airport | airportPlanes @Array[@Plane] | landPlane(@Plane) | @Void   |
 |         |                              |                   |         |
-| Plane   | id @String                   | getId()           | @String |
+| Plane   | id @String                   |                   | @String |
 
 ### Tests
 
@@ -65,7 +65,7 @@ I want to prevent landing when the airport is full
 | Airport | airportPlanes @Array[@Plane] | landPlane(@Plane) | @Void    |
 |         | capacity @Integer            | isAirportFull()   | @Boolean |
 |         |                              |                   |          |
-| Plane   | id @String                   | getId()           | @String  |
+| Plane   | id @String                   |                   | @String  |
 
 ## Tests
 
@@ -74,5 +74,27 @@ Initial thoughts
 1. Need to know if airport is full by comparing to capacity
 2. If airport is full then airportPlanes won't increase
 
-**Test 6** - Test if `airport` is full using `isAirportFull()` function
-**Test 7** - Don't allow `landPlane()` to add `Plane` to `airportPlanes` list as airport is full.
+**Test 6** - If `airport` is full using `isAirportFull()` function
+**Test 7** - Don't allow `landPlane()` to add `Plane` to `airportPlanes` list when `isAirportFull()` is true
+
+## User story 4
+
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+## Domain Model 4
+
+| Objects | Properties                   | Messages             | Outputs  |
+| ------- | ---------------------------- | -------------------- | -------- |
+| Airport | airportPlanes @Array[@Plane] | takeOffPlane(@Plane) | @Void    |
+|         |                              |                      |          |
+| Plane   | id @String                   | isPlaneInAirport()   | @Boolean |
+
+Initial thoughts
+
+1. Need to allow a plane to take off by removing it from airport planes array
+2. Need to confirm plane is not in airport by id?
+
+**Test 8** - `airportPlanes` length decreases by 1 when `takeOffPlane` is called with 'instance of `Plane`'
+**Test 9** - check if `Plane` is in airport by calling `id` to isPlaneInAirport

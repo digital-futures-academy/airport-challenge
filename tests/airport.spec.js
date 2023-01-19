@@ -196,3 +196,31 @@ actual = undefined;
 result = undefined;
 
 console.log(`============================`);
+
+//Test 8 -  airportPlanes length decreases to 0 when Plane takes off from airport
+
+console.log(`============================`);
+console.log(`Test 8 - airportPlanes length decreases by 1 when takeOffPlane is called`);
+
+//Arrange
+
+airport = new Airport([new Plane()], 1);
+plane = new Plane();
+expected = airport.airportPlanes.length - 1;
+
+//Act
+airport.takeOffPlane(plane);
+actual = airport.airportPlanes.length;
+    
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 8 - airportPlanes length decreases by 1 when takeOffPlane is called: ${result}`);
+
+//Clean up
+plane = null;
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
