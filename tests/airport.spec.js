@@ -404,4 +404,27 @@ airport, plane = null;
 console.log(`======= Test Fifteen Done =======`);
 console.log(` `); // blank space to split up tests
 
+//* Test Sixteen - changeAirportCapacity cannot change airportCapacity to a value lower than the amount of planes already at the airport
+console.log(`======= Test Sixteen =======`);
+console.log(`changeAirportCapacity cannot change airportCapacity to a value lower than groundedPlanes.length`); // stating the test being carried out
 
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = new Plane(`Boeing`); // create new plane for the test;
+expected = 10; // expect airportCapacity to have not changed from the default
+
+// Act
+airport.landPlane(plane);
+airport.landPlane(new Plane('Concord')); // land two planes at airport
+airport.changeAirportCapacity(1);// try to change capacity to a lower value
+actual = airport.getAirportCapacity();// check the value of airportCapacity
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Sixteen - ${result ? `Passed` : `Failed`}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined;
+airport, plane = null;
+console.log(`======= Test Sixteen Done =======`);
+console.log(` `); // blank space to split up tests
