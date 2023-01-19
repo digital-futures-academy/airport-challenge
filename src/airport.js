@@ -1,5 +1,3 @@
-const Plane = require('./plane.js');
-
 // Airport Class
 class Airport {
 
@@ -42,8 +40,12 @@ class Airport {
     }
     
     isPlane(plane) {
-        this.plane = plane;
-        return this.plane.isPlane();
+        if (typeof plane != 'object' || plane === null) {
+            return false;
+        } else {
+            this.plane = plane;
+            return this.plane.isPlane();
+        }
     }
 
     landPlane(plane) {
@@ -51,7 +53,7 @@ class Airport {
             this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
             console.log(`${this.airportID} is not full, ${plane.planeID} has landed. There are ${this.groundedPlanes.length} plane(s) at ${this.airportID}.`); // show message that the plane has landed
         } else if (this.isPlane(plane) === true && this.isAirportFull() === true && this.planeExists(plane) === false) {
-            console.log(`${this.airportID} is full, ${plane.planeID} has not landed.`); // show a message that the plane has on landed
+            console.log(`${this.airportID} is full, ${plane.planeID} has not landed.`); // show a message that the plane has not landed
         } else if (this.planeExists(plane) === true) {
             console.log(`${plane.planeID} is already at ${this.airportID} and cannot land.`);
         } else {
