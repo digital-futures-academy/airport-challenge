@@ -453,6 +453,28 @@ airport, plane = null;
 console.log('======= Test Seventeen Done =======');
 console.log(' '); // blank space to split up tests
 
+//* Test Eighteen - getPlanesAtAirport() gives an array of the planes at the airport
+console.log('======= Test Eighteen =======');
+console.log('Airport class does not rely on Plane class'); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new airport for the test
+plane = { isPlane: () => true}; // dummy plane
+expected = true; // expect a string of the planeID at the airport
+
+// Act
+actual = airport.isPlane(plane);
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test Eighteen - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, actual, result = undefined;
+airport, plane = null;
+console.log('=====Eighteen Done =======');
+console.log(' '); // blank space to split up tests
+
 //! EXTENDED CRITERIA TESTS
 console.log(' '); // blank space to split up tests
 console.log('These are tests for the Extended Criteria');

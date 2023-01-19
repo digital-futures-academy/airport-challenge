@@ -177,6 +177,8 @@ stuff i thought of and added after the construction of the original program
 
 **Test 17** - `getPlanesAtAirport` will give a nice array of the `Plane` that are in `groundedPlanes`
 
+**Test 18** - decouple `Airport` and `Plane` so they do not appear in each others code
+
 ---
 
 ## Extended Criteria: Part 1 - User Story

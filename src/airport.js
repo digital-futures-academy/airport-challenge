@@ -1,6 +1,6 @@
-// Airport Class
-const Plane = require('./plane.js');
+const Plane = require("./plane.js");
 
+// Airport Class
 class Airport {
 
     //* properties and constructor for airport
@@ -39,6 +39,11 @@ class Airport {
         }));
         console.log(`${[planesAtAirport]} are at ${this.airportID}`);
         return planesAtAirport;
+    }
+    
+    isPlane(plane) {
+        this.plane = plane;
+        return this.plane.isPlane();
     }
 
     landPlane(plane) {
