@@ -1,11 +1,14 @@
 // Airport Class
 class Airport {
 
-    //* properties and constructor for airport
-    constructor(airportID = 'The Airport', airportCapacity = 10,  groundedPlanes = []) {
+    //* properties of airport
+    groundedPlanes = [];
+    #weatherOn = false;
+
+    //* constructor for airport
+    constructor(airportID = 'The Airport', airportCapacity = 10) {
         this.airportID = airportID;
         this.airportCapacity = airportCapacity;
-        this.groundedPlanes = groundedPlanes;
     }// set default values for these properties and they can be set when creating the airport
 
     //* functions of airport
@@ -46,6 +49,10 @@ class Airport {
             this.plane = plane;
             return this.plane.isPlane();
         }
+    }
+
+    weatherOn() {
+        return this.#weatherOn; // return if weather is effecting the airport
     }
 
     landPlane(plane) {
