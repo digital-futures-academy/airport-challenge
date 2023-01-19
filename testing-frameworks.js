@@ -3,7 +3,7 @@ const assertEquals = (expectedOutput, actualOutput) => expectedOutput === actual
 
 const assertMoreThan = (expectedOutput, actualOutput) => expectedOutput < actualOutput; // checks if actual is more than expected
 
-const assertBetween = (minValue, actualOutput, maxValue) => minValue <= actualOutput <= maxValue;
+const assertBetween = (minValue, actualOutput, maxValue) => minValue <= actualOutput && actualOutput <= maxValue;
     
 module.exports = {
     assertEquals,

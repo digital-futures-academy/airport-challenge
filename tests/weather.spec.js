@@ -17,6 +17,7 @@ weather = new Weather(); // create new instance of Weather
 
 // Act
 actual = weather.getWeather();
+console.log(actual);
 
 // Assert
 result = assertBetween(1, actual, 50); // is actual between 1 and 50
