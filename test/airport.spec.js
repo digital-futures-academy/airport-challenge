@@ -182,3 +182,20 @@ plane2 = undefined;
 plane3 = undefined;
 plane4 = undefined;
 plane5 = undefined;
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 6  : Check if the plane is in the airport `);
+
+airport = new Airport();
+plane1 = new Plane("plane1");
+plane2 = new Plane("plane2");
+
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+
+expected = true;
+actual = airport.checkPlane(plane1);
+result = assertTrue(actual);
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 6  : Check the plane ${result}`);

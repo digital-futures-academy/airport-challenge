@@ -24,10 +24,11 @@ class Airport {
       (plane) => idPlane === plane.id
     );
     planeIndex === -1
-      ? console.log(`The plane is not in the airp`)
+      ? console.log(`The plane is not in the airport`)
       : this.airportPlanes.splice(planeIndex, 1),
       console.log(`the Plane took off`);
   };
+  checkPlane = (plane) => this.airportPlanes.includes(plane);
 }
 
 module.exports = Airport;
