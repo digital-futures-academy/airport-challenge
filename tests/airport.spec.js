@@ -1,4 +1,5 @@
 // tests to develop airport code
+console.log('Airport Class Tests');
 
 // initialize codes that need to be pulled in
 const { assertEquals } = require('../testing-frameworks.js');
@@ -118,7 +119,7 @@ console.log(`Test Five - ${result ? 'Passed' : 'Failed'}`); // states if the tes
 
 // Clean Up
 expected, actual, result = undefined; // resetting variables for a next test
-airport, plane. input = null;
+airport, plane, input = null;
 console.log('======= Test Five Done =======');
 console.log(' '); //blank space to split up tests
 

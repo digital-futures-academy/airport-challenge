@@ -1,4 +1,5 @@
 // tests to develop plane code
+console.log('Plane Class Tests');
 
 // initialize variables used in tests
 const { assertEquals } = require('../testing-frameworks.js');
