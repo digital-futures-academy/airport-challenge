@@ -8,7 +8,7 @@ class Airport {
   }
 
   isAirportFull() {
-    return (this.airportPlanes.length > this.airportCapacity) ? true : false
+    return (this.airportPlanes.length >= this.airportCapacity) ? true : false
 
   }
 
@@ -21,8 +21,19 @@ class Airport {
   }
 
 
+  takeOff(plane) {
 
-};
+    const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlanes => airportPlanes.id === plane.id);
+    //console.log(indexOfPlaneInAirportPlanes)
+
+    if (indexOfPlaneInAirportPlanes > -1) this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1)
+    return console.log('Plane has taken off from airport');
+    //   // console.log('The plane has taken off')
+
+  }
+}
+
+
 
 
 

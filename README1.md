@@ -55,7 +55,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 *Domain Modelling*
 | Objects | Properties                | Messages         | Outputs |
 | ------- | ------------------------- | -----------------| ------- |
-|Airport  | airportPlanes[@plane]     |takeOffPlane(@plane) | @String   |
+|Airport  | airportPlanes[@plane]     |takeOffPlane(@plane) | @String |
 | Plane   | id @String                | getId()          | @String |
 
 **User Story 5**

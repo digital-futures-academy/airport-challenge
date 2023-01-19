@@ -153,21 +153,23 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 7
-console.log('TEST 6: landPlane does not add plane to airport Plane array when isAirportFull() returns true')
+console.log('TEST 7: airportPlanes length decreases by 1 when plane takes off')
 //1. Arrange
 airport = new Airport();
-plane = new Plane();// a new airport is created with a capacity of 2 
-expected = 5
+plane = new Plane();
+//let planelength = airport.airportPlanes.length;
+//console.log(`${planelength}`);
+airport.landPlane(plane)
+expected = airport.airportPlanes.length - 1
 
 //2. Act
-airport.airportPlanes.length = 5;
-airport.landPlane(plane);
+airport.takeOff(plane);
 actual = airport.airportPlanes.length;
-console.log(`${actual}`);
+//console.log(`${actual}`);
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 6:Airport cannot land plane since capacity has been exceeded: ${result}`);
+console.log(`Test 7:airportPlanes length decreases by 1 when plane takes off: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -175,3 +177,27 @@ plane = null;
 result = undefined;
 actual = undefined;
 expected = undefined;
+
+console.log(`=================================`);
+// //TEST 8
+// console.log('TEST 7: A string is returned to confirm removal when takeOff is called ')
+// //1. Arrange
+// airport = new Airport();
+// plane = new Plane();
+// airport.landPlane(plane)
+// expected = 'Plane has taken off from airport'
+
+// //2. Act
+// actual = airport.takeOff(plane);
+// console.log(`actual);
+
+// //3. Assert
+// result = assertEquals(actual, expected);
+// console.log(`Test 7: Confirmation received when plane takes off: ${ result }`);
+
+// //4. CleanUp
+// airport = null;
+// plane = null;
+// result = undefined;
+// actual = undefined;
+// expected = undefined;
