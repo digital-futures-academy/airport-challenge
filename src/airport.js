@@ -1,4 +1,4 @@
-const Plane = require("./plane.js");
+const Plane = require('./plane.js');
 
 // Airport Class
 class Airport {
