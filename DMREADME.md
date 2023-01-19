@@ -83,7 +83,6 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 *Test 2* - Confirm if plane is in planesAtAirport using isPlaneAtAirport returns true
 *Test 3* - Confirm if plane is in planesAtAirport using isPlaneAtAirport returns false
 *Test 4* - When planeTakesOff is called and isPlaneAtAirport returns true, length of planesAtAirport decreases by 1
-*Test 5* - When planeTakesOff is called and isPlaneAtAirport returns False, an error message is returned
 
 **User Story 5**
 As an air traffic controller
@@ -96,14 +95,12 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | ------- | ----------------------------  | ----------------------------      | ------- |
 | Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane)                | @Void   |
 |         |airportCapacity @Integer       | atCapacity()                      |@Boolean |
-|         |                               | planeTakesOff()                   | @Void   |
-|         |                               | preventTakeOff()                  | @String |
+|         |                               | planeTakesOff(@Plane)             | @Void   |
 |         |                               | planeIsAtAirport(@Plane)          | @Boolean|
 | Plane   |planeID  @String               |                                   |         |
 
 ## Tests
 
-*Test 1* - Confirm if planeID is in planesAtAirport using planeisAtAirport after planeLands returns true
-*Test 2* - Confirm if planeID is in planesAtAirport using planeisAtAirport before planeLands returns false
-*Test 3* - Confirm if planeID is at Airport, preventLanding returns @string message and plane doesn't land
-*Test 4* - Confirm if planeID is not at Airport, preventTakeOff returns @string message and doesn't take off
+*Test 1* - When planeTakesOff is called and isPlaneAtAirport returns False, an error message is returned
+*Test 2* - When planeLands is called and isPlaneAtAirport returns True, an error message is returned
+*Test 3* - When planeLands is called and isPlaneAtAirport returns False, length of planesAtAirport increases by 1

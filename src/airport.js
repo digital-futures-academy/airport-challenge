@@ -22,8 +22,10 @@ class Airport {
   };
 
   planeTakesOff = (plane) => {
-    const index = this.planesAtAirport.indexOf(plane);
-    this.planesAtAirport.splice(index, 1);
+    if (this.isPlaneAtAirport(plane)) {
+      const index = this.planesAtAirport.indexOf(plane);
+      this.planesAtAirport.splice(index, 1);
+    } else { return "Plane cannot take off, it is not at the airport" }
   };
 
 }
