@@ -530,7 +530,7 @@ console.log('setWeather will call setWeather function within object'); // statin
 
 // Arrange
 airport = new Airport(); // create new instance of airport
-const weather = { getWeather: () => true }; // dummy weather
+let weather = { getWeather: () => true }; // dummy weather
 expected = true; // output of getWeather in object is true
 
 // Act
@@ -542,6 +542,31 @@ console.log(`Test E - ${result ? 'Passed' : 'Failed'}`); // states if the test p
 
 // Clean Up
 expected, result, actual = undefined;
-weather = null;
+airport, plane, input, weather = null;
 console.log('======= Test E Done =======');
+console.log(' '); //blank space to split up tests
+
+//* Test F - toggleWeather will toggle the state of weatherOn
+console.log('======= Test F =======');
+console.log('setWeather will call setWeather function within object'); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new instance of airport
+plane = new Plane('Boeing'); // create new instance of plane
+weather = { getWeather: () => 10 }; // dummy weather
+expected = 0; // expect plane to take off as weather is considered sunny
+
+// Act
+airport.landPlane(plane); // land plane at airport so it can take off
+airport.takeoffPlane(plane); // attempt to take off plane
+actual = airport.groundedPlanes.length; // get the value of groundedPlanes array length
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test F - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, result, actual = undefined;
+airport, plane, input, weather = null;
+console.log('======= Test F Done =======');
 console.log(' '); //blank space to split up tests
