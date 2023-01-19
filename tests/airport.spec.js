@@ -188,7 +188,7 @@ actual = airport.landPlane(plane);
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 6: landPlane cannot continue if isFull is true : ${result}`);
+console.log(`Test 7: landPlane cannot continue if isFull is true : ${result}`);
 
 // Clean up 
 expected = undefined;
