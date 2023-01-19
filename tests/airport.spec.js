@@ -170,3 +170,32 @@ plane = null;
 
 console.log(`=======================`);
 console.log(``);
+
+// Test  7- 
+console.log(`=======================`);
+console.log(`Test 7- a plane cannot land when isFull is true`);
+
+// Arrange
+airport = new Airport();
+for (let i = 0; i < airport.capacity; i++) {
+    airport.landPlane(new Plane());
+}
+plane = new Plane();
+expected = false;
+
+// Act
+actual = airport.landPlane(plane);
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6: landPlane cannot continue if isFull is true : ${result}`);
+
+// Clean up 
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+console.log(`=======================`);
+console.log(``);
