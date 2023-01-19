@@ -10,7 +10,7 @@ So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
 Objects |  Properties                   | Methods(messages) | Outputs 
----------------------------------------------------------------------
+--------|-------------------------------|-------------------|----------
 Plane   |  id @String                   | getId()           |@String
 Airport |  airportPlanes @Array[@Plane] | landPlane(@Plane) |@Void
 
@@ -33,7 +33,7 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
 Objects  | Properties                   | Methods(messages)            |Outputs 
--------------------------------------------------------------------------------
+---------|------------------------------|------------------------------|---------
 Plane    | id @String                   | getId()                      |@String
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)            |@Void
          | airportCapacity @Integer     | increaseCapacityTo(@Integer) |@Void
@@ -58,7 +58,7 @@ To ensure safety
 I want to prevent landing when the airport is full
 
 Objects  | Properties                   | Methods(messages)           | Outputs 
----------------------------------------------------------------------------------
+---------|------------------------------|-----------------------------|----------
 Plane    | id @String                   | getId()                     | @String
 Airport  | airportPlanes @Array[@Plane] | isAirportFull()             | @Boolean
          |                              | landPlane(@Plane)           | @Void
@@ -80,7 +80,7 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
 Objects  | Properties                   | Methods(messages)           | Outputs
--------------------------------------------------------------------------------- 
+---------|------------------------------|-----------------------------|--------- 
 Plane    | id @String                   | getId()                     | @String
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
          |                              | takeoffPlane(@Plane)        | @Void
@@ -104,7 +104,7 @@ To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
 Objects  | Properties                   | Methods(messages)           | Outputs 
----------------------------------------------------------------------------------
+---------|------------------------------|-----------------------------|----------
 Plane    | id @String                   | getId()                     | @String
          |                              | atAirport()                 | @Boolean
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
@@ -123,7 +123,7 @@ Test 9 - Planes which are already at the airport cannot land.
 
 ---------
 
-Optional additional criteria (I have started thinking about this but not coded... would like to revisit once my existing code is improved and corrected following feedback, and hopefully approach it with a bit more confidence):
+Optional additional criteria (I have started thinking about this but not coded... would like to revisit once my wobbly existing code is improved and corrected following feedback, and hopefully approach it with a bit more confidence):
 
 User Story A
 
@@ -131,8 +131,9 @@ As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
-Objects   Properties                    Methods(messages)      Outputs 
-Weather                                 isSunny()              @Boolean               
+Objects  | Properties                  |  Methods(messages)     | Outputs 
+---------|-----------------------------|------------------------|----------
+Weather  |                             |  isSunny()             | @Boolean               
 
 Thoughts:
 
@@ -147,8 +148,9 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
-Objects   Properties                    Methods(messages)      Outputs 
-Weather                                 isSunny()              @Boolean  
+Objects  | Properties                  |  Methods(messages)     | Outputs 
+---------|-----------------------------|------------------------|----------
+Weather  |                             |  isSunny()             | @Boolean               
 
 Thoughts:
 
