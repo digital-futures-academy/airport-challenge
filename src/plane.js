@@ -3,7 +3,7 @@
 class Plane {
     planeID;
 
-    constructor(planeID = 'the plane') {
+    constructor(planeID = 'The Plane') {
         this.planeID = planeID;
     };
 };

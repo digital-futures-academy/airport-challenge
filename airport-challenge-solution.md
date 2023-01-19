@@ -175,4 +175,6 @@ stuff i thought of and added after the construction of the original program
 
 **Test 16** - `changeAirportCapacity` cannot change `airportCapacity` to a value lower than the length of `groundedPlanes`
 
+**Test 17** - `getPlanesAtAirport` will give a nice array of the `Plane` that are in `groundedPlanes`
+
 ---
