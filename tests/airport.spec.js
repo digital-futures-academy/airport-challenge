@@ -118,7 +118,7 @@ plane = null;
 console.log(`=======================`);
 console.log(``);
 
-// Test 4 - 
+// Test 5 - 
 console.log(`=======================`);
 console.log(`Test 5- capacity can be changed to another value e.g 15`);
 
@@ -132,6 +132,34 @@ actual = airport.capacity;
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 5: Airport capacity is 15 : ${result}`);
+
+// Clean up 
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+
+console.log(`=======================`);
+console.log(``);
+
+// Test  6- 
+console.log(`=======================`);
+console.log(`Test 6- We want to see if the airport is full by returning true to isFull() if landedPlanes is equal to capacity`);
+
+// Arrange
+airport = new Airport();
+for (let i = 0; i < airport.capacity; i++) {
+    airport.landPlane(new Plane());
+}
+expected = true;
+
+// Act
+actual = airport.isFull();
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6: Airport capacity is full : ${result}`);
 
 // Clean up 
 expected = undefined;
