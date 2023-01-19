@@ -224,11 +224,11 @@ Initial Thoughts:
 
 **Test D** - in `Airport` `toggleWeather` will switch the state of `weatherOn` to the opposite state
 
-**Test F** - `getWeather` in `Airport` class calls the function `getWeather` within an object
+**Test E** - `getWeather` in `Airport` class calls the function `getWeather` within an object
 
-**Test G** - when `getWeather` is below 45, `takeoffPlane` is executed
+**Test F** - when `getWeather` is below 45, `takeoffPlane` is executed
 
-**Test H** - when `getWeather` is 45 or above, when `takeoffPlane` is called an error occurs and the plane cannot takeoff
+**Test G** - when `getWeather` is 45 or above, when `takeoffPlane` is called an error occurs and the plane cannot takeoff
 
 ---
 
