@@ -481,26 +481,3 @@ console.log(' '); // blank space to split up tests
 console.log('These are tests for the Extended Criteria');
 console.log(' '); // blank space to split up tests
 
-//* Test B - getWeather calls the function getWeather within an object
-console.log('======= Test B =======');
-console.log('getWeather calls the function getWeather within an object'); // stating the test being carried out
-
-// Arrange
-airport = new Airport()
-let weather = { getWeather: () }; // dummy weather object
-expected = 
-
-
-// Act
-actual = airport.getWeather();
-console.log(actual);
-
-// Assert
-result = assertEquals(expected, actual); // is actual between 1 and 50
-console.log(`Test B - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
-
-// Clean Up
-expected, result, actual = undefined;
-weather = null;
-console.log('======= Test B Done =======');
-console.log(' ');

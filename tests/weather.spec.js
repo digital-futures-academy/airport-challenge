@@ -2,7 +2,7 @@
 console.log('Weather Class Tests');
 
 // initialise files that need to be pulled in
-const { assertBetween } = require('../testing-frameworks.js');
+const { assertBetween, assertEquals } = require('../testing-frameworks.js');
 const Weather = require('../src/weather.js');
 
 // initialize variables used in tests
@@ -20,7 +20,7 @@ actual = weather.getWeather();
 console.log(actual);
 
 // Assert
-result = assertBetween(1, actual, 50); // is actual between 1 and 50
+result = assertBetween(1, actual, 50); // is actual between 1 and 50??
 console.log(`Test A - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
 
 // Clean Up
@@ -28,3 +28,26 @@ expected, result, actual = undefined;
 weather = null;
 console.log('======= Test A Done =======');
 console.log(' '); //blank space to split up tests
+
+//* Test B - when Weather instance is created, weatherOn is default true
+console.log('======= Test B =======');
+console.log('when Weather instance is created, weatherOn is true by default'); // stating the test being carried out
+
+// Arrange
+weather = new Weather(); // create new instance of Weather
+expected = true;
+
+// Act
+actual = weather.weatherOn();
+console.log(actual);
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test B - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, result, actual = undefined;
+weather = null;
+console.log('======= Test B Done =======');
+console.log(' '); //blank space to split up tests
+
