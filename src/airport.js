@@ -80,16 +80,27 @@ class Airport {
     takeoffPlane(plane) {
         if (this.#weatherOn === true && this.weather >= 45) {
             console.log(`Cannot take off ${plane.planeID}, the weather is stormy`);
-        }
-
-        if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
-            this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
-            console.log(`${plane.planeID} has taken off from ${this.airportID}.`);
-        } else if (this.isPlane(plane) === true && this.planeExists(plane) === false) {
-            console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`);
+        } else if (this.#weatherOn === true && this.weather < 45) {
+            console.log(`The weather is sunny.`);
+            if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
+                this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
+                console.log(`${plane.planeID} has taken off from ${this.airportID}.`);
+            } else if (this.isPlane(plane) === true && this.planeExists(plane) === false) {
+                console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`);
+            } else {
+                console.log(`Invalid input, nothing has taken off from ${this.airportID}.`); // message for any invalid inputs put into the system
+            }
         } else {
-            console.log(`Invalid input, nothing has taken off from ${this.airportID}.`); // message for any invalid inputs put into the system
-        }
+            if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
+            this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
+                console.log(`${plane.planeID} has taken off from ${this.airportID}.`);
+            } else if (this.isPlane(plane) === true && this.planeExists(plane) === false) {
+                console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`);
+            } else {
+                console.log(`Invalid input, nothing has taken off from ${this.airportID}.`); // message for any invalid inputs put into the system
+            }
+        } //! This works but should work on trying to cut it down
+
     }
 }
 

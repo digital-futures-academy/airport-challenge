@@ -572,3 +572,30 @@ expected, result, actual = undefined;
 airport, plane, input, weather = null;
 console.log('======= Test F Done =======');
 console.log(' '); //blank space to split up tests
+
+//* Test G - when getWeather is below 45, takeoffPlane is executed
+console.log('======= Test G =======');
+console.log('when getWeather is above 45, takeoffPlane is not executed'); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new instance of airport
+plane = new Plane('Boeing'); // create new instance of plane
+weather = { getWeather: () => 47 }; // dummy weather simulate rng got 10
+expected = 1; // expect plane not to take off as weather is considered stormy
+
+// Act
+airport.toggleWeather(); // make weather true
+airport.getWeather(weather); // get the value of getWeather
+airport.landPlane(plane); // land plane at airport so it can take off
+airport.takeoffPlane(plane); // attempt to take off plane
+actual = airport.groundedPlanes.length; // get the value of groundedPlanes array length
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test G - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, result, actual = undefined;
+airport, plane, input, weather = null;
+console.log('======= Test G Done =======');
+console.log(' '); //blank space to split up tests
