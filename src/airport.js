@@ -37,6 +37,14 @@ class Airport {
     return assertMoreThan(-1, this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID)); // true or false
   };
 
+  getPlanesAtAirport() {
+    const planesAtAirport = JSON.stringify(this.groundedPlanes.map(function (plane) {
+    return plane['planeID']
+    }));
+    console.log(`${[planesAtAirport]} are at ${this.airportID}`);
+    return planesAtAirport;
+  }
+
   landPlane = plane => {
     if (plane instanceof Plane && this.isAirportFull() === false && this.planeExists(plane) === false) {
       this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
