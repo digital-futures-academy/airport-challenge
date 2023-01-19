@@ -1,6 +1,5 @@
 // Airport Class
 
-const { assertEquals, assertMoreThan } = require("../testing-frameworks.js");
 const Plane = require(`./plane.js`);
 
 class Airport {
@@ -16,7 +15,7 @@ class Airport {
 
   //* functions of airport
   isAirportFull() {
-    return assertEquals(this.airportCapacity, this.groundedPlanes.length); // true or false
+    return (this.airportCapacity === this.groundedPlanes.length); // true or false
   };
 
   changeAirportCapacity = capacity => {
@@ -34,7 +33,7 @@ class Airport {
   };
 
   planeExists = plane => {
-    return assertMoreThan(-1, this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID)); // true or false
+    return (-1 < this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID)); // true or false
   };
 
   getPlanesAtAirport() {
