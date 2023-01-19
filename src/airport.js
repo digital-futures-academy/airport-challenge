@@ -1,4 +1,5 @@
 const Plane = require(`../src/Plane`);
+const weather = ["stormy", "sunny"];
 class Airport {
   // here's a starting point for you
   airportPlanes = [];
@@ -29,6 +30,15 @@ class Airport {
       console.log(`the Plane took off`);
   };
   checkPlane = (plane) => this.airportPlanes.includes(plane);
+
+  checkWeather = () => {
+    let currentWeather = weather[(Math.random() * weather.length) | 0];
+    if (currentWeather === "stormy") {
+      console.log("Weather is stormy, cannot take off or land");
+      return false;
+    }
+    return true;
+  };
 }
 
 module.exports = Airport;

@@ -199,3 +199,52 @@ result = assertTrue(actual);
 
 console.log(`=============================✈️✈️✈️✈️`);
 console.log(` Test 6  : Check the plane ${result}`);
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 7  : Check the weather `);
+
+airport = new Airport();
+
+plane1 = new Plane("plane1");
+
+airport.checkWeather();
+airport.landPlane(plane1, airport.checkWeather());
+
+expected = 1;
+
+actual = airport.airportPlanes.length;
+result = assertEquals(expected, actual);
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(
+  ` Test 7  : Check the weather to see if the plane can land ${result} `
+);
+
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = undefined;
+plane = undefined;
+
+plane1 = undefined;
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 8  : Check the weather `);
+
+airport = new Airport();
+
+plane1 = new Plane("plane1");
+
+airport.checkWeather();
+airport.landPlane(plane1, "sunny");
+airport.takingOff(plane1.id, airport.checkWeather());
+
+expected = 0;
+
+actual = airport.airportPlanes.length;
+result = assertEquals(expected, actual);
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(
+  ` Test 8  : Check the weather to see if the plane can take off ${result} `
+);
