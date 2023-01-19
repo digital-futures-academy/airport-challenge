@@ -56,9 +56,8 @@ I want to prevent landing when the airport is full
 ## Tests
 
 *Test 1* - When the length of planesAtAirport and airportCapacity are the same, the test returns true
-*Test 2* - When planeLands and length of planesAtAirport is smaller than airportCapacity, planeLands is successful and length of planesAtAirport increases by 1
-*Test 3* - When planeLands and length of planesAtAirport is greater than airportCapacity, planeLands returns preventLanding
-*Test 4* - When planeLands and length of planesAtAirport is the same as airportCapacity, planeLands returns preventLanding
+*Test 2* - When planeLands and length of planesAtAirport is the same as airportCapacity, planeLands returns preventLanding
+*Test 3* - When planeLands and length of planesAtAirport is smaller than airportCapacity, planeLands is successful and length of planesAtAirport increases by 1
 
 **User Story 4**
 As an air traffic controller
