@@ -7,34 +7,47 @@ Airport Challenge
 =  = ==(____DFA____)
 		 \_____\__________________,-~~~~~~~`-.._
 		/     o o o o o o o o o o o o o o o o  |\_
-		`~-.__       __..----..__                  )
-			`---~~\___________/------------`````
-			=  ===(_________)
+		`~-.__       __..----..__      Raj         )
+			`---~~\___________/------------````````
+		=	=  ===(_________)
 
 ```
 
-Instructions
+Installation Steps:
 ---------
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* Please create separate files for every class, module, and spec.
+1. Clone the repository to the local machine.
+2. Make sure the current working directory in the terminal is './airport-challenge'.
+3. Run command 'npm install' to automatically install all project dependecies using the package.json.
+4. To run tests the following commands can be used:
+    * 'node specRunner.js'
+    * 'npm test'
 
-Steps
--------
+References/Assitance:
+--------
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+* https://api.qunitjs.com/assert/ (Referenced for types of assertion tests)
+* VS Code Extention: Mintlify (Helped generated automated documentation for the code)
 
-Task
------
+Workflow details:
+--------
 
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+* Generated respective domain models for each user story that was provided.
+* While (true):
+    * Using these I wrote tests for individual messages in the model to test each component.
+    * With the failing tests I then wrote pieces of code that passed the respective tests.
+* Combined the domain models to remove redundancy and created a final draft for reference when designing the code solution.
+* While (true):
+    * Wrote extra pieces of tests and complimenting code. Such as some methods that needed to be integrated with the use of other methods.
+* Finally, with all passing tests, I refactored the code to have high cohesion and to be loosely-coupled.
+* Added final bits of additional documentation to make for cleaner code.
+
+Running Tests Screenshot:
+--------
+
+![Ignore the grammar underlines](./misc/testRun1.png)
+![Ignore the grammar underlines](./misc/testRun2.png)
+
 <br>
 <br>
 
@@ -169,12 +182,3 @@ Planes that have landed must be at an airport
 |         | -                 | takeOff(@Plane)     | @Void    |
 |         | -                 | isAtAirport(@Plane) | @Boolean |
 ---
-
-```
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
-
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
-```
-
-Notes:
-- https://api.qunitjs.com/assert/ (Referenced for types of assertion tests)
