@@ -63,7 +63,6 @@ plane = null;
 
 console.log(`---------------------------------------------`);
 
-
 //TEST 4: 
 console.log(`---------------------------------------------`)
 console.log(`Test 4: The maximum length of airportPlanes is output as defaultCapacity`);
@@ -99,7 +98,7 @@ console.log(`Test 5: Need to be able to change the default capacity of the airpo
 //Arrange
 airport = new Airport();
 plane = new Plane();
-expected = 1;
+expected = 10;
 
 //Act
 airport.changeCapacity();
@@ -122,7 +121,7 @@ console.log(`---------------------------------------------`);
 
 // TEST 7: 
 console.log(`---------------------------------------------`)
-console.log(`Test 7: atDefaultCapacity() returns true if airportPlanes has reached it's defaultCapacity`);
+console.log(`Test 7:atDefaultCapacity() returns true if airportPlanes has reached it's defaultCapacity`);
 
 //Arrange
 airport = new Airport();
@@ -174,6 +173,7 @@ airport = undefined;
 plane = null;
 
 console.log(`---------------------------------------------`);
+
 
 
 
