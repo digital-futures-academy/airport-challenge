@@ -2,7 +2,7 @@
 console.log('Weather Class Tests');
 
 // initialise files that need to be pulled in
-const { assertEquals, assertBetween } = require('../testing-frameworks.js');
+const { assertBetween } = require('../testing-frameworks.js');
 const Weather = require('../src/weather.js');
 
 // initialize variables used in tests
@@ -21,7 +21,7 @@ console.log(actual);
 
 // Assert
 result = assertBetween(1, actual, 50); // is actual between 1 and 50
-console.log(`Test One - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+console.log(`Test A - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
 
 // Clean Up
 expected, result, actual = undefined;

@@ -218,11 +218,13 @@ Initial Thoughts:
 
 **Test A** - `getWeather` generates a number between 1 and 50 in `Weather` class
 
-**Test B** - `getWeather` in `Airport` class calls the function `getWeather` within an object
+**Test B** - when `Weather` instance is created `setWeather` is default true
 
-**Test C** - when `getWeather` is below 45, `takeoffPlane` is executed
+**Test c** - `getWeather` in `Airport` class calls the function `getWeather` within an object
 
-**Test D** - when `getWeather` is 45 or above, `takeoffPlane` an error occurs and the plane cannot takeoff
+**Test D** - when `getWeather` is below 45, `takeoffPlane` is executed
+
+**Test E** - when `getWeather` is 45 or above, `takeoffPlane` an error occurs and the plane cannot takeoff
 
 ---
 
