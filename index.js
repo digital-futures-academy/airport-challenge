@@ -54,3 +54,8 @@ console.log(airportThree.isPlaneAtAirport(`ID 3456`)); // returns true
 console.log(airportThree.isPlaneAtAirport(`ID 4444`)); // returns true
 airportThree.planeTakeOff(planeSix, `sunny`);
 console.log(airportThree.isPlaneAtAirport(planeSix.getID())) // returns false
+
+console.log(`==============================================`)
+const airportFour = new Airport()
+const planeNine = new Plane(`ID 7777`);
+console.log(airport.isPlaneAtAirport(`ID 7777`));

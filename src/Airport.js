@@ -7,7 +7,7 @@ class Airport {
     constructor(airportCapacity = 10) {
         this.airportCapacity = airportCapacity;
     }
-    
+
     landPlane(plane, weather) {
         if (weather === `sunny` && plane instanceof Plane) {
             if (!this.isFull() && !this.isPlaneAtAirport(plane.getID())) {
@@ -26,10 +26,6 @@ class Airport {
     }
 
     isPlaneAtAirport(planeID) {
-        if (this.planesAtAirport.length == 0) {
-            return false;
-        }
-
         for (let i = 0; i < this.planesAtAirport.length; i++) {
             if (this.planesAtAirport[i].getID() === planeID) {
                 return true;
