@@ -90,17 +90,20 @@ console.log(`***When planeTakesOff is called and isPlaneAtAirport returns true, 
 // Arrange
 airport1 = new Airport();
 plane1 = new Plane();
-expectedOutput = false;
+airport1.planesAtAirport = [plane1]
+expectedOutput = 0;
 actualOutput, result;
 
 // Act
-actualOutput = airport1.isPlaneAtAirport(plane1);
-
+console.log(airport1.planesAtAirport.length)
+airport1.planeTakesOff(plane1);
+actualOutput = airport1.planesAtAirport.length
+console.log(actualOutput)
 // Assert
 result = assertEquals(expectedOutput, actualOutput);
 
 // Report
-console.log(`Plane is not at airport: ${result}`);
+console.log(`Plane takes off: ${result}`);
 
 // Clean-Up
 actualOutput = undefined;
