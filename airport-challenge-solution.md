@@ -169,38 +169,10 @@ Initial Thoughts:
 
 ---
 
-## After thoughts/Edge Cases - User Stories
+## Extra Tests
 
-```sh
-As an air traffic controller.
-To avoid confusion
-I want to prevent landing a plane that is already at another airport.
-```
+stuff i thought of and added after the construction of the original program
 
-## After thoughts - Domain Model
-
-| Objects  | Properties                      | Messages              | Outputs  |
-| -------- | ------------------------------- | --------------------- | -------- |
-| Airport  | groundedPlanes @Array[@Plane]   | takeoffPlane(@Plane)  | @String  |
-|          |                                 | landPlane(@Plane)     | @String  |
-|          |                                 | planeExists(@Plane)   | @Boolean |
-| Plane    | planeID @String                 | getPlaneID()          | @String  |
-| Airports | airportList @Array[@Airport]    | allLandedPlanes()     | @Array   |
-
-## After thoughts - Tests
-
-1. if plane is at another airport, it cannot land in a different airport without taking off first
-2. create a way to collect the groundedPlanes array from each airport and put them into a single array that can be filtered through every time land is called
-3. could show what airport the plane is in if this error occurs
-4. could adjust the `planeExists` function to look through `allLandedPlanes` instead of `groundedPlanes`
-5. use static method for `Airports`
-
-**Test 16** - `Airports` will create an array of all the airports that have been created
-
-**Test 17** - `allLandedPlanes` will show every airport and what planes are grounded
-
-**Test 18** - when `landPlane` is called it will search if the plane exists in `allLandedPlanes`
-
-**Test 19** - `landPlane` will prevent landing if the plane exists in `allLandedPlanes`, and will allow `landPlane` if the plane is not in `allLandedPlanes`
+**Test 16** - `changeAirportCapacity` cannot change `airportCapacity` to a value lower than the length of `groundedPlanes`
 
 ---
