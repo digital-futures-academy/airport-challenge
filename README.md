@@ -12,17 +12,19 @@ I want to instruct the airport to land a plane
 Objects |  Properties                   | Methods(messages) | Outputs 
 --------|-------------------------------|-------------------|----------
 Plane   |  id @String                   | getId()           |@String
+--------|-------------------------------|-------------------|----------
 Airport |  airportPlanes @Array[@Plane] | landPlane(@Plane) |@Void
+--------|-------------------------------|-------------------|----------
 
 Initial thoughts for Test:
-
 1. Need an Airport
 2. Need to be able to land a Plane at the Airport
 3. Need airportPlanes list length to increase by 1 when a Plane is landed (added).
 
-Test 1 - airportPlanes length increases when landPlane is called.
-Test 2 - landPlane should only add Plane instances to the airportPlanes list.
-Test 3 - Edge case: Falsy values (null, undefined, zero, false) should not be added to the airportPlanes list.
+Tests
+1. airportPlanes length increases when landPlane is called.
+2. landPlane should only add Plane instances to the airportPlanes list.
+3. Edge case: Falsy values (null, undefined, zero, false) should not be added to the airportPlanes list.
 
 ---------
 
@@ -35,19 +37,21 @@ I would like a default airport capacity that can be overridden as appropriate
 Objects  | Properties                   | Methods(messages)            |Outputs 
 ---------|------------------------------|------------------------------|---------
 Plane    | id @String                   | getId()                      |@String
+---------|------------------------------|------------------------------|---------
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)            |@Void
          | airportCapacity @Integer     | increaseCapacityTo(@Integer) |@Void
+---------|------------------------------|------------------------------|---------
                                         
 
 Initial thoughts:
-
 1. Need to set capacity
 2. Need to make sure capacity can't be exceeded (i.e. no additional Planes can land when capacity is reached)
 3. Need to make sure capacity can be overridden
 
-Test 4 - Default capacity is set on Airport.
-Test 5 - Additional Planes cannot land (i.e. be added to airportPlanes list) once capacity is reached.
-Test 6 - Default capacity can be overridden.
+Tests
+4. Default capacity is set on Airport.
+5. Additional Planes cannot land (i.e. be added to airportPlanes list) once capacity is reached.
+6. Default capacity can be overridden.
 
 ---------
 
@@ -58,18 +62,20 @@ To ensure safety
 I want to prevent landing when the airport is full
 
 Objects  | Properties                   | Methods(messages)           | Outputs 
----------|------------------------------|-----------------------------|----------
+---------|------------------------------|-----------------------------|-----------
 Plane    | id @String                   | getId()                     | @String
+---------|------------------------------|-----------------------------|-----------
 Airport  | airportPlanes @Array[@Plane] | isAirportFull()             | @Boolean
          |                              | landPlane(@Plane)           | @Void
          | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
+---------|------------------------------|-----------------------------|-----------
 
 
 Thoughts:
-
 1. I've tested for this already (got ahead of myself):
 
-Test 5 - Additional Planes cannot land (i.e. be added to airportPlanes list) once capacity is reached.
+Test
+5. Additional Planes cannot land (i.e. be added to airportPlanes list) once capacity is reached.
 
 ---------
 
@@ -82,18 +88,20 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 Objects  | Properties                   | Methods(messages)           | Outputs
 ---------|------------------------------|-----------------------------|--------- 
 Plane    | id @String                   | getId()                     | @String
+---------|------------------------------|-----------------------------|---------
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
          |                              | takeoffPlane(@Plane)        | @Void
          | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
+---------|------------------------------|-----------------------------|---------
 
 
 Thoughts:
-
 1. Need to identify Plane IDs in the airportPlanes array
 2. Need to remove specified ID(s) from the array (takeoffPlane(@Plane))
 3. Need to confirm that the Plane has left the airport
 
-Test 7 - takeoffPlane from Airport.
+Tests
+7. takeoffPlane removes Plane from airportPlanes list.
 
 ---------
 
@@ -104,22 +112,24 @@ To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
 Objects  | Properties                   | Methods(messages)           | Outputs 
----------|------------------------------|-----------------------------|----------
+---------|------------------------------|-----------------------------|-----------
 Plane    | id @String                   | getId()                     | @String
          |                              | atAirport()                 | @Boolean
+---------|------------------------------|-----------------------------|-----------
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
          |                              | takeoffPlane(@Plane)        | @Void
          | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
+---------|------------------------------|-----------------------------|-----------
 
 
 Thoughts:
-
 1. Check airportPlanes array for Plane ID
 2. If PlaneID does not exist in the airportPlanes array when takeoffPlane(@Plane) is called, do nothing
 3. If PlaneID exists in the airportPlanes array when landPlane(@Plane) is called, do nothing
 
-Test 8 - Planes which are not at the airport cannot take off.
-Test 9 - Planes which are already at the airport cannot land.
+Tests
+8. Planes which are not at the airport (i.e. in the airportPlanes list) cannot take off.
+9. Planes which are already at the airport cannot land.
 
 ---------
 
@@ -164,13 +174,17 @@ As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 
-Objects   Properties                    Methods(messages)            Outputs
-Weather                                 isSunny()                    @Boolean 
-Plane     id @String                    getId()                      @String
-                                        atAirport()                  @Boolean
-Airport   airportPlanes @Array[@Plane]  landPlane(@Plane)            @Void
-                                        takeoffPlane(@Plane)         @Void
-          airportCapacity @Integer      increaseCapacityTo(@Integer) @Void
+Objects  | Properties                   | Methods(messages)            | Outputs
+---------|------------------------------|------------------------------|---------
+Weather  |                              | isSunny()                    | @Boolean 
+---------|------------------------------|------------------------------|---------
+Plane    | id @String                   | getId()                      | @String
+         |                              | atAirport()                  | @Boolean
+---------|------------------------------|------------------------------|---------
+Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)            | @Void
+         |                              | takeoffPlane(@Plane)         | @Void
+         | airportCapacity @Integer     | increaseCapacityTo(@Integer) | @Void
+---------|------------------------------|------------------------------|---------
 
 Thoughts: 
 
