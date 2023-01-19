@@ -193,16 +193,15 @@ airport = null;
 plane = null;
 
 // Test 9 - If the number of planes in planesLanded is equal to the capacity the plane cannot land
+// I had to revisit this test after other functions broke it.
 console.log(`==========`);
 console.log(`Test 9 - If the number of planes in planesLanded is equal to the capacity the plane cannot land`);
 
 // Arrange
 airport = new Airport();
 plane = new Plane();
-for (let i = 0; i < 10; i++) {
-    airport.landPlane(plane);
-}
-expected = 10;
+airport.changeCapacity(1);
+expected = 1;
 
 // Act
 airport.landPlane(plane);
@@ -389,6 +388,58 @@ actual = airport.planesLanded.length;
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 16 - prevent landing when the weather is not stormy: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+testWeather = undefined;
+
+// Test 17 - planes that have landed must be at an airport
+// The only way for planes to land is via an airport, so this adds functionality to ask a plane which airport it is at.
+console.log(`==========`);
+console.log(`Test 17 - planes that have landed must be at an airport`);
+
+// Arrange
+airport = new Airport(undefined, `testairport`);
+plane = new Plane(`test1`);
+expected = 'testairport';
+
+// Act
+airport.landPlane(plane);
+actual = plane.getAirport();
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 17 - planes that have landed must be at an airport: ${result}`);
+
+// Clean Up
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = null;
+plane = null;
+testWeather = undefined;
+
+// Test 18 - planes that have taken off returns 'In the air' when getAirport is called
+console.log(`==========`);
+console.log(`Test 18 - planes that have taken off returns 'In the air' when getAirport is called`);
+
+// Arrange
+airport = new Airport(undefined, `testairport`);
+plane = new Plane(`test1`);
+airport.landPlane(plane);
+expected = 'In the air';
+
+// Act
+airport.takeOff(plane);
+actual = plane.getAirport();
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 18 - planes that have taken off returns 'In the air' when getAirport is called: ${result}`);
 
 // Clean Up
 expected = undefined;

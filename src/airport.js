@@ -7,14 +7,18 @@ class Airport {
     planesLanded = [];
     capacity = 10;
     weather;
+    name;
 
-    // Each airport receives its own named instance of weather, or a default instance
-    constructor(weather = new Weather(), id) {
+    // Each airport receives its own named instance of weather, or a default instance. 
+    // Would be better as a static method in future
+    constructor(weather, name) {
         this.weather = weather;
+        this.name = name;
     }
 
-    isItStormy = () => this.weather.isItStormy?.();
+    isItStormy = () => this.weather?.isItStormy();
 
+    // These would be better throwing errors, rather than a log
     landPlane = plane => {
         if (this.isItStormy())
             return console.log(`Landing is not allowed in a storm`);
@@ -22,8 +26,10 @@ class Airport {
         if (this.planesLanded.includes(plane))
             return console.log(`${plane.id}: This plane is on the ground.`);
 
-        if (plane instanceof Plane && this.planesLanded.length < this.capacity)
+        if (plane instanceof Plane && this.planesLanded.length < this.capacity) {
             this.planesLanded.push(plane);
+            plane.setAirport(this.name);
+        }
     }
 
     takeOff = (plane) => {
@@ -35,6 +41,7 @@ class Airport {
         if (indexOfPlane > -1) {
             this.planesLanded.splice(indexOfPlane, 1);
             console.log(`${plane.id}: This plane has taken off.`);
+            plane.setAirport();
             if (this.planesLanded.length > 0) {
                 console.log(`The remaining planes are:`);
                 for (let i = 0; i < this.planesLanded.length; i++)
