@@ -94,3 +94,52 @@ result = assertLessThan(expected, actual);
 
 console.log(` Test 3  : Prevent landing when the Airport reached 4 ${result} `);
 console.log(`=============================✈️✈️✈️✈️✈️✈️✈️🛩`);
+
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = undefined;
+plane = undefined;
+
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+plane4 = undefined;
+plane5 = undefined;
+
+console.log(`=============================✈️✈️✈️✈️`);
+console.log(` Test 4  : Raising the capacity `);
+
+airport = new Airport(5);
+plane1 = new Plane("plane1");
+plane2 = new Plane("plane2");
+plane3 = new Plane("plane3");
+plane4 = new Plane("plane4");
+plane5 = new Plane("plane5");
+
+airport.raisingCapacity(6);
+
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
+airport.landPlane(plane5);
+
+expected = 5;
+actual = airport.airportPlanes.length;
+result = assertEquals(expected, actual);
+
+console.log(` Test 4  : Airport capacity raising to 6  ${result} `);
+console.log(`=============================✈️✈️✈️✈️✈️✈️✈️🛩`);
+
+expected = undefined;
+actual = undefined;
+result = undefined;
+airport = undefined;
+plane = undefined;
+
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+plane4 = undefined;
+plane5 = undefined;

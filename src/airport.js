@@ -14,6 +14,10 @@ class Airport {
   fullCapacity = (full) => {
     this.capacity += full;
   };
+
+  raisingCapacity = (newCapacity) => {
+    this.capacity = newCapacity;
+  };
 }
 
 module.exports = Airport;
