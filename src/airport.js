@@ -20,7 +20,7 @@ class Airport {
   };
 
   changeAirportCapacity = capacity => {
-    if (typeof capacity === 'number' && capacity >= 0) {
+    if (typeof capacity === 'number' && capacity >= this.groundedPlanes.length) {
       this.airportCapacity = capacity; // changes the capacity of the airport only if the input is a number
       return console.log(`The capacity of ${this.airportID} has changed to ${this.airportCapacity}.`); // tell the user command has changed the airport capacity
     } else {
@@ -29,7 +29,8 @@ class Airport {
   };
 
   getAirportCapacity() {
-    return console.log(`${this.airportID} has a capacity of ${this.airportCapacity}.`); // returns the value of airportCapacity
+    console.log(`${this.airportID} has a capacity of ${this.airportCapacity}.`);
+    return this.airportCapacity; // returns the value of airportCapacity
   };
 
   planeExists = plane => {
