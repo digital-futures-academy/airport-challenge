@@ -34,3 +34,28 @@ actualOutput = undefined;
 result = undefined;
 input = undefined;
 expectedOutput = undefined;
+
+// Test 4.2
+console.log(`***Confirm if plane is in planesAtAirport using isPlaneAtAirport before planeTakesOff returns true***`);
+
+// Arrange
+airport1 = new Airport()
+plane1 = new Plane();
+airport1.planesAtAirport = [plane1]
+expectedOutput = true;
+actualOutput, result;
+
+// Act
+actualOutput = airport1.isPlaneAtAirport(plane1);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Plane is at airport: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;

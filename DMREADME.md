@@ -72,16 +72,16 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | Objects | Properties                   | Messages                          | Outputs |
 | ------- | -------------------------    | -----------------------------     | ------- |
 | Airport |planesAtAirport @Array[@Plane]| planeLands(@Plane)                | @Void   |
-|         |airportCapacity @Integer      | atCapacity()                      |@Boolean |
+|         |airportCapacity @Integer      | atCapacity()                      | @Boolean|
 |         |                              | planeTakesOff()                   | @Void   |
-|         |                              | planeIsAtAirport(@planesAtAirport)| @Boolean|
-| Plane   |planeID @String               | getId()                           | @String |
+|         |                              | isPlaneAtAirport(@Plane)          | @Boolean|
+| Plane   |planeID @String               |                                   |         |
 
 ## Tests
 
 *Test 1* - Length of planesAtAirport array at the Airport decreases by 1 when planeTakesOff
-*Test 2* - Confirm if planeID is in planesAtAirport using planeIsAtAirport before planeTakesOff returns true
-*Test 3* - Confirm if planeID is in planesAtAirport using planeIsAtAirport after planeTakesOff returns false
+*Test 2* - Confirm if plane is in planesAtAirport using isPlaneAtAirport before planeTakesOff returns true
+*Test 3* - Confirm if plane is in planesAtAirport using isPlaneAtAirport after planeTakesOff returns false
 
 **User Story 5**
 As an air traffic controller
@@ -96,8 +96,8 @@ I want to prevent asking the airport to let planes take-off which are not at the
 |         |airportCapacity @Integer       | atCapacity()                      |@Boolean |
 |         |                               | planeTakesOff()                   | @Void   |
 |         |                               | preventTakeOff()                  | @String |
-|         |                               | planeIsAtAirport(@planesAtAirport)| @Boolean|
-| Plane   |planeID  @String               | getId()                           | @String |
+|         |                               | planeIsAtAirport(@Plane)          | @Boolean|
+| Plane   |planeID  @String               |                                   |         |
 
 ## Tests
 

@@ -13,12 +13,16 @@ class Airport {
     return this.planesAtAirport.length === this.airportCapacity ? true : false  //Can this be written in a simpler way?
   }
 
-  planeLands = (planeID) => {
-    return planeID instanceof Plane && this.atCapacity() === false ? this.planesAtAirport.push(planeID) : "Unable to land";
+  isPlaneAtAirport = (plane) => {
+    return this.planesAtAirport.includes(plane) ? true : false;
+  }
+
+  planeLands = (plane) => {
+    return plane instanceof Plane && this.atCapacity() === false ? this.planesAtAirport.push(plane) : "Unable to land";
   };
 
-  planeTakesOff = (planeID) => {
-    const index = this.planesAtAirport.indexOf(planeID);
+  planeTakesOff = (plane) => {
+    const index = this.planesAtAirport.indexOf(plane);
     this.planesAtAirport.splice(index, 1);
   };
 
