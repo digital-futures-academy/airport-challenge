@@ -72,7 +72,7 @@ i want to prevent landing when the airport is full
 
 | Objects | Properties                      | Messages                           | Outputs  |
 | ------- | ------------------------------- | ---------------------------------- | -------- |
-| Airport | groundedPlanes @Array[@Planes]  | isAirportFull()                    | @Boolean |
+| Airport | groundedPlanes @Array[@Plane]   | isAirportFull()                    | @Boolean |
 |         | airportCapacity @Integer        | getAirportCapacity()               | @Integer |
 |         |                                 | landPlane(@Plane)                  | @String  |
 |         |                                 | changeAirportCapacity(@Integer)    | @Void    |
@@ -108,7 +108,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 | Objects | Properties                      | Messages             | Outputs |
 | ------- | ------------------------------- | -------------------- | ------- |
-| Airport | groundedPlanes @Array[@Planes]  | takeoffPlane(@Plane) | @String |
+| Airport | groundedPlanes @Array[@Plane]   | takeoffPlane(@Plane) | @String |
 | Plane   | planeID @String                 | getPlaneID()         | @String |
 
 ## Part 4 - Tests
@@ -148,7 +148,7 @@ I want to prevent asking the airport to land a plane that has already landed
 
 | Objects | Properties                      | Messages              | Outputs  |
 | ------- | ------------------------------- | --------------------- | -------- |
-| Airport | groundedPlanes @Array[@Planes]  | takeoffPlane(@Plane)  | @String  |
+| Airport | groundedPlanes @Array[@Plane]   | takeoffPlane(@Plane)  | @String  |
 |         |                                 | landPlane(@Plane)     | @String  |
 |         |                                 | planeExists(@Plane)   | @Boolean |
 | Plane   | planeID @String                 | getPlaneID()          | @String  |
@@ -181,7 +181,7 @@ I want to prevent landing a plane that is already at another airport.
 
 | Objects  | Properties                      | Messages              | Outputs  |
 | -------- | ------------------------------- | --------------------- | -------- |
-| Airport  | groundedPlanes @Array[@Planes]  | takeoffPlane(@Plane)  | @String  |
+| Airport  | groundedPlanes @Array[@Plane]   | takeoffPlane(@Plane)  | @String  |
 |          |                                 | landPlane(@Plane)     | @String  |
 |          |                                 | planeExists(@Plane)   | @Boolean |
 | Plane    | planeID @String                 | getPlaneID()          | @String  |
@@ -192,6 +192,7 @@ I want to prevent landing a plane that is already at another airport.
 1. if plane is at another airport, it cannot land in a different airport without taking off first
 2. create a way to collect the groundedPlanes array from each airport and put them into a single array that can be filtered through every time land is called
 3. could show what airport the plane is in if this error occurs
+4. could adjust the `planeExists` function to look through `allLandedPlanes` instead of `groundedPlanes`
 
 **Test 16** - `Airports` will create an array of all the airports that have been created
 
