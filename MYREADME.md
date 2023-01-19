@@ -101,7 +101,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 3. Confirm that the plane is no longer in that airport
 
 ### Tests For User Story 4
-9. If `takeOff` is true then `notInAirport()` should return true
+9. If `takeOff` is true then `notInAirport()` should return true |DONE|
 10. Edge Case - the plane should not be at the airport that it took off from if `notInAirport()` returns true
 ---------------  
 
@@ -129,7 +129,9 @@ I want to prevent asking the airport to let planes take-off which are not at the
 3. If the plane is not in that airport then we should not be able to let it take off
    
 ### Tests For User Story 5
-11. If `notInAirport()` returns true then `noTakeOff()` should return true and `noLanding()` should return false
-12. If `notInAirport()` returns false `noTakeOff()` should return false and `noLanding()` should return true
+11. If `notInAirport()` returns true then `noTakeOff()` should return true 
+12. If `notInAirport()` returns true then `noLanding()` should return false
+
+13. If `notInAirport()` returns false `noTakeOff()` should return false and `noLanding()` should return true
 
 -----------------
