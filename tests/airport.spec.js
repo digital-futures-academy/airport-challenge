@@ -150,12 +150,11 @@ console.log(`Test 6 - Is Airport full?`);
 
 //Arrange
 
-airport = new Airport();
-expected = 10;
+airport = new Airport([new Plane()], 1);
+expected = true;
 
 //Act
-airport.isAirportFull();
-actual = airport.capacity;
+actual = airport.isAirportFull();
     
 //Assert
 result = assertEquals(expected, actual);
@@ -170,3 +169,30 @@ result = undefined;
 
 console.log(`============================`);
 
+//Test 7 -   Plane cannot land because airport is full
+
+console.log(`============================`);
+console.log(`Test 7 - If airport is full don't land plane`);
+
+//Arrange
+
+airport = new Airport();
+plane = new Plane();
+expected = 0;
+
+//Act
+airport.landPlane();
+actual = airport.airportPlanes.length;
+    
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 7 - If airport is full don't land plane: ${result}`);
+
+//Clean up
+plane = null;
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);

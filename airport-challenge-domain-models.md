@@ -49,6 +49,7 @@ Initial thoughts
 2. Need to be able to change this default capacity.
 
 **Test 4** - `Airport` has a default `capacity`.
+
 **Test 5** - `airportCapacity` can be changed when a new value is entered
 
 ## User story 3
@@ -71,4 +72,7 @@ I want to prevent landing when the airport is full
 Initial thoughts
 
 1. Need to know if airport is full by comparing to capacity
-2. If airport is full then landPlane function cannot run, else it can
+2. If airport is full then airportPlanes won't increase
+
+**Test 6** - Test if `airport` is full using `isAirportFull()` function
+**Test 7** - Don't allow `landPlane()` to add `Plane` to `airportPlanes` list as airport is full.
