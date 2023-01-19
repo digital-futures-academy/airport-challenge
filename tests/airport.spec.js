@@ -498,6 +498,28 @@ console.log(`Test C - ${result ? 'Passed' : 'Failed'}`); // states if the test p
 
 // Clean Up
 expected, result, actual = undefined;
-weather = null;
+airport, plane, input = null;
 console.log('======= Test C Done =======');
+console.log(' '); //blank space to split up tests
+
+//* Test D - toggleWeather will toggle the state of weatherOn
+console.log('======= Test D =======');
+console.log('toggleWeather toggle the state of weatherOn'); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new instance of airport
+expected = true; // state of weatherOn will switch to true
+
+// Act
+airport.toggleWeather(); // call function
+actual = airport.weatherOn(); // check the state of weatherOn
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test D - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, result, actual = undefined;
+weather = null;
+console.log('======= Test D Done =======');
 console.log(' '); //blank space to split up tests

@@ -222,7 +222,7 @@ Initial Thoughts:
 
 **Test C** - when `Airport` instance is created `weatherOn` is default false
 
-**Test D** - `setWeather` will output the state of `weatherOn` of the instance of `Weather`
+**Test D** - in `Airport` `setWeather` will output the state of `weatherOn` of the instance of `Weather`
 
 **Test E** - `setWeather` in `Airport` class calls the function `setWeather` within an object
 
