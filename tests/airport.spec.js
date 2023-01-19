@@ -599,3 +599,55 @@ expected, result, actual = undefined;
 airport, plane, input, weather = null;
 console.log('======= Test G Done =======');
 console.log(' '); //blank space to split up tests
+
+//* Test H - when getWeather is below 45, takeoffPlane is executed
+console.log('======= Test H =======');
+console.log('when getWeather is below 45, landPlane is executed'); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new instance of airport
+plane = new Plane('Boeing'); // create new instance of plane
+weather = { getWeather: () => 10 }; // dummy weather simulate rng got 10
+expected = 1; // expect plane to land as weather is considered sunny
+
+// Act
+airport.toggleWeather(); // make weather true
+airport.getWeather(weather); // get the value of getWeather
+airport.landPlane(plane); // land plane at airport
+actual = airport.groundedPlanes.length; // get the value of groundedPlanes array length
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test H - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, result, actual = undefined;
+airport, plane, input, weather = null;
+console.log('======= Test H Done =======');
+console.log(' '); //blank space to split up tests
+
+//* Test I - when getWeather is below 45, takeoffPlane is executed
+console.log('======= Test I =======');
+console.log('when getWeather is above 45, landPlane is not executed'); // stating the test being carried out
+
+// Arrange
+airport = new Airport(); // create new instance of airport
+plane = new Plane('Boeing'); // create new instance of plane
+weather = { getWeather: () => 47 }; // dummy weather simulate rng got 10
+expected = 0; // expect plane not to land as weather is considered stormy
+
+// Act
+airport.toggleWeather(); // make weather true
+airport.getWeather(weather); // get the value of getWeather
+airport.landPlane(plane); // land plane at airport
+actual = airport.groundedPlanes.length; // get the value of groundedPlanes array length
+
+// Assert
+result = assertEquals(expected, actual); // is expected and actual the same??
+console.log(`Test I - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+
+// Clean Up
+expected, result, actual = undefined;
+airport, plane, input, weather = null;
+console.log('======= Test I Done =======');
+console.log(' '); //blank space to split up tests

@@ -251,6 +251,15 @@ I want to prevent landing when weather is stormy
 
 ### Extended Criteria: Part 2 - Tests
 
+Initial Thoughts:
+
+1. Weather functions are already created from previous tests
+2. Just need to add into the landPlane function
+
+**Test H** - when `getWeather` is below 45, `Plane` is executed
+
+**Test I** - when `getWeather` is 45 or above, when `takeoffPlane` is called an error occurs and the plane cannot takeoff
+
 ---
 
 ### Extended Criteria: Part 3 - User Story
