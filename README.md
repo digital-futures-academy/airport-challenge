@@ -12,9 +12,7 @@ I want to instruct the airport to land a plane
 Objects |  Properties                   | Methods(messages) | Outputs 
 --------|-------------------------------|-------------------|----------
 Plane   |  id @String                   | getId()           |@String
---------|-------------------------------|-------------------|----------
 Airport |  airportPlanes @Array[@Plane] | landPlane(@Plane) |@Void
---------|-------------------------------|-------------------|----------
 
 Initial thoughts for Test:
 1. Need an Airport
@@ -37,10 +35,8 @@ I would like a default airport capacity that can be overridden as appropriate
 Objects  | Properties                   | Methods(messages)            |Outputs 
 ---------|------------------------------|------------------------------|---------
 Plane    | id @String                   | getId()                      |@String
----------|------------------------------|------------------------------|---------
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)            |@Void
-         | airportCapacity @Integer     | increaseCapacityTo(@Integer) |@Void
----------|------------------------------|------------------------------|---------
+x        | airportCapacity @Integer     | increaseCapacityTo(@Integer) |@Void
                                         
 
 Initial thoughts:
@@ -64,11 +60,9 @@ I want to prevent landing when the airport is full
 Objects  | Properties                   | Methods(messages)           | Outputs 
 ---------|------------------------------|-----------------------------|-----------
 Plane    | id @String                   | getId()                     | @String
----------|------------------------------|-----------------------------|-----------
 Airport  | airportPlanes @Array[@Plane] | isAirportFull()             | @Boolean
-         |                              | landPlane(@Plane)           | @Void
-         | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
----------|------------------------------|-----------------------------|-----------
+x        | x                            | landPlane(@Plane)           | @Void
+x        | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
@@ -88,11 +82,9 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 Objects  | Properties                   | Methods(messages)           | Outputs
 ---------|------------------------------|-----------------------------|--------- 
 Plane    | id @String                   | getId()                     | @String
----------|------------------------------|-----------------------------|---------
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
-         |                              | takeoffPlane(@Plane)        | @Void
-         | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
----------|------------------------------|-----------------------------|---------
+x        | x                            | takeoffPlane(@Plane)        | @Void
+x        | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
@@ -105,7 +97,7 @@ Tests
 
 ---------
 
-User Story 4
+User Story 5
 
 As an air traffic controller
 To avoid confusion
@@ -114,12 +106,10 @@ I want to prevent asking the airport to let planes take-off which are not at the
 Objects  | Properties                   | Methods(messages)           | Outputs 
 ---------|------------------------------|-----------------------------|-----------
 Plane    | id @String                   | getId()                     | @String
-         |                              | atAirport()                 | @Boolean
----------|------------------------------|-----------------------------|-----------
+x        | x                            | atAirport()                 | @Boolean
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
-         |                              | takeoffPlane(@Plane)        | @Void
-         | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
----------|------------------------------|-----------------------------|-----------
+x        | x                            | takeoffPlane(@Plane)        | @Void
+x        | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
@@ -143,7 +133,7 @@ I want to prevent takeoff when weather is stormy
 
 Objects  | Properties                  |  Methods(messages)     | Outputs 
 ---------|-----------------------------|------------------------|----------
-Weather  |                             |  isSunny()             | @Boolean               
+Weather  | x                           |  isSunny()             | @Boolean               
 
 Thoughts:
 
@@ -160,7 +150,7 @@ I want to prevent landing when weather is stormy
 
 Objects  | Properties                  |  Methods(messages)     | Outputs 
 ---------|-----------------------------|------------------------|----------
-Weather  |                             |  isSunny()             | @Boolean               
+Weather  | x                           |  isSunny()             | @Boolean               
 
 Thoughts:
 
@@ -176,15 +166,13 @@ Planes that have landed must be at an airport
 
 Objects  | Properties                   | Methods(messages)            | Outputs
 ---------|------------------------------|------------------------------|---------
-Weather  |                              | isSunny()                    | @Boolean 
----------|------------------------------|------------------------------|---------
+Weather  | x                            | isSunny()                    | @Boolean 
 Plane    | id @String                   | getId()                      | @String
-         |                              | atAirport()                  | @Boolean
----------|------------------------------|------------------------------|---------
+x        | x                            | atAirport()                  | @Boolean
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)            | @Void
-         |                              | takeoffPlane(@Plane)         | @Void
-         | airportCapacity @Integer     | increaseCapacityTo(@Integer) | @Void
----------|------------------------------|------------------------------|---------
+x        | x                            | takeoffPlane(@Plane)         | @Void
+x        | airportCapacity @Integer     | increaseCapacityTo(@Integer) | @Void
+
 
 Thoughts: 
 
@@ -198,7 +186,7 @@ Thoughts:
 Resources used:
 https://www.youtube.com/watch?v=IASaK1239y4
 https://www.youtube.com/watch?v=0DFvcZwqbDQ
-testing-framework.js file copied from Bob's bagels
+testing-framework.js file from Bob's bagels
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 
