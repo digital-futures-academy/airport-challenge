@@ -3,18 +3,28 @@ const Plane = require('./Plane');
 class Airport {
   airportPlanes = [];
 
-  constructor(airportCapacity = 500) {
+  constructor(airportCapacity = 5) {
     this.airportCapacity = airportCapacity;
   }
 
-  addPlane = plane => {
+  isAirportFull() {
+    return (this.airportPlanes.length > this.airportCapacity) ? true : false
 
-    if (plane instanceof Plane) this.airportPlanes.push(plane)
   }
+
+  landPlane(plane) {
+    if (plane instanceof Plane && this.isAirportFull() == false) {
+      return this.airportPlanes.push(plane)
+    }
+
+    else { console.log('Airport is full and plane cannot land') }
+  }
+
+
 
 };
 
-//if(plane instanceof Plane)
+
 
 
 
