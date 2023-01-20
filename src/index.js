@@ -20,15 +20,15 @@ for (let i = 0; i < 10; i++) {
     airportLarge.land(planes[i]);  // filling the large airport
 }
 
-console.log(`Planes in large airport: ${airportLarge.planeList} (count: ${airportLarge.planeList.length})`);
+console.log(`No of planes in large airport: ${airportLarge.planeList.length}`);
 
 const plane11 = new Plane(11);
 airportLarge.land(plane11);
-console.log(`No of planes in large airport after attempting to land an 11th one (plane11): ${airportLarge.planeList.length}`);
+console.log(`No of planes in large airport after attempting to land an 11th: ${airportLarge.planeList.length}`);
 
 // User Story 4
 airportLarge.takeOff(planes[0]);
-console.log(`No of planes in large airport after plane1 (planes[0]) takes off: ${airportLarge.planeList.length}`);
+console.log(`No of planes in large airport after a plane takes off: ${airportLarge.planeList.length}`);
 
 // User Story 5
 

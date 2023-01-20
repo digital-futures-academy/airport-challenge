@@ -90,7 +90,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 **Airport Test 9 -** ``takeOff()`` can't remove a ``Plane`` that doesn't have an id (an id of -1)
 
 
-## **Edge Case(s)**
+## **Edge Cases**
 And other tests I forgot to make
 
 **Airport Test 10 -** a plane that is currently landed anywhere can't be landed again
