@@ -2,15 +2,17 @@ class Weather {
 
     weather = "";
     
-    getWeather() {
-        this.weather = Math.floor(Math.random() * 2 ) + 1;
-        if (this.weather === 1) {
-            return "Stormy"
+    checkWeather() {
+        if (Math.random() >= 2) {
+            this.weather = "Stormy"
         } else {
-            return "Calm"
+            this.weather = "Calm"
         }
     }
 
+    getWeather() {
+        return this.weather 
+    }
 
 
 }

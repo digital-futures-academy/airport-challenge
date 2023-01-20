@@ -1,4 +1,5 @@
 const Plane = require(`./plane`);
+const Weather = require(`./weather`)
 
 class Airport {
   constructor(capacity = 0) {
@@ -28,12 +29,12 @@ class Airport {
       let index = this.airportPlanes.indexOf(plane);
       this.airportPlanes.splice(index, 1);
       return this.airportPlanes;
-
+      
     } else {
       return "This plane is not at the airport"
     }
 
-
+  
       
   }
   
