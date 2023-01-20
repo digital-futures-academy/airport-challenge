@@ -112,8 +112,8 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 **User story 4** Noun: Airport, Plane. Verbs: Instruct, let, confirm
 | Objects | Properties                | Messages                  | Outputs |
 | ------- | ------------------------- | -----------------         | ------- |
-| Airport | airportPlanes[@Plane]     | letTakeOff(@Plane)        | @String |
-|         |                           | confirmTakeOff(@Plane)    | @String |
+| Airport | airportPlanes[@Plane]     | takeOff(@Plane)           | @String |
+|         |                           | checkTakeOff(@Plane)      | @String |
 | Plane   | id @String                | getId()                   | @String |
 
 **User story 5** Nouns: Airport, Plane. Verbs: Prevent (asking), let, land
