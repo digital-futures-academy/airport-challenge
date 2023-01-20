@@ -184,7 +184,7 @@ console.log(`Test 9 - Testing that an Airport can't land a Plane if it is at cap
 // Arrange
 firstAirport = new Airport();
 myPlane = new Plane(true);
-firstAirport.changeCapacity(0)
+firstAirport.changeCapacity(0);
 expected = `Cannot land plane, Airport is at capacity`;
 
 // Act
@@ -195,6 +195,29 @@ console.log(`actual:${actual}`);
 console.log(`expected:${expected}`);
 result = assertEquals(actual, expected);
 console.log(`Test 9: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+
+// Test 10
+console.log(`Test 10 - Testing that an Airport can take off a Plane and check it's status.`);
+
+// Arrange
+firstAirport = new Airport();
+myPlane = new Plane();
+expected = true;
+input = firstAirport.takeOffPlane(myPlane);
+
+// Act
+actual = firstAirport.checkPlaneFlying(myPlane);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 10: ${result ? `Passed` : `Failed`}`);
 console.log(`--------------------------------`);
 
 // Clean

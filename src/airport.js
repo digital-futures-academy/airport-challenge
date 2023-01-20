@@ -60,6 +60,18 @@ class Airport {
       return false;
     }
   }
+
+  takeOffPlane(plane) {
+    if (this.checkPlaneValid(plane) === undefined) {
+      if (this.checkPlaneFlying(plane) === false) {
+        plane.takeOff();
+      } else {
+        return this.checkPlaneValid(!plane)
+      }
+    } else {
+      return this.checkPlaneValid(plane)
+    }
+  }
 }
 
 module.exports = Airport;

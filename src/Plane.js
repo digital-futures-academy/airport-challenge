@@ -6,6 +6,9 @@ class Plane {
     land() {
         this.flying = false;
     }
+    takeOff() {
+        this.flying = true;
+    }
     checkFlying() {
         return this.flying;
     }
