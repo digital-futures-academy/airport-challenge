@@ -14,6 +14,13 @@ class Airport {
     if (plane instanceof Plane) this.airportPlanes.push(plane);
   };
 
+  landCorrectPlane() {
+    if (this.flightNumber === this.planeToLand) {
+      this.landingPlane = true;
+    }
+  
+  }
+
   getCapacity(){
     return this.defaultCapacity;
   }
@@ -33,17 +40,11 @@ class Airport {
   preventAirportPush() {
     if (this.airportFull == true){
       this.noLandings = true;
+    } else {
+      this.airport.airportPlanes.push(plane);
     }
   }
 
-  landCorrectPlane() {
-    if (this.flightNumber === this.planeToLand) {
-      this.landingPlane = true;
-    }
-  
-  }
-
-  
 };
   
 module.exports = Airport;

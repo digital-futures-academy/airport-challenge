@@ -1,4 +1,4 @@
-// const Airport = require(`./Airport`);
+const Airport = require(`./Airport`);
 
 class Plane { 
     flightNumber;
@@ -10,13 +10,25 @@ class Plane {
     noTakeOffRequired;
     noLandingRequired;
 
-    constructor(flightNumber, takenOff = true) {
+    constructor(flightNumber, takenOff) {
         this.flightNumber = flightNumber;
         this.takenOff = takenOff; 
     }
 
+    takeOffPlane() {
+        
+        const planeIndex = airport.airportPlanes.indexOf(plane.flightNumber);
+
+        if (airport.airportPlanes.includes(this.flightNumber)) {
+            (airport.airportPlanes.splice(planeIndex, 1))
+        }
+            if (airport.airportPlanes.splice(planeIndex, 1)) {
+                this.takenOff = true;
+            }; 
+    }
+
     notInAirport() {
-        if (this.takenOff == true) {
+        if (this.takenOff = true) {
             this.notInThisAirport = true;
         }
     }

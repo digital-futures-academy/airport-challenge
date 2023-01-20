@@ -11,7 +11,7 @@ I want to instruct the airport to land a plane
 | -------    | -------------------------    | -----------------    | -------    |
 | Airport    | airportPlanes @Array[@plane] | addPlane(@plane)     | @Void      |
 |            |                              |                      |            |
-| Plane      | flightNumber @string         | getFlightNumber()    | @string    | 
+| Plane      | flightNumber @string         |                      | @string    | 
 
 ### Test Task List For User Story 1
 1. There is an airport
@@ -22,7 +22,6 @@ I want to instruct the airport to land a plane
 ### Tests For User Story 1
 1. `airportPlanes` length increases to when `addPlane` is called with an instance of `plane` |DONE|
 2. Check that the `planeToLand`has the correct `flightNumber` |DONE|
-3. Edge case - check that the plane is not already in `airportPlanes`
 
 ---------------
 
@@ -36,8 +35,8 @@ I would like a default airport capacity that can be overridden as appropriate
 ## Domain Model for User Story 2
 | Objects     | Properties                   | Messages                 | Outputs    |
 | -------     | -------------------------    | -----------------        | -------    |
-| Airport     | airportPlanes @Array[@plane] | getDefaultCapacity()     | @integer   |
-|             | defaultCapacity @integer     | changeCapacityTo()       |            |
+| Airport     | airportPlanes @Array[@plane] | getCapacity()            | @integer   |
+|             | defaultCapacity @integer     | changeCapacity()         |            |
 |             |                              |                          |            |
 | Plane       | flightNumber @string         |                          | @string    | 
 
@@ -47,8 +46,8 @@ I would like a default airport capacity that can be overridden as appropriate
 3. Need to change the default capacity of the airport by a given number of planes
 
 ### Tests For User Story 2
-4. The maximum length of `airportPlanes` is output as `defaultCapacity` |DONE|
-5. The `defaultCapacity` of the airport increases or decreases when `changeCapacity()` is called |DONE|
+3. The maximum length of `airportPlanes` is output as `defaultCapacity` |DONE|
+4. The `defaultCapacity` of the airport increases or decreases when `changeCapacity()` is called |DONE|
 
 ---------------
 
@@ -75,8 +74,8 @@ I want to prevent landing when the airport is full
 4. If the airport has not reached it's capacity then it can land
 
 ### Tests For User Story 3
-7. `atDefaultCapacity()` returns true if `airportPlanes` has reached it's `defaultCapacity` |DONE|
-8. `preventAirportPush()` should return true if `atDefaultCapacity()` returns true |DONE|
+5. `atDefaultCapacity()` returns true if `airportPlanes` has reached it's `defaultCapacity` |DONE|
+6. `preventAirportPush()` should return true if `atDefaultCapacity()` returns true |DONE|
 ---------------
 
 
@@ -89,11 +88,11 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 ## Domain Model for User Story 4
 | Objects     | Properties                   | Messages                 | Outputs    |
 | -------     | -------------------------    | -----------------        | -------    |
-| Airport     | airportPlanes @Array[@plane] |                          | @void      |
+| Airport     | airportPlanes @Array[@plane] |  takeOffPlane()          | @void      |
 |             | airportName @string          |                          |            |
 
 | Plane       | flightNumber @string         |  notInAirport(@plane)    | @boolean   | 
-|             | takeOff @boolean             |
+|             | takenOff @boolean             |
 
 ### Test Task List For User Story 4
 1. Need a plane
@@ -101,8 +100,9 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 3. Confirm that the plane is no longer in that airport
 
 ### Tests For User Story 4
-9. If `takeOff` is true then `notInAirport()` should return true |DONE|
-10. Edge Case - the plane should not be at the airport that it took off from if `notInAirport()` returns true
+7. Remove a plane from airportPlanes resulting in `takenOff`
+8. If `takenOff` is true then `notInAirport()` should return true |DONE|
+9. Edge Case - the plane should not be at the airport that it took off from if `notInAirport()` returns true |NOT DONE|
 ---------------  
 
 
@@ -129,13 +129,5 @@ I want to prevent asking the airport to let planes take-off which are not at the
 3. If the plane is not in that airport then we should not be able to let it take off
    
 ### Tests For User Story 5
-<!-- 11. If `notInAirport()` returns true then `noTakeOff()` should return true |DONE|
-12. If `notInAirport()` returns true then `noLanding()` should return false |DONE|
-
-13. If `notInAirport()` returns false `noTakeOff()` should return false...
-14. ...and `noLanding()` should return true -->
-
------------------
-
-11. If the plane is not in `airportPlanes` then it cannot takeoff.
-12. If the plane is already in `airportPlanes` then it cannot land.
+10. If the plane is not in `airportPlanes` then it cannot takeoff. |DONE|
+11. If the plane is already in `airportPlanes` then it cannot land. |DONE|
