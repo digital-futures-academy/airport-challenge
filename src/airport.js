@@ -35,16 +35,3 @@ class Airport {
 }
 
 module.exports = Airport;
-
-let airport
-airport = new Airport
-
-console.log(airport.slotsOccupied.length)
-
-airport.setLength(1)
-
-console.log(airport.slotsOccupied.length)
-
-airport.addPlane(new Plane('IAmAPlane'))
-
-console.log(airport.slotsOccupied.length)
