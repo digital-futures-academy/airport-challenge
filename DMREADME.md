@@ -104,3 +104,69 @@ I want to prevent asking the airport to let planes take-off which are not at the
 *Test 1* - When planeTakesOff is called and isPlaneAtAirport returns False, an error message is returned
 *Test 2* - When planeLands is called and isPlaneAtAirport returns True, an error message is returned
 *Test 3* - When planeLands is called and isPlaneAtAirport returns False, length of planesAtAirport increases by 1
+
+**User Story 6**
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+
+## Domain Model 6
+
+| Objects | Properties                    | Messages                          | Outputs |
+| ------- | ----------------------------  | ----------------------------      | ------- |
+| Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane)                | @Void   |
+|         |airportCapacity @Integer       | atCapacity()                      | @Boolean|
+|         |                               | planeTakesOff(@Plane, @Weather)   | @Void   |
+|         |                               | planeIsAtAirport(@Plane)          | @Boolean|
+| Plane   |planeID  @String               |                                   |         |
+| Weather |currentWeather @String         | checkWeather()                    |         |
+
+## Tests
+
+*Test 1* - checkWeather returns a random value (either sunny or stormy) to the currentWeather property
+*Test 2* - when PlaneTakesOff is called and the weather is stormy, the length of listOfPlanes remains the same and the plane doesn't take off
+*Test 3* - when PlaneTakesOff is called and the weather is stormy, an error message is returned
+*Test 4* - when PlaneTakesOff is called and the weather is sunny, the length of listOfPlanes decreases by 1
+
+
+**User Story 7**
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+
+## Domain Model 7
+
+| Objects | Properties                    | Messages                          | Outputs |
+| ------- | ----------------------------  | ----------------------------      | ------- |
+| Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane, @Weather)      | @Void   |
+|         |airportCapacity @Integer       | atCapacity()                      | @Boolean|
+|         |                               | planeTakesOff(@Plane, @Weather)   | @Void   |
+|         |                               | planeIsAtAirport(@Plane)          | @Boolean|
+| Plane   |planeID  @String               |                                   |         |
+| Weather |currentWeather @String         | checkWeather()                    |         |
+
+## Tests
+
+*Test 1* - when planeLands is called and the weather is stormy, the length of listOfPlanes remains the same and the plane doesn't land
+*Test 2* - when planeLands is called and the weather is stormy, an error message is returned
+*Test 3* - when planeLands is called and the weather is sunny, the length of listOfPlanes decreases by 1
+
+**User Story 8**
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+
+## Domain Model 8
+
+| Objects | Properties                    | Messages                          | Outputs |
+| ------- | ----------------------------  | ----------------------------      | ------- |
+| Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane)                | @Void   |
+|         |airportCapacity @Integer       | atCapacity()                      | @Boolean|
+|         |                               | planeTakesOff(@Plane)             | @Void   |
+|         |                               | planeIsAtAirport(@Plane)          | @Boolean|
+| Plane   |planeID  @String               |                                   |         |
+| Weather |currentWeather @String         | checkWeather()                    |         |
+
+## Tests
+
+*Test 1* - 
