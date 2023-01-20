@@ -1,5 +1,8 @@
 class Plane {
-    flying = false;
+    flying;
+    constructor(flying = false) {
+        this.flying = flying;
+    }
     land() {
         this.flying = false;
     }

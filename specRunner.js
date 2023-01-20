@@ -1,4 +1,4 @@
-console.log(`spec runner - running all spec files`);
+console.log(`spec runner - running all tests`);
 
 require(`./tests/airport.spec`);
 require(`./tests/plane.spec`);
