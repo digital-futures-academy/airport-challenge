@@ -1,48 +1,32 @@
-const Plane = require('./plane')
+const Plane = require('./plane');
 
 class Airport {
-
   slotsOccupied = [];
 
-  setLength(slotsOccupied) {
-    if (this.slotsOccupied.length < 1) {
-      return this.slotsOccupied.length = 10
+  addPlane = plane => {
+    const checkItsHere = this.slotsOccupied.findIndex(here => here?.tailNumber === plane.tailNumber);
+    if (checkItsHere < 0) {
+      return this.slotsOccupied.push(plane);
+    }
+
+  }
+
+  removePlane = plane => {
+
+    const isItHere = this.slotsOccupied.findIndex(occupied => occupied.tailNumber === plane.tailNumber);
+
+    if (isItHere > -1) {
+      this.slotsOccupied.splice(isItHere, 1);
     }
   }
 
-  addPlane(plane) {
-    if (this.slotsOccupied.length === 10) {
-      return
-    } else {
-      this.slotsOccupied.push(plane = new Plane)
+  setLength = () => {
+    const arrayLength = this.slotsOccupied.length;
+    if (arrayLength < 1) {
+      return this.slotsOccupied.length = this.slotsOccupied.push(new Plane('OtherPlanes')) * 10;
     }
   }
-
-  removePlane = () => {
-    const planesAtAirport = this.slotsOccupied.pop()
-  }
-
-  planeAtAirport = () => {
-    const isItHere = this.slotsOccupied.find(planes => planes === 'Plane');
-  };
-
-
-  //const isThePlaneHere = this.slotsOccupied.findIndex(this.slotsOccupied === 'IAmAPlane')
-  //if (this.slotsOccupied.findMatch = '') {
-  //return
-  //}
 
 }
-
-
-
-const airport = new Airport
-const plane = new Plane
-
-airport.addPlane()
-console.log(airport.slotsOccupied)
-airport.planeAtAirport()
-console.log(airport.isItHere)
-console.log(airport.slotsOccupied.find(plane => plane = 'sausage') ? 'True' : 'False')
 
 module.exports = Airport;
