@@ -64,12 +64,28 @@ class Airport {
   takeOffPlane(plane) {
     if (this.checkPlaneValid(plane) === undefined) {
       if (this.checkPlaneFlying(plane) === false) {
-        plane.takeOff();
+        if (this.checkForPlane(plane) === true) {
+          plane.takeOff();
+        } else {
+          return `Cannot take off plane, not at Airport`;
+        }
       } else {
         return `This plane cannot take off`;
       }
     } else {
       return this.checkPlaneValid(plane)
+    }
+  }
+
+  addPlaneToAirport(plane) {
+    this.planesAtAirport.push(plane);
+  }
+
+  checkForPlane(plane) {
+    if (this.planesAtAirport.find(element => element === plane) !== undefined) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
