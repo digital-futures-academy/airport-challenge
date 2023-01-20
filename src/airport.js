@@ -10,7 +10,7 @@ class Airport {
   };
 
   atCapacity = () => {
-    return this.planesAtAirport.length === this.airportCapacity ? true : false  //Can this be written in a simpler way?
+    return this.planesAtAirport.length === this.airportCapacity ? true : false  //Can this be written in a simpler way aka not writing true and false?
   }
 
   isPlaneAtAirport = (plane) => {
@@ -19,6 +19,7 @@ class Airport {
 
   planeLands = (plane) => {
     return plane instanceof Plane && this.atCapacity() === false && this.isPlaneAtAirport(plane) === false ? this.planesAtAirport.push(plane) : "Unable to land";
+    //Are there too many conditions for one line in line above? Would if statement be clearer?
   };
 
   planeTakesOff = (plane) => {
