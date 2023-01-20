@@ -3,24 +3,6 @@ Due Date: 23/01/2023
 Matt Jones
 SE-2301-A
 
-Learning Objectives:
-
--Be able to build functionality for applications based on user requirements
--Write some tests using a testing framework to make sure that your code functions correctly
--Use classes and objects in your code for reproducibility and efficiency
--Use Git and GitHub to commit work and open a Pull Request
-
-Grading Criteria:
-
--Have you converted all of the user requirements into a functioning application?
--Have you tested your code?
--Does the code follow good practices?
-    -Is the code clean (use appropriate statements, no repeated blocks, short circuit where possible)?
-    -Has the code been developed using OOD? - i.e.
-        -Is the code loosely coupled, highly cohesive and follow the single responsibility principles?
-        -Is domain modelling evidenced in the README?
-Is the code written as simple as possible or is it too complex?
-
 Task:
 
 We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
@@ -31,11 +13,11 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-| Objects | Properties                       | Messages              | Outputs  |
-| ------- | -------------------------------- | --------------------- | -------- |
-| Plane   | tailNumber @string               | gettailNumber(Plane)  | @string  |
-| Airport | slotsOccupied @array[tailNumber] | addPlane(@tailNumber) | @boolean |
-|         |                                  |                       |          |
+| Objects | Properties                  | Messages              | Outputs |
+| ------- | --------------------------- | --------------------- | ------- |
+| Plane   | tailNumber @string          | addPlane(Plane)       | @string |
+| Airport | slotsOccupied @array[Plane] | addPlane(@tailNumber) | @string |
+|         |                             |                       |         |
 
 Thoughts First User Story:
 
@@ -57,11 +39,11 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-| Objects | Properties                             | Messages            | Outputs  |
-| ------- | -------------------------------------- | ------------------- | -------- |
-| Airport | slotsAvailable @integer(slotsOccupied) | addslotsOccupied()  | @integer |
-|         |                                        |                     |          |
-| Plane   | slotsOccupied @array(Plane)            | getslotsAvailable() | @array   |
+| Objects | Properties                   | Messages   | Outputs |
+| ------- | ---------------------------- | ---------- | ------- |
+| Airport | slotsAvailable @array(plane) | addPlane() | @array  |
+|         |                              |            |         |
+| Plane   | tailNumber @string           |            | @string |
 
 Building Test 2:
 
@@ -77,11 +59,11 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-| Objects | Properties                             | Messages               | Outputs  |
-| ------- | -------------------------------------- | ---------------------- | -------- |
-| Airport | slotsAvailable @integer(slotsOccupied) | gerslotsOccupied()     | @integer |
-|         |                                        | returnslotsAvailable() | @array   |
-|         |                                        |                        |          |
+| Objects | Properties                       | Messages    | Outputs  |
+| ------- | -------------------------------- | ----------- | -------- |
+| Airport | slotsAvailable @array(setLength) | setLength() | @integer |
+|         |                                  |             |          |
+|         |                                  |             |          |
 
 Building Test 3:
 
@@ -93,11 +75,11 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-| Objects | Properties                        | Messages            | Outputs  |
-| ------- | --------------------------------- | ------------------- | -------- |
-| Airport | slotsOccupied @string(tailNumber) | getavailableSlots() | @integer |
-|         |                                   |                     |          |
-| Plane   | removeTailNumber @array(Plane)    | getslotsOccupied()  | @integer |
+| Objects | Properties                  | Messages      | Outputs  |
+| ------- | --------------------------- | ------------- | -------- |
+| Airport | slotsOccupied @array(plane) | removePlane() | @integer |
+|         |                             |               |          |
+|         |                             |               |          |
 
 Building Test 4:
 
@@ -109,13 +91,14 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-| Objects | Properties                        | Messages         | Outputs  |
-| ------- | --------------------------------- | ---------------- | -------- |
-| Airport | slotsOccupied @string(tailNumber) | planeAtAirport() | @boolean |
-|         |                                   |                  |          |
-|         |                                   |                  |          |
+| Objects | Properties                   | Messages      | Outputs  |
+| ------- | ---------------------------- | ------------- | -------- |
+| Airport | slotsOccupied @array(plane)) | chekItsHere() | @integer |
+|         |                              | isItHere()    | @integer |
+|         |                              |               |          |
 
 Building Test 5:
 
-Need to test if IAmAPlane is at the airport if it is allow it to leave if not return false.
+Need to test if isItHere (plane) is at the airport, if it is allow it to leave if not return false.
+need to test if checkItsHere (plane) is at the airport, if it is return false.
 
