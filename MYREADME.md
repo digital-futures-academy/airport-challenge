@@ -129,9 +129,13 @@ I want to prevent asking the airport to let planes take-off which are not at the
 3. If the plane is not in that airport then we should not be able to let it take off
    
 ### Tests For User Story 5
-11. If `notInAirport()` returns true then `noTakeOff()` should return true 
-12. If `notInAirport()` returns true then `noLanding()` should return false
+<!-- 11. If `notInAirport()` returns true then `noTakeOff()` should return true |DONE|
+12. If `notInAirport()` returns true then `noLanding()` should return false |DONE|
 
-13. If `notInAirport()` returns false `noTakeOff()` should return false and `noLanding()` should return true
+13. If `notInAirport()` returns false `noTakeOff()` should return false...
+14. ...and `noLanding()` should return true -->
 
 -----------------
+
+11. If the plane is not in `airportPlanes` then it cannot takeoff.
+12. If the plane is already in `airportPlanes` then it cannot land.
