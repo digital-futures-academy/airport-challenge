@@ -101,9 +101,9 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 **User story 2** Nouns: Airport. Verbs: overriden 
 
-| Objects | Properties                | Messages          | Outputs |
-| ------- | ------------------------- | ----------------- | ------- |
-| Airport | capacity @Int             |                   | @Int    |
+| Objects | Properties                | Messages            | Outputs |
+| ------- | ------------------------- | -----------------   | ------- |
+| Airport | capacity @Int             |  overrideCapacity() | @Int    |
 
 // Test 3 - Tests that airport capacity can be overriden by a new capacity
 

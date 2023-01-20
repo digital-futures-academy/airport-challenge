@@ -9,8 +9,9 @@ class Airport {
   }
 
   landPlane(plane){
+    
     let indexPlaneRemove= this.airportPlanes.findIndex(element => element.id === plane.id)
-    if ( plane.constructor.name == this.typeOfTransport.name && indexPlaneRemove===-1) {
+    if ( plane.constructor.name == this.typeOfTransport.name && this.airportPlanes.length< this.capacity &&indexPlaneRemove===-1 ) {
       this.airportPlanes.push(plane)
     return `${plane.id}, you are free to land, I repeat, you are free to land. Over.`}
     else {return "You cannot land"}
@@ -33,12 +34,15 @@ class Airport {
     
     
   }
+
   isAtCapacity(){
     if (this.airportPlanes.length>= this.capacity){
       return `You cannot land, Airport is at capacity`
     }
+  }
 
-
+  overrideCapacity(newCapacity){
+    this.capacity=newCapacity
   }
 
 }

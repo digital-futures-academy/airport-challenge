@@ -56,15 +56,15 @@ result = undefined;
 
 // Test 3 - Tests that airport capacity can be overriden by a new capacity
 console.log(`============================`);
-console.log(`Test 3 - Airport capacity can be overriden by a new capacity`);
+console.log(`Test 3 - Airport capacity which is 2 can be overriden by a new capacity, 10`);
 
 // Arrange
-airport = new Airport(Plane,10);
-expected = `The new capacity is 10`
+airport = new Airport(Plane,2);
+expected = 10
 
 // Act
-
-actual = `The new capacity is ${airport.capacity}`
+airport.overrideCapacity(10)
+actual = airport.capacity
 // Assert
 result = assertEquals(expected, actual);
 
@@ -110,9 +110,8 @@ console.log(`============================`);
 console.log(`Test 5 - Tests that the method takeOff instructs a plane to take off`);
 
 // Arrange
-
-airport = new Airport(Plane);
 plane=new Plane(`123`)
+airport = new Airport(Plane,3,[plane]);
 expected = `${plane.id}, you can take off`
 // Act
 
