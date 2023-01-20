@@ -61,8 +61,8 @@ I want to instruct the airport to land a plane
 ```
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String | getFlightNum() | @String |
-| Airport | planes [@Plane]   | land(@Plane)   | @Void   |
+| Plane   | flightNum @String | get flightNum()           | @String |
+| Airport | planes [@Plane]   | land(@Plane, @Boolean)   | @Void   |
 ---
 
 ```
@@ -74,7 +74,7 @@ I would like a default airport capacity that can be overridden as appropriate
 | ------  | ---------- | -------- | ------ |
 | Plane   | - | - | - |
 | Airport | planes [@Plane]          | changeCapacity(@Integer) | @Void    |
-|         | airportCapacity @Integer | getCapacity()            | @Integer |
+|         | airportCapacity @Integer | get airportCapacity()    | @Integer |
 ---
 
 ```
@@ -85,8 +85,8 @@ I want to prevent landing when the airport is full
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
 | Plane   | - | - | - |
-| Airport | planes [@Plane]          | isFull()      | @Boolean |
-|         | airportCapacity @Integer | getCapacity() | @Integer |
+| Airport | planes [@Plane]          | isFull()              | @Boolean |
+|         | airportCapacity @Integer | get airportCapacity() | @Integer |
 ---
 
 ```
@@ -96,9 +96,9 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 ```
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String | getFlightNum()      | @String  |
-| Airport | planes [@Plane]   | takeoff(@Plane)     | @Void    |
-|         | -                 | isAtAirport(@Plane) | @Boolean |
+| Plane   | flightNum @String | get flightNum()           | @String  |
+| Airport | planes [@Plane]   | takeoff(@Plane, @Boolean) | @Void    |
+|         | -                 | isAtAirport(@Plane)       | @Boolean |
 ---
 
 ```
@@ -108,10 +108,10 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String | getFlightNum()      | @String  |
-| Airport | planes [@Plane]   | land(@Plane)        | @Void    |
-|         | -                 | takeOff(@Plane)     | @Void    |
-|         | -                 | isAtAirport(@Plane) | @Boolean |
+| Plane   | flightNum @String | get flightNum()           | @String  |
+| Airport | planes [@Plane]   | land(@Plane, @Boolean)    | @Void    |
+|         | -                 | takeOff(@Plane, @Boolean) | @Void    |
+|         | -                 | isAtAirport(@Plane)       | @Boolean |
 ---
 <br>
 <br>
@@ -120,13 +120,13 @@ I want to prevent asking the airport to let planes take-off which are not at the
 --------------------------
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String        | getFlightNum()           | @String  |
-| Airport | planes [@Plane]          | land(@Plane)             | @Void    |
-|         | airportCapacity @Integer | takeOff(@Plane)          | @Void    |
-|         | -                        | isAtAirport(@Plane)      | @Boolean |
-|         | -                        | isFull()                 | @Boolean |
-|         | -                        | changeCapacity(@Integer) | @Void    |
-|         | -                        | getCapacity()            | @Integer |
+| Plane   | flightNum @String        | get flightNum()           | @String  |
+| Airport | planes [@Plane]          | land(@Plane, @Boolean)    | @Void    |
+|         | airportCapacity @Integer | takeOff(@Plane, @Boolean) | @Void    |
+|         | -                        | isAtAirport(@Plane)       | @Boolean |
+|         | -                        | isFull()                  | @Boolean |
+|         | -                        | changeCapacity(@Integer)  | @Void    |
+|         | -                        | get airportCapacity()     | @Integer |
 ---
 <br>
 <br>
@@ -141,9 +141,9 @@ I want to prevent takeoff when weather is stormy
 ```
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String | getFlightNum() | @String |
-| Weather | weather @String   | getWeather()   | @String |
-| Airport | planes [@Plane]   | takeOff(@Plane)| @Void   |
+| Plane   | flightNum @String | get flightNum()           | @String |
+| Weather | status @String    | getWeather()              | @String |
+| Airport | planes [@Plane]   | takeOff(@Plane, @Boolean) | @Void   |
 ---
 
 ```
@@ -153,9 +153,9 @@ I want to prevent landing when weather is stormy
 ```
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String | getFlightNum() | @String |
-| Weather | status @String    | getWeather()   | @String |
-| Airport | planes [@Plane]   | land(@Plane)   | @Void   |
+| Plane   | flightNum @String | get flightNum()        | @String |
+| Weather | status @String    | getWeather()           | @String |
+| Airport | planes [@Plane]   | land(@Plane, @Boolean) | @Void   |
 ---
 
 ```
@@ -165,9 +165,9 @@ Planes that have landed must be at an airport
 ```
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String | getFlightNum()      | @String  |
-| Airport | planes [@Plane]   | land(@Plane)        | @Void    |
-|         | -                 | isAtAirport(@Plane) | @Boolean |
+| Plane   | flightNum @String | get flightNum()        | @String  |
+| Airport | planes [@Plane]   | land(@Plane, @Boolean) | @Void    |
+|         | -                 | isAtAirport(@Plane)    | @Boolean |
 ---
 <br>
 <br>
@@ -176,9 +176,9 @@ Planes that have landed must be at an airport
 ---
 | Objects | Properties | Messages | Output |
 | ------  | ---------- | -------- | ------ |
-| Plane   | flightNum @String | getFlightNum()      | @String  |
-| Weather | status @String    | getWeather()        | @String  |
-| Airport | planes [@Plane]   | land(@Plane)        | @Void    |
-|         | -                 | takeOff(@Plane)     | @Void    |
-|         | -                 | isAtAirport(@Plane) | @Boolean |
+| Plane   | flightNum @String | get flightNum()           | @String  |
+| Weather | status @String    | getWeather()              | @String  |
+| Airport | planes [@Plane]   | land(@Plane, @Boolean)    | @Void    |
+|         | -                 | takeOff(@Plane, @Boolean) | @Void    |
+|         | -                 | isAtAirport(@Plane)       | @Boolean |
 ---
