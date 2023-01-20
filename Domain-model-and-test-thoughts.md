@@ -1,3 +1,11 @@
+Other thoughts:
+1. I felt some of my methods could have been refactored, for example the for loop isPlaneAtAirport in the Airport class, however tried another loop but wasnt successful
+2. The Airport class is tighly coupled with the Plane class, however wasnt confident in how I could make them loosly coupled.
+3. When setting random weather, as only occasionally stormy, it will generate at 20% stormy and 80% sunny.
+4. I did not commit after each test which I understand is poor practice so will ensure I do this for the next challenge.
+5. I created a method decreaseCapacity, however I realised after official submission that I did not take into account that if I decrease the capacity, it cannot go below the current planesAtAirport array length and should throw an error. If I were to do this again I would have just created a different method setNewCapacity as oposed to the increaseCapacity and decreaseCapacity methods where it would have thrown an error if the capacity went below the current planesAtAirport length, or set a new capacity.
+
+
 | Objects     | Properties                     | Methods                         | Output   |
 | ----------- | -----------                    | ---------                       | ---------|
 | Plane       | ID @String                     | getID()                         | @String  |
