@@ -222,14 +222,13 @@ console.log(`Test 7:  The airport does not allow planes to land which have alrea
 
 //Arrange
 airport = new Airport();
-plane1 = new Plane();
-airport.landPlane(plane1);
-expected = 1;
+plane = new Plane();
+airport.landPlane(plane);
+expected = true
 
 //Act
-airport.landPlane(plane1);
-actual = airport.airportPlanes.length;
-
+airport.landPlane(plane)
+actual = airport.alreadyLanded(plane);
 
 //Assert
 result = assertEquals(expected, actual);
