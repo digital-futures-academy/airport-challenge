@@ -22,6 +22,7 @@ Airport Challenge
 |         |                           |isFull()           | @boolean|
 |         |                           |                   |         |
 | Plane   | id @String                | getId()           | @String |
+| Weather | weatherStatus@int ?       | generateWeather() | @String |
 
 
 ## Installation Procedure 
@@ -34,9 +35,19 @@ Airport Challenge
 ## Approach taken
 
 * To begin with, on pen and paper I wrote down the user story I was tackling, tried to convert the user story into a domain model of objects, their properties and functions.
+
 * When happy with my domain models I then wrote down test ideas, as specifically as I could in plane english to help me better convert these into code.
+
 * I first took on the Acceptance criteria to try and meet the minimum requirements as best I could in hoping to pass the challenge, before moving onto the extended requirements and implementing a weather behaviour for the program.
 
+## Some thoughts.
+
+* I believe my functions are way to long and not adhering to being 5 lines or less (or close to this size). When trying to refactor I often brick my code trying different techniques that I research online. This is probably due to my inexperience and lack of knowledge of what is actually happening in the code. This I hope is something I can improve upon with practice and more experience.
+
+* My code is not loosely coupled , once again this is something I would rather leave as is on this assignment as to not break my code. However, this will definitely be essential on the Bank challenge and i hope to get a better understanding of it while working on that challenge.
+
+* I will mention that I am most happy with my Weather class. I think that using the RNG and boundaries within the expected pool of numbers was an elegant way of implementing this behaviour, compared to the rest of my code.
+For some reason this solution came to me quite naturally, more so than for the rest of the challenge problems.
 
 
 
