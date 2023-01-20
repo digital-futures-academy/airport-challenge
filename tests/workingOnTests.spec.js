@@ -8,7 +8,6 @@ let actualOutput, result;
 let airport1 = new Airport()
 let plane1 = new Plane()
 
-
 // Test 5.1
 console.log(`***When planeTakesOff is called and isPlaneAtAirport returns False, an error message is returned***`);
 
@@ -20,6 +19,56 @@ actualOutput, result;
 
 // Act
 actualOutput = airport1.planeTakesOff(plane1);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Error message returned: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 5.2
+console.log(`***When planeLands is called and isPlaneAtAirport returns True, an error message is returned***`);
+
+// Arrange
+airport1 = new Airport();
+plane1 = new Plane();
+airport1.planesAtAirport = [plane1]
+expectedOutput = "Unable to land";
+actualOutput, result;
+
+// Act
+actualOutput = airport1.planeLands(plane1);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Error message returned: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 5.3
+console.log(`***When planeLands is called and isPlaneAtAirport returns True, an error message is returned***`);
+
+// Arrange
+airport1 = new Airport();
+plane1 = new Plane();
+airport1.planesAtAirport = [plane1]
+expectedOutput = "Unable to land";
+actualOutput, result;
+
+// Act
+actualOutput = airport1.planeLands(plane1);
 
 // Assert
 result = assertEquals(expectedOutput, actualOutput);

@@ -94,7 +94,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | Objects | Properties                    | Messages                          | Outputs |
 | ------- | ----------------------------  | ----------------------------      | ------- |
 | Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane)                | @Void   |
-|         |airportCapacity @Integer       | atCapacity()                      |@Boolean |
+|         |airportCapacity @Integer       | atCapacity()                      | @Boolean|
 |         |                               | planeTakesOff(@Plane)             | @Void   |
 |         |                               | planeIsAtAirport(@Plane)          | @Boolean|
 | Plane   |planeID  @String               |                                   |         |

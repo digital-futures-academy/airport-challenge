@@ -18,7 +18,7 @@ class Airport {
   }
 
   planeLands = (plane) => {
-    return plane instanceof Plane && this.atCapacity() === false ? this.planesAtAirport.push(plane) : "Unable to land";
+    return plane instanceof Plane && this.atCapacity() === false && this.isPlaneAtAirport(plane) === false ? this.planesAtAirport.push(plane) : "Unable to land";
   };
 
   planeTakesOff = (plane) => {
