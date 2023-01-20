@@ -1,11 +1,21 @@
 class Airport {
 
-  airportCapacity = 5;
+  airportCapacity;
+  planesAtAirport = [];
+  constructor(airportCapacity = 5) {
+    this.airportCapacity = airportCapacity
+  }
+
 
   landPlane(plane) {
     if (this.checkPlaneValid(plane) === undefined) {
       if (this.checkPlaneFlying(plane) === true) {
-        plane.land();
+        if (this.checkCapacity() === false) {
+          plane.land();
+        } else {
+          return `Cannot land plane, Airport is at capacity`
+        }
+
       } else {
         return this.checkPlaneValid(!plane)
       }
@@ -34,13 +44,21 @@ class Airport {
 
   changeCapacity(input) {
     try {
-      if (input < 0 || typeof input !== `integer`) {
+      if (input < 0 || typeof input !== `number`) {
         throw new Error(`invalid capacity entered`);
       }
     } catch (error) {
       return error.message;
     }
     this.airportCapacity = input;
+  }
+
+  checkCapacity() {
+    if (this.planesAtAirport.length >= this.airportCapacity) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
