@@ -1,23 +1,20 @@
-const Plane = require ("../src/plane.js")
 
 class Airport {
-  airportPlanes = [];
-  maxCapacity;
-
-  constructor (capacity = 50, maxCapacity){
+  
+  constructor (typeOfTransport, capacity=20, airportPlanes=[]){
     this.capacity=capacity;
-    this.maxCapacity=maxCapacity;
-
+    this.airportPlanes = airportPlanes
+    this.typeOfTransport = typeOfTransport
   }
 
   landPlane(plane){
-    if (plane instanceof Plane) {
+    if ( plane.constructor.name == this.typeOfTransport.constructor.name) {
     return `${plane.id}, you are free to land, I repeat, you are free to land. Over.`}
     else {return "You are not a plane, you cannot land"}
   }
 
   isAtCapacity(){
-    if (this.capacity> this.maxCapacity){
+    if (this.airportPlanes.length>= this.capacity){
       return `You cannot land, Airport is at capacity`
     }
 
