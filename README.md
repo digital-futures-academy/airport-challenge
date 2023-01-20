@@ -13,6 +13,39 @@ Airport Challenge
 
 ```
 
+## Domain Model
+
+| Objects | Properties                | Messages          | Outputs |
+| ------- | ------------------------- | ----------------- | ------- |
+| Airport |landedPlanes @Array[@Plane]| landPlane(@Plane  | @Void   |
+|         |capacity@int               | flyPlane(@Plane)  | @Void   |
+|         |                           |isFull()           | @boolean|
+|         |                           |                   |         |
+| Plane   | id @String                | getId()           | @String |
+
+
+## Installation Procedure 
+
+1. Fork this repo, and clone to your local machine
+2. `npm install` to install project dependencies
+3. Enter the project directory by using the CD command in the terminal
+4. Use "node specRunner.js" to run the runner file and output the test results in the terminal.
+
+## Approach taken
+
+* To begin with, on pen and paper I wrote down the user story I was tackling, tried to convert the user story into a domain model of objects, their properties and functions.
+* When happy with my domain models I then wrote down test ideas, as specifically as I could in plane english to help me better convert these into code.
+* I first took on the Acceptance criteria to try and meet the minimum requirements as best I could in hoping to pass the challenge, before moving onto the extended requirements and implementing a weather behaviour for the program.
+
+
+
+
+
+
+
+
+
+
 Instructions
 ---------
 

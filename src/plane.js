@@ -5,6 +5,7 @@ class Plane {
         this.id = id;
     }
 
+    getId = () => { };
 
 }
 
