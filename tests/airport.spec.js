@@ -135,3 +135,24 @@ console.log(`--------------------------------`);
 // Clean
 firstAirport = undefined;
 myPlane = undefined;
+
+// Test 7
+console.log(`Test 7 - Testing that an Airport capacity can't be changed with a boundary case.`);
+
+// Arrange
+firstAirport = new Airport();
+expected = `invalid capacity entered`;
+
+// Act
+actual = firstAirport.changeCapacity(-1);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 7: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;

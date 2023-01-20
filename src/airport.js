@@ -33,6 +33,13 @@ class Airport {
   }
 
   changeCapacity(input) {
+    try {
+      if (input < 0) {
+        throw new Error(`invalid capacity entered`);
+      }
+    } catch (error) {
+      return error.message;
+    }
     this.airportCapacity = input;
   }
 }
