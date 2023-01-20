@@ -1,5 +1,7 @@
 class Airport {
 
+  airportCapacity = 5;
+
   landPlane(plane) {
     if (this.checkPlaneValid(plane) === undefined) {
       if (this.checkPlaneFlying(plane) === true) {
@@ -24,6 +26,14 @@ class Airport {
 
   checkPlaneFlying(plane) {
     return plane.checkFlying();
+  }
+
+  getCapacity() {
+    return this.airportCapacity;
+  }
+
+  changeCapacity(input) {
+    this.airportCapacity = input;
   }
 }
 

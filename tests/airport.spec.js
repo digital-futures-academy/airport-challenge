@@ -70,3 +70,68 @@ console.log(`--------------------------------`);
 // Clean
 firstAirport = undefined;
 myPlane = undefined;
+
+// Test 4
+console.log(`Test 4 - Testing that an Airport has a default capacity set.`);
+
+// Arrange
+firstAirport = new Airport();
+expected = 5;
+
+// Act
+actual = firstAirport.getCapacity();
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 4: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+
+// Test 5
+console.log(`Test 5 - Testing that an Airport capacity can be changed.`);
+
+// Arrange
+firstAirport = new Airport();
+expected = 10;
+input = firstAirport.changeCapacity(10);
+
+// Act
+actual = firstAirport.getCapacity();
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 5: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+
+// Test 6
+console.log(`Test 6 - Testing that an Airport capacity can be changed with an edge case.`);
+
+// Arrange
+firstAirport = new Airport();
+expected = 0;
+input = firstAirport.changeCapacity(0);
+
+// Act
+actual = firstAirport.getCapacity();
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 6: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
