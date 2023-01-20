@@ -16,7 +16,7 @@ console.log('Test1 - This test adds airplane to airport when landPlane is called
 
 //Arrange
 airport = new Airport();
-airplane = new Airplanes();
+airplane = new Airplanes('airplane');
 expected = 1
 
 //Act
@@ -26,7 +26,7 @@ actual = airport.airplaneList.length
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(`The result is: ${result}`)
+console.log(result ? 'Passed' : 'Failed')
 
 //Clean-Up
 expected = undefined;
@@ -52,7 +52,8 @@ actual = airport.airplaneList.length;
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(`The result is: ${result ? `${result} This is an invalid input` : result} `)
+console.log(result ? 'Passed' : 'Failed')
+console.log(`The result is: ${result ? `This is an invalid input` : result} `)
 
 
 //Clean-Up
@@ -79,7 +80,7 @@ actual = airport.airportCapacity;
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(`The result is: ${result} `);
+console.log(result ? 'Passed' : 'Failed');
 console.log(`This allows the max capacity to be overridden and has a default max capacity of 10`)
 
 
@@ -98,7 +99,7 @@ console.log('Test4 - Checks to see whether the airport is full')
 
 //Arrange
 airport = new Airport();
-airplane = new Airplanes(1);
+airplane = new Airplanes('11A');
 expected = 'Airport capacity at max';
 
 //Act
@@ -109,7 +110,8 @@ actual = airport.checkCapacity();
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(`The result for the airport being full check: ${result} `);
+console.log(result ? 'Passed' : 'Failed');
+console.log(result ? 'The airport is full' : 'there is space in the airport');
 
 
 //Clean-Up
@@ -139,7 +141,8 @@ actual = airport.airplaneList.length;
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(`The test to see if the plane has taken off is: ${result} `);
+console.log(result ? 'Passed' : 'Failed');
+console.log(result ? 'Plane has taken-off' : 'Failed');
 
 
 //Clean-Up
@@ -168,7 +171,7 @@ actual = airport.findPlane(airplane1);
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(result)
+console.log(result ? 'Passed' : 'Failed');
 console.log(result ? 'Your airplane is at the airport, ready to take-off!' : 'No airplane with this ID found in the airport');
 
 
@@ -197,8 +200,8 @@ actual = airport.airplaneList.length;
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(result)
-console.log(result ? 'Cannot take negative input as ID' : result);
+console.log(result ? 'Passed' : 'Failed');
+console.log(result ? 'Cannot take negative input as ID' : 'Failed');
 
 
 //Clean-Up
@@ -251,12 +254,12 @@ expected = 1;
 
 //Act
 airport.landPlane(airplane1);
-console.log(airport.airplaneList)
 actual = airport.airplaneList.length;
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(result)
+console.log(result ? 'Passed' : 'Failed');
+console.log(result ? `Airplane ID: ${airplane1.ID}` : 'Failed')
 
 
 //Clean-Up
