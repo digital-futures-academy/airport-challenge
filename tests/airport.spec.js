@@ -105,4 +105,27 @@ actual = undefined;
 result = undefined;
 
 
+// Test 5 - Instruct a plane to take off.
+console.log(`============================`);
+console.log(`Test 5 - Instruct a plane to take off`);
+
+// Arrange
+
+airport = new Airport(new Plane());
+plane=new Plane(`123`)
+expected = `${plane.id}, you can take off`
+// Act
+
+actual = airport.takeOff(plane)
+// Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 5: Airport instructs plane to take off when takeOff method is called: ${result}`);
+
+// Clean up
+airport = null;
+plane= null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 

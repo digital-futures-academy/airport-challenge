@@ -13,6 +13,10 @@ class Airport {
     else {return "You are not a plane, you cannot land"}
   }
 
+  takeOff(plane){
+    return `${plane.id}, you can take off`
+  }
+
   isAtCapacity(){
     if (this.airportPlanes.length>= this.capacity){
       return `You cannot land, Airport is at capacity`
