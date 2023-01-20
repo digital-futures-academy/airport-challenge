@@ -34,7 +34,7 @@ class Airport {
 
   changeCapacity(input) {
     try {
-      if (input < 0) {
+      if (input < 0 || typeof input !== `integer`) {
         throw new Error(`invalid capacity entered`);
       }
     } catch (error) {
