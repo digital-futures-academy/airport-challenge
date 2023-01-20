@@ -29,6 +29,7 @@ class Airport {
     const indexOfPlanesAtAirport = this.planesAtAirport.findIndex(planeTakingOff => planeTakingOff.planeId == plane.planeId);
     if (indexOfPlanesAtAirport > -1 && this.checkPlanesAtAirport(plane) == true && weather === false) {
       this.planesAtAirport.splice(indexOfPlanesAtAirport, 1);
+      plane.setGroundedIn();
     }
   };
 

@@ -3,12 +3,13 @@ class Plane {
     planeId;
     groundedIn;
 
-    constructor(planeId = `plane1`) {
+    constructor(planeId = `plane1`, groundedIn = `flying`) {
         this.planeId = planeId;
+        this.groundedIn = groundedIn;
     }
 
-    setGroundedIn(airport = `factory`) {
-        this.groundedIn = airport;
+    setGroundedIn(groundedIn = `flying`) {
+        this.groundedIn = groundedIn;
     }
 }
 
