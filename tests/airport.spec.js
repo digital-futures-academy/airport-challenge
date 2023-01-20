@@ -142,7 +142,6 @@ result = undefined;
 
 console.log(`============================`);
 
-
 //Test 6 -   Need to know if airport is full
 
 console.log(`============================`);
@@ -215,6 +214,90 @@ actual = airport.airportPlanes.length;
 //Assert
 result = assertEquals(expected, actual);
 console.log(`Test 8 - airportPlanes length decreases by 1 when takeOffPlane is called: ${result}`);
+
+//Clean up
+plane = null;
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+//Test 9 -  plane no longer in airport
+
+console.log(`============================`);
+console.log(`Test 9 - taken off plane no longer in airport`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane(`test1`);
+expected = false;
+
+
+//Act
+airport.isPlaneInAirport();
+actual = airport.airportPlanes.includes();
+
+    
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 9 - taken off plane is not in airport: ${result}`);
+
+//Clean up
+plane = null;
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+
+//Test 10 -  if `isPlaneInAirport` is true do not call `landPlane`
+
+console.log(`============================`);
+console.log(`Test 10 - if plane is in airport do not land Plane`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = 0;
+    
+//Act
+airport.landPlane();
+actual = airport.airportPlanes.length;
+    
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 10 - if plane is in airport landPlane will not land a plane: ${result}`);
+
+//Clean up
+plane = null;
+airport = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+//Test 10 -  if `isPlaneInAirport` is true do not call `landPlane`
+
+console.log(`============================`);
+console.log(`Test 11 - if plane is not in airport do not let plane take off`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = 0;
+    
+//Act
+airport.takeOffPlane();
+actual = airport.airportPlanes.length;
+    
+//Assert
+result = assertEquals(expected, actual);
+console.log(`Test 11 -if plane is not in airport do not take off plane: ${result}`);
 
 //Clean up
 plane = null;

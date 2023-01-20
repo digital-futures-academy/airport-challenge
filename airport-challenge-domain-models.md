@@ -96,5 +96,28 @@ Initial thoughts
 1. Need to allow a plane to take off by removing it from airport planes array
 2. Need to confirm plane is not in airport by id?
 
-**Test 8** - `airportPlanes` length decreases by 1 when `takeOffPlane` is called with 'instance of `Plane`'
-**Test 9** - check if `Plane` is in airport by calling `id` to isPlaneInAirport
+**Test 8** - `airportPlanes` length decreases by 1 when `takeOffPlane` is called with 'instance of `Plane`
+**Test 9** - check if `Plane` is still in `Airport` by calling `isPlaneInAirport`
+
+## User story 5
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+## Domain Model 5
+
+| Objects | Properties                   | Messages             | Outputs  |
+| ------- | ---------------------------- | -------------------- | -------- |
+| Airport | airportPlanes @Array[@Plane] | takeOffPlane(@Plane) | @Void    |
+|         |                              | landPlane(@Plane)    | @Void    |
+|         |                              |                      |          |
+| Plane   | id @String                   | isPlaneInAirport()   | @Boolean |
+
+Initial thoughts
+
+1. If plane is not airport I need to call landPlane & if it is in airport I cannot call landPlane
+2. If plane is in airport I need to call takeOffPlane & if it not in airport I cannot call takeOffPlane
+
+**Test 10** - `landPlane` will not land a plane if `isPlaneInAirport` is true.
+**Test 11** - if `isPlaneInAirport` is true do not call `landPlane`.
