@@ -24,7 +24,7 @@ actual = airport.airportPlanes.length
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 1: Something added to airport: ${result}`);
+console.log(`Test 1: addPlane lands a Plane into the Airport : ${result}`);
 
 // Clean up
 airport = null;
@@ -33,7 +33,28 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+//Test 1A: Edge Case - Only plane instances can be added to the airport.
+console.log(`===========================`)
+console.log(`Test 1A: Edge Case - only plane instances can be added to the airport`)
 
+//Arrange 
+airport = new Airport();
+plane = `Ryanair`;
+expected = 0;
+//Act
+airport.landPlane(plane);
+actual = airport.airportPlanes.length;
+
+//Assert 
+result = assertEquals(expected, actual);
+console.log(`Test 1A: Edge Case - only plane instances can be added to the airport: ${result}`);
+
+//Clean up
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
 // Test 2: The airport has a default capacity of 0 (Using constructor method)
 console.log(`=============================`)
