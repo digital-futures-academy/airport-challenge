@@ -29,25 +29,4 @@ weather = null;
 console.log('======= Test A Done =======');
 console.log(' '); //blank space to split up tests
 
-//* Test B - when Weather instance is created, weatherOn is default true
-console.log('======= Test B =======');
-console.log('when Weather instance is created, weatherOn is true by default'); // stating the test being carried out
-
-// Arrange
-weather = new Weather(); // create new instance of Weather
-expected = true;
-
-// Act
-actual = weather.weatherOn();
-
-// Assert
-result = assertEquals(expected, actual); // is expected and actual the same??
-console.log(`Test B - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
-
-// Clean Up
-expected, result, actual = undefined;
-weather = null;
-console.log('======= Test B Done =======');
-console.log(' '); //blank space to split up tests
-
-
+//! TEST B IS ELIMINATED AS IT IS NEVER USED

@@ -2,15 +2,8 @@
 
 class Weather { 
 
-    // properties of weather
-    #weatherOn = true; // default true
-
-    weatherOn() {
-        return this.#weatherOn;
-    }
-
     getWeather() {
-        return Math.floor((Math.random() * 50) + 1);
+        return Math.floor((Math.random() * 50) + 1); // generates a random whole number between 1 and 50
     }
 }
 

@@ -218,7 +218,7 @@ Initial Thoughts:
 
 **Test A** - `getWeather` generates a number between 1 and 50 in `Weather` class
 
-**Test B** - when `Weather` instance is created `weatherOn` is default true
+[**Test B** - when `Weather` instance is created `weatherOn` is default true] - deleted as it is not ever used
 
 **Test C** - when `Airport` instance is created `weatherOn` is default false
 
