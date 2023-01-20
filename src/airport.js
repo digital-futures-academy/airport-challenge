@@ -4,9 +4,12 @@ const Plane = require("./Plane");
 class Airport {
   // here's a starting point for you
   landedList = []
-  airportCapacity
+  airportCapacity;
+  constructor(airportCapacity = 1) {
+    this.airportCapacity = airportCapacity
+  }
   
-  addPlane(plane,weather) {
+  addPlane(plane , weather) {
     if (plane instanceof Plane && weather !== 'stormy') { this.landedList.push(plane) }
     else if (weather === 'stormy'){return false}
   }
@@ -17,7 +20,7 @@ class Airport {
   }
 
   isFullCheck() {
-    if (this.landedList.length >= this.airportCapacity){ return true}
+    if (this.landedList.length === this.airportCapacity){ return true}
   }
 
   removePlane(plane , weather) {
@@ -34,7 +37,6 @@ class Airport {
   isPlaneThere(plane) {
 
     if (this.landedList.includes(plane) === true ) {
-      // console.log(this.landedList.includes(plane))
       return true
     } else{ return false}
   } 

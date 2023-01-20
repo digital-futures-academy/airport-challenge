@@ -68,7 +68,6 @@ expected = 0
 
 //Act
 airport.addPlane(plane)
-console.log(airport.landedList)
 actual = airport.landedList.length
 
 //Assert 
@@ -116,14 +115,12 @@ plane = new Plane()
 plane1 = new Plane()
 plane2 = new Plane()
 expected = true
-
 //Act 
 airport.addPlane(plane)
 airport.addPlane(plane1)
 airport.addPlane(plane2)
 airport.varyCapacity(3)
 actual = airport.isFullCheck()
-console.log(actual)
 //Assert 
 result = assertEquals(expected, actual)
 console.log(`Test 5: airport is full so no plane landing : ${result ? `Passed` : `Failed`}`)
@@ -152,7 +149,6 @@ airport.addPlane(plane)
 airport.addPlane(plane2)
 airport.removePlane(plane)
 actual = airport.landedList.length 
-console.log(actual)
 //Assert 
 result = assertEquals(expected, actual)
 console.log(`Test 6: Plane took off which means landedList is one less: ${result ? `Passed` : `Failed`}`)
@@ -180,8 +176,6 @@ airport.addPlane(plane)
 airport.addPlane(plane2)
 airport.removePlane(plane2)
 actual = airport.checkList(plane2)
-console.log(actual)
-console.log(airport.landedList)
 //Assert 
 result = assertEquals(expected, actual)
 console.log(`Test 7: Plane took off which means landedList is one less: ${result ? `Passed` : `Failed`}`)
@@ -207,10 +201,7 @@ expected = true
 
 //Act 
 airport.addPlane(plane1)
-
-console.log(airport.landedList)
 actual = airport.isPlaneThere(plane1)
-console.log(actual)
 //Assert 
 result = assertEquals(expected, actual)
 console.log(`Test 8: check id the plane already landed: ${result ? `Passed` : `Failed`}`)
@@ -225,7 +216,7 @@ plane2 = null
 console.log(`----------------------------------------------------`)
 
 //----------------Test 9 ---------------------
-console.log(`Test 9: checking the wether stormy`)
+console.log(`Test 9: checking the weather stormy`)
 
 //Arrange 
 airport = new Airport()
@@ -257,7 +248,6 @@ expected = false
 //Act 
 
 actual = airport.removePlane(plane, weather.getWeather())
-console.log(actual)
 //Assert 
 result = assertEquals(expected, actual)
 console.log(`Test 10: take off checking: ${result ? `Passed` : `Failed`}`)
@@ -271,7 +261,7 @@ plane = null
 console.log(`----------------------------------------------------`)
 
 //----------------Test 11 ---------------------
-console.log(`Test 10: prevent landing`)
+console.log(`Test 11: prevent landing`)
 
 //Arrange 
 airport = new Airport()
@@ -281,11 +271,9 @@ expected = false
 //Act 
 
 actual = airport.addPlane(plane, weather.getWeather())
-console.log(weather.getWeather())
-console.log(actual)
 //Assert 
 result = assertEquals(expected, actual)
-console.log(`Test 10: check landing when it is stormy: ${result ? `Passed` : `Failed`}`)
+console.log(`Test 11: check landing when it is stormy: ${result ? `Passed` : `Failed`}`)
 
 //Clean up 
 expected = undefined
@@ -297,7 +285,7 @@ weather = undefined
 console.log(`----------------------------------------------------`)
 
 //----------------Test 12 ---------------------
-console.log(`Test 10: count the planes`)
+console.log(`Test 12: count the planes`)
 
 //Arrange 
 airport = new Airport()
@@ -312,15 +300,14 @@ airport.addPlane(plane, weather.getWeather())
 airport.addPlane(plane1)
 airport.addPlane(plane2)
 actual = airport.landedList.length
-console.log(airport.landedList)
 //Assert 
 result = assertEquals(expected, actual)
-console.log(`Test 10: Total number of planes in the airport: ${result ? `Passed` : `Failed`}`)
+console.log(`Test 12: Total number of planes in the airport: ${result ? `Passed` : `Failed`}`)
 
 //Clean up 
 expected = undefined
 actual = undefined
 result = undefined
 airport = null
-plane = null
+plane = undefined
 console.log(`----------------------------------------------------`)
