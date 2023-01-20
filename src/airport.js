@@ -55,19 +55,19 @@ class Airport {
         return this.#weatherOn; // return if weather is effecting the airport
     }
 
-    toggleWeather() {
-        return this.#weatherOn = !this.#weatherOn;
+    toggleWeather(boolean) {
+        return this.#weatherOn = boolean; // toggles #weatherOne to the chosen state
     }
 
     getWeather(weather) {
-        this.toggleWeather();
+        this.toggleWeather(true);
         this.weather = weather;
         return this.weather = this.weather.getWeather();
     }
 
     landPlane(plane) {
         if (this.#weatherOn === true && this.weather >= 45) { // only shows when #weatherOn is true and the rng is 45 or above
-            console.log(`Cannot land ${plane.planeID}, the weather is stormy`); // shows user the weather is stormy and nothing has landed at the airport
+            console.log(`Cannot land ${plane.planeID}, the weather is stormy in ${this.airportID}`); // shows user the weather is stormy and nothing has landed at the airport
         } else if (this.isPlane(plane) === true && this.isAirportFull() === false && this.planeExists(plane) === false) {
             if (this.#weatherOn === true && this.weather < 45) {
                 console.log('The weather is sunny!'); // will only print if weatherOn is true and rng is below 45
@@ -85,7 +85,7 @@ class Airport {
 
     takeoffPlane(plane) {
         if (this.#weatherOn === true && this.weather >= 45) { // only shows when #weatherOn is true and the rng is 45 or above
-            console.log(`Cannot take off ${plane.planeID}, the weather is stormy.`); // shows user the weather is stormy and nothing has landed at the airport
+            console.log(`Cannot take off ${plane.planeID}, the weather is stormy in ${this.airportID}.`); // shows user the weather is stormy and nothing has landed at the airport
         } else if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
             if (this.#weatherOn === true && this.weather < 45) { // will only print if #weatherOn is true and the rng is below 45
                 console.log('The weather is sunny!');

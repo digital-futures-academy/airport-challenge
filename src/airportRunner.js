@@ -70,6 +70,7 @@ const LAX = new Airport('LAX'); // LA
 const MNL = new Airport('MNL'); // Manila
 const FCO = new Airport('FCO'); // Rome
 // land plane to test weather when taking off
+console.log('=== Landing plane to test takeoffPlane with weather ===');
 BCN.landPlane(boeing);
 LAX.landPlane(boeing);
 MNL.landPlane(boeing);
@@ -82,20 +83,35 @@ MNL.getWeather(weather);
 FCO.getWeather(weather);
 console.log(' '); // blank space to separate sections
 // takeoff with weather
+console.log('=== Showing function of takeoffPlane with weather ===');
 BCN.takeoffPlane(boeing);
 LAX.takeoffPlane(boeing);
 MNL.takeoffPlane(boeing);
 FCO.takeoffPlane(boeing); //! random outcomes each time
 console.log(' '); // blank space to separate sections
-// new instances of weather
+// new weather instances
 BCN.getWeather(weather);
 LAX.getWeather(weather);
 MNL.getWeather(weather);
 FCO.getWeather(weather);
 console.log(' '); // blank space to separate sections
 // landing with weather
+console.log('=== Showing function of landPlane with weather ===');
 BCN.landPlane(private);
 LAX.landPlane(private);
 MNL.landPlane(private);
 FCO.landPlane(private); //! random outcomes each time
+console.log(' '); // blank space to separate sections
+// toggle weather
+BCN.toggleWeather(false);
+LAX.toggleWeather(false);
+MNL.toggleWeather(false);
+FCO.toggleWeather(false);
+console.log(' '); // blank space to separate sections
+// show code still works without instance of weather
+console.log('=== Showing code still works without weather ===');
+BCN.landPlane(concord);
+LAX.landPlane(concord);
+MNL.landPlane(concord);
+FCO.landPlane(concord);
 console.log(' '); // blank space to separate sections
