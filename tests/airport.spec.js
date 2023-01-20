@@ -469,3 +469,26 @@ expected, actual, result = undefined;
 airportEDI, airportGLA, plane = null;
 
 console.log(`\n *** END TEST 19 ***`)
+
+//Test 20 - `planesGrounded` returns an `flying` when a plane takes off from an airport
+console.log(`\n*** START TEST 20 - \`planesGrounded\` returns an \`flying\` when a plane takes off from an airport ***`);
+
+// Arrange
+airportEDI = new Airport(`EDI`);
+plane = new Plane();
+airportEDI.landPlane(plane);
+expected = `flying`;
+
+// Act
+airportEDI.takeOffPlane(plane);
+actual = plane.groundedIn;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 20 - \`planesGrounded\` returns an \`flying\` when a plane takes off from an airport: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airportEDI, airportGLA, plane = null;
+
+console.log(`\n *** END TEST 20 ***`)
