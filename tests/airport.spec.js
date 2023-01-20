@@ -33,7 +33,7 @@ console.log(`Test 2 - Testing that an Airport will not land something that is no
 // Arrange
 firstAirport = new Airport();
 myPlane = `Plane`;
-expected = `This plane cannot be landed`;
+expected = `This is not a Plane`;
 
 // Act
 actual = firstAirport.landPlane(myPlane);
@@ -218,6 +218,28 @@ console.log(`actual:${actual}`);
 console.log(`expected:${expected}`);
 result = assertEquals(actual, expected);
 console.log(`Test 10: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+
+// Test 11
+console.log(`Test 11 - Testing that an Airport can't take off a Plane and that is already flying.`);
+
+// Arrange
+firstAirport = new Airport();
+myPlane = new Plane(true);
+expected = `This plane cannot take off`;
+
+// Act
+actual = firstAirport.takeOffPlane(myPlane);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 11: ${result ? `Passed` : `Failed`}`);
 console.log(`--------------------------------`);
 
 // Clean

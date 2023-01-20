@@ -3,7 +3,7 @@ class Airport {
   airportCapacity;
   planesAtAirport = [];
   constructor(airportCapacity = 5) {
-    this.airportCapacity = airportCapacity
+    this.airportCapacity = airportCapacity;
   }
 
 
@@ -13,21 +13,21 @@ class Airport {
         if (this.checkCapacity() === false) {
           plane.land();
         } else {
-          return `Cannot land plane, Airport is at capacity`
+          return `Cannot land plane, Airport is at capacity`;
         }
 
       } else {
-        return this.checkPlaneValid(!plane)
+        return `This plane cannot be landed`;
       }
     } else {
-      return this.checkPlaneValid(plane)
+      return this.checkPlaneValid(plane);
     }
   }
 
   checkPlaneValid(plane) {
     try {
       if (typeof plane !== `object`) {
-        throw new Error(`This plane cannot be landed`);
+        throw new Error(`This is not a Plane`);
       }
     } catch (error) {
       return error.message;
@@ -66,7 +66,7 @@ class Airport {
       if (this.checkPlaneFlying(plane) === false) {
         plane.takeOff();
       } else {
-        return this.checkPlaneValid(!plane)
+        return `This plane cannot take off`;
       }
     } else {
       return this.checkPlaneValid(plane)
