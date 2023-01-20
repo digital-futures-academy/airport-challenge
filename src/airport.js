@@ -7,33 +7,40 @@ class Airport {
     this.airportCapacity = airportCapacity;
   }
 
+  planeAtAirport(plane) {
+    return (this.airportPlanes.includes(plane)) ? true : false
+
+  }
+
   isAirportFull() {
     return (this.airportPlanes.length >= this.airportCapacity) ? true : false
 
   }
 
   landPlane(plane) {
-    if (plane instanceof Plane && this.isAirportFull() == false) {
-      return this.airportPlanes.push(plane)
-    }
+    return (!(plane instanceof Plane)) ? console.log('This plane cannot land at this airport')
+      : this.isAirportFull() == true ? console.log('Airport is full,cannot land plane')
+        : this.planeAtAirport(plane) ? console.log('Plane already at airport')
+          : this.airportPlanes.push(plane);
 
-    else { console.log('Airport is full and plane cannot land') }
   }
-
 
   takeOff(plane) {
 
     const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlanes => airportPlanes.id === plane.id);
-    //console.log(indexOfPlaneInAirportPlanes)
 
-    if (indexOfPlaneInAirportPlanes > -1) this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1)
-    return console.log('Plane has taken off from airport');
-    //   // console.log('The plane has taken off')
+    if ((indexOfPlaneInAirportPlanes > -1)) {
+      return this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
+      return 'This plane has taken off.'
+    }
+
+    else (this.planeAtAirport(plane) == false); console.log('Plane not found at airport')
 
   }
+
+
+
 }
-
-
 
 
 

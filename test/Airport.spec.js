@@ -18,7 +18,6 @@ airport.landPlane(plane);
 actual = airport.airportPlanes.length;
 // console.log(`${actual}`)
 
-
 //3. Assert
 result = assertEquals(actual, expected);
 console.log(`Test 1:Plane landed at airport: ${result}`);
@@ -201,3 +200,85 @@ console.log(`=================================`);
 // result = undefined;
 // actual = undefined;
 // expected = undefined;
+
+console.log(`=================================`);
+//TEST 9
+console.log('TEST 9: planeAtAirport returns true if plane is at airport')
+//1. Arrange
+airport = new Airport();
+plane = new Plane();
+expected = true;
+
+//2. Act
+airport.landPlane(plane)
+actual = airport.planeAtAirport(plane);
+//console.log(`${actual}`);
+
+//3. Assert
+result = assertEquals(actual, expected);
+console.log(`Test 9:planeAtAirport returns true if plane is at airport: ${result}`);
+
+//4. CleanUp
+airport = null;
+plane = null;
+result = undefined;
+actual = undefined;
+expected = undefined;
+
+console.log(`=================================`);
+//TEST 10
+console.log('TEST 10: The length of airportPlane does not change when landPlane is called on a plane that is already at the airport')
+//1. Arrange
+airport = new Airport();
+plane = new Plane('Lufthansa');
+airport.landPlane(plane);
+expected = airport.airportPlanes.length;
+//console.log(expected);
+
+//2. Act
+airport.landPlane(plane);
+actual = airport.airportPlanes.length;
+//console.log(actual)
+
+
+//3. Assert
+result = assertEquals(actual, expected);
+console.log(`Test 10:The length of airportPlane does not change when landPlane is called on a plane that is already at the airport: ${result}`);
+
+//4. CleanUp
+airport = null;
+plane = null;
+result = undefined;
+actual = undefined;
+expected = undefined;
+
+
+console.log(`=================================`);
+//TEST 11
+console.log('TEST 11: The length of airportPlane does not change takeOff is called on a plane that is not in the airport')
+//1. Arrange
+airport = new Airport();
+plane = new Plane();
+airport.landPlane(plane);
+
+//plane2 = new Plane('Boeing 121');
+airport.takeOff(plane);
+expected = airport.airportPlanes.length;
+//console.log(expected);
+
+//2. Act
+airport.takeOff(plane);
+actual = airport.airportPlanes.length;
+//console.log(actual)
+
+
+//3. Assert
+result = assertEquals(actual, expected);
+console.log(`Test 11:The length of airportPlane does not change takeOff is called on a plane that is not in the airport: ${result}`);
+
+//4. CleanUp
+airport = null;
+plane = null;
+result = undefined;
+actual = undefined;
+expected = undefined;
