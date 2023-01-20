@@ -96,8 +96,8 @@ console.log(`=== Ariport Test 4 - If planeList is at max capacity, land will not
 
 // Arrange
 airport = new Airport(1);  //lowering capacity for the sake of time
-plane = new Plane();
-plane2 = new Plane();
+plane = new Plane(1);
+plane2 = new Plane(2);
 airport.land(plane)  //filling the list to capacity
 expected = airport.planeList.length;
 
@@ -127,7 +127,7 @@ console.log(`=== Ariport Test 5 - When takeOff is called, the length of planeLis
 
 // Arrange
 airport = new Airport();
-plane = new Plane();
+plane = new Plane(1);
 expected = airport.planeList.length;  // length before anything is added
 airport.land(plane);
 
@@ -156,7 +156,7 @@ console.log(`=== Ariport Test 6 - land cannot land a plane that is aleady in pla
 
 // Arrange
 airport = new Airport();
-plane = new Plane();
+plane = new Plane(1);
 airport.land(plane);
 expected = airport.planeList.length;
 

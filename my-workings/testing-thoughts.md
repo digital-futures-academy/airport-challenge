@@ -109,6 +109,7 @@ I want to prevent takeoff when weather is stormy
 **Thoughts**
 - Weather object should always have a value (no such thing as no weather)
 - Weather should be able to be changed once even after being set
+- Airport should know what the weather is during take-off
 
 **Tests**
 1. Weather 
