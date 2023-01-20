@@ -11,7 +11,7 @@ console.log(`Test 1: the landedList length increases by 1 when we do addPlane`)
 //Triple AAA
 
 //Arrange 
-airport = new Airport()
+airport = new Airport(plane)
 plane = new Plane()
 expected = 1
 
@@ -216,38 +216,38 @@ plane2 = null
 console.log(`----------------------------------------------------`)
 
 //----------------Test 9 ---------------------
-console.log(`Test 9: checking the weather stormy`)
+// console.log(`Test 9: checking the weather stormy`)
 
-//Arrange 
-airport = new Airport()
-weather = new Weather('stormy')
-expected = 'stormy'
+// //Arrange 
+// airport = new Airport()
+// weather = new Weather('stormy')
+// expected = 'stormy'
 
-//Act 
-actual = weather.getWeather()
-//Assert 
-result = assertEquals(expected, actual)
-console.log(`Test 9: check the weather is stormy: ${result ? `Passed` : `Failed`}`)
+// //Act 
+// actual = weather.getWeather()
+// //Assert 
+// result = assertEquals(expected, actual)
+// console.log(`Test 9: check the weather is stormy: ${result ? `Passed` : `Failed`}`)
 
-//Clean up 
-expected = undefined
-actual = undefined
-result = undefined
-airport = null
-plane = null
-console.log(`----------------------------------------------------`)
+// //Clean up 
+// expected = undefined
+// actual = undefined
+// result = undefined
+// airport = null
+// plane = null
+// console.log(`----------------------------------------------------`)
 
 //----------------Test 10 ---------------------
 console.log(`Test 10: prevent takeoff`)
 
 //Arrange 
 airport = new Airport()
-weather = new Weather('stormy')
+weather1 = new Weather('stormy')
 expected = false
 
 //Act 
 
-actual = airport.removePlane(plane, weather.getWeather())
+actual = airport.removePlane(plane, weather1.weather)
 //Assert 
 result = assertEquals(expected, actual)
 console.log(`Test 10: take off checking: ${result ? `Passed` : `Failed`}`)
@@ -265,12 +265,13 @@ console.log(`Test 11: prevent landing`)
 
 //Arrange 
 airport = new Airport()
-weather = new Weather('stormy')
+weather1 = new Weather('stormy')
 expected = false
 
 //Act 
 
-actual = airport.addPlane(plane, weather.getWeather())
+
+actual = airport.addPlane(plane, weather1.weather)
 //Assert 
 result = assertEquals(expected, actual)
 console.log(`Test 11: check landing when it is stormy: ${result ? `Passed` : `Failed`}`)
@@ -296,7 +297,7 @@ weather = new Weather('stormy')
 expected = 2
 
 //Act 
-airport.addPlane(plane, weather.getWeather())
+airport.addPlane(plane, weather1.weather)
 airport.addPlane(plane1)
 airport.addPlane(plane2)
 actual = airport.landedList.length

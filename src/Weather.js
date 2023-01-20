@@ -4,12 +4,12 @@ class Weather {
         this.weather = weather
     }
 
-    getWeather() {
-        if (this.weather === 'stormy' && typeof this.weather === 'string' ) {
-            return 'stormy'
-        } else { return 'Wrong Input'}
-        // else if (this.weather){return }
-    }
+    // getWeather() {
+    //     if (this.weather === 'stormy') {
+    //         return 'stormy'
+    //     } else { return 'Wrong Input'}
+    //     // else if (this.weather){return }
+    // }
 }
 
 module.exports = Weather
