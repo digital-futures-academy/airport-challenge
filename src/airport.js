@@ -8,11 +8,15 @@ class Airport {
   };
 
   landPlane = plane => {
-    if (plane instanceof Plane && !this.isAirportFull()) this.airportPlanes.push(plane);
-  };
-  
+    if (plane instanceof Plane && !this.isAirportFull(plane)) {
+      this.airportPlanes.push(plane);
+    };
+  }
   takeOffPlane = plane => {
-    if (plane instanceof Plane) this.airportPlanes.pop(plane);
+
+    if (plane instanceof Plane && this.isPlaneInAirport(plane)) {
+      this.airportPlanes.pop(plane);
+    };
     }
 
   changeCapacity = capacity => {
@@ -25,9 +29,11 @@ class Airport {
   };
 
   isPlaneInAirport = plane => {
-    if (plane instanceof Plane) !this.airportPlanes.includes(`test1`);
-
-    if (plane instanceof Plane && !this.takeOffPlane());
+    if ((plane instanceof Plane) && !this.airportPlanes.includes(plane)) {
+      return true
+    } else {
+      return false;
+    }
   };
 }
 

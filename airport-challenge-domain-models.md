@@ -88,13 +88,13 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | Objects | Properties                   | Messages             | Outputs  |
 | ------- | ---------------------------- | -------------------- | -------- |
 | Airport | airportPlanes @Array[@Plane] | takeOffPlane(@Plane) | @Void    |
-|         |                              |                      |          |
-| Plane   | id @String                   | isPlaneInAirport()   | @Boolean |
+|         |                              | isPlaneInAirport()   | @Boolean |
+| Plane   | id @String                   |                      |          |
 
 Initial thoughts
 
 1. Need to allow a plane to take off by removing it from airport planes array
-2. Need to confirm plane is not in airport by id?
+2. Need to confirm plane is not in airport by id
 
 **Test 8** - `airportPlanes` length decreases by 1 when `takeOffPlane` is called with 'instance of `Plane`
 **Test 9** - check if `Plane` is still in `Airport` by calling `isPlaneInAirport`
@@ -111,13 +111,14 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | ------- | ---------------------------- | -------------------- | -------- |
 | Airport | airportPlanes @Array[@Plane] | takeOffPlane(@Plane) | @Void    |
 |         |                              | landPlane(@Plane)    | @Void    |
+|         |                              | isPlaneInAirport()   | @Boolean |
 |         |                              |                      |          |
-| Plane   | id @String                   | isPlaneInAirport()   | @Boolean |
+| Plane   | id @String                   |                      |          |
 
 Initial thoughts
 
-1. If plane is not airport I need to call landPlane & if it is in airport I cannot call landPlane
-2. If plane is in airport I need to call takeOffPlane & if it not in airport I cannot call takeOffPlane
+1. If plane isn't in airport I cannot call take off plane.
+2. If plane is in airport I cannot call land plane.
 
-**Test 10** - `landPlane` will not land a plane if `isPlaneInAirport` is true.
-**Test 11** - if `isPlaneInAirport` is true do not call `landPlane`.
+**Test 10** - if `isPlaneInAirport` is false do not `takeOffPlane`.
+**Test 11** - if `isPlaneInAirport` is true do not `landPlane`.
