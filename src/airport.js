@@ -7,33 +7,38 @@ class Airport {
   }
 
   landPlane = plane => {
-    if (plane instanceof Plane) this.airportPlanes.push(plane);
-    return console.log(plane)
-  
-}
+    if (this.isFull()) {
+      return "The airport is full."
 
-    
+    } else if (this.airportPlanes.includes(plane)) {
+      return "This plane has already landed."
+
+    } else (plane instanceof Plane)
+    this.airportPlanes.push(plane)
+    return "Plane has landed!"
+
+  }
+ 
   isFull() {
-    return this.airportPlanes.length >= this.capacity
+    return this.airportPlanes.length >= this.capacity;
   }
 
-  TakeOff = plane => {
-    const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlane => airportPlane.id === Plane.id);
+  takeOff = plane => {
+    if (this.airportPlanes.includes(plane)) {
+      let index = this.airportPlanes.indexOf(plane);
+      this.airportPlanes.splice(index, 1);
+      return this.airportPlanes;
 
-    if (indexOfPlaneInAirportPlanes > -1) {
-      this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
-    } return console.log("Plane is no longer at the airport!")
+    } else {
+      return "This plane is not at the airport"
+    }
+
+
+      
   }
-
-  isLanded = plane => {
-    if (this.airportPlanes.includes(Plane) & this.landPlane(Plane)) {
-      this.airportPlanes.pop(Plane)
-    }
-    }
   
-  
-
 }
+
   
 
 

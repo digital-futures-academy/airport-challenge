@@ -43,7 +43,7 @@ I want to instruct the airport to land a plane
 
 object         properties                     message            output
 
- 1 -airport    planesAtAirport@array@string  landPlane(@plane)   @string ('plane has landed!')
+ 1 -airport    airportPlanes@array@string  landPlane(@plane)   @string ('plane has landed!')
 
 
 
@@ -53,7 +53,8 @@ I would like a default airport capacity that can be overridden as appropriate
 
 object        properties                       message                         output
 
-2-airport     airportCapacity@integer (5)     setCapacity(newCapacity@integer)   @void
+2-airport     airportCapacity@integer (3)     isFull();               @void
+airport       airportCapacity@integer (5)     isFull();               @void
 
 
 As an air traffic controller
@@ -62,7 +63,7 @@ I want to prevent landing when the airport is full
 
 object        properties                       message                         output
 
-3-airport     planesAtAirport@array.length     isFull();
+3-airport     airportPlanes@array.length     isFull();
 
 
 As an air traffic controller
@@ -71,7 +72,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 object          properties                      message                         output
 
-4-airport       planesAtAirport@array@string    TakeOff(plane@string)           @string
+4-airport       airportPlanes@array@string    TakeOff(plane@string)           @string
 
 
 
@@ -81,9 +82,9 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 object           properties                      message                         output
 
-5-airport        planesAtAirport@array@string    landPlane()                    @string
+5-airport        airportPlanes@array@string    landPlane()                    @string
                                                  TakeOff()                    'not at port'
-                                                 isPlaneThere()              'already landed
+                                                                             'already landed'
 ```                                                                              @boolean
 
 #### Extended Acceptance Criteria
@@ -93,6 +94,10 @@ object           properties                      message                        
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+
+object properties message output
+
+airport planesAtAirport@array@AirportWeather@string TakeOff() @boolean
 
 As an air traffic controller
 To ensure safety
