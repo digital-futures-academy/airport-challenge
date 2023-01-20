@@ -1,6 +1,7 @@
 
 class Airport {
   airportPlanes;
+  capacity;
   constructor (typeOfTransport, capacity=20, airportPlanes=[]){
     this.capacity=capacity;
     this.airportPlanes = airportPlanes
@@ -8,19 +9,20 @@ class Airport {
   }
 
   landPlane(plane){
-    if ( plane.constructor.name == this.typeOfTransport.name) {
+    let indexPlaneRemove= this.airportPlanes.findIndex(element => element.id === plane.id)
+    if ( plane.constructor.name == this.typeOfTransport.name && indexPlaneRemove===-1) {
       this.airportPlanes.push(plane)
     return `${plane.id}, you are free to land, I repeat, you are free to land. Over.`}
-    else {return "You are not a plane, you cannot land"}
+    else {return "You cannot land"}
   }
 
   takeOff(plane){
-    if ( plane.constructor.name == this.typeOfTransport.name) {
-      let indexPlaneRemove= this.airportPlanes.findIndex(element => element.id === plane.id)
+    let indexPlaneRemove= this.airportPlanes.findIndex(element => element.id === plane.id)
+    if ( plane.constructor.name == this.typeOfTransport.name && indexPlaneRemove>-1) {
     this.airportPlanes.splice(indexPlaneRemove, 1)
    
     return `${plane.id}, you can take off`
-  }    else {return "You are not a plane, you cannot take off"}
+  }    else {return "You cannot take off"}
 }
   checkTakeOff(plane){
     let indexPlaneRemove= this.airportPlanes.findIndex(element => element.id === plane.id)

@@ -93,34 +93,33 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 | Objects | Properties                | Messages          | Outputs |
 | ------- | ------------------------- | ----------------- | ------- |
 | Airport | airportPlanes[@Plane]     | landPlane(@Plane) | @Void   |
-| Plane   | id @String                | getId()           | @String |
+| Plane   | id @String                |                   |         |
 
 **User story 2** Nouns: Airport. Verbs: overriden 
 
 | Objects | Properties                | Messages          | Outputs |
 | ------- | ------------------------- | ----------------- | ------- |
-| Airport | Capacity @Int             | getCapacity()     | @Int    |
-|         | airportPlanes[@Plane]     |                   |         | 
- 
+| Airport | capacity @Int             |                   | @Int    |
 
+ 
 **User story 3** Noun: Airport. Verbs: Prevent
 | Objects | Properties                | Messages          | Outputs |
 | ------- | ------------------------- | ----------------- | ------- |
-| Airport | airportPlanes[@Plane]     | isAirportFull()   | @String | 
-          | Capacity @Int             |                   |         |
+| Airport | airportPlanes[@Plane]     | isAtCapacity()    | @String | 
+          | capacity @Int             |                   |         |
 
 **User story 4** Noun: Airport, Plane. Verbs: Instruct, let, confirm
 | Objects | Properties                | Messages                  | Outputs |
 | ------- | ------------------------- | -----------------         | ------- |
 | Airport | airportPlanes[@Plane]     | takeOff(@Plane)           | @String |
 |         |                           | checkTakeOff(@Plane)      | @String |
-| Plane   | id @String                | getId()                   | @String |
+| Plane   | id @String                |                           |         |
 
 **User story 5** Nouns: Airport, Plane. Verbs: Prevent (asking), let, land
 | Objects | Properties                | Messages             | Outputs |
 | ------- | ------------------------- | -----------------    | ------- |
 | Airport | listOfPlanes[@Plane]      | planeExists(@Plane)  | @Boolean|
-| Plane   | id @String                | getId()              | @String |
+| Plane   | id @String                |                      |         |
 
 
 

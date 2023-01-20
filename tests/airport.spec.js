@@ -36,7 +36,7 @@ console.log(`Test 2 - Tests that method landPlane only works with a plane`);
 
 // Arrange
 airport = new Airport(Plane);
-expected = "You are not a plane, you cannot land"
+expected = "You cannot land"
 
 // Act
 
@@ -79,7 +79,7 @@ result = undefined;
 
 // Test 4 - Tests that method landPlane prevents landing when airport is full. Scenario: airport is full with 2 planes.
 console.log(`============================`);
-console.log(`Tests that method landPlane prevents landing when airport is full. Scenario: airport is full with 2 planes.`);
+console.log(`Test 4: Tests that method landPlane prevents landing when airport is full. Scenario: airport is full with 2 planes.`);
 
 // Arrange
 let plane1 =new Plane (`123`)
@@ -128,6 +128,8 @@ plane= null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+plane1=null
+plane2=null
 
 // Test 6 - If something that is not a plane is trying to take off, instruct it not to take off when takeOff method is called.
 console.log(`============================`);
@@ -136,7 +138,7 @@ console.log(`Test 6 - If something that is not a plane is trying to take off, in
 // Arrange
 
 airport = new Airport(Plane);
-expected = `You are not a plane, you cannot take off`
+expected = "You cannot take off"
 // Act
 
 actual = airport.takeOff("not a plane")
@@ -151,7 +153,8 @@ plane= null;
 expected = undefined;
 actual = undefined;
 result = undefined;
-
+plane1=null
+plane2=null
 // Test 7 - Test that the checkTakeOff method checks that once a plane takes off it is removed from the array airportPlanes.
 console.log(`============================`);
 console.log(`Test 7 - Once a plane takes off it is removed from the array airportPlanes.`);
@@ -176,3 +179,31 @@ plane= null;
 expected = undefined;
 actual = undefined;
 result = undefined;
+plane1=null
+plane2=null
+
+// Test 8 - If a plane is in the airport, landPlane method does not let it land.
+console.log(`============================`);
+console.log(`Test 8 - If a plane is in the airport, landPlane method does not let it land`);
+
+// Arrange
+plane1= new Plane (`123`)
+plane2 = new Plane(`345`)
+airport = new Airport(Plane,2,[plane1,plane2]);
+
+expected = `You cannot land`
+// Act
+actual = airport.landPlane(plane2)
+// Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 8: landPlane method does not let land a plane already in the airport: ${result}`);
+
+// Clean up
+airport = null;
+plane= null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane1=null
+plane2=null
