@@ -65,58 +65,37 @@ class Airport {
     }
 
     landPlane(plane) {
-        if (this.#weatherOn === true && this.weather >= 45) {
-            console.log(`Cannot take off ${plane.planeID}, the weather is stormy`);
-        } else if (this.#weatherOn === true && this.weather < 45) {
-            console.log(`The weather is sunny.`);
-            if (this.isPlane(plane) === true && this.isAirportFull() === false && this.planeExists(plane) === false) {
-                this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
-                console.log(`${this.airportID} is not full, ${plane.planeID} has landed. There are ${this.groundedPlanes.length} plane(s) at ${this.airportID}.`); // show message that the plane has landed
-            } else if (this.isPlane(plane) === true && this.isAirportFull() === true && this.planeExists(plane) === false) {
-                console.log(`${this.airportID} is full, ${plane.planeID} has not landed.`); // show a message that the plane has not landed
-            } else if (this.planeExists(plane) === true) {
-                console.log(`${plane.planeID} is already at ${this.airportID} and cannot land.`);
-            } else {
-                console.log(`Invalid input, nothing has landed at ${this.airportID}.`); // message for any invalid inputs put into the system
+        if (this.#weatherOn === true && this.weather >= 45) { // only shows when #weatherOn is true and the rng is 45 or above
+            console.log(`Cannot land ${plane.planeID}, the weather is stormy`); // shows user the weather is stormy and nothing has landed at the airport
+        } else if (this.isPlane(plane) === true && this.isAirportFull() === false && this.planeExists(plane) === false) {
+            if (this.#weatherOn === true && this.weather < 45) {
+                console.log('The weather is sunny!'); // will only print if weatherOn is true and rng is below 45
             }
+            this.groundedPlanes.push(plane); // add plane to groundedPlanes array
+            console.log(`${this.airportID} is not full, ${plane.planeID} has landed. There are ${this.groundedPlanes.length} plane(s) at ${this.airportID}.`); // shows user what plane has landed at what airport and how many plane are at that airport
+        } else if (this.isAirportFull() === true) {
+            console.log(`${this.airportID} is full, ${plane.planeID} has not landed.`); // shows the user that the airport is full and the plane has not landed
+        } else if (this.planeExists(plane) === true) {
+            console.log(`${plane.planeID} is already at ${this.airportID} and cannot land.`); // shows the user that the plane cant land as it is already at the airport
         } else {
-            if (this.isPlane(plane) === true && this.isAirportFull() === false && this.planeExists(plane) === false) {
-                this.groundedPlanes.push(plane); // adds the plane to the groundedPlanes array if the input is an instance of Plane class
-                console.log(`${this.airportID} is not full, ${plane.planeID} has landed. There are ${this.groundedPlanes.length} plane(s) at ${this.airportID}.`); // show message that the plane has landed
-            } else if (this.isPlane(plane) === true && this.isAirportFull() === true && this.planeExists(plane) === false) {
-                console.log(`${this.airportID} is full, ${plane.planeID} has not landed.`); // show a message that the plane has not landed
-            } else if (this.planeExists(plane) === true) {
-                console.log(`${plane.planeID} is already at ${this.airportID} and cannot land.`);
-            } else {
-                console.log(`Invalid input, nothing has landed at ${this.airportID}.`); // message for any invalid inputs put into the system
-            }
+            console.log(`Invalid input, nothing has landed at ${this.airportID}`); // shows the user that the input they put in was not correct and nothing has landed
         }
     }
 
     takeoffPlane(plane) {
-        if (this.#weatherOn === true && this.weather >= 45) {
-            console.log(`Cannot take off ${plane.planeID}, the weather is stormy`);
-        } else if (this.#weatherOn === true && this.weather < 45) {
-            console.log(`The weather is sunny.`);
-            if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
-                this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
-                console.log(`${plane.planeID} has taken off from ${this.airportID}.`);
-            } else if (this.isPlane(plane) === true && this.planeExists(plane) === false) {
-                console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`);
-            } else {
-                console.log(`Invalid input, nothing has taken off from ${this.airportID}.`); // message for any invalid inputs put into the system
+        if (this.#weatherOn === true && this.weather >= 45) { // only shows when #weatherOn is true and the rng is 45 or above
+            console.log(`Cannot take off ${plane.planeID}, the weather is stormy.`); // shows user the weather is stormy and nothing has landed at the airport
+        } else if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
+            if (this.#weatherOn === true && this.weather < 45) { // will only print if #weatherOn is true and the rng is below 45
+                console.log('The weather is sunny!');
             }
+            this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1); // find the name of the plane and takes it out of the groundedPlanes array
+            console.log(`${plane.planeID} has taken off from ${this.airportID}.`); // shows user what plane had taken off from the airport
+        } else if (this.planeExists(plane) === false) {
+            console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`); // shows user that the plane they tried to take off was not at the airport therefore nothing has happened
         } else {
-            if (this.isPlane(plane) === true && this.planeExists(plane) === true) {
-                this.groundedPlanes.splice(this.groundedPlanes.findIndex(airportPlane => airportPlane.planeID === plane.planeID), 1);
-                console.log(`${plane.planeID} has taken off from ${this.airportID}.`);
-            } else if (this.isPlane(plane) === true && this.planeExists(plane) === false) {
-                console.log(`${plane.planeID} is not at ${this.airportID} and cannot take off.`);
-            } else {
-                console.log(`Invalid input, nothing has taken off from ${this.airportID}.`); // message for any invalid inputs put into the system
-            }
-        } //! This works but should work on trying to cut it down
-
+            console.log(`Invalid input, nothing has taken off from ${this.airportID}.`); // shows user that the input they gave was invalid therefore nothing was changed
+        }
     }
 }
 
