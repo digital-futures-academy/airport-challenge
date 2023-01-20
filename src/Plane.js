@@ -1,4 +1,4 @@
-const Airport = require(`./Airport`);
+// const Airport = require(`./Airport`);
 
 class Plane { 
     flightNumber;
@@ -8,41 +8,40 @@ class Plane {
     inThisAirport;
     land;
     noTakeOffRequired;
+    noLandingRequired;
 
     constructor(flightNumber, takenOff = true) {
         this.flightNumber = flightNumber;
-        this.takenOff = takenOff;
-       
+        this.takenOff = takenOff; 
     }
 
     notInAirport() {
         if (this.takenOff == true) {
             this.notInThisAirport = true;
         }
-
     }
-    // inAirport(){
-    //     if (this.inThisAirport == false) {
-    //         this.takeOff = false;
-    //         this.land = true;
-    //     } 
-
-    //     if (this.inThisAirport == true) {
-    //         this.takeOff = true;
-    //         this.land = false;
-    //     } 
-
-    // }
-    
+     
     noTakeOff() {
         this.flightNumber = `PG123`;
         const planeInAirport = airport.airportPlanes.includes(this.flightNumber);
         
         if (planeInAirport == false) {
             this.noTakeOffRequired = true;
-        }            
-        
+        }              
     }
+
+    noLanding() {
+        airport.airportPlanes = [`PG123`];
+        this.flightNumber = `PG123`;
+        const planeInAirport = airport.airportPlanes.includes(this.flightNumber);
+        
+        if (planeInAirport == true) {
+            this.noLandingRequired = true;
+        } else {
+            airport.airportPlanes.push(plane);
+        }   
+    }
+
 }
 
 

@@ -56,3 +56,30 @@ plane = null;
 
 console.log(`---------------------------------------------`);
 
+// TEST 12: 
+console.log(`---------------------------------------------`)
+console.log(`Test 12: If the plane is already in airportPlanes then it cannot land.`);
+
+//Arrange
+airport = new Airport();
+plane = new Plane();
+expected = true;
+
+//Act
+plane.noLanding();
+actual = plane.noLandingRequired;
+
+//Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 12 Result: ${result}`);
+
+// Clean Up
+expected = null;
+actual = null;
+result = undefined;
+airport = undefined;
+plane = null;
+
+console.log(`---------------------------------------------`);
+
