@@ -10,7 +10,7 @@ let plane;
 
 
 
-// Test 1:  AirportPlanes length increases to 1 when addPlane is called on an empty Airport with a Plane
+// Test 1: AirportPlanes length increases to 1 when addPlane is called on an empty Airport with a Plane
 console.log(`============================`);
 console.log(`Test 1 - addPlane lands a Plane into the Airport`);
 
@@ -111,18 +111,18 @@ console.log(`Test 4: The airport prevents landing when the airport capacity of 3
 
 //Arrange
 airport = new Airport(3);
-let plane7 = new Plane();
-let plane8 = new Plane();
-let plane9 = new Plane();
-let plane10 = new Plane();
-airport.landPlane(plane7);
-airport.landPlane(plane8);
-airport.landPlane(plane9);
-expected = 3
+let plane1 = new Plane();
+let plane2 = new Plane();
+let plane3 = new Plane();
+let plane4 = new Plane();
+airport.landPlane(plane1);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+expected = "The airport is full"
 //Act
 
-airport.landPlane(plane10);
-actual = airport.airportPlanes.length
+airport.landPlane(plane4);
+actual = airport.preventLanding();
 
 //Assert
 result = assertEquals(expected, actual); 
@@ -218,17 +218,18 @@ result = undefined;
 
 //Test 7: The airport does not allow planes to land which have already landed.
 console.log(`================================`)
-console.log(`Test 7: The airport does not allow planes to land which have already landed.`)
+console.log(`Test 7:  The airport does not allow planes to land which have already landed.`)
 
 //Arrange
 airport = new Airport();
 plane1 = new Plane();
 airport.landPlane(plane1);
-expected = 1
+expected = 1;
 
 //Act
 airport.landPlane(plane1);
 actual = airport.airportPlanes.length;
+
 
 //Assert
 result = assertEquals(expected, actual);
