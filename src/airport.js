@@ -4,22 +4,24 @@ const Weather = require(`./weather`)
 class Airport {
   constructor(capacity = 0) {
     this.capacity = capacity;
-    this.airportPlanes = [''];
+    this.airportPlanes = [];
   }
 
   landPlane = plane => {
-    if (this.isFull()) {
-      return "The airport is full."
-
-    } else if (this.airportPlanes.includes(plane)) {
-      return "This plane has already landed."
-
-    } else (plane instanceof Plane)
-    this.airportPlanes.push(plane)
-    return "Plane has landed!"
-
+    if (plane instanceof Plane) {
+      this.airportPlanes.push(plane);
+  
+  
+    }
   }
- 
+  
+  preventLanding = plane => {
+    if (this.isFull() && this.airportPlanes.push(plane)) {
+      return "The airport is full"
+  
+    }
+  }
+
   isFull() {
     return this.airportPlanes.length >= this.capacity;
   }
@@ -33,12 +35,24 @@ class Airport {
     } else {
       return "This plane is not at the airport"
     }
-
-  
-      
   }
+
+  alreadyLanded = plane => {
+    if (this.airportPlanes.includes(plane)) {
+      return true
+    } else {
+      return false
+    }
+    
   
+  
+  
+
+
+  }
 }
+
+
 
   
 
