@@ -6,7 +6,16 @@ class Airport {
 
   constructor(defaultLandedCapacity) {
     this.landedCapacity = defaultLandedCapacity;
-   }
+  }
+  // constructor(defaultLandedCapacity) {
+  //   if(Number.isInteger(defaultLandedCapacity) && defaultLandedCapacity > 0) {
+  //     this.landedCapacity = defaultLandedCapacity;
+  //   } else {
+  //     throw new Error('Landed capacity must be a positive integer.');
+  //   }
+  // }
+
+
     landPlane = plane => {
         if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity() && !this.isPlanePresent(plane)) {
           this.landedPlanes.push(plane);
@@ -28,17 +37,17 @@ class Airport {
       const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
       return indexOfPlaneInLandedPlanes > -1;
     }
-  // The function then checks if the index is greater than -1, which is a boolean expression returning true or false depending on if the plane has been found in the array. If the index is greater than -1, the function will return true(plane is present), otherwise it will return false(plane is not present)
   
     takeOffPlane = plane => {
     const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
     
     if (indexOfPlaneInLandedPlanes > -1) {
             this.landedPlanes.splice(indexOfPlaneInLandedPlanes, 1);
-        }
+    }
+      return (indexOfPlaneInLandedPlanes > -1) ? true : false;
     }
     }
-    
+
 
 module.exports = Airport;
 

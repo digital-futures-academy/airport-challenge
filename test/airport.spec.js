@@ -26,7 +26,7 @@ expected = 1;
 
 // Act - this is running the methods to be tested and collecting the actual results
 airport.landPlane(plane);
-actual = airport.landedPlanes.length; //should really use a method here getPlaneCount (which I've not created until a later domain model), than checking a property of the array outside??
+actual = airport.landedPlanes.length;
 
 // Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
@@ -57,8 +57,8 @@ plane = new Plane();
 expected = 0;
 
 // Act - this is running the methods to be tested and collecting the actual results
-airport.landPlane(4); //tried to land a 'potato' and '4'(in this case)
-actual = airport.landedPlanes.length; //should really use a method here getPlaneCount (which I've not created until a later domain model), than checking a property of the array??
+airport.landPlane('potato'); //tried to land a 'potato' and '4'(in this case)
+actual = airport.landedPlanes.length; 
 
 // Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
@@ -227,14 +227,10 @@ console.log(`Test 9 - try to takeOffPlane Plane(id) that is not in landedPlanes`
 // Arrange - this is setting up the variables required for the test
 airport = new Airport(2);
 plane1 = new Plane('Delta');
-plane2 = new Plane('BA');
 expected = false;
 
 // Act - this is running the methods to be tested and collecting the actual results
-airport.landPlane(plane1);
-airport.landPlane(plane2);
-airport.takeOffPlane(plane2);
-actual = airport.isPlanePresent(plane2);
+actual = airport.takeOffPlane(plane1);
 
 //Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
@@ -255,21 +251,54 @@ console.log(`============================`);
 console.log(`Test 10 - try to landPlane Plane(id) that is already in landedPlanes`);
 
 // Arrange - this is setting up the variables required for the test
-airport = new Airport(4); //set capacity higher than planes going in, so the capacity is not what blocks a re-landing plane
+airport = new Airport(3); //set capacity higher than planes going in, so the capacity is not what blocks a re-landing plane
 plane1 = new Plane('Delta');
 plane2 = new Plane('BA');
-plane3 = new Plane('Ryanair');
 expected = false;
 
 // Act - this is running the methods to be tested and collecting the actual results
 airport.landPlane(plane1);
 airport.landPlane(plane2);
-airport.landPlane(plane3); //these three planes should now be landed at the airport
-actual = airport.landPlane(plane3); //need to add a Boolean to this function in airport
+//console.log(airport.isPlanePresent(plane2));
+airport.landPlane(plane2);//these two planes should now be landed at the airport
+//console.log(airport.getLandedPlaneCount());
+actual = airport.landPlane(plane2); //Boolean added to this function in the class
 
 //Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
 console.log(`Test 10 - 'Plan cannot land if already landed': ${result}`);
+
+// // Clean up - here we are clearing the variables ready for next test, to avoid contamination
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+
+//Test 11 - test to check that a plane that has taken off, cannot take off again
+
+console.log(`============================`);
+console.log(`Test 11 - try to takeOffPlane Plane(id) that has already taken off`);
+
+// Arrange - this is setting up the variables required for the test
+airport = new Airport(1);
+plane1 = new Plane('Delta');
+expected = false;
+
+// Act - this is running the methods to be tested and collecting the actual results
+airport.landPlane(plane1); //land a plane at the airport first!
+//console.log(airport.isPlanePresent(plane1));
+airport.takeOffPlane(plane1);
+//console.log(airport.isPlanePresent(plane1));
+airport.takeOffPlane(plane1); 
+actual = airport.takeOffPlane(plane1); 
+
+//Assert - testing the actual results against expected results
+result = assertEquals(expected, actual);
+console.log(`Test 11 - 'Plan cannot take off a second time': ${result}`);
 
 // // Clean up - here we are clearing the variables ready for next test, to avoid contamination
 airport = null;
