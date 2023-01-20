@@ -227,7 +227,7 @@ actual = (weather.checkWeather())
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(result)
+console.log(result ? 'Stormy' : 'Not stormy');
 console.log(result ? 'Cannot take off or land when it is stormy' : 'Weather is clear for take off or landing');
 
 
