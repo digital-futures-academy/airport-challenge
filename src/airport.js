@@ -4,15 +4,18 @@ const Weather = require(`./Weather`);
 class Airport {
 
   planesAtAirport = [];
+  airportId;
 
-  constructor(airportCapacity = 10) {
+  constructor(airportId = `factory`, airportCapacity = 10) {
 
+    this.airportId = airportId;
     this.airportCapacity = airportCapacity;
   }
 
   landPlane = (plane, weather = false) => {
     if (plane instanceof Plane && this.planesAtAirport.length < this.airportCapacity && this.checkPlanesAtAirport(plane) == false && weather === false) {
       this.planesAtAirport.push(plane)
+      plane.setGroundedIn(this.airportId);
     }
   };
 

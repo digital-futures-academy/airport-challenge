@@ -206,9 +206,21 @@ Initial thoughts:
 
 **Test 18** - prevent a plane of landing when the weather is stormy by checking it is not added to `planesAtAirport`
 
+### USER CASE 8
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+## Domain Model
+
+| Objects | Properties          | Messages              | Outputs  |
+| ------- | --------------------| ----------------------| -------- |
+| Plane   | groundedIn @Airport | groundedIn (@Airport) | @Airport |
+
+Initial thoughts:
+1. A variable to store in which airport a plane is grounded
+
+**Test 19** - `planesGrounded` returns an `Airport` where the plane is ground
 ```
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.

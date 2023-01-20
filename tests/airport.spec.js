@@ -444,3 +444,28 @@ expected, actual, result = undefined;
 kindOfWeather, weather, weatherToday = null;
 
 console.log(`\n *** END TEST 18 ***`)
+
+// ******************** USER CASE 7 ****************************
+
+//Test 19 - `planesGrounded` returns an `Airport` where the plane is ground
+console.log(`\n*** START TEST 19 - \`planesGrounded\` returns an \`Airport\` where the plane is ground ***`);
+
+// Arrange
+airportEDI = new Airport(`EDI`);
+airportGLA = new Airport(`GLA`);
+plane = new Plane(`plane1`);
+expected = `EDI`;
+
+// Act
+airportEDI.landPlane(plane);
+actual = plane.groundedIn;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`\n TEST 19 - \`planesGrounded\` returns an \`Airport\` where the plane is ground: ${result ? `Passed` : `Failed`}`);
+
+//Clean up
+expected, actual, result = undefined;
+airportEDI, airportGLA, plane = null;
+
+console.log(`\n *** END TEST 19 ***`)
