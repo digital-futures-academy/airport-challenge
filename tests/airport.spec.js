@@ -207,3 +207,36 @@ actual = undefined;
 result = undefined;
 plane1=null
 plane2=null
+
+
+// Test 9 - If a plane is not in the airport, takeOff method does not let it take off.
+console.log(`============================`);
+console.log(`Test 8 - If a plane is not in the airport, takeOff method does not let it take off.`);
+
+// Arrange
+plane1= new Plane (`123`)
+plane2 = new Plane(`345`)
+airport = new Airport(Plane,2,[plane1]);
+
+expected = `You cannot take off`
+// Act
+actual = airport.takeOff(plane2)
+// Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 9: takeOff method does not let take off a plane not in the airport: ${result}`);
+
+// Clean up
+airport = null;
+plane= null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+plane1=null
+plane2=null
+
+
+
+
+
+

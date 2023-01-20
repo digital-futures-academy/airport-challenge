@@ -95,18 +95,28 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 | Airport | airportPlanes[@Plane]     | landPlane(@Plane) | @Void   |
 | Plane   | id @String                |                   |         |
 
+// Test 1 - Checks that landPlane instructs airport to land a Plane
+// Test 2 - Tests that method landPlane only works with a plane
+
+
 **User story 2** Nouns: Airport. Verbs: overriden 
 
 | Objects | Properties                | Messages          | Outputs |
 | ------- | ------------------------- | ----------------- | ------- |
 | Airport | capacity @Int             |                   | @Int    |
 
+// Test 3 - Tests that airport capacity can be overriden by a new capacity
+
  
 **User story 3** Noun: Airport. Verbs: Prevent
 | Objects | Properties                | Messages          | Outputs |
 | ------- | ------------------------- | ----------------- | ------- |
 | Airport | airportPlanes[@Plane]     | isAtCapacity()    | @String | 
-          | capacity @Int             |                   |         |
+|         | capacity @Int             |                   | @Int    |
+
+// Test 4 - Tests that method landPlane prevents landing when airport is full. Scenario: airport is full with 2 planes.
+
+
 
 **User story 4** Noun: Airport, Plane. Verbs: Instruct, let, confirm
 | Objects | Properties                | Messages                  | Outputs |
@@ -115,11 +125,17 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 |         |                           | checkTakeOff(@Plane)      | @String |
 | Plane   | id @String                |                           |         |
 
+// Test 5 - Tests that the method takeOff instructs a plane to take off .
+// Test 6 - If something that is not a plane is trying to take off, instruct it not to take off when takeOff method is called.
+// Test 7 - Test that the checkTakeOff method checks that once a plane takes off it is removed from the array airportPlanes.
+
+
 **User story 5** Nouns: Airport, Plane. Verbs: Prevent (asking), let, land
 | Objects | Properties                | Messages             | Outputs |
 | ------- | ------------------------- | -----------------    | ------- |
 | Airport | listOfPlanes[@Plane]      | planeExists(@Plane)  | @Boolean|
 | Plane   | id @String                |                      |         |
 
-
+// Test 8 - If a plane is in the airport, landPlane method does not let it land.
+// Test 9 - If a plane is not in the airport, takeOff method does not let it take off.
 
