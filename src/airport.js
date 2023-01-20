@@ -60,6 +60,7 @@ class Airport {
     }
 
     getWeather(weather) {
+        this.toggleWeather();
         this.weather = weather;
         return this.weather = this.weather.getWeather();
     }

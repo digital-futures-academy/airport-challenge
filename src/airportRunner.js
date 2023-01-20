@@ -2,13 +2,14 @@
 
 const Airport = require('./airport.js');
 const Plane = require('./plane.js');
+const Weather = require('./weather.js');
 
 //* create different instances of airport
 const airport = new Airport(); // default airport
-const LHR = new Airport('LHR');
-const AMS = new Airport('AMS');
-const GLA = new Airport('GLA', 3);
-const SAN = new Airport('SAN');
+const LHR = new Airport('LHR'); // London Heathrow
+const AMS = new Airport('AMS'); // Amsterdam
+const GLA = new Airport('GLA', 3); // Glasgow
+const SAN = new Airport('SAN'); // San Diego
 
 //* create different instances of plane
 const plane = new Plane(); // default plane
@@ -60,3 +61,41 @@ console.log(' '); // blank space to separate sections
 console.log('=== Showing function of getPlanesAtAirport ===');
 LHR.getPlanesAtAirport();
 SAN.getPlanesAtAirport();
+console.log(' '); // blank space to separate sections
+
+//* Weather instances
+let weather = new Weather();
+const BCN = new Airport('BCN'); // Barcelona
+const LAX = new Airport('LAX'); // LA
+const MNL = new Airport('MNL'); // Manila
+const FCO = new Airport('FCO'); // Rome
+// land plane to test weather when taking off
+BCN.landPlane(boeing);
+LAX.landPlane(boeing);
+MNL.landPlane(boeing);
+FCO.landPlane(boeing);
+console.log(' '); // blank space to separate sections
+// get weather at each airport
+BCN.getWeather(weather);
+LAX.getWeather(weather);
+MNL.getWeather(weather);
+FCO.getWeather(weather);
+console.log(' '); // blank space to separate sections
+// takeoff with weather
+BCN.takeoffPlane(boeing);
+LAX.takeoffPlane(boeing);
+MNL.takeoffPlane(boeing);
+FCO.takeoffPlane(boeing); //! random outcomes each time
+console.log(' '); // blank space to separate sections
+// new instances of weather
+BCN.getWeather(weather);
+LAX.getWeather(weather);
+MNL.getWeather(weather);
+FCO.getWeather(weather);
+console.log(' '); // blank space to separate sections
+// landing with weather
+BCN.landPlane(private);
+LAX.landPlane(private);
+MNL.landPlane(private);
+FCO.landPlane(private); //! random outcomes each time
+console.log(' '); // blank space to separate sections
