@@ -129,3 +129,26 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Test 6 - If something that is not a plane is trying to take off, instruct it not to take off when takeOff method is called.
+console.log(`============================`);
+console.log(`Test 6 - If something that is not a plane is trying to take off, instruct it not to`);
+
+// Arrange
+
+airport = new Airport(new Plane());
+expected = `You are not a plane, you cannot take off`
+// Act
+
+actual = airport.takeOff("not a plane")
+// Assert
+result = assertEquals(expected, actual);
+
+console.log(`Test 6: Airport instructs anything that is not a plane not to take off : ${result}`);
+
+// Clean up
+airport = null;
+plane= null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+

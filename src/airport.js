@@ -14,8 +14,10 @@ class Airport {
   }
 
   takeOff(plane){
+    if ( plane.constructor.name == this.typeOfTransport.constructor.name) {
     return `${plane.id}, you can take off`
-  }
+  }    else {return "You are not a plane, you cannot take off"}
+}
 
   isAtCapacity(){
     if (this.airportPlanes.length>= this.capacity){
