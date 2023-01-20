@@ -10,15 +10,27 @@ class Airport {
   //   this.capacity = capacity;
   //   this.maximumCap = maximumCap;
   // }
+
   constructor(capacity = 10) {
     this.landedPlanes = [];
     this.capacity = capacity;
   }
 
+  isFull = () => {
+    return this.capacity === this.landedPlanes.length;
+  };
+
+
   landPlane = plane => {
-    if (plane instanceof Plane) {
-      this.landedPlanes.push(plane)
+    if (plane instanceof Plane && !this.isFull()) {
+      //Check if plane is already landed.
+      if (this.landedPlanes.find(p => p.id === plane.id)) {
+        return false;
+      }
+      this.landedPlanes.push(plane);
+      return true;
     }
+    return false;
   };
 
   flyPlane = plane => {
@@ -27,8 +39,10 @@ class Airport {
 
     if (indexOfPlaneInAiport > -1) {
       this.landedPlanes.splice(indexOfPlaneInAiport, 1);
+      return true;
     }
-  }
+    return false;
+  };
 
 }
 
