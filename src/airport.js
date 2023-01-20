@@ -1,22 +1,21 @@
 const Plane = require('./plane.js');
 const Weather = require('./weather.js');
-const weather = new Weather();
-
 class Airport {
-  constructor(airportCapacity = 10) {
-    this._airportCapacity = airportCapacity;
+    #airportCapacity;
+  constructor(airportCapacity = 10, weather) {
+    this.#airportCapacity = airportCapacity;
     this.weather = weather;
     this.hangar = [];
-  }
+  } 
 
   checkFull(plane) {
-    return this.hangar.length < this._airportCapacity};
+    return this.hangar.length < this.#airportCapacity};
   isPlaneInAirport(plane) {
       return this.hangar.findIndex(hangar => hangar.name === plane.name) > -1;
      }
 
      landPlane(plane) {
-      if (this.weather.isStormy()) {
+      if (this.weather.weather === "stormy") {
           console.log("It is stormy. No plane can land.");
           return;
       }
@@ -37,7 +36,7 @@ class Airport {
   }
   
   takeoffPlane(plane) {
-    if (this.weather.isStormy()) {
+      if (this.weather.weather === "stormy") {
         console.log("It is stormy. No plane can take off.");
         return;
     }
@@ -56,19 +55,21 @@ class Airport {
   
 
   get airportCapacity(){
-    return this._airportCapacity;
+    return this.#airportCapacity;
   }
 
-  set airportCapacity(value) {
+  set airportCapacity(newCapacity) {
     try {
-        if (value >= 0) {
-            this._airportCapacity = value;
+        if (newCapacity >= 1  && newCapacity < 100) {
+            this.#airportCapacity = newCapacity;
         } else {
             throw new Error("Invalid value for airport capacity");
         }
     } catch (error) {
+        return this.#airportCapacity;
         console.log(error);
+    }}
+    
     }
-}
-}
+
 module.exports = {Airport};
