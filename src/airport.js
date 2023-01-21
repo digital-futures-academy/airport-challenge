@@ -15,33 +15,34 @@ class Airport {
       this.landedCapacity = 0;
     }
   }
-    landPlane = plane => {
-      if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity() && !this.isPlanePresent(plane)) {
-          this.landedPlanes.push(plane);
-            return true;
-              } else {
-                  return false;
+  landPlane = plane => {
+    if (plane instanceof Plane && this.getLandedPlaneCount() < this.getLandedCapacity() && !this.isPlanePresent(plane)) {
+      this.landedPlanes.push(plane);
+      // return true;
+      //   } else {
+      //       return false;
     }
-    }
-    getLandedCapacity() {
-      return this.landedCapacity;
-    }
-    newLandedCapacity(newCapacity) {
-      this.landedCapacity = newCapacity;
-     }
-    getLandedPlaneCount() {
-      return this.landedPlanes.length;
-    }
-    isPlanePresent(plane) {
-      const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
-      return indexOfPlaneInLandedPlanes > -1;
-    }  
-    takeOffPlane = plane => {
-      const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);    
-      if (indexOfPlaneInLandedPlanes > -1) {
-        this.landedPlanes.splice(indexOfPlaneInLandedPlanes, 1);
-      } return (indexOfPlaneInLandedPlanes > -1) ? true : false;
-          }
   }
+  getLandedCapacity() {
+    return this.landedCapacity;
+  }
+  newLandedCapacity(newCapacity) {
+    this.landedCapacity = newCapacity;
+  }
+  getLandedPlaneCount() {
+    return this.landedPlanes.length;
+  }
+  isPlanePresent(plane) {
+    const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
+    return indexOfPlaneInLandedPlanes > -1;
+  }
+  takeOffPlane = plane => {
+    const indexOfPlaneInLandedPlanes = this.landedPlanes.findIndex(landedPlane => landedPlane.id === plane.id);
+    if (indexOfPlaneInLandedPlanes > -1) {
+      this.landedPlanes.splice(indexOfPlaneInLandedPlanes, 1);
+       } return (indexOfPlaneInLandedPlanes > -1) ? true : false;
+    }
+  }
+
 module.exports = Airport;
 
