@@ -126,9 +126,9 @@ Note: I wasn't sure of the best way to test a random value without having the sp
 
 *Test 1* - checkWeather returns a random value from possibleWeather (either sunny or stormy)
 *Test 2* - checkWeather assigns the returned value to the currentWeather property
-*Test 3* - when PlaneTakesOff is called and the weather is stormy, the length of listOfPlanes remains the same and the plane doesn't take off
+*Test 3* - when PlaneTakesOff is called and the weather is stormy, the length of planesAtAirport remains the same and the plane doesn't take off
 *Test 4* - when PlaneTakesOff is called and the weather is stormy, an error message is returned
-*Test 5* - when PlaneTakesOff is called and the weather is sunny, the length of listOfPlanes decreases by 1
+*Test 5* - when PlaneTakesOff is called and the weather is sunny, the length of planesAtAirport decreases by 1
 
 
 **User Story 7**
@@ -149,9 +149,9 @@ I want to prevent landing when weather is stormy
 
 ## Tests
 
-*Test 1* - when planeLands is called and the weather is stormy, the length of listOfPlanes remains the same and the plane doesn't land
+*Test 1* - when planeLands is called and the weather is stormy, the length of planesAtAirport remains the same and the plane doesn't land
 *Test 2* - when planeLands is called and the weather is stormy, an error message is returned
-*Test 3* - when planeLands is called and the weather is sunny, the length of listOfPlanes decreases by 1
+*Test 3* - when planeLands is called and the weather is sunny, the length of planesAtAirport decreases by 1
 
 **User Story 8**
 As an air traffic controller

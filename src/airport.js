@@ -22,11 +22,11 @@ class Airport {
     //Are there too many conditions for one line in line above? Would if statement be clearer?
   };
 
-  planeTakesOff = (plane) => {
-    if (this.isPlaneAtAirport(plane)) {
+  planeTakesOff = (plane, currentWeather) => {
+    if (this.isPlaneAtAirport(plane) && currentWeather !== 'stormy') {
       const index = this.planesAtAirport.indexOf(plane);
       this.planesAtAirport.splice(index, 1);
-    } else { return "Plane cannot take off, it is not at the airport" }
+    } else { return "Plane cannot take off" }
   };
 
 }

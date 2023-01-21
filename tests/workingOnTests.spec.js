@@ -56,3 +56,56 @@ actualOutput = undefined;
 result = undefined;
 input = undefined;
 expectedOutput = undefined;
+
+// Test 6.3
+console.log(`***When PlaneTakesOff is called and the weather is stormy, length of planesAtAirport remains the same and the plane doesn't take off***`);
+
+// Arrange
+let currentWeather = 'stormy'
+airport1 = new Airport()
+plane1 = new Plane()
+airport1.planesAtAirport = [plane1]
+expectedOutput = 1;
+actualOutput, result;
+
+// Act
+airport1.planeTakesOff(plane1, currentWeather);
+actualOutput = airport1.planesAtAirport.length;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Plane did not take off when stormy: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
+
+// Test 6.4
+console.log(`***When PlaneTakesOff is called and the weather is stormy, an error message is returned]***`);
+
+// Arrange
+currentWeather = 'stormy'
+airport1 = new Airport()
+plane1 = new Plane()
+airport1.planesAtAirport = [plane1]
+expectedOutput = "Plane cannot take off";
+actualOutput, result;
+
+// Act
+actualOutput = airport1.planeTakesOff(plane1, currentWeather);
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Error message returned: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
