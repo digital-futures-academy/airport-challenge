@@ -1,5 +1,5 @@
-const Airport = require("./Airport");
-const Plane = require("./Plane");
+const Airport = require("./src/Airport");
+const Plane = require("./src/Plane");
 
 const airportGatwick = new Airport();
 
