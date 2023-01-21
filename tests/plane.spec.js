@@ -20,10 +20,10 @@ actual = plane.isPlane(); // checking the length of the array
 
 // Assert
 result = assertEquals(expected, actual); // is expected and actual the same??
-console.log(`Test One - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+console.log(`Test One - ${result ? '\u001b[32m Passed' : '\u001b[31m Failed'}`); // states if the test passed
 
 // Clean Up
-expected, actual, result = undefined; // resetting variables for a next test
-airport, plane = null;
-console.log('======= Test One Done =======');
+expected, actual, (result = undefined); // resetting variables for a next test
+airport, (plane = null);
+console.log('\u001b[37m ======= Test One Done =======');
 console.log(' '); //blank space to split up tests

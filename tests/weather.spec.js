@@ -21,12 +21,12 @@ console.log(actual);
 
 // Assert
 result = assertBetween(1, actual, 50); // is actual between 1 and 50??
-console.log(`Test A - ${result ? 'Passed' : 'Failed'}`); // states if the test passed
+console.log(`Test A - ${result ? '\u001b[32m Passed' : '\u001b[31m Failed'}`); // states if the test passed
 
 // Clean Up
-expected, result, actual = undefined;
+expected, result, (actual = undefined);
 weather = null;
-console.log('======= Test A Done =======');
+console.log('\u001b[37m ======= Test A Done =======');
 console.log(' '); //blank space to split up tests
 
 //! TEST B IS ELIMINATED AS IT IS NEVER USED
