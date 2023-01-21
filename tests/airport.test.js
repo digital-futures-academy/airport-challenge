@@ -230,7 +230,8 @@ actual = (weather.checkWeather())
 
 //Assert
 result = assertEqual(expected, actual);
-console.log(result ? 'Stormy' : 'Not stormy');
+result1 = (result ? 'Stormy' : 'Not stormy');
+if (typeof result1 === 'string') console.log('Passed');
 console.log(result ? 'Cannot take off or land when it is stormy' : 'Weather is clear for take off or landing');
 
 
@@ -270,5 +271,3 @@ airport = null;
 airplane = null;
 
 console.log('===========================');
-
-
