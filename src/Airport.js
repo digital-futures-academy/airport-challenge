@@ -1,4 +1,3 @@
-// https://github.com/digital-futures-academy/se-2301-a-demos/blob/main/bobs-bagels-tdd/src/Basket.js
 const Airplane = require(`./Airplane`);
 
 class Airport {
@@ -9,7 +8,6 @@ class Airport {
     capacity = 10;
     airportPlanes = [];
     allLandedPlanes = [];
-
 
 
 
