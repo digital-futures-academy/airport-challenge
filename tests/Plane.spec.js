@@ -8,11 +8,11 @@ let actualOutput, result;
 let plane1 = new Plane()
 //USER STORY 1
 // Test 1.5
-console.log(`***When a new plane instance is created from the plane class, it contains a planeID property ***`);
+console.log(`1.5 When a new plane instance is created from the plane class, it contains a planeID property:`);
 
 // Arrange
-plane1 = new Plane(001)
-expectedOutput = 001;
+plane1 = new Plane('Test Plane')
+expectedOutput = 'Test Plane';
 actualOutput, result;
 
 // Act

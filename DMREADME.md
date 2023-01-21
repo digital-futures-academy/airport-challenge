@@ -120,6 +120,7 @@ I want to prevent takeoff when weather is stormy
 |         |                               | planeIsAtAirport(@Plane)          | @Boolean|
 | Plane   |planeID  @String               |                                   |         |
 | Weather |currentWeather @String         | checkWeather()                    |         |
+|         |possibleWeather @Array         |                                   |         |
 
 ## Tests
 Note: I wasn't sure of the best way to test a random value without having the spyOn option
@@ -146,6 +147,7 @@ I want to prevent landing when weather is stormy
 |         |                               | planeIsAtAirport(@Plane)          | @Boolean|
 | Plane   |planeID  @String               |                                   |         |
 | Weather |currentWeather @String         | checkWeather()                    |         |
+|         |possibleWeather @Array         |                                   |         |
 
 ## Tests
 
@@ -162,13 +164,18 @@ Planes that have landed must be at an airport
 
 | Objects | Properties                    | Messages                          | Outputs |
 | ------- | ----------------------------  | ----------------------------      | ------- |
-| Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane)                | @Void   |
+| Airport |planesAtAirport @Array[@Plane] | planeLands(@Plane, @Weather)      | @Void   |
 |         |airportCapacity @Integer       | atCapacity()                      | @Boolean|
-|         |                               | planeTakesOff(@Plane)             | @Void   |
+|         |                               | planeTakesOff(@Plane, @Weather)   | @Void   |
 |         |                               | planeIsAtAirport(@Plane)          | @Boolean|
-| Plane   |planeID  @String               |                                   |         |
+| Plane   |planeID  @String               | planeLocation(@airport)           | @String |
+|         |location @string               |                                   |         |
 | Weather |currentWeather @String         | checkWeather()                    |         |
+|         |possibleWeather @Array         |                                   |         |
 
 ## Tests
 
-*Test 1* - 
+Note: I think this User Story has already been addressed and tested with the 'planeIsAtAirport' function, however I've added a function to the plane class to return if it's at a specific airport (this could be expanded to a list of airports with a for loop) or in flight
+
+*Test 1* - Plane location returns 'In flight' by default
+*Test 2* - planeLocation changes location if plane is in planesAtAirport when an airport is inputted
