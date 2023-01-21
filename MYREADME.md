@@ -1,3 +1,10 @@
+# Approach
+1. Create domain models for each user story
+2. Use the domain models to plan each test for each user story
+3. Write a test framework
+4. Build each test until I get a failing test
+5. Write the function to pass the test
+
 # Domain Models
 
 ## USER STORY 1
@@ -100,7 +107,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 3. Confirm that the plane is no longer in that airport
 
 ### Tests For User Story 4
-7. Remove a plane from airportPlanes resulting in `takenOff`
+7. Remove a plane from airportPlanes resulting in `takenOff` |DONE|
 8. If `takenOff` is true then `notInAirport()` should return true |DONE|
 9. Edge Case - the plane should not be at the airport that it took off from if `notInAirport()` returns true |NOT DONE|
 ---------------  
@@ -131,3 +138,10 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ### Tests For User Story 5
 10. If the plane is not in `airportPlanes` then it cannot takeoff. |DONE|
 11. If the plane is already in `airportPlanes` then it cannot land. |DONE|
+
+
+# NOTES/LEARNINGS
+- Some edge cases are incorporated into the tests above but there maybe should have been more considered.
+- noTakeOff() and noLanding() includes defined variables to make the test pass but this may not be the best way of doing this.
+
+

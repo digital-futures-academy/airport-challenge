@@ -1,5 +1,3 @@
-const Airport = require(`./Airport`);
-
 class Plane { 
     flightNumber;
     takenOff;
@@ -53,7 +51,6 @@ class Plane {
             airport.airportPlanes.push(plane);
         }   
     }
-
 }
 
 
