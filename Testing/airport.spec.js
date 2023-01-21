@@ -45,7 +45,7 @@ airplane = new Airplane("plane1");
 expected = 0;
 
 //Act
-airport.landPlane(weather, airplane);
+airport.airportPlanes.push(airplane);
 airport.flyPlane(weather, airplane);
 
 actual = airport.airportPlanes.length;
@@ -108,10 +108,10 @@ expected = 2;
 
 
 //Act
-airport.landPlane(weather, airplane1);
-airport.landPlane(weather, airplane2);
-airport.landPlane(weather, airplane3);
-airport.landPlane(weather, airplane4);
+airport.airportPlanes.push(airplane1);
+airport.airportPlanes.push(airplane2);
+airport.airportPlanes.push(airplane3);
+airport.airportPlanes.push(airplane4);
 airport.flyPlane(weather, airplane1);
 airport.flyPlane(weather, airplane2);
 airport.flyPlane(weather, airplane2);
@@ -237,11 +237,9 @@ console.log(`Test 9 - The airport shouldn't let a plane fly if it is stationed a
 
 //Arrange 
 airplane1 = new Airplane("plane1");
-airplane2 = new Airplane("plane2");
 airport1 = new Airport();
 airport2 = new Airport();
-airport1.airportPlanes.push(airplane1);
-airport2.airportPlanes.push(airplane2);
+airport1.landPlane(weather, airplane1);
 expected = 1;
 weather = 0.1;
 
