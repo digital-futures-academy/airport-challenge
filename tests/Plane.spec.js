@@ -7,8 +7,8 @@ let input;
 let actualOutput, result;
 let plane1 = new Plane()
 //USER STORY 1
-// Test 1.5
-console.log(`1.5 When a new plane instance is created from the plane class, it contains a planeID property:`);
+// Test 1.6
+console.log(`1.6 When a new plane instance is created from the plane class, it contains a planeID property:`);
 
 // Arrange
 plane1 = new Plane('Test Plane')

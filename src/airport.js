@@ -1,4 +1,4 @@
-const Plane = require('./Plane.js')
+const Plane = require('./Plane.js') //only used to check instance of - is there a way around this?
 
 class Airport {
   planesAtAirport = []
@@ -11,16 +11,16 @@ class Airport {
   };
 
   atCapacity = () => {
-    return this.planesAtAirport.length === this.airportCapacity ? true : false  //Can this be written in a simpler way aka not writing true and false?
+    return this.planesAtAirport.length === this.airportCapacity ? true : false
   }
 
   isPlaneAtAirport = (plane) => {
     return this.planesAtAirport.includes(plane.planeID) ? true : false;
   }
 
-  planeLands = (plane, currentWeather) => {
+  planeLands = (plane, currentWeather = 'sunny') => {
     return plane instanceof Plane && this.atCapacity() === false && this.isPlaneAtAirport(plane) === false && currentWeather !== 'stormy' ? this.planesAtAirport.push(plane.planeID) : "Unable to land";
-    //Are there too many conditions for one line in line above? Would if statement be better? Or create a separate 'safeToLand' method?
+    //Are there too many conditions for one line in line above? Better to create a separate 'safeToLand' method?
   };
 
   planeTakesOff = (plane, currentWeather = 'sunny') => {

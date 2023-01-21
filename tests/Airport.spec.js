@@ -4,7 +4,6 @@ const Plane = require('../src/Plane')
 const Weather = require('../src/Weather')
 
 let expectedOutput;
-let input;
 let actualOutput, result;
 let airport1 = new Airport()
 let plane1 = new Plane()
@@ -12,13 +11,12 @@ let testWeather = new Weather()
 
 //USER STORY 1
 // Test 1.1
-console.log(`1.1 Check that only Plane types are able to land at the Airport when planeLands:`);
+console.log(`1.1 Check that Plane types are able to land at the Airport when planeLands:`);
 
 // Arrange
 airport1 = new Airport()
 plane1 = new Plane()
 expectedOutput = 1;
-input = plane1;
 actualOutput, result;
 
 // Act
@@ -34,22 +32,19 @@ console.log(`is a plane: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 1.2
 console.log(`1.2 Length of planeAtAirport array at the Airport increases by 1 when planeLands:`);
 
-
 // Arrange
 airport1 = new Airport()
 plane1 = new Plane()
 expectedOutput = 1;
-input = plane1;
 actualOutput, result;
 
 // Act
-airport1.planeLands(input)
+airport1.planeLands(plane1)
 actualOutput = airport1.planesAtAirport.length;
 
 // Assert
@@ -61,9 +56,7 @@ console.log(`plane landed: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
-
 
 // Test 1.3
 console.log(`1.3 Check that edge cases such as 'null' as a type are unable to land at the airport:`);
@@ -71,11 +64,10 @@ console.log(`1.3 Check that edge cases such as 'null' as a type are unable to la
 // Arrange
 airport1 = new Airport()
 expectedOutput = 0;
-input = null;
 actualOutput, result;
 
 // Act
-airport1.planeLands(input)
+airport1.planeLands(null)
 actualOutput = airport1.planesAtAirport.length;
 
 // Assert
@@ -87,7 +79,6 @@ console.log(`Plane unable to land: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 1.4
@@ -96,11 +87,10 @@ console.log(`1.4 When something that isn't a plane attempts to land at the airpo
 // Arrange
 airport1 = new Airport()
 expectedOutput = "Unable to land";
-input = null;
 actualOutput, result;
 
 // Act
-actualOutput = airport1.planeLands(input)
+actualOutput = airport1.planeLands(null)
 
 // Assert
 result = assertEquals(expectedOutput, actualOutput);
@@ -111,7 +101,28 @@ console.log(`Message is returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
+expectedOutput = undefined;
+
+// Test 1.5
+console.log(`1.5 When a new airport instance is created from the Airport class, it contains an airportName property:`);
+
+// Arrange
+airport1 = new Airport('Test Airport')
+expectedOutput = 'Test Airport';
+actualOutput, result;
+
+// Act
+actualOutput = airport1.name
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Airport name returned: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
 expectedOutput = undefined;
 
 //USER STORY 2
@@ -119,7 +130,7 @@ expectedOutput = undefined;
 console.log(`2.1 Check the value returned for default airport capacity:`);
 
 // Arrange
-airport1 = new Airport()
+airport1 = new Airport('Test Airport')
 expectedOutput = 10;
 actualOutput, result;
 
@@ -135,7 +146,6 @@ console.log(`correct default capacity: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 2.2
@@ -158,7 +168,6 @@ console.log(`Capacity changed from default: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 2.3
@@ -181,7 +190,6 @@ console.log(`Error returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 2.4
@@ -204,7 +212,6 @@ console.log(`Error returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 2.5
@@ -227,7 +234,6 @@ console.log(`Error returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 //USER STORY 3
@@ -236,7 +242,7 @@ console.log(`3.1 When the length of planesAtAirport and airportCapacity are the 
 
 // Arrange
 airport1 = new Airport('Test Airport', 1)
-plane1 = new Plane()
+plane1 = new Plane('Test Plane')
 expectedOutput = true;
 actualOutput, result;
 
@@ -253,7 +259,6 @@ console.log(`At capacity: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 3.2
@@ -277,7 +282,6 @@ console.log(`At capacity: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 3.3
@@ -300,7 +304,6 @@ console.log(`Not at capacity: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 3.4
@@ -308,7 +311,7 @@ console.log(`3.4 When atCapacity is true, planeLands returns an error message:`)
 
 // Arrange
 airport1 = new Airport('Test Airport', 1)
-plane1 = new Plane()
+plane1 = new Plane('Test Plane')
 expectedOutput = "Unable to land";
 actualOutput, result;
 
@@ -325,7 +328,6 @@ console.log(`Error message sent: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 3.5
@@ -351,7 +353,6 @@ console.log(`listOfPlanes is unchanged: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 3.6
@@ -376,7 +377,6 @@ console.log(`listOfPlanes increases by 1: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 //USER STORY 4
@@ -403,7 +403,6 @@ console.log(`Length of planesAtAirport decreased: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 4.2
@@ -428,7 +427,6 @@ console.log(`Plane is at airport: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 4.3
@@ -452,7 +450,6 @@ console.log(`Plane is not at airport: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 4.4
@@ -468,6 +465,7 @@ actualOutput, result;
 // Act
 airport1.planeTakesOff(plane1);
 actualOutput = airport1.planesAtAirport.length
+
 // Assert
 result = assertEquals(expectedOutput, actualOutput);
 
@@ -477,7 +475,6 @@ console.log(`Plane takes off: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 5.1
@@ -501,7 +498,6 @@ console.log(`Error message returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 5.2
@@ -526,7 +522,6 @@ console.log(`Error message returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 5.3
@@ -551,7 +546,6 @@ console.log(`Plane landed: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 6.1
@@ -574,7 +568,6 @@ console.log(`Weather outputted: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 6.2
@@ -598,7 +591,6 @@ console.log(`Weather assigned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 6.3
@@ -625,7 +617,6 @@ console.log(`Plane did not take off when stormy: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 6.4
@@ -651,7 +642,6 @@ console.log(`Error message returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 6.5
@@ -678,7 +668,6 @@ console.log(`Plane took off: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 7.1
@@ -704,7 +693,6 @@ console.log(`Plane didn't land: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 7.2
@@ -729,7 +717,6 @@ console.log(`Error message returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
 expectedOutput = undefined;
 
 // Test 7.3
@@ -755,5 +742,51 @@ console.log(`Error message returned: ${result}`);
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
-input = undefined;
+expectedOutput = undefined;
+
+// Test 8.1
+console.log(`8.1 Plane location returns 'In flight' by default:`);
+
+// Arrange
+plane1 = new Plane('Test Plane')
+expectedOutput = 'In flight';
+actualOutput, result;
+
+// Act
+actualOutput = plane1.location;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Plane in flight: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+expectedOutput = undefined;
+
+// Test 8.2
+console.log(`8.2 planeLocation changes location if plane is in planesAtAirport when an airport is inputted:`);
+
+// Arrange
+airport1 = new Airport('TestAirport')
+plane1 = new Plane('Test Plane')
+airport1.planesAtAirport = ['Test Plane']
+expectedOutput = 'TestAirport';
+actualOutput, result;
+
+// Act
+plane1.planeLocation(airport1)
+actualOutput = plane1.location;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Plane at airport: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
 expectedOutput = undefined;
