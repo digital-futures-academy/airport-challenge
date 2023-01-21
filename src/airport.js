@@ -31,12 +31,16 @@ class Airport {
 
     if ((indexOfPlaneInAirportPlanes > -1 && this.planeAtAirport(plane))) {
       this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
-      return 'This plane has taken off from the airport'
+      return 'Plane has taken off from the airport.'
     }
-
     else console.log('Plane not found at airport.')
 
+
   }
+
+
+
+
 
 
 

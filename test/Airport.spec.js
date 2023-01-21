@@ -30,7 +30,7 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-//TEST 2
+//TEST 1b
 console.log('TEST 1b: addPlane should only allow planes that are instances to land ')
 
 //1. Arrange
@@ -55,7 +55,7 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-//TEST 3
+//TEST 2a
 console.log('TEST 2a: Airport has a default capacity ')
 
 //1. Arrange
@@ -79,7 +79,7 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-//TEST 4
+//TEST 2b
 console.log('TEST 2b: Override default capacity of airport by creating an airport with a bigger capacity')
 //1. Arrange
 airport = new Airport(10);
@@ -101,7 +101,7 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-//TEST 5
+//TEST 3a
 console.log(`Test 3a: isAirportFull() returns 'true' when airportCapacity is exceeded.`)
 //1. Arrange
 airport = new Airport();
@@ -125,7 +125,7 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-//TEST 6
+//TEST 3b
 console.log('TEST 3b: landPlane does not add plane to airportPlane[] when isAirportFull() returns true')
 //1. Arrange
 airport = new Airport();
@@ -149,20 +149,17 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-//TEST 7
+//TEST 4a
 console.log('TEST 4a: airportPlanes length decreases by 1 when plane takes off')
 //1. Arrange
 airport = new Airport();
 plane = new Plane();
-//let planelength = airport.airportPlanes.length;
-//console.log(`${planelength}`);
 airport.landPlane(plane)
 expected = airport.airportPlanes.length - 1
 
 //2. Act
 airport.takeOff(plane);
 actual = airport.airportPlanes.length;
-//console.log(`${actual}`);
 
 //3. Assert
 result = assertEquals(actual, expected);
@@ -176,17 +173,16 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-//TEST 8
+//TEST 4b
 console.log('TEST 4b: A string is returned to confirm removal when takeOff is called on instance of plane ')
 //1. Arrange
 airport = new Airport();
 plane = new Plane();
-airport.landPlane(plane)
-expected = 'This plane has taken off from the airport.'
+airport.landPlane(plane)// a new instance of plane is created and landed at airport
+expected = 'Plane has taken off from the airport.'
 
 //2. Act
 actual = airport.takeOff(plane);
-console.log(`actual`);
 
 //3. Assert
 result = assertEquals(actual, expected);
@@ -210,7 +206,6 @@ expected = true;
 //2. Act
 airport.landPlane(plane)
 actual = airport.planeAtAirport(plane);
-//console.log(`${actual}`);
 
 //3. Assert
 result = assertEquals(actual, expected);
@@ -231,13 +226,10 @@ airport = new Airport();
 plane = new Plane('Lufthansa');
 airport.landPlane(plane);
 expected = airport.airportPlanes.length;
-//console.log(expected);
 
 //2. Act
 airport.landPlane(plane);
 actual = airport.airportPlanes.length;
-//console.log(actual)
-
 
 //3. Assert
 result = assertEquals(actual, expected);
@@ -258,17 +250,12 @@ console.log('TEST 5c: The length of airportPlane does not change takeOff is call
 airport = new Airport();
 plane = new Plane();
 airport.landPlane(plane);
-
-//plane2 = new Plane('Boeing 121');
 airport.takeOff(plane);
 expected = airport.airportPlanes.length;
-//console.log(expected);
 
 //2. Act
 airport.takeOff(plane);
 actual = airport.airportPlanes.length;
-//console.log(actual)
-
 
 //3. Assert
 result = assertEquals(actual, expected);
