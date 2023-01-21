@@ -109,3 +109,30 @@ actualOutput = undefined;
 result = undefined;
 input = undefined;
 expectedOutput = undefined;
+
+// Test 6.5
+console.log(`***When PlaneTakesOff is called and the weather is sunny, the length of planesAtAirport decreases by 1***`);
+
+// Arrange
+currentWeather = 'sunny'
+airport1 = new Airport()
+plane1 = new Plane()
+airport1.planesAtAirport = [plane1]
+expectedOutput = 0;
+actualOutput, result;
+
+// Act
+airport1.planeTakesOff(plane1, currentWeather)
+actualOutput = airport1.planesAtAirport.length;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Plane took off: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
