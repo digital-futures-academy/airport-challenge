@@ -14,7 +14,7 @@ class Airport {
 
   takeOffPlane = plane => {
     if (!this.airportPlanes.includes(plane)) return;
-    const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlane => airportPlane.id === plane.id);
+    const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlane => airportPlane === plane);
     if (indexOfPlaneInAirportPlanes > -1) {
       this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
     }
