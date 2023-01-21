@@ -14,6 +14,7 @@ class Airport {
 
   takeOffPlane = plane => {
     if (!this.airportPlanes.includes(plane)) return;
+    //removed .id which I hadn't specified anywhere (so returned undefined). airPortPlane === plane to check plane object (memory reference?) instead.
     const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlane => airportPlane === plane);
     if (indexOfPlaneInAirportPlanes > -1) {
       this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
