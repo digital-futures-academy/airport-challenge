@@ -17,9 +17,9 @@ class Airport {
     return this.planesAtAirport.includes(plane) ? true : false;
   }
 
-  planeLands = (plane) => {
-    return plane instanceof Plane && this.atCapacity() === false && this.isPlaneAtAirport(plane) === false ? this.planesAtAirport.push(plane) : "Unable to land";
-    //Are there too many conditions for one line in line above? Would if statement be clearer?
+  planeLands = (plane, currentWeather) => {
+    return plane instanceof Plane && this.atCapacity() === false && this.isPlaneAtAirport(plane) === false && currentWeather !== 'stormy' ? this.planesAtAirport.push(plane) : "Unable to land";
+    //Are there too many conditions for one line in line above? Would if statement be better? Or create a separate 'safeToLand' method?
   };
 
   planeTakesOff = (plane, currentWeather) => {
