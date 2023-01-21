@@ -4,6 +4,7 @@ Matt Jones
 SE-2301-A
 
 To run tests:
+`npm install` to install project dependencies
 node specRunner.js within the terminal
 
 Task:
@@ -32,7 +33,7 @@ Tests:
 Test 1 - Airport Plane count increases when Plane is at the Airport 
          
 Building Test 1:
-Make file /specRunner.js in test folder to run ALL tests from 1 location (Populate with required files as created using require(`./`))
+Make file /specRunner.js in test folder to run ALL tests from 1 location (Populate with required files as created using require(`./`).
 Make file /testing-framework.js in test folder to house functions required for testing?
 Built Airport.spec.js, initial tests failed as no Airport or Plan class set up. Built Airport class and plane class, test failed as no plane string present in the airport array. Test passed when plane class was run. 
 
