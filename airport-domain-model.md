@@ -20,7 +20,11 @@ I want to instruct the airport to land a plane
 2. Need to be able to land plane at airport
 3. Airport planes length should increase by 1 when a plane has landed at airport.
 
-**Test 1** - 'airportPlanes' length increases when 'landPlane' is called with plane
+**Test 1** - 'airportPlanes' length increases when 'landPlane' is called with *instance of Plane*
+
+**Test 2** - 'landPlane' should only land 'Plane' instances to the 'airportManifest'
+
+**Test 3** - Edge Case - falsy values should not be added to Airport
 
 
 As the system designer
