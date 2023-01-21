@@ -100,11 +100,11 @@ console.log(`Test 4 - airportPlanes length decreases to 0 when a Plane entry is 
 airport = new Airport();
 plane = new Plane(`plane1`);
 airport.addPlane(plane);
-expected = airport.airportPlanes.length - 1;
+expected = Airport.length;
 
 //Act
 airport.removePlane(airport);
-actual = airport.airportPlanes.length;
+actual = airport.airportPlanes.length - 1;
 
 //Assert
 result = assertEquals(expected, actual);
@@ -122,18 +122,16 @@ console.log(`----------------------------------`);
 
 
 
-//Test 5 - testing that setCapacity works
+//Test 5 - getting default capacity
 
 console.log(`----------------------------------`);
-console.log(`Test 5 - testing that setCapacity works`);
+console.log(`Test 5 - getting default capacity`);
 
 //Arrange
 airport = new Airport();
 expected = 3
 
 //Act
-console.log(airport.capacity);
-
 actual = airport.capacity
 
 //Assert
@@ -209,32 +207,31 @@ console.log(`----------------------------------`);
 
 
 
-//Test - 8 preventing 
+//Test 8 - preventing addPlane when airport is >= capacity
 
 console.log(`----------------------------------`);
-console.log(`Test - 8 Edge case testing that airport.capacity is a number`);
+console.log(`Test 8: preventing addPlane when airport is >= capacity`);
 
 //Arrange
 airport = new Airport();
 const plane1 = new Plane(1);
 const plane2 = new Plane(2);
 const plane3 = new Plane(3);
+const plane4 = new Plane(4);
 
 airport.addPlane(plane1);
 airport.addPlane(plane2);
 airport.addPlane(plane3);
+airport.addPlane(plane4);
 expected = `Airport is full`;
 
 //Act
-
-
-
-actual = airport.addPlane(plane3);
+actual = airport.addPlane(plane4);
 
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 8 - checking setCapacity: ${result}`);
+console.log(`Test 8 - preventing addPlane when airport is >= capacity: ${result}`);
 
 //Clean up
 airport = null;
@@ -267,7 +264,7 @@ expected = `Plane already landed`;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 9: Checking if plane landing fails ${result}`);
+console.log(`Test 9: Checking if plane landing fails: ${result}`);
 
 //Clean up
 airport = null;
@@ -294,7 +291,7 @@ expected = `Plane not in airport`;
 
 //Assert
 result = assertEquals(expected, actual);
-console.log(`Test 10 - checking if plane is not in airport before removing ${result}`);
+console.log(`Test 10 - checking if plane is not in airport before removing: ${result}`);
 
 //Clean up
 airport = null;

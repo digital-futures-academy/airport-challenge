@@ -6,18 +6,17 @@ class Airport {
   addPlane = plane => {
 
     if (
-      this.airportPlanes.includes(plane)
-    ) {
+      this.airportPlanes.includes(plane)) {
       return `Plane already landed`
     };
 
-    if (
-      this.airportPlanes.length >= this.capacity
-    ) {
+
+    if (this.airportPlanes.length >= this.capacity) {
       return `Airport is full`
     };
-    if (plane instanceof Plane) this.airportPlanes.push(plane);
 
+
+    if (plane instanceof Plane) this.airportPlanes.push(plane);
 
 
   };
@@ -34,9 +33,7 @@ class Airport {
   };
 
   setCapacity = newCapacity => {
-    if (
-      typeof newCapacity !== `number`
-    ) {
+    if (typeof newCapacity !== `number`) {
       return `Value not number`
     };
 
