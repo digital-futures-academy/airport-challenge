@@ -122,11 +122,13 @@ I want to prevent takeoff when weather is stormy
 | Weather |currentWeather @String         | checkWeather()                    |         |
 
 ## Tests
+Note: I wasn't sure of the best way to test a random value without having the spyOn option
 
-*Test 1* - checkWeather returns a random value (either sunny or stormy) to the currentWeather property
-*Test 2* - when PlaneTakesOff is called and the weather is stormy, the length of listOfPlanes remains the same and the plane doesn't take off
-*Test 3* - when PlaneTakesOff is called and the weather is stormy, an error message is returned
-*Test 4* - when PlaneTakesOff is called and the weather is sunny, the length of listOfPlanes decreases by 1
+*Test 1* - checkWeather returns a random value from possibleWeather (either sunny or stormy)
+*Test 2* - checkWeather assigns the returned value to the currentWeather property
+*Test 3* - when PlaneTakesOff is called and the weather is stormy, the length of listOfPlanes remains the same and the plane doesn't take off
+*Test 4* - when PlaneTakesOff is called and the weather is stormy, an error message is returned
+*Test 5* - when PlaneTakesOff is called and the weather is sunny, the length of listOfPlanes decreases by 1
 
 
 **User Story 7**
