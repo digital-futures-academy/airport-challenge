@@ -151,7 +151,7 @@ I want to prevent landing when weather is stormy
 
 *Test 1* - when planeLands is called and the weather is stormy, the length of planesAtAirport remains the same and the plane doesn't land
 *Test 2* - when planeLands is called and the weather is stormy, an error message is returned
-*Test 3* - when planeLands is called and the weather is sunny, the length of planesAtAirport decreases by 1
+*Test 3* - when planeLands is called and the weather is sunny, the length of planesAtAirport increases by 1
 
 **User Story 8**
 As an air traffic controller

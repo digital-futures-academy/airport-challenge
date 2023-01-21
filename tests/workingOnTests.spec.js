@@ -61,3 +61,28 @@ result = undefined;
 input = undefined;
 expectedOutput = undefined;
 
+// Test 7.3
+console.log(`***when planeLands is called and the weather is sunny, the length of planesAtAirport increases by 1***`);
+
+// Arrange
+currentWeather = 'sunny'
+airport1 = new Airport()
+plane1 = new Plane()
+expectedOutput = 1;
+actualOutput, result;
+
+// Act
+airport1.planeLands(plane1, currentWeather)
+actualOutput = airport1.planesAtAirport.length;
+
+// Assert
+result = assertEquals(expectedOutput, actualOutput);
+
+// Report
+console.log(`Error message returned: ${result}`);
+
+// Clean-Up
+actualOutput = undefined;
+result = undefined;
+input = undefined;
+expectedOutput = undefined;
