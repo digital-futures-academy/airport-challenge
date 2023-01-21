@@ -139,4 +139,20 @@ Same approach test as previous (test 10), did use a Boolean return.
 
 ## Test 12 - Test to check that where there are integers - a -ve value or a float cannot be accepted.
 
-defaultAirportCapacity and newLandedCapacity cannot be a decimal (float) or negative value, only a positive integer. Here I have only done the defaultAirportCapacity.
+defaultAirportCapacity cannot be a decimal (float) or negative value, only a positive integer.
+
+#### Extended Acceptance Criteria
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy //not attempted
+
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy //not attempted
+
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport //this is covered within the Airport Class, landedPlanes array.
+```

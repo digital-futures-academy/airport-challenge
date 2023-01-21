@@ -312,7 +312,7 @@ console.log(`Test 12 - 'try to set defaultAirportCapacity as a float or negative
 // Arrange - this is setting up the variables required for the test
 defaultLandedCapacity = -4; //6.5 also tried
 airport = new Airport(defaultLandedCapacity);
-expected = 0; //would ideally throw an error but not sure how to do
+expected = 0; //would ideally throw an error but not sure how to do that
 
 // Act - this is running the methods to be tested and collecting the actual results
 actual = airport.getLandedCapacity();
