@@ -4,9 +4,9 @@ const { assertEquals } = require('../test-framework.js');
 
 let airport, plane, expected, actual, result;
 
-
-//TEST 1
-console.log('TEST 1: AIRPORT LENGTH INCREASES BY 1 WHEN A NEW PLANE IS ADDED')
+console.log(`=================================`);
+//TEST 1a
+console.log('Test 1a: airPortPlanes length increases when plane lands at airport')
 
 //1. Arrange
 airport = new Airport();
@@ -20,7 +20,7 @@ actual = airport.airportPlanes.length;
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 1:Plane landed at airport: ${result}`);
+console.log(`Test 1a: airPortPlanes length increases when plane lands at airport: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -31,7 +31,7 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 2
-console.log('TEST 2: addPlane should only allow planes that are instances to land ')
+console.log('TEST 1b: addPlane should only allow planes that are instances to land ')
 
 //1. Arrange
 airport = new Airport();
@@ -41,12 +41,11 @@ expected = 0;
 //2. Act
 airport.landPlane(plane);
 actual = airport.airportPlanes.length;
-// console.log(`${actual}`)
 
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 2:Only Plane instances landed at airport: ${result}`);
+console.log(`TEST 1b: addPlane should only allow planes that are instances to land: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -57,11 +56,11 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 3
-console.log('TEST 3: Check if Airport has a default capacity ')
+console.log('TEST 2a: Airport has a default capacity ')
 
 //1. Arrange
 airport = new Airport();
-expected = 5;
+expected = 5;// this is the capacity assigned to the airport
 
 //2. Act
 actual = airport.airportCapacity;
@@ -70,7 +69,7 @@ actual = airport.airportCapacity;
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 3:Airport has a default capacity: ${result}`);
+console.log(`Test 2a: Airport has a default capacity: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -81,7 +80,7 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 4
-console.log('TEST 4: Override default capacity of airport by creating an airport with a bigger capacity')
+console.log('TEST 2b: Override default capacity of airport by creating an airport with a bigger capacity')
 //1. Arrange
 airport = new Airport(10);
 expected = 10;
@@ -92,7 +91,7 @@ actual = airport.airportCapacity;
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 4:Airport has a new capacity: ${result}`);
+console.log(`Test 2b:Airport has a new capacity: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -103,7 +102,7 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 5
-console.log('TEST 5: Return a boolean(false) when the airport capacity is exceeded')
+console.log(`Test 3a: isAirportFull() returns 'true' when airportCapacity is exceeded.`)
 //1. Arrange
 airport = new Airport();
 plane = new Plane();// a new airport is created with a capacity of 2 
@@ -116,7 +115,7 @@ actual = airport.isAirportFull();
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 5:Airport capacity has been exceeded: ${result}`);
+console.log(`Test 3a: isAirportFull() returns 'true' when airportCapacity is exceeded: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -127,7 +126,7 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 6
-console.log('TEST 6: landPlane does not add plane to airport Plane array when isAirportFull() returns true')
+console.log('TEST 3b: landPlane does not add plane to airportPlane[] when isAirportFull() returns true')
 //1. Arrange
 airport = new Airport();
 plane = new Plane();// a new airport is created with a capacity of 2 
@@ -137,11 +136,10 @@ expected = 5
 airport.airportPlanes.length = 5;
 airport.landPlane(plane);
 actual = airport.airportPlanes.length;
-console.log(`${actual}`);
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 6:Airport cannot land plane since capacity has been exceeded: ${result}`);
+console.log(`TEST 3b: landPlane does not add plane to airportPlane[] when isAirportFull() returns 'true': ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -152,7 +150,7 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 7
-console.log('TEST 7: airportPlanes length decreases by 1 when plane takes off')
+console.log('TEST 4a: airportPlanes length decreases by 1 when plane takes off')
 //1. Arrange
 airport = new Airport();
 plane = new Plane();
@@ -168,7 +166,7 @@ actual = airport.airportPlanes.length;
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 7:airportPlanes length decreases by 1 when plane takes off: ${result}`);
+console.log(`TEST 4a: airportPlanes length decreases by 1 when plane takes off: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -178,32 +176,32 @@ actual = undefined;
 expected = undefined;
 
 console.log(`=================================`);
-// //TEST 8
-// console.log('TEST 7: A string is returned to confirm removal when takeOff is called ')
-// //1. Arrange
-// airport = new Airport();
-// plane = new Plane();
-// airport.landPlane(plane)
-// expected = 'Plane has taken off from airport'
+//TEST 8
+console.log('TEST 4b: A string is returned to confirm removal when takeOff is called on instance of plane ')
+//1. Arrange
+airport = new Airport();
+plane = new Plane();
+airport.landPlane(plane)
+expected = 'This plane has taken off from the airport.'
 
-// //2. Act
-// actual = airport.takeOff(plane);
-// console.log(`actual);
+//2. Act
+actual = airport.takeOff(plane);
+console.log(`actual`);
 
-// //3. Assert
-// result = assertEquals(actual, expected);
-// console.log(`Test 7: Confirmation received when plane takes off: ${ result }`);
+//3. Assert
+result = assertEquals(actual, expected);
+console.log(`TEST 4b: A string is returned to confirm removal when takeOff is called on instance of plane: ${result}`);
 
-// //4. CleanUp
-// airport = null;
-// plane = null;
-// result = undefined;
-// actual = undefined;
-// expected = undefined;
+//4. CleanUp
+airport = null;
+plane = null;
+result = undefined;
+actual = undefined;
+expected = undefined;
 
 console.log(`=================================`);
 //TEST 9
-console.log('TEST 9: planeAtAirport returns true if plane is at airport')
+console.log('TEST 5a: planeAtAirport() returns true if plane is at airport')
 //1. Arrange
 airport = new Airport();
 plane = new Plane();
@@ -216,7 +214,7 @@ actual = airport.planeAtAirport(plane);
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 9:planeAtAirport returns true if plane is at airport: ${result}`);
+console.log(`Test 5a:planeAtAirport() returns true if plane is at airport: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -227,7 +225,7 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 10
-console.log('TEST 10: The length of airportPlane does not change when landPlane is called on a plane that is already at the airport')
+console.log('TEST 5b: The length of airportPlane does not change when landPlane is called on a plane that is already at the airport')
 //1. Arrange
 airport = new Airport();
 plane = new Plane('Lufthansa');
@@ -243,7 +241,7 @@ actual = airport.airportPlanes.length;
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 10:The length of airportPlane does not change when landPlane is called on a plane that is already at the airport: ${result}`);
+console.log(`Test 5b:The length of airportPlane does not change when landPlane is called on a plane that is already at the airport: ${result}`);
 
 //4. CleanUp
 airport = null;
@@ -255,7 +253,7 @@ expected = undefined;
 
 console.log(`=================================`);
 //TEST 11
-console.log('TEST 11: The length of airportPlane does not change takeOff is called on a plane that is not in the airport')
+console.log('TEST 5c: The length of airportPlane does not change takeOff is called on a plane that is not in the airport')
 //1. Arrange
 airport = new Airport();
 plane = new Plane();
@@ -274,7 +272,7 @@ actual = airport.airportPlanes.length;
 
 //3. Assert
 result = assertEquals(actual, expected);
-console.log(`Test 11:The length of airportPlane does not change takeOff is called on a plane that is not in the airport: ${result}`);
+console.log(`Test 5c:The length of airportPlane does not change takeOff is called on a plane that is not in the airport: ${result}`);
 
 //4. CleanUp
 airport = null;

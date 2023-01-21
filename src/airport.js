@@ -29,12 +29,12 @@ class Airport {
 
     const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlanes => airportPlanes.id === plane.id);
 
-    if ((indexOfPlaneInAirportPlanes > -1)) {
-      return this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
-      return 'This plane has taken off.'
+    if ((indexOfPlaneInAirportPlanes > -1 && this.planeAtAirport(plane))) {
+      this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
+      return 'This plane has taken off from the airport'
     }
 
-    else (this.planeAtAirport(plane) == false); console.log('Plane not found at airport')
+    else console.log('Plane not found at airport.')
 
   }
 

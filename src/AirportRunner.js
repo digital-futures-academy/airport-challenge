@@ -24,8 +24,8 @@ console.log(airport1.airportPlanes.length);
 airport1.takeOff(plane1);
 console.log(airport1.airportPlanes.length);
 
-// airport1.takeOff(plane2);
-// console.log(airport1.airportPlanes.length);
+airport1.takeOff(plane1);
+console.log(airport1.airportPlanes.length);
 
 // // airport1.landPlane(plane1);
 // // console.log(airport1.airportPlanes.length);
