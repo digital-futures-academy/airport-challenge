@@ -40,7 +40,7 @@ console.log(`Test 2 - 'landPlane' only land 'Plane' instances to the 'airportMan
 
 // Arrange
 airport = new Airport();
-plane = `something`;
+plane = 'something';
 expected = 0;
 
 // Act
@@ -59,3 +59,28 @@ actual = undefined;
 result = undefined;
 
 console.log(`============================`);
+
+// Test 3 - falsy values should not be added to Airport
+
+console.log(`============================`);
+console.log(`Test 3 - null values should not be added to Airport`);
+
+// Arrange
+airport = new Airport();
+plane = null;
+expected = 0;
+
+// Act
+airport.landPlane(plane);
+actual = airport.airportPlanes.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 3: null values should not be added to Airport: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;
