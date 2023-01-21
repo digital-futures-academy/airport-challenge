@@ -83,17 +83,17 @@ Objects  | Properties                   | Methods(messages)           | Outputs
 ---------|------------------------------|-----------------------------|--------- 
 Plane    | id @String                   | getId()                     | @String
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
-x        | x                            | takeoffPlane(@Plane)        | @Void
+x        | x                            | takeOffPlane(@Plane)        | @Void
 x        | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
 1. Need to identify Plane IDs in the airportPlanes array
-2. Need to remove specified ID(s) from the array (takeoffPlane(@Plane))
+2. Need to remove specified ID(s) from the array (takeOffPlane(@Plane))
 3. Need to confirm that the Plane has left the airport
 
 Tests
-7. takeoffPlane removes Plane from airportPlanes list.
+7. takeOffPlane removes Plane from airportPlanes list.
 
 ---------
 
@@ -108,13 +108,13 @@ Objects  | Properties                   | Methods(messages)           | Outputs
 Plane    | id @String                   | getId()                     | @String
 x        | x                            | atAirport()                 | @Boolean
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)           | @Void
-x        | x                            | takeoffPlane(@Plane)        | @Void
+x        | x                            | takeOffPlane(@Plane)        | @Void
 x        | airportCapacity @Integer     | increaseCapacityTo(@Integer)| @Void
 
 
 Thoughts:
 1. Check airportPlanes array for Plane ID
-2. If PlaneID does not exist in the airportPlanes array when takeoffPlane(@Plane) is called, do nothing
+2. If PlaneID does not exist in the airportPlanes array when takeOffPlane(@Plane) is called, do nothing
 3. If PlaneID exists in the airportPlanes array when landPlane(@Plane) is called, do nothing
 
 Tests
@@ -129,7 +129,7 @@ User Story A
 
 As an air traffic controller
 To ensure safety
-I want to prevent takeoff when weather is stormy
+I want to prevent takeOff when weather is stormy
 
 Objects  | Properties                  |  Methods(messages)     | Outputs 
 ---------|-----------------------------|------------------------|----------
@@ -138,9 +138,9 @@ Weather  | x                           |  isSunny()             | @Boolean
 Thoughts:
 
 1. Weather object needed (random number generator for weather outcomes?)
-2. Need to restrict plane activity (i.e. do nothing) if takeoffPlane is called when weather is stormy.
+2. Need to restrict plane activity (i.e. do nothing) if takeOffPlane is called when weather is stormy.
 
-Test 1a - Do nothing (return) if isSunny() === false when takeoffPlane is called.
+Test 1a - Do nothing (return) if isSunny() === false when takeOffPlane is called.
 
 User Story B
 
@@ -170,7 +170,7 @@ Weather  | x                            | isSunny()                    | @Boolea
 Plane    | id @String                   | getId()                      | @String
 x        | x                            | atAirport()                  | @Boolean
 Airport  | airportPlanes @Array[@Plane] | landPlane(@Plane)            | @Void
-x        | x                            | takeoffPlane(@Plane)         | @Void
+x        | x                            | takeOffPlane(@Plane)         | @Void
 x        | airportCapacity @Integer     | increaseCapacityTo(@Integer) | @Void
 
 
@@ -260,7 +260,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 As an air traffic controller
 To ensure safety
-I want to prevent takeoff when weather is stormy
+I want to prevent takeOff when weather is stormy
 
 As an air traffic controller
 To ensure safety

@@ -6,20 +6,20 @@ class Airport {
   }
   airportPlanes = [];
 
-  //I feel like there's a more elegant way to use the if return statements so that they're not repeated in landPlane and takeoffPlane?
+  //I feel like there's a more elegant way to use the if return statements so that they're not repeated in landPlane and takeOffPlane?
   landPlane = plane => {
     if (this.airportPlanes.includes(plane)) return;
     if (plane instanceof Plane && this.airportPlanes.length < this.airportCapacity) this.airportPlanes.push(plane);
   };
 
-  takeoffPlane = plane => {
+  takeOffPlane = plane => {
     if (!this.airportPlanes.includes(plane)) return;
     const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(airportPlane => airportPlane.id === plane.id);
     if (indexOfPlaneInAirportPlanes > -1) {
       this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
     }
-  }
 
+  }
 }
 
 module.exports = Airport;

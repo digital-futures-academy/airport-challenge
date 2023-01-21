@@ -172,9 +172,9 @@ result = null;
 
 console.log(`========================================`);
 
-// Test 7 - takeoffPlane from Airport.
+// Test 7 - takeOffPlane from Airport.
 console.log(`========================================`);
-console.log('Test 7 - takeoffPlane from Airport.')
+console.log('Test 7 - takeOffPlane from Airport.')
 
 // Arrange
 airport = new Airport();
@@ -183,7 +183,7 @@ airport.landPlane(plane);
 expected = airport.airportPlanes.length - 1;
 
 //Act
-airport.takeoffPlane(plane);
+airport.takeOffPlane(plane);
 actual = airport.airportPlanes.length;
 
 //Assert
@@ -199,7 +199,7 @@ result = null;
 
 console.log(`========================================`);
 
-// Test 8 - If PlaneId does not exist in the airportPlanes array when takeoffPlane is called, do nothing.
+// Test 8 - If PlaneId does not exist in the airportPlanes array when takeOffPlane is called, do nothing.
 console.log(`========================================`);
 console.log('Test 8 - Planes which are not at the airport cannot take off')
 
@@ -210,7 +210,7 @@ airport.landPlane(plane);
 expected = 1;
 
 //Act
-airport.takeoffPlane('Ghost Plane');
+airport.takeOffPlane(new Plane('Ghost Plane'));
 actual = airport.airportPlanes.length;
 
 //Assert
@@ -226,7 +226,7 @@ result = null;
 
 console.log(`========================================`);
 
-// Test 8 - If PlaneId exists in the airportPlanes array when landPlane is called, do nothing.
+// Test 9 - If PlaneId exists in the airportPlanes array when landPlane is called, do nothing.
 console.log(`========================================`);
 console.log('Test 9 - Planes which are already at the airport cannot land')
 
