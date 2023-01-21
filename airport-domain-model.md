@@ -1,3 +1,5 @@
+#### User Story 1
+
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
@@ -5,8 +7,6 @@ I want to instruct the airport to land a plane
 1. There is an airport noun(object).
 2. There is a plane noun(object).
 3. I am wanting to land(add) a plane at an airport.
-
-
 
 | Objects | Properties                   | Messages          | Outputs |
 | ------- | -------------------------    | ----------------- | ------- |
@@ -26,6 +26,7 @@ I want to instruct the airport to land a plane
 
 **Test 3** - Edge Case - falsy values should not be added to Airport
 
+#### User Story 2
 
 As the system designer
 So that the software can be used for many different airports
@@ -41,6 +42,31 @@ I would like a default airport capacity that can be overridden as appropriate
 |         | airportCapacity @Integer              | setAirportCapacity() | @Void   |
 |         |                                       |                      |         |
 | Plane   | id @String                            | getId()              | @String |
+
+### Tests
+
+**Test 4** - `airportCapacity` property of Airport class has an integer value of 10.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 As an air traffic controller
 To ensure safety

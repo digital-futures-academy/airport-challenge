@@ -84,3 +84,29 @@ plane = null;
 expected - undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`============================`);
+
+// Test 4 - airportCapacity property of Airport class has an integer value of 10.
+
+console.log(`============================`);
+console.log(`Test 4 - airportCapacity property exists and has an assigned integer value of 10`);
+
+// Arrange
+airport = new Airport();
+airportCapacity = Airport.airportCapacity;
+expected = 10;
+
+// Act
+actual = airport.airportCapacity;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 4: airportCapacity has a capacity value of 10: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;
