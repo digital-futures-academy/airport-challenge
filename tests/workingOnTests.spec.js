@@ -36,28 +36,28 @@ result = undefined;
 input = undefined;
 expectedOutput = undefined;
 
-// Test 7.1
-console.log(`***when planeLands is called and the weather is stormy, the length of planesAtAirport remains the same and the plane doesn't land***`);
+// Test 7.2
+console.log(`***when planeLands is called and the weather is stormy, an error message is returned***`);
 
 // Arrange
 currentWeather = 'stormy'
 airport1 = new Airport()
 plane1 = new Plane()
-expectedOutput = 0;
+expectedOutput = 'Unable to land';
 actualOutput, result;
 
 // Act
-airport1.planeLands(plane1, currentWeather)
-actualOutput = airport1.planesAtAirport.length;
+actualOutput = airport1.planeLands(plane1, currentWeather);
 
 // Assert
 result = assertEquals(expectedOutput, actualOutput);
 
 // Report
-console.log(`Plane didn't land: ${result}`);
+console.log(`Error message returned: ${result}`);
 
 // Clean-Up
 actualOutput = undefined;
 result = undefined;
 input = undefined;
 expectedOutput = undefined;
+
