@@ -108,7 +108,6 @@ console.log(`============================`);
 console.log(`Test 5 - 'newlandedCapacity' will change the landedCapacity from the default`);
 
 // Arrange - this is setting up the variables required for the test
-
 defaultLandedCapacity = 200;
 airport = new Airport(defaultLandedCapacity);
 
@@ -253,16 +252,12 @@ console.log(`Test 10 - try to landPlane Plane(id) that is already in landedPlane
 // Arrange - this is setting up the variables required for the test
 airport = new Airport(3); //set capacity higher than planes going in, so the capacity is not what blocks a re-landing plane
 plane1 = new Plane('Delta');
-plane2 = new Plane('BA');
-expected = false;
+expected = 1;
 
 // Act - this is running the methods to be tested and collecting the actual results
 airport.landPlane(plane1);
-airport.landPlane(plane2);
-//console.log(airport.isPlanePresent(plane2));
-airport.landPlane(plane2);//these two planes should now be landed at the airport
-//console.log(airport.getLandedPlaneCount());
-actual = airport.landPlane(plane2); //Boolean added to this function in the class
+airport.landPlane(plane1);
+actual = airport.getLandedPlaneCount(); //Boolean added to this function in the class, yes but in the end used getLandedPlaneCount!
 
 //Assert - testing the actual results against expected results
 result = assertEquals(expected, actual);
@@ -309,3 +304,28 @@ result = undefined;
 
 console.log(`============================`);
 
+//Test 12 - test to check that only a positive integer is accepted for capacity values
+
+console.log(`============================`);
+console.log(`Test 12 - 'try to set defaultAirportCapacity as a float or negative'`);
+
+// Arrange - this is setting up the variables required for the test
+defaultLandedCapacity = -4; //6.5 also tried
+airport = new Airport(defaultLandedCapacity);
+expected = 0; //would ideally throw an error but not sure how to do
+
+// Act - this is running the methods to be tested and collecting the actual results
+actual = airport.getLandedCapacity();
+
+//Assert - testing the actual results against expected results
+result = assertEquals(expected, actual);
+console.log(`Test 12 - 'float and negative cannot be accepted as defaultAirportCapacity': ${result}`);
+
+// // Clean up - here we are clearing the variables ready for next test, to avoid contamination
+airport = null;
+plane = null;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);

@@ -62,9 +62,9 @@ I want to prevent landing when the airport is full
 ## Part 3 Domain Model (not added to) - already fine from above??
 
 | Objects | Properties                  | Messages                    | Outputs  |
-| ------- | --------------------------- | --------------------------- | -------- |
+| ------- | --------------------------- | --------------------------- | -------- | ----------- |
 | Airport | landedPlanes @Array[@Plane] | landPlane(@Plane)           | @Void    |
-|         | landedCapacity @Integer     | isAirportFull()             | @Boolean |
+|         | landedCapacity @Integer     | isAirportFull()             | @Boolean | did not use |
 |         |                             | getLandedCapacity()         | @Integer |
 |         |                             | newLandedCapacity(@Integer) | @Void    |
 |         |                             | getLandedPlaneCount()       | @Integer |
@@ -76,8 +76,8 @@ a Need to check if is AirportFull True prevents Plane going into 'landedPlanes'
 b Need to check if is AirportFull False allows Plane to go into 'landedPlanes'
 //this approach requires the caller to ask if airport is full first (then do something), whereas would be better to have prevention of landPlane if full
 
-**Test 5**: xxxxxxxxxx
-**Test 6**: xxxxxxxxxx
+**Test 5**: set new Landed Capacity
+**Test 6**: when landedPlanes length equals landedCapacity, do not allow landPlane
 
 ## Part 4 User Story
 
@@ -126,15 +126,17 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 9. try to take off a plane(id) which is not in the airport (landedPlanes)
 10. try land a second instance of a plane(id) that is already in landedPlanes
-    (need to add a Boolean return to landPlane function?)
+    (need to add a Boolean return to landPlane function?, no)
 
 ## Testing Edge Cases
 
 Have already shown it is not possible to land something that is not a plane - a string and a value, in test 3.
-Also have shown that a plane that is already landed can not land a second time, in test 10.
+Have also shown that a plane that is already landed can not land a second time, in test 10.
 
 ## Test 11 - Test to check that a plane that has taken off cannot take off again.
 
 Same approach test as previous (test 10).
 
 ## Test 12 - Test to check that where there are integers - a -ve value or a float cannot be accepted.
+
+defaultAirportCapacity and newLandedCapacity cannot be a decimal (float) or negative value, only a positive integer. Here I have only done the deafultAirportCapacity
