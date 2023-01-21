@@ -1,6 +1,6 @@
 class Airplane {
     id;
-    currentAirport;
+    
 
     constructor(id) {
         this.id = id;
