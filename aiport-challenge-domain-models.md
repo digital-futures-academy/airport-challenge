@@ -108,30 +108,33 @@ Planes that have landed must be at an airport
 
 ## Extended Acceptance Criteria - Domain Modelling
 
-| Objects | Properties                     | Messages              | Outputs  |
-| ------- | ------------------------------ | --------------------- | -------- |
-| Airport | stormyWeather @Boolean         | getWeather()          | @Boolean |
-|         | planesAtAirport @Array[@Plane] | updateWeather()       | @Void    |
-|         |                                | checkForPlane(@Plane) | @Boolean |
-| Plane   | flying @Boolean                | checkFlying()         | @Boolean |
+| Objects | Properties                     | Messages                    | Outputs  |
+| ------- | ------------------------------ | --------------------------- | -------- |
+| Airport | planesAtAirport @Array[@Plane] | checkWeatherStormy(@Weather)| @Boolean |
+|         | weather @Weather               | updateWeather(@Weather)     | @Void    |
+|         |                                | checkForPlane(@Plane)       | @Boolean |
+|         |                                | addPlaneToAirport(@Plane)   | @Void    |
+| Plane   | flying @Boolean                | checkFlying()               | @Boolean |
+| Weather | stormy @Boolean                | checkStormy()               | @Boolean |
+|         |                                | generateWeather()           | @Boolean |
 
 ## Extended Acceptance Criteria - Testing
 
 ### Test 13
 **Testing that an Airport prevents takeoff with stormy weather.**\
-An instance of the class `Airport` runs the message `getWeather`, if it returns `True` then `takeOffPlane(@Plane)` will not run.
+An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `True` then `takeOffPlane(@Plane)` will not run.
 
 ### Test 14
 **Testing that an Airport allows takeoff with stormy weather.**\
-An instance of the class `Airport` runs the message `getWeather`, if it returns `False` then `takeOffPlane(@Plane)` will run.
+An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `False` then `takeOffPlane(@Plane)` will run.
 
 ### Test 15
 **Testing that an Airport prevents landing with stormy weather.**\
-An instance of the class `Airport` runs the message `getWeather`, if it returns `True` then `landPlane(@Plane)` will not run.
+An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `True` then `landPlane(@Plane)` will not run.
 
 ### Test 16
 **Testing that an Airport allows landing with stormy weather.**\
-An instance of the class `Airport` runs the message `getWeather`, if it returns `False` then `landPlane(@Plane)` will run.
+An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `False` then `landPlane(@Plane)` will run.
 
 ### Test 17
 **Testing that landed Planes are at an Airport.**\
