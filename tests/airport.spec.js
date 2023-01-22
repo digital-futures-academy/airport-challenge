@@ -448,7 +448,7 @@ actual = firstAirport.checkForPlane(myPlane);
 console.log(`actual:${actual}`);
 console.log(`expected:${expected}`);
 result = assertEquals(actual, expected);
-console.log(`Test 16: ${result ? `Passed` : `Failed`}`);
+console.log(`Test 17: ${result ? `Passed` : `Failed`}`);
 console.log(`--------------------------------`);
 
 // Clean
