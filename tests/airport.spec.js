@@ -1,6 +1,7 @@
 const Airport = require(`../src/Airport`);
 const { assertEquals } = require(`../testing-framework.js`);
 const Plane = require(`../src/Plane`);
+const Weather = require(`../src/Weather`);
 
 console.log(`airport spec - testing for Airport Class`);
 console.log(`--------------------------------`);
@@ -228,7 +229,8 @@ myPlane = undefined;
 console.log(`Test 10 - Testing that an Airport can take off a Plane and check it's status.`);
 
 // Arrange
-firstAirport = new Airport();
+firstAirportWeather = new Weather();
+firstAirport = new Airport(firstAirportWeather);
 myPlane = new Plane();
 firstAirport.addPlaneToAirport(myPlane);
 expected = true;
@@ -247,6 +249,7 @@ console.log(`--------------------------------`);
 // Clean
 firstAirport = undefined;
 myPlane = undefined;
+firstAirportWeather = undefined;
 
 // Test 11
 console.log(`Test 11 - Testing that an Airport can't take off a Plane and that is already flying.`);
@@ -325,15 +328,22 @@ console.log(`--------------------------------`);
 console.log(`Test 13 - Testing that an Airport prevents takeoff with stormy weather.`);
 
 // Arrange
+myPlane = new Plane();
+firstAirportWeather = new Weather();
+firstAirportWeather.stormy = true;
+firstAirport = new Airport(firstAirportWeather);
+expected = false;
+input = firstAirport.takeOffPlane(myPlane)
 
 // Act
+actual = firstAirport.checkPlaneFlying(myPlane);
 
 // Assert
-// console.log(`actual:${actual}`);
-// console.log(`expected:${expected}`);
-// result = assertEquals(actual, expected);
-// console.log(`Test 13: ${result ? `Passed` : `Failed`}`);
-// console.log(`--------------------------------`);
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 13: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
 
 // Clean
 firstAirport = undefined;

@@ -2,8 +2,10 @@ class Airport {
 
   airportCapacity;
   planesAtAirport = [];
-  constructor(airportCapacity = 5) {
+  weather;
+  constructor(weather, airportCapacity = 5) {
     this.airportCapacity = airportCapacity;
+    this.weather = weather;
   }
 
 
@@ -53,7 +55,7 @@ class Airport {
   }
 
   takeOffPlane(plane) {
-    if (this.checkPlaneValid(plane) === undefined && this.checkPlaneFlying(plane) === false && this.checkForPlane(plane) === true) {
+    if (this.checkPlaneValid(plane) === undefined && this.checkPlaneFlying(plane) === false && this.checkForPlane(plane) === true && this.checkWeather() === false) {
       plane.takeOff();
     } else {
       return `This plane cannot take off`;
@@ -70,6 +72,10 @@ class Airport {
     } else {
       return false;
     }
+  }
+
+  checkWeather() {
+    return this.weather.checkStormy();
   }
 }
 
