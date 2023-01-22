@@ -11,17 +11,18 @@ class Airport {
         if (this.airportPlanes.length >= this.maximumCapacity) {
             return this.airportPlanes.length;
         }
-
-        else if (plane instanceof Plane) {
+        else if (plane instanceof Plane && !this.planeAtAirport(plane)) {
             this.airportPlanes.push(plane);
         };
 
     };
 
     takeoffPlane = plane => {
-        if (this.airportPlanes.findIndex(planeManifest => planeManifest.id === plane.id) > -1) {
-            this.airportPlanes.splice(planeManifest => planeManifest.id === plane.id, 1);
-        }
+        const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(planeManifest => planeManifest.id === plane.id);
+
+        if (indexOfPlaneInAirportPlanes > -1) {
+            this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
+        };
     };
 
     setCapacity = (input) => {
@@ -35,6 +36,7 @@ class Airport {
         else {
             return false;
         }
+
     };
 
 };

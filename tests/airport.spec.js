@@ -7,6 +7,11 @@ let actual;
 let result;
 let airport;
 let plane;
+let plane2;
+let plane3;
+let plane4;
+let plane5;
+let plane6;
 
 // Test 1 - 'airportPlanes' length increases by 1 when 'landPlane' is called on an airport with Plane
 console.log(`============================`);
@@ -149,13 +154,22 @@ console.log(`Test 6 - Check that you can't add planes beyond set airport capacit
 // Arrange
 airport = new Airport();
 plane = new Plane();
+plane2 = new Plane();
+plane3 = new Plane();
+plane4 = new Plane();
+plane5 = new Plane();
+plane6 = new Plane();
 expected = 5;
 
 // Act
 airport.setCapacity(5);
-for (let i = 0; i < 6; i++) {
-    airport.landPlane(plane);
-}
+airport.landPlane(plane)
+airport.landPlane(plane2)
+airport.landPlane(plane3)
+airport.landPlane(plane4)
+airport.landPlane(plane5)
+airport.landPlane(plane6)
+
 actual = airport.airportPlanes.length;
 
 // Assert
@@ -229,3 +243,29 @@ result = undefined;
 
 console.log(`============================`);
 
+//Test 9- `landPlane` method does not execute when `checkPlaneId` method is true
+
+console.log(`============================`);
+console.log(`Test 9 - landPlane method does not execute when checkPlaneId method is true`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`plane`);
+airport.landPlane(plane);
+airport.landPlane(plane);
+expected = 1;
+
+// Act
+actual = airport.airportPlanes.length;
+
+// Assert
+
+result = assertEquals(expected, actual);
+console.log(`Test 9 - landPlane method does not execute when checkPlaneId method is true: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;

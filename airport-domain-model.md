@@ -97,4 +97,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 ### Tests
 
-**Test 8** - Check a given plane.id against airport array.
+**Test 8** - return true value if plane is within the airport
+
+**Test 9** - `landPlane` method does not execute when `checkPlaneId` method is true
