@@ -1,1 +1,1 @@
-const Airport = require(`../test/testing-framework`);
+require(`./test/airport.spec`);
