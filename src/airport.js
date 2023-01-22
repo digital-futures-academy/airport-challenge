@@ -10,7 +10,7 @@ class Airport {
 
 
   landPlane(plane) {
-    if (this.checkPlaneValid(plane) === undefined && this.checkPlaneFlying(plane) === true && this.checkCapacity() === false) {
+    if (this.checkPlaneValid(plane) === undefined && this.checkPlaneFlying(plane) === true && this.checkCapacity() === false && this.checkWeather() === false) {
       plane.land();
     } else {
       return `This plane cannot be landed`;

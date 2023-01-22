@@ -9,7 +9,8 @@ console.log(`--------------------------------`);
 console.log(`Test 1 - Testing that an Airport can land a Plane.`);
 
 // Arrange
-firstAirport = new Airport();
+firstAirportWeather = new Weather();
+firstAirport = new Airport(firstAirportWeather);
 myPlane = new Plane(true);
 expected = false;
 input = firstAirport.landPlane(myPlane);
@@ -27,6 +28,7 @@ console.log(`--------------------------------`);
 // Clean
 firstAirport = undefined;
 myPlane = undefined;
+firstAirportWeather = undefined;
 
 // Test 2
 console.log(`Test 2 - Testing that an Airport will not land something that is not an object.`);
@@ -371,6 +373,33 @@ console.log(`actual:${actual}`);
 console.log(`expected:${expected}`);
 result = assertEquals(actual, expected);
 console.log(`Test 14: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+firstAirportWeather = undefined;
+
+// Test 15
+console.log(`Test 15 - Testing that an Airport prevents landing with stormy weather.`);
+
+// Arrange
+myPlane = new Plane(true);
+firstAirportWeather = new Weather();
+firstAirportWeather.stormy = true;
+firstAirport = new Airport(firstAirportWeather);
+firstAirport.addPlaneToAirport(myPlane);
+expected = true;
+input = firstAirport.landPlane(myPlane)
+
+// Act
+actual = firstAirport.checkPlaneFlying(myPlane);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 15: ${result ? `Passed` : `Failed`}`);
 console.log(`--------------------------------`);
 
 // Clean
