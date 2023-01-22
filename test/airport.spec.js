@@ -252,7 +252,7 @@ Weather.weatherStatus = `stormy`;
 expected = false;
 
 // Act
-actual = airport.planesOnGround(plane);
+actual = airport.landPlane(plane);
 
 // Assert
 result = assertEquals(expected, actual);
