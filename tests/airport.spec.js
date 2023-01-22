@@ -153,7 +153,7 @@ expected = 5;
 
 // Act
 airport.setCapacity(5);
-for (let i = 0; i <= airport.maximumCapacity; i++) {
+for (let i = 0; i < 6; i++) {
     airport.landPlane(plane);
 }
 actual = airport.airportPlanes.length;
@@ -171,7 +171,7 @@ result = undefined;
 
 console.log(`============================`);
 
-// Test 8 - `airportPlanes` length decreases to 0 when plane is found and removed from 1 airport
+// Test 7 - `airportPlanes` length decreases to 0 when plane is found and removed from 1 airport
 
 console.log(`============================`);
 console.log(`Test 7 - airportPlanes length decreases to 0 when plane is found and removed from 1 airport`);
@@ -190,6 +190,35 @@ actual = airport.airportPlanes.length;
 
 result = assertEquals(expected, actual);
 console.log(`Test 7 - airportPlanes length decreases to 0 when plane is found and removed from 1 airport: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+//Test 8 - return true value if plane is within the airport.
+
+console.log(`============================`);
+console.log(`Test 8 - return true value if plane is within the airport`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`plane1`);
+airport.landPlane(plane);
+expected = true;
+
+// Act
+airport.landPlane(plane);
+actual = airport.planeAtAirport(plane);
+
+// Assert
+
+result = assertEquals(expected, actual);
+console.log(`Test 8 - return true value if plane is within the airport: ${result}`);
 
 // Clean up
 airport = null;

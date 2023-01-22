@@ -70,6 +70,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | ------- | -------------------------    | -----------------     | ------- |
 | Airport | airportPlanes @Array[@Plane] | landPlane(@Plane)     | @Void   |
 |         |                              | planeTakeOff(@Plane)  | @Void   |
+|         |                              |                       |         |
 | Plane   | id @String                   | getId()               | @String |
 
 ### Tests
@@ -81,3 +82,19 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+1. Check if identifiable plane is already within airport array.
+2. If identifiable plane is not within airport array do not run `planeTakeOff` method
+3. If identifiable plane is within airport array do not run `landPlane` method
+
+| Objects | Properties                   | Messages              | Outputs |
+| ------- | -------------------------    | -----------------     | ------- |
+| Airport | airportPlanes @Array[@Plane] | landPlane(@Plane)     | @Void   |
+|         |                              | planeTakeOff(@Plane)  | @Void   |
+|         |                              | checkPlaneId(@Plane)  | @boolean|
+|         |                              |                       |         |
+| Plane   | id @String                   | getId()               | @String |
+
+### Tests
+
+**Test 8** - Check a given plane.id against airport array.

@@ -11,6 +11,7 @@ class Airport {
         if (this.airportPlanes.length >= this.maximumCapacity) {
             return this.airportPlanes.length;
         }
+
         else if (plane instanceof Plane) {
             this.airportPlanes.push(plane);
         };
@@ -21,11 +22,19 @@ class Airport {
         if (this.airportPlanes.findIndex(planeManifest => planeManifest.id === plane.id) > -1) {
             this.airportPlanes.splice(planeManifest => planeManifest.id === plane.id, 1);
         }
-
     };
 
     setCapacity = (input) => {
         this.maximumCapacity = input;
+    };
+
+    planeAtAirport = plane => {
+        if (this.airportPlanes.includes(plane)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
 
 };
