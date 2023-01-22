@@ -157,8 +157,9 @@ console.log(`--------------------------------`);
 firstAirport = undefined;
 myPlane = undefined;
 
-// Test 8
-console.log(`Test 8 - Testing that an Airport capacity can't be changed with something that is not a valid Integer.`);
+// Test 8a
+console.log(`Test 8a - Testing that an Airport capacity can't be changed with something that is not a valid Integer.`);
+console.log(`data type: String`)
 
 // Arrange
 firstAirport = new Airport();
@@ -171,7 +172,29 @@ actual = firstAirport.changeCapacity(`ten`);
 console.log(`actual:${actual}`);
 console.log(`expected:${expected}`);
 result = assertEquals(actual, expected);
-console.log(`Test 8: ${result ? `Passed` : `Failed`}`);
+console.log(`Test 8a: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+
+// Test 8b
+console.log(`Test 8b - Testing that an Airport capacity can't be changed with something that is not a valid Integer.`);
+console.log(`data type: undefined`)
+
+// Arrange
+firstAirport = new Airport();
+expected = `invalid capacity entered`;
+
+// Act
+actual = firstAirport.changeCapacity(undefined);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 8b: ${result ? `Passed` : `Failed`}`);
 console.log(`--------------------------------`);
 
 // Clean
