@@ -102,7 +102,7 @@ console.log(`Test 4 - isFull method is called and have to be true when airport i
 // Arrange
 airport = new Airport();
 for (let i = 0; i < airport.capacity; i++) {
-    airport.planesOnGround(new Plane());
+    airport.landPlane(new Plane());
 }
 airport.isFull = true;
 expected = true;
@@ -132,8 +132,8 @@ console.log(`Test 5 - arrivedPlanes decreases by 1 when a plane is identified an
 // Arrange
 airport = new Airport();
 plane = new Plane();
-airport.planesOnGround(plane);
-expected = airport.planesOnGround.length - 1;
+airport.landPlane(plane);
+expected = airport.landPlane.length - 1;
 
 // Act
 airport.flyPlane(plane);
@@ -161,11 +161,11 @@ console.log(`Test 6 - plane cannot be landing if it is in the airport already`);
 // Arrange
 airport = new Airport();
 plane = new Plane();
-airport.planesOnGround(plane);
+airport.landPlane(plane);
 expected = false;
 
 // Act
-actual = airport.planesOnGround(plane);
+actual = airport.landPlane(plane);
 
 // Assert
 result = assertEquals(expected, actual);
@@ -207,11 +207,11 @@ airport, plane = null;
 
 
 /* Test 8
-Plane cannot take off if weather = stormy
+Plane cannot lading if weather = stormy
 
 */
 console.log(`============================================`) 
-console.log(`Test 8 - plane cannot take off if weather = stormy`);
+console.log(`Test 8 - plane cannot land if weather = stormy`);
 
 // Arrange
 airport = new Airport();
@@ -225,7 +225,7 @@ actual = airport.flyPlane(plane, weather);
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 8: If the weather is stormy, planes cannot take off: ${result}`);
+console.log(`Test 8: If the weather is stormy, planes cannot land: ${result}`);
 
 // Clean up 
 expected, actual, result = undefined;

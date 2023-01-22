@@ -8,6 +8,7 @@ class Airport {
   constructor(capacity = 5) {
     this.capacity = capacity;
     this.arrivedPlanes = [];
+    this.weather = new Weather; 
     
   }
 
