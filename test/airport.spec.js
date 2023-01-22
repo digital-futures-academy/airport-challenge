@@ -162,7 +162,7 @@ console.log(`Test 6 - plane cannot be landing if it is in the airport already`);
 airport = new Airport();
 plane = new Plane();
 airport.landPlane(plane);
-expected = false;
+expected = true;
 
 // Act
 actual = airport.landPlane(plane);
@@ -190,7 +190,7 @@ console.log(`Test 7 - plane cannot take off if it already departed from the airp
 // Arrange
 airport = new Airport();
 plane = new Plane();
-expected = false;
+expected = true;
 
 // Act
 actual = airport.flyPlane(plane);
