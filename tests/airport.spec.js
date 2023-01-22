@@ -87,7 +87,7 @@ result = undefined;
 
 console.log(`============================`);
 
-// Test 4 - Set default maximum airport capacity size to 10
+// Test 4 - Set default defined maximum airport capacity size to 10
 
 console.log(`============================`);
 console.log(`Test 4 - airport capacity set to 10`);
@@ -113,7 +113,7 @@ result = undefined;
 
 console.log(`============================`);
 
-// Test 5 - Change maximum airport capacity to 5
+// Test 5 - Change defined maximum airport capacity to 5
 
 console.log(`============================`);
 console.log(`Test 5 - Change maximum airport capacity to 5`);
@@ -138,4 +138,37 @@ plane = null;
 expected - undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`============================`);
+
+// Test 6 - Check that you can't add planes beyond set airport capacity
+
+console.log(`============================`);
+console.log(`Test 6 - Check that you can't add planes beyond set airport capacity`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane();
+expected = 5;
+
+// Act
+airport.setCapacity(5);
+for (let i = 0; i <= airport.maximumCapacity; i++) {
+    airport.landPlane(plane);
+}
+console.log(airport.airportPlanes.length);
+actual = airport.airportPlanes.length;
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 6 - Check that you can't add planes beyond set airport capacity: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
 

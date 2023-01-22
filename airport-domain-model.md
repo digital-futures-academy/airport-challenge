@@ -44,9 +44,11 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ### Tests
 
-**Test 4** - Set maximum airport capacity to 10
+**Test 4** - Set a defined maximum airport capacity to 10
 
-**Test 5** - Change maximum airport capacity to 5
+**Test 5** - Change a defined maximum airport capacity to 5
+
+**Test 6** - Check that adding beyond airport capacity returns error
 
 
 
