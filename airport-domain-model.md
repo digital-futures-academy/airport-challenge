@@ -44,7 +44,9 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ### Tests
 
-**Test 4** - Set maximum airport array size to 50
+**Test 4** - Set maximum airport capacity to 10
+
+**Test 5** - Change maximum airport capacity to 5
 
 
 

@@ -87,7 +87,7 @@ result = undefined;
 
 console.log(`============================`);
 
-// Test 4 - Set maximum airport array size to 10
+// Test 4 - Set default maximum airport capacity size to 10
 
 console.log(`============================`);
 console.log(`Test 4 - airport capacity set to 10`);
@@ -97,7 +97,6 @@ airport = new Airport();
 expected = 10;
 
 // Act
-airport.setCapacity();
 actual = airport.maximumCapacity;
 
 
@@ -113,3 +112,30 @@ actual = undefined;
 result = undefined;
 
 console.log(`============================`);
+
+// Test 5 - Change maximum airport capacity to 5
+
+console.log(`============================`);
+console.log(`Test 5 - Change maximum airport capacity to 5`);
+
+// Arrange
+airport = new Airport();
+expected = 5;
+
+// Act
+airport.setCapacity(5);
+actual = airport.maximumCapacity;
+
+
+
+// Assert
+result = assertEquals(expected, actual);
+console.log(`Test 5 - Change maximum airport capacity to 5: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;
+

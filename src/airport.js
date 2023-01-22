@@ -1,19 +1,26 @@
 const Plane = require(`./Plane.js`);
 
 class Airport {
-    airportPlanes = [];
-    maximumCapacity;
+
+    constructor(maximumCapacity = 10) {
+        this.airportPlanes = [];
+        this.maximumCapacity = maximumCapacity;
+    }
+
 
     landPlane = plane => {
         if (plane instanceof Plane) this.airportPlanes.push(plane);
-        if (this.airportPlanes.length >= this.maximumCapacity) {
-            return console.log(`The airport has reached maximum capacity`)
-        }
     };
 
-    setCapacity = () => {
-        this.maximumCapacity = 10;
+    setCapacity = (input) => {
+        this.maximumCapacity = input;
     };
+
+    // maximumCapacityFull = () => {
+    //     if (this.airportPlanes.length === this.maximumCapacity) {
+    //         return true;
+    //     }
+    // }
 
 };
 
