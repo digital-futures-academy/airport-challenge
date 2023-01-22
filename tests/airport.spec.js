@@ -243,10 +243,10 @@ result = undefined;
 
 console.log(`============================`);
 
-//Test 9- `landPlane` method does not execute when `checkPlaneId` method is true
+//Test 9 - `landPlane` method does not execute when `planeAtAirport` method is not true
 
 console.log(`============================`);
-console.log(`Test 9 - landPlane method does not execute when checkPlaneId method is true`);
+console.log(`Test 9 - landPlane method does not execute when planeAtAirport method is not true`);
 
 // Arrange
 airport = new Airport();
@@ -261,7 +261,7 @@ actual = airport.airportPlanes.length;
 // Assert
 
 result = assertEquals(expected, actual);
-console.log(`Test 9 - landPlane method does not execute when checkPlaneId method is true: ${result}`);
+console.log(`Test 9 - landPlane method does not execute when planeAtAirport method is not true: ${result}`);
 
 // Clean up
 airport = null;
@@ -269,3 +269,35 @@ plane = null;
 expected - undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`============================`);
+
+// Test 10 - planeTakeOff method does not execute when planeAtAirport method is false
+
+console.log(`============================`);
+console.log(`Test 10 - planeTakeOff method does not execute when planeAtAirport method is false`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`plane`);
+plane2 = new Plane(`plane`);
+airport.landPlane(plane);
+airport.takeoffPlane(plane2);
+expected = 1;
+
+// Act
+actual = airport.airportPlanes.length;
+
+// Assert
+
+result = assertEquals(expected, actual);
+console.log(`Test 10 - planeTakeOff method does not execute when planeAtAirport method is false: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);

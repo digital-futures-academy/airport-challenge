@@ -20,7 +20,7 @@ class Airport {
     takeoffPlane = plane => {
         const indexOfPlaneInAirportPlanes = this.airportPlanes.findIndex(planeManifest => planeManifest.id === plane.id);
 
-        if (indexOfPlaneInAirportPlanes > -1) {
+        if (indexOfPlaneInAirportPlanes > -1 && this.planeAtAirport(plane)) {
             this.airportPlanes.splice(indexOfPlaneInAirportPlanes, 1);
         };
     };

@@ -91,7 +91,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | ------- | -------------------------    | -----------------     | ------- |
 | Airport | airportPlanes @Array[@Plane] | landPlane(@Plane)     | @Void   |
 |         |                              | planeTakeOff(@Plane)  | @Void   |
-|         |                              | checkPlaneId(@Plane)  | @boolean|
+|         |                              | planeAtAirport(@Plane)| @boolean|
 |         |                              |                       |         |
 | Plane   | id @String                   | getId()               | @String |
 
@@ -99,4 +99,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 **Test 8** - return true value if plane is within the airport
 
-**Test 9** - `landPlane` method does not execute when `checkPlaneId` method is true
+**Test 9** - `landPlane` method does not execute when `planeAtAirport` method is true
+
+**Test 10** - `planeTakeOff` method does not execute when `planeAtAirport` method is false
