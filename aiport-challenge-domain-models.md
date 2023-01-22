@@ -30,13 +30,16 @@ I want to prevent asking the airport to let planes take-off which are not at the
 | ------- | ------------------------------ | ------------------------ | -------- |
 | Airport | airportCapacity @Integer       | landPlane(@Plane)        | @Void    |
 |         | planesAtAirport @Array[@Plane] | getCapacity()            | @Integer |
+|         |                                | checkPlaneValid(@Plane)  | @Error   |
+|         |                                | checkPlaneFlying(@Plane) | @Boolean |
 |         |                                | checkCapacity()          | @Boolean |
 |         |                                | changeCapactiy(@Integer) | @Void    |
 |         |                                | takeOffPlane(@Plane)     | @Void    |
 |         |                                | checkForPlane(@Plane)    | @Boolean |
-| Plane   | id @String                     | getId()                  | @String  |
-|         | destination @String            | getDestination()         | @String  |
-|         | flying @Boolean                | checkFlying()            | @Boolean |
+|         |                                | addPlaneToAirport(@Plane)| @Void    |
+| Plane   | flying @Boolean                | land()                   | @Void    |
+|         |                                | takeOff()                | @Void    |
+|         |                                | checkFlying()            | @Boolean |
 
 ## Acceptance Criteria - Testing
 

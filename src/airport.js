@@ -8,19 +8,10 @@ class Airport {
 
 
   landPlane(plane) {
-    if (this.checkPlaneValid(plane) === undefined) {
-      if (this.checkPlaneFlying(plane) === true) {
-        if (this.checkCapacity() === false) {
-          plane.land();
-        } else {
-          return `Cannot land plane, Airport is at capacity`;
-        }
-
-      } else {
-        return `This plane cannot be landed`;
-      }
+    if (this.checkPlaneValid(plane) === undefined && this.checkPlaneFlying(plane) === true && this.checkCapacity() === false) {
+      plane.land();
     } else {
-      return this.checkPlaneValid(plane);
+      return `This plane cannot be landed`;
     }
   }
 
@@ -62,18 +53,10 @@ class Airport {
   }
 
   takeOffPlane(plane) {
-    if (this.checkPlaneValid(plane) === undefined) {
-      if (this.checkPlaneFlying(plane) === false) {
-        if (this.checkForPlane(plane) === true) {
-          plane.takeOff();
-        } else {
-          return `Cannot take off plane, not at Airport`;
-        }
-      } else {
-        return `This plane cannot take off`;
-      }
+    if (this.checkPlaneValid(plane) === undefined && this.checkPlaneFlying(plane) === false && this.checkForPlane(plane) === true) {
+      plane.takeOff();
     } else {
-      return this.checkPlaneValid(plane)
+      return `This plane cannot take off`;
     }
   }
 

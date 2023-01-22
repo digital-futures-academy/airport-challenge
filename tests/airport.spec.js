@@ -33,7 +33,7 @@ console.log(`Test 2 - Testing that an Airport will not land something that is no
 // Arrange
 firstAirport = new Airport();
 myPlane = `Plane`;
-expected = `This is not a Plane`;
+expected = `This plane cannot be landed`;
 
 // Act
 actual = firstAirport.landPlane(myPlane);
@@ -185,7 +185,7 @@ console.log(`Test 9 - Testing that an Airport can't land a Plane if it is at cap
 firstAirport = new Airport();
 myPlane = new Plane(true);
 firstAirport.changeCapacity(0);
-expected = `Cannot land plane, Airport is at capacity`;
+expected = `This plane cannot be landed`;
 
 // Act
 actual = firstAirport.landPlane(myPlane);
@@ -247,8 +247,8 @@ console.log(`--------------------------------`);
 firstAirport = undefined;
 myPlane = undefined;
 
-// Test 12
-console.log(`Test 12 - Testing that an Airport can't take off a Plane and that isn't currently at the Airport.`);
+// Test 12a
+console.log(`Test 12a - Testing that an Airport can't take off a Plane and that isn't currently at the Airport.`);
 
 // Arrange
 firstAirport = new Airport();
@@ -263,8 +263,54 @@ actual = firstAirport.checkPlaneFlying(myPlane);
 console.log(`actual:${actual}`);
 console.log(`expected:${expected}`);
 result = assertEquals(actual, expected);
-console.log(`Test 12: ${result ? `Passed` : `Failed`}`);
+console.log(`Test 12a: ${result ? `Passed` : `Failed`}`);
 console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+
+// Test 12b
+console.log(`Test 12b - Testing that an Airport can't take off a Plane and that isn't currently at the Airport, when another instance of plane is at the airport.`);
+
+// Arrange
+firstAirport = new Airport();
+myPlane = new Plane();
+secondPlane = new Plane();
+firstAirport.addPlaneToAirport(secondPlane);
+expected = false;
+input = firstAirport.takeOffPlane(myPlane);
+
+// Act
+actual = firstAirport.checkPlaneFlying(myPlane);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 12b: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+
+// Extended Criteria
+console.log(`Extended Criteria tests`);
+console.log(`--------------------------------`);
+// Test 13
+console.log(`Test 13 - Testing that an Airport prevents takeoff with stormy weather.`);
+
+// Arrange
+
+// Act
+
+// Assert
+// console.log(`actual:${actual}`);
+// console.log(`expected:${expected}`);
+// result = assertEquals(actual, expected);
+// console.log(`Test 13: ${result ? `Passed` : `Failed`}`);
+// console.log(`--------------------------------`);
 
 // Clean
 firstAirport = undefined;
