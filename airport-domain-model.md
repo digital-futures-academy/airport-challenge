@@ -18,11 +18,11 @@ I want to instruct the airport to land a plane
 
 1. Need an airport
 2. Need to be able to land plane at airport
-3. Airport planes length should increase by 1 when a plane has landed at airport.
+3. Airport planes length should increase by 1 when a plane has landed at airport
 
-**Test 1** - 'airportPlanes' length increases when 'landPlane' is called with *instance of Plane*
+**Test 1** - `airportPlanes` length increases when `landPlane` is called with *instance of Plane*
 
-**Test 2** - 'landPlane' should only land 'Plane' instances to the 'airportManifest'
+**Test 2** - `landPlane` should only land 'Plane' instances to the 'airportManifest'
 
 **Test 3** - Edge Case - falsy values should not be added to Airport
 
@@ -32,27 +32,39 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-1. Declare an Airport capacity.
-2. Set that Airport capacity to a value(number).
-3. Override the Airport capacity as needed (using a function).
+1. Set Airport Array size to a specific size limit
+2. Override the Airport Array size limit to a different size limit
 
 | Objects | Properties                            | Messages             | Outputs |
 | ------- | -------------------------             | -----------------    | ------- |
 | Airport | airportPlanes @Array[@Plane]          | landPlane(@Plane)    | @Void   |
-|         | airportCapacity @Integer              | setAirportCapacity() | @Void   |
+|         |                                       |                      | @Void   |
 |         |                                       |                      |         |
 | Plane   | id @String                            | getId()              | @String |
 
 ### Tests
 
-**Test 4** - `airportCapacity` property of Airport class has an integer value of 10.
+**Test 4** - Set maximum airport array size to 50
 
 
 
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+| Objects | Properties                   | Messages              | Outputs |
+| ------- | -------------------------    | -----------------     | ------- |
+| Airport | airportPlanes @Array[@Plane] | landPlane(@Plane)     | @Void   |
+|         |                              | planeTakeOff(@Plane)  | @Void   |
+| Plane   | id @String                   | getId()               | @String |
 
+### Tests
 
+1. Need an airport with 1 identifiable plane within it
+2. Try to remove the identifiable plane
+3. Confirm airportPlanes length is reduced by 1 from initial value
 
+**Test X** - `airportPlanes` length decreases to 0 when plane takes off and leaves airport
 
 
 

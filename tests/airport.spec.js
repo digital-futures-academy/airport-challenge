@@ -36,7 +36,7 @@ console.log(`============================`);
 
 // Test 2 - landPlane should only land Plane instances to the airportManifest
 console.log(`============================`);
-console.log(`Test 2 - 'landPlane' only land 'Plane' instances to the 'airportManifest'`);
+console.log(`Test 2 - 'landPlane' only land 'Plane' instances to the airportManifest`);
 
 // Arrange
 airport = new Airport();
@@ -87,22 +87,23 @@ result = undefined;
 
 console.log(`============================`);
 
-// Test 4 - airportCapacity property of Airport class has an integer value of 10.
+// Test 4 - Set maximum airport array size to 10
 
 console.log(`============================`);
-console.log(`Test 4 - airportCapacity property exists and has an assigned integer value of 10`);
+console.log(`Test 4 - airport capacity set to 10`);
 
 // Arrange
 airport = new Airport();
-airportCapacity = Airport.airportCapacity;
 expected = 10;
 
 // Act
-actual = airport.airportCapacity;
+airport.setCapacity();
+actual = airport.maximumCapacity;
+
 
 // Assert
 result = assertEquals(expected, actual);
-console.log(`Test 4: airportCapacity has a capacity value of 10: ${result}`);
+console.log(`Test 4 - airport capacity is set to 10: ${result}`);
 
 // Clean up
 airport = null;
@@ -110,3 +111,5 @@ plane = null;
 expected - undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`============================`);
