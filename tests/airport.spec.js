@@ -320,6 +320,7 @@ console.log(`--------------------------------`);
 // Clean
 firstAirport = undefined;
 myPlane = undefined;
+secondPlane = undefined;
 
 // Extended Criteria
 console.log(`Extended Criteria tests`);
@@ -332,6 +333,7 @@ myPlane = new Plane();
 firstAirportWeather = new Weather();
 firstAirportWeather.stormy = true;
 firstAirport = new Airport(firstAirportWeather);
+firstAirport.addPlaneToAirport(myPlane);
 expected = false;
 input = firstAirport.takeOffPlane(myPlane)
 
@@ -348,3 +350,30 @@ console.log(`--------------------------------`);
 // Clean
 firstAirport = undefined;
 myPlane = undefined;
+firstAirportWeather = undefined;
+
+// Test 14
+console.log(`Test 14 - Testing that an Airport allows takeoff with clear weather.`);
+
+// Arrange
+myPlane = new Plane();
+firstAirportWeather = new Weather();
+firstAirport = new Airport(firstAirportWeather);
+firstAirport.addPlaneToAirport(myPlane);
+expected = true;
+input = firstAirport.takeOffPlane(myPlane)
+
+// Act
+actual = firstAirport.checkPlaneFlying(myPlane);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 14: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+firstAirportWeather = undefined;

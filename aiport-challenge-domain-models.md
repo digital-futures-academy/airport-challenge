@@ -125,7 +125,7 @@ Planes that have landed must be at an airport
 An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `True` then `takeOffPlane(@Plane)` will not run.
 
 ### Test 14
-**Testing that an Airport allows takeoff with stormy weather.**\
+**Testing that an Airport allows takeoff with clear weather.**\
 An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `False` then `takeOffPlane(@Plane)` will run.
 
 ### Test 15
@@ -133,7 +133,7 @@ An instance of the class `Airport` runs the message `checkWeatherStormy()`, if i
 An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `True` then `landPlane(@Plane)` will not run.
 
 ### Test 16
-**Testing that an Airport allows landing with stormy weather.**\
+**Testing that an Airport allows landing with clear weather.**\
 An instance of the class `Airport` runs the message `checkWeatherStormy()`, if it returns `False` then `landPlane(@Plane)` will run.
 
 ### Test 17
