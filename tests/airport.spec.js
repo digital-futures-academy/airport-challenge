@@ -430,3 +430,28 @@ console.log(`--------------------------------`);
 firstAirport = undefined;
 myPlane = undefined;
 firstAirportWeather = undefined;
+
+// Test 17
+console.log(`Test 17 - Testing that landed Planes are at an Airport.`);
+
+// Arrange
+myPlane = new Plane(true);
+firstAirportWeather = new Weather();
+firstAirport = new Airport(firstAirportWeather);
+expected = true;
+input = firstAirport.landPlane(myPlane)
+
+// Act
+actual = firstAirport.checkForPlane(myPlane);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 16: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+firstAirportWeather = undefined;
