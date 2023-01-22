@@ -388,7 +388,6 @@ myPlane = new Plane(true);
 firstAirportWeather = new Weather();
 firstAirportWeather.stormy = true;
 firstAirport = new Airport(firstAirportWeather);
-firstAirport.addPlaneToAirport(myPlane);
 expected = true;
 input = firstAirport.landPlane(myPlane)
 
@@ -400,6 +399,31 @@ console.log(`actual:${actual}`);
 console.log(`expected:${expected}`);
 result = assertEquals(actual, expected);
 console.log(`Test 15: ${result ? `Passed` : `Failed`}`);
+console.log(`--------------------------------`);
+
+// Clean
+firstAirport = undefined;
+myPlane = undefined;
+firstAirportWeather = undefined;
+
+// Test 16
+console.log(`Test 16 - Testing that an Airport allows landing with clear weather.`);
+
+// Arrange
+myPlane = new Plane(true);
+firstAirportWeather = new Weather();
+firstAirport = new Airport(firstAirportWeather);
+expected = false;
+input = firstAirport.landPlane(myPlane)
+
+// Act
+actual = firstAirport.checkPlaneFlying(myPlane);
+
+// Assert
+console.log(`actual:${actual}`);
+console.log(`expected:${expected}`);
+result = assertEquals(actual, expected);
+console.log(`Test 16: ${result ? `Passed` : `Failed`}`);
 console.log(`--------------------------------`);
 
 // Clean
