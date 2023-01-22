@@ -156,12 +156,40 @@ airport.setCapacity(5);
 for (let i = 0; i <= airport.maximumCapacity; i++) {
     airport.landPlane(plane);
 }
-console.log(airport.airportPlanes.length);
 actual = airport.airportPlanes.length;
 
 // Assert
 result = assertEquals(expected, actual);
 console.log(`Test 6 - Check that you can't add planes beyond set airport capacity: ${result}`);
+
+// Clean up
+airport = null;
+plane = null;
+expected - undefined;
+actual = undefined;
+result = undefined;
+
+console.log(`============================`);
+
+// Test 8 - `airportPlanes` length decreases to 0 when plane is found and removed from 1 airport
+
+console.log(`============================`);
+console.log(`Test 7 - airportPlanes length decreases to 0 when plane is found and removed from 1 airport`);
+
+// Arrange
+airport = new Airport();
+plane = new Plane(`plane1`);
+airport.landPlane(plane);
+expected = airport.airportPlanes.length - 1;
+
+// Act
+airport.takeoffPlane(plane);
+actual = airport.airportPlanes.length;
+
+// Assert
+
+result = assertEquals(expected, actual);
+console.log(`Test 7 - airportPlanes length decreases to 0 when plane is found and removed from 1 airport: ${result}`);
 
 // Clean up
 airport = null;
