@@ -10,3 +10,4 @@ const plane1= new Plane();
 // console.log(Airport1.airportRunway)
 
 // console.log(Airport1.airportData);
+// I would play more with my code by for looping through number of planes landing and taking off from airport runway!
