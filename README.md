@@ -8,7 +8,6 @@ Domain Model for Acceptance Criteria
 |         |                      | takeoffPlane(@Plane, @Weather) | @void    |
 |         |                      | isPlaneOnApron(@planeId)       | @Boolean |
 | Plane   | id @String           | returnId()                     | @String  |
-
 Domain Model for Extended Acceptance Criteria
 | Objects | Properties           | Messages                       | Outputs  |
 |---------|----------------------|--------------------------------|----------|
