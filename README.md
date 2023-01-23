@@ -41,6 +41,8 @@ First, you will need to clone the repository, change the directory and install t
 1. git clone https://github.com/digital-futures-academy/airport-challenge.git
 2. cd airportChallenge
 3. npm install 
+4. After acquiring hands on jasmine and more studies,I feel this project would have been more cohesive and loosely coupled.
+
 
 ## Step by step guide:
 1. Development through: Javascript, node.js.
