@@ -1,3 +1,19 @@
+Domain Model for Acceptance Criteria
+| Objects | Properties           | Messages                       | Outputs  |
+|---------|----------------------|--------------------------------|----------|
+| Airport | apronPlanes @Array   | landPlane(@plane, @weather)    | @void    |
+|         | apCap @Integer       | returnApCap()                  | @Integer |
+|         |                      | setApCap(@Integer)             | @Integer |
+|         |                      | isAirportFull()                | @Boolean |
+|         |                      | takeoffPlane(@Plane, @Weather) | @void    |
+|         |                      | isPlaneOnApron(@planeId)       | @Boolean |
+| Plane   | id @String           | returnId()                     | @String  |
+
+Domain Model for Extended Acceptance Criteria
+| Objects | Properties           | Messages                       | Outputs  |
+|---------|----------------------|--------------------------------|----------|
+| Weather |                      | getWeather()                   | @String  |
+
 Airport Challenge
 =================
 
