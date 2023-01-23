@@ -2,10 +2,9 @@ const Plane = require(`./Plane`);
 
 class Airport {
   airportPlanes = [];
-  defaultCapacity = 0;
-  newCapacity = 10;
-  NewDefaultCapacity = null;
-  airportFull = true;
+  defaultCapacity;
+  newCapacity;
+  airportFull;
   noLandings;
   planeToLand;
   landingPlane;
@@ -18,26 +17,29 @@ class Airport {
     if (this.flightNumber === this.planeToLand) {
       this.landingPlane = true;
     }
-  
   }
 
-  getCapacity(){
+  getCapacity() {
+    this.defaultCapacity = 0;
     return this.defaultCapacity;
   }
 
   changeCapacity() {
+    this.newCapacity = 10;
     if (this.newCapacity) {
       this.defaultCapacity = this.newCapacity
     }
   }
   
-  atDefaultCapacity () {
-    if (this.airportPlanes.length == this.defaultCapacity || this.airportPlanes.length == this.newDefaultCapacity ) {
+  atDefaultCapacity() {
+    this.defaultCapacity = 0;
+    if (this.airportPlanes.length == this.defaultCapacity || this.airportPlanes.length == this.newCapacity ) {
       this.airportFull = true;
        } 
   }
   
   preventAirportPush() {
+    this.airportFull = true
     if (this.airportFull == true){
       this.noLandings = true;
     } else {

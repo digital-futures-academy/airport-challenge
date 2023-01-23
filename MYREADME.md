@@ -142,6 +142,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 # NOTES/LEARNINGS
 - Some edge cases are incorporated into the tests above but there maybe should have been more considered.
-- noTakeOff() and noLanding() includes defined variables to make the test pass but this may not be the best way of doing this.
+- There are functions within the classes which includes defined variables to make the test pass but this may not be the best way of doing this. Could have created instances and then run the tests on those.
+
 
 
