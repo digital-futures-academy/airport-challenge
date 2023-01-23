@@ -14,7 +14,8 @@ Domain Model for Extended Acceptance Criteria
 | --------- | ---------------------- | -------------------------------- | ---------- |
 | Weather   |                        | getWeather()                     | @String    |
 
-** Not sure why it hasn't created a new table for the extended criteria following the same layout as the previous table
+* Not sure why it hasn't created a new table for the extended criteria following the same layout as the previous table
+** Likely due to difference in width of "Messages" section and difference in number of rows
 
 Airport Challenge
 =================
