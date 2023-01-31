@@ -1,5 +1,10 @@
 class Airport {
-  // here's a starting point for you
+  constructor(capacity = 3) {
+    this.capacity = capacity;
+    this.conditions = ['sunny', 'stormy'];
+    this.currentWeather = undefined;
+    this.planes = [];
+  }
 
 }
 
