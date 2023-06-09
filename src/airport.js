@@ -1,7 +1,7 @@
 const airport = {
     airportPlanes: [],
-    planeLanding: function () {
-        this.airportPlanes.push('something')
+    planeLanding: function (plane) {
+        this.airportPlanes.push(plane)
     },
 
 };
