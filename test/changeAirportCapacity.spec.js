@@ -51,3 +51,27 @@ console.log(`Test 2: ${result ? "Pass" : "Fail"}`);
 airport.listOfPlanes = [];
 result = undefined;
 actual = undefined;
+
+console.log(`------------------`);
+
+//Test
+console.log(`Test 3: changeAirportCapacity only changes airportCapacity to an integer`);
+
+//Arrange
+expected = 3;
+airport.airportCapacity = 3;
+
+//Act
+airport.changeAirportCapacity(3.4);
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 3: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;

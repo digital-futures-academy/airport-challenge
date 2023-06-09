@@ -7,7 +7,7 @@ let airport = {
         }
     },
     changeAirportCapacity: function (newCapacity) {
-        if (typeof newCapacity === "number") {
+        if (typeof newCapacity === "number" && Number.isInteger(newCapacity)) {
             this.airportCapacity = newCapacity;
         }
     },
