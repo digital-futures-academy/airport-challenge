@@ -31,6 +31,7 @@ class Airport {
         this.capacity = newCapacity;
     }
     canLand() {
+        return this.capacity > this.planesOnGround.length;
     }
 }
 
