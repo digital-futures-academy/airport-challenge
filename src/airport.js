@@ -11,6 +11,8 @@ let airport = {
             this.airportCapacity = newCapacity;
         }
     },
-    isAirportFull: function () { return true; },
+    isAirportFull: function () {
+        return this.airportCapacity <= this.listOfPlanes.length;
+    },
 };
 module.exports = airport;
