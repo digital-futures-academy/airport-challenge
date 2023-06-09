@@ -40,9 +40,24 @@ We have a request from a client to write the software to control the flow of pla
 
 #### Acceptance Criteria
 ```
+1.  
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
+
+`Breakdown`
+| Nouns      | Verbs      | 
+| ---------- | -----------|
+| Airport    |  Land      |
+| Plane      |            |
+
+`Domain Model`
+| Objects | Properties                     | Messages             | Outputs |
+| ------- | -------------------------------| ---------------------| ------- |
+| Airport | planesAtAirport @Array[@Plane] | landPlane(@Plane)    | @Void   |
+| Plane   |                                |                      |         |
+==============================================================================
+
 
 As the system designer
 So that the software can be used for many different airports
