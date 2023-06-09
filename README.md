@@ -12,7 +12,7 @@ must have domain modeling in this file.
 
 # Domain Models
 
-### 'canLandPlane'
+### canLandPlane
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -35,4 +35,16 @@ I would like a default airport capacity that can be overridden as appropriate
 |---|---|---|---|
 | airport|capacity @Int | setCapacity(@Int) | @Void |
 |  | defaultCapacity @Int |  |  |
+
+### checkCanLand
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+| Objects | Properties | Messages | Return Values |
+|---|---|---|---|
+| airport | capacity @Int | canLand()|@Bool |
+| | planesOnGround @Array[@plane]| | |
 

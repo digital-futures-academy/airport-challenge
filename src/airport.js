@@ -30,6 +30,8 @@ class Airport {
         }
         this.capacity = newCapacity;
     }
+    canLand() {
+    }
 }
 
 module.exports = {
