@@ -18,6 +18,12 @@ class Airport {
     }
 
     setCapacity(newCapacity) {
+        if (!Number.isInteger(newCapacity)) {
+            throw TypeError("setCapacity requires an integer");
+        }
+        if (newCapacity < 0) {
+            throw RangeError("setCapacity requires a positive integer");
+        }
         this.capacity = newCapacity;
     }
 }
