@@ -94,6 +94,11 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
+objects    |  airport                            |         
+properties |  capacity                           | 
+messages   |  overrideAirportCapacity(@Number)   | 
+output     |  void                               | 
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
