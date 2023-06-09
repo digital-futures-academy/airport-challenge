@@ -33,6 +33,13 @@ class Airport {
     canLand() {
         return this.capacity > this.planesOnGround.length;
     }
+
+    takeOff(plane) {
+        let planeIndexOnGround = this.planesOnGround.indexOf(plane);
+        if (planeIndexOnGround === -1) {
+            return false;
+        }
+    }
 }
 
 module.exports = {
