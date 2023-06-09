@@ -1,5 +1,6 @@
 const chalk = require("chalk");
 const { assertStrictEqual } = require("./test-framework");
+const Airport = require("../src/airport");
 
 let input, result, actual, expected;
 
@@ -12,10 +13,15 @@ Test = () => {
     console.log(``);
 
     //Arrange
-
+    expected = 1;
+    input = new Plane();
+    airport = new Airport();
 
     //Act
+    airport.landPlane(input);
+    actual = airport.planesAtAirport.length;
 
+    result = assertStrictEqual(expected, actual);
     //Assert
 
     console.log(chalk.cyan(`Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
