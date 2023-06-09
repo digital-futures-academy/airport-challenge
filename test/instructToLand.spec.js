@@ -1,5 +1,5 @@
 // Test 1: Instruct the airport to land a plane using landPlane and expect to display suitable message
-const { assertEquals } = require("./testing-framework");
+const { assertEquals } = require(`./testing-framework`);
 
 let actual, expected, result;
 
