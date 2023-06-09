@@ -23,12 +23,10 @@ console.log('=============================================================');
 console.log('');
 
 // Assert
-console.log(actual);
-console.log(expected);
 result = testingFramework.assertEquals(actual, expected);
-console.log(result);
+
 // Report
 console.log(`Test 1 - added plane object to planes array: ${result ? 'PASS' : 'FAIL'}`);
-expected = undefined;
-actual = undefined;
-result = undefined;
+
+// clean Up
+expected, actual, result, airport, plane = undefined;
