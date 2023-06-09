@@ -1,7 +1,9 @@
 const airport = {
     planesStanding: [],
     landPlane: function (plane) {
-        this.planesStanding.push(plane);
+        if (plane?.id) {
+            this.planesStanding.push(plane)
+        };
     }
 };
 
