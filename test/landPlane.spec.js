@@ -15,7 +15,7 @@ expected = 1;
 airport.listOfPlanes = [];
 
 //Act
-airport.landPlane()
+airport.landPlane(plane1);
 actual = airport.listOfPlanes.length;
 
 //Assert
@@ -25,3 +25,29 @@ result = assertEquals(actual, expected);
 console.log(`Test 1: ${result ? "Pass" : "Fail"}`);
 
 //Cleanup
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;
+console.log(`------------------`);
+
+//Test
+console.log(`Test 2: lanePlane adds the input plain to listOfPlanes`);
+
+//Arrange
+expected = "plane1";
+airport.listOfPlanes = [];
+
+//Act
+airport.landPlane(plane1);
+actual = airport.listOfPlanes[0].planeId;
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 2: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;
