@@ -2,4 +2,5 @@ console.log('RUNNING ALL TESTS');
 console.log('=================');
 console.log('');
 
-require('./spec/airport.spec');
+require('./spec/airportAddPlaneToAirport.spec');
+require('./spec/airportIncreaseMaxCapacity.spec');

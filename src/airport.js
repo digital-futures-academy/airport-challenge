@@ -1,6 +1,7 @@
 class Airport {
     constructor() {
         this.planes = [];
+        this.maxAirportCapacity = 5;
     }
 
     addPlaneToAirport(planeToAdd) {
@@ -8,6 +9,8 @@ class Airport {
             this.planes.push(planeToAdd);
         }
     }
+
+    increaseAirportCapacity(valueToIncrease) { this.maxAirportCapacity += valueToIncrease; }
 }
 
 module.exports = Airport;
