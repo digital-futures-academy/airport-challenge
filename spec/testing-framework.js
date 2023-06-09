@@ -1,6 +1,6 @@
 class TestingFramework {
 
-    assertEquals(actualOutput, expectedOutput) { actualOutput === expectedOutput; }
+    assertEquals(actualOutput, expectedOutput) { return actualOutput === expectedOutput; }
 
 }
 
