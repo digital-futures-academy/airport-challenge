@@ -8,7 +8,7 @@ console.log(`Testing: changeAirportCapacity`);
 console.log(`------------------`);
 
 //Test
-console.log(`Test 1: changeAirportCapacity changes airportCapacity`);
+console.log(`Test 1: changeAirportCapacity changes airportCapacity to new capacity`);
 
 //Arrange
 expected = 5;
@@ -23,6 +23,29 @@ result = assertEquals(actual, expected);
 
 //Report
 console.log(`Test 1: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;
+console.log(`------------------`);
+
+//Test
+console.log(`Test 2: changeAirportCapacity only changes airportCapacity to a number`);
+
+//Arrange
+expected = 3;
+airport.airportCapacity = 3;
+
+//Act
+airport.changeAirportCapacity("Five");
+actual = airport.airportCapacity;
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 2: ${result ? "Pass" : "Fail"}`);
 
 //Cleanup
 airport.listOfPlanes = [];

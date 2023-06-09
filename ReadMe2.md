@@ -30,7 +30,6 @@ I would like a default airport capacity that can be overridden as appropriate
 
 Tests
 
-- changeAirportCapacity changes airportCapacity
 - changeAirportCapacity changes airportCapacity to the input value
 - changeAirportCapacity only changes airportCapacity to a number
 - changeAirportCapacity only changes airportCapacity to an integer

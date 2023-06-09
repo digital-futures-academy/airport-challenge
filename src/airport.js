@@ -7,7 +7,9 @@ let airport = {
         }
     },
     changeAirportCapacity: function (newCapacity) {
-        this.airportCapacity = newCapacity;
+        if (typeof newCapacity === "number") {
+            this.airportCapacity = newCapacity;
+        }
     },
 };
 module.exports = airport;
