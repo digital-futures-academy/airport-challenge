@@ -3,7 +3,11 @@ class Airport {
         this.planes = [];
     }
 
-    addPlaneToAirport(planeToAdd) { this.planes.push(planeToAdd); }
+    addPlaneToAirport(planeToAdd) {
+        if (planeToAdd?.id) {
+            this.planes.push(planeToAdd);
+        }
+    }
 }
 
 module.exports = Airport;
