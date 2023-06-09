@@ -20,5 +20,8 @@ let airport = {
             this.listOfPlanes.splice(planeIndex, 1);
         }
     },
+    isPlaneInAirport: function (plane) {
+        return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId) !== -1;
+    },
 };
 module.exports = airport;
