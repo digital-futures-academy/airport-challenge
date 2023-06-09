@@ -14,5 +14,11 @@ let airport = {
     isAirportFull: function () {
         return this.airportCapacity <= this.listOfPlanes.length;
     },
+    takeOff: function (plane) {
+        let planeIndex = this.listOfPlanes.findIndex(landedPlanes => landedPlanes.planeId === plane.planeId);
+        if (planeIndex >= 0) {
+            this.listOfPlanes.splice(planeIndex, 1);
+        }
+    },
 };
 module.exports = airport;

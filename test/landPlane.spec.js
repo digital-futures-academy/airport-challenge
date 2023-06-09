@@ -36,12 +36,12 @@ console.log(`------------------`);
 console.log(`Test 2: landPlane adds the input plane to listOfPlanes`);
 
 //Arrange
-expected = "plane1";
+expected = 0;
 airport.listOfPlanes = [];
 
 //Act
 airport.landPlane(plane1);
-actual = airport.listOfPlanes[0].planeId;
+actual = airport.listOfPlanes.findIndex(landedPlanes => landedPlanes.planeId === plane1.planeId);
 
 //Assert
 result = assertEquals(actual, expected);
