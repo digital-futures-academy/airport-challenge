@@ -52,7 +52,7 @@ console.log('');
 result = testingFramework.assertEquals(actual, expected);
 
 // Report
-console.log(`Test 1 - added plane object to planes array: ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 2 - can only add a plane to the airport planes array if it has an id: ${result ? 'PASS' : 'FAIL'}`);
 
 // clean Up
 expected, actual, result, airport, plane = undefined;
