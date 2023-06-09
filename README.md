@@ -86,12 +86,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
    So I can get passengers to a destination
    I want to instruct the airport to land a plane
 
-   Objects	Properties	                  Messages	       Output
-   Airport  nameOfAirport(@String)       land(plane)         @Boolean
-            airportLocation(@String)
-   
-   Plane   flightNum(@String)           land(plane)          @Boolean
-           planeDestination(@String)
+   Objects	      Properties	                    Messages	          Output
+   Airport     destination(@String)               land(plane)          @Boolean
+           
+    Plane                                         isAtAirport(plane)    @Boolean
+            
 
 #2 As the system designer
    So that the software can be used for many different airports
