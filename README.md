@@ -40,25 +40,64 @@ We have a request from a client to write the software to control the flow of pla
 
 #### Acceptance Criteria
 ```
+1. 
 As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+Domain Model: 
+Objects     | plane     | airport 
+Properties  |           | landedPlanes @array[@plane]    
+Messages    |           | landPlane(@plane)
+Outputs     |           | @void
+
+-------------------------------------
+2.
 As the system designer
-So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+So that the software can be used for many different airports
 
+Domain Model: 
+Objects     |airport                      |
+Properties  |airportMaxCapacity @integer  |    
+Messages    |changeAirportCapacity()      |     
+Outputs     |@void                        | 
+
+-------------------------------------
+3. 
 As an air traffic controller
-To ensure safety
 I want to prevent landing when the airport is full
+To ensure safety
 
+Domain Model: 
+Objects           | Properties                  | Messages              | Outputs            |
+------------------|-----------------------------|-----------------------|--------------------|
+airport           | airportMaxCapacity @integer | isAirportFull()       | @boolean           |
+                  |                             | landNewPlane(@plane)  | @void              |
+
+-------------------------------------
+4.
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+Objects           | Properties                  | Messages           | Outputs            |
+------------------|-----------------------------|--------------------|--------------------|
+airport           | landedPlanes @array[@plane] | departPlane(@plane)| @void              |
+                  |                             | isPlaneLanded()    | @boolean           |
+plane             | id @string                  |                    |                    |
+
+-------------------------------------
+5.
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+Objects           | Properties                  | Messages                   | Outputs            |
+------------------|-----------------------------|----------------------------|--------------------|
+airport           | landedPlanes @array[@plane] | isPlaneLanded()            | @boolean           |
+                  |                             | landNewPlane(@plane)       |                    |
+                  |                             | departLandedPlane(@plane)  |                    |
 ```
 
 #### Extended Acceptance Criteria
