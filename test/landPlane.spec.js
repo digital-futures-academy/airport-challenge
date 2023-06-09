@@ -74,3 +74,27 @@ console.log(`Test 3: ${result ? "Pass" : "Fail"}`);
 airport.listOfPlanes = [];
 result = undefined;
 actual = undefined;
+console.log(`------------------`);
+
+//Test
+console.log(`Test 4: landPlane won't change listOfPlanes if the airport is at capacity`);
+
+//Arrange
+expected = 0;
+airport.listOfPlanes = [];
+airport.airportCapacity = 0;
+
+//Act
+airport.landPlane(plane1);
+actual = airport.listOfPlanes.length;
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 4: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;

@@ -2,7 +2,7 @@ let airport = {
     listOfPlanes: [],
     airportCapacity: 3,
     landPlane: function (plane) {
-        if (plane?.planeId) {
+        if (plane?.planeId && !this.isAirportFull()) {
             this.listOfPlanes.push(plane);
         }
     },
