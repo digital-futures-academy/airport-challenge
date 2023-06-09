@@ -39,6 +39,8 @@ class Airport {
         if (planeIndexOnGround === -1) {
             return false;
         }
+        this.planesOnGround.splice(planeIndexOnGround, 1);
+        return true;
     }
 }
 
