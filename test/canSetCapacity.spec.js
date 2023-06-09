@@ -1,5 +1,5 @@
 const { Airport } = require("../src/airport.js");
-{
+/*{
     const { test } = require("./testSuit.js");
     let airport = new Airport();
     test(Number.isInteger(airport.defaultCapacity)).isTrue();
@@ -19,7 +19,7 @@ const { Airport } = require("../src/airport.js");
     test(airport.overrideDefaultCapacity).with([]).throws(TypeError);
     test.showSummary();
 
-}
+}*/
 
 {
     const { test } = require("./testSuit.js");

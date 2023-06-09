@@ -7,6 +7,7 @@ class Airport {
     landPlane(plane) {
         this.planesOnGround.push(plane);
     }
+    /*
     overrideDefaultCapacity(newDefaultCapacity) {
         if (!Number.isInteger(newDefaultCapacity)) {
             throw TypeError("overrideDefaultCapacity requires an integer");
@@ -16,6 +17,9 @@ class Airport {
         }
         this.defaultCapacity = newDefaultCapacity;
     }
+    // tests for this exist in canSetCapacity.spec.js
+    */
+
 
     setCapacity(newCapacity) {
         if (!Number.isInteger(newCapacity)) {
