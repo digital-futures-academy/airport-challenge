@@ -1,0 +1,7 @@
+const assertEquals = (expectedOutput, actualOutput) => {
+    return expectedOutput === actualOutput;
+}
+
+module.exports = {
+    assertEquals,
+}
