@@ -15,6 +15,8 @@ class Airport {
         }
         this.defaultCapacity = newDefaultCapacity;
     }
+
+    setCapacity() { }
 }
 
 module.exports = {
