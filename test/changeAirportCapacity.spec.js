@@ -25,7 +25,7 @@ result = assertEquals(actual, expected);
 console.log(`Test 1: ${result ? "Pass" : "Fail"}`);
 
 //Cleanup
-airport.listOfPlanes = [];
+airport.airportCapacity = 3;
 result = undefined;
 actual = undefined;
 console.log(`------------------`);
@@ -48,7 +48,7 @@ result = assertEquals(actual, expected);
 console.log(`Test 2: ${result ? "Pass" : "Fail"}`);
 
 //Cleanup
-airport.listOfPlanes = [];
+airport.airportCapacity = 3;
 result = undefined;
 actual = undefined;
 
@@ -72,6 +72,6 @@ result = assertEquals(actual, expected);
 console.log(`Test 3: ${result ? "Pass" : "Fail"}`);
 
 //Cleanup
-airport.listOfPlanes = [];
+airport.airportCapacity = 3;
 result = undefined;
 actual = undefined;

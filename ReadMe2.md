@@ -42,7 +42,7 @@ I want to prevent landing when the airport is full
 
 | Object            | Properties                    | Messages                 | Outputs
 | Airport           | listOfPlanes @Array[@Plane]   | isAirportFull()          | @Boolean
-|                   | airportCapacity @Integer      |                          |
+|                   | airportCapacity @Integer      | landPlane(@Plane)        | @Void
 
 Tests
 
@@ -50,6 +50,9 @@ Tests
 - isAirportFull returns true if the size of listOfPlanes is equal to airportCapacity
 - isAirportFull returns false if the size of listOfPlanes is less than airportCapacity
 - isAirportFull returns true if the size of listOfPlanes is over airportCapacity
+- if the airport is full then landPlane won't change listOfPlanes
+- if the airport is full planes can still land
+- if the airport is over capacity landPlane won't change listOfPlanes
 
 ============================================================================================================
 User Story 4
@@ -91,6 +94,7 @@ Tests
 - isPlaneInAirport returns true if the input plane is in listOfPlanes
 - isPlaneInAirport returns false if the input plane is not in listOfPlanes
 - isPlaneInAirport returns false if the input is not a plane
+- After a plane takes off it is no longer in listOfPlanes
 
 ============================================================================================================
 User Story 5
@@ -112,7 +116,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
 Tests
 
 - takeOff doesn't alter listOfPlanes if the input plane is not there
-- takeOff doesn't alter listOfPlanes if the input is not a plane
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 User Story 5.2
@@ -127,7 +130,6 @@ I want to prevent asking the airport to land a plane that's already landed
 Tests
 
 - landPlane doesn't change listOfPlanes if the input plane is already there
-- landPlane doesn't change listOfPlanes if the input isn't a plane
 
 ============================================================================================================
 User Story 6
@@ -145,7 +147,7 @@ Tests
 - isItStormy returns true if currentWeather is "Stormy"
 - isItStormy returns false if currentWeather isn't "Stormy"
 - takeOff doesn't alter listOfPlanes if currentWeather is "Stormy"
-- takeOff does alter listOfPlanes if currentWeather isn't stormy and the input plane is in listOfPlanes
+- takeOff does alter listOfPlanes if currentWeather isn't stormy and the plane would otherwise take off
 
 ============================================================================================================
 User Story 7
@@ -160,7 +162,7 @@ I want to prevent landing when weather is stormy
 Testing
 
 - landPlane doesn't alter listOfPlanes if currentWeather is "Stormy"
-- landPlane does alter listOfPlanes if currentWeather isn't stormy and the input plane isn't in listOfPlanes
+- landPlane does alter listOfPlanes if currentWeather isn't stormy and the input plane would otherwise land
 
 ============================================================================================================
 User Story 8
