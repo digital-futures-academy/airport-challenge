@@ -2,13 +2,15 @@
   "name": "airport-challenge",
   "version": "1.0.0",
   "description": "A TDD Challenge for Digital Futures",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "node specRunner.js"
+    "test": "jasmine"
   },
-  "author": "dearshrewdwit",
+  "author": "Oana Demian",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
+    "eslint": "^7.22.0",
+    "jasmine": "^4.3.0"
   }
 }
