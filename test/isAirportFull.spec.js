@@ -2,8 +2,9 @@ const { assertEquals } = require("./testing-framework");
 let actual, result, expected;
 
 const airport = require("../src/airport");
-const plane1 = { planeId: `plane1` }
+const plane1 = { planeId: `plane1` };
 
+console.log(`------------------`);
 console.log(`Testing: isAirportFull`);
 console.log(`------------------`);
 

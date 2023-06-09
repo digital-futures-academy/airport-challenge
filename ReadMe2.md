@@ -51,7 +51,7 @@ Tests
 - isAirportFull returns false if the size of listOfPlanes is less than airportCapacity
 - isAirportFull returns true if the size of listOfPlanes is over airportCapacity
 - if the airport is full then landPlane won't change listOfPlanes
-- if the airport is full planes can still land
+- if the airport is not full planes can still land
 - if the airport is over capacity landPlane won't change listOfPlanes
 
 ============================================================================================================
