@@ -101,3 +101,26 @@ console.log(`Test 4: ${result ? "Pass" : "Fail"}`);
 airport.listOfPlanes = [];
 result = undefined;
 actual = undefined;
+console.log(`------------------`);
+
+//Test
+console.log(`Test 5: After a plane takes off it is no longer in listOfPlanes`);
+
+//Arrange
+airport.listOfPlanes = [plane1, plane2];
+expected = false;
+
+//Act
+airport.takeOff(plane1);
+actual = airport.isPlaneInAirport(plane1);
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 5: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;
