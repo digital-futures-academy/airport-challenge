@@ -11,9 +11,9 @@ console.log(``);
 console.log(` Testing if airport was instructed to land the plane using airport.land(plane)`);
 //Arrange
 expected = true;
-plane = {},
-    //Act
-    result = airport.land(plane);
+plane = {};
+//Act
+result = airport.land(plane);
 actual = airport.destination.includes(plane);
 //Assert
 result = assertEquals(actual, expected);
