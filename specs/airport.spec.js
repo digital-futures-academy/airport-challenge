@@ -3,7 +3,7 @@ const airport = require("../src/airport");
 
 let actual, result, expected, plane;
 
-airport.destination = [];
+airport.airportDestination = [];
 
 console.log(`Test 1`);
 console.log(``);
@@ -14,7 +14,7 @@ expected = true;
 plane = {};
 
 result = airport.land(plane);
-actual = airport.destination.includes(plane);
+actual = airport.airportDestination.includes(plane);
 
 result = assertEquals(actual, expected);
 
