@@ -1,6 +1,7 @@
 let airport = {
     listOfPlanes: [],
     airportCapacity: 3,
+    currentWeather: "Sunny",
     getPlaneIndex: function (plane) {
         return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId)
     },
@@ -24,6 +25,9 @@ let airport = {
     },
     isPlaneInAirport: function (plane) {
         return this.getPlaneIndex(plane) !== -1;
+    },
+    isItStormy: function () {
+        return this.currentWeather === "Stormy";
     },
 };
 module.exports = airport;
