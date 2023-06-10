@@ -32,6 +32,37 @@ Test = () => {
 
 }
 
+//Story 2  2 - Override airport capacity
+Test2 = () => {
+
+    console.log(chalk.cyan(`User Story 2: Override the default airport capacity`))
+    console.log(chalk.cyan(`User Story 2 Test 2: Allow the user to change the capacity after an airport is created`))
+    console.log(chalk.cyan(`User Story 2 Pass Criteria: The capacity of an airport be 10`))
+    console.log(``);
+
+    //Arrange
+    expected = 10;
+    input = 10
+    airport = new Airport(5);
+
+    //Act
+    airport.setCapacity = input;
+    actual = airport.capacity;
+
+    //Assert
+    result = assertStrictEqual(expected, actual);
+
+    console.log(chalk.cyan(`Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.cyan(`=====================================================================================================`))
+    console.log(``);
+
+    //Cleanup
+    input = undefined;
+    expected = undefined;
+
+}
+
 
 
 Test();
+Test2();
