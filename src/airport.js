@@ -6,8 +6,12 @@ class Airport {
 }
 
 class Plane {
-  constructor() {
+  constructor(ID) {
+    this.ID = ID;
+  }
 
+  get getID() {
+    return this.ID;
   }
 
 }

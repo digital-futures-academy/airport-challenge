@@ -45,12 +45,12 @@ Test = () => {
 
     //Arrange
     expected = `Plane1`;
-    input = new Plane();
+    input = new Plane(`Plane1`);
     airport = new Airport();
     airport.landPlane(input);
 
     //Act
-    actual = airport.planesAtAirport[0].getID();
+    actual = airport.planesAtAirport[0].getID;
 
     //Assert
     result = assertStrictEqual(expected, actual);
