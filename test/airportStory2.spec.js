@@ -22,7 +22,7 @@ Test = () => {
     //Assert
     result = assertStrictEqual(expected, actual);
 
-    console.log(chalk.cyan(`Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.cyan(`User Story 2 Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
     console.log(chalk.cyan(`=====================================================================================================`))
     console.log(``);
 
@@ -52,7 +52,7 @@ Test2 = () => {
     //Assert
     result = assertStrictEqual(expected, actual);
 
-    console.log(chalk.cyan(`Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.cyan(`User Story 2 Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
     console.log(chalk.cyan(`=====================================================================================================`))
     console.log(``);
 

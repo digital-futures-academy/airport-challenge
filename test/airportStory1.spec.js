@@ -15,7 +15,7 @@ Test = () => {
     //Arrange
     expected = 1;
     input = new Plane();
-    airport = new Airport();
+    airport = new Airport(5);
 
     //Act
     airport.landPlane(input);
@@ -25,7 +25,7 @@ Test = () => {
     //Assert
     result = assertStrictEqual(expected, actual);
 
-    console.log(chalk.cyan(`Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.cyan(`User Story 1 Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
     console.log(chalk.cyan(`=====================================================================================================`))
     console.log(``);
 
@@ -46,7 +46,7 @@ Test2 = () => {
     //Arrange
     expected = `Plane1`;
     input = new Plane(`Plane1`);
-    airport = new Airport();
+    airport = new Airport(5);
     airport.landPlane(input);
 
     //Act
@@ -55,7 +55,7 @@ Test2 = () => {
     //Assert
     result = assertStrictEqual(expected, actual);
 
-    console.log(chalk.cyan(`Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.cyan(`User Story 1 Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
     console.log(chalk.cyan(`=====================================================================================================`))
     console.log(``);
 

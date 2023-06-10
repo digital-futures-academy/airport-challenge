@@ -3,10 +3,25 @@ class Airport {
     this.planesAtAirport = [];
     this.capacity = size;
   }
-  landPlane = (plane) => { this.planesAtAirport.push(plane) };
+  landPlane = (plane) => {
+    if (this.checkFull() === false)
+      this.planesAtAirport.push(plane)
+  };
+
+  checkFull() {
+    return this.planesAtAirport.length >= this.capacity;
+  }
 
   set setCapacity(value) {
     this.capacity = value;
+  }
+
+  get getCapacity() {
+    return this.capacity
+  }
+
+  get getPlanesAtAirport() {
+    return this.planesAtAirport;
   }
 }
 

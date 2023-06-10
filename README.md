@@ -60,7 +60,7 @@ I would like a default airport capacity that can be overridden as appropriate
 Domain Model
 | Objects | Properties                     | Messages                    | Outputs |
 | ------- | ------------------------------ | --------------------------- | ------- |
-| Airport | planeCapacity @Integer         | changeCapacity(@Integer)    | @Void   |
+| Airport | planeCapacity @Integer         | setCapacity(@Integer)    | @Void   |
 ====================================================================================
 
 3.
