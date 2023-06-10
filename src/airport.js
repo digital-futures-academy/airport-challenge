@@ -4,6 +4,10 @@ class Airport {
     this.capacity = size;
   }
   landPlane = (plane) => { this.planesAtAirport.push(plane) };
+
+  set setCapacity(value) {
+    this.capacity = value;
+  }
 }
 
 class Plane {
