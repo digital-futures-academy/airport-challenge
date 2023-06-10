@@ -1,10 +1,10 @@
 const airport = {
     land: function (plane) {
-        this.destination.push(plane);
+        this.airportDestination.push(plane);
         return true;
     },
     isAtAirport: function (plane) {
-        return this.destination.includes(plane);
+        return this.airportDestination.includes(plane);
     }
 };
 
