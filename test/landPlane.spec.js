@@ -150,3 +150,27 @@ console.log(`Test 6: ${result ? "Pass" : "Fail"}`);
 airport.listOfPlanes = [];
 result = undefined;
 actual = undefined;
+console.log(`------------------`);
+
+//Test
+console.log(`Test 7: The same plane can't land twice`);
+
+//Arrange
+expected = 1;
+airport.listOfPlanes = [plane1];
+airport.airportCapacity = 3;
+
+//Act
+airport.landPlane(plane1);
+actual = airport.listOfPlanes.length;
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 7: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;

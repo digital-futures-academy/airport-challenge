@@ -1,8 +1,11 @@
 let airport = {
     listOfPlanes: [],
     airportCapacity: 3,
+    getPlaneIndex: function (plane) {
+        return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId)
+    },
     landPlane: function (plane) {
-        if (plane?.planeId && !this.isAirportFull()) {
+        if (plane?.planeId && !this.isAirportFull() && !this.isPlaneInAirport(plane)) {
             this.listOfPlanes.push(plane);
         }
     },
@@ -15,13 +18,12 @@ let airport = {
         return this.airportCapacity <= this.listOfPlanes.length;
     },
     takeOff: function (plane) {
-        let planeIndex = this.listOfPlanes.findIndex(landedPlanes => landedPlanes.planeId === plane.planeId);
-        if (planeIndex >= 0) {
-            this.listOfPlanes.splice(planeIndex, 1);
+        if (this.isPlaneInAirport(plane)) {
+            this.listOfPlanes.splice(this.getPlaneIndex(plane), 1);
         }
     },
     isPlaneInAirport: function (plane) {
-        return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId) !== -1;
+        return this.getPlaneIndex(plane) !== -1;
     },
 };
 module.exports = airport;
