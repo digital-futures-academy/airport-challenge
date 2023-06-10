@@ -174,3 +174,53 @@ console.log(`Test 7: ${result ? "Pass" : "Fail"}`);
 airport.listOfPlanes = [];
 result = undefined;
 actual = undefined;
+console.log(`------------------`);
+
+//Test
+console.log(`Test 8: Planes can't land if the currentWeather is "Stormy"`);
+
+//Arrange
+expected = false;
+airport.listOfPlanes = [plane1];
+airport.currentWeather = "Stormy";
+
+//Act
+airport.landPlane(plane2);
+actual = airport.isPlaneInAirport(plane2);
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 8: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.currentWeather = "Sunny";
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;
+console.log(`------------------`);
+
+//Test
+console.log(`Test 9: Planes can land if the currentWeather isn't "Stormy"`);
+
+//Arrange
+expected = true;
+airport.listOfPlanes = [plane1];
+airport.currentWeather = "Sunny";
+
+//Act
+airport.landPlane(plane2);
+actual = airport.isPlaneInAirport(plane2);
+
+//Assert
+result = assertEquals(actual, expected);
+
+//Report
+console.log(`Test 9: ${result ? "Pass" : "Fail"}`);
+
+//Cleanup
+airport.currentWeather = "Sunny";
+airport.listOfPlanes = [];
+result = undefined;
+actual = undefined;

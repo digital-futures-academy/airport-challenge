@@ -6,7 +6,7 @@ let airport = {
         return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId)
     },
     landPlane: function (plane) {
-        if (plane?.planeId && !this.isAirportFull() && !this.isPlaneInAirport(plane)) {
+        if (plane?.planeId && !this.isAirportFull() && !this.isPlaneInAirport(plane) && !this.isItStormy()) {
             this.listOfPlanes.push(plane);
         }
     },
