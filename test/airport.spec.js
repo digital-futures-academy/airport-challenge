@@ -1,10 +1,10 @@
 const chalk = require("chalk");
 const { assertStrictEqual } = require("./test-framework");
-const Airport = require("../src/airport");
+const { Airport, Plane } = require("../src/airport");
 
 let input, result, actual, expected;
 
-//Story 1 Test - Add an item to a basket
+//Story 1 Test - Land a plane at an airport
 Test = () => {
 
     console.log(chalk.cyan(`User Story 1: Land a plane at the airport`))

@@ -1,6 +1,21 @@
 class Airport {
-  // here's a starting point for you
+  constructor() {
+    this.planesAtAirport = [];
+  }
+
+
+  landPlane = (plane) => { this.planesAtAirport.push(plane) };
 
 }
 
-module.exports = Airport;
+class Plane {
+  constructor() {
+
+  }
+
+}
+
+module.exports = {
+  Airport,
+  Plane
+};
