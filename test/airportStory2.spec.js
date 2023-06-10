@@ -13,14 +13,14 @@ Test = () => {
     console.log(``);
 
     //Arrange
-    expected = 1;
-    airport = new Airport();
+    expected = false;
+    airport = new Airport(5);
 
     //Act
     actual = assertIsUndefined(airport.capacity);
 
     //Assert
-    result = assertStrictEqual(assertIsUndefined(expected), actual);
+    result = assertStrictEqual(expected, actual);
 
     console.log(chalk.cyan(`Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
     console.log(chalk.cyan(`=====================================================================================================`))

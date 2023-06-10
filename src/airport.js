@@ -1,6 +1,7 @@
 class Airport {
-  constructor() {
+  constructor(size) {
     this.planesAtAirport = [];
+    this.capacity = size;
   }
   landPlane = (plane) => { this.planesAtAirport.push(plane) };
 }
