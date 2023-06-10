@@ -36,7 +36,7 @@ Test = () => {
 }
 
 //Story 1 Test 2 - Check the added item is a plane
-Test = () => {
+Test2 = () => {
 
     console.log(chalk.cyan(`User Story 1: Land a plane at the airport`))
     console.log(chalk.cyan(`User Story 1 Test 2: Add a plane object to an array within the airport and check that it is a Plane.`))
@@ -55,7 +55,7 @@ Test = () => {
     //Assert
     result = assertStrictEqual(expected, actual);
 
-    console.log(chalk.cyan(`Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.cyan(`Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
     console.log(chalk.cyan(`=====================================================================================================`))
     console.log(``);
 
@@ -65,6 +65,5 @@ Test = () => {
 
 }
 
-
-
 Test();
+Test2();

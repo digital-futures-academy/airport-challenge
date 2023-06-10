@@ -1,3 +1,4 @@
 const chalk = require("chalk");
 
-require(`./test/airport.spec`); 
+require(`./test/airportStory1.spec`);
+require(`./test/airportStory2.spec`); 
