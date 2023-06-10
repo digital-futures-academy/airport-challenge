@@ -86,10 +86,9 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
    So I can get passengers to a destination
    I want to instruct the airport to land a plane
 
-   Objects	      Properties	                    Messages	          Output
+   Objects	      Properties	                    Messages	           Output
    Airport     destination(@String)               land(plane)          @Boolean
-           
-    Plane                                         isAtAirport(plane)    @Boolean
+   Plane                                         isAtAirport(plane)    @Boolean
             
 
 #2 As the system designer
@@ -111,7 +110,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
    So I can get passengers on the way to their destination
    I want to instruct the airport to let a plane take off and confirm that it is no longer at the airport
    
-   Objects	   Properties	               Messages	           Output
+   Objects	   Properties	               Messages	               Output
    Airport                                   takeOff(@Plane)      @Void
    Plane       planeStatus                   isAtAirport(@Plane)  @Boolean
 
@@ -119,6 +118,10 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
    To avoid confusion
    I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-   Objects	   Properties	                  Messages	         Output
+   Objects	   Properties	                  Messages	               Output
    Airport     airportName                                           @Void
    Plane       planeStatus                  isAtAirport(@Plane)      @Boolean
+
+**How to run tests*
+$ cd specs
+node specRunner
