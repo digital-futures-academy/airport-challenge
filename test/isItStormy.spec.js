@@ -45,6 +45,7 @@ result = assertEquals(actual, expected);
 console.log(`Test 2: ${result ? "Pass" : "Fail"}`);
 
 //Cleanup
+airport.currentWeather = "Sunny";
 result = undefined;
 actual = undefined;
 console.log(`------------------`);
@@ -66,5 +67,6 @@ result = assertEquals(actual, expected);
 console.log(`Test 3: ${result ? "Pass" : "Fail"}`);
 
 //Cleanup
+airport.currentWeather = "Sunny";
 result = undefined;
 actual = undefined;

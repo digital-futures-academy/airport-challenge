@@ -19,7 +19,7 @@ let airport = {
         return this.airportCapacity <= this.listOfPlanes.length;
     },
     takeOff: function (plane) {
-        if (this.isPlaneInAirport(plane)) {
+        if (this.isPlaneInAirport(plane) && !this.isItStormy()) {
             this.listOfPlanes.splice(this.getPlaneIndex(plane), 1);
         }
     },

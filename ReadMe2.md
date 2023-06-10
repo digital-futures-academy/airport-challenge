@@ -139,7 +139,7 @@ I want to prevent takeoff when weather is stormy
 
 | Object            | Properties                    | Messages                 | Outputs
 | Airport           | currentWeather @String        | isItStormy()             | @Boolean
-|                   | listOfPlanes @Array[@Plane]   | takeOff(@Plane)                | @Void
+|                   | listOfPlanes @Array[@Plane]   | takeOff(@Plane)          | @Void
 
 Tests
 
