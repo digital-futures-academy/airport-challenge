@@ -8,6 +8,11 @@ class Airport {
       this.planesAtAirport.push(plane)
   };
 
+  takeoffPlane = (index) => {
+    if (this.planesAtAirport.length > 0)
+      this.planesAtAirport.splice(index, 1);
+  };
+
   checkFull() {
     return this.planesAtAirport.length >= this.capacity;
   }
