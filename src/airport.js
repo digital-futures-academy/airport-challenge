@@ -15,6 +15,10 @@ class Airport {
             this.maxAirportCapacity += parseInt(valueToIncrease);
         }
     }
+
+    canLandPlane() {
+        return this.planes.length < this.maxAirportCapacity;
+    }
 }
 
 module.exports = Airport;

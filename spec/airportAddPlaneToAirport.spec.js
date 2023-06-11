@@ -92,4 +92,5 @@ console.log(`Test 3 - check to see if plane object added was as intended to airp
 
 // clean Up
 expected, actual, result, airport, plane = undefined;
+airport.planes = [];
 console.log('');

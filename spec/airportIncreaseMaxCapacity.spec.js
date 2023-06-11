@@ -1,10 +1,10 @@
 const TestingFramework = require('./testing-framework');
 const Airport = require('../src/airport');
-const Plane = require('../src/planes');
+
 
 const testingFramework = new TestingFramework;
 
-let actual, expected, result, airport, plane;
+let actual, expected, result, airport;
 
 console.log('RUNNING TEST FOR CAPACITY AT AIRPORT');
 console.log('💻 ~file: airportIncreaseMaxCapacity.spec');
@@ -87,7 +87,6 @@ console.log('');
 
 // Assert
 result = testingFramework.assertEquals(actual, expected);
-console.log(result);
 
 // Report
 console.log(`Test 6 - given a string "hello" does not add to maxCapacity: ${result ? 'PASS' : 'FAIL'}`);

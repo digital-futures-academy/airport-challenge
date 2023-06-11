@@ -4,3 +4,4 @@ console.log('');
 
 require('./spec/airportAddPlaneToAirport.spec');
 require('./spec/airportIncreaseMaxCapacity.spec');
+require('./spec/airportMaxCapacityReached.spec');
