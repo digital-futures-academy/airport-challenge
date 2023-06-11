@@ -105,19 +105,19 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-|  Objects   |  Properties             |   Messages                           |  Output     |
-| ---------- | ----------------------- | ------------------------------------ | ----------- |
-|  Airport   | maxAirportCapacity @Int | airportFull(planes @Array[@Planes])  | @boolean    |
-|            | planes @Array[@Planes]  |                                      |             |
+|  Objects   |  Properties             |   Messages      |  Output     |
+| ---------- | ----------------------- | ----------------| ----------- |
+|  Airport   | maxAirportCapacity @Int | canLandPlane()  | @boolean    |
+|            | planes @Array[@Planes]  |                 |             |
 
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-|  Objects   |  Properties            |   Messages                    |  Output  |
-| ---------- | ---------------------- | ----------------------------- | -------- |
-|  Plane     |                        |                               |          |
-|  Airport   | planes @Array[@Planes] | removePlaneToAirport(@Plane)  | @string  |
+|  Objects   |  Properties            |   Messages                      |  Output  |
+| ---------- | ---------------------- | ------------------------------- | -------- |
+|  Plane     |                        |                                 |          |
+|  Airport   | planes @Array[@Planes] | removePlaneFromAirport(@Plane)  | @string  |
 
 
 As an air traffic controller

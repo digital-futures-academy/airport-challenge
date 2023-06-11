@@ -19,6 +19,14 @@ class Airport {
     canLandPlane() {
         return this.planes.length < this.maxAirportCapacity;
     }
+
+    removePlaneFromAirport(planeToRemove) {
+        if (planeToRemove) {
+            const index = this.planes.map(plane => plane.id).indexOf(planeToRemove);
+            console.log(index);
+            this.planes.splice(index, 1);
+        }
+    }
 }
 
 module.exports = Airport;
