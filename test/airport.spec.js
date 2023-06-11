@@ -54,6 +54,26 @@ function testSetCapacity() {
     console.log(`Test 2-2 - airport capacity overridden to 9: ${result ? `PASS` : `FAIL`}\n`);
 }
 
+function testNoLandingWhenFull() {
+    console.log(`Test 3 -  No landing when the airport is full`);
+
+    // Setup
+    let airport = new Airport();
+    this.planes.length = 4;
+    const planeToLand = { id: `F-14` };
+    expectedOutput = 4;
+
+    // Execute
+    airport.land(planeToLand);
+    actualOutput = airport.planes.length;
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 3 - no landing when the airport is full: ${result ? `PASS` : `FAIL`}\n`);
+}
+
 testLandingPlane();
 testDefaultCapacity();
 testSetCapacity();
+testNoLandingWhenFull()
