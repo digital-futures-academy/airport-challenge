@@ -59,9 +59,10 @@ function testNoLandingWhenFull() {
 
     // Setup
     let airport = new Airport();
-    this.planes.length = 4;
+    airport.capacity = 4
+    airport.planes = [`F-15A`, `F-15B`, `F-15C`, `F-15D`]
     const planeToLand = { id: `F-14` };
-    expectedOutput = 4;
+    expectedOutput = airport.capacity;
 
     // Execute
     airport.land(planeToLand);
