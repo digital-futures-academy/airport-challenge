@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../DF-learning/test framework/countEvenNumbers"
+		}
+	],
+	"settings": {
+		"javascript.suggest.autoImports": true,
+		"typescript.suggest.autoImports": true,
+		"javascript.suggest.paths": true,
+		"typescript.updateImportsOnFileMove.enabled": "prompt"
+	}
+}
