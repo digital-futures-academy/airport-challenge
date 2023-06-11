@@ -5,19 +5,19 @@ let actual, result, expected, plane;
 
 airport.airportDestination = [];
 
-//console.log(`Test 1 Airport Spec`);
-//console.log(``);
+console.log(`Test 1 Airport Spec`);
+console.log(``);
 
-//console.log(` Testing if airport was instructed to land the plane using airport.land(plane)`);
+console.log(` Testing if airport was instructed to land the plane using airport.land(plane)`);
 
 expected = true;
 
-result = airport.land(plane);
+airport.land(plane);
 actual = airport.airportDestination.includes(plane);
 result = assertEquals(actual, expected);
 
-//console.log(`Test 1 Airport Spec: plane landed: ${result}`);
-//console.log(`Test 1 Airport Spec: ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 1 Airport Spec: plane landed: ${result}`);
+console.log(`Test 1 Airport Spec: ${result ? `PASS` : `FAIL`}`);
 
 //console.log(`Test 2 Airport Spec`);
 //console.log(``);
