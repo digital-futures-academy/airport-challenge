@@ -2,29 +2,24 @@ const { assertEquals } = require("./test-framework");
 const Airport = require("../src/airport");
 const Plane = require("../src/plane")
 
-let expectedOutput, result, actualOutput;
+function testLandingPlane() {
+    console.log(`Test 1 - Land a plane to an empty airport using land function and expect array of planes to increase in length to 1 `);
 
-const plane1 = { id: `F-15` };
-// const plane1 = { id: `F-15A` };
+    // Setup
+    let expectedOutput, result, actualOutput;
+    let airport = new Airport();
+    const plane1 = { id: `F-15` };
+    expectedOutput = 1;
 
-console.log(`Test 1 - Land a plane to an empty airport using land function and expect array of planes to increase in length to 1 `);
+    // Execute
+    airport.land(plane1);
+    actualOutput = airport.planes.length;
+    console.log(actualOutput === expectedOutput);
 
-// Setup
-let airport = new Airport();
-//console.log(airport);
-expectedOutput = 1;
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
 
-// Execute
-airport.land(plane1);
-actualOutput = airport.planes.length;
-console.log(actualOutput === expectedOutput);
+    console.log(`Test 1 - one plane landed at airport: ${result ? `PASS` : `FAIL`}\n`);
+}
 
-// Verify
-result = assertEquals(expectedOutput, actualOutput);
-
-console.log(`Test 1 - one plane landed to airport: ${result ? `PASS` : `FAIL`}`);
-console.log(``);
-
-// // Clean up
-// result = undefined;
-// actualOutput = undefined;
+testLandingPlane();
