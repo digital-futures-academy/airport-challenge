@@ -34,8 +34,26 @@ function testDefaultCapacity() {
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 2 - airport has a default capacity of 4: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 2-1 - airport has a default capacity of 4: ${result ? `PASS` : `FAIL`}\n`);
+}
+
+function testSetCapacity() {
+    console.log(`Test 2 -  Set default airport capacity that can be overridden as appropriate`);
+
+    // Setup
+    let airport = new Airport();
+    expectedOutput = 9;
+
+    // Execute
+    airport.setCapacity(9);
+    actualOutput = airport.capacity;
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 2-2 - airport capacity overridden to 9: ${result ? `PASS` : `FAIL`}\n`);
 }
 
 testLandingPlane();
 testDefaultCapacity();
+testSetCapacity();
