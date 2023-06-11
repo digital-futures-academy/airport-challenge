@@ -6,7 +6,10 @@ class Airport {
 
     land(plane) {
         this.planes.push(plane);
-        return this.planes;
+    }
+
+    setCapacity(newCapacity) {
+        this.capacity = newCapacity
     }
 }
 
