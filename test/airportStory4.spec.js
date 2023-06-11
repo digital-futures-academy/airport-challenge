@@ -14,7 +14,7 @@ Test = () => {
 
     //Arrange
     expected = 1;
-    input = 1;
+    input = `Plane`;
     plane = new Plane(`Plane`);
     airport = new Airport(2);
     for (let i = 0; i < 2; i++) {
@@ -47,9 +47,9 @@ Test2 = () => {
 
     //Arrange
     expected = `Airtrain`;
-    input = `BrainAir`;
+    input = `BrianAir`;
     plane1 = new Plane(`BrianAir`);
-    plane2 = new Plane(`Airtrian`);
+    plane2 = new Plane(`Airtrain`);
     airport = new Airport(2);
     airport.landPlane(plane1);
     airport.landPlane(plane2);

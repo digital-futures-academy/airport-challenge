@@ -8,9 +8,13 @@ class Airport {
       this.planesAtAirport.push(plane)
   };
 
-  takeoffPlane = (index) => {
-    if (this.planesAtAirport.length > 0)
-      this.planesAtAirport.splice(index, 1);
+  takeoffPlane = (inputID) => {
+    for (let i = 0; i < this.planesAtAirport.length; i++) {
+      if (this.planesAtAirport[i].getID === inputID) {
+        this.planesAtAirport.splice(i, 1);
+        break;
+      }
+    }
   };
 
   checkFull() {
