@@ -10,7 +10,11 @@ class Airport {
         }
     }
 
-    increaseAirportCapacity(valueToIncrease) { this.maxAirportCapacity += valueToIncrease; }
+    increaseAirportCapacity(valueToIncrease) {
+        if (!isNaN(valueToIncrease)) {
+            this.maxAirportCapacity += parseInt(valueToIncrease);
+        }
+    }
 }
 
 module.exports = Airport;
