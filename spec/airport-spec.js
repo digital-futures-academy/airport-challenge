@@ -13,7 +13,8 @@ describe("Airport", () => {
     airport = new Airport();
     plane = new Plane('Boeing 777');
     airport.landPlane(plane);
-    expect(airport.landedPlanes).toEqual([plane]);
+    expect(airport.landedPlanes[0].name).toEqual('Boeing 777');
+    expect(airport.landedPlanes[0].status).toEqual('landed');
     expect(airport.landedPlanes.length).toEqual(1);
   });
 
@@ -22,6 +23,7 @@ describe("Airport", () => {
     plane = new Plane('Boeing 777');
     airport.landPlane(plane);
     expect(airport.landedPlanes[0].name).toBe('Boeing 777');
+    expect(airport.landedPlanes[0].status).toBe('landed');
   });
 
   it('overrides airport capacity', () => {
@@ -32,15 +34,28 @@ describe("Airport", () => {
     expect(airport.maxAirportCapacity).toEqual(1000);
   });
 
-    it('informs if airport is full', () => {
-      airport = new Airport('');
-      plane = new Plane('Boeing 777');
-      airport.landPlane(plane);
-      airport.overrideAirportCapacity(1500);
-      expect(airport.isFull()).toEqual(false);
-      airport.overrideAirportCapacity(-1499);
-      expect(airport.landedPlanes.length).toEqual(1);
-      expect(airport.isFull()).toEqual(true);
+  it('informs if airport is full', () => {
+    airport = new Airport('');
+    plane = new Plane('Boeing 777');
+    airport.landPlane(plane);
+    airport.overrideAirportCapacity(1500);
+    expect(airport.isFull()).toEqual(false);
+    airport.overrideAirportCapacity(-1499);
+    expect(airport.landedPlanes.length).toEqual(1);
+    expect(airport.isFull()).toEqual(true);
   });
-
+  
+  it('confirms plane took off', () => {
+    airport = new Airport('');
+    const plane1 = new Plane('Boeing 777');
+    const plane2 = new Plane('Airbus A380');
+    const plane3 = new Plane('Airbus A340');
+    airport.landPlane(plane1);
+    airport.landPlane(plane2);
+    airport.landPlane(plane3);
+    const message = airport.planeTakeOff('Boeing 777');
+    expect(message).toBe(`Boeing 777 took off from airport`);
+    expect(airport.landedPlanes.length).toEqual(2);
+    expect(airport.landedPlanes[0].status).toBe('landed');
+  })
 });
