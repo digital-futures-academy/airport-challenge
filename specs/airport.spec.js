@@ -24,24 +24,38 @@ result = assertEquals(actual, expected);
 //console.log(`Test default airport capacity`);
 
 airport.airportCapacity = 100;
-airport.setCapacity(130);
+airport.setCapacity(150);
+
+expected = false;
 
 actual = airport.isAtCapacity();
-expected = false;
 result = assertEquals(actual, expected);
 
 //console.log(`Test 2 Airport Spec: test Airport capacity: ${result}`);
 //console.log(`Test 2 Airport Spec: ${result ? `PASS` : `FAIL`}`);
 
-console.log(`Test 3 Airport Spec`);
-console.log(``);
-console.log(`Test: Airport is full`);
+//console.log(`Test 3 Airport Spec`);
+//console.log(``);
+//console.log(`Test: Airport is full`);
 
 airport.setCapacity(100);
 console.log(`Airport capacity: ${airport.airportCapacity}`);
 
+expected = true;
+
 actual = airport.isFull();
-expected = false;
 result = assertEquals(actual, expected);
-console.log(`Test 3 Airport Spec: is Airport Full : ${result}`);
-console.log(`Test 3 Airport Spec: ${result ? `PASS` : `FAIL`}`);
+//console.log(`Test 3 Airport Spec: is Airport Full : ${result}`);
+//console.log(`Test 3 Airport Spec: ${result ? `PASS` : `FAIL`}`);
+
+console.log(`Test 4 Airport Spec`);
+console.log(``);
+console.log(`Test:Prevent landing when airport is full`);
+
+expected = false;
+
+actual = airport.preventLand();
+result = assertEquals(actual, expected);
+
+console.log(`Test 4 Airport Spec: Prevent landing: ${result}`);
+console.log(`Test 4 Airport Spec: ${result ? `PASS` : `FAIL`}`);
