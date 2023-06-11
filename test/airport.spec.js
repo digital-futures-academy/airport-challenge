@@ -14,7 +14,6 @@ function testLandingPlane() {
     // Execute
     airport.land(plane1);
     actualOutput = airport.planes.length;
-    console.log(actualOutput === expectedOutput);
 
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
@@ -22,4 +21,21 @@ function testLandingPlane() {
     console.log(`Test 1 - one plane landed at airport: ${result ? `PASS` : `FAIL`}\n`);
 }
 
+function testDefaultCapacity() {
+    console.log(`Test 2 -  Airport should have a default capacity`);
+
+    // Setup
+    let airport = new Airport();
+    expectedOutput = 4;
+
+    // Execute
+    actualOutput = airport.capacity;
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 2 - airport has a default capacity of 4: ${result ? `PASS` : `FAIL`}\n`);
+}
+
 testLandingPlane();
+testDefaultCapacity();
