@@ -23,8 +23,8 @@ class Airport {
     removePlaneFromAirport(planeToRemove) {
         if (planeToRemove) {
             const index = this.planes.map(plane => plane.id).indexOf(planeToRemove);
-            console.log(index);
-            this.planes.splice(index, 1);
+            const planeTakenOff = this.planes.splice(index, 1);
+            return `${planeTakenOff[0].id} has taken off from the airport.`;
         }
     }
 }

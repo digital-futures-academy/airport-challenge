@@ -77,3 +77,31 @@ console.log(`Test 10 - removePLaneFromAirport must have a valid plane id to remo
 // clean Up
 expected, actual, result, airport = undefined;
 console.log('');
+
+console.log('Test 11 - removePLaneFromAirport returns a confirmation of the plane id removed from the airport');
+console.log('========================================================');
+console.log('');
+
+// Arrange
+airport = new Airport();
+for (const plane of planeArray) {
+    airport.addPlaneToAirport(plane);
+}
+expected = `${planeArray[2].id} has taken off from the airport.`;
+const planeToRemove = 'plane3';
+
+// ACT
+actual = airport.removePlaneFromAirport(planeToRemove);
+console.log('💻 ~ file: removePLaneFromAirport.spec.js:67 ~ actual:', actual);
+console.log('=============================================================');
+console.log('');
+
+// ASSERT
+result = testingFramework.assertEquals(actual, expected);
+
+// Report
+console.log(`Test 11 - removePLaneFromAirport returns a confirmation of the plane id removed from the airport: ${result ? 'PASS' : 'FAIL'}`);
+
+// clean Up
+expected, actual, result, airport = undefined;
+console.log('');
