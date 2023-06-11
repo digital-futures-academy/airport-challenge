@@ -1,7 +1,6 @@
 class Airport {
     constructor() {
         this.planes = [];
-        this.capacity = 4;
     }
 
     land(plane) {
