@@ -5,18 +5,43 @@ let actual, result, expected, plane;
 
 airport.airportDestination = [];
 
-console.log(`Test 1`);
-console.log(``);
+//console.log(`Test 1 Airport Spec`);
+//console.log(``);
 
-console.log(` Testing if airport was instructed to land the plane using airport.land(plane)`);
+//console.log(` Testing if airport was instructed to land the plane using airport.land(plane)`);
 
 expected = true;
-plane = {};
 
 result = airport.land(plane);
 actual = airport.airportDestination.includes(plane);
-
 result = assertEquals(actual, expected);
 
-console.log(`Test1: plane landed: ${result}`);
-console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
+//console.log(`Test 1 Airport Spec: plane landed: ${result}`);
+//console.log(`Test 1 Airport Spec: ${result ? `PASS` : `FAIL`}`);
+
+//console.log(`Test 2 Airport Spec`);
+//console.log(``);
+//console.log(`Test default airport capacity`);
+
+airport.airportCapacity = 100;
+airport.setCapacity(130);
+
+actual = airport.isAtCapacity();
+expected = false;
+result = assertEquals(actual, expected);
+
+//console.log(`Test 2 Airport Spec: test Airport capacity: ${result}`);
+//console.log(`Test 2 Airport Spec: ${result ? `PASS` : `FAIL`}`);
+
+console.log(`Test 3 Airport Spec`);
+console.log(``);
+console.log(`Test: Airport is full`);
+
+airport.setCapacity(100);
+console.log(`Airport capacity: ${airport.airportCapacity}`);
+
+actual = airport.isFull();
+expected = false;
+result = assertEquals(actual, expected);
+console.log(`Test 3 Airport Spec: is Airport Full : ${result}`);
+console.log(`Test 3 Airport Spec: ${result ? `PASS` : `FAIL`}`);
