@@ -5,7 +5,7 @@ class Airport {
     }
 
     addPlaneToAirport(planeToAdd) {
-        if (planeToAdd?.id) {
+        if (planeToAdd?.id && this.canLandPlane()) {
             this.planes.push(planeToAdd);
         }
     }
