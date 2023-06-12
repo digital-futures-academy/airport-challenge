@@ -22,7 +22,7 @@ class Airport {
             (console.log(`Plane already at the airport, plane cannot land.`));
         } else if (this.airportFull()) {
             (console.log(`Airport is full, plane can not land.`));
-        } else if (this.weather = `stormy`) {
+        } else if (this.weather === `stormy`) {
             console.log(`Weather is stormy, plane cannot land.`);
         } else {
             this.planes.push(plane);
@@ -32,7 +32,7 @@ class Airport {
     takeOff(plane) {
         if (!this.planes.includes(plane)) {
             console.log(`Plane not at the airport, cannot take off.`);
-        } else if (this.weather = `stormy`) {
+        } else if (this.weather === `stormy`) {
             console.log(`Weather is stormy, plane cannot take off.`);
         } else {
             this.planes.pop(plane)

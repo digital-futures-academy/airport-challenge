@@ -176,6 +176,26 @@ function testNoLandingWhenStormy() {
     console.log(`Test 7 - land a plane when weather is stormy do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
 }
 
+function testPlaneLandedAtAirport() {
+    console.log(`Test 8 - Planes that have landed must be at an airport`);
+
+    // Setup
+    let expectedOutput, result, actualOutput;
+    let airport = new Airport();
+    airport.weather = `sunny`;
+    const planeLanding = `F-15B`;
+    expectedOutput = true;
+
+    // Execute
+    airport.land(planeLanding);
+    actualOutput = airport.planes.includes(planeLanding);
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 8 - plane landed becomes one of the airport planes: ${result ? `PASS` : `FAIL`}\n`);
+}
+
 testLandingPlane();
 testDefaultCapacity();
 testSetCapacity();
@@ -185,3 +205,4 @@ testOnlyTakeOffPlaneAtAirport();
 testOnlyLandPlaneNotAtAirport();
 testNoTakeoffWhenStormy();
 testNoLandingWhenStormy();
+testPlaneLandedAtAirport();
