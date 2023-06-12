@@ -29,7 +29,7 @@ Test = () => {
     result = assertStrictEqual(expected, actual);
 
     console.log(chalk.cyan(`User Story 4 Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
-    console.log(chalk.cyan(`=====================================================================================================`))
+    console.log(chalk.red(`=====================================================================================================`))
     console.log(``);
 
     //Cleanup
@@ -41,7 +41,7 @@ Test = () => {
 Test2 = () => {
 
     console.log(chalk.cyan(`User Story 4: Takeoff a plane and confirm it has left`))
-    console.log(chalk.cyan(`User Story 4 Test 1: Takeoff a plane and confirm the plane that left`))
+    console.log(chalk.cyan(`User Story 4 Test 2: Takeoff a plane and confirm the plane that left`))
     console.log(chalk.cyan(`User Story 4 Pass Criteria: The plane with the correct ID should be removed`))
     console.log(``);
 
@@ -63,7 +63,7 @@ Test2 = () => {
     result = assertStrictEqual(expected, actual);
 
     console.log(chalk.cyan(`User Story 4 Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
-    console.log(chalk.cyan(`=====================================================================================================`))
+    console.log(chalk.red(`=====================================================================================================`))
     console.log(``);
 
     //Cleanup

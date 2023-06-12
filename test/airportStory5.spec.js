@@ -4,30 +4,29 @@ const { Airport, Plane } = require("../src/airport");
 
 let input, result, actual, expected;
 
-//Story 3 Test - Prevent landing at a full airport
+//Story 5 Test - Prevent a plane from taking off if it hasn't landed and vice verse
 Test = () => {
 
-    console.log(chalk.cyan(`User Story 3: Prevent landing at a full airport`))
-    console.log(chalk.cyan(`User Story 3 Test 1: Prevent a plane being added to the airport array if it is at capacity`))
-    console.log(chalk.cyan(`User Story 3 Pass Criteria: The landed planes array should remain at 2`))
+    console.log(chalk.cyan(`User Story 5: Prevent an unlanded plane from taking off`))
+    console.log(chalk.cyan(`User Story 5 Test 1: Prevent an unlanded plane from taking off`))
+    console.log(chalk.cyan(`User Story 5 Pass Criteria: The planes at the airport array shouldn't change`))
     console.log(``);
 
     //Arrange
-    expected = 2;
-    input = new Plane(`Plane`);
+    expected = 1;
+    input = `Plane`;
+    plane = new Plane(`Plane`);
     airport = new Airport(2);
-    for (let i = 0; i < 2; i++) {
-        airport.landPlane(input);
-    }
+    airport.landPlane(plane);
 
     //Act
-    airport.landPlane(input);
+    airport.takeoffPlane(input);
     actual = airport.getPlanesAtAirport().length;
 
     //Assert
     result = assertStrictEqual(expected, actual);
 
-    console.log(chalk.cyan(`User Story 3 Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.cyan(`User Story 5 Test 1 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
     console.log(chalk.red(`=====================================================================================================`))
     console.log(``);
 
@@ -36,6 +35,5 @@ Test = () => {
     expected = undefined;
 
 }
-
 
 Test();
