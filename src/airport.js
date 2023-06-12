@@ -7,10 +7,15 @@ class Airport {
     }
 
     land(plane) {
-        if (!this.airportFull()) {
+        if (!this.airportFull() && !this.planes.includes(plane)) {
             this.planes.push(plane);
+        } else if (this.airportFull() && !this.planes.includes(plane)) {
+            (console.log(`Airport is full, do not land`));
+        } else if (!this.airportFull() && this.planes.includes(plane)) {
+            (console.log(`Plane already at the airport, cannot land`));
         } else {
-            (console.log(`“Airport is full, do not land”`));
+            console.log(`Airport is full and the plane already here, cannot land.`);
+
         }
     }
 
@@ -27,7 +32,7 @@ class Airport {
         if (this.planes.includes(plane)) {
             this.planes.pop(plane);
         } else {
-            console.log(`“Plane not at the airport, cannot take off.”`);
+            console.log(`Plane not at the airport, cannot take off.`);
         }
 
     }
