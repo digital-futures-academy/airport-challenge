@@ -1,6 +1,6 @@
 const { assertEquals } = require("./test-framework");
 const Airport = require("../src/airport");
-const Plane = require("../src/plane")
+//const Plane = require("../src/plane")
 
 function testLandingPlane() {
     console.log(`Test 1 - Land a plane to an empty airport using land function and expect array of planes to increase in length to 1 `);
@@ -94,8 +94,29 @@ function testTakingOffPlane() {
     console.log(`Test 4 - one plane taken off and no longer in the airport: ${result ? `PASS` : `FAIL`}\n`);
 }
 
+function testOnlyTakeOffPlaneAtAirport() {
+    console.log(`Test 5 - Cannot let planes take-off which are not at the airport`);
+
+    // Setup
+    let expectedOutput, result, actualOutput;
+    let airport = new Airport();
+    airport.planes = [`F-15A`, `F-15B`];
+    const planeTakenOff = `F-14`;
+    expectedOutput = 2;
+
+    // Execute
+    airport.takeOff(planeTakenOff);
+    actualOutput = airport.planes.length;
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 5 - take-off a plane not at the airport do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+}
+
 testLandingPlane();
 testDefaultCapacity();
 testSetCapacity();
 testNoLandingWhenFull();
 testTakingOffPlane();
+testOnlyTakeOffPlaneAtAirport();
