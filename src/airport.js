@@ -5,7 +5,7 @@ class Airport {
     }
 
     land(plane) {
-        if (this.planes.length < this.capacity) {
+        if (!this.airportFull()) {
             this.planes.push(plane);
         } else {
             (console.log(`“Airport is full, do not land”`));
@@ -14,6 +14,11 @@ class Airport {
 
     setCapacity(newCapacity) {
         this.capacity = newCapacity
+    }
+
+    airportFull() {
+        if (this.planes.length < this.capacity) return false;
+        else return true;
     }
 }
 

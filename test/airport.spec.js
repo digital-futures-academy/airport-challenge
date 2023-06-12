@@ -77,4 +77,4 @@ function testNoLandingWhenFull() {
 testLandingPlane();
 testDefaultCapacity();
 testSetCapacity();
-testNoLandingWhenFull()
+testNoLandingWhenFull();
