@@ -5,7 +5,7 @@ export default class Airport {
     this.maxAirportCapacity = 10;
   }
   landPlane(plane) { 
-    if (plane.aircraftId && !this.isFull()) {
+    if (plane?.aircraftId && plane?.aircraftStatus && !this.isFull()) {
       this.landedPlanes = [...this.landedPlanes, plane];
       plane.aircraftStatus = 'landed';
     }
