@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const { assertStrictEqual, assertIsUndefined } = require("./test-framework");
-const { Airport } = require("../src/airport");
+const { Airport } = require("../src/Airport");
+const { Plane } = require("../src/Plane");
 
 let input, result, actual, expected;
 
@@ -11,7 +12,6 @@ Test = () => {
     console.log(chalk.cyan(`User Story 2 Test 1: Allow the user to specify a capacity when an airport is created`))
     console.log(chalk.cyan(`User Story 2 Pass Criteria: The capacity of an airport should be not be undefined`))
     console.log(``);
-
     //Arrange
     expected = false;
     airport = new Airport(5);

@@ -9,6 +9,22 @@ class Airport {
     this.#stormy = isStormy;
   }
 
+  setCapacity(value) {
+    this.#capacity = value;
+  }
+
+  setWeather(isStormy) {
+    this.#stormy = isStormy;
+  }
+
+  getCapacity() {
+    return this.#capacity
+  }
+
+  getPlanesAtAirport() {
+    return this.#planesAtAirport;
+  }
+
   landPlane = (plane) => {
     if (this.checkFull() === false) {
       for (let i = 0; i < this.#planesAtAirport.length; i++) {
@@ -34,39 +50,9 @@ class Airport {
   checkFull() {
     return this.#planesAtAirport.length >= this.#capacity;
   }
-
-  setCapacity(value) {
-    this.#capacity = value;
-  }
-
-  setWeather(isStormy) {
-    this.#stormy = isStormy;
-  }
-
-  getCapacity() {
-    return this.#capacity
-  }
-
-  getPlanesAtAirport() {
-    return this.#planesAtAirport;
-  }
 }
 
-class Plane {
-
-  #ID;
-
-  constructor(ID) {
-    this.#ID = ID;
-  }
-
-  getID() {
-    return this.#ID;
-  }
-
-}
 
 module.exports = {
   Airport,
-  Plane
 };

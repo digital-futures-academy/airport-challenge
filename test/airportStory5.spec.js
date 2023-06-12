@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const { assertStrictEqual } = require("./test-framework");
-const { Airport, Plane } = require("../src/airport");
+const { Airport } = require("../src/Airport");
+const { Plane } = require("../src/Plane");
 
 let input, result, actual, expected;
 
@@ -11,7 +12,6 @@ Test = () => {
     console.log(chalk.cyan(`User Story 5 Test 1: Prevent an unlanded plane from taking off`))
     console.log(chalk.cyan(`User Story 5 Pass Criteria: The planes at the airport array shouldn't change`))
     console.log(``);
-
     //Arrange
     expected = 1;
     plane = new Plane(`LandedPlane`);
