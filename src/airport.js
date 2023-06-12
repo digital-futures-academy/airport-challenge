@@ -6,9 +6,16 @@ class Airport {
   constructor(size) {
     this.capacity = size;
   }
+
   landPlane = (plane) => {
-    if (this.checkFull() === false)
-      this.#planesAtAirport.push(plane)
+    if (this.checkFull() === false) {
+      for (let i = 0; i < this.#planesAtAirport.length; i++) {
+        if (this.#planesAtAirport[i].getID() === plane.getID()) {
+          return;
+        }
+      }
+      this.#planesAtAirport.push(plane);
+    }
   };
 
   takeoffPlane = (inputID) => {
