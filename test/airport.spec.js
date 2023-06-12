@@ -1,5 +1,5 @@
 const { assertEquals } = require("./test-framework");
-const Airport = require("../src/airport");
+const Airport = require("../src/Airport");
 //const Plane = require("../src/plane")
 
 function testLandingPlane() {
@@ -142,7 +142,7 @@ function testNoTakeoffWhenStormy() {
     let airport = new Airport();
     airport.planes = [`F-15A`, `F-15B`, `F-15C`, `F-15D`];
     const planeTakenOff = `F-15B`;
-    let weatherIsStormy = true;
+    airport.weather = `stormy`;
     expectedOutput = 4;
 
     // Execute
@@ -152,7 +152,28 @@ function testNoTakeoffWhenStormy() {
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 6 - take-off a plane not at the airport do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 6 - take-off a plane when weather is stormy do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+}
+
+function testNoLandingWhenStormy() {
+    console.log(`Test 7 - Cannot let planes land when weather is stormy`);
+
+    // Setup
+    let expectedOutput, result, actualOutput;
+    let airport = new Airport();
+    airport.planes = [];
+    const planeLanding = `F-15B`;
+    airport.weather = `stormy`;
+    expectedOutput = 0;
+
+    // Execute
+    airport.land(planeLanding);
+    actualOutput = airport.planes.length;
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 7 - land a plane when weather is stormy do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
 }
 
 testLandingPlane();
@@ -163,3 +184,4 @@ testTakingOffPlane();
 testOnlyTakeOffPlaneAtAirport();
 testOnlyLandPlaneNotAtAirport();
 testNoTakeoffWhenStormy();
+testNoLandingWhenStormy();

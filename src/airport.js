@@ -1,26 +1,15 @@
-const { Plane } = require("./plane");
+// const { Plane } = require("./plane");
+const Weather = require("./Weather.js");
 
 class Airport {
     constructor() {
         this.planes = [];
         this.capacity = 4;
-    }
-
-    land(plane) {
-        if (!this.airportFull() && !this.planes.includes(plane)) {
-            this.planes.push(plane);
-        } else if (this.airportFull() && !this.planes.includes(plane)) {
-            (console.log(`Airport is full, do not land`));
-        } else if (!this.airportFull() && this.planes.includes(plane)) {
-            (console.log(`Plane already at the airport, cannot land`));
-        } else {
-            console.log(`Airport is full and the plane already here, cannot land.`);
-
-        }
+        this.weather = new Weather();
     }
 
     setCapacity(newCapacity) {
-        this.capacity = newCapacity
+        this.capacity = newCapacity;
     }
 
     airportFull() {
@@ -28,13 +17,24 @@ class Airport {
         else return true;
     }
 
-    takeOff(plane) {
-        if (this.planes.includes(plane)) {
-            this.planes.pop(plane);
-        } else {
-            console.log(`Plane not at the airport, cannot take off.`);
+    land(plane) {
+        if (!this.airportFull() && !this.planes.includes(plane)) {
+            this.planes.push(plane);
+        } else if (this.planes.includes(plane)) {
+            (console.log(`Plane already at the airport, plane cannot land`));
+        } else if (this.airportFull()) {
+            (console.log(`Airport is full, plane can not land`));
         }
+    }
 
+    takeOff(plane) {
+        if (!this.planes.includes(plane)) {
+            console.log(`Plane not at the airport, cannot take off.`);
+        } else if (this.weather = `stormy`) {
+            console.log(`Weather is stormy, plane cannot take off.`);
+        } else {
+            this.planes.pop(plane)
+        }
     }
 }
 
