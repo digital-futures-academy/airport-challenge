@@ -37,4 +37,35 @@ Test = () => {
 
 }
 
+Test2 = () => {
+
+    console.log(chalk.cyan(`User Story 5: Prevent a landed plane from landing again`))
+    console.log(chalk.cyan(`User Story 5 Test 2: Prevent a landed plane from landing again`))
+    console.log(chalk.cyan(`User Story 5 Pass Criteria: The planes at the airport array shouldn't change`))
+    console.log(``);
+
+    //Arrange
+    expected = 1;
+    plane = new Plane(`LandedPlane`);
+    airport = new Airport(2);
+    airport.landPlane(plane);
+
+    //Act
+    airport.landPlane(plane);
+    actual = airport.getPlanesAtAirport().length;
+
+    //Assert
+    result = assertStrictEqual(expected, actual);
+
+    console.log(chalk.cyan(`User Story 5 Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.red(`=====================================================================================================`))
+    console.log(``);
+
+    //Cleanup
+    input = undefined;
+    expected = undefined;
+
+}
+
 Test();
+Test2();
