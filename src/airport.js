@@ -5,7 +5,7 @@ class Airport {
     }
 
     addPlaneToAirport(planeToAdd) {
-        if (planeToAdd?.id && this.canLandPlane()) {
+        if (planeToAdd?.id && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd)) {
             this.planes.push(planeToAdd);
         }
     }
@@ -21,12 +21,14 @@ class Airport {
     }
 
     removePlaneFromAirport(planeToRemove) {
-        if (planeToRemove) {
+        if (planeToRemove && this.checkPlaneAtAirport(planeToRemove)) {
             const index = this.planes.map(plane => plane.id).indexOf(planeToRemove);
             const planeTakenOff = this.planes.splice(index, 1);
             return `${planeTakenOff[0].id} has taken off from the airport.`;
         }
     }
+
+    checkPlaneAtAirport(planeToCheck) { return this.planes.some(plane => plane.id === planeToCheck); }
 }
 
 module.exports = Airport;

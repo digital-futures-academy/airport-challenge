@@ -127,7 +127,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
 |  Plane     | id @string             | getId()                       | @string  |
-|  Airport   | planes @Array[@Planes] | planeExistsAtAirport(@Plane)  | @boolean |
+|  Airport   | planes @Array[@Planes] | checkPLaneAtAirport(@Plane)   | @boolean |
 
 
 As an air traffic controller
@@ -137,7 +137,7 @@ I want to prevent asking the airport to land a plane that's already landed
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
 |  Plane     | id @string             | getId()                       | @string  |
-|  Airport   | planes @Array[@Planes] | planeExistsAtAirport(@Plane)  | @boolean |
+|  Airport   | planes @Array[@Planes] | checkPlaneAtAirport(@Plane)  | @boolean |
 
 EXTENDED CRITERIA DOMAIN MODELS
 
