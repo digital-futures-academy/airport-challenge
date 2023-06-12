@@ -14,8 +14,9 @@ Test = () => {
 
     //Arrange
     expected = 1;
-    input = `Plane`;
-    plane = new Plane(`Plane`);
+    input = `UnlandedPlane`;
+    plane = new Plane(`LandedPlane`);
+    plane2 = new Plane(`UnlandedPlane`);
     airport = new Airport(2);
     airport.landPlane(plane);
 
