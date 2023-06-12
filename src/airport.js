@@ -32,6 +32,7 @@ class Airport {
           return;
         }
       }
+      plane.setAirport(this);
       this.#planesAtAirport.push(plane);
     }
   };
