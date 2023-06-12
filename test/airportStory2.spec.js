@@ -17,7 +17,7 @@ Test = () => {
     airport = new Airport(5);
 
     //Act
-    actual = assertIsUndefined(airport.capacity);
+    actual = assertIsUndefined(airport.getCapacity());
 
     //Assert
     result = assertStrictEqual(expected, actual);

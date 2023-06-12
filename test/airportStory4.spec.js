@@ -14,12 +14,11 @@ Test = () => {
 
     //Arrange
     expected = 1;
-    input = `Plane`;
-    plane = new Plane(`Plane`);
     airport = new Airport(2);
     for (let i = 0; i < 2; i++) {
-        airport.landPlane(plane);
+        airport.landPlane(new Plane(`Plane` + i));
     }
+    input = airport.getPlanesAtAirport()[0];
 
     //Act
     airport.takeoffPlane(input);
@@ -47,9 +46,9 @@ Test2 = () => {
 
     //Arrange
     expected = `Airtrain`;
-    input = `BrianAir`;
     plane1 = new Plane(`BrianAir`);
     plane2 = new Plane(`Airtrain`);
+    input = plane1;
     airport = new Airport(2);
     airport.landPlane(plane1);
     airport.landPlane(plane2);

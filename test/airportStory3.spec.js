@@ -14,14 +14,13 @@ Test = () => {
 
     //Arrange
     expected = 2;
-    input = new Plane(`Plane`);
     airport = new Airport(2);
     for (let i = 0; i < 2; i++) {
-        airport.landPlane(input);
+        airport.landPlane(new Plane(`Plane` + i));
     }
 
     //Act
-    airport.landPlane(input);
+    airport.landPlane((new Plane(`Plane2`)));
     actual = airport.getPlanesAtAirport().length;
 
     //Assert
