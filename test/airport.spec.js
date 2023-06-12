@@ -74,7 +74,28 @@ function testNoLandingWhenFull() {
     console.log(`Test 3 - no landing when the airport is full: ${result ? `PASS` : `FAIL`}\n`);
 }
 
+function testTakingOffPlane() {
+    console.log(`Test 4 - Let a plane take off and no longer in the airport`);
+
+    // Setup
+    let expectedOutput, result, actualOutput;
+    let airport = new Airport();
+    airport.planes = [`F-15`];
+    const planeTakenOff = { id: `F-15` };
+    expectedOutput = false;
+
+    // Execute
+    airport.takeOff(planeTakenOff);
+    actualOutput = airport.planes.includes(planeTakenOff);
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 4 - one plane taken off and no longer in the airport: ${result ? `PASS` : `FAIL`}\n`);
+}
+
 testLandingPlane();
 testDefaultCapacity();
 testSetCapacity();
 testNoLandingWhenFull();
+testTakingOffPlane();
