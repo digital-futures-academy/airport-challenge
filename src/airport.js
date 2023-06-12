@@ -26,7 +26,7 @@ class Airport {
   }
 
   landPlane = (plane) => {
-    if (this.checkFull() === false) {
+    if (this.checkFull() === false && this.#stormy === false) {
       for (let i = 0; i < this.#planesAtAirport.length; i++) {
         if (this.#planesAtAirport[i].getID() === plane.getID()) {
           return;
