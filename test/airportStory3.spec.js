@@ -22,7 +22,7 @@ Test = () => {
 
     //Act
     airport.landPlane(input);
-    actual = airport.planesAtAirport.length;
+    actual = airport.getPlanesAtAirport().length;
 
     //Assert
     result = assertStrictEqual(expected, actual);

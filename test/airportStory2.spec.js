@@ -46,8 +46,8 @@ Test2 = () => {
     airport = new Airport(5);
 
     //Act
-    airport.setCapacity = input;
-    actual = airport.capacity;
+    airport.setCapacity(input);
+    actual = airport.getCapacity();
 
     //Assert
     result = assertStrictEqual(expected, actual);

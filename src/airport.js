@@ -1,46 +1,52 @@
 class Airport {
+
+  #planesAtAirport = [];
+  #capacity = 0;
+
   constructor(size) {
-    this.planesAtAirport = [];
     this.capacity = size;
   }
   landPlane = (plane) => {
     if (this.checkFull() === false)
-      this.planesAtAirport.push(plane)
+      this.#planesAtAirport.push(plane)
   };
 
   takeoffPlane = (inputID) => {
-    for (let i = 0; i < this.planesAtAirport.length; i++) {
-      if (this.planesAtAirport[i].getID === inputID) {
-        this.planesAtAirport.splice(i, 1);
+    for (let i = 0; i < this.#planesAtAirport.length; i++) {
+      if (this.#planesAtAirport[i].getID() === inputID) {
+        this.#planesAtAirport.splice(i, 1);
         break;
       }
     }
   };
 
   checkFull() {
-    return this.planesAtAirport.length >= this.capacity;
+    return this.#planesAtAirport.length >= this.capacity;
   }
 
-  set setCapacity(value) {
-    this.capacity = value;
+  setCapacity(value) {
+    this.#capacity = value;
   }
 
-  get getCapacity() {
-    return this.capacity
+  getCapacity() {
+    return this.#capacity
   }
 
-  get getPlanesAtAirport() {
-    return this.planesAtAirport;
+  getPlanesAtAirport() {
+    return this.#planesAtAirport;
   }
 }
 
 class Plane {
+
+  #ID;
+
   constructor(ID) {
-    this.ID = ID;
+    this.#ID = ID;
   }
 
-  get getID() {
-    return this.ID;
+  getID() {
+    return this.#ID;
   }
 
 }
