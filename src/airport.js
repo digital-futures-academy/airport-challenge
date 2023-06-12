@@ -24,7 +24,12 @@ class Airport {
     }
 
     takeOff(plane) {
-        this.planes.pop(plane);
+        if (this.planes.includes(plane)) {
+            this.planes.pop(plane);
+        } else {
+            console.log(`“Plane not at the airport, cannot take off.”`);
+        }
+
     }
 }
 
