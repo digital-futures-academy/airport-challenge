@@ -111,8 +111,7 @@ I want to prevent takeoff when weather is stormy
 Domain Model
 | Objects | Properties                     | Messages                 | Outputs |
 | ------- | ------------------------------ | ------------------------ | ------- |
-| Airport | currentWeather @Integer        | getCurrentWeather(@Plane)| @String |
-|         |                                | allowTakeoff(@String)    | @Bool   |
+| Airport | currentWeather @Integer        | setWeather(@Boolean)     | @String |
 =================================================================================
 
 7.
@@ -123,8 +122,7 @@ I want to prevent landing when weather is stormy
 Domain Model
 | Objects | Properties                     | Messages                 | Outputs |
 | ------- | ------------------------------ | ------------------------ | ------- |
-| Airport | currentWeather @Integer        | getCurrentWeather(@Plane)| @String |
-|         |                                | allowLanding(@String)    | @Bool   |
+| Airport | currentWeather @Integer        | setWeather(@Boolean)     | @String |
 =================================================================================
 
 8.
