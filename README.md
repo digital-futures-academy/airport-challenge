@@ -86,7 +86,7 @@ So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
 objects    |  airport                      |   plane          
-properties |  landedPlanes @Array [@Plane] |   name @String
+properties |  landedPlanes @Array [@Plane] |   aircraftId @String
 messages   |  landPlane(@Plane)            | 
 output     |  void                         |   void
 
@@ -113,7 +113,7 @@ So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
 objects    |  airport                                                  |        plane 
-properties | maxAirportCapacity @Number,landedPlanes @Array [@Plane]   |        status @String
+properties | maxAirportCapacity @Number,landedPlanes @Array [@Plane]   |        aircraftStatus @String
 messages   |  planeTakeOff(@String [@Plane])                           | 
 output     |  @String                                                  | 
 
@@ -121,7 +121,7 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-objects    |  plane                                     |         
-properties |  status                @String             | 
-messages   |                                            | 
-output     |                                            | 
+objects    |  plane                                          |         
+properties |  aircraftStatus, aircraftId @String             | 
+messages   |                                                 | 
+output     |                                                 | 

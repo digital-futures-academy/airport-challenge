@@ -1,6 +1,6 @@
 export default class Plane {
-  constructor(name) {
-    this.name = name;
-    this.status;
+  constructor(aircraftId, aircraftStatus) {
+    this.aircraftId = aircraftId;
+    this.aircraftStatus = aircraftStatus;
   }
 }

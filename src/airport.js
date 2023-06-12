@@ -2,13 +2,13 @@ export default class Airport {
   constructor() {
     this.landedPlanes = [];
     this.departedPlanes = [];
-    this.maxAirportCapacity = 0;
+    this.maxAirportCapacity = 10;
   }
-  landPlane(plane) {
-    if (plane.status != 'landed') {
-      this.landedPlanes.push(plane);
+  landPlane(plane) { 
+    if (!this.isFull()) {
+      this.landedPlanes = [...this.landedPlanes, plane];
+      plane.aircraftStatus = 'landed';
     }
-    plane.status = 'landed';
   }
   overrideAirportCapacity(override) {
     this.maxAirportCapacity += override;
@@ -16,15 +16,15 @@ export default class Airport {
   isFull() {
     return this.landedPlanes.length === this.maxAirportCapacity;
   }
-  planeTakeOff(planeName) {
-    const planeToTakeOff = this.landedPlanes.findIndex(plane => plane.name === planeName);
+  planeTakeOff(aircraftId) {
+    const planeToTakeOff = this.landedPlanes.findIndex(plane => plane.aircraftId === aircraftId);
     const plane = this.landedPlanes[planeToTakeOff];
-    if (plane.status != 'departed') {
+    if (plane.aircraftStatus != 'departed') {
       this.departedPlanes.push(plane);
     }
     this.landedPlanes.splice(planeToTakeOff, 1);
-    plane.status = 'departed';
-    return `${planeName} took off from airport`
+    plane.aircraftStatus = 'departed';
+    return `${aircraftId} took off from airport`
   }
 }
 
