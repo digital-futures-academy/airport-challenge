@@ -1,3 +1,5 @@
+const { Plane } = require("./plane");
+
 class Airport {
     constructor() {
         this.planes = [];
@@ -19,6 +21,10 @@ class Airport {
     airportFull() {
         if (this.planes.length < this.capacity) return false;
         else return true;
+    }
+
+    takeOff(plane) {
+        this.planes.pop(plane);
     }
 }
 
