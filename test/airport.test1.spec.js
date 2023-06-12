@@ -5,10 +5,10 @@ const { airport } = require("../src/airport");
 console.log("TEST 1: Did the plane land?")
 
 // Arrange
-
+airport.planesAtAirport = ["123456", "78910"]
 let planeID = "123456";
 
-let expectedOutput = true;
+let expectedOutput = false;
 
 // Act
 
@@ -21,12 +21,13 @@ result = assertEquals(actualOutput, expectedOutput);
 
 //Report
 
-console.log(`Has plane ${planeID} landed? ${result}`);
+console.log(`Has plane ${planeID} landed? ${actualOutput}`);
 console.log(result ? `TEST PASSED` : `TEST FAILED (expectedOutcome is not equal to actualOutcome).`);
 
 
 console.log("*********************************************")
 console.log("*********************************************")
 console.log("                                             ")
+
 
 

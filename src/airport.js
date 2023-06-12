@@ -9,14 +9,25 @@ const airport = {
 
     currentAirportCapacity: 0,
 
+    planesAtAirport: [],
+
 
     landPlane: function (planeID) {
-        if (airport.isFull()) {
+        if (airport.isFull() || airport.planesAtAirport.includes(planeID)) {
             return false
         } else {
             airport.currentAirportCapacity += 1
+            this.planesAtAirport.push(planeID)
             return true
         }
+    },
+
+    planeTakeOff: function (planeId) {
+        if (this.planesAtAirport.includes(planeId)) {
+            this.currentAirportCapacity -= 1;
+            this.planesAtAirport.pop(planeId)
+            return true
+        } else return false
     },
 
     setAirportCapacity: function (capacity) {
@@ -29,7 +40,9 @@ const airport = {
         } else return false
     }
 
+
 };
+
 
 
 

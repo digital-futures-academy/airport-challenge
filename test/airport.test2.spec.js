@@ -5,8 +5,8 @@ console.log("TEST 2: Can I override the default airport capacity?")
 
 // Arrange
 
-let expectedOutput = 3000;
-let capacity = 3000;
+let expectedOutput = 4000;
+let capacity = 4000;
 
 
 // Act 

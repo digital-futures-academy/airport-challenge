@@ -5,9 +5,9 @@ console.log("TEST 3: Is the airport full?")
 
 // Arrange
 
-airport.currentAirportCapacity = 2000;
+airport.currentAirportCapacity = 5000;
 
-expectedOutput = false;
+expectedOutput = true;
 
 // Act
 
