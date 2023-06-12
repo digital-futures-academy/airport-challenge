@@ -114,9 +114,30 @@ function testOnlyTakeOffPlaneAtAirport() {
     console.log(`Test 5 - take-off a plane not at the airport do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
 }
 
+function testOnlyLandPlaneNotAtAirport() {
+    console.log(`Test 6 - Cannot let planes land which are already at the airport`);
+
+    // Setup
+    let expectedOutput, result, actualOutput;
+    let airport = new Airport();
+    airport.planes = [`F-15A`, `F-15B`];
+    const planeTakenOff = `F-15B`;
+    expectedOutput = 2;
+
+    // Execute
+    airport.land(planeTakenOff);
+    actualOutput = airport.planes.length;
+
+    // Verify
+    result = assertEquals(expectedOutput, actualOutput);
+
+    console.log(`Test 6 - land a plane already at the airport do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+}
+
 testLandingPlane();
 testDefaultCapacity();
 testSetCapacity();
 testNoLandingWhenFull();
 testTakingOffPlane();
 testOnlyTakeOffPlaneAtAirport();
+testOnlyLandPlaneNotAtAirport();
