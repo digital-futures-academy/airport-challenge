@@ -4,6 +4,7 @@ const { airport } = require("../src/airport");
 
 console.log("TEST 1: Did the plane land?")
 
+
 // Arrange
 airport.planesAtAirport = ["123456", "78910"]
 let planeID = "123456";
@@ -28,6 +29,5 @@ console.log(result ? `TEST PASSED` : `TEST FAILED (expectedOutcome is not equal 
 console.log("*********************************************")
 console.log("*********************************************")
 console.log("                                             ")
-
 
 

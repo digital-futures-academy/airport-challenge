@@ -1,9 +1,9 @@
+const { weather } = require("./weather");
+
 
 const airport = {
 
-    airport: "Heathrow",
-
-    planeID: " ",
+    name: "Heathrow",
 
     maxAirportCapacity: 5000,
 
@@ -13,7 +13,7 @@ const airport = {
 
 
     landPlane: function (planeID) {
-        if (airport.isFull() || airport.planesAtAirport.includes(planeID)) {
+        if (airport.isFull() || airport.planesAtAirport.includes(planeID) || (weather.currentWeather == "Stormy")) {
             return false
         } else {
             airport.currentAirportCapacity += 1
@@ -23,7 +23,7 @@ const airport = {
     },
 
     planeTakeOff: function (planeId) {
-        if (this.planesAtAirport.includes(planeId)) {
+        if (this.planesAtAirport.includes(planeId) && (weather.currentWeather == "Sunny")) {
             this.currentAirportCapacity -= 1;
             this.planesAtAirport.pop(planeId)
             return true
@@ -42,8 +42,6 @@ const airport = {
 
 
 };
-
-
 
 
 module.exports = {

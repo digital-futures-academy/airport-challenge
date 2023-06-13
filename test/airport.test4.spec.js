@@ -6,7 +6,7 @@ console.log("TEST 4: If the airport is full, don't land. Current airport capacit
 
 // Arrange
 let planeID = "123456";
-airport.currentAirportCapacity = 4999;
+airport.currentAirportCapacity = 5000;
 expectedOutput = 5000;
 
 // Act
