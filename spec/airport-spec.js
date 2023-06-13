@@ -1,47 +1,107 @@
 import Airport from '../src/airport.js';
-import Plane from '../src/plane.js'
+// import Plane from '../src/plane.js'
 let airport;
 let plane;
+class MockPlane {
+  aircraftId = '';
+  aircraftStatus = '';
+}
 
 describe("Airport", () => {
+  beforeEach(() => {
+    plane = new MockPlane();
+    airport = new Airport();
+  });
+  afterEach(() => {
+    plane = undefined;
+    airport = undefined;
+  });
+
   it('returns [] for empty airport', () => {
-    airport = new Airport('', '');
+    //assert
     expect(airport.landedPlanes).toEqual([]);
   });
 
   it('lands one plane in the airport', () => {
-    airport = new Airport();
-    plane = new Plane('G-XLEE', 'departed');
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+
+    //act
     airport.landPlane(plane);
-    expect(airport.landedPlanes[0].aircraftId).toEqual('G-XLEE');
-    expect(airport.landedPlanes[0].aircraftStatus).toEqual('landed');
+
+    //assert
     expect(airport.landedPlanes.length).toEqual(1);
   });
 
   it('lands a plane with id `G-XLEE` in the airport', () => {
-    airport = new Airport();
-    plane = new Plane('G-XLEE', 'departed');
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+
+    //act
     airport.landPlane(plane);
     expect(airport.landedPlanes[0].aircraftId).toBe('G-XLEE');
+    // expect(airport.landedPlanes[0].aircraftStatus).toBe('landed');
+  });
+
+    it('changes plane status from `departed` to `landed` once it lands in the airport', () => {
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+
+    //act
+      airport.landPlane(plane); 
+    
+    //assert
     expect(airport.landedPlanes[0].aircraftStatus).toBe('landed');
   });
 
-  it('overrides airport capacity', () => {
-    airport = new Airport('');
+  it('overrides airport capacity from 10 to 1500', () => {
+    //act
     airport.overrideAirportCapacity(1490);
+    //assert
     expect(airport.maxAirportCapacity).toEqual(1500);
-    airport.overrideAirportCapacity(-500);
-    expect(airport.maxAirportCapacity).toEqual(1000);
   });
 
-  it('informs if airport is full', () => {
-    airport = new Airport('');
-    plane = new Plane('G-XLEE', 'departed');
-    airport.landPlane(plane);
+    it('overrides airport capacity from 1500 to 1000', () => {
+    //act
+      airport.overrideAirportCapacity(1490);
+      airport.overrideAirportCapacity(-500);
+    //assert
+    expect(airport.maxAirportCapacity).toEqual(1000);
+    });
+  
+  it('informs if airport is not full if there is 1 plane in the airport', () => {
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+
+    //act
+    airport.landPlane(plane); 
+
+    //assert
     expect(airport.isFull()).toEqual(false);
-    airport.overrideAirportCapacity(1490);
-    airport.overrideAirportCapacity(-1499);
-    expect(airport.landedPlanes.length).toEqual(1);
+  });
+
+  it('informs if airport is full if there are 3 planes in the airport', () => {
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+    const plane2 = new MockPlane();
+    plane2.aircraftId = 'G-KELS';
+    plane2.aircraftStatus = 'departed';
+    const plane3 = new MockPlane();
+    plane3.aircraftId = 'G-BETI';
+    plane3.aircraftStatus = 'departed';
+
+    //act
+    airport.overrideAirportCapacity(-7);
+    airport.landPlane(plane); 
+    airport.landPlane(plane2); 
+    airport.landPlane(plane3); 
+  
+    //assert
     expect(airport.isFull()).toEqual(true);
   });
   

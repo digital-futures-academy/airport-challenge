@@ -103,10 +103,10 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-objects    |  airport                                                  |         
-properties | maxAirportCapacity @Number,landedPlanes @Array [@Plane]   | 
-messages   |  isAirportFull()                                          | 
-output     |  @boolean                                                 | 
+| Objects | Properties                   | Messages          | Outputs |
+| ------- | ---------------------------- | ----------------- | ------- |
+| Airport | landedPlanes @Array[@Planes] | landPlane(@Plane) | @Void   |
+| Plane   | aircraftId @String           |                   |         |
 
 As an air traffic controller
 So I can get passengers on the way to their destination
@@ -125,3 +125,26 @@ objects    |  plane                                          |
 properties |  aircraftStatus, aircraftId @String             | 
 messages   |                                                 | 
 output     |                                                 | 
+
+
+
+objects    |  secretDiary                                                    |         
+properties | isLockedStatus @boolean, entries @Araay                         | 
+messages   |  lock() | unlock()  |  addEntry(message) @String | getEntries() |                
+output     | boolean | boolean   |       void                 | void         | 
+
+
+As a user
+So I can keep my messages safe
+I want to instruct the diary to be locked.
+
+
+As a user
+So I can write messages
+I want to instruct the diary to unlock.
+
+
+As a user
+So I can keep my messages safe
+I want to instruct the diary to be locked.
+
