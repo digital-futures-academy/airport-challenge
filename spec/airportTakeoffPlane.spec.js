@@ -14,12 +14,12 @@ const planeArray = [
     new Plane('plane5')
 ];
 
-console.log('RUNNING TESTS FOR REMOVING PLANES FROM PLANES ARRAY');
-console.log('💻 ~file: airportRemovePlaneFromAirport.spec');
+console.log('RUNNING TEST SUITE D: FOR REMOVING PLANES FROM PLANES ARRAY');
+console.log('💻 ~file: takeoffPlane.spec');
 console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 console.log('');
 
-console.log('Test 9 - removePLaneFromAirport will remove a plane from array');
+console.log('Test 1D - takeoffPlane will remove a plane from array');
 console.log('========================================================');
 console.log('');
 
@@ -27,15 +27,15 @@ console.log('');
 airport = new Airport();
 
 for (const plane of planeArray) {
-    airport.addPlaneToAirport(plane);
+    airport.landPlane(plane);
 }
 
 expected = 4;
 
 // Act
-airport.removePlaneFromAirport('plane4');
+airport.takeoffPlane('plane4');
 actual = airport.planes.length;
-console.log('💻 ~ file: removePLaneFromAirport.spec.js:37 ~ actual:', actual);
+console.log('💻 ~ file: takeoffPlane.spec.js:37 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
 
@@ -43,28 +43,28 @@ console.log('');
 result = testingFramework.assertEquals(actual, expected);
 
 // Report
-console.log(`Test 9 - removes a plane from airport planes array: ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 1D - removes a plane from airport planes array: ${result ? 'PASS' : 'FAIL'}`);
 
 // clean Up
 expected, actual, result, airport = undefined;
 console.log('');
 
-console.log('Test 10 - removePLaneFromAirport must have a valid plane id to remove from the planes array');
+console.log('Test 2D - takeoffPlane must have a valid plane id to remove from the planes array');
 console.log('========================================================');
 console.log('');
 
 // Arrange
 airport = new Airport();
 for (const plane of planeArray) {
-    airport.addPlaneToAirport(plane);
+    airport.landPlane(plane);
 }
 expected = 5;
 let planeWithoutId = '';
 
 // ACT
-airport.removePlaneFromAirport(planeWithoutId);
+airport.takeoffPlane(planeWithoutId);
 actual = airport.planes.length;
-console.log('💻 ~ file: removePLaneFromAirport.spec.js:67 ~ actual:', actual);
+console.log('💻 ~ file: takeoffPlane.spec.js:66 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
 
@@ -72,27 +72,27 @@ console.log('');
 result = testingFramework.assertEquals(actual, expected);
 
 // Report
-console.log(`Test 10 - removePLaneFromAirport must have a valid plane id to remove from the planes array: ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 2D - takeoffPlane must have a valid plane id to remove from the planes array: ${result ? 'PASS' : 'FAIL'}`);
 
 // clean Up
 expected, actual, result, airport = undefined;
 console.log('');
 
-console.log('Test 11 - removePLaneFromAirport returns a confirmation of the plane id removed from the airport');
+console.log('Test 3D - takeoffPlane returns a confirmation of the plane id removed from the airport');
 console.log('========================================================');
 console.log('');
 
 // Arrange
 airport = new Airport();
 for (const plane of planeArray) {
-    airport.addPlaneToAirport(plane);
+    airport.landPlane(plane);
 }
 expected = `${planeArray[2].id} has taken off from the airport.`;
 const planeToRemove = 'plane3';
 
 // ACT
-actual = airport.removePlaneFromAirport(planeToRemove);
-console.log('💻 ~ file: removePLaneFromAirport.spec.js:67 ~ actual:', actual);
+actual = airport.takeoffPlane(planeToRemove);
+console.log('💻 ~ file: takeoffPlane.spec.js:94 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
 
@@ -100,7 +100,7 @@ console.log('');
 result = testingFramework.assertEquals(actual, expected);
 
 // Report
-console.log(`Test 11 - removePLaneFromAirport returns a confirmation of the plane id removed from the airport: ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 3D - takeoffPlane returns a confirmation of the plane id removed from the airport: ${result ? 'PASS' : 'FAIL'}`);
 
 // clean Up
 expected, actual, result, airport = undefined;
