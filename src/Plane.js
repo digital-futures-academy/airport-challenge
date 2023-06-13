@@ -21,8 +21,6 @@ class Plane {
 
 }
 
-export default Plane;
-
-// module.exports = {
-//     Plane
-// };
+module.exports = {
+    Plane
+};
