@@ -6,7 +6,10 @@ class Airport {
     }
 
     addPlane(plane) {
-        this.airportPlanes.push(plane);
+        if (plane !== undefined) {
+            this.airportPlanes.push(plane);
+        }
+
     }
 }
 

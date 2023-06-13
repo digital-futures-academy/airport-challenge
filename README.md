@@ -46,12 +46,12 @@ I want to instruct the airport to land a plane
 
 //| Class   || Objects         | Properties                   |     Messages           | Outputs  |
 //| ------- || --------------- | --------------------------   | -----------------      |  ------- |
-//| airport || plane@id        | airportPlanes @array[@plane] | addPlane(@plane)   | @Void    |
+//| airport || plane@id        | airportPlanes @array[@plane] | addPlane(@plane)       | @Void    |
 
 // TEST 1: Can addPlane add a plane to airportPlanes
 // TEST 2: addPlane add's a plane with the id: 'Plane - 1'
-// TEST 3:
-// TEST 4:
+// TEST 3: addPlane doesn't add a different class other than Plane
+// TEST 4: multiple planes can be added to airportPlanes
 
 As the system designer
 So that the software can be used for many different airports
