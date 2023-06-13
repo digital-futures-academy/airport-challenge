@@ -13,4 +13,4 @@ Plane   || name[@string]            ||    ------   || @string
 
 Objects || Properties           || Messages           || Output
 
-Airport ||defaultCapacity[@int] || overrideCapacity() || @void
+Airport ||defaultCapacity[@int] || overrideCapacity() || @integer

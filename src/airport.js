@@ -9,6 +9,11 @@ class Airport{
         if (typeof plane == 'string') this.planeList.push(plane);
     }
 
+    overrideCapacity(number) {
+        if (number > 0) {
+            return this.defaultCapacity += number;
+        }
+    }
 
 }
 

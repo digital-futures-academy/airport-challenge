@@ -53,4 +53,17 @@ describe('Airport Class Tests', () => {
         // Assert
         expect(actual).toBe(expected);
     })
+
+    it('should increase defaultCapacity when a positive number is passed to OverrideCapacity', () => {
+        // Arrange
+        let increaseCapacity = 5;
+        expected = 25;
+
+        // Act
+        actual = airport.overrideCapacity(increaseCapacity);
+
+        // Assert
+        expect(actual).toBe(expected);
+    });
+
 });
