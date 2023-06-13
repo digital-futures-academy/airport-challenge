@@ -62,7 +62,7 @@ So that the software can be used for many different airports
 Domain Model: 
 Objects           | Properties                  | Messages               | Outputs            |
 ------------------|-----------------------------|------------------------|--------------------|
-airport           | airportMaxCapacity @integer | changeAirportCapacity()| @void              |
+airport           | airportMaxCapacity @integer | changeCapacity()       | @void              |
 
 -------------------------------------
 3. 
