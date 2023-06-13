@@ -11,7 +11,7 @@ class Airport {
     };
 
     landPlane(plane) {
-        if (this.landedPlanes.length < this.maxCapacity) {
+        if (!this.isFull()) { //remember the ! for not full
             this.landedPlanes.push(plane);
         }
     };
@@ -19,8 +19,12 @@ class Airport {
     capacityMutator(newCapacity) {
         if (newCapacity % 1 === 0 && typeof newCapacity === 'number') {
             this.maxCapacity = newCapacity;
-        }
-    }
+        };
+    };
+
+    isFull() {
+        return this.maxCapacity === this.landedPlanes.length;
+    };
 
 }
 
