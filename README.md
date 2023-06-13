@@ -87,7 +87,7 @@ Domain Model
 |  Objects   |  Properties            |   Messages                 |  Output  |
 | ---------- | ---------------------- | -------------------------- | -------- |
 |  Plane     |                        |                            |          |
-|  Airport   | planes @Array[@Planes] | addPlaneToAirport(@Plane)  | @void    |
+|  Airport   | planes @Array[@Planes] | landPlane(@Plane)  | @void    |
 
 As the system designer
 So that the software can be used for many different airports
@@ -117,7 +117,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 |  Objects   |  Properties            |   Messages                      |  Output  |
 | ---------- | ---------------------- | ------------------------------- | -------- |
 |  Plane     |                        |                                 |          |
-|  Airport   | planes @Array[@Planes] | removePlaneFromAirport(@Plane)  | @string  |
+|  Airport   | planes @Array[@Planes] | takeOffPlane(@Plane)  | @string  |
 
 
 As an air traffic controller
@@ -127,7 +127,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
 |  Plane     | id @string             | getId()                       | @string  |
-|  Airport   | planes @Array[@Planes] | checkPLaneAtAirport(@Plane)   | @boolean |
+|  Airport   | planes @Array[@Planes] | checkPlaneAtAirport(@Plane)   | @boolean |
 
 
 As an air traffic controller

@@ -4,7 +4,7 @@ class Airport {
         this.maxAirportCapacity = 5;
     }
 
-    addPlaneToAirport(planeToAdd) {
+    landPlane(planeToAdd) {
         if (planeToAdd?.id && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd)) {
             this.planes.push(planeToAdd);
         }
@@ -20,7 +20,7 @@ class Airport {
         return this.planes.length < this.maxAirportCapacity;
     }
 
-    removePlaneFromAirport(planeToRemove) {
+    takeoffPlane(planeToRemove) {
         if (planeToRemove && this.checkPlaneAtAirport(planeToRemove)) {
             const index = this.planes.map(plane => plane.id).indexOf(planeToRemove);
             const planeTakenOff = this.planes.splice(index, 1);

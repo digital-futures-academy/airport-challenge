@@ -2,8 +2,8 @@ console.log('RUNNING ALL TESTS');
 console.log('=================');
 console.log('');
 
-require('./spec/airportAddPlaneToAirport.spec');
+require('./spec/airportLandPlane.spec');
 require('./spec/airportIncreaseMaxCapacity.spec');
 require('./spec/airportMaxCapacityReached.spec');
-require('./spec/airportRemovePlaneFromAirport.spec');
+require('./spec/airportTakeoffPlane.spec');
 require('./spec/airportCheckPlaneAtAirport.spec');
