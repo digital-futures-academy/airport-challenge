@@ -46,10 +46,11 @@ So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
 Domain Model: 
-Objects     | plane     | airport 
-Properties  |           | landedPlanes @array[@plane]    
-Messages    |           | landPlane(@plane)
-Outputs     |           | @void
+
+Objects           | Properties                  | Messages              | Outputs            |
+------------------|-----------------------------|-----------------------|--------------------|
+plane             |                             |                       |                    |
+airport           | landedPlanes @array[@plane] | landNewPlane(@plane)  | @void              |
 
 -------------------------------------
 2.
@@ -57,11 +58,11 @@ As the system designer
 I would like a default airport capacity that can be overridden as appropriate
 So that the software can be used for many different airports
 
+
 Domain Model: 
-Objects     |airport                      |
-Properties  |airportMaxCapacity @integer  |    
-Messages    |changeAirportCapacity()      |     
-Outputs     |@void                        | 
+Objects           | Properties                  | Messages               | Outputs            |
+------------------|-----------------------------|------------------------|--------------------|
+airport           | airportMaxCapacity @integer | changeAirportCapacity()| @void              |
 
 -------------------------------------
 3. 
