@@ -1,7 +1,12 @@
 class Airport {
-    listOfPlanes = [];
-    airportCapacity = 3;
-    currentWeather = "Sunny";
+    listOfPlanes;
+    airportCapacity;
+    currentWeather;
+    constructor(initialListOfPlanes = [], initialCapacity = 3, initialWeather = "Sunny") {
+        this.listOfPlanes = initialListOfPlanes;
+        this.airportCapacity = initialCapacity;
+        this.currentWeather = initialWeather;
+    }
     getPlaneIndex(plane) {
         return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId)
     };
