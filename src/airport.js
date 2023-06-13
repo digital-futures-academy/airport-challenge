@@ -1,12 +1,16 @@
 class Airport {
-    constructor(weather) {
+    constructor(weather = 'clear') {
         this.planes = [];
         this.maxAirportCapacity = 5;
         this.weather = weather;
     }
 
+    setWeather(weather) {
+        this.weather = weather;
+    }
+
     landPlane(planeToAdd) {
-        if (planeToAdd?.id && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd)) {
+        if (planeToAdd?.id && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd) && !this.isWeatherStormy()) {
             this.planes.push(planeToAdd);
         }
     }

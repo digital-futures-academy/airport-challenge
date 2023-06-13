@@ -155,7 +155,7 @@ I want to prevent landing when weather is stormy
 
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
-|  Airport   | weather @String        | canLandPlane()                | @boolean |
+|  Airport   | weather @String        | isWeatherStormy()             | @boolean |
 
 As an air traffic controller
 To count planes easily
