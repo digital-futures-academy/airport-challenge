@@ -83,6 +83,7 @@ describe("Airport", () => {
     airport.landPlane(plane);
     airport.landPlane(plane2); 
       airport.landPlane(plane3); 
+      
     //assert
     expect(airport.landedPlanes.length).toBe(3);
   });
@@ -105,13 +106,14 @@ describe("Airport", () => {
     expect(airport.maxAirportCapacity).toEqual(1500);
   });
 
-    it('overrides airport capacity from 1500 to 1000', () => {
-    //act
-      airport.overrideAirportCapacity(1490);
-      airport.overrideAirportCapacity(-500);
-    //assert
-    expect(airport.maxAirportCapacity).toEqual(1000);
-    });
+  it('overrides airport capacity from 1500 to 1000', () => {
+  //act
+    airport.overrideAirportCapacity(1490);
+    airport.overrideAirportCapacity(-500);
+    
+  //assert
+  expect(airport.maxAirportCapacity).toEqual(1000);
+  });
   
   it('informs if airport is not full if there is 1 plane in the airport', () => {
     //arrange
@@ -144,6 +146,27 @@ describe("Airport", () => {
   
     //assert
     expect(airport.isFull()).toEqual(true);
+  });
+  
+  it('does not land plane if airplane is full', () => {
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+    const plane2 = new MockPlane();
+    plane2.aircraftId = 'G-KELS';
+    plane2.aircraftStatus = 'departed';
+    const plane3 = new MockPlane();
+    plane3.aircraftId = 'G-BETI';
+    plane3.aircraftStatus = 'departed';
+
+    //act
+    airport.landPlane(plane); 
+    airport.landPlane(plane2); 
+    airport.overrideAirportCapacity(-8);
+    airport.landPlane(plane3); 
+
+    //assert
+    expect(airport.landedPlanes).toEqual([plane,plane2]);
   });
   
   it('confirms plane with id of G-XLEE took off with message: `G-XLEE took off from airport` ', () => {
