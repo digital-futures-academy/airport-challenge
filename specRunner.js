@@ -7,3 +7,4 @@ require('./spec/airportIncreaseMaxCapacity.spec');
 require('./spec/airportMaxCapacityReached.spec');
 require('./spec/airportTakeoffPlane.spec');
 require('./spec/airportCheckPlaneAtAirport.spec');
+require('./spec/airportIsWeatherStormy.spec');

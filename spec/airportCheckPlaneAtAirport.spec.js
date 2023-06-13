@@ -72,3 +72,7 @@ result = testingFramework.assertEquals(actual, expected);
 
 // REPORT
 console.log(`Test 2E - check to see if plane99 is at airport expected to be False : ${result ? 'PASS' : 'FAIL'}`);
+
+// CLEAN UP
+actual, expected, result = undefined;
+console.log('');

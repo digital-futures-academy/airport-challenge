@@ -1,7 +1,8 @@
 class Airport {
-    constructor() {
+    constructor(weather) {
         this.planes = [];
         this.maxAirportCapacity = 5;
+        this.weather = weather;
     }
 
     landPlane(planeToAdd) {
@@ -16,12 +17,10 @@ class Airport {
         }
     }
 
-    canLandPlane() {
-        return this.planes.length < this.maxAirportCapacity;
-    }
+    canLandPlane() { return this.planes.length < this.maxAirportCapacity; }
 
     takeoffPlane(planeToRemove) {
-        if (planeToRemove && this.checkPlaneAtAirport(planeToRemove)) {
+        if (planeToRemove && this.checkPlaneAtAirport(planeToRemove) && !this.isWeatherStormy()) {
             const index = this.planes.map(plane => plane.id).indexOf(planeToRemove);
             const planeTakenOff = this.planes.splice(index, 1);
             return `${planeTakenOff[0].id} has taken off from the airport.`;
@@ -29,6 +28,8 @@ class Airport {
     }
 
     checkPlaneAtAirport(planeToCheck) { return this.planes.some(plane => plane.id === planeToCheck); }
+
+    isWeatherStormy() { return this.weather === 'stormy'; }
 }
 
 module.exports = Airport;
