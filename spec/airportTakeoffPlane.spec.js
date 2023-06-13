@@ -35,7 +35,7 @@ const planeToTakeOff = planeArray[3];
 
 // Act
 airport.takeoffPlane(planeToTakeOff);
-actual = airport.planes.length;
+actual = airport.getLandedPlanes().length;
 console.log('💻 ~ file: takeoffPlane.spec.js:37 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
@@ -60,11 +60,11 @@ for (const plane of planeArray) {
     airport.landPlane(plane);
 }
 expected = 5;
-let planeWithoutId = '';
+let planeWithoutId = new Plane();
 
 // ACT
 airport.takeoffPlane(planeWithoutId);
-actual = airport.planes.length;
+actual = airport.getLandedPlanes().length;
 console.log('💻 ~ file: takeoffPlane.spec.js:66 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');

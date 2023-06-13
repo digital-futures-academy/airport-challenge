@@ -61,8 +61,8 @@ expected = 3;
 
 // ACT
 airport.setWeather(weather);
-airport.takeoffPlane(planeToTakeOff.getId());
-actual = airport.planes.length;
+airport.takeoffPlane(planeToTakeOff);
+actual = airport.getLandedPlanes().length;
 console.log('💻 ~ file: isWeatherStormy.spec.js:58 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
@@ -94,7 +94,7 @@ const planeToLand = new Plane('plane4');
 // ACT
 airport.setWeather(weather);
 airport.landPlane(planeToLand);
-actual = airport.planes.length;
+actual = airport.getLandedPlanes().length;
 console.log('💻 ~ file: isWeatherStormy.spec.js:92 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');

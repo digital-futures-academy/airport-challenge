@@ -60,7 +60,7 @@ result = testingFramework.assertEquals(actual, expected);
 
 
 // Report
-console.log(`Test 1G - landed status of plane expected to be false : ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 2G - landed status of plane expected to be false : ${result ? 'PASS' : 'FAIL'}`);
 
 // CLEAN UP
 actual, expected, result, plane, airport = undefined;

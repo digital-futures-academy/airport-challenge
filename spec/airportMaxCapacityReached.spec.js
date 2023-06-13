@@ -64,7 +64,7 @@ const planeThatWillNotBeAdded = new Plane('plane6');
 
 // Act
 airport.landPlane(planeThatWillNotBeAdded);
-actual = airport.planes.length;
+actual = airport.getLandedPlanes().length;
 console.log('💻 ~ file: airportIncreaseMaxCapacity.spec.js:67 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');

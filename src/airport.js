@@ -1,41 +1,68 @@
 class Airport {
+
+    #landedPlanes;
+    #maxAirportCapacity;
+    #weather;
+
     constructor(weather = 'clear') {
-        this.planes = [];
-        this.maxAirportCapacity = 5;
-        this.weather = weather;
+        this.#landedPlanes = [];
+        this.#maxAirportCapacity = 5;
+        this.#weather = weather;
+    }
+
+    getLandedPlanes() {
+        return this.#landedPlanes;
+    }
+
+    getWeather() {
+        return this.#weather;
+    }
+
+    getMaxAirportCapacity() {
+        return this.#maxAirportCapacity;
     }
 
     setWeather(weather) {
-        this.weather = weather;
+        this.#weather = weather;
+    }
+
+    setLandedPlanes(array) {
+        this.#landedPlanes = array;
     }
 
     landPlane(planeToAdd) {
-        if (planeToAdd?.id && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd) && !this.isWeatherStormy()) {
-            this.planes.push(planeToAdd);
+        if (planeToAdd?.getId() && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd) && !this.isWeatherStormy()) {
+            this.#landedPlanes.push(planeToAdd);
             planeToAdd.setLanded(true);
         }
     }
 
     increaseAirportCapacity(valueToIncrease) {
         if (!isNaN(valueToIncrease)) {
-            this.maxAirportCapacity += parseInt(valueToIncrease);
+            this.#maxAirportCapacity += parseInt(valueToIncrease);
         }
     }
 
-    canLandPlane() { return this.planes.length < this.maxAirportCapacity; }
+    canLandPlane() {
+        return this.#landedPlanes.length < this.#maxAirportCapacity;
+    }
 
     takeoffPlane(planeToRemove) {
-        if (planeToRemove.id && this.checkPlaneAtAirport(planeToRemove.id) && !this.isWeatherStormy()) {
-            const index = this.planes.map(plane => plane.id).indexOf(planeToRemove.id);
-            const planeTakenOff = this.planes.splice(index, 1);
+        if (planeToRemove?.getId() && this.checkPlaneAtAirport(planeToRemove.getId()) && !this.isWeatherStormy()) {
+            const index = this.#landedPlanes.map(plane => plane.id).indexOf(planeToRemove.id);
+            const planeTakenOff = this.#landedPlanes.splice(index, 1);
             planeToRemove.setLanded(false);
             return `${planeTakenOff[0].id} has taken off from the airport.`;
         }
     }
 
-    checkPlaneAtAirport(planeToCheck) { return this.planes.some(plane => plane.id === planeToCheck); }
+    checkPlaneAtAirport(planeToCheck) {
+        return this.#landedPlanes.some(plane => plane.getId() === planeToCheck);
+    }
 
-    isWeatherStormy() { return this.weather === 'stormy'; }
+    isWeatherStormy() {
+        return this.#weather === 'stormy';
+    }
 }
 
 module.exports = Airport;

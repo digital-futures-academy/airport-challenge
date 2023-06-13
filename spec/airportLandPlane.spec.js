@@ -22,7 +22,7 @@ plane = new Plane('ba273');
 
 // Act
 airport.landPlane(plane);
-actual = airport.planes.length;
+actual = airport.getLandedPlanes().length;
 console.log('💻 ~ file: airportAddingPlaneToAirport.spec.js:19 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
@@ -50,7 +50,7 @@ let planeWithoutId = new Plane();
 
 // Act
 airport.landPlane(planeWithoutId);
-actual = airport.planes.length;
+actual = airport.getLandedPlanes.length;
 console.log('💻 ~ file: airportAddingPlaneToAirport.spec.js:46 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
@@ -79,7 +79,7 @@ expected = plane;
 
 // Act
 airport.landPlane(plane);
-actual = airport.planes[0];
+actual = airport.getLandedPlanes()[0];
 console.log('💻 ~ file: airportAddingPlaneToAirport.spec.js:19 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
@@ -92,5 +92,5 @@ console.log(`Test 3A - check to see if plane object added was as intended to air
 
 // clean Up
 expected, actual, result, airport, plane = undefined;
-airport.planes = [];
+airport.setLandedPlanes([]);
 console.log('');

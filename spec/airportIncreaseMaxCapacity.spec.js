@@ -22,7 +22,7 @@ let valueOfIncrease = 5;
 
 // Act
 airport.increaseAirportCapacity(valueOfIncrease);
-actual = airport.maxAirportCapacity;
+actual = airport.getMaxAirportCapacity();
 console.log('💻 ~ file: airportIncreaseMaxCapacity.spec.js:23 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
@@ -50,7 +50,7 @@ valueOfIncrease = '5';
 
 //Act
 airport.increaseAirportCapacity(valueOfIncrease);
-actual = airport.maxAirportCapacity;
+actual = airport.getMaxAirportCapacity();
 console.log('💻 ~ file: airportIncreaseMaxCapacity.spec.js:51 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');
@@ -80,7 +80,7 @@ valueOfIncrease = 'hello';
 
 //Act
 airport.increaseAirportCapacity(valueOfIncrease);
-actual = airport.maxAirportCapacity;
+actual = airport.getMaxAirportCapacity();
 console.log('💻 ~ file: airportIncreaseMaxCapacity.spec.js:84 ~ actual:', actual);
 console.log('=============================================================');
 console.log('');

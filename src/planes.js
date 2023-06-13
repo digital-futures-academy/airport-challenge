@@ -1,20 +1,23 @@
 class Plane {
-    constructor(id) {
-        this.id = id;
-        this.landed = false;
 
+    #id;
+    #landed;
+
+    constructor(id) {
+        this.#id = id;
+        this.#landed = false;
     }
 
     getId() {
-        return this.id;
+        return this.#id;
     }
 
     getLanded() {
-        return this.landed;
+        return this.#landed;
     }
 
     setLanded(landedStatus) {
-        this.landed = landedStatus;
+        this.#landed = landedStatus;
     }
 
 }
