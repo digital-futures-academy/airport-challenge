@@ -53,9 +53,28 @@ I want to instruct the airport to land a plane
 // TEST 3: addPlane doesn't add a different class other than Plane
 // TEST 4: multiple planes can be added to airportPlanes
 
+
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
+//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+
+// TEST 1: airport capacity has a capacity
+// TEST 2: changeAirportSize increases airportCapacity to 50
+// TEST 3: changeAirportSize decreases airportCapacity to 5
+// TEST 4: changeAirportSize can not change airportCapacity to less than 0
+// TEST 5: changeAirportSize can not be undefined
+// TEST 6: changeAirportSize cannot change to the same number
+
+
+
+
+
+
 
 As an air traffic controller
 To ensure safety
