@@ -1,24 +1,22 @@
 const { assertEquals } = require("./testing-framework");
-const airport = require("../src/airport");
+const Airport = require("../src/airport");
+const Plane = require("../src/plane");
 
 let actual, result, expected;
-const plane1 = { ID: `plane1` };
-
-
+let plane = new Plane(`plane1`);
+let airport = new Airport();
 
 console.log(`Test 1`);
 console.log(`==============================================`)
-console.log(`Planes can land in the airport`);
-
-console.log(`ensure that planes can land in Airport checking 
+console.log(`Planes can land in the airport:`);
+console.log(`   Ensure that planes can land in Airport checking 
 that the number of planes at the airport increases`);
-
+console.log(``);
 // Arrange
 expected = 1;
 
-
 // Act
-airport.landPlane(plane1);
+airport.landPlane(plane);
 actual = airport.planesStanding.length;
 
 // Assert
@@ -33,28 +31,25 @@ console.log(``);
 airport.planesStanding = [];
 result = undefined;
 actual = undefined;
-
+//------------------------------------------------------------
+console.log(``);
 console.log(`Test 2`);
 console.log(`==============================================`)
-console.log(`The actual plane I want to land does land in the airport`);
-
-console.log(`ensure that the right plane can land in Airport checking 
+console.log(`The actual plane I want to land does land in the airport:`);
+console.log(`   Ensure that the right plane can land in Airport checking 
 their ID`);
-
+console.log(``);
 // Arrange
 
-
-
 // Act
-airport.landPlane(plane1);
+airport.landPlane(plane);
 actual = airport.planesStanding[0];
 
 // Assert
-result = assertEquals(actual, plane1);
+result = assertEquals(actual, plane);
 
 // Report
-
-console.log(`Test 2: plane1 plane landed successfully: ${result}`);
+console.log(`Test 2: plane plane landed successfully: ${result}`);
 console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
@@ -63,13 +58,13 @@ airport.planesStanding = [];
 result = undefined;
 actual = undefined;
 
-
+//------------------------------------------------------------
+console.log(``);
 console.log(`Test 3`);
 console.log(`==============================================`)
-console.log(`Only identifiable planes can land`);
-
-console.log(`Planes without an ID cannot land in the airport`);
-
+console.log(`Only identifiable planes can land:`);
+console.log(`   Planes without an ID cannot land in the airport`);
+console.log(``);
 // Arrange
 const unknownPlane = { desc: `suspicious` };
 expected = 0;
@@ -84,3 +79,38 @@ result = assertEquals(actual, expected);
 // Report
 console.log(`Test 3: Unknown planes do not get to land: ${result}`);
 console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+
+// Clean Up
+airport.planesStanding = [];
+result = undefined;
+actual = undefined;
+
+//------------------------------------------------------------
+console.log(``);
+console.log(`Test 4`);
+console.log(`==============================================`)
+console.log(`Planes do not land if the airport is at capacity:`);
+console.log(`   Ensure airport has a capacity property and this limits planes landing`);
+console.log(``);
+// Arrange
+airport.planesStanding = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+expected = airport.airportCapacity;
+
+
+// Act
+airport.landPlane(plane);
+actual = airport.planesStanding.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Report
+console.log(`Test 4: planes can't land when the airport is full: ${result}`);
+console.log(`Test 4: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up
+airport.planesStanding = [];
+result = undefined;
+actual = undefined;
+
