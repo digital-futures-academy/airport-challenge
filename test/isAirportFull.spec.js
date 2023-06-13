@@ -1,7 +1,8 @@
 const { assertEquals } = require("./testing-framework");
 let actual, result, expected;
 
-const airport = require("../src/airport");
+const Airport = require("../src/airport");
+const airport = new Airport()
 const plane1 = { planeId: `plane1` };
 
 console.log(`------------------`);
