@@ -3,7 +3,6 @@ const { assertStrictEqual } = require("./test-framework");
 const { Airport } = require("../src/Airport");
 const { Plane } = require("../src/Plane");
 
-
 let input, result, actual, expected;
 
 //Story 1 Test - Land a plane at an airport
