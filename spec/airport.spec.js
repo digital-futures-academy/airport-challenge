@@ -14,7 +14,7 @@ describe('Airport Class Tests', () => {
          expected = undefined;
      });
 
-    it('should call the landPlane on plane to land it into the planeList array in Airport', () => {
+    it('should call the landPlane on plane to land it into the planeList array in Airport and increase planeList by 1', () => {
         // Arrange
         expected = 1;
         plane = 'plane1';
@@ -38,6 +38,17 @@ describe('Airport Class Tests', () => {
         // Act
         airport.landPlane(plane);
         actual = airport.planeList.length;
+
+        // Assert
+        expect(actual).toBe(expected);
+    })
+
+    it('should have a defaultCapacity of 20', () => {
+        // Arrange
+        expected = 20;
+
+        // Act
+        actual = airport.defaultCapacity;
 
         // Assert
         expect(actual).toBe(expected);
