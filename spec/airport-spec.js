@@ -45,6 +45,24 @@ describe("Airport", () => {
     // expect(airport.landedPlanes[0].aircraftStatus).toBe('landed');
   });
 
+    it('lands 3 planes with in the airport', () => {
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+    const plane2 = new MockPlane();
+    plane2.aircraftId = 'G-KELS';
+    plane2.aircraftStatus = 'departed';
+    const plane3 = new MockPlane();
+    plane3.aircraftId = 'G-BETI';
+    plane3.aircraftStatus = 'departed';
+
+    //act
+    airport.landPlane(plane);
+    airport.landPlane(plane2); 
+    airport.landPlane(plane3); 
+    expect(airport.landedPlanes.length).toBe(3);
+    // expect(airport.landedPlanes[0].aircraftStatus).toBe('landed');
+  });
     it('changes plane status from `departed` to `landed` once it lands in the airport', () => {
     //arrange
     plane.aircraftId = 'G-XLEE';
