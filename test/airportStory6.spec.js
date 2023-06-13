@@ -17,8 +17,8 @@ Test = () => {
     expected = 1;
     plane = new Plane(`Plane`);
     airport = new Airport(2);
-    airport.setWeather(true);
     airport.landPlane(plane);
+    airport.setWeather(true);
 
     //Act
     airport.takeoffPlane(plane)

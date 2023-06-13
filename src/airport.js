@@ -26,25 +26,16 @@ class Airport {
   }
 
   landPlane = (plane) => {
-    if (this.checkFull() === false && this.#stormy === false) {
-      for (let i = 0; i < this.#planesAtAirport.length; i++) {
-        if (this.#planesAtAirport[i].getID() === plane.getID()) {
-          return;
-        }
-      }
+    if (!this.checkFull() && !this.#stormy && !this.#planesAtAirport.includes(plane)) {
       plane.setAirport(this);
       this.#planesAtAirport.push(plane);
     }
   };
 
   takeoffPlane = (plane) => {
-    if (this.#stormy === false) {
-      for (let i = 0; i < this.#planesAtAirport.length; i++) {
-        if (this.#planesAtAirport[i].getID() === plane.getID()) {
-          this.#planesAtAirport.splice(i, 1);
-          break;
-        }
-      }
+    if (!this.#stormy) {
+      this.#planesAtAirport.splice(this.#planesAtAirport.indexOf(plane), 1);
+      plane.setAirport(undefined);
     }
   };
 

@@ -19,6 +19,7 @@ Test = () => {
     input = plane2;
     airport = new Airport(2);
     airport.landPlane(plane);
+    airport.landPlane(plane2)
 
     //Act
     airport.takeoffPlane(input);
