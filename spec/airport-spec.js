@@ -58,6 +58,16 @@ describe("Airport", () => {
     expect(airport.landedPlanes.length).toBe(1);
   });
 
+    it(' does not land plane without status in the airport', () => {
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = '';
+
+    //act
+    airport.landPlane(plane);
+    expect(airport.landedPlanes.length).toBe(0);
+  });
+
     it('lands 3 planes with in the airport', () => {
     //arrange
     plane.aircraftId = 'G-XLEE';
