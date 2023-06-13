@@ -1,8 +1,9 @@
 const { assertEquals } = require('./test-framework');
 
-const { airport } = require('../src/airport')
+const { Airport } = require('../src/Airport')
 
 let actualOutput, expectedOutput, result, input;
+
 
 //USER STORY 1 TESTS
 console.log("USER STORY 1 TESTS");

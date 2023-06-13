@@ -1,18 +1,27 @@
+//think about private properties
 
-const airport = {
-    maxCapacity: 1,
-    landedPlanes: [],
-    landPlane: function (item) {
-        if (item?.id) {
-            this.landedPlanes.push(item)
+class Airport {
+
+    maxCapacity;
+    landedPlanes;
+
+    constructor(maxCapacity = 1, landedPlanes = []) {
+        this.maxCapacity = maxCapacity;
+        this.landedPlanes = landedPlanes;
+    };
+
+    landPlane(plane) {
+        if (this.landedPlanes.length < this.maxCapacity) {
+            this.landedPlanes.push(plane);
         }
-    },
-    increaseAirportCapacity: function (item) {
-        this.maxCapacity += item
-    },
+    };
 
-};
+    capacityMutator(newCapacity) {
+        if (newCapacity % 1 === 0 && typeof newCapacity === 'number') {
+            this.maxCapacity = newCapacity;
+        }
+    }
 
-module.exports = {
-    airport,
 }
+
+module.exports = Airport;
