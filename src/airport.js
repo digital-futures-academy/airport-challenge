@@ -12,6 +12,7 @@ class Airport {
     landPlane(planeToAdd) {
         if (planeToAdd?.id && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd) && !this.isWeatherStormy()) {
             this.planes.push(planeToAdd);
+            planeToAdd.setLanded(true);
         }
     }
 
@@ -24,9 +25,10 @@ class Airport {
     canLandPlane() { return this.planes.length < this.maxAirportCapacity; }
 
     takeoffPlane(planeToRemove) {
-        if (planeToRemove && this.checkPlaneAtAirport(planeToRemove) && !this.isWeatherStormy()) {
-            const index = this.planes.map(plane => plane.id).indexOf(planeToRemove);
+        if (planeToRemove.id && this.checkPlaneAtAirport(planeToRemove.id) && !this.isWeatherStormy()) {
+            const index = this.planes.map(plane => plane.id).indexOf(planeToRemove.id);
             const planeTakenOff = this.planes.splice(index, 1);
+            planeToRemove.setLanded(false);
             return `${planeTakenOff[0].id} has taken off from the airport.`;
         }
     }

@@ -88,7 +88,7 @@ for (const plane of planeArray) {
     airport.landPlane(plane);
 }
 expected = `${planeArray[2].id} has taken off from the airport.`;
-const planeToRemove = 'plane3';
+const planeToRemove = planeArray[2];
 
 // ACT
 actual = airport.takeoffPlane(planeToRemove);
