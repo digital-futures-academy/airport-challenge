@@ -1,12 +1,24 @@
 import Airport from '../src/Airport.js';
 
 describe('Airport Class Tests', () => {
-    it('should land a plane into the planeList array in Airport', () => {
+    let actual, airport, expected, plane;
+
+    beforeEach(() => {
+        airport = new Airport();
+
+    });
+
+     afterEach(() => {
+        airport = undefined;
+         actual = undefined;
+         expected = undefined;
+     });
+
+    it('should call the landPlane on plane to land it into the planeList array in Airport', () => {
         // Arrange
-        let actual;
-        let expected = 1;
-        let plane = 'plane1';
-        let airport = new Airport();
+        expected = 1;
+        plane = 'plane1';
+        airport = new Airport();
 
         // Act
         airport.landPlane(plane);
@@ -16,5 +28,18 @@ describe('Airport Class Tests', () => {
         expect(actual).toBe(expected);
 
 
+    });
+
+    it('should not land a plane of a different data type into the planeList', () => {
+        // Arrange
+        expected = 0;
+        plane = 10;
+
+        // Act
+        airport.landPlane(plane);
+        actual = airport.planeList.length;
+
+        // Assert
+        expect(actual).toBe(expected);
     })
 });

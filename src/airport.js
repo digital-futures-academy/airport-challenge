@@ -2,7 +2,7 @@ class Airport{
     planeList = [];
 
     landPlane(plane) {
-        this.planeList.push(plane);
+        if (typeof plane == 'string') this.planeList.push(plane);
     }
 }
 
