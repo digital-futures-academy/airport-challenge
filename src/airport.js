@@ -26,14 +26,14 @@ class Airport {
   }
 
   landPlane = (plane) => {
-    if (!this.checkFull() && !this.#stormy && !this.#planesAtAirport.includes(plane)) {
+    if (!this.checkFull() && !this.#stormy && !this.#planesAtAirport.includes(plane) && plane.getAirport() === undefined) {
       plane.setAirport(this);
       this.#planesAtAirport.push(plane);
     }
   };
 
   takeoffPlane = (plane) => {
-    if (!this.#stormy) {
+    if (!this.#stormy && plane.getAirport() === this) {
       this.#planesAtAirport.splice(this.#planesAtAirport.indexOf(plane), 1);
       plane.setAirport(undefined);
     }

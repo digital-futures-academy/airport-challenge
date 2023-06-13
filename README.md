@@ -96,8 +96,8 @@ I want to prevent asking the airport to let planes take-off which are not at the
 Domain Model
 | Objects | Properties                     | Messages                 | Outputs |
 | ------- | ------------------------------ | ------------------------ | ------- |
-| Airport | planesAtAirport @Array[@Plane] | isPlaneAtAirport(@Plane) | @Bool   |
-| Plane   |                                | isPlaneLanded()          |         |
+| Airport | planesAtAirport @Array[@Plane] |                          | @Bool   |
+| Plane   |                                | getAirport()             |         |
 =================================================================================
 ```
 
@@ -133,8 +133,8 @@ Planes that have landed must be at an airport
 Domain Model
 | Objects | Properties                     | Messages                    | Outputs |
 | ------- | ------------------------------ | --------------------------- | ------- |
-| Airport |                                | assignAirportToPlane(@Plane)| @String |
-| Plane   | currentAirport @String         |                             |         |
+| Airport |                                |                             | @String |
+| Plane   | currentAirport @String         | setAirport(@Airport)        |         |
 =================================================================================
 ```
 
