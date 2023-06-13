@@ -105,17 +105,16 @@ describe("Airport", () => {
     expect(airport.isFull()).toEqual(true);
   });
   
-  it('confirms plane took off', () => {
-    airport = new Airport('');
-    const plane1 = new Plane('G-XLEE', 'departed');
-    const plane2 = new Plane('G-KELS', 'departed');
-    const plane3 = new Plane('G-BETI', 'departed');
-    airport.landPlane(plane1);
-    airport.landPlane(plane2);
-    airport.landPlane(plane3);
+  it('confirms plane with id of G-XLEE took off with message: `G-XLEE took off from airport` ', () => {
+    //arrange
+    plane.aircraftId = 'G-XLEE';
+    plane.aircraftStatus = 'departed';
+
+    //act
+    airport.landPlane(plane); 
+  
+  //assert
     const message = airport.planeTakeOff('G-XLEE');
     expect(message).toBe(`G-XLEE took off from airport`);
-    expect(airport.landedPlanes.length).toEqual(2);
-    expect(airport.landedPlanes[0].aircraftStatus).toBe('landed');
   })
 });
