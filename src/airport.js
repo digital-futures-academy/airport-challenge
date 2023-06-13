@@ -10,7 +10,13 @@ class Airport {
         }
     }
     orderTakeOff(plane) {
-        this.planesStanding.pop(plane);
+        if (this.planesStanding.includes(plane)) {
+            let index = this.planesStanding.indexOf(plane);
+            this.planesStanding.splice(index, 1);
+            return this.planesStanding;
+        } else {
+            return 'Sorry, I do not recognize that plane';
+        }
     }
 
     fullAirport() {

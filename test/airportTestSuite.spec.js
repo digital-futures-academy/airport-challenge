@@ -142,3 +142,32 @@ airport.planesStanding = [];
 result = undefined;
 actual = undefined;
 
+//------------------------------------------------------------6
+console.log(``);
+console.log(`Test 6`);
+console.log(`==============================================`)
+console.log(`the right plane leaves the airport when instructed`);
+console.log(`   Ensure the right plane leaves the airport`);
+console.log(``);
+// Arrange
+plane2 = new Plane(`plane2`);
+airport.landPlane(plane2);
+airport.landPlane(plane);
+expected = 0;
+
+
+// Act
+airport.orderTakeOff(plane);
+
+// Assert
+result = assertEquals(airport.planesStanding.includes(plane), false);
+
+// Report
+console.log(`Test 6: the right plane leaves the airport: ${result}`);
+console.log(`Test 6: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up
+airport.planesStanding = [];
+result = undefined;
+actual = undefined;
