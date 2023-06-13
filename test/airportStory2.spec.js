@@ -1,7 +1,6 @@
 const chalk = require("chalk");
 const { assertStrictEqual, assertIsUndefined } = require("./test-framework");
 const { Airport } = require("../src/Airport");
-const { Plane } = require("../src/Plane");
 
 let input, result, actual, expected;
 

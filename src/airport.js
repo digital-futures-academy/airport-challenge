@@ -5,12 +5,12 @@ class Airport {
   #stormy = false;
 
   constructor(size, isStormy = false) {
-    this.#capacity = size;
+    size > -1 ? this.#capacity = size : this.#capacity = 0;
     this.#stormy = isStormy;
   }
 
   setCapacity(value) {
-    this.#capacity = value;
+    value > -1 ? this.#capacity = value : this.#capacity = 0;
   }
 
   setWeather(isStormy) {
