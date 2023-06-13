@@ -1,14 +1,18 @@
 {
   "name": "airport-challenge",
+  "type": "module",
   "version": "1.0.0",
-  "description": "A TDD Challenge for Digital Futures",
+  "description": "Airport Challenge Test Framework",
   "main": "index.js",
-  "scripts": {
-    "test": "node specRunner.js"
+  "directories": {
+    "test": "test"
   },
-  "author": "dearshrewdwit",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "Austin Ventour",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
+    "jasmine": "^5.0.1"
   }
 }

@@ -44,6 +44,15 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+//| Class   || Objects         | Properties                   |     Messages           | Outputs  |
+//| ------- || --------------- | --------------------------   | -----------------      |  ------- |
+//| airport || plane@id        | airportPlanes @array[@plane] | addPlane(@plane)   | @Void    |
+
+// TEST 1: Can addPlane add a plane to airportPlanes
+// TEST 2: addPlane add's a plane with the id: 'Plane - 1'
+// TEST 3:
+// TEST 4:
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate

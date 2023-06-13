@@ -1,10 +1,16 @@
-const airport = {
-    airportPlanes: [],
-    planeLanding: function (plane) {
-        this.airportPlanes.push(plane)
-    },
+class Airport {
+    airportPlanes;
 
-};
+    constructor() {
+        this.airportPlanes = [];
+    }
+
+    addPlane(plane) {
+        this.airportPlanes.push(plane);
+    }
+}
 
 
-module.exports = airport;
+
+
+export default Airport
