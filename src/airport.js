@@ -16,7 +16,9 @@ class Airport {
         if (amount >= 1) {
             this.airportCapacity = amount;
         }
-
+    }
+    isAirportFull() {
+        return this.airportCapacity === this.airportPlanes.length;
     }
 }
 

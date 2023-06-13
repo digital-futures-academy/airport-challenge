@@ -68,11 +68,6 @@ I would like a default airport capacity that can be overridden as appropriate
 // TEST 3: changeAirportSize decreases airportCapacity to 5
 // TEST 4: changeAirportSize can not change airportCapacity to less than 0
 // TEST 5: changeAirportSize can not be undefined
-// TEST 6: changeAirportSize cannot change to the same number
-
-
-
-
 
 
 
@@ -80,13 +75,44 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
+//| Airport ||  airport          | airportCapacity @integer     | isAirportFull(boolean)             | @Void    |
+//|         ||                   |                              | stopLanding                        | @void    |
+
+// TEST 1:  does isAirportFull return a boolean when airport is full
+// TEST 2:  does isAirportFull return true when airport is full
+// TEST 3: 
+// TEST 4: 
+// TEST 5: 
+
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
+//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+
+// TEST 1: 
+// TEST 2: 
+// TEST 3: 
+// TEST 4: 
+// TEST 5: 
+
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
+//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+
+// TEST 1: 
+// TEST 2: 
+// TEST 3: 
+// TEST 4: 
+// TEST 5: 
 ```
 
 #### Extended Acceptance Criteria
@@ -95,13 +121,45 @@ As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
+//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
+//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+
+// TEST 1: 
+// TEST 2: 
+// TEST 3: 
+// TEST 4: 
+// TEST 5: 
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+
+//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
+//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+
+// TEST 1: 
+// TEST 2: 
+// TEST 3: 
+// TEST 4: 
+// TEST 5: 
+
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+
+//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
+//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+
+// TEST 1: 
+// TEST 2: 
+// TEST 3: 
+// TEST 4: 
+// TEST 5: 
 ```
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
