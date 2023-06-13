@@ -82,45 +82,49 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 **Domain Models**
 ---------
-#1 As an air traffic controller
-   So I can get passengers to a destination
-   I want to instruct the airport to land a plane
+ #1 As an air traffic controller
+    So I can get passengers to a destination
+    I want to instruct the airport to land a plane
 
-   Objects	      Properties	                    Messages	           Output
-   Airport     destination(@String)               land(plane)          @Boolean
-   Plane                                         isAtAirport(plane)    @Boolean
+|   Objects	 |     Properties	    |       Messages	            | Output   |
+|  --------- | :---------------:  | -------------------------: | -------: |
+|   Airport  | planeLanded        |        land(@Plane)        | @Boolean |
+|   Plane    |                    |       isAtAirport(@Plane)  | @Boolean |
             
 
 #2 As the system designer
    So that the software can be used for many different airports
    I would like a default airport capacity that can be overridden as appropriate
-   
-   Objects	   Properties	             Messages	           Output
-   Airport    airportCapacity(@Int)       isAirportFull()       @Boolean
+|  Objects	 |     Properties	             |       Messages	            | Output   |
+|  --------- |   :-----------------------: | -------------------------: | -------: |
+|   Airport  | airportCapacity(default:Int)|        setMax(capacity)    | @Boolean |
+
 
 #3 As an air traffic controller
    To ensure safety
    I want to prevent landing when the airport is full
-   Objects     Properties                   Messages             Output
-   Airport     airportCapacity(@Int)        isAirportFull()      @Boolean
-                                            preventLanding()     @Void
-
+|  Objects	 |     Properties	             |       Messages	            | Output   |
+|  --------- |   :-----------------------: | -------------------------: | -------: |
+|   Airport  |  airportCapacity(Int)|      | isFull()                   | @Boolean |
+                                             
 
 #4 As an air traffic controller
    So I can get passengers on the way to their destination
    I want to instruct the airport to let a plane take off and confirm that it is no longer at the airport
-   
-   Objects	   Properties	               Messages	               Output
-   Airport                                   takeOff(@Plane)      @Void
-   Plane       planeStatus                   isAtAirport(@Plane)  @Boolean
-
+|   Objects	 |     Properties	             |       Messages	            | Output   |
+|  --------- |   :-----------------------: | -------------------------: | -------: |
+|  Airport   |                             |     takeOff(@Plane)        | @Boolean |
+|  Plane     |  	                         |      isAtAirport(@Plane)   | @Boolean |
+                                      
+               
 #5 As an air traffic controller
    To avoid confusion
    I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+| Objects	 |     Properties	             |       Messages	            | Output   |
+|  --------- |   :-----------------------: | -------------------------: | -------: |
+|  Airport   |                             |     takeOff(@Plane)        | @Boolean |
+|  Plane     |  	                         |      isAtAirport(@Plane)   | @Boolean |
 
-   Objects	   Properties	                  Messages	               Output
-   Airport     airportName                                           @Void
-   Plane       planeStatus                  isAtAirport(@Plane)      @Boolean
 
 **How to run tests*
 $ cd specs
