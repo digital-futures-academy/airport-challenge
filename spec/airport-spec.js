@@ -42,7 +42,20 @@ describe("Airport", () => {
     //act
     airport.landPlane(plane);
     expect(airport.landedPlanes[0].aircraftId).toBe('G-XLEE');
-    // expect(airport.landedPlanes[0].aircraftStatus).toBe('landed');
+  });
+
+  it(' does not land plane without id in the airport', () => {
+    //arrange
+    plane.aircraftId = '';
+    plane.aircraftStatus = 'departed';
+    const plane2 = new MockPlane();
+    plane2.aircraftId = 'G-KELS';
+    plane2.aircraftStatus = 'departed';
+
+    //act
+    airport.landPlane(plane);
+    airport.landPlane(plane2);
+    expect(airport.landedPlanes.length).toBe(1);
   });
 
     it('lands 3 planes with in the airport', () => {
@@ -59,9 +72,9 @@ describe("Airport", () => {
     //act
     airport.landPlane(plane);
     airport.landPlane(plane2); 
-    airport.landPlane(plane3); 
+      airport.landPlane(plane3); 
+    //assert
     expect(airport.landedPlanes.length).toBe(3);
-    // expect(airport.landedPlanes[0].aircraftStatus).toBe('landed');
   });
     it('changes plane status from `departed` to `landed` once it lands in the airport', () => {
     //arrange
