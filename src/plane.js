@@ -1,9 +1,10 @@
+const location = 'airport';
 const plane = {
-    isAtAirport: function (plane) {
-        if (plane.isAtAirport) {
-            return true;
-        }
+    location,
+    isAtAirport: function () {
+        return this.location === 'airport';
     },
+
 };
 
 module.exports = plane;
