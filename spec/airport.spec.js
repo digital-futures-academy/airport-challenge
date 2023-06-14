@@ -15,10 +15,15 @@ describe("Airport Class Tests", function () {
 
   it("should add a plane in the list when landPlane is called", function () {
     const plane = { id: "A1234" };
-    const expected = 1;
 
     airport.landPlane(plane);
-    console.log(airport.listOfPlanes);
-    expect(airport.listOfPlanes.length).toBe(expected);
+
+    expect(airport.listOfPlanes.length).toBe(1);
+  });
+
+  it("should override the default airport capacity with the provided capacity", function () {
+    airport.overrideCapacity(5);
+
+    expect(airport.capacity).toBe(5);
   });
 });
