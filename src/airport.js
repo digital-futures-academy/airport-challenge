@@ -10,7 +10,7 @@ class Airport {
   }
 
   setCapacity(value) {
-    this.#capacity = value;
+    value > -1 ? this.#capacity = value : 0;
   }
 
   setWeather(isStormy) {
