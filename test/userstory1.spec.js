@@ -95,3 +95,6 @@ console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
 airport.landedPlanes = [];
 result = undefined;
 actual = undefined;
+
+console.log(`===================================================`);
+console.log(``);

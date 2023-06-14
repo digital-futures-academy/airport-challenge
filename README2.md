@@ -1,3 +1,9 @@
+// Arrange
+// Act
+// Assert
+// Report
+// Clean up
+
 Airport Challenge Domain Modelling
 
 1:
