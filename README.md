@@ -1,5 +1,4 @@
-Airport Challenge
-=================
+## Airport Traffic Controller
 
 ```
          ______
@@ -13,69 +12,87 @@ Airport Challenge
 
 ```
 
-Instructions
+Welcome to the **Airport Traffic Controller** App! 😊
+
+This wonderful application is designed to efficiently manage and control the flow of flights at airports or fighter aircraft at air bases. Its primary purpose is to ensure smooth and organized operations by providing comprehensive control over the movement and coordination of planes within the designated airspace and under uncertain weather conditions.
+
+## Getting Started 
+
+### To install and run Airport Traffic App locally, follow these steps:
+
+1. Fork and clone this repository to your local machine:
+      ```bash
+      git clone https://github.com/coder3114/airport-challenge
+2. Navigate to the project directory:
+      ```bash
+      cd my-airTrafficController-app
+3. Install the dependencies using npm:
+      ```bash
+      npm install
+## Usage
 ---------
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
+1. Start the application by running the following command. This command will start the execution of the application using the airTrafficController.js file as the entry point.
+      ```bash
+      npm airTrafficController.js
+2. Interact with the application by customizing the following airport and flights features:
 
-Steps
--------
+* **Airport Status**: The airport status section displays real-time information about the airport, including its name, capacity, weather, and flights currently at the airport.  
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+  ![Alt text](airport-status.png)
+      
 
-Task
------
+* **Flight Management**: Use the flight management section to view and manage flights. You can add new flights, update flight details, and remove flights from the system.
 
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+     ![Alt text](flight-management.png)
 
-#### Acceptance Criteria
+3. Interact with the **Flight Control** section by performing requirements such as adding or updating flights, monitoring airport status, issuing instructions, and communicating with relevant personnel.
+
+      ![Alt text](flight-control.png)
+      ![Real time flow](flight-flow.png)
+
+      This APP adhere the following **Airport operation rules**:
 ```
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
-
-As the system designer
-So that the software can be used for many different airports
-I would like a default airport capacity that can be overridden as appropriate
-
-As an air traffic controller
-To ensure safety
-I want to prevent landing when the airport is full
-
-As an air traffic controller
-So I can get passengers on the way to their destination
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
-
-As an air traffic controller
-To avoid confusion
-I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+      1. No plane can land if the airport is at full capacity to ensure available space before allowing any incoming planes to land.
+      2. A plane should be at the airport before being granted permission for take-off.
+      3. A plane that is already at the airport cannot land again to prevent duplicate landing requests.
+      4. No plane can land or take off during stormy weather conditions.
+      5. Once a plane successfully takes off, it is considered to have left the airport.
+      6. Once a plane lands, it must remain at the airport until its next scheduled take-off.
 ```
 
-#### Extended Acceptance Criteria
-```
-As an air traffic controller
-To ensure safety
-I want to prevent takeoff when weather is stormy
+4. Utilize the **Reports and Analytics** section to generate reports on flight statistics and analyze airport performance. This helps to provide data-driven decisions and improve airport operations.
 
-As an air traffic controller
-To ensure safety
-I want to prevent landing when weather is stormy
+      ![Example report](report.png)
 
-As an air traffic controller
-To count planes easily
-Planes that have landed must be at an airport
-```
+5. When you're finished using the Airport Traffic Controller app, stop the server by pressing ***`Ctrl + C`*** in the terminal where the app is running.
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+## Contributing
+---------
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+### If you'd like to contribute to Airport Traffic Controller App to make it better, please follow these steps:
+
+1. Fork the repository on GitHub.
+2. Create a new branch for your feature:
+      ```bash
+      git checkout -b feature/your-feature
+3. Commit your changes:
+      ```bash
+      git commit -m "Add your commit message"
+4. Push the branch to your forked repository:
+      ```bash
+      git push origin feature/your-feature
+5. Open a pull request on the original repository.
+
+## Acknowledgments
+---------
+
+Below are the list of resources I find helpful and would like to give credit to:
+* [Demos for SE-2306-A June SE Cohort 8](https://github.com/digital-futures-academy/SE-2306-A-Demos)
+* [Javascript "Not a Constructor" Exception while creating objects](https://stackoverflow.com/questions/10107198/javascript-not-a-constructor-exception-while-creating-objects)
+* [How can I remove a specific item from an array in JavaScript?](https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array-in-javascript)
+* [Getting Started with ESLint](https://eslint.org/docs/latest/use/getting-started)
+* [README template](https://github.com/coder3114/Best-README.md/tree/master#prerequisites)
+* [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+
+😊 **Thank you for choosing and utilizing my app! I hope you had a positive experience. If you have any suggestions or questions, please don't hesitate to reach out. I will appreciate your feedback to help improve the app further. I look forward to serving you again in the future.** 😊
