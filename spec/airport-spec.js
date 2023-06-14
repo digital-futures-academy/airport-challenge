@@ -45,7 +45,35 @@ describe("Airport", () => {
     //arrange
     //act
     airport.landPlane(plane);
+    //assert
     expect(airport.landedPlanes[0].aircraftId).toBe("G-XLEE");
+  });
+
+  it(" does not land plane without id in the airport", () => {
+    //arrange
+    plane.aircraftId = "";
+    //act
+    airport.landPlane(plane);
+    airport.landPlane(plane2);
+    //assert
+    expect(airport.landedPlanes.length).toBe(1);
+  });
+
+  it("does not land plane without status in the airport", () => {
+    //arrange
+    plane.aircraftStatus = "";
+    //act
+    airport.landPlane(plane);
+    //assert
+    expect(airport.landedPlanes.length).toBe(0);
+  });
+
+  it("should return an error when a plane number status attempts to land in the airport", () => {
+    //arrange
+    plane.aircraftStatus = 23;
+    //act
+    //assert
+    expect(() => { airport.landPlane(plane) }).toThrowError('Unidentified plane status. Plane status must be a string.');
   });
 
   it("lands 3 planes with in the airport", () => {
@@ -116,8 +144,8 @@ describe("Airport", () => {
     //arrange
     //act
     airport.landPlane(plane);
-    //assert
     const message = airport.planeTakeOff("G-XLEE");
+    //assert
     expect(message).toBe(`G-XLEE took off from airport`);
   });
 });
