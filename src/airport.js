@@ -1,12 +1,3 @@
-// const airport = {
-//     landNewPlane: function () { this.landedPlanes.push(`newPlane`) },
-//     landedPlanes: [],
-// };
-
-// module.exports = airport;
-
-//Code refactored below to use class syntax:
-
 class Airport {
     #name;
     #planesInPort;
@@ -14,12 +5,16 @@ class Airport {
 
     constructor(name, planesInPort = [], capacity = 3) {
         this.#name = name;
-        this.#planesInPort = [];
+        this.#planesInPort = planesInPort;
         this.#maxCapacity = capacity;
     }
 
     getPlanesInPort() {
         return this.#planesInPort;
+    }
+
+    getPlaneNum() {
+        return this.#planesInPort.length;
     }
 
     getMaxCapacity() {
@@ -33,7 +28,11 @@ class Airport {
     changeCapacity(number) {
         if (typeof number === 'number') {
             this.#maxCapacity = number
-        };
+        }
+    }
+
+    isAirportFull() {
+        return this.getMaxCapacity() === this.getPlaneNum();
 
     }
 }

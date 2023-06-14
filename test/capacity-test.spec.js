@@ -54,15 +54,11 @@ console.log(`----------------------------------------------------`);
 
 airport = new Airport('spacePort', [])
 
-//arrange
 expected = 3;
 
-
-//act
 airport.changeCapacity('string')
 actual = airport.getMaxCapacity();
 
-//assert
 result = assertEquals(actual, expected);
 
 console.log(`Test 3 - maxCapacity has default value of 3: ${result}`);
@@ -73,3 +69,4 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
+

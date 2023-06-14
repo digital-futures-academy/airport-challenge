@@ -6,13 +6,12 @@ console.log(`AIRPORT TESTS`);
 console.log(`----------------`);
 console.log(``);
 
-let airport = new Airport('spacePort', [])
-let expected, actual, result;
-
-
 console.log(`AIRPORT TEST 1`)
 console.log(`When a plane is landed in the Airport using landNewPlane, array planesInPort will increase in length to one.`);
 console.log(`----------------------------------------------------`);
+
+let airport = new Airport('spacePort', [])
+let expected, actual, result;
 
 expected = 1
 plane = `voyager`
@@ -30,3 +29,26 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
+airport = undefined;
+
+console.log(`AIRPORT TEST 2`)
+console.log(`isAirportFull() returns true when the number of planes in planesInPort array is equal to airport maxCapacity.`);
+console.log(`----------------------------------------------------`);
+
+airport = new Airport('spacePort', ['voyager'], 1)
+
+expected = true
+
+actual = airport.isAirportFull();
+
+result = assertEquals(actual, expected);
+
+console.log(`Test 2 - isAirportFull reports if airport is at capacity: ${result}`);
+console.log(`Test 2 status - ${result ? `PASS` : `FAIL`}`);
+console.log(`-----------------------`);
+console.log(``);
+
+expected = undefined;
+actual = undefined;
+result = undefined;
+
