@@ -1,14 +1,12 @@
 const { assertEquals } = require("./test-framework");
 const Airport = require("../src/Airport");
-//const Plane = require("../src/plane")
 
 function testLandingPlane() {
-    console.log(`Test 1 - Land a plane to an empty airport using land function and expect array of planes to increase in length to 1 `);
+    console.log(`Test 1 - Land a plane to an empty airport and expect array of planes to increase in length to 1`);
 
     // Setup
-    let expectedOutput, result, actualOutput;
     let airport = new Airport();
-    const plane1 = { id: `F-15` };
+    const plane1 = `F-15`;
     expectedOutput = 1;
 
     // Execute
@@ -22,7 +20,7 @@ function testLandingPlane() {
 }
 
 function testDefaultCapacity() {
-    console.log(`Test 2 -  Airport should have a default capacity`);
+    console.log(`Test 2-1 -  Airport should have a default capacity`);
 
     // Setup
     let airport = new Airport();
@@ -38,7 +36,7 @@ function testDefaultCapacity() {
 }
 
 function testSetCapacity() {
-    console.log(`Test 2 -  Set default airport capacity that can be overridden as appropriate`);
+    console.log(`Test 2-2 - Airport should have a default capacity that can be overridden as appropriate`);
 
     // Setup
     let airport = new Airport();
@@ -54,14 +52,14 @@ function testSetCapacity() {
     console.log(`Test 2-2 - airport capacity overridden to 9: ${result ? `PASS` : `FAIL`}\n`);
 }
 
-function testNoLandingWhenFull() {
-    console.log(`Test 3 -  No landing when the airport is full`);
+function testNoLandingWhenAirportFull() {
+    console.log(`Test 3 - Landing a plane when the airport is full should not increase the planes numbers at the airport`);
 
     // Setup
     let airport = new Airport();
     airport.capacity = 4
     airport.planes = [`F-15A`, `F-15B`, `F-15C`, `F-15D`]
-    const planeToLand = { id: `F-14` };
+    const planeToLand = `F-14`;
     expectedOutput = airport.capacity;
 
     // Execute
@@ -75,13 +73,12 @@ function testNoLandingWhenFull() {
 }
 
 function testTakingOffPlane() {
-    console.log(`Test 4 - Let a plane take off and no longer in the airport`);
+    console.log(`Test 4 - Let a plane take off and it should no longer be in the airport`);
 
     // Setup
-    let expectedOutput, result, actualOutput;
     let airport = new Airport();
-    airport.planes = [`F-15`];
-    const planeTakenOff = { id: `F-15` };
+    airport.planes = [`F-15`, `F-14`];
+    const planeTakenOff = `F-15`;
     expectedOutput = false;
 
     // Execute
@@ -95,10 +92,9 @@ function testTakingOffPlane() {
 }
 
 function testOnlyTakeOffPlaneAtAirport() {
-    console.log(`Test 5 - Cannot let planes take-off which are not at the airport`);
+    console.log(`Test 5-1 - take-off a plane not at the airport do not change the airport planes numbers`);
 
     // Setup
-    let expectedOutput, result, actualOutput;
     let airport = new Airport();
     airport.planes = [`F-15A`, `F-15B`];
     const planeTakenOff = `F-14`;
@@ -111,14 +107,13 @@ function testOnlyTakeOffPlaneAtAirport() {
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 5-1 - take-off a plane not at the airport do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 5-1 - planes not at the airport cannot take off: ${result ? `PASS` : `FAIL`}\n`);
 }
 
 function testOnlyLandPlaneNotAtAirport() {
-    console.log(`Test 5 - Cannot let planes land which are already at the airport`);
+    console.log(`Test 5-2 - Land a plane not at the airport do not change the airport planes numbers`);
 
     // Setup
-    let expectedOutput, result, actualOutput;
     let airport = new Airport();
     airport.planes = [`F-15A`, `F-15B`];
     const planeTakenOff = `F-15B`;
@@ -131,18 +126,17 @@ function testOnlyLandPlaneNotAtAirport() {
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 5-2 - land a plane already at the airport do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 5-2 - planes already at the airport cannot land again: ${result ? `PASS` : `FAIL`}\n`);
 }
 
 function testNoTakeoffWhenStormy() {
-    console.log(`Test 6 - Cannot let planes take-off when weather is stormy`);
+    console.log(`Test 6 - Takeoff a plane when weather is stormy do not change the airport planes numbers`);
 
     // Setup
-    let expectedOutput, result, actualOutput;
     let airport = new Airport();
     airport.planes = [`F-15A`, `F-15B`, `F-15C`, `F-15D`];
     const planeTakenOff = `F-15B`;
-    airport.weather = `stormy`;
+    airport.weather.weather = `Stormy`;
     expectedOutput = 4;
 
     // Execute
@@ -152,18 +146,17 @@ function testNoTakeoffWhenStormy() {
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 6 - take-off a plane when weather is stormy do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 6 - planes cannot takeoff when weather is stormy: ${result ? `PASS` : `FAIL`}\n`);
 }
 
 function testNoLandingWhenStormy() {
-    console.log(`Test 7 - Cannot let planes land when weather is stormy`);
+    console.log(`Test 7 - Land a plane when weather is stormy do not change the airport planes numbers`);
 
     // Setup
-    let expectedOutput, result, actualOutput;
     let airport = new Airport();
     airport.planes = [];
     const planeLanding = `F-15B`;
-    airport.weather = `stormy`;
+    airport.weather.weather = `Stormy`;
     expectedOutput = 0;
 
     // Execute
@@ -173,36 +166,35 @@ function testNoLandingWhenStormy() {
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 7 - land a plane when weather is stormy do not change the airport planes numbers: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 7 - planes cannot land when weather is stormy: ${result ? `PASS` : `FAIL`}\n`);
 }
 
-function testPlaneLandedAtAirport() {
+function testPlaneLandedBeAtAirport() {
     console.log(`Test 8 - Planes that have landed must be at an airport`);
 
     // Setup
-    let expectedOutput, result, actualOutput;
-    let airport = new Airport();
-    airport.weather = `sunny`;
+    let planeCounter = new Airport();
+    planeCounter.weather = `Sunny`;
     const planeLanding = `F-15B`;
     expectedOutput = true;
 
     // Execute
-    airport.land(planeLanding);
-    actualOutput = airport.planes.includes(planeLanding);
+    planeCounter.land(planeLanding);
+    actualOutput = planeCounter.planes.includes(planeLanding);
 
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 8 - plane landed becomes one of the airport planes: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 8 - plane landed should be at the airport: ${result ? `PASS` : `FAIL`}\n`);
 }
 
 testLandingPlane();
 testDefaultCapacity();
 testSetCapacity();
-testNoLandingWhenFull();
+testNoLandingWhenAirportFull();
 testTakingOffPlane();
 testOnlyTakeOffPlaneAtAirport();
 testOnlyLandPlaneNotAtAirport();
 testNoTakeoffWhenStormy();
 testNoLandingWhenStormy();
-testPlaneLandedAtAirport();
+testPlaneLandedBeAtAirport();
