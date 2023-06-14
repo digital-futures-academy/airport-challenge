@@ -13,7 +13,7 @@ Function: plane (item) can land (add) at airport (array)
 Objects | Properties | Messages | Output
 --------|------------|----------|-------
 airport | landedPlanes@Array\[@Id\]           | landPlane() | @void
-plane   |id@String            |          |
+plane   |id@String            |  getId()        | @String
 
 
 ### User Story 2:

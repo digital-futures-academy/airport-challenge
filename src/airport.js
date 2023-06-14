@@ -11,7 +11,8 @@ class Airport {
     };
 
     landPlane(plane) {
-        if (!this.isFull()) { //remember the ! for not full
+        // && this.plane. !== 'no id'
+        if (!this.isFull() && this.getPlaneId === 'no id') { //remember the ! for not full
             this.landedPlanes.push(plane);
         }
     };
@@ -26,6 +27,14 @@ class Airport {
         return this.maxCapacity === this.landedPlanes.length;
     };
 
+    planeTakeOff(plane) {
+        const index = this.landedPlanes.indexOf(plane);
+        this.landedPlanes.splice(index, 1);
+    };
+
+    getPlaneId(plane) {
+        return plane.getId();
+    }
 }
 
 module.exports = Airport;

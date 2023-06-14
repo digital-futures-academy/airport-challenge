@@ -16,13 +16,14 @@ let actualOutput, expectedOutput, result, input;
 const airport1 = new Airport;
 
 //Test 1: remove plan from landedPlanes array
-console.log('Test 1: remove plan from landedPlanes array');
+console.log('Test 1: remove plane from landedPlanes array');
 //Arrange
 input1 = { id: 'plane1' };
-expectedOutput = true
-//Act
 airport1.landPlane(input);
-actualOutput = airport1.isFull();
+expectedOutput = 0
+//Act
+airport1.planeTakeOff(input);
+actualOutput = airport1.landedPlanes.length;
 //Assert
 result = assertEquals(expectedOutput, actualOutput);
 console.log(`-----> ${result ? 'PASS' : 'FAIL'} | Expected ${expectedOutput} : Received ${actualOutput} <----- \n`);

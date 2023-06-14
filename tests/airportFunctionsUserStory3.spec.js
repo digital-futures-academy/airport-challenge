@@ -5,7 +5,7 @@
 // I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport"
 
 const { assertEquals } = require('./test-framework');
-const Airport = require('../src/Airport')
+const Airport = require('../src/Airport');
 
 let actualOutput, expectedOutput, result, input;
 const airport1 = new Airport;
