@@ -7,7 +7,8 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (plane?.id) this.listOfPlanes = [...this.listOfPlanes, plane];
+    if (plane?.id && !this.isFull())
+      this.listOfPlanes = [...this.listOfPlanes, plane];
   }
 
   overrideCapacity(newCapacity) {
