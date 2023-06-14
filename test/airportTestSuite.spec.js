@@ -89,6 +89,53 @@ actual = undefined;
 console.log(``);
 console.log(`Test 4`);
 console.log(`==============================================`)
+console.log(`The airport has a max capacity`);
+console.log(`   Ensure airport has a capacity property `);
+console.log(``);
+// Arrange
+// Act
+
+// Assert
+result = airport.airportCapacity;
+
+// Report
+console.log(`Test 4: the airport has a capacity property: ${result}`);
+console.log(`Test 4: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up
+airport.planesStanding = [];
+result = undefined;
+actual = undefined;
+
+//------------------------------------------------------------ 5
+console.log(``);
+console.log(`Test 5`);
+console.log(`==============================================`)
+console.log(`The airport's capacity property can be overridden if needed`);
+console.log(`   Ensure airport's capacity property can be overriddem`);
+console.log(``);
+// Arrange
+airport.airportCapacity = 5;
+// Act
+// Assert
+result = airport.airportCapacity != 10;
+
+// Report
+console.log(`Test 5: the airport's capacity can be overridden if needed, new capacity: ${result}`);
+console.log(`Test 5: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up
+airport.planesStanding = []
+airport.airportCapacity = 10;
+result = undefined;
+actual = undefined;
+
+//------------------------------------------------------------ 6
+console.log(``);
+console.log(`Test 6`);
+console.log(`==============================================`)
 console.log(`Planes do not land if the airport is at capacity:`);
 console.log(`   Ensure airport has a capacity property and this limits planes landing`);
 console.log(``);
@@ -105,8 +152,8 @@ actual = airport.planesStanding.length;
 result = assertEquals(actual, expected);
 
 // Report
-console.log(`Test 4: planes can't land when the airport is full: ${result}`);
-console.log(`Test 4: ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 6: planes can't land when the airport is full: ${result}`);
+console.log(`Test 6: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up
@@ -114,9 +161,9 @@ airport.planesStanding = [];
 result = undefined;
 actual = undefined;
 
-//------------------------------------------------------------5
+//------------------------------------------------------------7
 console.log(``);
-console.log(`Test 5`);
+console.log(`Test 7`);
 console.log(`==============================================`)
 console.log(`Planes can take off when instructed:`);
 console.log(`   Ensure planes can leave the airport`);
@@ -133,8 +180,8 @@ actual = airport.planesStanding.length;
 result = assertEquals(actual, expected);
 
 // Report
-console.log(`Test 5: planes leave the airport when instructed: ${result}`);
-console.log(`Test 5: ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 7: planes leave the airport when instructed: ${result}`);
+console.log(`Test 7: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up
@@ -142,9 +189,9 @@ airport.planesStanding = [];
 result = undefined;
 actual = undefined;
 
-//------------------------------------------------------------6
+//------------------------------------------------------------8
 console.log(``);
-console.log(`Test 6`);
+console.log(`Test 8`);
 console.log(`==============================================`)
 console.log(`the right plane leaves the airport when instructed`);
 console.log(`   Ensure the right plane leaves the airport`);
@@ -163,8 +210,8 @@ airport.orderTakeOff(plane);
 result = assertEquals(airport.planesStanding.includes(plane), false);
 
 // Report
-console.log(`Test 6: the right plane leaves the airport: ${result}`);
-console.log(`Test 6: ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 8: the right plane leaves the airport: ${result}`);
+console.log(`Test 8: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up

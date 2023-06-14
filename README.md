@@ -44,62 +44,49 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-Domain Model: 
-            Object:airport
-                  plane
-            Properties: A- planesStanding(@array[@planes])
-            Message: A- landPlane 
-            Context:
-            Output: @void
-
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
-
-Domain Model:
-            Object:airport
-                  plane
-            Properties: A- planesStanding (@array[@planes]), airportCapacity (@int)
-            Message: A- isFull() (@boolean)
-            Context:
-            Output: @boolean establishing whether airport is at capacity
 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-Domain Model:
-            Object:airport
-                  plane
-            Properties: A- planesStanding (@array[@planes]), airportCapacity (@int)
-            Message: A- denyLanding()
-            Context:
-            Output: Sorry, airport at capacity (@string)
-
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
-
-Domain Model:
-            Object:airport
-                  plane
-            Properties: A- planesStanding (@array[@planes]), airportCapacity (@int)
-                        P- planeId(@string)  
-            Message: A- takeOff() 
-            Context:
-            Output:
 
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-            Object:airport
-                  plane
-            Properties: A- planesStanding (@array[@planes])
-                        P- planeId(@string)  
-            Message: A- checkAirport() 
-            Context:
-            Output: (@string)
+Object:
+Airport
+Plane
+**********
+Properties
+A- planesStanding @array
+A- airportCapacity @int
+P- planeID @int
+*********
+Message
+A- landplane(@plane)
+A- denyLanding(@plane)
+A- instructTakeOff(@plane)
+********
+Context
+Airport full (lp)
+Airport available(lp)
+Plane already in airport (lp)
+Plane already in airport (dl)
+Plane not in airport (ito)
+********
+Output
+Boolean
+Boolean
+String ‘sorry this plane has already landed’
+String `sorry, plane is in the airport already’
+String ‘sorry, this plane is not at the airport’
 
 ```
 
