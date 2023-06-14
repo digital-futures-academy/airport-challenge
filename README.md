@@ -34,7 +34,7 @@ This wonderful application is designed to efficiently manage and control the flo
 
 1. Start the application by running the following command. This command will start the execution of the application using the airTrafficController.js file as the entry point.
       ```bash
-      npm airTrafficController.js
+      node airTrafficController.js
 2. Interact with the application by customizing the following airport and flights features:
 
 * **Airport Status**: The airport status section displays real-time information about the airport, including its name, capacity, weather, and flights currently at the airport.  
@@ -56,7 +56,7 @@ This wonderful application is designed to efficiently manage and control the flo
       1. No plane can land if the airport is at full capacity to ensure available space before allowing any incoming planes to land.
       2. A plane should be at the airport before being granted permission for take-off.
       3. A plane that is already at the airport cannot land again to prevent duplicate landing requests.
-      4. No plane can land or take off during stormy weather conditions.
+      4. No plane can land or take off during stormy weather conditions (10% possibility by default).
       5. Once a plane successfully takes off, it is considered to have left the airport.
       6. Once a plane lands, it must remain at the airport until its next scheduled take-off.
 ```

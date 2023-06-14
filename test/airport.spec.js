@@ -111,7 +111,7 @@ function testOnlyTakeOffPlaneAtAirport() {
 }
 
 function testOnlyLandPlaneNotAtAirport() {
-    console.log(`Test 5-2 - Land a plane not at the airport do not change the airport planes numbers`);
+    console.log(`Test 5-2 - Land a plane already at the airport do not change the airport planes numbers`);
 
     // Setup
     let airport = new Airport();
@@ -136,7 +136,7 @@ function testNoTakeoffWhenStormy() {
     let airport = new Airport();
     airport.planes = [`F-15A`, `F-15B`, `F-15C`, `F-15D`];
     const planeTakenOff = `F-15B`;
-    airport.weather.weather = `Stormy`;
+    airport.weather.description = `Stormy`;
     expectedOutput = 4;
 
     // Execute
@@ -156,7 +156,7 @@ function testNoLandingWhenStormy() {
     let airport = new Airport();
     airport.planes = [];
     const planeLanding = `F-15B`;
-    airport.weather.weather = `Stormy`;
+    airport.weather.description = `Stormy`;
     expectedOutput = 0;
 
     // Execute
@@ -174,7 +174,7 @@ function testPlaneLandedBeAtAirport() {
 
     // Setup
     let planeCounter = new Airport();
-    planeCounter.weather = `Sunny`;
+    planeCounter.weather.description = `Sunny`;
     const planeLanding = `F-15B`;
     expectedOutput = true;
 
@@ -185,7 +185,7 @@ function testPlaneLandedBeAtAirport() {
     // Verify
     result = assertEquals(expectedOutput, actualOutput);
 
-    console.log(`Test 8 - plane landed should be at the airport: ${result ? `PASS` : `FAIL`}\n`);
+    console.log(`Test 8 - plane landed is at the airport: ${result ? `PASS` : `FAIL`}\n`);
 }
 
 testLandingPlane();
