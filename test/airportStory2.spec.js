@@ -62,7 +62,38 @@ Test2 = () => {
 
 }
 
+Test3 = () => {
+
+    console.log(chalk.cyan(`User Story 2: Override the default airport capacity`))
+    console.log(chalk.cyan(`User Story 2 Test 3: Do not allow the user to set a negative capacity`))
+    console.log(chalk.cyan(`User Story 2 Pass Criteria: The capacity of an airport be 5`))
+    console.log(``);
+
+    //Arrange
+    expected = 5;
+    input = -1;
+    airport = new Airport(5);
+
+    //Act
+    airport.setCapacity(input);
+    actual = airport.getCapacity();
+
+    //Assert
+    result = assertStrictEqual(expected, actual);
+
+    console.log(chalk.cyan(`User Story 2 Test 3 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`))
+    console.log(chalk.red(`=====================================================================================================`))
+    console.log(``);
+
+    //Cleanup
+    input = undefined;
+    expected = undefined;
+
+}
+
 
 
 Test();
 Test2();
+Test3();
+

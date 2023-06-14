@@ -16,10 +16,10 @@ Test = () => {
     //Arrange
     expected = true;
     input = new Plane();
-    airport = new Airport(5);
+    airport = new Airport(1);
 
     //Act
-    actual = airport.canLand();
+    actual = airport.canLand(input);
 
     //Assert
     result = assertStrictEqual(expected, actual);
