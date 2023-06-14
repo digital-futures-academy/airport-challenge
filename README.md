@@ -44,7 +44,8 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-Domain Modelling
+Domain Model
+
 | Objects             | Properties                | Messages              | Outputs |
 | -------             | ----------                | -----------------     | ------- |
 | Airport             | listOfPlanes@array[planes]| land(plane)           | void()  |
@@ -54,6 +55,13 @@ Domain Modelling
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+Domain Model
+
+| Objects   | Properties                 | Messages                          | Outputs |
+| --------- | -------------------------- | --------------------------------- | ------- |
+| Airport   | capacity @Integer          | defaultCapacity(@Integer)         | @Void   |
+| Plane     |                            |                                   |         |
 
 As an air traffic controller
 To ensure safety
