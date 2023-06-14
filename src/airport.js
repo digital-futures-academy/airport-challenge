@@ -1,17 +1,22 @@
 class Airport {
   // Should i change the properties to be private?
 
-  constructor() {
+  constructor(capacity = 3) {
     this.listOfPlanes = [];
-    this.capacity = 0;
+    this.capacity = capacity;
   }
 
   landPlane(plane) {
-    this.listOfPlanes = [...this.listOfPlanes, plane];
+    if (plane?.id) this.listOfPlanes = [...this.listOfPlanes, plane];
   }
 
   overrideCapacity(newCapacity) {
-    this.capacity = newCapacity;
+    if (newCapacity > 0 && Number.isInteger(newCapacity))
+      this.capacity = newCapacity;
+  }
+
+  isFull() {
+    return this.listOfPlanes.length === this.capacity;
   }
 }
 

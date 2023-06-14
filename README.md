@@ -44,6 +44,8 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+<!-- check that it is a plane? -->
+
 | Object  | Properties                  | Message     | Output |
 | ------- | --------------------------- | ----------- | ------ |
 | Airport | listOfPlanes @array[@Plane] | landPlane() | @void  |
@@ -54,6 +56,7 @@ So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
 <!-- what should the default capacity be? -->
+<!-- Check that it does not take negative/non-integer -->
 
 | Object  | Properties        | Message            | Output |
 | ------- | ----------------- | ------------------ | ------ |
@@ -66,10 +69,10 @@ I want to prevent landing when the airport is full
 
 <!-- Do i need to output boolean?  -->
 
-| Object  | Properties      | Message     | Output |
-| ------- | --------------- | ----------- | ------ |
-| Airport | isFull @boolean | landPlane() | @void  |
-| Plane   |                 |             |        |
+| Object  | Properties        | Message     | Output   |
+| ------- | ----------------- | ----------- | -------- |
+| Airport | capacity @integer | isFull()    | @boolean |
+|         |                   | landPlane() | @void    |
 
 As an air traffic controller
 So I can get passengers on the way to their destination
