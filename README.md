@@ -82,9 +82,8 @@ I want to prevent landing when the airport is full
 
 // TEST 1:  does isAirportFull return a boolean when airport is full
 // TEST 2:  does isAirportFull return true when airport is full
-// TEST 3: 
-// TEST 4: 
-// TEST 5: 
+// TEST 3:  if airport is full planes are unable to land
+// TEST 4:  if airport is not full planes are able to land
 
 As an air traffic controller
 So I can get passengers on the way to their destination

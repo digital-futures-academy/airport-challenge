@@ -8,10 +8,11 @@ class Airport {
     }
 
     addPlane(plane) {
-        if (plane !== undefined) {
+        if (plane !== undefined && this.isAirportFull !== this.airportCapacity) {
             this.airportPlanes.push(plane);
         }
     }
+
     changeAirportSize(amount) {
         if (amount >= 1) {
             this.airportCapacity = amount;
@@ -20,6 +21,9 @@ class Airport {
     isAirportFull() {
         return this.airportCapacity === this.airportPlanes.length;
     }
+
+
+
 }
 
 

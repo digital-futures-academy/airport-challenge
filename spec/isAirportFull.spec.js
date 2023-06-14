@@ -62,5 +62,49 @@ describe('Airport Tests', () => {
 
     });
 
+
+
+    //=====================TEST2====================\\
+
+    it('if airport is full planes are unable to land', () => {
+
+        // Arrange
+        expected = 1
+
+        // Act
+
+        airport.addPlane(1)
+        actual = airport.airportPlanes.length;
+
+        // Assert
+        expect(actual).toBe(expected);
+
+    });
+
+
+    //=====================TEST2====================\\
+
+    it('if airport is not full planes are able to land', () => {
+
+        // Arrange
+        expected = 3
+        airport.changeAirportSize(10)
+
+
+        // Act
+
+        airport.addPlane(1)
+        airport.addPlane(2)
+        airport.addPlane(3)
+        actual = airport.airportPlanes.length;
+
+        // Assert
+        expect(actual).toBe(expected);
+
+    });
+
+
+
+
 });
 
