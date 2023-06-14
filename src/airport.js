@@ -1,4 +1,3 @@
-// const { Plane } = require("./plane");
 const Weather = require("./Weather.js");
 
 class Airport {
@@ -13,17 +12,16 @@ class Airport {
     }
 
     airportFull() {
-        if (this.planes.length < this.capacity) return false;
-        else return true;
+        return this.planes.length >= this.capacity;
     }
 
     land(plane) {
         if (this.planes.includes(plane)) {
-            (console.log(`Plane already at the airport, plane cannot land.`));
+            console.log(`${plane} already at the airport, cannot land.`);
         } else if (this.airportFull()) {
-            (console.log(`Airport is full, plane can not land.`));
-        } else if (this.weather === `stormy`) {
-            console.log(`Weather is stormy, plane cannot land.`);
+            console.log(`Airport is full, ${plane} can not land.`);
+        } else if (this.weather.description === `Stormy`) {
+            console.log(`Weather is stormy, ${plane} cannot land.`);
         } else {
             this.planes.push(plane);
         }
@@ -31,11 +29,11 @@ class Airport {
 
     takeOff(plane) {
         if (!this.planes.includes(plane)) {
-            console.log(`Plane not at the airport, cannot take off.`);
-        } else if (this.weather === `stormy`) {
-            console.log(`Weather is stormy, plane cannot take off.`);
+            console.log(`${plane} not at the airport, cannot take off.`);
+        } else if (this.weather.description === `Stormy`) {
+            console.log(`Weather is stormy, ${plane} cannot take off.`);
         } else {
-            this.planes.pop(plane)
+            this.planes.splice(this.planes.indexOf(plane), 1);
         }
     }
 }
