@@ -52,3 +52,25 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+console.log(`AIRPORT TEST 3`)
+console.log(`When isAirportFull is true, landNewPlane does not add a new plane to planesInPort array.`);
+console.log(`----------------------------------------------------`);
+
+airport = new Airport('spacePort', ['voyager'], 1)
+
+expected = 1
+
+airport.landNewPlane('Jimminy Cricket');
+
+actual = airport.getPlaneNum();
+
+result = assertEquals(actual, expected);
+
+console.log(`Test 3 - planesInPort array does not increase in length when length is the same as maxCapacity: ${result}`);
+console.log(`Test 3 status - ${result ? `PASS` : `FAIL`}`);
+console.log(`-----------------------`);
+console.log(``);
+
+expected = undefined;
+actual = undefined;
+result = undefined;

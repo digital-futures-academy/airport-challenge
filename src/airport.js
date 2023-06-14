@@ -22,7 +22,9 @@ class Airport {
     }
 
     landNewPlane(planeName) {
-        this.#planesInPort.push(planeName);
+        if (this.isAirportFull() === false) {
+            this.#planesInPort.push(planeName)
+        };
     }
 
     changeCapacity(number) {
