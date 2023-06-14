@@ -3,11 +3,11 @@ const { airport } = require("../src/airport");
 
 console.log("TEST 2: Can I override the default airport capacity?")
 
+
 // Arrange
 
 let expectedOutput = 4000;
 let capacity = 4000;
-
 
 // Act 
 
@@ -18,7 +18,6 @@ actualOutput = airport.maxAirportCapacity; // test to check that the default max
 // Assert 
 
 result = assertEquals(actualOutput, expectedOutput);
-
 
 // Report
 

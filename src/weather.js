@@ -1,4 +1,4 @@
-let weather = {
+const weather = {
 
     currentWeather: "Sunny",
 

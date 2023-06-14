@@ -5,13 +5,14 @@ console.log("TEST 4: If the airport is full, don't land. Current airport capacit
 
 
 // Arrange
+
 let planeID = "123456";
 airport.currentAirportCapacity = 5000;
 expectedOutput = 5000;
 
 // Act
 
-planeLanded = airport.landPlane(planeID); // Shouldn't land.
+planeLanded = airport.landPlane(planeID); // Shouldn't land as airport is full.
 actualOutput = airport.currentAirportCapacity;
 console.log(`Current airport capacity is ${actualOutput}`)
 

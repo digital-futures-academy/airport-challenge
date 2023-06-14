@@ -7,7 +7,7 @@ const airport = {
 
     maxAirportCapacity: 5000,
 
-    currentAirportCapacity: 0,
+    currentAirportCapacity: 1,
 
     planesAtAirport: [],
 
