@@ -119,3 +119,4 @@ I would like a default airport capacity that can be overridden as appropriate.
 #### Test 2
 
 1. Test that every instance of `Airport` is initialized with a `defaultCapacity`.
+2. Test that `overrideCapacity` increase `defaultCapacity` when a positive number is passed to it

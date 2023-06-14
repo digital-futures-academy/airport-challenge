@@ -6,6 +6,9 @@ class Airport{
         this.planeList = [...this.planeList, plane];
     }
 
+    overrideCapacity(number) {
+        if (number > 0) { return this.defaultCapacity += number };
+    }
 }
 
 export default Airport;
