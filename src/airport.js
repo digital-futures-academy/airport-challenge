@@ -7,7 +7,7 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (plane?.id && !this.isFull())
+    if (plane.getId() && !this.isFull())
       this.listOfPlanes = [...this.listOfPlanes, plane];
   }
 
@@ -18,6 +18,11 @@ class Airport {
 
   isFull() {
     return this.listOfPlanes.length === this.capacity;
+  }
+
+  takeOffPlane(plane) {
+    let planeIndex = this.listOfPlanes.indexOf(plane);
+    return this.listOfPlanes.splice(planeIndex, 1);
   }
 }
 

@@ -1,12 +1,12 @@
 import Airport from "../src/airport.js";
+import Plane from "../src/plane.js";
 
 describe("Airport Class Tests", function () {
   let airport, plane;
 
   beforeEach(function () {
     airport = new Airport(3);
-    // plane = new plane();
-    plane = { id: "A1234" };
+    plane = new Plane("A1234");
   });
 
   afterEach(function () {
@@ -22,7 +22,9 @@ describe("Airport Class Tests", function () {
     });
 
     it("only if it is a plane", function () {
-      const bird = { color: "grey" };
+      const bird = {
+        getId() {},
+      };
       airport.landPlane(bird);
 
       expect(airport.listOfPlanes.length).toBe(0);
@@ -64,5 +66,22 @@ describe("Airport Class Tests", function () {
     airport.landPlane(plane);
 
     expect(airport.listOfPlanes.length).toEqual(3);
+  });
+
+  describe("should let a plane take off", function () {
+    it("and remove from list", function () {
+      airport.landPlane(plane);
+      airport.takeOffPlane(plane);
+
+      expect(airport.listOfPlanes.length).toEqual(0);
+    });
+
+    it("and check that the plane that was removed is the right plane", function () {
+      const plane2 = new Plane("B0987");
+      airport.landPlane(plane);
+      airport.landPlane(plane2);
+
+      expect(airport.takeOffPlane(plane)[0]).toEqual(plane);
+    });
   });
 });

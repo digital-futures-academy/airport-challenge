@@ -78,7 +78,7 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-<!-- Do I need the id? are we needing the specific plane id?  What do i output? -->
+<!-- Do I need the id? are we needing the specific plane id?  How to confirm? -->
 
 | Object  | Properties          | Message        | Output  |
 | ------- | ------------------- | -------------- | ------- |
