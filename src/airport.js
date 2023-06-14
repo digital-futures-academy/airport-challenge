@@ -10,13 +10,15 @@ class Airport {
         }
     }
     orderTakeOff(plane) {
-        if (this.planesStanding.includes(plane)) {
-            let index = this.planesStanding.indexOf(plane);
-            this.planesStanding.splice(index, 1);
-            return this.planesStanding;
-        } else {
-            return 'Sorry, I do not recognize that plane';
+
+        if (!this.planesStanding.includes(plane)) {
+            throw new Error('Plane not at the airport');
         }
+        this.planesStanding = this.planesStanding.filter((standingPlane) => {
+            standingPlane.id != plane.id
+        });
+
+        return `plane took off, bon Voyage!`
     }
 
     fullAirport() {

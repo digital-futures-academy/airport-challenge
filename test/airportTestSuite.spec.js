@@ -169,6 +169,7 @@ console.log(`Planes can take off when instructed:`);
 console.log(`   Ensure planes can leave the airport`);
 console.log(``);
 // Arrange
+airport.landPlane(plane);
 expected = 0;
 
 
@@ -212,6 +213,39 @@ result = assertEquals(airport.planesStanding.includes(plane), false);
 // Report
 console.log(`Test 8: the right plane leaves the airport: ${result}`);
 console.log(`Test 8: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up
+airport.planesStanding = [];
+result = undefined;
+actual = undefined;
+
+//------------------------------------------------------------9
+console.log(``);
+console.log(`Test 9`);
+console.log(`==============================================`)
+console.log(`planes that aren/'t at the airport can/'t leave`);
+console.log(`   Ensure the only planes at the airport leave`);
+console.log(``);
+// Arrange
+plane3 = new Plane(`plane3`);
+airport.landPlane(plane3);
+airport.landPlane(plane);
+
+
+// Act
+try {
+    airport.orderTakeOff(plane2);
+    result = false;
+} catch (error) {
+    result = true
+}
+// Assert
+
+
+// Report
+console.log(`Test 9: Planes not at the airport can not leave ${result}`);
+console.log(`Test 9: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up
