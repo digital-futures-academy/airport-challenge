@@ -76,6 +76,14 @@ describe("Airport", () => {
     expect(() => { airport.landPlane(plane) }).toThrowError('Unidentified plane status. Plane status must be a string.');
   });
 
+    it("should return an error when a plane number id attempts to land in the airport", () => {
+    //arrange
+    plane.aircraftId= 23;
+    //act
+    //assert
+    expect(() => { airport.landPlane(plane) }).toThrowError('Unidentified plane id. Plane id must be a string.');
+  });
+
   it("lands 3 planes with in the airport", () => {
     //arrange
     //act
