@@ -21,11 +21,14 @@ class Airport {
     isAirportFull() {
         return this.airportCapacity === this.airportPlanes.length;
     }
-
-
-
+    takeOff(plane) {
+        let index = this.airportPlanes.indexOf(plane);
+        if (index !== -1) {
+            this.airportPlanes.splice(index, 1);
+            return plane;
+        }
+    }
 }
-
 
 
 

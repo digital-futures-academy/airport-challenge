@@ -91,13 +91,12 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 //| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
 //| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
-//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+//| airport || plane@id          | airportPlanes @array[@plane] |  takeOff(@plane)                   | @Void    |
+//| takeOff || plane@id          | planeTakeOff@plane           |                                    | @Void    |
 
-// TEST 1: 
-// TEST 2: 
-// TEST 3: 
-// TEST 4: 
-// TEST 5: 
+// TEST 1: can a plane be selected from the list of planes at the airport
+// TEST 2: does a plane remove one plane from the list after takeoff
+// TEST 3: after takeoff does the plane appear in the airport list
 
 As an air traffic controller
 To avoid confusion
