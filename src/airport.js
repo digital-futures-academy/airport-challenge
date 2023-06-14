@@ -1,4 +1,5 @@
 class Airport{
+    defaultCapacity = 20;
     planeList = [];
 
     landPlane(plane) {

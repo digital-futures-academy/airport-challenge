@@ -85,18 +85,37 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 ```
 As an air traffic controller
 So I can get passengers to a destination
-I want to instruct the airport to land a plane
+I want to instruct the airport to land a plane.
 ```
 
 #### Domain Model 1
 
-| Objects | Properties                | Messages    | Output |
-| ------- | ------------------------- | ----------- | ------ |
-| Airport | planeList @Array [@Plane] | landPlane() | @void  |
-|         |                           |             |        |
-| Plane   |                           |             |        |
-|         |                           |             |        |
+| Objects | Properties                | Messages         | Output |
+| ------- | ------------------------- | ---------------- | ------ |
+| Airport | planeList @Array [@Plane] | landPlane(plane) | @void  |
+|         |                           |                  |        |
+| Plane   |                           |                  |        |
+|         |                           |                  |        |
 
 #### Test 1
 
-1. Test that `landPlane` will land a `Plane` to the `planeList`, increasing its length by 1
+1. Test that `landPlane` will land a `Plane` to the `planeList`, increasing its length by 1.
+
+### User Story 2
+
+```
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate.
+```
+
+#### Domain Model 2
+
+| Objects | Properties               | Messages           | Output |
+| ------- | ------------------------ | ------------------ | ------ |
+| Airport | defaultCapacity @integer | overrideCapacity() | @void  |
+|         |                          |                    |        |
+
+#### Test 2
+
+1. Test that every instance of `Airport` is initialized with a `defaultCapacity`.
