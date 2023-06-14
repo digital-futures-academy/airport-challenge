@@ -33,6 +33,7 @@ class TestSuit extends Function {
 
     _call(expr) {
         this.expr = expr;
+        this.args = [];
         return this;
     }
 

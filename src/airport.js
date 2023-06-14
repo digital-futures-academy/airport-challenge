@@ -44,6 +44,8 @@ class Airport {
     }
 }
 
-module.exports = {
-    Airport,
-}
+// module.exports = {
+//     Airport,
+// }
+
+export default Airport;
