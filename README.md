@@ -99,7 +99,7 @@ I want to instruct the airport to land a plane.
 
 #### Test 1
 
-1. Test that `landPlane` will land a `Plane` to the `planeList`, increasing its length by 1.
+1. Test that `landPlane()` will land a `Plane` to the `planeList`, increasing its length by 1.
 
 ### User Story 2
 
@@ -119,4 +119,5 @@ I would like a default airport capacity that can be overridden as appropriate.
 #### Test 2
 
 1. Test that every instance of `Airport` is initialized with a `defaultCapacity`.
-2. Test that `overrideCapacity` increase `defaultCapacity` when a positive number is passed to it
+2. Test that `overrideCapacity()` will increase `defaultCapacity` when a positive number is passed to it.
+3. Test that `overrideCapacity()` will decrease `defaultCapacity` when a negative number is passed to it.

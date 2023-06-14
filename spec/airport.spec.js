@@ -42,5 +42,15 @@ describe('Airport Class Tests', () => {
         expect(airport.defaultCapacity).toBe(expected);
     });
 
+    it('should decrease `defaultCapacity` when a negative number is passed into overrideCapacity.', () => {
+        // Arrange
+         expected = 15;
+         const negativeNumber = -5
+        // Act
+         airport.overrideCapacity(negativeNumber)
+        // Assert
+        expect(airport.defaultCapacity).toBe(expected);
+    });
+
 
 });

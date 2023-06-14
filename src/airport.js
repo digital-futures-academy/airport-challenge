@@ -7,7 +7,7 @@ class Airport{
     }
 
     overrideCapacity(number) {
-        if (number > 0) { return this.defaultCapacity += number };
+        if (number !== 0) { return this.defaultCapacity += number };
     }
 }
 
