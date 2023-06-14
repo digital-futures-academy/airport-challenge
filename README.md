@@ -111,13 +111,14 @@ I would like a default airport capacity that can be overridden as appropriate.
 
 #### Domain Model 2
 
-| Objects | Properties               | Messages           | Output |
-| ------- | ------------------------ | ------------------ | ------ |
-| Airport | defaultCapacity @integer | overrideCapacity() | @void  |
-|         |                          |                    |        |
+| Objects | Properties              | Messages           | Output |
+| ------- | ----------------------- | ------------------ | ------ |
+| Airport | defaultCapacity @Number | overrideCapacity() | @void  |
+|         |                         |                    |        |
 
 #### Test 2
 
 1. Test that every instance of `Airport` is initialized with a `defaultCapacity`.
 2. Test that `overrideCapacity()` will increase `defaultCapacity` when a positive number is passed to it.
 3. Test that `overrideCapacity()` will decrease `defaultCapacity` when a negative number is passed to it.
+4. Test that only `Number` types are passed into `overrideCapacity()`.

@@ -51,6 +51,12 @@ describe('Airport Class Tests', () => {
         // Assert
         expect(airport.defaultCapacity).toBe(expected);
     });
-
+    it('should throwError when not a Number type is passed to overrideCapacity', () => {
+        // Arrange
+         const string = '5'
+        // Act
+        // Assert
+        expect(() => {airport.overrideCapacity(string)}).toThrowError('Not a number');
+    });
 
 });
