@@ -21,3 +21,4 @@ Could also be that each airport has a capacity, all airports have the same  defa
 | airport | defaultCapacity @Int | overrideDefaultCapacity(@Int) | @Void |
 
 
+Should check that landPlane fails when the airport is full, but I don't know which user story to include this under, so I'll include it at the end of the tests.

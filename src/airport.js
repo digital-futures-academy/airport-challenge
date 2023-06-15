@@ -1,12 +1,15 @@
 class Airport {
     constructor() {
         this.planesOnGround = [];
-        this.defaultCapacity = 0;
+        this.defaultCapacity = 10;
         this.capacity = this.defaultCapacity;
     }
     landPlane(plane) {
         if (this.planesOnGround.includes(plane)) {
             throw new Error("Plane already in airport");
+        }
+        if (!this.canLand()) {
+            throw new Error("Airport full");
         }
         this.planesOnGround.push(plane);
     }

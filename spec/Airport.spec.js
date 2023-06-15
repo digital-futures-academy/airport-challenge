@@ -274,5 +274,15 @@ describe('Airport', () => {
 
         it('should not be able to take off a plane currently not on the ground', () => { expect(airport.takeOff(planeNotInAirport)).toBeFalse(); });
 
-    })
+    });
+
+    describe('landPlane with full capacity', () => {
+        let airport;
+        beforeEach(() => {
+            airport = new Airport();
+            airport.setCapacity(2);
+            airport.planesOnGround = [{ id: "BA999" }, { id: "EXP45GB" }];
+        });
+        it('should fail to land a new plane when capacity is full', () => { expect(() => { airport.landPlane({ id: "newPlane" }) }).toThrowError("Airport full"); });
+    });
 });
