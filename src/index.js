@@ -5,7 +5,7 @@ const { plane } = require("./plane");
 weatherToday = weather.setWeather();
 console.log(`The weather at Heathrow airport today is : ${weatherToday}`);
 
-console.log(airport.maxAirportCapacity);
+console.log(airport.maxAirportCapacity); // default maxAirportCapacity.
 airport.setAirportCapacity(3000);
 console.log(airport.maxAirportCapacity); // maxAirportCapacity is overridden using setAirportCapacity.
 
