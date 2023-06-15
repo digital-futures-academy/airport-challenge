@@ -5,9 +5,7 @@ This is my solution to the Digital Futures Airport Challenge
 Clone this repo to your local machine and run `npm install`. `npm audit fix` may also help with any issues that arise.
 To run the tests you can use `npm test`.
 
-
-how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-must have domain modeling in this file.
+The code in /test is old and there is no guarantee that it will do anything meaningful anymore, but it is there to document that I wrote it as it shows up in Airport.spec.js in commented form as it gave a starting point for many of the unit tests in that spec.
 
 
 # Domain Models
