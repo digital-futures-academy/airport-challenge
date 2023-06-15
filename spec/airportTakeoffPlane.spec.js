@@ -93,8 +93,9 @@ airport = new Airport(new Weather('clear'));
 for (const plane of planeArray) {
     airport.landPlane(plane);
 }
-expected = `${planeArray[2].id} has taken off from the airport.`;
-const planeToRemove = planeArray[2];
+expected = `${planeArray[2].getId()} has taken off from the airport.`;
+const planeToRemove = new Plane('plane3');
+
 
 // ACT
 actual = airport.takeoffPlane(planeToRemove);

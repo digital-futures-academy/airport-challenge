@@ -4,7 +4,7 @@ class Airport {
     #maxAirportCapacity;
     #weather;
 
-    constructor(weather = 'clear') {
+    constructor(weather) {
         this.#landedPlanes = [];
         this.#maxAirportCapacity = 5;
         this.#weather = weather;
@@ -13,7 +13,6 @@ class Airport {
     getLandedPlanes() {
         return this.#landedPlanes;
     }
-
 
     getMaxAirportCapacity() {
         return this.#maxAirportCapacity;
@@ -46,10 +45,10 @@ class Airport {
 
     takeoffPlane(planeToRemove) {
         if (planeToRemove?.getId() && this.checkPlaneAtAirport(planeToRemove.getId()) && !this.isWeatherStormy()) {
-            const index = this.#landedPlanes.indexOf(planeToRemove);
+            const index = this.#landedPlanes.findIndex(plane => plane.getId() === planeToRemove.getId())
             const planeTakenOff = this.#landedPlanes.splice(index, 1);
             planeToRemove.setLanded(false);
-            return `${planeTakenOff[0].id} has taken off from the airport.`;
+            return `${planeTakenOff[0].getId()} has taken off from the airport.`;
         }
     }
 
