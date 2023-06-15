@@ -58,7 +58,46 @@ actual = airport.getListOfPlanesAtAirport.length;
 
 result = assertEquals(actual, expected);
 
-console.log(`Test 2 - Array size is 1 after planes have taken off ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 2 - Array size is 1 after plane has taken off ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+input = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Setup by adding planes initially to make airport list array have length of 2. Plane takeoff using instructToLand() method, decreases list of planes at airport (array) by 1 resulting in length 1. Going to remove specific plane by planeID
+
+//arrange
+
+expected = 1;
+plane = new Plane('A1');
+plane = new Plane('B2');
+
+airport = new Airport();
+
+airport.instructToLand(plane1);
+airport.instructToLand(plane2);
+
+//act
+
+airport.getListOfPlanesAtAirport.forEach(planesInArray);
+
+function planesInArray(landedPlane) {
+    console.log(landedPlane.getPlaneID())
+    if (landedPlane.getPlaneID() === 'A1') {
+        airport.instructToTakeOff(landedPlane);
+    }
+}
+
+actual = airport.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+
+console.log(`Test 3 - Array size is 1 after plane 'A1' has taken off ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 

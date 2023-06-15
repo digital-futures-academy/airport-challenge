@@ -45,15 +45,15 @@ expected = 3
 
 //act
 
-arrayOfAirports.forEach(AirportIDs)
+arrayOfAirports.forEach(airportArray)
 
-function AirportIDs(airportID) {
-    if (airportID.getAirportID === 'France') {
-        airportID.setAirportMaxCapacity(3)
+function airportArray(airportInArray) {
+
+    if (airportInArray.getAirportID === 'France') {
+        airportInArray.setAirportMaxCapacity(3)
     }
 }
 
-airport2.setAirportMaxCapacity(3);
 
 actual = airport2.getAirportMaxCapacity;
 

@@ -1,8 +1,13 @@
 class Airport {
 
-    constructor() {
+    constructor(airportID) {
+        this.airportID = airportID;
         this.listOfPlanesAtAirport = [];
         this.airportMaxCapacity = 2;
+    }
+
+    get getAirportID() {
+        return this.airportID;
     }
 
     get getListOfPlanesAtAirport() {
