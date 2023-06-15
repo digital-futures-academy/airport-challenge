@@ -204,5 +204,47 @@ describe('Airport', () => {
             });
         })
 
-    })
+    });
+
+    describe('letTakeOffAndConfirm multiple', () => {
+        /*
+        let airport = new Airport();
+    const standardPlane = { make: "cessna 172" };
+    airport.planesOnGround = [standardPlane, standardPlane, standardPlane];
+    test(airport.takeOff.bind(airport)).with(standardPlane).equals(true); // questionable testing syntax, would be better without needing bind. Can't currently see a way out of this though.
+    test(airport.takeOff.bind(airport)).with(standardPlane).equals(true);
+    test(airport.takeOff.bind(airport)).with(standardPlane).equals(true);
+    test(airport.takeOff.bind(airport)).with(standardPlane).equals(false);
+    test.showSummary()
+        */
+        let airport, standardPlane;
+        beforeEach(() => {
+            airport = new Airport();
+            standardPlane = { make: "cessna 172" };
+            airport.planesOnGround = [standardPlane, standardPlane, standardPlane];
+        });
+        it('should be able to launch one plane', () => {
+            expect(airport.takeOff(standardPlane)).toBeTrue();
+        });
+        describe('after lanching one plane', () => {
+            beforeEach(() => {
+                airport.takeOff(standardPlane);
+            });
+            it('should be able to launch a second plane', () => { expect(airport.takeOff(standardPlane)); });
+            describe('after launching a second plane', () => {
+                beforeEach(() => {
+                    airport.takeOff(standardPlane);
+                });
+                it('should be able to launch a third plane', () => { expect(airport.takeOff(standardPlane)).toBeTrue(); });
+                describe('after launching a third plane', () => {
+                    beforeEach(() => {
+                        airport.takeOff(standardPlane);
+                    });
+                    it('should not be able to launch a fourth plane (as there were only three planes on the ground to start with)', () => {
+                        expect(airport.takeOff(standardPlane)).toBeFalse();
+                    });
+                });
+            });
+        });
+    });
 });
