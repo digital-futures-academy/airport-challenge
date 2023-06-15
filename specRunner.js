@@ -20,4 +20,8 @@ require('./tests/airportFunctionsUserStory4.spec')
 
 //Extended Criteria User story 1
 console.log('Extended Criteria User story 1 functionality:\n==================================')
-require('./tests/extendedCriteria1.spec')
+require('./tests/extendedCriteria1.spec');
+
+//Extended Criteria User story 1
+console.log('Extended Criteria User story 1 functionality:\n==================================')
+require('./tests/extendedCriteria2.spec');

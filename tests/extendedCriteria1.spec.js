@@ -76,13 +76,15 @@ weather.setCurrentWeather(undefined);
 
 //##################################################################
 
-//Test 5: Plane can't land when it\'s stormy
-console.log('Test 5: Plane can\'t land when it\'s stormy');
+//Test 5: Plane can't takeoff when it\'s stormy
+console.log('Test 5: Plane can\'t takeoff when it\'s stormy');
 //Arrange
 weather.setCurrentWeather('stormy');
-airport1.landPlane(plane1);
-expectedOutput = 0;
+airport1.getWeather(weather);
+airport1.landedPlanes = [plane1]
+expectedOutput = 1;
 //Act
+airport1.planeTakeOff(plane1);
 actualOutput = airport1.landedPlanes.length;
 //Assert
 result = assertEquals(expectedOutput, actualOutput);
