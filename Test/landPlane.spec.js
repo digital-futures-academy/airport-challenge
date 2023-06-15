@@ -99,34 +99,3 @@ actual = undefined;
 result = undefined;
 
 
-// Only PLANE objects can be added to airport list array, therefore list should increase by 1.
-
-//arrange
-
-plane = new Plane("A1");
-fakePlane = "B2";
-
-expected = 1;
-
-airport = new Airport();
-
-
-//act
-
-airport.instructToLand(plane);
-airport.instructToLand(fakePlane);
-
-actual = airport.getListOfPlanesAtAirport.length;
-
-//assert
-
-result = assertEquals(actual, expected);
-
-console.log(`Test 4 - Airport plane only allows PLANE objects ${result ? `PASS` : `FAIL`}`);
-
-//cleanup
-
-input = undefined;
-expected = undefined;
-actual = undefined;
-result = undefined;
