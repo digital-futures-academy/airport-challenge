@@ -94,10 +94,10 @@ I want to instruct the airport to land a plane
 So I can get passengers to a destination
 
 
-Objects     Properties        Messages                      Output
+Objects           Properties                 Messages                            Output
 
-Plane       planeID @String   landPlane()                   @void
+Plane             planeID @String            landPlane()                         @void
 
 
-Airport                       instructToLand(@String)       @Boolean
+Airport                                      instructToLand(@String)             @Boolean
 
