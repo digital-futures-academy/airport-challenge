@@ -79,6 +79,13 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+Domain Model
+
+| Objects   | Properties                 | Messages          | Outputs              |
+| --------- | -------------------------- | ------------------| -------              |
+| Airport   |listOfPlanes@Array[@Planes] | takeOff(plane)    | confirmation@string  |
+| Plane     |  id@string                 |                   |                      |
+
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed

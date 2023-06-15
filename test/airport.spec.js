@@ -4,6 +4,8 @@ let actualOutput, expectedOutput, result;
 let plane = { id: '9A06' };
 
 //Test 1
+console.log("--------User Story 1--------")
+console.log("");
 console.log('Test 1: Landing the plane in the airport and no of planes in the airport increased to 1');
 
 // Arrange

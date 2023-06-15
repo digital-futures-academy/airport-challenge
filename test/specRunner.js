@@ -5,3 +5,4 @@ console.log(``);
 require(`./airport.spec`);
 require(`./airportCapacity.spec`);
 require(`./preventLanding.spec`);
+require(`./takeOff.spec`);

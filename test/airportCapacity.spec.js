@@ -3,7 +3,9 @@ const airport = require("../src/airport");
 let actualOutput, expectedOutput, result;
 
 //User Story 2- Test 1 : Setting the default airport capacity
-console.log("User Story 2 - Test 1: Setting the default airport capacity")
+console.log("--------User Story 2--------")
+console.log("");
+console.log("Test 1: Setting the default airport capacity")
 
 //Arrange
 

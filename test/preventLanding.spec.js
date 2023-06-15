@@ -5,7 +5,9 @@ const plane1 = { id: '9A06' };
 const plane2 = { id: '3A05' };
 
 // Test 1: Prevent Landing When the Airport is Full
-console.log("User Story 3 - Test 1: Prevent Landing When the Airport is Full");
+console.log("--------User Story 3--------")
+console.log("");
+console.log("Test 1: Prevent Landing When the Airport is Full");
 
 // Arrange
 expectedOutput = false;

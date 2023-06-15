@@ -14,7 +14,16 @@ const airport = {
     },
     isFull: function () {
         return this.listOfPlanes.length >= this.capacity;
-    }
+    },
+    takeOff: function (plane) {
+        const index = this.listOfPlanes.findIndex(p => p.id === plane.id);
+        if (index !== -1) {
+            this.listOfPlanes.splice(index, 1);
+            return "Plane take-off confirmed";
+        } else {
+            return "Plane take-off failed";
+        }
+    },
 
 
 
