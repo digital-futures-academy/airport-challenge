@@ -6,3 +6,5 @@ require(`./overrideCapacity.spec`);
 require(`./isFull.spec`);
 require(`./planeTakeOff.spec`);
 require(`./IfInAirportOrNot.spec`);
+require(`./isStormy.spec`);
+require(`./isAtAirport.spec`);

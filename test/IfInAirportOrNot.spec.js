@@ -6,8 +6,8 @@ const airport = require(`../src/airport`);
 let actual, expected, result;
 
 console.log(``);
-console.log(`Test 5a - Checking that planes in the airport cannot land`);
-console.log(`=========================================================`);
+console.log(`Test 5a - Expecting landedPlanes to remain of the same length`);
+console.log(`=============================================================`);
 
 // Arrange
 expected = 2;
@@ -32,8 +32,8 @@ actual = undefined;
 
 // Test 5b: Checking that planes not in the airport cannot take off
 console.log(``);
-console.log(`Test 5b - Checking that planes not in the airport cannot take off`);
-console.log(`=================================================================`);
+console.log(`Test 5b - Expecting landedPlanes to remain of the same length`);
+console.log(`=============================================================`);
 
 // Act
 airport.planeTakeOff("plane3");
@@ -44,3 +44,7 @@ result = assertEquals(actual, expected);
 
 // Report
 console.log(`${result ? `PASS` : `FAIL`}`);
+
+// Clean up
+actual = undefined;
+result = undefined;

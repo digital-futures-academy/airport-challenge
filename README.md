@@ -87,11 +87,11 @@ I want to prevent takeoff when weather is stormy
 
 Domain model:
 Objects          Properties                          Messages               Output
-Airport          airportPlanes @Array[@Planes]       landPlane(@plane)      CannotTakeOff @String
-                 weather @Boolean
-Plane            
+Airport          airportPlanes @Array[@Planes]       planeTakeOff(@plane)   @Void
+                 weather @Boolean                    isStormy()             @Void
+Plane            id
 
-Test 6: Checking that planes can't take off, using TakeOffPlane
+Test 6: Checking that planes can't take off when isStormy is true
 
 ======================
 -Second extended criteria:
@@ -101,11 +101,11 @@ I want to prevent landing when weather is stormy
 
 Domain model:
 Objects          Properties                          Messages               Output
-Airport          airportPlanes @Array[@Planes]       landPlane(@plane)      CannotLand @String
-                 weather @boolean
-Plane            
+Airport          airportPlanes @Array[@Planes]       landPlane(@plane)      @Void
+                 weather @Boolean                    isStormy()             @Void
+Plane            id            
 
-Test 7: Checking that planes can't land when stormy, using landPlane
+Test 7: Checking that planes can't land when isStormy is true
 
 ======================
 -Third extended criteria:
