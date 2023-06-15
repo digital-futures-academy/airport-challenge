@@ -33,7 +33,7 @@ actual = undefined;
 result = undefined;
 
 
-// Check plane in airport list (array) is the plane expected. 
+// Check plane in airport list (array element 0) is the plane expected. 
 
 //arrange
 
@@ -52,6 +52,77 @@ actual = airport.getListOfPlanesAtAirport[0].getPlaneID();
 result = assertEquals(actual, expected);
 
 console.log(`Test 2 - Array element 0 has plane ID of A1 ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+input = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Land multiple planes and compare airport list to defined array.
+
+//arrange
+
+plane1 = new Plane("A1");
+plane2 = new Plane("B2");
+plane3 = new Plane("C3");
+
+expectedArray = [plane1, plane2, plane3]
+
+expected = JSON.stringify.expectedArray;
+
+airport = new Airport();
+
+
+//act
+
+airport.instructToLand(plane1);
+airport.instructToLand(plane2);
+airport.instructToLand(plane3);
+
+actualArray = airport.getListOfPlanesAtAirport
+actual = JSON.stringify.actualArray;
+
+//assert
+
+result = assertEquals(actual, expected);
+
+console.log(`Test 3 - Airport plane list is as expected list ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+input = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+
+// Only PLANE objects can be added to airport list array, therefore list should increase by 1.
+
+//arrange
+
+plane = new Plane("A1");
+fakePlane = "B2";
+
+expected = 1;
+
+airport = new Airport();
+
+
+//act
+
+airport.instructToLand(plane);
+airport.instructToLand(fakePlane);
+
+actual = airport.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+
+console.log(`Test 4 - Airport plane only allows PLANE objects ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
