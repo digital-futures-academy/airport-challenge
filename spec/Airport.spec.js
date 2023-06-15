@@ -100,4 +100,65 @@ describe('Airport', () => {
             });
         });
     });
+
+    describe('checkCanLand', () => {
+        /*
+        // test checkCanLand
+        const { test } = require("./testSuit");
+    const { Airport } = require("../src/airport");
+    let airport = new Airport();
+
+    test(airport.capacity === undefined).isFalse();
+    test(airport.planesOnGround === undefined).isFalse();
+    airport.capacity = 4;
+    airport.planesOnGround = [{}, {}, {}, {}];
+    test(airport.canLand()).isFalse();
+    airport.capacity = 0;
+    test(airport.canLand()).isFalse();
+    airport.capacity = 10;
+    airport.planesOnGround = [{
+        callSign: "G-RUT",
+        dest: "LAX",
+    },
+    {
+        callSign: "G-WTR",
+        dest: "LUT",
+    }];
+    test(airport.canLand()).isTrue();
+    test.showSummary();
+        */
+        let airport;
+        beforeEach(() => {
+            airport = new Airport();
+        });
+        it('new airport should have a defined capacity', () => { expect(airport.capacity).not.toBeUndefined(); });
+        it('new airport should have a defined planesOnGround object', () => { expect(airport.planesOnGround).not.toBeUndefined(); });
+        describe('after setting the capacity to 4 with four plans on ground', () => {
+            beforeEach(() => {
+                airport.capacity = 4;
+                airport.planesOnGround = [{}, {}, {}, {}];
+            });
+            it('can land should be false', () => { expect(airport.canLand()).toBeFalse(); });
+            describe('after resetting capacity to 0', () => {
+                beforeEach(() => {
+                    airport.capacity = 0;
+                });
+                it('can Land should still be false', () => { expect(airport.canLand()).toBeFalse(); });
+                describe('and then setting it back to 10, with two planes on the ground', () => {
+                    beforeEach(() => {
+                        airport.capacity = 10;
+                        airport.planesOnGround = [{
+                            callSign: "G-RUT",
+                            dest: "LAX",
+                        },
+                        {
+                            callSign: "G-WTR",
+                            dest: "LUT",
+                        }];
+                    });
+                    it('canLand should be true', () => { expect(airport.canLand()).toBeTrue(); });
+                });
+            });
+        });
+    });
 });
