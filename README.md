@@ -79,3 +79,66 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+
+## My Solution
+-----
+
+To run the tests in "test/specRunner.js", please open up the integrated terminal and use node specRunner.js from the test directory. 
+
+## My Domain Models
+
+#### User Story 1: I want to instruct the airport to land a plane. 
+
+
+| Objects | Properties      | Messages           | Output   |
+| ------- | --------------- | ------------------ | -------- |
+| airport | name @string    | landPlane(@string) | @boolean |
+|         |                 |                    |          |
+| plane   | planeID @string |                    |          |
+|         |                 |                    |          |
+
+
+User Story 2: I would like a default airport capacity that can be overridden as appropriate.
+
+| Objects | Properties                  | Messages                        | Output |
+| ------- | --------------------------- | ------------------------------- | ------ |
+| airport | maxAirportCapacity @Integer | setMaxAirportCapacity(@Integer) | @void  |
+|         |                             |                                 |        |
+
+
+User Story 3: I want to prevent landing when the airport is full.
+
+| Objects | Properties                  | Messages                 | Output   |
+| ------- | --------------------------- | ------------------------ | -------- |
+| airport | maxAirportCapacity @Integer | isFull()                 | @boolean |
+|         |                             | currentAirportCapacity() | @Integer |
+|         |                             |                          |          |
+
+
+User Story 4: I want instruct the airport to let a plane take off and confirm that it is no longer in the airport.
+
+and
+
+User Story 5: I want to prevent asking the airport to let planes take off which are not at the airport, or land a plane that's already landed.
+
+| Objects | Properties                      | Messages              | Output   |
+| ------- | ------------------------------- | --------------------- | -------- |
+| airport | planesAtAirport @array[@string] | planeTakeOff(@string) | @boolean |
+|         |                                 |                       |          |
+| plane   | planeID @string                 |                       |          |
+|         |                                 |                       |          |
+
+
+User Story 6: I want to prevent take off when weather is stormy.
+
+and
+
+User Story 7: I want to prevent landing when the weather is stormy.
+
+| Objects | Properties             | Messages     | Output  |
+| ------- | ---------------------- | ------------ | ------- |
+| weather | currentWeather @string | setWeather() | @string |
+|         |                        |              |         |
+|         |                        |              |         |
+|         |                        |              |         |
