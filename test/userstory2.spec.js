@@ -3,7 +3,8 @@ const airport = require("../src/airport");
 
 let actual, result, expected;
 
-// let airportCapacity = 10
+console.log(`User Story 2`);
+
 // Test 1 - Check that airportCapacity returns a default airport capacity.
 
 console.log(`Test 1`);

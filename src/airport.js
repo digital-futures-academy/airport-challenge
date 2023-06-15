@@ -2,22 +2,27 @@ const airport = {
     landedPlanes: [],
     defaultAirportCapacity: 10,
 
-    landPlanes: function (planes)
-    {
-
-        this.landedPlanes = [...this.landedPlanes, planes]
-
-    },
-
-    // defaultAirportCapacity: function (airportCapacity)
-    // {
-    //     return this.airportCapacity;
-    // },
 
     modifyAirportCapacity: function (amount)
     {
 
         this.defaultAirportCapacity = amount;
+
+    },
+
+    isAirportFull: function ()
+    {
+        return this.landedPlanes.length > this.defaultAirportCapacity
+
+    },
+
+    landPlanes: function (planes)
+    {
+        if (this.isAirportFull)
+        {
+            return this.landedPlanes
+        }
+        this.landedPlanes = [...this.landedPlanes, planes]
 
     },
 

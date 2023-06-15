@@ -1,11 +1,12 @@
 const { assertEquals } = require("./testing-framework");
 const airport = require("../src/airport");
 
-let input = [];
 let expected, actual, result;
 
 const plane1 = { id: `EI-HGL` };
 const plane2 = { id: `G-IPLY` };
+
+console.log(`User Story 1`);
 
 // Test 1 - Check that Land plane in an empty airport using landPlanes and expect array (landedPlanes) to increase in length by 1.
 
