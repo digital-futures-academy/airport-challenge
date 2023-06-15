@@ -11,6 +11,7 @@ Airport Challenge
                                           =  ===(_________)
 
 
+* Please fork this repo and clone to your local machine.
 * Please use `node specRunner.js` to test the files.
 
 -First user story:
