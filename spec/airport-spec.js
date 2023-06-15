@@ -183,7 +183,7 @@ describe("Airport", () => {
     expect(message).toBe(`G-XLEE took off from airport`);
   });
 
-  it("checks if plane with id of G-XLEE took off from the `airport", () => {
+  it("checks that plane with id of G-XLEE is the plane that took off from the `airport", () => {
     //arrange
     //act
     airport.landPlane(plane);
