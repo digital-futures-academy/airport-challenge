@@ -25,8 +25,8 @@ class Airport {
 
     instructToLand(plane) {
         if (this.isAirportFull() === false) {
-            this.listOfPlanesAtAirport.push(plane);
-            //this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
+            //this.listOfPlanesAtAirport.push(plane);
+            this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
         }
 
     }
@@ -35,8 +35,23 @@ class Airport {
         return this.airportMaxCapacity === this.listOfPlanesAtAirport.length
     }
 
-    instructToTakeOff() {
-        this.listOfPlanesAtAirport.pop();
+    instructToTakeOff(plane) {
+
+
+
+
+        let arrayElement = this.listOfPlanesAtAirport.findIndex(findPlanes)
+
+        function findPlanes(foundPlane) {
+            return foundPlane.getPlaneID() === plane.getPlaneID()
+        }
+
+
+
+        this.listOfPlanesAtAirport.splice(arrayElement, 1)
+
+
+        //this.listOfPlanesAtAirport.pop();
     }
 
 

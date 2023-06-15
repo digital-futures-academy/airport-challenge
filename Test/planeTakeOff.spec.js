@@ -41,8 +41,8 @@ result = undefined;
 //arrange
 
 expected = 1;
-plane = new Plane('A1');
-plane = new Plane('B2');
+plane1 = new Plane('A1');
+plane2 = new Plane('B2');
 
 airport = new Airport();
 
@@ -72,8 +72,8 @@ result = undefined;
 //arrange
 
 expected = 1;
-plane = new Plane('A1');
-plane = new Plane('B2');
+plane1 = new Plane('A1');
+plane2 = new Plane('B2');
 
 airport = new Airport();
 
@@ -138,7 +138,7 @@ actual = JSON.stringify(actualArray);
 //assert
 
 result = assertEquals(actual, expected);
-console.log(actual + "   " + expected)
+
 console.log(`Test 4 - Correct plane is remove (A1) and remaining plane (B2) is correct too (using IDs) ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
