@@ -129,4 +129,38 @@ result = undefined;
 
 console.log('----------------------------------');
 
+// Check if airport is full - check realtime that planes exceeding limit cant be asked to land. Airport limit is 2 and try add 3 planes therefore airport list array should be length of 2
+
+//arrange
+
+airport = new Airport();
+plane1 = new Plane('A1')
+plane2 = new Plane('B2')
+plane3 = new Plane('C3')
+
+expected = 2;
+
+//act
+
+airport.instructToLand(plane1);
+airport.instructToLand(plane2);
+airport.instructToLand(plane3);
+
+actual = airport.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+
+console.log(`Test 5 - Program prevents planes being added that exceeds capacity- airport list array equals 2 ? ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+input = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log('----------------------------------');
+
 
