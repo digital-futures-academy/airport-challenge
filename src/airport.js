@@ -1,24 +1,27 @@
 class Airport {
-    planesStanding = [];
-    airportCapacity = 10;
 
+    constructor(airportCapacity, planesStanding) {
+        this.airportCapacity = 10;
+        this.planesStanding = [];
+    }
     landPlane(plane) {
         if (this.fullAirport()) {
-            return `Sorry, no room for you to park`
-        } else if (plane?.id) {
-            this.planesStanding.push(plane)
+            return `Sorry, no room for you to park`;
+        } else if (plane?.id && !this.planesStanding.includes(plane)) {
+            this.planesStanding.push(plane);
+        } else {
+            console.log(plane.id, `is already here`);
         }
     }
+
     orderTakeOff(plane) {
-
-        if (!this.planesStanding.includes(plane)) {
-            throw new Error('Plane not at the airport');
+        if (this.planesStanding.includes(plane)) {
+            let index = this.planesStanding.indexOf(plane);
+            this.planesStanding.splice(index, 1);
+            console.log(plane.id, `took off`);
+        } else {
+            console.log(plane.id, `is not at the airport`);
         }
-        this.planesStanding = this.planesStanding.filter((standingPlane) => {
-            standingPlane.id != plane.id
-        });
-
-        return `plane took off, bon Voyage!`
     }
 
     fullAirport() {

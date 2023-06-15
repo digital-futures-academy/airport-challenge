@@ -113,7 +113,7 @@ console.log(``);
 console.log(`Test 5`);
 console.log(`==============================================`)
 console.log(`The airport's capacity property can be overridden if needed`);
-console.log(`   Ensure airport's capacity property can be overriddem`);
+console.log(`   Ensure airport's capacity property can be overridden`);
 console.log(``);
 // Arrange
 airport.airportCapacity = 5;
@@ -224,28 +224,53 @@ actual = undefined;
 console.log(``);
 console.log(`Test 9`);
 console.log(`==============================================`)
-console.log(`planes that aren/'t at the airport can/'t leave`);
-console.log(`   Ensure the only planes at the airport leave`);
+console.log(`planes that aren't at the airport can't leave`);
+console.log(`   Ensure that only planes at the airport can leave`);
 console.log(``);
 // Arrange
 plane3 = new Plane(`plane3`);
 airport.landPlane(plane3);
 airport.landPlane(plane);
-
+expected = 2;
 
 // Act
-try {
-    airport.orderTakeOff(plane2);
-    result = false;
-} catch (error) {
-    result = true
-}
+airport.orderTakeOff(plane2);
+actual = airport.planesStanding.length;
 // Assert
-
+result = assertEquals(expected, actual);
 
 // Report
-console.log(`Test 9: Planes not at the airport can not leave ${result}`);
+console.log(`Test 9: Planes not at the airport can not leave: ${result}`);
 console.log(`Test 9: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up
+airport.planesStanding = [];
+result = undefined;
+actual = undefined;
+
+//------------------------------------------------------------10
+console.log(``);
+console.log(`Test 10`);
+console.log(`==============================================`)
+console.log(`planes that are already at the airport can't land again`);
+console.log(`   Ensure that only planes that aren't at the airport can't land`);
+console.log(``);
+// Arrange
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane);
+expected = 3;
+
+// Act
+airport.landPlane(plane2);
+
+// Assert
+result = assertEquals(expected, airport.planesStanding.length)
+
+// Report
+console.log(`Test 10: Planes already at the airport can't land: ${result}`);
+console.log(`Test 10: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up
