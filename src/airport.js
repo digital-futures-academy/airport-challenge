@@ -1,20 +1,25 @@
 class Airport {
     #name;
-    #planesInPort;
+    #hangar;
     #maxCapacity
 
-    constructor(name, planesInPort = [], capacity = 3) {
+    constructor(name, planes = [], capacity = 3) {
         this.#name = name;
-        this.#planesInPort = planesInPort;
+        this.#hangar = planes;
         this.#maxCapacity = capacity;
     }
 
-    getPlanesInPort() {
-        return this.#planesInPort;
+    getId() {
+        return this.#hangar.getId();
     }
 
+    getHangar() {
+        this.#hangar;
+    }
+
+
     getPlaneNum() {
-        return this.#planesInPort.length;
+        return this.#hangar.length;
     }
 
     getMaxCapacity() {
@@ -23,10 +28,10 @@ class Airport {
 
     landNewPlane(planeName) {
         if (this.isAirportFull() === false) {
-            this.#planesInPort.push(planeName)
+            this.#hangar.push(planeName)
         };
     }
-
+    //think this should be a setter - will change if I have time 
     changeCapacity(number) {
         if (typeof number === 'number') {
             this.#maxCapacity = number
@@ -37,5 +42,6 @@ class Airport {
         return this.getMaxCapacity() === this.getPlaneNum();
 
     }
-}
+};
+
 module.exports = Airport

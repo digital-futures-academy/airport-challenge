@@ -1,5 +1,6 @@
 const { assertEquals } = require("./test-framework");
 const Airport = require("../src/Airport");
+const Plane = require("../src/Airport");
 
 console.log(`________________`);
 console.log(`AIRPORT TESTS`);
@@ -13,11 +14,10 @@ console.log(`----------------------------------------------------`);
 let airport = new Airport('spacePort', [])
 let expected, actual, result;
 
-expected = 1
-plane = `voyager`
+expected = 1;
 
-airport.landNewPlane(plane);
-actual = airport.getPlanesInPort().length;
+airport.landNewPlane(new Plane('Voyager'));
+actual = airport.getPlaneNum();
 
 result = assertEquals(actual, expected);
 
@@ -35,9 +35,9 @@ console.log(`AIRPORT TEST 2`)
 console.log(`isAirportFull() returns true when the number of planes in planesInPort array is equal to airport maxCapacity.`);
 console.log(`----------------------------------------------------`);
 
-airport = new Airport('spacePort', ['voyager'], 1)
+airport = new Airport('spacePort', [new Plane('voyager')], 1);
 
-expected = true
+expected = true;
 
 actual = airport.isAirportFull();
 
@@ -53,14 +53,14 @@ actual = undefined;
 result = undefined;
 
 console.log(`AIRPORT TEST 3`)
-console.log(`When isAirportFull is true, landNewPlane does not add a new plane to planesInPort array.`);
+console.log(`When isAirportFull is true, landNewPlane does not add a new plane to hangar array.`);
 console.log(`----------------------------------------------------`);
 
-airport = new Airport('spacePort', ['voyager'], 1)
+airport = new Airport('spacePort', [new Plane('voyager')], 1);
 
-expected = 1
+expected = 1;
 
-airport.landNewPlane('Jimminy Cricket');
+airport.landNewPlane(new Plane('Jimminy Cricket'));
 
 actual = airport.getPlaneNum();
 
@@ -74,3 +74,24 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+// console.log(`AIRPORT TEST 4`)
+// console.log(`if plane name exists in the planesInPort array of airport1, findPlane returns 'parked at airport1'`);
+// console.log(`----------------------------------------------------`);
+
+// airport = new Airport('Spaceport', ['voyager', 'Enterprise'], 1);
+
+// expected = 'Parked at Spaceport';
+
+// actual = airport.findPlane('voyager');
+
+// result = assertEquals(actual, expected);
+
+// console.log(`Test 4 - findPlane returns 'Parked at Spaceport': ${result}`);
+// console.log(`Test 3 status - ${result ? `PASS` : `FAIL`}`);
+// console.log(`-----------------------`);
+// console.log(``);
+
+// expected = undefined;
+// actual = undefined;
+// result = undefined;
