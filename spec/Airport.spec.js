@@ -161,4 +161,48 @@ describe('Airport', () => {
             });
         });
     });
+
+    describe('letTakeOffAndConfirm', () => {
+        /*
+        // test takeOff
+        let airport = new Airport();
+    const examplePlane = { id: "plane1" };
+    const differentPlane = { id: "plane2" };
+    airport.planesOnGround = [examplePlane, { id: "ground vec 1" }];
+    test(airport.takeOff(examplePlane)).isTrue();
+    test(airport.planesOnGround.includes(examplePlane)).isFalse();
+    test(airport.takeOff(differentPlane)).isFalse();
+    test(airport.planesOnGround[0].id).equals("ground vec 1");
+
+    test(airport.takeOff(examplePlane)).isFalse(); // this plane has already taken off
+
+    test.showSummary();
+        */
+        let airport, examplePlane, differentPlane;
+        beforeEach(() => {
+            airport = new Airport();
+            examplePlane = { id: "plane1" };
+            differentPlane = { id: "plane2" };
+            airport.planesOnGround = [examplePlane, { id: "ground vec 1" }];
+        });
+        it('plane currently on ground should be able to take off', () => { expect(airport.takeOff(examplePlane)).toBeTrue(); });
+        describe('after one plane has taken off', () => {
+            beforeEach(() => {
+                airport.takeOff(examplePlane);
+            });
+            it('plane that has taken off should no longer be in the airport', () => {
+                expect(airport.planesOnGround).not.toContain(examplePlane);
+            });
+            it('shouldn\'t be able to take off a plane that is not on the ground', () => {
+                expect(airport.takeOff(differentPlane)).toBeFalse();
+            });
+            it('planes that were previously on the ground should still be on the ground', () => {
+                expect(airport.planesOnGround[0].id).toBe("ground vec 1");
+            });
+            it('can\' launch the same plane twice', () => {
+                expect(airport.takeOff(examplePlane)).toBeFalse();
+            });
+        })
+
+    })
 });
