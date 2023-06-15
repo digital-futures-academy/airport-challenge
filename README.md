@@ -115,6 +115,7 @@ Domain Model
 |  Plane     | id @string             | getId()                       | @string  |
 |  Airport   | planes @Array[@Planes] | checkPlaneAtAirport(@Plane)   | @boolean |
 
+```
 #### Extended Acceptance Criteria
 ```
 As an air traffic controller
