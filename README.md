@@ -47,14 +47,14 @@ I want to instruct the airport to land a plane
 ```
 | Objects  | Properties                    | Messages          | Outputs |
 | -------  | ----------------------------- | ----------------- | ------- |
-| Airport  | airportPlanes @Array[@Planes] | addPlane(@Plane)  | @Void   |
+| Airport  | airportPlanes @Array[@Planes] | landPlane(@Plane) | @Void   |
 | Plane    | @String                       |                   |         |
 ```
 
 ##### Tests
 
 - [x] 1. After adding a plane to the airport planes list check that the array has increased in length by 1.
-- [x] 2. Test that plane passed to addPlane is actually added to the airportPlanes array.
+- [x] 2. Test that the specific plane passed to addPlane is actually added to the airportPlanes array.
 - [x] 3. Prevent adding a plane to the airportPlanes array if it is already there.
 - [x] 4. Prevent adding numbers to the list. 
 - [x] 5. Prevent adding null to the list.
@@ -70,14 +70,14 @@ I would like a default airport capacity that can be overridden as appropriate
 ```
 | Objects  | Properties               | Messages                   | Outputs |
 | -------  | ------------------------ | -------------------------- | ------- |
-| Airport  | airportCapacity @Integer | OverrideCapacity(@Integer) | @Void   |
+| Airport  | airportCapacity @Integer | overrideCapacity(@Integer) | @Void   |
 ```
 
 ##### Tests
 
-- [ ] 1. After changing the capacity check that the capacity has changed to the correct number.
-- [ ] 2. Check that the OverrideCapacity function returns an error if the input is null.
-- [ ] 3. Check that the OverrideCapacity function returns an error if the input is a string.
+- [x] 1. After changing the capacity check that the capacity has changed to the correct number.
+- [x] 2. Check that the OverrideCapacity function returns an error if the input is null.
+- [ ] 3. Check that the OverrideCapacity function returns an error if the input is an string.
 
 ##### User Story: 3
 

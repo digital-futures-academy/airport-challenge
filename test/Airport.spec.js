@@ -1,8 +1,10 @@
-const { assertEquals } = require('./test-framework');
 const Airport = require('../src/Airport.js');
+const { assertEquals } = require('./test-framework');
 
 let expected, actual, result;
 
+console.log('User Story 1');
+console.log('================================================');
 console.log('Test 1');
 console.log('================================================');
 console.log('');
@@ -148,3 +150,88 @@ console.log(``);
 // Clean Up
 result = undefined;
 plane = undefined;
+
+console.log('User Story 2');
+console.log('================================================');
+console.log('Test 1');
+console.log('================================================');
+console.log('');
+
+console.log('After changing the capacity check that the capacity has changed to the correct number.');
+
+// Arrange
+airport = new Airport();
+expected = 10;
+
+// Act
+actual = airport.overrideCapacity(10);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 1: airport capacity changed from 5 to 10: ${result}`);
+console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+actual = undefined;
+expected = undefined;
+result = undefined;
+plane = undefined;
+
+console.log('Test 2');
+console.log('================================================');
+console.log('');
+
+console.log('Check that the OverrideCapacity function returns an error if the input is null.');
+
+// Arrange
+airport = new Airport();
+expected = Error('Only planes can land at the airport!');
+
+// Act
+actual = airport.overrideCapacity(null);
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 2: OverrideCapacity function returns an error if the input is null.: ${result}`);
+console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('Test 3');
+console.log('================================================');
+console.log('');
+
+console.log('Check that the OverrideCapacity function returns an error if the input is an string.');
+
+// Arrange
+airport = new Airport();
+expected = Error('Only planes can land at the airport!');
+
+// Act
+actual = airport.overrideCapacity('');
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 3: OverrideCapacity function returns an error if the input is a string.: ${result}`);
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+actual = undefined;
+expected = undefined;
+result = undefined;
