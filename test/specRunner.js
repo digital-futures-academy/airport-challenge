@@ -5,6 +5,5 @@ require(`./landPlane.spec`);
 require(`./overrideCapacity.spec`);
 require(`./isFull.spec`);
 require(`./planeTakeOff.spec`);
-require(`./IfInAirportOrNot.spec`);
-require(`./isStormy.spec`);
 require(`./isAtAirport.spec`);
+require(`./isStormy.spec`);

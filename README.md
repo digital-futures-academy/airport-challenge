@@ -1,19 +1,17 @@
 Airport Challenge
 =================
 
-```
-         ______
-        __\____\___
-=  = ==(____DFA____)
-           \_____\__________________,-~~~~~~~`-.._
-          /     o o o o o o o o o o o o o o o o  |\_
-          `~-.__       __..----..__                  )
-                `---~~\___________/------------`````
-                =  ===(_________)
+                                    ______
+                                    __\____\___
+                              =  = ==(____DFA____)
+                                    \_____\__________________,-~~~~~~~`-.._
+                                    /     o o o o o o o o o o o o o o o o  |\_
+                                    `~-.__       __..----..__                  )
+                                          `---~~\___________/------------`````
+                                          =  ===(_________)
 
-```
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* Please create separate files for every class, module, and spec.
+
+* Please use `node specRunner.js` to test the files. // how to install your project
 
 -First user story:
 As an air traffic controller
@@ -35,10 +33,10 @@ I would like a default airport capacity that can be overridden as appropriate
 
 Domain model:
 Objects          Properties                   Messages                         Output
-Airport          airportCapacity @integer     overrideCapacity(@NewCapacity)   NewCapacity@integer
+Airport          airportCapacity @integer     overrideCapacity(@NewCapacity)   @Void
 NewCapacity      @integer
 
-Test 2: Checking that the airport default capacity is overridden when using overrideCapacity, it is expected to have increased to 12
+Test 2: Checking that the airport default capacity is overridden when inserting a number using overrideCapacity
 
 ======================
 -Third user story:
@@ -47,11 +45,12 @@ To ensure safety
 I want to prevent landing when the airport is full
 
 Domain model:
-Objects          Properties                          Messages          Output
-Airport          airportCapacity @integer            isFull()          @boolean
-                 landedPlanes @array(@planes)
+Objects          Properties                          Messages                 Output
+Airport          airportCapacity @integer            isFull()                 @boolean
+                 landedPlanes @array(@planes)        landPlane(@Plane)        @Void
+Plane            id    
 
-Test 3: Checking that airport is full once the airportCapacity has been reached, it is expected to return a boolean
+Test 3: Checking that airport is full once the airportCapacity has been reached, and that no planes can land when isFull()
 
 ======================
 -Fourth user story:
@@ -74,10 +73,12 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 Domain model:
 Objects          Properties                          Messages                       Output
-Airport          landedPlanes @Array[@PlanesID]     checkIfPlaneInArray(@boolean)   AlreadyAtAirportCannotLand @String
-Plane            id                                                                 NotAtAirportCannotTakeOff @String
+Airport          landedPlanes @array[@planes]        isAtAirport(@boolean)          @Void
+                                                     landPlane(@Plane)              @Void
+                                                     planeTakeOff(@Plane)           @Void
+Plane            id                                                                 
 
-Test 5: Checking that planes at airport can't land and planes not at airport can't take off
+Test 5: Checking that planes at the airport cannot land, and that planes not at the airport cannot take off
 
 ======================
 -First extended criteria:
@@ -86,12 +87,12 @@ To ensure safety
 I want to prevent takeoff when weather is stormy
 
 Domain model:
-Objects          Properties                          Messages               Output
-Airport          airportPlanes @Array[@Planes]       planeTakeOff(@plane)   @Void
-                 weather @Boolean                    isStormy()             @Void
+Objects          Properties                    Messages               Output
+Airport          weather @RandomInteger        isStormy (@boolean)    @Void
+                                               planeTakeOff(@plane)   @Void
 Plane            id
 
-Test 6: Checking that planes can't take off when isStormy is true
+Test 6: Checking that planes cannot take off when isStormy is true
 
 ======================
 -Second extended criteria:
@@ -100,12 +101,12 @@ To ensure safety
 I want to prevent landing when weather is stormy
 
 Domain model:
-Objects          Properties                          Messages               Output
-Airport          airportPlanes @Array[@Planes]       landPlane(@plane)      @Void
-                 weather @Boolean                    isStormy()             @Void
+Objects          Properties                    Messages               Output
+Airport          weather @RandomInteger        isStormy (@boolean)    @Void
+                                               landPlane(@plane)      @Void
 Plane            id            
 
-Test 7: Checking that planes can't land when isStormy is true
+Test 7: Checking that planes cannot land when isStormy is true
 
 ======================
 -Third extended criteria:
@@ -114,17 +115,8 @@ To count planes easily
 Planes that have landed must be at an airport
 
 Domain model:
-Objects          Properties                          Messages               Output
-Airport          airportPlanes @Array[@Planes]                              @Void
-Plane            id @DavidJustice                   isAtAirport @Boolean
+Objects          Properties                        Messages                   Output
+Airport          airportPlanes @Array[@Planes]     isAtAirport @boolean       @Void
+Plane            id                     
 
-Test 8: Checking that planes that have landed are within airport object, expect boolean to return true
-
-
-Steps
--------
-
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+Test 8: Checking that planes that have landed are stored in the landedPlane array

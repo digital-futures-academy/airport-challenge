@@ -29,6 +29,7 @@ actual = undefined;
 result = undefined;
 
 
+// ============================================================================================
 //Test 3b: Checking that a plane cannot land when the airport is full value when trying to land 
 console.log(``);
 console.log(`Test 3b - Expecting landedPlanes array to remain of the same length when isFull`);
@@ -52,3 +53,4 @@ console.log(`${result ? `PASS` : `FAIL`}`);
 airport.landedPlanes = [{ id: "plane1" }, { id: "plane2" }, { id: "plane3" }, { id: "plane4" }, { id: "plane5" }, { id: "plane6" }, { id: "plane7" }, { id: "plane8" }, { id: "plane9" }, { id: "plane10" }];
 actual = undefined;
 result = undefined;
+expected = undefined;

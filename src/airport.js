@@ -8,7 +8,7 @@ const airport = {
     },
 
     landPlane: function (planeID) {
-        if (!this.isFull() && !this.isInAirport(planeID) && this.weather === 0) {
+        if (!this.isFull() && !this.isAtAirport(planeID) && this.weather === 0) {
             return this.landedPlanes.push(planeID);
         }
     },
@@ -17,8 +17,10 @@ const airport = {
         return this.landedPlanes.length >= this.airportCapacity;
     },
 
-    isInAirport: function (planeID) {
-        return this.landedPlanes.includes(planeID)
+    isAtAirport: function (planeID) {
+        if (this.indexOfPlane(planeID) != -1) {
+            return true;
+        }
     },
 
     overrideCapacity: function (newCapacity) {
@@ -28,7 +30,7 @@ const airport = {
     },
 
     planeTakeOff: function (planeID) {
-        if (this.isInAirport(planeID) && this.weather === 0) {
+        if (this.isAtAirport(planeID) && this.weather === 0) {
             return this.landedPlanes.splice(this.indexOfPlane(planeID), 1);
         }
     },
@@ -37,12 +39,6 @@ const airport = {
         if (this.weather % 2 == 0) {
             return false;
         } return this.weather = true;
-    },
-
-    isAtAirport: function (planeID) {
-        if (this.indexOfPlane(planeID) != -1) {
-            return true;
-        }
     },
 }
 

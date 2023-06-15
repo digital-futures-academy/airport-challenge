@@ -27,8 +27,10 @@ console.log(`${result ? `PASS` : `FAIL`}`);
 actual = undefined;
 result = undefined;
 airport.airportCapacity = 10;
+expected = undefined;
 
 
+// =======================================================================================
 // Test 2b: Checking that a string input when using overrideCapacity won't change anything
 
 console.log(``);

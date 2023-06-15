@@ -8,12 +8,12 @@ console.log(``);
 console.log(`Test 6a - Expecting isStormy to return a boolean value`);
 console.log(`======================================================`);
 
-// Arrange
-expected = true || false;
+// Arrange 
+expected = typeof true;
 
 // Act
 airport.weather = Math.floor(Math.random() * 10);
-actual = airport.isStormy();
+actual = typeof airport.isStormy();
 
 // Assert
 result = assertEquals(actual, expected);
@@ -24,8 +24,10 @@ console.log(`${result ? `PASS` : `FAIL`}`);
 // Clean up
 actual = undefined;
 result = undefined;
+expected = undefined;
 
 
+// =============================================================
 // Test 6b: Checking that planes cannot take off when isStormy()
 console.log(``);
 console.log(`Test 6b - Expecting landedPlanes to remain of same length when isStormy`);
@@ -48,8 +50,10 @@ console.log(`${result ? `PASS` : `FAIL`}`);
 // Clean up
 actual = undefined;
 result = undefined;
+expected = undefined;
 
 
+// =========================================================
 // Test 6c: Checking that planes cannot land when isStormy()
 console.log(``);
 console.log(`Test 6c - Expecting landedPlanes to remain of same length when isStormy`);
@@ -73,3 +77,4 @@ console.log(`${result ? `PASS` : `FAIL`}`);
 // Clean up
 actual = undefined;
 result = undefined;
+expected = undefined;
