@@ -4,10 +4,10 @@ const Plane = require('../src/Plane');
 const Weather = require('../src/Weather');
 
 const testingFramework = new TestingFramework;
-
+let passed = 0;
 let actual, expected, result, airport, plane;
 
-console.log('RUNNING TEST SUITE A: ADDING PLANES TO AIRPORT');
+console.log('RUNNING TEST SUITE A: TESTS FOR landPlane');
 console.log('💻 ~file: airportLandPlane.spec');
 console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 console.log('');
@@ -24,12 +24,13 @@ plane = new Plane('ba273');
 // Act
 airport.landPlane(plane);
 actual = airport.getLandedPlanes().length;
-console.log('💻 ~ file: airportLandPlane.spec.js:19 ~ actual:', actual);
+console.log('💻 ~ file: airportLandPlane.spec.js:26 ~ actual:', actual);
 console.log('----------------------------------------------------------');
 console.log('');
 
 // Assert
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 1A RESULT - added plane object to planes array: ${result ? 'PASS' : 'FAIL'}`);
@@ -51,12 +52,13 @@ let planeWithoutId = new Plane();
 // Act
 airport.landPlane(planeWithoutId);
 actual = airport.getLandedPlanes.length;
-console.log('💻 ~ file: airportLandPlane.spec.js:52 ~ actual:', actual);
+console.log('💻 ~ file: airportLandPlane.spec.js:54 ~ actual:', actual);
 console.log('------------------------------------------------------------');
 console.log('');
 
 // Assert
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 2A RESULT - should return False as Plane does not have an id: ${result ? 'PASS' : 'FAIL'}`);
@@ -77,16 +79,18 @@ expected = plane;
 // Act
 airport.landPlane(plane);
 actual = airport.getLandedPlanes()[0];
-console.log('💻 ~ file: airportLandPlane.spec.js:78 ~ actual:', actual);
+console.log('💻 ~ file: airportLandPlane.spec.js:81 ~ actual:', actual);
 console.log('------------------------------------------------------------');
 console.log('');
 
 // Assert
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 3A RESULT- Plane added was the same passed into landPlane: ${result ? 'PASS' : 'FAIL'}`);
 console.log('');
+console.log(`Total Tests Passed 3/${passed}`);
 console.log('========================================================');
 console.log('');
 

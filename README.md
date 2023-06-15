@@ -44,50 +44,16 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-As the system designer
-So that the software can be used for many different airports
-I would like a default airport capacity that can be overridden as appropriate
-
-As an air traffic controller
-To ensure safety
-I want to prevent landing when the airport is full
-
-As an air traffic controller
-So I can get passengers on the way to their destination
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
-
-As an air traffic controller
-To avoid confusion
-I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-```
-
-#### Extended Acceptance Criteria
-```
-As an air traffic controller
-To ensure safety
-I want to prevent takeoff when weather is stormy
-
-As an air traffic controller
-To ensure safety
-I want to prevent landing when weather is stormy
-
-As an air traffic controller
-To count planes easily
-Planes that have landed must be at an airport
-```
-
-#### Domain Models
-```
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
-
 Domain Model
 
-|  Objects   |  Properties            |   Messages                 |  Output  |
-| ---------- | ---------------------- | -------------------------- | -------- |
-|  Plane     |                        |                            |          |
-|  Airport   | planes @Array[@Planes] | landPlane(@Plane)  | @void    |
+|  Objects   |  Properties                  |   Messages                        |  Output  |
+| ---------- | ---------------------------- | --------------------------------  | -------- |
+|  Plane     | id @strong                   | getId()                           | @string  |
+|  Airport   | landedPlanes @Array[@Planes] | landPlane(@Plane)                 | @void    |
+|            | maxCapacity @int             | isAirportFull()                   | @boolean |
+|            | weather @Weather             | isWeatherStormy()                 | @boolean |
+|            |                              | checkPlaneAtAirport(@Plane.getId) | @boolean |
+|  Weather   | weatherConditions @String    | isWeatherStormy()                 | @boolean |
 
 As the system designer
 So that the software can be used for many different airports
@@ -100,29 +66,37 @@ Domain Model
 |  Airport   | maxAirportCapacity @Int | increaseAirportCapacity(@int)  | @void    |
 |            |                         |                                |          |
 
-
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+Domain Model
+
 |  Objects   |  Properties             |   Messages      |  Output     |
 | ---------- | ----------------------- | ----------------| ----------- |
-|  Airport   | maxAirportCapacity @Int | canLandPlane()  | @boolean    |
+|  Airport   | maxAirportCapacity @Int | isAirportFull() | @boolean    |
 |            | planes @Array[@Planes]  |                 |             |
 
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-|  Objects   |  Properties            |   Messages                      |  Output  |
-| ---------- | ---------------------- | ------------------------------- | -------- |
-|  Plane     |                        |                                 |          |
-|  Airport   | planes @Array[@Planes] | takeOffPlane(@Plane)  | @string  |
+Domain Model
+
+|  Objects   |  Properties                     |   Messages                        |  Output  |
+| ---------- | ------------------------------- | --------------------------------  | -------- |
+|  Plane     | id @strong                      | getId()                           | @string  |
+|  Airport   | landedPlanes @Array[@Planes]    | takeoffPlane @Plane               | @void    |
+|            | weather @Weather                | isWeatherStormy()                 | @boolean |
+|            |                                 | checkPlaneAtAirport(@Plane.getId) | @boolean |
+|  Weather   | weatherConditions @String       | isWeatherStormy()                 | @boolean |
 
 
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport
+
+Domain Model
 
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
@@ -134,32 +108,44 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to land a plane that's already landed
 
+Domain Model
+
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
 |  Plane     | id @string             | getId()                       | @string  |
-|  Airport   | planes @Array[@Planes] | checkPlaneAtAirport(@Plane)  | @boolean |
+|  Airport   | planes @Array[@Planes] | checkPlaneAtAirport(@Plane)   | @boolean |
 
-EXTENDED CRITERIA DOMAIN MODELS
-
+#### Extended Acceptance Criteria
+```
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
-|  Objects   |  Properties            |   Messages                    |  Output  |
-| ---------- | ---------------------- | ----------------------------- | -------- |
-|  Airport   | weather @String        | isWeatherStormy()             | @boolean |
+Domain Model
+
+|  Objects   |  Properties                  |   Messages                    |  Output  |
+| ---------- | ---------------------------- | ----------------------------- | -------- |
+|  Airport   | weather @String              | isWeatherStormy()             | @boolean |
+|  Airport   | landedPlanes @Array[@Planes] | takeoffPlane @Plane           | @void    |
+|  Weather   | weatherConditions @String    | isWeatherStormy()             | @boolean |
 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
-|  Objects   |  Properties            |   Messages                    |  Output  |
-| ---------- | ---------------------- | ----------------------------- | -------- |
-|  Airport   | weather @String        | isWeatherStormy()             | @boolean |
+Domain Model
+
+|  Objects   |  Properties                  |   Messages                    |  Output  |
+| ---------- | ---------------------------- | ----------------------------- | -------- |
+|  Airport   | weather @String              | isWeatherStormy()             | @boolean |
+|  Airport   | landedPlanes @Array[@Planes] | landPlane @Plane              | @void    |
+|  Weather   | weatherConditions @String    | isWeatherStormy()             | @boolean |
 
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+Domain Model
 
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
@@ -168,6 +154,8 @@ Planes that have landed must be at an airport
 |  Airport   | planes @Array[@Planes] | planeExistsAtAirport(@Plane)  | @boolean |
 
 ```
+
+
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 

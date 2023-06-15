@@ -7,6 +7,8 @@ const testingFramework = new TestingFramework;
 
 let actual, expected, result, airport;
 
+let passed = 0;
+
 const planeArray = [
     new Plane('plane1'),
     new Plane('plane2'),
@@ -37,12 +39,13 @@ const planeToTakeOff = planeArray[3];
 // Act
 airport.takeoffPlane(planeToTakeOff);
 actual = airport.getLandedPlanes().length;
-console.log('💻 ~ file: takeoffPlane.spec.js:38 ~ actual:', actual);
+console.log('💻 ~ file: takeoffPlane.spec.js:41 ~ actual:', actual);
 console.log('--------------------------------------------------------');
 console.log('');
 
 // Assert
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 1D RESULT - removes a plane from airport planes array: ${result ? 'PASS' : 'FAIL'}`);
@@ -66,12 +69,13 @@ let planeWithoutId = new Plane();
 // ACT
 airport.takeoffPlane(planeWithoutId);
 actual = airport.getLandedPlanes().length;
-console.log('💻 ~ file: takeoffPlane.spec.js:66 ~ actual:', actual);
+console.log('💻 ~ file: takeoffPlane.spec.js:71 ~ actual:', actual);
 console.log('----------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 2D RESULT - takeoffPlane should not remove a plane from the array: ${result ? 'PASS' : 'FAIL'}`);
@@ -94,16 +98,18 @@ const planeToRemove = planeArray[2];
 
 // ACT
 actual = airport.takeoffPlane(planeToRemove);
-console.log('💻 ~ file: takeoffPlane.spec.js:95 ~ actual:', actual);
+console.log('💻 ~ file: takeoffPlane.spec.js:100 ~ actual:', actual);
 console.log('---------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 3D RESULT - takeoffPlane returns a confirmation of the plane id removed from the airport: ${result ? 'PASS' : 'FAIL'}`);
 console.log('');
+console.log(`Total Tests Passed 3/${passed}`);
 console.log('========================================================');
 
 // clean Up

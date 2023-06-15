@@ -14,9 +14,6 @@ class Airport {
         return this.#landedPlanes;
     }
 
-    getWeather() {
-        return this.#weather.getWeather();
-    }
 
     getMaxAirportCapacity() {
         return this.#maxAirportCapacity;
@@ -31,8 +28,8 @@ class Airport {
     }
 
     landPlane(planeToAdd) {
-        if (planeToAdd?.getId() && this.canLandPlane() && !this.checkPlaneAtAirport(planeToAdd) && !this.isWeatherStormy()) {
-            this.#landedPlanes.push(planeToAdd);
+        if (planeToAdd?.getId() && !this.isAirportFull() && !this.checkPlaneAtAirport(planeToAdd.getId()) && !this.isWeatherStormy()) {
+            this.#landedPlanes = [...this.#landedPlanes, planeToAdd];
             planeToAdd.setLanded(true);
         }
     }
@@ -43,8 +40,8 @@ class Airport {
         }
     }
 
-    canLandPlane() {
-        return this.#landedPlanes.length < this.#maxAirportCapacity;
+    isAirportFull() {
+        return this.#landedPlanes.length >= this.#maxAirportCapacity;
     }
 
     takeoffPlane(planeToRemove) {
@@ -61,7 +58,7 @@ class Airport {
     }
 
     isWeatherStormy() {
-        return this.getWeather() === 'stormy';
+        return this.#weather.isWeatherStormy()
     }
 }
 

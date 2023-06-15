@@ -7,7 +7,9 @@ const testingFramework = new TestingFramework;
 
 let actual, expected, result, plane, airport;
 
-console.log('RUNNING TEST SUITE G: FOR A LANDED PLANE MUST BE AT AN AIRPORT');
+let passed = 0;
+
+console.log('RUNNING TEST SUITE G: TESTS for landed');
 console.log('💻 ~file: planeLanded.spec');
 console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 console.log('');
@@ -24,12 +26,13 @@ expected = true;
 // ACT
 airport.landPlane(plane);
 actual = plane.getLanded();
-console.log('💻 ~ file: planeLanded.spec.js:25 ~ actual:', actual);
+console.log('💻 ~ file: planeLanded.spec.js:28 ~ actual:', actual);
 console.log('-------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 1G RESULT - landed status of plane expected to be true : ${result ? 'PASS' : 'FAIL'}`);
@@ -51,12 +54,13 @@ expected = false;
 airport.landPlane(plane);
 airport.takeoffPlane(plane);
 actual = plane.getLanded();
-console.log('💻 ~ file: planeLanded.spec.js:52~ actual:', actual);
+console.log('💻 ~ file: planeLanded.spec.js:56~ actual:', actual);
 console.log('-------------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 2G RESULT - landed status of plane expected to be false : ${result ? 'PASS' : 'FAIL'}`);
@@ -64,6 +68,7 @@ console.log(`Test 2G RESULT - landed status of plane expected to be false : ${re
 // CLEAN UP
 actual, expected, result, plane, airport = undefined;
 console.log('');
+console.log(`Total Tests Passed 2/${passed}`);
 console.log('========================================================');
 console.log('');
 console.log('');

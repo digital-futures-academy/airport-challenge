@@ -14,7 +14,9 @@ class Weather {
         this.#weatherCondition = newWeather;
     }
 
-
+    isWeatherStormy() {
+        return this.#weatherCondition === 'stormy'
+    }
 
 }
 

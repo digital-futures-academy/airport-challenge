@@ -8,6 +8,8 @@ const testingFramework = new TestingFramework;
 
 let actual, expected, result, airport;
 
+let passed = 0;
+
 const planeArray = [
     new Plane('plane1'),
     new Plane('plane2'),
@@ -16,13 +18,13 @@ const planeArray = [
     new Plane('plane5')
 ];
 
-console.log('RUNNING TEST SUITE C: FOR WHEN MAX CAPACITY IS REACHED');
-console.log('💻 ~file: airportMaxCapacityReached.spec');
+console.log('RUNNING TEST SUITE C: TESTS FOR isAirportFull ');
+console.log('💻 ~file: airportIsAirportFull.spec');
 console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 console.log('');
 
 console.log('========================================================');
-console.log('Test 1C START - canLandPlane will return false if maxCapacity has been reached');
+console.log('Test 1C START - isAirportFull will return true if maxCapacity has been reached');
 console.log('');
 
 // Arrange
@@ -31,26 +33,27 @@ airport = new Airport(new Weather('clear'));
 for (const plane of planeArray) {
     airport.landPlane(plane);
 }
-expected = false;
+expected = true;
 
 // Act
-actual = airport.canLandPlane();
-console.log('💻 ~ file: airportMaxCapacityReached.spec.js:36 ~ actual:', actual);
+actual = airport.isAirportFull();
+console.log('💻 ~ file: airportIsAirportFull.spec.js:39 ~ actual:', actual);
 console.log('-----------------------------------------------------------');
 console.log('');
 
 // Assert
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
-console.log(`Test 1C RESULT - canLandPlane returns false: ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 1C RESULT - isAirportFull returns true: ${result ? 'PASS' : 'FAIL'}`);
 
 // clean Up
 expected, actual, result, airport = undefined;
 console.log('');
 
 console.log('========================================================');
-console.log('Test 2C START - Plane will not be added to airports planes array if max capacity has reached');
+console.log('Test 2C START - Plane will not be added to airports planes array if isAirportFull is true');
 console.log('');
 
 // Arrange
@@ -65,12 +68,13 @@ const planeThatWillNotBeAdded = new Plane('plane6');
 // Act
 airport.landPlane(planeThatWillNotBeAdded);
 actual = airport.getLandedPlanes().length;
-console.log('💻 ~ file: airportMaxCapacityReached.spec.js:66 ~ actual:', actual);
+console.log('💻 ~ file: airportIsAirportFull.spec.js:70 ~ actual:', actual);
 console.log('-----------------------------------------------------------');
 console.log('');
 
 // Assert
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 2C RESULT - plane will not be added to planes array: ${result ? 'PASS' : 'FAIL'}`);
@@ -78,6 +82,7 @@ console.log(`Test 2C RESULT - plane will not be added to planes array: ${result 
 // clean Up
 expected, actual, result, airport = undefined;
 console.log('');
+console.log(`Total Tests Passed 2/${passed}`);
 console.log('========================================================');
 console.log('');
 console.log('');

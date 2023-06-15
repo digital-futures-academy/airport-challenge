@@ -7,6 +7,8 @@ const testingFramework = new TestingFramework;
 
 let actual, expected, result, airport, weather;
 
+let passed = 0;
+
 const planeArray = [
     new Plane('plane1'),
     new Plane('plane2'),
@@ -19,7 +21,7 @@ for (const plane of planeArray) {
     airport.landPlane(plane);
 }
 
-console.log('RUNNING TEST SUITE F: FOR WEATHER AT AIRPORT');
+console.log('RUNNING TEST SUITE F: TEST FOR isWeatherStormy');
 console.log('💻 ~file: isWeatherStormy.spec');
 console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 console.log('');
@@ -35,12 +37,13 @@ expected = true;
 // ACT
 airport.setWeather(weather);
 actual = airport.isWeatherStormy();
-console.log('💻 ~ file: isWeatherStormy.spec.js:36 ~ actual:', actual);
+console.log('💻 ~ file: isWeatherStormy.spec.js:39 ~ actual:', actual);
 console.log('---------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 1F RESULT - expecting the test to return true as the weather at the airport is stormy : ${result ? 'PASS' : 'FAIL'}`);
@@ -64,12 +67,13 @@ expected = 3;
 airport.setWeather(weather);
 airport.takeoffPlane(planeToTakeOff);
 actual = airport.getLandedPlanes().length;
-console.log('💻 ~ file: isWeatherStormy.spec.js:65 ~ actual:', actual);
+console.log('💻 ~ file: isWeatherStormy.spec.js:69 ~ actual:', actual);
 console.log('---------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 2F RESULT - expecting the length of airport planes array to remain 3 : ${result ? 'PASS' : 'FAIL'}`);
@@ -95,12 +99,13 @@ const planeToLand = new Plane('plane4');
 airport.setWeather(weather);
 airport.landPlane(planeToLand);
 actual = airport.getLandedPlanes().length;
-console.log('💻 ~ file: isWeatherStormy.spec.js:92 ~ actual:', actual);
+console.log('💻 ~ file: isWeatherStormy.spec.js:101 ~ actual:', actual);
 console.log('-----------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
+passed += testingFramework.passCount(result);
 
 // Report
 console.log(`Test 3F RESULT - expecting the length of airport planes array to remain 3 : ${result ? 'PASS' : 'FAIL'}`);
@@ -110,6 +115,7 @@ weather = 'clear';
 airport.setWeather(weather);
 actual, expected, result, weather = undefined;
 console.log('');
+console.log(`Total Tests Passed 3/${passed}`);
 console.log('========================================================');
 console.log('');
 console.log('');
