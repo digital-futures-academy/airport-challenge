@@ -94,10 +94,105 @@ I want to instruct the airport to land a plane
 So I can get passengers to a destination
 
 
-Objects     Properties        Messages                      Output
+-Objects;     -Properties;                            -Messages;                      -Output;
 
-Plane       planeID @String   landPlane()                   @void
+-Plane;       -planeID @String;                     
 
 
-Airport                       instructToLand(@String)       @Boolean
+-Airport;     -listOfPlanesAtAirport @Array[Plane];   -instructToLand(@Plane);       -@Void;
+
+
+User Story 2
+
+As the system designer
+I would like a default airport capacity that can be overridden as appropriate
+So that the software can be used for many different airports
+
+-Objects;     -Properties;                      -Messages;                                          -Output;
+
+-Airport      -airportID @Number;
+              -airportMaxCapacity @Number;      -setAirportMaxCapacity(@Number);                    -@Void;
+
+
+
+
+User Story 3
+
+As an air traffic controller
+I want to prevent landing when the airport is full
+To ensure safety
+
+-Objects;     -Properties;                            -Messages;                      -Output;
+
+-Airport      -airportCapacity @Number;               -isAirportFull();               -@Boolean;
+              -listOfPlanesAtAirport @Array[@Plane];
+
+-Plane                  
+
+
+
+User Story 4 Original
+
+As an air traffic controller
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+So I can get passengers on the way to their destination
+
+I think splitting the user story into 2 parts helps with clarity and precise functionality. Might make the SO part make less sense.
+
+User Story 4.1
+
+As an air traffic controller
+I want to instruct the airport to let a plane take off 
+So I can get passengers on the way to their destination
+
+
+-Objects;     -Properties;                            -Messages;                      -Output;
+
+-Airport      -airportID @String                      -inStructToTakeOff(@Plane)      -@Void
+              -listOfPlanesAtAirport @Array[Plane];
+
+-Plane        -planeID @String
+
+
+User Story 4.2
+
+As an air traffic controller
+Confirm that a plane is no longer in an airport
+So I can get passengers on the way to their destination
+
+-Objects;     -Properties;                            -Messages;                      -Output;
+
+-Plane        -planeID @String
+                                   
+-Airport      -listOfPlanesAtAirport @Array[Plane];   -checkPlaneExists(@Plane)       -@Boolean  
+              -airportID @String    
+
+
+
+User Story 5 Original
+
+As an air traffic controller
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+To avoid confusion
+
+I think splitting the user story into 2 parts helps with clarity and precise functionality. However both can be done with same Model
+
+User Story 5.1
+
+As an air traffic controller
+I want to prevent asking the airport to let planes take-off which are not at the airport
+To avoid confusion
+
+User Story 5.2
+
+As an air traffic controller
+I want to prevent asking the airport to land a plane that's already landed
+To avoid confusion
+
+-Objects;     -Properties;                            -Messages;                      -Output;
+
+-Plane        -planeID @String
+              -inFlight @Boolean                      -getInFlight()                  -@Boolean    
+
+
 
