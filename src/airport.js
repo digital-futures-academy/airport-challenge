@@ -24,6 +24,10 @@ class Airport {
 
     }
 
+    isAirportFull() {
+        return this.airportMaxCapacity === this.listOfPlanesAtAirport.length
+    }
+
 
 }
 
