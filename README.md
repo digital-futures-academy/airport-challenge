@@ -53,11 +53,11 @@ I want to instruct the airport to land a plane
 
 ##### Tests
 
-1. After adding a plane to the airport planes list check that the array has increased in length by 1.
-2. Test that plane passed to addPlane is actually added to the airportPlanes array.
-3. Prevent adding a plane to the airportPlanes array if it is already there.
-4. Prevent adding numbers to the list.
-5. Prevent adding null to the list.
+- [x] 1. After adding a plane to the airport planes list check that the array has increased in length by 1.
+- [x] 2. Test that plane passed to addPlane is actually added to the airportPlanes array.
+- [x] 3. Prevent adding a plane to the airportPlanes array if it is already there.
+- [x] 4. Prevent adding numbers to the list. 
+- [x] 5. Prevent adding null to the list.
 
 ##### User Story: 2
 
@@ -75,9 +75,9 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ##### Tests
 
-1. After changing the capacity check that the capacity has changed to the correct number.
-2. Check that the OverrideCapacity function returns an error if the input is null.
-3. Check that the OverrideCapacity function returns an error if the input is a string.
+- [ ] 1. After changing the capacity check that the capacity has changed to the correct number.
+- [ ] 2. Check that the OverrideCapacity function returns an error if the input is null.
+- [ ] 3. Check that the OverrideCapacity function returns an error if the input is a string.
 
 ##### User Story: 3
 
@@ -95,8 +95,8 @@ I want to prevent landing when the airport is full
 
 ##### Tests
 
-1. Check that the isCapacityFull() function returns true when the capacity is full.
-2. Check that the isCapacityFull() function returns false when the capacity is not full.
+- [ ] 1. Check that the isCapacityFull() function returns true when the capacity is full.
+- [ ] 2. Check that the isCapacityFull() function returns false when the capacity is not full.
 
 ##### User Story: 4
 
@@ -115,11 +115,11 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 ##### Tests
 
-1. After removing a plane from the airport planes list check that the array has decreased in length by 1.
-2. Test that plane passed to removePlane is actually removed from the airportPlanes array.
-3. Prevent removing planes that are not in the airportPlanes array.
-4. Prevent removing numbers from the list.
-5. Prevent removing null from the list.
+- [ ] 1. After removing a plane from the airport planes list check that the array has decreased in length by 1.
+- [ ] 2. Test that plane passed to removePlane is actually removed from the airportPlanes array.
+- [ ] 3. Prevent removing planes that are not in the airportPlanes array.
+- [ ] 4. Prevent removing numbers from the list.
+- [ ] 5. Prevent removing null from the list.
 
 ##### User Story: 5
 
@@ -145,8 +145,8 @@ Prevent Landing
 
 ##### Tests
 
-1. Ensure that planes can only be removed if they are in the airportPlanes array.
-2. Ensure that planes cannot be added if they are already in the airportPlanes array.
+- [ ] 1. Ensure that planes can only be removed if they are in the airportPlanes array.
+- [ ] 2. Ensure that planes cannot be added if they are already in the airportPlanes array.
 
 such as inconsistent states of the system ensuring that planes can only take off from airports they are in;
 
