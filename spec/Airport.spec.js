@@ -247,4 +247,32 @@ describe('Airport', () => {
             });
         });
     });
+
+    describe('preventConfusion', () => {
+        /*
+        let airport = new Airport;
+        const planeNotInAirport = {id: "BA234"};
+        const planeInAirportOnce = {id: "KL900"};
+        airport.planesOnGround = [planeInAirportOnce];
+        test(airport.takeOff.bind(airport)).with(planeNotInAirport).throws(Error("Plane not in airport"));
+        test(airport.takeOff.bind(airport)).with(planeInAirportOnce).equals(true);
+        airport.landPlane(planeNotInAirport)
+        test(airport.landPlane.bind(airport)).with(planeNotInAirport);
+        */
+        let airport, planeNotInAirport, planeInAirportOnce;
+        beforeEach(() => {
+            airport = new Airport();
+            planeNotInAirport = { id: "BA234" };
+            planeInAirportOnce = { id: "KL900" };
+            airport.planesOnGround = [planeInAirportOnce];
+        });
+        it('should be able to land plane not currently on ground', () => { expect(() => { airport.landPlane(planeNotInAirport) }).not.toThrow(); });
+
+        it('should not be able to land a plane currently on the ground', () => { expect(() => { airport.landPlane(planeInAirportOnce) }).toThrowError("Plane already in airport"); });
+
+        it('should be able to take off a plane currently on the ground', () => { expect(airport.takeOff(planeInAirportOnce)).toBeTrue(); });
+
+        it('should not be able to take off a plane currently not on the ground', () => { expect(airport.takeOff(planeNotInAirport)).toBeFalse(); });
+
+    })
 });

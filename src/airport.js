@@ -5,6 +5,9 @@ class Airport {
         this.capacity = this.defaultCapacity;
     }
     landPlane(plane) {
+        if (this.planesOnGround.includes(plane)) {
+            throw new Error("Plane already in airport");
+        }
         this.planesOnGround.push(plane);
     }
     /*

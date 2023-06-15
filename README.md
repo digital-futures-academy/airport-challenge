@@ -61,4 +61,15 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 | airport| planesOnGround @Array[@plane] | takeOff(@plane) | @Bool |
 | plane | | | |
 
+### preventConfusion
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+| Objects | Properties | Messages | Return Values |
+|---|---|---|---|
+| airport | | takeOff(@plane)| @error, @bool |
+| | | landPlane(@plane) | @error
+| plane | | | |
 
