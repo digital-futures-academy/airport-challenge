@@ -18,6 +18,43 @@ actualOutput = airport.takeOff(plane);
 
 // Assert
 result = assertEquals(actualOutput, expectedOutput);
-console.log(`Test: Plane take-off confirmed: ${result}`);
-console.log(`Test: ${result ? "PASS" : "FAIL"}`);
+console.log(`Test 1: Plane take-off confirmed: ${result}`);
+console.log(`Test 1: ${result ? "PASS" : "FAIL"}`);
+console.log("");
+
+
+// Test 2: Instructing the airport to let a plane take off from an empty airport
+console.log("Test 2: Instructing the airport to let a plane take off from an empty airport");
+
+// Arrange
+expectedOutput = "Plane take-off failed";
+
+// Act
+actualOutput = airport.takeOff(plane);
+
+// Assert
+result = assertEquals(actualOutput, expectedOutput);
+console.log(`Test 2: Instructing the airport to let a plane take off from an empty airport: ${result}`);
+console.log(`Test 2: ${result ? "PASS" : "FAIL"}`);
+console.log("");
+
+//Taking off a plane from an airport with multiple planes and checking correct plane is taken off
+console.log("Test 3: Taking off a plane from an airport with multiple planes and checking correct plane is taken off");
+
+// Arrange
+const plane1 = { id: "JB007" };
+const plane2 = { id: "JB001" };
+const plane3 = { id: "JB003" };
+airport.listOfPlanes = [plane1, plane2, plane3];
+expectedOutput = [plane1, plane3];
+
+// Act
+airport.takeOff(plane2);
+actualOutput = airport.listOfPlanes;
+
+// Assert
+result = assertEquals(JSON.stringify(actualOutput), JSON.stringify(expectedOutput));
+console.log("Expected Remaining Planes: ", expectedOutput);
+console.log("Actual Remaining Planes: ", actualOutput);
+console.log(`Test: Correct plane is taken off: ${result ? "PASS" : "FAIL"}`);
 console.log("");

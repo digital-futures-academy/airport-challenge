@@ -38,3 +38,4 @@ result = assertEquals(actualOutput, expectedOutput);
 console.log(`Test: Prevent Landing When two planes are landing concurrently: ${result}`);
 console.log(`Test: ${result ? "PASS" : "FAIL"}`);
 console.log("");
+
