@@ -94,7 +94,6 @@ I want to instruct the airport to land a plane
 So I can get passengers to a destination
 
 
-<<<<<<< HEAD
 -Objects;     -Properties;                            -Messages;                      -Output;
 
 -Plane;       -planeID @String;                     
@@ -196,12 +195,4 @@ To avoid confusion
               -inFlight @Boolean                      -getInFlight()                  -@Boolean    
 
 
-=======
-Objects           Properties                 Messages                            Output
-
-Plane             planeID @String            landPlane()                         @void
-
-
-Airport                                      instructToLand(@String)             @Boolean
->>>>>>> f052a0ac64c2432b2c5895ca561fd6bd42bf469f
 
