@@ -49,7 +49,7 @@ class Airport {
 
     takeoffPlane(planeToRemove) {
         if (planeToRemove?.getId() && this.checkPlaneAtAirport(planeToRemove.getId()) && !this.isWeatherStormy()) {
-            const index = this.#landedPlanes.map(plane => plane.id).indexOf(planeToRemove.id);
+            const index = this.#landedPlanes.indexOf(planeToRemove);
             const planeTakenOff = this.#landedPlanes.splice(index, 1);
             planeToRemove.setLanded(false);
             return `${planeTakenOff[0].id} has taken off from the airport.`;

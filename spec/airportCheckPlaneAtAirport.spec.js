@@ -1,6 +1,6 @@
 const TestingFramework = require('./testing-framework');
-const Airport = require('../src/airport');
-const Plane = require('../src/planes');
+const Airport = require('../src/Airport');
+const Plane = require('../src/Plane');
 
 const testingFramework = new TestingFramework;
 
@@ -24,37 +24,33 @@ console.log('💻 ~file: checkPlaneAtAirport.spec');
 console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 console.log('');
 
-console.log('Test 1E - checks to see if plane exists at airport before it can take off');
 console.log('========================================================');
+console.log('Test 1E START - checks to see if plane exists at airport before it can take off');
 console.log('');
 
 // ARRANGE
 const planeAtAirport = new Plane('plane3');
 expected = true;
 
-
 // ACT
 actual = airport.checkPlaneAtAirport(planeAtAirport.getId());
-console.log('💻 ~ file: airportCheckPlaneAtAirport.spec.js:38 ~ actualAtAirport:', actual);
-console.log('=============================================================');
+console.log('💻 ~ file: airportCheckPlaneAtAirport.spec.js:36 ~ actual:', actual);
+console.log('-------------------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
 
-
-
 // Report
-console.log(`Test 1E - check to see if plane2 is at airport expected to be True : ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 1E RESULT - check to see if plane2 is at airport expected to be True : ${result ? 'PASS' : 'FAIL'}`);
 
 // CLEAN UP
 actual, expected, result = undefined;
 console.log('');
 
 
-
-console.log('Test 2E - A plane cannot take off from an airport if it has not already landed ');
 console.log('========================================================');
+console.log('Test 2E START - A plane cannot take off from an airport if it has not already landed ');
 console.log('');
 
 // ARRANGE
@@ -63,16 +59,19 @@ expected = false;
 
 // ACT
 actual = airport.checkPlaneAtAirport(planeNotAtAirport.getId());
-console.log('💻 ~ file: airportCheckPlaneAtAirport.spec.js:26 ~ actualAtAirport:', actual);
-console.log('=============================================================');
+console.log('💻 ~ file: airportCheckPlaneAtAirport.spec.js:61 ~ actual:', actual);
+console.log('-------------------------------------------------------------------');
 console.log('');
 
 // ASSERT
 result = testingFramework.assertEquals(actual, expected);
 
 // REPORT
-console.log(`Test 2E - check to see if plane99 is at airport expected to be False : ${result ? 'PASS' : 'FAIL'}`);
+console.log(`Test 2E RESULT - check to see if plane99 is at airport expected to be False : ${result ? 'PASS' : 'FAIL'}`);
 
 // CLEAN UP
 actual, expected, result = undefined;
+console.log('');
+console.log('========================================================');
+console.log('');
 console.log('');
