@@ -77,7 +77,6 @@ I would like a default airport capacity that can be overridden as appropriate
 
 - [x] 1. After changing the capacity check that the capacity has changed to the correct number.
 - [x] 2. Check that the OverrideCapacity function returns an error if the input is null.
-- [ ] 3. Check that the OverrideCapacity function returns an error if the input is an string.
 
 ##### User Story: 3
 
@@ -90,13 +89,12 @@ I want to prevent landing when the airport is full
 ```
 | Objects  | Properties                    | Messages                 | Outputs  |
 | -------  | ----------------------------- | ------------------------ | -------- |
-| Airport  | airportCapacity @Integer      | isCapacityFull(@Integer) | @Boolean |
+| Airport  | airportCapacity @Integer      | isAirportFull()          | @boolean |
 ```
 
 ##### Tests
 
-- [ ] 1. Check that the isCapacityFull() function returns true when the capacity is full.
-- [ ] 2. Check that the isCapacityFull() function returns false when the capacity is not full.
+- [ ] 1. Check that planes cannot land when the airportCapactiy is full.
 
 ##### User Story: 4
 

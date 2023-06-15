@@ -165,6 +165,8 @@ expected = 10;
 
 // Act
 actual = airport.overrideCapacity(10);
+type = (typeof actual)
+console.log(type)
 
 // Assert
 result = (assertEquals(actual, expected));
@@ -188,7 +190,7 @@ console.log('Check that the OverrideCapacity function returns an error if the in
 
 // Arrange
 airport = new Airport();
-expected = Error('Only planes can land at the airport!');
+expected = Error('Please enter a number');
 
 // Act
 actual = airport.overrideCapacity(null);
@@ -208,18 +210,22 @@ actual = undefined;
 expected = undefined;
 result = undefined;
 
-console.log('Test 3');
+console.log('User Story 3');
+console.log('================================================');
+console.log('Test 1');
 console.log('================================================');
 console.log('');
 
-console.log('Check that the OverrideCapacity function returns an error if the input is an string.');
+console.log('Check that planes cannot land when the airportCapacity is full and return an error.');
 
 // Arrange
 airport = new Airport();
-expected = Error('Only planes can land at the airport!');
+plane = { id: '0001' };
+airport.airportPlanes.length = 6;
+expected = Error('Airport is full!');
 
 // Act
-actual = airport.overrideCapacity('');
+actual = airport.landPlane(plane);
 actual = JSON.stringify(actual);
 expected = JSON.stringify(expected);
 
@@ -227,11 +233,12 @@ expected = JSON.stringify(expected);
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 3: OverrideCapacity function returns an error if the input is a string.: ${result}`);
-console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 1: Check that planes cannot land when the airportCapacity is full and return an error.: ${result}`);
+console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up 
+plane = undefined;
 actual = undefined;
 expected = undefined;
 result = undefined;
