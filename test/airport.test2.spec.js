@@ -12,7 +12,7 @@ let capacity = 4000;
 // Act 
 
 console.log(airport.maxAirportCapacity); // confirms the default maxAirportCapacity before any changes.
-airport.setAirportCapacity(capacity); // set the new capacity.
+airport.setMaxAirportCapacity(capacity); // set the new capacity.
 actualOutput = airport.maxAirportCapacity; // test to check that the default maxAirportCapacity was in fact changed.
 
 // Assert 

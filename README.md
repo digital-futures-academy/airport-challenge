@@ -101,10 +101,10 @@ To run the tests in "test/specRunner.js", please open up the integrated terminal
 
 User Story 2: I would like a default airport capacity that can be overridden as appropriate.
 
-| Objects | Properties                  | Messages                     | Output |
-| ------- | --------------------------- | ---------------------------- | ------ |
-| airport | maxAirportCapacity @Integer | setAirportCapacity(@Integer) | @void  |
-|         |                             |                              |        |
+| Objects | Properties                  | Messages                        | Output |
+| ------- | --------------------------- | ------------------------------- | ------ |
+| airport | maxAirportCapacity @Integer | setMaxAirportCapacity(@Integer) | @void  |
+|         |                             |                                 |        |
 
 
 User Story 3: I want to prevent landing when the airport is full.

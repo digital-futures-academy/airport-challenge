@@ -29,7 +29,7 @@ const airport = {
         } else return false
     },
 
-    setAirportCapacity: function (capacity) {
+    setMaxAirportCapacity: function (capacity) {
         this.maxAirportCapacity = capacity
     },
 

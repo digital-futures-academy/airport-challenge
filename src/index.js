@@ -6,7 +6,7 @@ weatherToday = weather.setWeather();
 console.log(`The weather at Heathrow airport today is : ${weatherToday}`);
 
 console.log(airport.maxAirportCapacity); // default maxAirportCapacity.
-airport.setAirportCapacity(3000);
+airport.setMaxAirportCapacity(3000);
 console.log(airport.maxAirportCapacity); // maxAirportCapacity is overridden using setAirportCapacity.
 
 airport.planesAtAirport = ["78910"]
@@ -22,7 +22,7 @@ console.log(`The planes currently at the airport are: ${airport.planesAtAirport}
 console.log(airport.currentAirportCapacity()) // If plane takesOff and leaves the airport, the currentAirportCapacity is also updated.
 
 
-airport.setAirportCapacity(2);
+airport.setMaxAirportCapacity(2);
 console.log(`maxAirportCapacity is: ${airport.maxAirportCapacity}`);
 airport.planesAtAirport = ["111", "222"];
 console.log(airport.maxAirportCapacity);
