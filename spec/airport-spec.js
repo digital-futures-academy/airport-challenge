@@ -182,4 +182,16 @@ describe("Airport", () => {
     //assert
     expect(message).toBe(`G-XLEE took off from airport`);
   });
+
+  it("checks if plane with id of G-XLEE took off from the `airport", () => {
+    //arrange
+    //act
+    airport.landPlane(plane);
+    airport.landPlane(plane2);
+    const airportPlanesBeforePlane2TakesOff = airport.landedPlanes;
+    airport.planeTakeOff("G-XLEE");
+    const airportPlanesAfterPlane2TookOff = airport.landedPlanes;
+    //assert
+    expect(airportPlanesAfterPlane2TookOff).not.toContain(plane);
+  });
 });
