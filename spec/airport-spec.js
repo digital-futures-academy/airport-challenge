@@ -118,7 +118,7 @@ describe("Airport", () => {
     expect(airport.maxAirportCapacity).toEqual(1000);
   });
 
-  it("informs if airport is not full if there is 1 plane in the airport", () => {
+  it("informs airport is NOT full when 1 plane lands in airport with max capacity of 10", () => {
     //arrange
     //act
     airport.landPlane(plane);
