@@ -11,7 +11,7 @@ Airport Challenge
                                           =  ===(_________)
 
 
-* Please use `node specRunner.js` to test the files. // how to install your project
+* Please use `node specRunner.js` to test the files.
 
 -First user story:
 As an air traffic controller
@@ -20,7 +20,7 @@ I want to instruct the airport to land a plane
 
 Domain model:
 Objects          Properties                          Messages               Output
-Airport          airportPlanes @Array[@Planes]       landPlane(@Plane)      @Void
+Airport          landedPlanes @Array[@Planes]        landPlane(@Plane)      @Void
 Plane            id 
 
 Test 1: Checking that the airport can land a plane using landPlane 
@@ -88,11 +88,11 @@ I want to prevent takeoff when weather is stormy
 
 Domain model:
 Objects          Properties                    Messages               Output
-Airport          weather @RandomInteger        isStormy (@boolean)    @Void
+Airport          weather @Integer              isStormy (@boolean)    @Void
                                                planeTakeOff(@plane)   @Void
 Plane            id
 
-Test 6: Checking that planes cannot take off when isStormy is true
+Test 6: Checking that planes cannot take off when it isStormy()
 
 ======================
 -Second extended criteria:
@@ -102,11 +102,11 @@ I want to prevent landing when weather is stormy
 
 Domain model:
 Objects          Properties                    Messages               Output
-Airport          weather @RandomInteger        isStormy (@boolean)    @Void
+Airport          weather @Integer              isStormy (@boolean)    @Void
                                                landPlane(@plane)      @Void
 Plane            id            
 
-Test 7: Checking that planes cannot land when isStormy is true
+Test 7: Checking that planes cannot land when it isStormy()
 
 ======================
 -Third extended criteria:
@@ -116,7 +116,7 @@ Planes that have landed must be at an airport
 
 Domain model:
 Objects          Properties                        Messages                   Output
-Airport          airportPlanes @Array[@Planes]     isAtAirport @boolean       @Void
+Airport          landedPlanes @Array[@Planes]     isAtAirport @boolean       @Void
 Plane            id                     
 
-Test 8: Checking that planes that have landed are stored in the landedPlane array
+Test 8: Checking that planes that have landed are stored in the landedPlanes array
