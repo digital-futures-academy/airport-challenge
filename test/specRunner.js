@@ -7,6 +7,6 @@ require("./airport.test3.spec");
 require("./airport.test4.spec");
 require("./airport.test5.spec");
 
-require("./weather.test1.spec");
-require("./weather.test2.spec");
-require("./weather.test3.spec");
+require("./airport.test6.spec");
+require("./airport.test7.spec");
+require("./weather.test8.spec");

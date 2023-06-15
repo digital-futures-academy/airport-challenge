@@ -84,7 +84,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 ## My Solution
 -----
 
-To run the tests in specRunner.js, open up the integrated terminal and use node specRunner.js. 
+To run the tests in "test/specRunner.js", please open up the integrated terminal and use node specRunner.js from the test directory. 
 
 ## My Domain Models
 
@@ -109,11 +109,11 @@ User Story 2: I would like a default airport capacity that can be overridden as 
 
 User Story 3: I want to prevent landing when the airport is full.
 
-| Objects | Properties                      | Messages | Output   |
-| ------- | ------------------------------- | -------- | -------- |
-| airport | maxAirportCapacity @Integer     | isFull() | @boolean |
-|         | currentAirportCapacity @Integer |          |          |
-|         |                                 |          |          |
+| Objects | Properties                  | Messages                 | Output   |
+| ------- | --------------------------- | ------------------------ | -------- |
+| airport | maxAirportCapacity @Integer | isFull()                 | @boolean |
+|         |                             | currentAirportCapacity() | @Integer |
+|         |                             |                          |          |
 
 
 User Story 4: I want instruct the airport to let a plane take off and confirm that it is no longer in the airport.

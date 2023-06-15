@@ -6,7 +6,8 @@ console.log("TEST 3: Is the airport full?")
 
 // Arrange
 
-airport.currentAirportCapacity = 5000;
+airport.setAirportCapacity(2);
+airport.planesAtAirport = ["000", "001"];
 expectedOutput = true;
 
 // Act

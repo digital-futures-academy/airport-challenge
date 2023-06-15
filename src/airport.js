@@ -7,16 +7,16 @@ const airport = {
 
     maxAirportCapacity: 5000,
 
-    currentAirportCapacity: 1,
-
     planesAtAirport: [],
 
+    currentAirportCapacity: function () {
+        return this.planesAtAirport.length
+    },
 
     landPlane: function (planeID) {
         if (airport.isFull() || airport.planesAtAirport.includes(planeID) || (weather.currentWeather == "Stormy")) {
             return false
         } else {
-            airport.currentAirportCapacity += 1
             this.planesAtAirport.push(planeID)
             return true
         }
@@ -24,7 +24,6 @@ const airport = {
 
     planeTakeOff: function (planeId) {
         if (this.planesAtAirport.includes(planeId) && (weather.currentWeather == "Sunny")) {
-            this.currentAirportCapacity -= 1;
             this.planesAtAirport.pop(planeId)
             return true
         } else return false
@@ -35,7 +34,7 @@ const airport = {
     },
 
     isFull: function () {
-        if (airport.currentAirportCapacity >= airport.maxAirportCapacity) {
+        if (airport.currentAirportCapacity() >= airport.maxAirportCapacity) {
             return true
         } else return false
     }
