@@ -30,7 +30,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log('----------------------------------');
+
 
 // Check if airport is full - land 2 planes and see if isFull returns true (airport capacity is 2 by default).
 
@@ -61,7 +61,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log('----------------------------------');
+
 
 // Check if airport is full - change max capacity of airport to ensure isFull correctly reflecting change in limit. Change airport to 3 and land 2 planes
 
@@ -93,7 +93,6 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log('----------------------------------');
 
 // Check if airport is full - change max capacity of airport to ensure isFull correctly reflecting change in limit. Change airport to 3 and land 3 planes
 
@@ -127,7 +126,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-console.log('----------------------------------');
+
 
 // Check if airport is full - check realtime that planes exceeding limit cant be asked to land. Airport limit is 2 and try add 3 planes therefore airport list array should be length of 2
 
@@ -152,7 +151,7 @@ actual = airport.getListOfPlanesAtAirport.length;
 
 result = assertEquals(actual, expected);
 
-console.log(`Test 5 - Program prevents planes being added that exceeds capacity- airport list array equals 2 ? ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 5 - Program prevents planes being added that exceeds capacity : Request 3 landings when capacity is 2 - airport list array equals 2 ? ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 

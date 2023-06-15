@@ -19,8 +19,9 @@ class Airport {
 
 
     instructToLand(plane) {
-
-        this.listOfPlanesAtAirport.push(plane);
+        if (this.isAirportFull() === false) {
+            this.listOfPlanesAtAirport.push(plane);
+        }
 
     }
 
