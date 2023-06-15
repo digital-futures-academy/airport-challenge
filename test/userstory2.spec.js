@@ -41,12 +41,13 @@ console.log(`============================================`);
 console.log(``);
 
 console.log(`Check that using modifyAirportCapacity modifies default airport capacity.`);
-const airportCapacity1 = 20;
+const airportCapacity1 = 30;
 // Arrange
 expected = 30;
 
 // // Act
-actual = airport.modifyAirportCapacity(airportCapacity1);
+airport.modifyAirportCapacity(airportCapacity1);
+actual = airport.defaultAirportCapacity;
 
 
 // // Assert

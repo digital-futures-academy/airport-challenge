@@ -17,7 +17,7 @@ const airport = {
     modifyAirportCapacity: function (amount)
     {
 
-        return this.defaultAirportCapacity + amount;
+        this.defaultAirportCapacity = amount;
 
     },
 
