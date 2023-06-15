@@ -1,6 +1,7 @@
 const TestingFramework = require('./testing-framework');
 const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
+const Weather = require('../src/Weather');
 
 const testingFramework = new TestingFramework;
 
@@ -14,7 +15,7 @@ const planeArray = [
     new Plane('plane5')
 ];
 
-const airport = new Airport();
+const airport = new Airport(new Weather('clear'));
 for (const plane of planeArray) {
     airport.landPlane(plane);
 }

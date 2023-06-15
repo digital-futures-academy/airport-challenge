@@ -1,6 +1,7 @@
 const TestingFramework = require('./testing-framework');
 const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
+const Weather = require('../src/Weather');
 
 const testingFramework = new TestingFramework;
 
@@ -16,7 +17,7 @@ console.log('Test 1G START - if a plane lands at an airport it sets plane landed
 console.log('');
 
 // ARRANGE
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 plane = new Plane('plane1');
 expected = true;
 
@@ -42,7 +43,7 @@ console.log('Test 2G START - if a plane takes off it sets landed to false');
 console.log('');
 
 // ARRANGE
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 plane = new Plane('plane1');
 expected = false;
 

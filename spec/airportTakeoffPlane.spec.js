@@ -1,6 +1,7 @@
 const TestingFramework = require('./testing-framework');
 const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
+const Weather = require('../src/Weather');
 
 const testingFramework = new TestingFramework;
 
@@ -24,7 +25,7 @@ console.log('Test 1D START - takeoffPlane will remove a plane from array');
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 
 for (const plane of planeArray) {
     airport.landPlane(plane);
@@ -55,7 +56,7 @@ console.log('Test 2D START - takeoffPlane must have a valid plane id to remove f
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 for (const plane of planeArray) {
     airport.landPlane(plane);
 }
@@ -84,7 +85,7 @@ console.log('Test 3D START - takeoffPlane returns a confirmation of the plane id
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 for (const plane of planeArray) {
     airport.landPlane(plane);
 }

@@ -1,6 +1,6 @@
 const TestingFramework = require('./testing-framework');
 const Airport = require('../src/Airport');
-
+const Weather = require('../src/Weather');
 
 const testingFramework = new TestingFramework;
 
@@ -16,7 +16,7 @@ console.log('Test 1B START - Can increase the max capacity to 10 when given an i
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 expected = 10;
 let valueOfIncrease = 5;
 
@@ -43,7 +43,7 @@ console.log('Test 2B START - given a string that can be parsed into an int will 
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 expected = 10;
 valueOfIncrease = '5';
 
@@ -71,7 +71,7 @@ console.log('');
 
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 expected = 5;
 valueOfIncrease = 'hello';
 

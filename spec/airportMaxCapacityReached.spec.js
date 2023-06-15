@@ -1,6 +1,7 @@
 const TestingFramework = require('./testing-framework');
 const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
+const Weather = require('../src/Weather');
 
 
 const testingFramework = new TestingFramework;
@@ -25,7 +26,7 @@ console.log('Test 1C START - canLandPlane will return false if maxCapacity has b
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 
 for (const plane of planeArray) {
     airport.landPlane(plane);
@@ -53,7 +54,7 @@ console.log('Test 2C START - Plane will not be added to airports planes array if
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 
 for (const plane of planeArray) {
     airport.landPlane(plane);

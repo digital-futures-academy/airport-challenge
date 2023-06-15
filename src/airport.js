@@ -15,15 +15,15 @@ class Airport {
     }
 
     getWeather() {
-        return this.#weather;
+        return this.#weather.getWeather();
     }
 
     getMaxAirportCapacity() {
         return this.#maxAirportCapacity;
     }
 
-    setWeather(weather) {
-        this.#weather = weather;
+    setWeather(newWeather) {
+        this.#weather.setWeather(newWeather);
     }
 
     setLandedPlanes(array) {
@@ -61,7 +61,7 @@ class Airport {
     }
 
     isWeatherStormy() {
-        return this.#weather === 'stormy';
+        return this.getWeather() === 'stormy';
     }
 }
 

@@ -1,6 +1,7 @@
 const TestingFramework = require('./testing-framework');
 const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
+const Weather = require('../src/Weather');
 
 const testingFramework = new TestingFramework;
 
@@ -17,7 +18,7 @@ console.log('');
 
 // Arrange
 expected = 1;
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 plane = new Plane('ba273');
 
 // Act
@@ -44,7 +45,7 @@ console.log('');
 
 // Arrange
 expected = 0;
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 let planeWithoutId = new Plane();
 
 // Act
@@ -69,7 +70,7 @@ console.log('Test 3A START - check to see if plane object added was as intended 
 console.log('');
 
 // Arrange
-airport = new Airport();
+airport = new Airport(new Weather('clear'));
 plane = new Plane('ba277');
 expected = plane;
 
