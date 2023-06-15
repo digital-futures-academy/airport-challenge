@@ -1,6 +1,7 @@
 const { Airport } = require(`../src/Airport.js`);
 const { assertEquals } = require(`./testingFramework.js`);
 
+
 console.log('Change Airport Capacity Tests');
 console.log('----------------------------------');
 // Change capacity of airport from default to greater amount - 2 to 3.
