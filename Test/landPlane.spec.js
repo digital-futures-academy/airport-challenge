@@ -5,6 +5,8 @@ const { Plane } = require(`../src/Plane.js`);
 
 let input, expected, actual, result;
 
+console.log('Land plane Tests');
+console.log('----------------------------------');
 // Landing a plane using instructToLand() method, increases list of planes at airport (array) by 1. 
 
 //arrange
@@ -97,5 +99,7 @@ input = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log('----------------------------------');
 
 

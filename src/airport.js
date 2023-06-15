@@ -2,13 +2,21 @@ class Airport {
 
     constructor() {
         this.listOfPlanesAtAirport = [];
+        this.airportMaxCapacity = 2;
     }
 
     get getListOfPlanesAtAirport() {
         return this.listOfPlanesAtAirport;
     }
 
-    // Since size of project, I decided a new array with all elements together was best
+    get getAirportMaxCapacity() {
+        return this.airportMaxCapacity;
+    }
+
+    setAirportMaxCapacity(newCapacity) {
+        this.airportMaxCapacity = newCapacity;
+    }
+
 
     instructToLand(plane) {
 
