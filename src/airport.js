@@ -28,7 +28,17 @@ class Airport {
             return plane;
         }
     }
+    isAtAirport(plane) {
+        let index = this.airportPlanes.indexOf(plane);
+        if (index !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
+
 
 
 

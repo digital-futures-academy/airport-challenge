@@ -102,15 +102,13 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-//| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
-//| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
-//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+//| Class   || Objects             | Properties                   |     Messages                       | Outputs  |
+//| ------- || ---------------     | --------------------------   | -----------------                  |  ------- |
+//| takeOff || plane(airportPlanes)| isAtAirport@plane            | isAtAirport@plane                  | @void
 
-// TEST 1: 
-// TEST 2: 
-// TEST 3: 
-// TEST 4: 
-// TEST 5: 
+// TEST 1: does isAtAirport call when requested
+// TEST 2: when called does isAtAirport return a boolean
+// TEST 3: when isAtAirport returns true can a plane land or take off
 ```
 
 #### Extended Acceptance Criteria
