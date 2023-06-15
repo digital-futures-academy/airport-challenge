@@ -148,7 +148,7 @@ So I can get passengers on the way to their destination
 
 -Objects;     -Properties;                            -Messages;                      -Output;
 
--Airport      -airportID @String                      -inStructToTakeOff(@Plane)      -@Void
+-Airport      -airportID @String                      -instructToTakeOff(@Plane)      -@Void
               -listOfPlanesAtAirport @Array[Plane];
 
 -Plane        -planeID @String
