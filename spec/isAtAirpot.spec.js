@@ -60,18 +60,32 @@ describe('isAtAirport tests', () => {
     });
 
 
-    //=====================TEST2====================\\
+    //=====================TEST3====================\\
 
-    it('when isAtAirport returns true can a plane land or take off', () => {
+    it('when isAtAirport returns true a plane can take off', () => {
 
         // Arrange
 
-
         // Act
-        const testFunction = airport.isAtAirport(airport.airportPlanes[0]);
+        let testFunction = airport.isAtAirport(airport.airportPlanes[0]);
 
         // Assert
-        expect(testFunction).toBeTrue()
+        expect(testFunction).toBeTrue();
+
+    });
+
+
+    //=====================TEST4====================\\
+
+    it('when isAtAirport returns false a plane can land', () => {
+
+        // Arrange
+
+        // Act
+        let testFunction = airport.isAtAirport(airport.airportPlanes[9]);
+
+        // Assert
+        expect(testFunction).toBeFalse()
 
     });
 

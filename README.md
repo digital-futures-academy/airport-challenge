@@ -108,7 +108,8 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 // TEST 1: does isAtAirport call when requested
 // TEST 2: when called does isAtAirport return a boolean
-// TEST 3: when isAtAirport returns true can a plane land or take off
+// TEST 3: when isAtAirport returns true can take off
+// TEST 4: when isAtAirport returns false a plane can land
 ```
 
 #### Extended Acceptance Criteria
@@ -119,11 +120,14 @@ I want to prevent takeoff when weather is stormy
 
 //| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
 //| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
-//| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+//| Airport ||  airport          | takeOff@plane                | isStormy@boolean                   | @Void    |
+//|         ||                   | isStormy@boolean             |                                    | @Void    |
+//|         ||                   | randomNumber@int             |                                    | @Void    |
 
-// TEST 1: 
-// TEST 2: 
-// TEST 3: 
+
+// TEST 1: does isStormy call when requested
+// TEST 2: when isStorm is called does it return a boolean
+// TEST 3: a plane does not takeOff if isStormy is true
 // TEST 4: 
 // TEST 5: 
 
@@ -150,6 +154,7 @@ Planes that have landed must be at an airport
 //| Class   || Objects           | Properties                   |     Messages                       | Outputs  |
 //| ------- || ---------------   | --------------------------   | -----------------                  |  ------- |
 //| Airport ||  airport          | airportCapacity @integer     | changeAirportSize(integer)         | @Void    |
+
 
 // TEST 1: 
 // TEST 2: 

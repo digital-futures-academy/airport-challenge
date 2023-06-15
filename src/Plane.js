@@ -7,16 +7,6 @@ class Plane {
     addPlane() {
         this.airportPlanes.push();
     }
-    takeOff() {
-        this.airportPlanes;
-    }
-    getPlaneId() {
-        return this.id
-    }
-
 }
-
-
-
 
 export default Plane
