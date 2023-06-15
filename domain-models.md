@@ -85,6 +85,7 @@ Objects | Properties | Messages | Output
 --------|------------|----------|-------
 airport |landedPlanes @Array\[@Id\], weather @String            | isStormy() | @boolean
 plane   | Id            |          |
+weather | currentWeather@String, validWeatherStates@Array\[@String\] | getWeather(), setCurrentWeather() | @string
 
 ### EC 2
 

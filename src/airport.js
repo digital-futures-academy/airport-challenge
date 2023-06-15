@@ -11,8 +11,8 @@ class Airport {
     };
 
     landPlane(plane) {
-        // && this.plane. !== 'no id'
-        if (!this.isFull() && this.getPlaneId === 'no id') { //remember the ! for not full
+
+        if (!this.isFull() && plane.getId() !== 'no id' && this.duplicateLandId(plane) === false) { //remember the ! for not full
             this.landedPlanes.push(plane);
         }
     };
@@ -34,7 +34,21 @@ class Airport {
 
     getPlaneId(plane) {
         return plane.getId();
-    }
+    };
+
+    duplicateLandId(plane) {
+        let isDuplicate = false;
+        this.landedPlanes.forEach(function (val, index) {
+            if (val.getId() === plane.getId()) {
+                isDuplicate = true
+            }
+        })
+        return isDuplicate;
+    };
+
+    getWeather(weather) {
+        return weather.getWeather() // do not forget return with these functions!!!!!!
+    };
 }
 
 module.exports = Airport;

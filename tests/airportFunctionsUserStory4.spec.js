@@ -10,16 +10,18 @@
 //maybe a plane network class
 
 const { assertEquals } = require('./test-framework');
-const Airport = require('../src/Airport')
+const Airport = require('../src/Airport');
+const Plane = require('../src/Plane');
 
 let actualOutput, expectedOutput, result, input;
 const airport1 = new Airport;
+const plane1 = new Plane('test flight SE-2306-a')
 
 //Test 1: remove plan from landedPlanes array
 console.log('Test 1: remove plane from landedPlanes array');
 //Arrange
-input1 = { id: 'plane1' };
-airport1.landPlane(input);
+input1 = plane1;
+airport1.landPlane(input1);
 expectedOutput = 0
 //Act
 airport1.planeTakeOff(input);
@@ -28,6 +30,6 @@ actualOutput = airport1.landedPlanes.length;
 result = assertEquals(expectedOutput, actualOutput);
 console.log(`-----> ${result ? 'PASS' : 'FAIL'} | Expected ${expectedOutput} : Received ${actualOutput} <----- \n`);
 //Clean Up
-expectedOutput, result, actualOutput = undefined;
+expectedOutput, result, actualOutput, input = undefined;
 
 //###################################################################################################
