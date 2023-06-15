@@ -27,6 +27,16 @@ const airport = {
 
     },
 
+    removePlanes: function (planes)
+    {
+        return this.landedPlanes.splice(planes, 1)
+    },
+
+    planesExist: function (planes)
+    {
+        return this.landedPlanes.includes(planes)
+
+    },
 }
 
 module.exports = airport;
