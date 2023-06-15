@@ -6,8 +6,8 @@ const airport = require(`../src/airport`);
 let actual, expected, result;
 
 console.log(``)
-console.log(`Test 4 - Expecting landedPlanes to have reduced by one, when using planeTakeOff`);
-console.log(`===============================================================================`);
+console.log(`Test 4 - Expecting landedPlanes to have reduced by one, when using planeTakeOff()`);
+console.log(`=================================================================================`);
 
 // Arrange
 expected = 1;

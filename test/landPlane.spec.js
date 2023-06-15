@@ -5,8 +5,8 @@ const airport = require(`../src/airport`);
 
 let actual, expected, result;
 
-console.log(`Test 1 - Expecting one plane to be added to landedPlane, using landPlane`);
-console.log(`========================================================================`);
+console.log(`Test 1 - Expecting one plane to be added to landedPlanes, using landPlane()`);
+console.log(`===========================================================================`);
 
 // Arrange
 expected = 1;

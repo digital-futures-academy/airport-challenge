@@ -6,8 +6,8 @@ const airport = require(`../src/airport`);
 let actual, expected, result;
 
 console.log(``);
-console.log(`Test 2a - airportCapacity should have increased to 12`);
-console.log(`====================================================`);
+console.log(`Test 2a - airportCapacity should have increased to 12 using overrideCapacity()`);
+console.log(`==============================================================================`);
 
 // Arrange
 airport.airportCapacity = 10;
@@ -34,8 +34,8 @@ expected = undefined;
 // Test 2b: Checking that a string input when using overrideCapacity won't change anything
 
 console.log(``);
-console.log(`Test 2b - airportCapacity should have remained 10`);
-console.log(`================================================`);
+console.log(`Test 2b - airportCapacity should have remained 10 when inserting a string with overrideCapacity()`);
+console.log(`=================================================================================================`);
 
 // Arrange
 airport.airportCapacity = 10;

@@ -6,8 +6,8 @@ const airport = require(`../src/airport`);
 let actual, expected, result;
 
 console.log(``);
-console.log(`Test 3a - Expecting true value to be returned from isFull as airportCapacity has been reached`);
-console.log(`=============================================================================================`);
+console.log(`Test 3a - Expecting true value to be returned from isFull() as airportCapacity has been reached`);
+console.log(`===============================================================================================`);
 
 // Arrange
 expected = true;
@@ -32,8 +32,8 @@ result = undefined;
 // ============================================================================================
 //Test 3b: Checking that a plane cannot land when the airport is full value when trying to land 
 console.log(``);
-console.log(`Test 3b - Expecting landedPlanes array to remain of the same length when isFull`);
-console.log(`===============================================================================`);
+console.log(`Test 3b - Expecting landedPlanes array to remain of the same length using landPlane when isFull()`);
+console.log(`=================================================================================================`);
 
 // Arrange
 expected = 10;

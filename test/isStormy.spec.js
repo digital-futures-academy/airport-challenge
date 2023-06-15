@@ -5,8 +5,8 @@ const airport = require(`../src/airport`);
 let actual, expected, result;
 
 console.log(``);
-console.log(`Test 6a - Expecting isStormy to return a boolean value`);
-console.log(`======================================================`);
+console.log(`Test 6a - Expecting isStormy() to return a boolean value`);
+console.log(`========================================================`);
 
 // Arrange 
 expected = typeof true;
@@ -30,8 +30,8 @@ expected = undefined;
 // =============================================================
 // Test 6b: Checking that planes cannot take off when isStormy()
 console.log(``);
-console.log(`Test 6b - Expecting landedPlanes to remain of same length when isStormy`);
-console.log(`=======================================================================`);
+console.log(`Test 6b - Expecting landedPlanes to remain of same length when using planeTakeOff if it isStormy()`);
+console.log(`==================================================================================================`);
 
 // Arrange
 airport.landedPlanes = ['plane1', 'plane2'];
@@ -56,8 +56,8 @@ expected = undefined;
 // =========================================================
 // Test 6c: Checking that planes cannot land when isStormy()
 console.log(``);
-console.log(`Test 6c - Expecting landedPlanes to remain of same length when isStormy`);
-console.log(`=======================================================================`);
+console.log(`Test 6c - Expecting landedPlanes to remain of same length when using landPlane if it isStormy()`);
+console.log(`===============================================================================================`);
 
 // Arrange
 airport.landedPlanes = [];
