@@ -1,12 +1,25 @@
 class Airport {
-    constructor(ID, size) {
+    constructor(ID) {
         this.ID = ID;
-        this.size = [];
-
+        this.airplanesOnGround = [];
+        this.capacity = 10;
+        this.lastAirplaneTakenOff = String;
     }
     landAirplane(plane) {
-        this.size.push(plane);
+        if (this.airplanesOnGround.length < this.capacity) {
+            this.airplanesOnGround.push(plane);
+        };
+    }
+    changeCapacityTo(newCapacity) {
+        this.capacity = newCapacity
     };
+    notAtCapacity() {
+        return this.capacity > this.size.length;
+    }
+    letAirplaneTakeOff() {
+        this.lastAirplaneTakenOff = this.airplanesOnGround.shift();
+    }
+
 }
 
 

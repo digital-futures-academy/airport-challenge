@@ -2,7 +2,10 @@ const checkSame = (actualOutput, expectedOutput) => actualOutput === expectedOut
 
 const checkNaN = actualOutput => isNaN(actualOutput);
 
+const checkDifferent = (actualOutput, expectedOutput) => actualOutput !== expectedOutput;
+
 module.exports = {
     checkSame,
     checkNaN,
+    checkDifferent,
 }
