@@ -21,12 +21,17 @@ class Airport {
     instructToLand(plane) {
         if (this.isAirportFull() === false) {
             this.listOfPlanesAtAirport.push(plane);
+            //this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
         }
 
     }
 
     isAirportFull() {
         return this.airportMaxCapacity === this.listOfPlanesAtAirport.length
+    }
+
+    instructToTakeOff() {
+        this.listOfPlanesAtAirport.pop();
     }
 
 
