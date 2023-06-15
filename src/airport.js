@@ -11,8 +11,11 @@ const airport = {
         } else {
             this.capacity = newCapacity;
         }
-
+    },
+    isFull: function () {
+        return this.listOfPlanes.length >= this.capacity;
     }
+
 
 
 

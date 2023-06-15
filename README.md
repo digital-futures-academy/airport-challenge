@@ -67,6 +67,14 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+Domain Model
+
+| Objects   | Properties                 | Messages                          | Outputs   |
+| --------- | -------------------------- | --------------------------------- | -------   |
+| Airport   | capacity@Integer           | isFull()                          | @Boolean  |
+|           |listOfPlanes@Array[@Planes] |                                   |           |
+| Plane     |  id@string                 |                                   |           |
+
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
