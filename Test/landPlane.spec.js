@@ -69,11 +69,11 @@ result = undefined;
 
 plane1 = new Plane("A1");
 plane2 = new Plane("B2");
-plane3 = new Plane("C3");
 
-expectedArray = [plane1, plane2, plane3]
 
-expected = JSON.stringify.expectedArray;
+expectedArray = [plane1, plane2]
+
+expected = JSON.stringify(expectedArray);
 
 airport = new Airport();
 
@@ -82,15 +82,15 @@ airport = new Airport();
 
 airport.instructToLand(plane1);
 airport.instructToLand(plane2);
-airport.instructToLand(plane3);
+
 
 actualArray = airport.getListOfPlanesAtAirport
-actual = JSON.stringify.actualArray;
+actual = JSON.stringify(actualArray);
 
 //assert
 
 result = assertEquals(actual, expected);
-
+console.log(actual + "   " + expected)
 console.log(`Test 3 - Airport plane list is as expected list ${result ? `PASS` : `FAIL`}`);
 
 //cleanup

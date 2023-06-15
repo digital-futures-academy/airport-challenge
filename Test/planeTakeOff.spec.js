@@ -105,3 +105,45 @@ input = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+// Setup by adding planes initially to make airport list array have length of 2. Plane takeoff using instructToLand() method, decreases list of planes at airport (array) by 1 resulting in length 1. Going to remove specific plane by planeID and compare expected array list to actual
+
+//arrange
+
+expected = 1;
+plane1 = new Plane("A1");
+plane2 = new Plane("B2");
+
+expectedArray = [plane2]
+expected = JSON.stringify(expectedArray);
+
+airport.instructToLand(plane1);
+airport.instructToLand(plane2);
+
+//act
+
+airport.getListOfPlanesAtAirport.forEach(planesInArray);
+
+function planesInArray(landedPlane) {
+
+    if (landedPlane.getPlaneID() === 'A1') {
+        airport.instructToTakeOff(landedPlane);
+    }
+}
+
+actualArray = airport.getListOfPlanesAtAirport
+actual = JSON.stringify(actualArray);
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(actual + "   " + expected)
+console.log(`Test 4 - Correct plane is remove (A1) and remaining plane (B2) is correct too (using IDs) ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+input = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
