@@ -1,10 +1,21 @@
 console.log("Running all tests");
 console.log("");
-console.log("");
 
 require(`./test/changeAirportCapacity.spec`);
+console.log("");
+console.log("");
 require(`./test/isAirportFull.spec`);
+console.log("");
+console.log("");
 require(`./test/landPlane.spec`);
+console.log("");
+console.log("");
 require(`./test/takeOff.spec`);
+console.log("");
+console.log("");
 require(`./test/isPlaneInAirport.spec`);
+console.log("");
+console.log("");
 require(`./test/isItStormy.spec`);
+console.log("");
+console.log("");
