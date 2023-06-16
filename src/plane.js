@@ -1,8 +1,11 @@
-const location = 'airport';
+let location = 'airport';
 const plane = {
     location,
     isAtAirport: function () {
-        return this.location === 'airport';
+        return this.location === 'airport' && !this.isPlaneFlying();
+    },
+    isPlaneFlying: function () {
+        return this.location === 'flying';
     },
 
 };
