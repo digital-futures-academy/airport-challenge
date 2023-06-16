@@ -17,7 +17,7 @@ console.log(``);
 
 //Test 7
 console.log(`==============`);
-console.log(`Test 7: planes already flying cannot take off nor be at an airport`);
+console.log(`Test 7: plane's already flying cannot take off nor be at an airport`);
 
 expected = false;
 actual = plane.isPlaneFlying();
