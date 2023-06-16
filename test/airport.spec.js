@@ -8,6 +8,7 @@ function testLandingPlane() {
     let airport = new Airport();
     const plane1 = `F-15`;
     expectedOutput = 1;
+    airport.weather.description = `Sunny`;
 
     // Execute
     airport.land(plane1);
@@ -59,6 +60,7 @@ function testNoLandingWhenAirportFull() {
     let airport = new Airport();
     airport.capacity = 4
     airport.planes = [`F-15A`, `F-15B`, `F-15C`, `F-15D`]
+    airport.weather.description = `Sunny`;
     const planeToLand = `F-14`;
     expectedOutput = airport.capacity;
 
@@ -78,6 +80,7 @@ function testTakingOffPlane() {
     // Setup
     let airport = new Airport();
     airport.planes = [`F-15`, `F-14`];
+    airport.weather.description = `Sunny`;
     const planeTakenOff = `F-15`;
     expectedOutput = false;
 
@@ -97,6 +100,7 @@ function testOnlyTakeOffPlaneAtAirport() {
     // Setup
     let airport = new Airport();
     airport.planes = [`F-15A`, `F-15B`];
+    airport.weather.description = `Sunny`;
     const planeTakenOff = `F-14`;
     expectedOutput = 2;
 
@@ -116,6 +120,7 @@ function testOnlyLandPlaneNotAtAirport() {
     // Setup
     let airport = new Airport();
     airport.planes = [`F-15A`, `F-15B`];
+    airport.weather.description = `Sunny`;
     const planeTakenOff = `F-15B`;
     expectedOutput = 2;
 

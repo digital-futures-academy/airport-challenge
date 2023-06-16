@@ -27,7 +27,6 @@ area51.land(fighter1);
 area51.land(fighter2);
 area51.takeOff(fighter2);
 area51.land(fighter3);
-area51.land(fighter3);
 area51.land(fighter4);
 area51.land(fighter5);
 area51.takeOff(fighter6);
@@ -37,6 +36,7 @@ area51.land(fighter8);
 area51.land(fighter9);
 area51.land(fighter1);
 area51.land(fighter10);
+area51.land(fighter2);
 
 // Reports and Analytics
 const date = new Date();

@@ -112,17 +112,17 @@ Planes that have landed must be at an airport
 
 * **Airport Status**: The airport status section displays real-time information about the airport, including its name, capacity, weather, and flights currently at the airport.  
 
-  ![Alt text](airport-status.png)
+  ![Alt text](image/airport-status.png)
       
 
 * **Flight Management**: Use the flight management section to view and manage flights. You can add new flights, update flight details, and remove flights from the system.
 
-     ![Alt text](flight-management.png)
+     ![Alt text](image/flight-management.png)
 
 3. Interact with the **Flight Control** section by performing requirements such as adding or updating flights, monitoring airport status, issuing instructions, and communicating with relevant personnel.
 
-      ![Alt text](flight-control.png)
-      ![Real time flow](flight-flow.png)
+      ![Alt text](image/flight-control.png)
+      ![Alt text](image/flight-flow.png)
 
       This APP adhere the following **Airport operation rules**:
 ```
@@ -136,7 +136,7 @@ Planes that have landed must be at an airport
 
 4. Utilize the **Reports and Analytics** section to generate reports on flight statistics and analyze airport performance. This helps to provide data-driven decisions and improve airport operations.
 
-      ![Example report](report.png)
+      ![Alt text](image/report.png)
 
 5. When you're finished using the Airport Traffic Controller app, stop the server by pressing ***`Ctrl + C`*** in the terminal where the app is running.
 
