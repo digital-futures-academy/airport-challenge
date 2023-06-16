@@ -35,6 +35,10 @@ class Airport {
         const indexPlane = this.#airportPlanes.indexOf(plane);
         this.#airportPlanes.splice(indexPlane, 1);
     }
+
+    isPlaneAtAirport(plane) {
+        return this.#airportPlanes.includes(plane);
+    }
 }
 
 export default Airport;
