@@ -18,6 +18,15 @@ export default class Airport {
       throw new Error('Unidentified plane id. Plane id must be a string.')
     }
   };
+
+  isPlaneAtTheAirport(plane) {
+    return this.landedPlanes.includes(plane);
+  }
+
+  planeChecks(plane) {
+    return plane?.aircraftStatus && plane?.aircraftId && !this.isFull() && !this.isPlaneAtTheAirport(plane);
+  }
+
   landPlane(plane) {
     try {
       this.errorIfWrongIdType(plane);
@@ -25,7 +34,7 @@ export default class Airport {
     } catch (error) {
       return error.message;
     }
-    if (plane?.aircraftStatus && plane?.aircraftId && !this.isFull()) {
+    if (this.planeChecks(plane)) {
       this.landedPlanes = [...this.landedPlanes, plane];
       plane.aircraftStatus = "landed";
     }
