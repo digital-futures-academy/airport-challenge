@@ -18,6 +18,11 @@ const airport = {
 
     },
 
+    planesExist: function (planes)
+    {
+        return this.landedPlanes.includes(planes)
+
+    },
     landPlanes: function (planes)
     {
         if (this.isAirportFull() === false)
@@ -31,13 +36,11 @@ const airport = {
 
     removePlanes: function (planes)
     {
-        return this.landedPlanes.splice(planes, 1)
-    },
-
-    planesExist: function (planes)
-    {
-        return this.landedPlanes.includes(planes)
-
+        if (this.planesExist())
+        {
+            return this.landedPlanes.splice(planes, 1)
+        }
+        return "This plane is not at the airport."
     },
 }
 

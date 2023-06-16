@@ -18,9 +18,10 @@ console.log(`Take-off plane using removePlane and expect array (landedPlane) has
 // Arrange
 expected = 0;
 airport.landedPlanes = [plane1]
+airport.planesExist(plane1)
 // Act
-// airport.airportCapacity;
-airport.removePlanes(plane1);
+airport.removePlanes(0);
+;
 actual = airport.landedPlanes.length;
 
 
@@ -31,6 +32,8 @@ result = assertEquals(actual, expected);
 console.log(`Test1: 1 plane took off from airport: ${result}`);
 console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
+console.log(actual);
+console.log(airport.planesExist());
 // Clean up
 airport.landedPlanes = [];
 result = undefined;
@@ -46,8 +49,9 @@ console.log(`Test that only the desired plane was removed from the landedPlanes 
 // Arrange
 expected = [plane2];
 airport.landedPlanes = [plane1, plane2]
+airport.planesExist(plane1);
 // Act
-// airport.airportCapacity;
+
 airport.removePlanes(0);
 actual = airport.landedPlanes;
 actual = JSON.stringify(actual);
@@ -60,7 +64,7 @@ result = assertEquals(actual, expected);
 console.log(`Test2: only desired plane took off from airport: ${result}`);
 console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
-
+console.log(actual);
 // Clean up
 airport.landedPlanes = [];
 result = undefined;
@@ -71,14 +75,12 @@ console.log(`Test 3`);
 console.log(`============================================`);
 console.log(``);
 
-console.log(`Test that planesExist returns “False” when a plane has been removed from landedPlanes array. `);
+console.log(`Test that planesExist returns “False” when a plane is not at landedPlanes array. `);
 
 // Arrange
 expected = false;
-airport.landedPlanes = [plane1, plane2]
+airport.landedPlanes = [plane2]
 // Act
-// airport.airportCapacity;
-airport.removePlanes(0);
 actual = airport.planesExist(plane1);;
 
 
@@ -89,6 +91,8 @@ result = assertEquals(actual, expected);
 console.log(`Test3: is the plane that took off shown in the landedPlanes Array: ${result}`);
 console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
+console.log(airport.landedPlanes);
+console.log(actual);
 // Clean up
 airport.landedPlanes = [];
 result = undefined;
