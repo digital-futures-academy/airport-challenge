@@ -14,13 +14,13 @@ const airport = {
 
     isAirportFull: function () 
     {
-        return this.landedPlanes.length > this.defaultAirportCapacity
+        return this.landedPlanes.length < this.defaultAirportCapacity
 
     },
 
     landPlanes: function (planes)
     {
-        if (this.isAirportFull())
+        if (this.isAirportFull() === false)
         {
             return `Airport at full capacity`
         }

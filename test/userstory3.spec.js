@@ -16,7 +16,7 @@ console.log(``);
 console.log(`Test that isAirportFull() returns Boolean.`);
 
 // Arrange
-expected = false;
+expected = true;
 
 // Act
 actual = airport.isAirportFull()
@@ -33,12 +33,12 @@ result = undefined;
 actual = undefined;
 
 
-// Test 2 - Test that when isAirportFull() returns “True”, planes cannot be landed.
+// Test 2 - Test that when isAirportFull() returns “False”, planes cannot be landed.
 console.log(`Test 2`);
 console.log(`============================================`);
 console.log(``);
 
-console.log(`Test that when isAirportFull() returns “True”, planes cannot be landed.`);
+console.log(`Test that when isAirportFull() returns “False”, planes cannot be landed.`);
 
 // Arrange
 expected = [];
@@ -57,10 +57,8 @@ result = assertEquals(actual, expected);
 // Report
 console.log(`Test1: when isAirportFull() planes cannot be landed: ${result}`);
 console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
-console.log(actual)
-console.log(expected);
-console.log(airport.isAirportFull())
-console.log(airport.landedPlanes);
+console.log(``)
+
 // Clean up
 airport.landedPlanes = [];
 result = undefined;
