@@ -29,9 +29,8 @@ Steps
 
 1. Fork this repo, and clone to your local machine
 2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+3. Tests can be run by using `npm test` or `node specRunner.js`
+4. The index.js file can be run using `node src/index.js.`
 
 Task
 -----
@@ -44,37 +43,118 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+Domain Model
+
+|  Objects   |  Properties                  |   Messages                        |  Output  |
+| ---------- | ---------------------------- | --------------------------------  | -------- |
+|  Plane     | id @strong                   | getId()                           | @string  |
+|  Airport   | landedPlanes @Array[@Planes] | landPlane(@Plane)                 | @void    |
+|            | maxCapacity @int             | checkPlaneCanLand()               | @boolean |
+|            | weather @Weather             | checkPlaneAtAirport(@Plane.getId) | @boolean |
+|  Weather   | weatherConditions @String    | isWeatherStormy()                 | @boolean |
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+Domain Model
+
+|  Objects   |  Properties             |   Messages                     |  Output  |
+| ---------- | ----------------------- | ------------------------------ | -------- |
+|  Airport   | maxAirportCapacity @Int | increaseAirportCapacity(@int)  | @void    |
+|            |                         |                                |          |
 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+Domain Model
+
+|  Objects   |  Properties             |   Messages      |  Output     |
+| ---------- | ----------------------- | ----------------| ----------- |
+|  Airport   | maxAirportCapacity @Int | isAirportFull() | @boolean    |
+|            | planes @Array[@Planes]  |                 |             |
+
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+Domain Model
+
+|  Objects   |  Properties                     |   Messages                        |  Output  |
+| ---------- | ------------------------------- | --------------------------------  | -------- |
+|  Plane     | id @strong                      | getId()                           | @string  |
+|  Airport   | landedPlanes @Array[@Planes]    | takeoffPlane @Plane               | @void    |
+|            | weather @Weather                | isWeatherStormy()                 | @boolean |
+|            |                                 | checkPlaneAtAirport(@Plane.getId) | @boolean |
+|  Weather   | weatherConditions @String       | isWeatherStormy()                 | @boolean |
+
+
 As an air traffic controller
 To avoid confusion
-I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-```
+I want to prevent asking the airport to let planes take-off which are not at the airport
 
+Domain Model
+
+|  Objects   |  Properties            |   Messages                    |  Output  |
+| ---------- | ---------------------- | ----------------------------- | -------- |
+|  Plane     | id @string             | getId()                       | @string  |
+|  Airport   | planes @Array[@Planes] | checkPlaneAtAirport(@Plane)   | @boolean |
+
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to land a plane that's already landed
+
+Domain Model
+
+|  Objects   |  Properties            |   Messages                    |  Output  |
+| ---------- | ---------------------- | ----------------------------- | -------- |
+|  Plane     | id @string             | getId()                       | @string  |
+|  Airport   | planes @Array[@Planes] | checkPlaneAtAirport(@Plane)   | @boolean |
+
+```
 #### Extended Acceptance Criteria
 ```
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
+Domain Model
+
+|  Objects   |  Properties                  |   Messages                    |  Output  |
+| ---------- | ---------------------------- | ----------------------------- | -------- |
+|  Airport   | weather @String              | isWeatherStormy()             | @boolean |
+|  Airport   | landedPlanes @Array[@Planes] | takeoffPlane @Plane           | @void    |
+|  Weather   | weatherConditions @String    | isWeatherStormy()             | @boolean |
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+Domain Model
+
+|  Objects   |  Properties                  |   Messages                    |  Output  |
+| ---------- | ---------------------------- | ----------------------------- | -------- |
+|  Airport   | weather @String              | isWeatherStormy()             | @boolean |
+|  Airport   | landedPlanes @Array[@Planes] | landPlane @Plane              | @void    |
+|  Weather   | weatherConditions @String    | isWeatherStormy()             | @boolean |
+
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+Domain Model
+
+|  Objects   |  Properties            |   Messages                    |  Output  |
+| ---------- | ---------------------- | ----------------------------- | -------- |
+|  Plane     | landed @boolean        | getLanded()                   | @boolean |
+|            |                        | setLanded()                   | @boolean |
+|  Airport   | planes @Array[@Planes] | planeExistsAtAirport(@Plane)  | @boolean |
+
 ```
+
+
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
