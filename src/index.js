@@ -20,6 +20,9 @@ for (const plane of planeArray) {
     airportFull.landPlane(plane);
 }
 
+console.log('=================================================================');
+console.log('');
+
 console.log('Land a plane at an Airport');
 airport.landPlane(plane1);
 console.log(`${airport.getLandedPlanes()[0].getId()} has landed at the airport`);

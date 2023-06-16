@@ -17,8 +17,8 @@ const planeArray = [
     new Plane('plane5')
 ];
 
-console.log('RUNNING TEST SUITE H: TESTS FOR canLandPlane');
-console.log('💻 ~file: airportCanLandPlane.spec');
+console.log('RUNNING TEST SUITE H: TESTS FOR CheckPlaneCanLand');
+console.log('💻 ~file: airportCheckPlaneCanLand.spec');
 console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 console.log('');
 
@@ -32,7 +32,7 @@ expected = true;
 
 // ACT
 actual = airport.checkPlaneCanLand();
-console.log('💻 ~ file: airportCheckPlaneAtAirport.spec.js:34 ~ actual:', actual);
+console.log('💻 ~ file: airportCheckPlaneCanLand.spec.js:34 ~ actual:', actual);
 console.log('-------------------------------------------------------------------');
 console.log('');
 
@@ -61,7 +61,7 @@ expected = false;
 
 // ACT
 actual = airport.checkPlaneCanLand();
-console.log('💻 ~ file: airportCheckPlaneAtAirport.spec.js:63 ~ actual:', actual);
+console.log('💻 ~ file: airportCheckPlaneCanLand.spec.js:63 ~ actual:', actual);
 console.log('-------------------------------------------------------------------');
 console.log('');
 
@@ -84,7 +84,7 @@ expected = false;
 
 // ACT
 actual = airport.checkPlaneCanLand();
-console.log('💻 ~ file: airportCheckPlaneAtAirport.spec.js:86 ~ actual:', actual);
+console.log('💻 ~ file: airportCheckPlaneCanLand.spec.js:86 ~ actual:', actual);
 console.log('-------------------------------------------------------------------');
 console.log('');
 
