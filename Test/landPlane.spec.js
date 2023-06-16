@@ -157,7 +157,7 @@ result = undefined;
 
 //arrange
 
-expected = 1;
+expected = 2;
 plane1 = new Plane('A1', true);
 plane2 = new Plane('A1', true);
 plane3 = new Plane('B2', true);
@@ -165,7 +165,7 @@ airport = new Airport();
 
 //act
 
-airport.airportMaxCapacity(3);
+airport.setAirportMaxCapacity(3);
 airport.instructToLand(plane1);
 airport.instructToLand(plane2);
 airport.instructToLand(plane3);
@@ -178,9 +178,59 @@ console.log(`Test 6 - Duplicate play IDs can not be added therefore array length
 
 //cleanup
 
-plane = undefined;
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
 airport = undefined;
 expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Check airport array is to the expected array i.e see visually (using stringify) that unique IDs are only allowed. For simplicity, making airport capacity 3 
+
+//arrange
+
+expected = 2;
+plane1 = new Plane('A1', true);
+plane2 = new Plane('A1', true);
+plane3 = new Plane('B2', true);
+airport = new Airport();
+
+// have to create new planes that have 'false' as landing a plane changes inflight property
+arrayPlane1 = new Plane("A1", false);
+arrayPlane2 = new Plane("B2", false);
+
+expectedArray = [arrayPlane1, arrayPlane2]
+expected = JSON.stringify(expectedArray);
+
+//act
+
+airport.setAirportMaxCapacity(3);
+airport.instructToLand(plane1);
+airport.instructToLand(plane2);
+airport.instructToLand(plane3);
+
+
+actualArray = airport.getListOfPlanesAtAirport
+actual = JSON.stringify(actualArray);
+
+//assert
+
+result = assertEquals(actual, expected);
+//console.log(expected + "    " +  actual)
+console.log(`Test 7 - Compare arrays with stringify to check that duplicates dont get added while checking IDS are as expected ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+arrayPlane1 = undefined;
+arrayPlane2 = undefined;
+airport = undefined;
+expected = undefined;
+expectedArray = undefined;
+actualArray = undefined;
 actual = undefined;
 result = undefined;
 

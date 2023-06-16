@@ -24,8 +24,7 @@ class Airport {
 
 
     instructToLand(plane) {
-        if (this?.isAirportFull() === false && plane?.inFlight === true) {
-            //this.listOfPlanesAtAirport.push(plane);
+        if (this.preLandChecks(plane)) {
             this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
             plane.setInFlight(false)
         }
@@ -69,7 +68,7 @@ class Airport {
     }
 
     preLandChecks(plane) {
-        plane.checkInputIsAPlaneObject()
+        return !this?.isAirportFull() && plane?.inFlight === true && !this.checkPlaneAtAirport(plane)
     }
 
 
