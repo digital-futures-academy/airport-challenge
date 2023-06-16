@@ -215,7 +215,39 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Test to make sure a plane can not be asked to take off from an airport it is not at. Create 2 airports - land plane at 'London' and tell 'Paris' to instruct takeoff. Therefore London should still have array size 1
 
+//arrange
+
+expected = 1;
+plane = new Plane('A1', true);
+
+airport1 = new Airport('London');
+airport2 = new Airport('Paris');
+
+//act
+
+airport1.instructToLand(plane);
+airport2.instructToLand(plane);
+
+actual = airport1.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+//console.log(expected + "    " +  actual)
+console.log(`Test 6 - Airports have independent arrays so 'London' airport should still have array 1 after wrong takeoff request ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport1 = undefined;
+airport2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+console.log('----------------------------------');
 
 
 
