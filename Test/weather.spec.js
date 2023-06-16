@@ -134,4 +134,36 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Try take off plane when weather is unsafe. Land a plane first then try take off after weather has been set to unsafe during the time plane is at airport
+
+//arrange
+
+expected = 1;
+airport = new Airport('Weather Changing Airport');
+plane = new Plane('A1', true);
+
+//act
+
+airport.instructToLand(plane);
+airport.setWeatherSafeForAction(false)
+
+console.log(airport);
+
+airport.instructToTakeOff2(plane);
+
+actual = airport.numberOfPlanesAtAirport();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 6 - Weather unsafe for take off, therefore airport array equals 1 as plane wont leave ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 console.log('----------------------------------');

@@ -50,8 +50,8 @@ class Airport {
     // }
 
     instructToTakeOff2(plane) {
-        
-        if (!this.getWeatherSafeForAction) {
+
+        if (this.getWeatherSafeForAction()) {
 
             this.listOfPlanesAtAirport = this.listOfPlanesAtAirport.filter(findPlanes);
 
