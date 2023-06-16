@@ -12,7 +12,7 @@ console.log('----------------------------------');
 //arrange
 
 expected = 0;
-plane = new Plane('A1');
+plane = new Plane('A1', true);
 airport = new Airport();
 
 //act
@@ -40,8 +40,8 @@ result = undefined;
 //arrange
 
 expected = 1;
-plane1 = new Plane('A1');
-plane2 = new Plane('B2');
+plane1 = new Plane('A1', true);
+plane2 = new Plane('B2', true);
 airport = new Airport();
 
 //act
@@ -71,8 +71,8 @@ result = undefined;
 //arrange
 
 expected = 1;
-plane1 = new Plane('A1');
-plane2 = new Plane('B2');
+plane1 = new Plane('A1', true);
+plane2 = new Plane('B2', true);
 
 airport = new Airport();
 
@@ -112,18 +112,22 @@ result = undefined;
 //arrange
 
 expected = 1;
-plane1 = new Plane("A1");
-plane2 = new Plane("B2");
+plane1 = new Plane("A1", true);
+plane2 = new Plane("B2", true);
+
+// have to create new planes that have 'false' as landing a plane changes inflight property
+arrayPlane1 = new Plane("A1", false);
+arrayPlane2 = new Plane("B2", false);
 
 airport = new Airport();
 
-expectedArray = [plane2]
+expectedArray = [arrayPlane2]
 expected = JSON.stringify(expectedArray);
+
+//act
 
 airport.instructToLand(plane1);
 airport.instructToLand(plane2);
-
-//act
 
 airport.getListOfPlanesAtAirport.forEach(planesInArray2);
 
@@ -140,6 +144,7 @@ actual = JSON.stringify(actualArray);
 //assert
 
 result = assertEquals(actual, expected);
+//console.log(actual + "   " + expected);
 console.log(`Test 4 - Correct plane is removed (A1) and remaining plane (B2) is correct too (using IDs) ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
@@ -148,6 +153,8 @@ expectedArray = undefined;
 actualArray = undefined;
 plane1 = undefined;
 plane2 = undefined;
+arrayPlane1 = undefined;
+arrayPlane2 = undefined;
 airport = undefined;
 expected = undefined;
 actual = undefined;
@@ -159,18 +166,23 @@ result = undefined;
 //arrange
 
 expected = 1;
-plane1 = new Plane("A1");
-plane2 = new Plane("B2");
+plane1 = new Plane("A1", true);
+plane2 = new Plane("B2", true);
+
+
+// have to create new planes that have 'false' as landing a plane changes inflight property
+arrayPlane1 = new Plane("A1", false);
+arrayPlane2 = new Plane("B2", false);
 
 airport = new Airport();
 
-expectedArray = [plane1, plane2]
+expectedArray = [arrayPlane1, arrayPlane2]
 expected = JSON.stringify(expectedArray);
+
+//act
 
 airport.instructToLand(plane1);
 airport.instructToLand(plane2);
-
-//act
 
 airport.getListOfPlanesAtAirport.forEach(planesInArray3);
 
@@ -187,6 +199,7 @@ actual = JSON.stringify(actualArray);
 //assert
 
 result = assertEquals(actual, expected);
+//console.log(actual + "   " + expected);
 console.log(`Test 5 - No plane is removed because plane with ID C3 does not exist in airport list and expected/actual arrays match ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
@@ -195,6 +208,8 @@ expectedArray = undefined;
 actualArray = undefined;
 plane1 = undefined;
 plane2 = undefined;
+arrayPlane1 = undefined;
+arrayPlane2 = undefined;
 airport = undefined;
 expected = undefined;
 actual = undefined;

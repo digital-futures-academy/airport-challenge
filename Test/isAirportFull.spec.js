@@ -33,8 +33,8 @@ result = undefined;
 //arrange
 
 airport = new Airport();
-plane1 = new Plane('A1')
-plane2 = new Plane('B2')
+plane1 = new Plane('A1', true)
+plane2 = new Plane('B2', true)
 expected = true
 
 //act
@@ -62,8 +62,8 @@ result = undefined;
 //arrange
 
 airport = new Airport();
-plane1 = new Plane('A1')
-plane2 = new Plane('B2')
+plane1 = new Plane('A1',true)
+plane2 = new Plane('B2',true)
 expected = false
 
 //act
@@ -94,9 +94,9 @@ result = undefined;
 //arrange
 
 airport = new Airport();
-plane1 = new Plane('A1')
-plane2 = new Plane('B2')
-plane3 = new Plane('C3')
+plane1 = new Plane('A1',true)
+plane2 = new Plane('B2',true)
+plane3 = new Plane('C3',true)
 
 expected = true
 
@@ -131,9 +131,9 @@ result = undefined;
 //arrange
 
 airport = new Airport();
-plane1 = new Plane('A1')
-plane2 = new Plane('B2')
-plane3 = new Plane('C3')
+plane1 = new Plane('A1',true)
+plane2 = new Plane('B2',true)
+plane3 = new Plane('C3',true)
 
 expected = 2;
 

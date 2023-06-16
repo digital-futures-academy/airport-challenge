@@ -12,7 +12,7 @@ console.log('----------------------------------');
 //arrange
 
 expected = true;
-plane = new Plane('A1');
+plane = new Plane('A1', true);
 airport = new Airport();
 
 //act
@@ -38,8 +38,8 @@ result = undefined;
 //arrange
 
 expected = false;
-plane1 = new Plane('A1');
-plane2 = new Plane('B2');
+plane1 = new Plane('A1', true);
+plane2 = new Plane('B2', true);
 airport = new Airport();
 
 //act
@@ -66,9 +66,9 @@ result = undefined;
 //arrange
 
 expected = true;
-plane1 = new Plane('A1');
-plane2 = new Plane('B2');
-plane3 = new Plane('C3');
+plane1 = new Plane('A1', true);
+plane2 = new Plane('B2', true);
+plane3 = new Plane('C3', true);
 airport = new Airport();
 
 //act

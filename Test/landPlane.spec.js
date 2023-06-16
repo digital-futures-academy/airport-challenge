@@ -67,7 +67,11 @@ plane1 = new Plane("A1", true);
 plane2 = new Plane("B2", true);
 airport = new Airport();
 
-expectedArray = [plane1, plane2]
+// have to create new planes that have 'false' as landing a plane changes inflight property
+arrayPlane1 = new Plane("A1", false);
+arrayPlane2 = new Plane("B2", false);
+
+expectedArray = [arrayPlane1, arrayPlane2]
 expected = JSON.stringify(expectedArray);
 
 //act
@@ -87,6 +91,8 @@ console.log(`Test 3 - Airport plane list is as expected list ${result ? `PASS` :
 
 plane1 = undefined;
 plane2 = undefined;
+arrayPlane1 = undefined;
+arrayPlane2 = undefined;
 airport = undefined;
 expected = undefined;
 expectedArray = undefined;
@@ -121,33 +127,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Landing a grouded plane using instructToLand() method, does not increase list of planes at airport (array) by 1 (program should prevent request to land plane that is grouded). 
-
-//arrange
-
-expected = 0;
-plane = new Plane('A1', false);
-airport = new Airport();
-
-//act
-
-airport.instructToLand(plane);
-actual = airport.getListOfPlanesAtAirport.length;
-
-//assert
-
-result = assertEquals(actual, expected);
-console.log(`Test 5 - Plane is grounded so cant be asked to land therefore array equals 0 ${result ? `PASS` : `FAIL`}`);
-
-//cleanup
-
-plane = undefined;
-airport = undefined;
-expected = undefined;
-actual = undefined;
-result = undefined;
-
-// Landing a grouded plane using instructToLand() method, does not increase list of planes at airport (array) by 1 (program should prevent request to land plane that is grouded). 
+// Landing a grounded plane using instructToLand() method, does not increase list of planes at airport (array) by 1 (program should prevent request to land plane that is grounded). 
 
 //arrange
 

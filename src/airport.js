@@ -55,6 +55,7 @@ class Airport {
 
         function findPlanes(foundPlane) {
             if (foundPlane.getPlaneID() != plane.getPlaneID()) {
+                plane.setInFlight(true)
                 return foundPlane
             }
         }
