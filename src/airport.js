@@ -16,6 +16,25 @@ class Airport {
         }
     }
 
+    remove(plane) {
+
+        if (this.confirm(plane))
+        {
+            const index = this.airport1.indexOf(plane);
+            this.airport1.splice(index);
+            //console.log(this.airport1)
+            return this.airport1.length;
+        }
+    }
+
+    confirm(plane){
+        if (this.airport1.includes(plane))   
+        {
+            return true
+        }
+            return false
+    }
+
     overrideCapacity(limit)
     {
         this.capacity = limit
