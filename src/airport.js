@@ -2,23 +2,29 @@ class Airport {
     listOfPlanes;
     airportCapacity;
     currentWeather;
-    notPlaneError = new Error("Object is not a plane")
+    notPlaneError = new Error("Object is not a plane");
+    atCapacityError = new Error("The airport is at capacity");
     constructor(initialListOfPlanes = [], initialCapacity = 3, initialWeather = "Sunny") {
         this.listOfPlanes = initialListOfPlanes;
         this.airportCapacity = initialCapacity;
         this.currentWeather = initialWeather;
     }
-    isPlane(plane) {
+    isPlaneError(plane) {
         if (!plane?.planeId) {
             throw this.notPlaneError;
         }
-        return true;
+    }
+    isAtCapacityError() {
+        if (this.isAirportFull()) {
+            throw this.atCapacityError;
+        }
     }
     getPlaneIndex(plane) {
         return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId)
     };
     landPlane(plane) {
-        this.isPlane(plane);
+        this.isPlaneError(plane);
+        this.isAtCapacityError();
         if (!this.isAirportFull() && !this.isPlaneInAirport(plane) && !this.isItStormy()) {
             this.listOfPlanes.push(plane);
         }

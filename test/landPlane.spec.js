@@ -88,14 +88,18 @@ console.log(`------------------`);
 console.log(`Test 4: landPlane won't change listOfPlanes if the airport is at capacity`);
 
 //Arrange
-expected = 0;
+expected = "The airport is at capacity";
 airport.listOfPlanes = [];
 airport.airportCapacity = 0;
 
 //Act
-airport.landPlane(plane1);
-actual = airport.listOfPlanes.length;
-
+try {
+    airport.landPlane(plane1);
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 
@@ -138,14 +142,18 @@ console.log(`------------------`);
 console.log(`Test 6: landPlane won't change listOfPlanes if the airport is over capacity`);
 
 //Arrange
-expected = 1;
+expected = "The airport is at capacity";
 airport.listOfPlanes = [plane1];
 airport.airportCapacity = 0;
 
 //Act
-airport.landPlane(plane2);
-actual = airport.listOfPlanes.length;
-
+try {
+    airport.landPlane(plane2);
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 
