@@ -60,12 +60,17 @@ console.log(`------------------`);
 console.log(`Test 3: landPlane only adds planes to listOfPlanes`);
 
 //Arrange
-expected = 0;
+expected = "Object is not a plane";
 airport.listOfPlanes = [];
 
 //Act
-airport.landPlane("Not a plane");
-actual = airport.listOfPlanes.length;
+try {
+    airport.landPlane("This is a bagel");
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 
 //Assert
 result = assertEquals(actual, expected);

@@ -35,13 +35,17 @@ console.log(`------------------`);
 console.log(`Test 2: changeAirportCapacity only changes airportCapacity to a number`);
 
 //Arrange
-expected = 3;
+expected = "Invalid capacity";
 airport.airportCapacity = 3;
 
 //Act
-airport.changeAirportCapacity("Five");
-actual = airport.airportCapacity;
-
+try {
+    airport.changeAirportCapacity("Five");
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 
@@ -59,13 +63,17 @@ console.log(`------------------`);
 console.log(`Test 3: changeAirportCapacity only changes airportCapacity to an integer`);
 
 //Arrange
-expected = 3;
+expected = "Invalid capacity";
 airport.airportCapacity = 3;
 
 //Act
-airport.changeAirportCapacity(3.4);
-actual = airport.airportCapacity;
-
+try {
+    airport.changeAirportCapacity(3.4);
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 
