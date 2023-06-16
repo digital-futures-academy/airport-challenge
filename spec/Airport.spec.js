@@ -1,53 +1,72 @@
 import Airport from "../src/Airport.js";
+
 describe('Test plane landing', () => {
-    it('I want to instruct the airport to land a plane', () => {
-           // Arrange
-           // Act
-           // Assert
-        const airport = new Airport();
-        const actual = airport.add('plane1');
-        expect(actual).toBe(1);
-    });
-    it('I would like a default airport capacity that can be overridden as appropriate', () => {
+    it('Instruct the airport to land a plane', () => {
         // Arrange
-        // Act
-        // Assert
     const airport = new Airport();
+        // Act
+    const actual = airport.add('plane1');
+        // Assert
+    expect(actual).toBe(1);
+    });
+});
+
+describe('Test Default Airport capacity', () => {
+    it('Default airport capacity that can be overridden as appropriate', () => {
+         // Arrange
+    const airport = new Airport();
+         // Act
     const actual = airport.overrideCapacity(5);
+         // Assert
     expect(actual).toBe(5);
     });
-    it('I want to prevent landing when the airport is full', () => {
+});
+
+describe('Test Airport capacity and prevent overloading', () => {
+    it('Prevent landing when the airport is full', () => {
         // Arrange
-        // Act
-        // Assert
     const airport = new Airport();
     airport.add('plane1');
     airport.add('plane2');
     airport.add('plane3');
+        // Act
     const actual = airport.add('plane4');
+        // Assert
     expect(actual).toBe(false);
     });
-    it('I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport', () => {
-        // Arrange
-        // Act
-        // Assert
-    const airport = new Airport();
-    airport.add('plane1');
-    airport.add('plane2');
-    airport.add('plane3');
-    const actual = airport.remove('plane3');
-    expect(actual).toBe(2);
+});
+
+describe('Test removing a plane and confirm', () => {
+    it('Instruct the airport to let a plane take off and confirm that it is no longer in the airport', () => {
+            // Arrange
+        const airport = new Airport();
+        airport.add('plane1');
+        airport.add('plane2');
+        airport.add('plane3');
+            // Act
+        const actual = airport.remove('plane3');
+            // Assert
+        expect(actual).toBe(2);
+            // Act
+        const actual2 = airport.confirm('plane3');
+            // Assert
+        expect(actual2).toBe(false);
     });
-    it('I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that\'s already landed', () => {
+});
+
+describe('Test adding existing plane and removing unexisting plane', () => {
+    it('Test unexisting plane to take-off and existing plane to land', () => {
         // Arrange
-        // Act
-        // Assert
     const airport = new Airport();
     airport.add('plane1');
     airport.add('plane2');
+        // Act
     const actual = airport.add('plane2');
+        // Assert
     expect(actual).toBe(false);
-    const actual2 = airport.add('plane2');
+        // Act
+    const actual2 = airport.remove('plane3');
+        // Assert
     expect(actual2).toBe(false);
     });
 });
