@@ -71,6 +71,9 @@ airport = new Airport();
 arrayPlane1 = new Plane("A1", false);
 arrayPlane2 = new Plane("B2", false);
 
+arrayPlane1.setLocation('At Airport');
+arrayPlane2.setLocation('At Airport');
+
 expectedArray = [arrayPlane1, arrayPlane2]
 expected = JSON.stringify(expectedArray);
 
@@ -199,6 +202,10 @@ airport = new Airport();
 // have to create new planes that have 'false' as landing a plane changes inflight property
 arrayPlane1 = new Plane("A1", false);
 arrayPlane2 = new Plane("B2", false);
+
+// Required as constructor doesnt have 'Location' as its linked with inFlight property
+arrayPlane1.setLocation('At Airport');
+arrayPlane2.setLocation('At Airport');
 
 expectedArray = [arrayPlane1, arrayPlane2]
 expected = JSON.stringify(expectedArray);
