@@ -3,6 +3,9 @@ class Airport {
     #defaultCapacity = 5;
 
     land(plane) {
+        if (this.airportIsFull()) {
+            return this.#airportPlanes.length;
+        }
         this.#airportPlanes.push(plane);
     }
     getAirportPlaneCount() {
@@ -18,6 +21,13 @@ class Airport {
             throw new Error("This capacity is not valid. Airport capacity cannot be smaller than 1.");
         }
         this.#defaultCapacity = newCapacity;
+    }
+
+    airportIsFull() {
+        if (this.#airportPlanes.length < this.#defaultCapacity) {
+            return false;
+        }
+        return true;
     }
 }
 

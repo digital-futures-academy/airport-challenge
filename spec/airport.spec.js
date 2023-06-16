@@ -44,4 +44,19 @@ describe('Airport Tests: ', () => {
         expect(checkFunction).toThrow(new Error("This capacity is not valid. Airport capacity cannot be smaller than 1."));
     });
 
+    it('Test that airportPlanes array remains the same when you try to land one more plane over it\'s current capacity', () => {
+        // Given that
+        const airport = new Airport();
+        const customCapacity = 1;
+        const plane = new Plane(1);
+        const plane1 = new Plane(2);
+        // When this happens
+        airport.setCapacity(customCapacity);
+        airport.land(plane);
+        airport.land(plane1);
+        const actual = airport.getAirportPlaneCount();
+        // Expect this
+        expect(actual).toEqual(airport.getCapacity());
+    });
+
 })

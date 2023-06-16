@@ -39,7 +39,7 @@ This file will contain the domain models for the user stories as well as any oth
 **Tests**
     1. Test to verify that when you create an airport object without specifying capacity, it uses the specified capacity. - Test Done
     2. Test to override the default capacity - test where you create a new airport object and set a custom capacity. Assert that the airport will use that capacity instead of the default one.- Test Done
-    3. Test valid capacity values, for example the minimum capacity an airport should have to qualify as an airport is one plane, you should not have a number lower than this.
+    3. Test valid capacity values, for example the minimum capacity an airport should have to qualify as an airport is one plane, you should not have a number lower than this. - Test done
 
 
 ##### User Story 3:
@@ -59,8 +59,7 @@ This file will contain the domain models for the user stories as well as any oth
 
 **Tests**
 
-    1. Test that airport capacity remains at it's maximum when you try to land one more plane.
-    2. 
+    1. Test that airportPlanes array does not increase in value when you try to land one more plane. - Test Done
 
 
 ##### User Story 4:
@@ -82,8 +81,7 @@ This file will contain the domain models for the user stories as well as any oth
 
 **Tests**
 
-    1. Test that airport calls airport's takeOff() method.
-    2. Test that airportPlanes array has decreased by one when a plane takes off.
+    1. Test that airportPlanes array has decreased by one when a plane takes off.
 
 
 ##### User Story 5:
