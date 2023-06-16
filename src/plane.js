@@ -19,6 +19,11 @@ class Plane {
         this.inFlight = status;
     }
 
+    static checkInputIsAPlaneObject(input) {
+        return input instanceof Plane
+
+    }
+
 }
 
 

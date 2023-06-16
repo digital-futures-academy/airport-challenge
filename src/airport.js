@@ -68,7 +68,7 @@ class Airport {
     }
 
     preLandChecks(plane) {
-        return !this?.isAirportFull() && plane?.inFlight === true && !this.checkPlaneAtAirport(plane)
+        return !this?.isAirportFull() && plane?.inFlight && !this.checkPlaneAtAirport(plane)
     }
 
 

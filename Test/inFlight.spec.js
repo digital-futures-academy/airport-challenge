@@ -2,7 +2,7 @@ const { Airport } = require(`../src/Airport.js`);
 const { assertEquals } = require(`./testingFramework`);
 const { Plane } = require(`../src/Plane.js`);
 
-console.log('Plane At Airport Tests');
+console.log('Inflight Tests');
 console.log('----------------------------------');
 
 // Create an instance of plane with inFlight as false. Therefore method call is false 

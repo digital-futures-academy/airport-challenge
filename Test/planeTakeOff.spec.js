@@ -228,7 +228,7 @@ airport2 = new Airport('Paris');
 //act
 
 airport1.instructToLand(plane);
-airport2.instructToLand(plane);
+airport2.instructToTakeOff2(plane);
 
 actual = airport1.getListOfPlanesAtAirport.length;
 
@@ -237,6 +237,38 @@ actual = airport1.getListOfPlanesAtAirport.length;
 result = assertEquals(actual, expected);
 //console.log(expected + "    " +  actual)
 console.log(`Test 6 - Airports have independent arrays so 'London' airport should still have array 1 after wrong takeoff request ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport1 = undefined;
+airport2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+//Continuation of test 6 - but to check the state of 'Paris' array just incase something has gone wrong i.e array thinks -1
+
+//arrange
+
+expected = 0;
+plane = new Plane('A1', true);
+
+airport1 = new Airport('London');
+airport2 = new Airport('Paris');
+
+//act
+
+airport1.instructToLand(plane);
+airport2.instructToTakeOff2(plane);
+
+actual = airport2.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+//console.log(expected + "    " +  actual)
+console.log(`Test 7 - Airports have independent arrays so 'Paris' airport should still be 0 after wrong takeoff request ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
