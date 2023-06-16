@@ -84,8 +84,8 @@ This file will contain the domain models for the user stories as well as any oth
 
     1. Test that airportPlanes array has decreased by one when a plane takes off. - Test Done
     2. Test that plane's departure is confirmed by checking its status. - Test Done
-    3. Test that you cannot instruct a plane to take off when there are 0 planes in the airport.
-    4. Test that you cannot instruct a plane to take off if its id is not in the airportPlanes array.
+    3. Test that you cannot instruct a plane to take off when there are 0 planes in the airport. - Test Done
+    4. Test that you cannot instruct a plane to take off if its id is not in the airportPlanes array. - 
 
 
 ##### User Story 5:
