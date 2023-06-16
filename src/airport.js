@@ -8,6 +8,7 @@ class Airport {
         }
         this.#airportPlanes.push(plane);
     }
+
     getAirportPlaneCount() {
         return this.#airportPlanes.length;
     }
@@ -28,6 +29,11 @@ class Airport {
             return false;
         }
         return true;
+    }
+
+    takeOff(plane) {
+        const indexPlane = this.#airportPlanes.indexOf(plane);
+        this.#airportPlanes.splice(indexPlane, 1);
     }
 }
 

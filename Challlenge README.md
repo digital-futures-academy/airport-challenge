@@ -20,6 +20,7 @@ This file will contain the domain models for the user stories as well as any oth
 **Tests**
     1. Test that plane id is set correctly in the constructor. - Test done
     2. Test that airportPlanes array has size one when you land a plane in an empty airport. - Test Done
+    3. Test that you cannot land a plane with the same id.
 
 
 ##### User Story 2:
@@ -81,7 +82,10 @@ This file will contain the domain models for the user stories as well as any oth
 
 **Tests**
 
-    1. Test that airportPlanes array has decreased by one when a plane takes off.
+    1. Test that airportPlanes array has decreased by one when a plane takes off. - Test Done
+    2. Test that plane's departure is confirmed by checking its status. 
+    3. Test that you cannot instruct a plane to take off when there are 0 planes in the airport.
+    4. Test that you cannot instruct a plane to take off if its id is not in the airportPlanes array.
 
 
 ##### User Story 5:

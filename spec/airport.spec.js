@@ -59,4 +59,18 @@ describe('Airport Tests: ', () => {
         expect(actual).toEqual(airport.getCapacity());
     });
 
+    it('Test that airportPlanes array decreases in size by one when you instruct a plane to take off', () => {
+        // Given that
+        const airport = new Airport();
+        const plane = new Plane(1);
+        const plane1 = new Plane(2);
+        const planesAfterTakeOff = 1;
+        // When this happens
+        airport.land(plane);
+        airport.land(plane1);
+        airport.takeOff(plane1);
+        const actual = airport.getAirportPlaneCount();
+        // Expect this
+        expect(actual).toEqual(planesAfterTakeOff);
+    })
 })
