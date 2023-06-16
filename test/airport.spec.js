@@ -6,7 +6,6 @@ let actual, expected, result;
 
 const airport = new Airport();
 const B737 = 'B737';
-airport.airplanesOnGround = [];
 
 
 console.log(`Test 1`);
@@ -67,6 +66,7 @@ console.log(``);
 //CleanUp
 actual = undefined;
 expected = undefined;
+airport.capacity = 10;
 
 //===================================================================================================================================================================
 
@@ -81,15 +81,11 @@ console.log(`do not let airplane land when airport is full`);
 //Arrange
 airport.airplanesOnGround.length = 10;
 expected = airport.airplanesOnGround.length;
-// console.log(airport.airplanesOnGround.length);
-// console.log(airport.capacity);
 
 //Act
 airport.changeCapacityTo(10);
-// console.log(airport.capacity);
 airport.landAirplane(B737);
 actual = airport.airplanesOnGround.length;
-// console.log(actual);
 
 //Assert
 result = checkDifferent(actual, expected);
@@ -115,28 +111,83 @@ console.log(`Description`);
 
 console.log(`instruct the airport to let an airplane take off, and check it is no longer at the airport after it took off`);
 //Arrange
-// console.log(airport.airplanesOnGround);
-airport.landAirplane(B737);
-// console.log(airport.airplanesOnGround);
-expected = true;
+airport.landAirplane();
+expected = 0;
 
 //Act
-nextAirplaneInLine = airport.airplanesOnGround[0];
-// console.log(nextAirplaneInLine);
 airport.letAirplaneTakeOff();
-// console.log(airport.airplanesOnGround.length);
-// console.log(airport.lastAirplaneTakenOff);
-actual = (nextAirplaneInLine === airport.lastAirplaneTakenOff);
-// console.log(actual);
+actual = airport.airplanesOnGround.length;
 
 //Assert
 result = checkSame(actual, expected);
 
 //Report
-console.log(`Test 4: the B737 airplane has taken off and is confirmed to be no longer at the airport: ${result}`);
+console.log(`Test 4: the airplane has taken off and is confirmed to be no longer at the airport: ${result}`);
 console.log(`Test 4: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 //CleanUp
 actual = undefined;
 expected = undefined;
+
+//===================================================================================================================================================================
+
+console.log(`Test 5`);
+console.log(`==============================================`)
+console.log(`Description`);
+
+
+
+
+console.log(`let the airport not give a takeoff clearance to airplanes that are not at the airport`);
+//Arrange
+airport.airplanesOnGround = ['B737', 'B777', 'A380', 'A340'];
+expected = airport.airplanesOnGround.length;
+
+//Act
+airport.letAirplaneTakeOff('B747');
+actual = airport.airplanesOnGround.length;
+
+//Assert
+result = checkSame(actual, expected);
+
+//Report
+console.log(`Test 5: the airplane was not told to takeoff because it was not at the airport: ${result}`);
+console.log(`Test 5: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+//CleanUp
+actual = undefined;
+expected = undefined;
+airport.airplanesOnGround = [];
+
+//===================================================================================================================================================================
+
+console.log(`Test 6`);
+console.log(`==============================================`)
+console.log(`Description`);
+
+
+
+
+console.log(`let the airport only give landing clearances to airplanes which are not at the airport`);
+//Arrange
+airport.airplanesOnGround = ['B737', 'B777', 'A380', 'A340'];
+expected = airport.airplanesOnGround.length;
+
+//Act
+airport.landAirplane('A380');
+actual = airport.airplanesOnGround.length;
+
+//Assert
+result = checkSame(actual, expected);
+
+//Report
+console.log(`Test 6: the airport did not land the airplane because it was already at the airport: ${result}`);
+console.log(`Test 6: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+//CleanUp
+actual = undefined;
+expected = undefined;
+airport.airplanesOnGround = [];

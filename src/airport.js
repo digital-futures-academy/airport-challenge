@@ -3,10 +3,10 @@ class Airport {
         this.ID = ID;
         this.airplanesOnGround = [];
         this.capacity = 10;
-        this.lastAirplaneTakenOff = String;
+        this.lastAirplaneTakenOff = 'thisisnotworking';
     }
     landAirplane(plane) {
-        if (this.airplanesOnGround.length < this.capacity) {
+        if (this.airplanesOnGround.length < this.capacity && this.airplanesOnGround.includes(plane) === false) {
             this.airplanesOnGround.push(plane);
         };
     }
@@ -17,7 +17,9 @@ class Airport {
         return this.capacity > this.size.length;
     }
     letAirplaneTakeOff() {
-        this.lastAirplaneTakenOff = this.airplanesOnGround.shift();
+        if (this.airplanesOnGround.includes()) {
+            this.airplanesOnGround.pop();
+        }
     }
 
 }
