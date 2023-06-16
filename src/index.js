@@ -6,7 +6,8 @@ const plane2 = new Plane(`plane2`);
 const plane3 = new Plane(`plane3`);
 const plane4 = `plane4`
 const plane5 = new Plane(`plane5`);
-const myAirport = new Airport(3, []);
+const myAirport = new Airport();
+myAirport.airportCapacity = 3;
 
 //planes do land
 console.log(myAirport.landPlane(plane1));
