@@ -37,10 +37,7 @@ This file will contain the domain models for the user stories as well as any oth
 | Plane             | id @Number                    | getId()           | @Number       |
 
 **Tests**
-
-    1. Test that you can modify airportCapacity.
-    2. Test that airport capacity cannot be smaller than the default capacity/another variable which represents the minimum capacity does not necessarily need to be the default value. (I believe there should be a minimum capacity each airport should have to qualify as an airport, at least one for example).
-    3. Test that airport calls airport's getCapacity() method.
+    1. Test to verify that when you create an airport object without specifying capacity, it uses the specified capacity.
 
 
 ##### User Story 3:

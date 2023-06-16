@@ -11,5 +11,14 @@ describe('Airport Tests: ', () => {
         const actual = airport.getAirportPlaneCount();
         // Assert
         expect(actual).toEqual(1);
-    })
+    });
+
+    it('new instance of the Airport class should use the default capacity', () => {
+        // Arrange
+        const airport = new Airport()
+        // Act
+        const actual = airport.getCapacity();
+        // Assert
+        expect(actual).toEqual(5);
+    });
 })
