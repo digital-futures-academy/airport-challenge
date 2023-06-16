@@ -115,6 +115,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 #### Tests
 
-`planeInAirport` functionality was tested in User Story 4
+`planeInAirport` functionality was tested in User Story 4 so this modifies `takeOff(@plane)` and `landPlane(@Plane)` to check `planeInAirport`.
+
 1. If `takeOff(@Plane)` is called but `planeInAirport(@Plane)` returns false, then an error is thrown
 2. If `landPlane(@Plane)` is called but `planeInAirport(@Plane)` returns true, then an error is thrown

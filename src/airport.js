@@ -2,14 +2,15 @@ class Airport {
 
     airportPlaneList = [];
     airportCapacity = 5;
-    landingError = new Error(`Airport is at capacity`);
+    landingError = new Error(`Landing Error`);
+    takeOffError = new Error(`Cannot take off`)
 
 
     landPlane(plane) {
-        if (this.isAirportFull() === false) {
-            this.airportPlaneList.push(plane);
-        } else {
+        if (this.planeInAirport(plane) || this.isAirportFull() === true) {
             throw this.landingError;
+        } else {
+            this.airportPlaneList.push(plane);
         }
     }
 
@@ -23,14 +24,19 @@ class Airport {
         return this.airportPlaneList.length >= this.airportCapacity ? true : false;
     }
 
-    takeOff(plane) {
-        let planeIndex = this.airportPlaneList.indexOf(plane);
-        this.airportPlaneList.splice(planeIndex, 1);
+    planeInAirport(plane) {
+        return this.airportPlaneList.includes(plane);
     }
 
-    planeInAirport(plane) {
-        if (this.airportPlaneList.includes(plane)) return true;
+    takeOff(plane) {
+        if (this.airportPlaneList.includes(plane)) {
+            let planeIndex = this.airportPlaneList.indexOf(plane);
+            this.airportPlaneList.splice(planeIndex, 1);
+        } else {
+            throw this.takeOffError;
+        }
     }
+
 
 
 }

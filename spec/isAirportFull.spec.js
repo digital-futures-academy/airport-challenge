@@ -81,16 +81,17 @@ console.log(`If airport is at capacity then landPlane does not modify airportPla
 //Arrange
 airport.modifyAirportCapacity(1)
 airport.airportPlaneList = [plane1];
+expected = Error;
+
+//Act
 try {
     airport.landPlane(plane2);
 }
-catch (error) {
-    console.log(`landingError`);
+catch (e) {
+    if (e instanceof Error) {
+        actual = Error;
+    }
 }
-expected = 1;
-
-//Act
-actual = airport.airportPlaneList.length;
 
 //Assert
 result = assertEquals(actual, expected);
