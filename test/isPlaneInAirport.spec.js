@@ -77,15 +77,19 @@ actual = undefined;
 console.log(`------------------`);
 
 //Test
-console.log(`Test 4: isPlaneInAirport returns false if input isn't a plane`);
+console.log(`Test 4: isPlaneInAirport throws an error if not a plane`);
 
 //Arrange
 airport.listOfPlanes = [plane2];
-expected = false;
+expected = "Object is not a plane";
 
 //Act
-actual = airport.isPlaneInAirport("Not a plane");
-
+try {
+    airport.isPlaneInAirport("Not a plane");
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 

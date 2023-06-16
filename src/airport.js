@@ -53,6 +53,7 @@ class Airport {
         }
     };
     isPlaneInAirport(plane) {
+        this.isPlaneError(plane);
         return this.getPlaneIndex(plane) !== -1;
     };
     isItStormy() {
