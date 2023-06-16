@@ -20,7 +20,7 @@ describe("Airport Class Tests", function () {
   // });
 
   describe("when landing a plane", function () {
-    it("should check if the object to be landed is actually a plane", () => {
+    it("should check if the object to be landed is actually a plane", function () {
       const bird = {
         getId() {},
       };
@@ -37,7 +37,7 @@ describe("Airport Class Tests", function () {
       expect(airport.isFull()).toBeTrue();
     });
 
-    it("should check if there is space in the airport to accommodate the plane", () => {
+    it("should check if there is space in the airport to accommodate the plane", function () {
       airport.landPlane(plane);
       airport.landPlane(plane);
       airport.landPlane(plane);
@@ -53,34 +53,26 @@ describe("Airport Class Tests", function () {
     });
   });
 
-  describe("should override the default airport capacity", function () {
-    it("with the new capacity", function () {
+  describe("when constructing an airport", function () {
+    // it("should be initialised with a default capacity.", function () {});
+    it("should be possible to override the default capacity.", function () {
       airport.setCapacity(5);
 
       expect(airport.capacity).toBe(5);
     });
 
-    it("provided it is an integer", function () {
+    it("should only accept integer for new capacity", function () {
       airport.setCapacity(5.85);
 
       expect(airport.capacity).toBe(3);
     });
 
-    it("provided it is a positive integer", function () {
+    it("should only accept a positive integer for new capacity", function () {
       airport.setCapacity(-5);
 
       expect(airport.capacity).toBe(3);
     });
   });
-
-  // it("should not allow plane to land when airport is full", function () {
-  //   airport.landPlane(plane);
-  //   airport.landPlane(plane);
-  //   airport.landPlane(plane);
-  //   airport.landPlane(plane);
-
-  //   expect(airport.listOfPlanes.length).toEqual(3);
-  // });
 
   describe("should let a plane take off", function () {
     it("and remove from list", function () {
