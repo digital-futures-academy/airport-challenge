@@ -54,4 +54,30 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+
+// land plane when weather is safe . 
+
+//arrange
+
+expected = 1;
+airport = new Airport('Sunny Airport');
+plane = new Plane('A1', true);
+//act
+
+airport.instructToLand(plane);
+actual = airport.numberOfPlanesAtAirport();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 3 - Weather safe and planes allowed to land , therefore airport array equals 1 ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 console.log('----------------------------------');
