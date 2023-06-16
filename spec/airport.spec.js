@@ -20,21 +20,36 @@ describe("Airport Class Tests", function () {
   // });
 
   describe("when landing a plane", function () {
-    it("should check if the object to be landed is actually a plane", () => {});
-    it("should check if there is space in the airport to accommodate the plane", () => {});
-    it("should add a plane in the list when landPlane is called", function () {
-      airport.landPlane(plane);
-
-      expect(airport.listOfPlanes.length).toBe(1);
-    });
-
-    it("should only land if it is a plane", function () {
+    it("should check if the object to be landed is actually a plane", () => {
       const bird = {
         getId() {},
       };
       airport.landPlane(bird);
 
       expect(airport.listOfPlanes.length).toBe(0);
+    });
+
+    it("calling isFull() should return true when airport is full", function () {
+      airport.landPlane(plane);
+      airport.landPlane(plane);
+      airport.landPlane(plane);
+
+      expect(airport.isFull()).toBeTrue();
+    });
+
+    it("should check if there is space in the airport to accommodate the plane", () => {
+      airport.landPlane(plane);
+      airport.landPlane(plane);
+      airport.landPlane(plane);
+      airport.landPlane(plane);
+
+      expect(airport.listOfPlanes.length).toEqual(3);
+    });
+
+    it("should add a plane in the list when landPlane is called", function () {
+      airport.landPlane(plane);
+
+      expect(airport.listOfPlanes.length).toBe(1);
     });
   });
 
@@ -58,22 +73,14 @@ describe("Airport Class Tests", function () {
     });
   });
 
-  it("calling isFull() should return true when airport is full", function () {
-    airport.landPlane(plane);
-    airport.landPlane(plane);
-    airport.landPlane(plane);
+  // it("should not allow plane to land when airport is full", function () {
+  //   airport.landPlane(plane);
+  //   airport.landPlane(plane);
+  //   airport.landPlane(plane);
+  //   airport.landPlane(plane);
 
-    expect(airport.isFull()).toBeTrue();
-  });
-
-  it("should not allow plane to land when airport is full", function () {
-    airport.landPlane(plane);
-    airport.landPlane(plane);
-    airport.landPlane(plane);
-    airport.landPlane(plane);
-
-    expect(airport.listOfPlanes.length).toEqual(3);
-  });
+  //   expect(airport.listOfPlanes.length).toEqual(3);
+  // });
 
   describe("should let a plane take off", function () {
     it("and remove from list", function () {
