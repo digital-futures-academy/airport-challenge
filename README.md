@@ -86,7 +86,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 1. Read User Stories and created domain models.
 2. Created separate spec files for testing-framework, specRunner and objects 'airport' and 'plane'. Used require statements to import modules.
 3. Used assertEquals to compare two values to see if they are equal.
-4. Declared a planeLanded[] array(property of airport object) to represent the list of planes that have landed at the airport. 
+4. Declared a planeLanded[] array(property of airport object) to keep track of the planes that have landed at the airport. The 'land' function is responsible for adding planes to the array and the 'takeOff' function removes the plane from the array.
 5. I created various functions to meet the user stories' requirements and edge cases:
    - Test 1: 'Land' function is responsible for handling the landing of the plane. Takes the parameter 'plane' which represents the object that needs to land. 
    - Test 2: To make sure the default capacity could be overridden, I created an 'updateCapacity' function that takes a parameter of 'newCapacity' that should assign a new capacity value to the 'defaultAirportCapacity' property of the 'airport' object. 
