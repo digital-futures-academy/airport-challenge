@@ -49,7 +49,6 @@ console.log(`Test 2 - Weather set to not safe (false) , therefore result is fals
 
 //cleanup
 
-
 airport = undefined;
 expected = undefined;
 actual = undefined;
