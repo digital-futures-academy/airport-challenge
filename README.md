@@ -13,6 +13,16 @@ Airport Challenge
 
 ```
 
+
+
+Submission Notes:
+================
+* The domain models are in a markdown file called domain-models.md
+* The tests are split by the user story, run in sequence from the spec runner
+* npm test works as intended
+* there is much room for improvement but lessons have been learnt
+
+
 Instructions
 ---------
 
