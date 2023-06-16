@@ -90,11 +90,8 @@ I want to prevent landing when the airport is full
 | Objects  | Properties                    | Messages                 | Outputs  |
 | -------  | ----------------------------- | ------------------------ | -------- |
 | Airport  | airportCapacity @Integer      | isAirportFull()          | @boolean |
-```
 
-##### Tests
-
-- [ ] 1. Check that planes cannot land when the airportCapactiy is full.
+- [x] 1. Check that planes cannot land when the airportCapactiy is full.
 
 ##### User Story: 4
 
@@ -107,13 +104,13 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 ```
 | Objects  | Properties                    | Messages                     | Outputs  |
 | -------  | ----------------------------- | ---------------------------- | -------- |
-| Airport  | airportPlanes @Array[@Planes] | removePlane(@Plane)          | @Void    |
+| Airport  | airportPlanes @Array[@Planes] | takeoffPlane(@Plane)         | @Void   |
 |          |                               | checkPlanesAtAirport(@Plane) | @Boolean |
 ```
 
 ##### Tests
 
-- [ ] 1. After removing a plane from the airport planes list check that the array has decreased in length by 1.
+- [x] 1. After removing a plane from the airport planes list check that the array has decreased in length by 1.
 - [ ] 2. Test that plane passed to removePlane is actually removed from the airportPlanes array.
 - [ ] 3. Prevent removing planes that are not in the airportPlanes array.
 - [ ] 4. Prevent removing numbers from the list.

@@ -165,8 +165,6 @@ expected = 10;
 
 // Act
 actual = airport.overrideCapacity(10);
-type = (typeof actual)
-console.log(type)
 
 // Assert
 result = (assertEquals(actual, expected));
@@ -205,6 +203,29 @@ console.log(`Test 2: OverrideCapacity function returns an error if the input is 
 console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
+console.log('Test 3');
+console.log('================================================');
+console.log('');
+
+console.log('Check that the OverrideCapacity function returns an error if the input is a string.');
+
+// Arrange
+airport = new Airport();
+expected = Error('Please enter a number');
+
+// Act
+actual = airport.overrideCapacity('string');
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 3: OverrideCapacity function returns an error if the input is a string.: ${result}`);
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
 // Clean Up 
 actual = undefined;
 expected = undefined;
@@ -235,6 +256,75 @@ result = (assertEquals(actual, expected));
 // Report
 console.log(`Test 1: Check that planes cannot land when the airportCapacity is full and return an error.: ${result}`);
 console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+plane = undefined;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('User Story 4');
+console.log('================================================');
+console.log('Test 1');
+console.log('================================================');
+console.log('');
+
+console.log('After removing a plane from the airport planes list check that the array has decreased in length by 1.');
+
+// Arrange
+airport = new Airport();
+plane1 = { id: '0001' };
+plane2 = { id: '0002' };
+airport.airportPlanes = [plane1, plane2];
+expected = 1;
+
+// Act
+airport.takeoffPlane(plane); 
+actual = airport.airportPlanes.length;
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 1: Check that removing a plane from the airport planes list decreases the array length by 1.: ${result}`);
+console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+plane1 = undefined;
+plane2 = undefined;
+airport.airportPlanes = undefined;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('Test 2');
+console.log('================================================');
+console.log('');
+
+console.log('Test that plane passed to takeoffPlane is actually removed from the airportPlanes array.');
+
+// Arrange
+airport = new Airport();
+plane1 = { id: '0001' };
+plane2 = { id: '0002' };
+plane3 = { id: '0003' };
+airport.airportPlanes = [plane1, plane2, plane3];
+expected = [{ id: '0002' }, { id: '0003' }];
+
+// Act
+actual = airport.takeoffPlane(plane1);
+actual = airport.airportPlanes;
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 2: Check that the plane passed to takeoffPlane is actually removed from the airportPlanes array.: ${result}`);
+console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up 

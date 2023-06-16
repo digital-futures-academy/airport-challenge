@@ -15,17 +15,25 @@ class Airport {
             return new Error('Airport is full!');
         }
         
-        else if (!this.airportPlanes.includes(plane) && isNaN(plane) && (!null)) {
+        else if (isNaN(plane) && !this.airportPlanes.includes(plane)) {
             return (this.airportPlanes = [...this.airportPlanes, plane]);
         }
         
     };
 
+    takeoffPlane(plane) { 
+        const index = this.airportPlanes.indexOf(plane);
+        if (index !== -1) {
+            return this.airportPlanes.splice(index, 1);
+        }
+    }; 
+
     overrideCapacity(number) {
-        if (number === null) {
+        if (number === null || (typeof number === 'string')) {
             return new Error('Please enter a number');
         }
-        else return this.airportCapacity = number;
+    
+        return this.airportCapacity = number;
     };
 }
 
