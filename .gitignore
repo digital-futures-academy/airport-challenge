@@ -1,1 +1,8 @@
 node_modules
+
+notes.txt
+testFile.js
+
+tests/testtestfile.js
+
+tests/airportFunctions.spec.js

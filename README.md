@@ -13,6 +13,16 @@ Airport Challenge
 
 ```
 
+
+
+Submission Notes:
+================
+* The domain models are in a markdown file called domain-models.md
+* The tests are split by the user story, run in sequence from the spec runner
+* npm test works as intended
+* there is much room for improvement but lessons have been learnt
+
+
 Instructions
 ---------
 
@@ -27,8 +37,8 @@ Instructions
 Steps
 -------
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
+1. Fork this repo, and clone to your local machine ✓
+2. `npm install` to install project dependencies ✓
 3. Convert stories into a representative domain model and test-drive your work.
 4. Run your tests using `npm test` or `node specRunner.js`
 5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
@@ -52,9 +62,9 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-As an air traffic controller
+"As an air traffic controller
 So I can get passengers on the way to their destination
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport"
 
 As an air traffic controller
 To avoid confusion
