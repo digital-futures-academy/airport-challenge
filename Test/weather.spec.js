@@ -80,13 +80,14 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Try land plane when weather is safe . Set airport weather to unsafe
+// Try land plane when weather is unsafe . Set airport weather to unsafe
 
 //arrange
 
 expected = 1;
 airport = new Airport('Stormy Airport');
 plane = new Plane('A1', true);
+
 //act
 
 airport.setWeatherSafeForAction(false);
@@ -97,6 +98,33 @@ actual = airport.numberOfPlanesAtAirport();
 
 result = assertEquals(actual, expected);
 console.log(`Test 4 - Weather unsafe and planes not allowed to land , therefore airport array equals 0 ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+airport = undefined;
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Try take off plane when weather is safe. Land a plane first then try take off
+
+//arrange
+
+expected = 0;
+airport = new Airport('Sunny Airport');
+plane = new Plane('A1', true);
+
+//act
+
+airport.instructToLand(plane);
+airport.instructToTakeOff2(plane);
+actual = airport.numberOfPlanesAtAirport();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 5 - Weather safe and planes allowed to take off, therefore airport array equals 0 ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
