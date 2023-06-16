@@ -4,7 +4,7 @@ const { Plane } = require(`../src/Plane.js`);
 
 console.log('Airport Full Tests');
 console.log('----------------------------------');
-// Check if airport is full - land 2 planes and see if isFull returns true (airport capacity is 2 by default).
+// Check if airport is full - land 0 planes and see if isFull returns false (airport capacity is 2 by default).
 
 //arrange
 

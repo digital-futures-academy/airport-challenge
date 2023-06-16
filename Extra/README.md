@@ -157,7 +157,7 @@ So I can get passengers on the way to their destination
 User Story 4.2
 
 As an air traffic controller
-Confirm that a plane is no longer in an airport
+Confirm that a plane is no longer in the airport
 So I can get passengers on the way to their destination
 
 -Objects;     -Properties;                            -Messages;                      -Output;
