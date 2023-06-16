@@ -145,9 +145,7 @@ plane = new Plane('A1', true);
 //act
 
 airport.instructToLand(plane);
-airport.setWeatherSafeForAction(false)
-
-console.log(airport);
+airport.setWeatherSafeForAction(false);
 
 airport.instructToTakeOff2(plane);
 

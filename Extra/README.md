@@ -218,7 +218,7 @@ Also both stories can use same model.
 -Objects;     -Properties;                            -Messages;                      -Output;
 
 -Airport      -weatherSafeForAction @Boolean          -weatherSafeForAction()         -@Boolean
-                                                      -weatherGenerator()             -@string  
+                                                      -weatherGenerator()             -@number  
 
 
 User Story 8

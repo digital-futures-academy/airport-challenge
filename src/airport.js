@@ -83,6 +83,9 @@ class Airport {
         return this.weatherSafeForAction
     }
 
+    // required for test as random number generator is not predictable. However can be use to set manually or as a result of generator output
+    // i.e over x amount send true, otherwise false
+
     setWeatherSafeForAction(boolInput) {
         this.weatherSafeForAction = boolInput;
     }
