@@ -40,6 +40,7 @@ I would like a default airport capacity that can be overridden as appropriate
 #### Tests
 1. There is an `airportCapacity @number` that can be called - default capacity
 2. When `modifyAirportCapacity` is called, `airportCapacity @number` changes to expected number.
+3. `modifyAirportCapacity` can only change airport capacity to an integer
 
 
 ### User Story 3
