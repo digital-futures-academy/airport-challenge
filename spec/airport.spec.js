@@ -101,7 +101,7 @@ describe('Airport Tests: ', () => {
         const actual = airport.isPlaneAtAirport(plane1);
         // Expect this
         expect(actual).toEqual(false);
-    })
+    });
 
     it('Test that plane\'s departure is confirmed by checking its status.', () => {
         // Given that
@@ -111,7 +111,7 @@ describe('Airport Tests: ', () => {
         const actual = () => airport.takeOff(plane);
         // Expect this
         expect(actual).toThrow(new Error("You cannot take off a plane when the airport has 0 planes on land or the plane id is not at the airport."));
-    })
+    });
 
     it('Test that you cannot instruct a plane to take off if its id is not in the airportPlanes array.', () => {
         // Given that
@@ -123,5 +123,18 @@ describe('Airport Tests: ', () => {
         const actual = () => airport.takeOff(plane1);
         // Expect this
         expect(actual).toThrow(new Error("You cannot take off a plane when the airport has 0 planes on land or the plane id is not at the airport."));
+    });
+
+    it('Test that you cannot land a plane with the same id', () => {
+        // Given that
+        const airport = new Airport();
+        const plane = new Plane(2);
+        // When this happens
+        airport.land(plane);
+        airport.land(plane);
+        const actual = airport.getAirportPlaneCount();
+        // Expect this
+        expect(actual).toEqual(1);
     })
+
 })

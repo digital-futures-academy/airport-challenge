@@ -3,7 +3,7 @@ class Airport {
     #defaultCapacity = 5;
 
     land(plane) {
-        if (this.airportIsFull()) {
+        if (this.airportIsFull() || this.isPlaneAtAirport(plane)) {
             return this.#airportPlanes.length;
         }
         this.#airportPlanes.push(plane);
