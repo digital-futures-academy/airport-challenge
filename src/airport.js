@@ -5,17 +5,20 @@ class Airport {
 
     maxCapacity;
     landedPlanes;
-    #currentWeather
+    #currentWeather;
+    #airportId
 
-    constructor(maxCapacity = 1, landedPlanes = []) {
+    constructor(maxCapacity = 1, landedPlanes = [], airportId = 'no id') {
         this.maxCapacity = maxCapacity;
         this.landedPlanes = landedPlanes;
         this.#currentWeather = undefined;
+        this.#airportId = airportId;
     };
 
     landPlane(plane) {
         if (this.validLandState(plane)) {
             this.landedPlanes.push(plane);
+            plane.setAirportId(this.#airportId);
         }
     };
 
@@ -33,7 +36,7 @@ class Airport {
         if (this.#currentWeather !== 'stormy') {
             const index = this.landedPlanes.indexOf(plane);
             this.landedPlanes.splice(index, 1);
-        }
+        };
     };
 
     getPlaneId(plane) {
@@ -55,6 +58,27 @@ class Airport {
         return this.#currentWeather;
     };
 
+    airportControl(plane, action) {
+        if (action === 'land') {
+            if (this.validLandState(plane)) {
+                this.landPlane(plane);
+            };
+        };
+        if (action === 'takeoff') {
+            if (this.#currentWeather !== 'stormy') {
+                this.planeTakeOff(plane);
+            };
+        };
+    };
+
+    getAirportId() {
+        return this.#airportId;
+    };
+
+
+    setAirportId(id) {
+        this.#airportId = id;
+    };
 
     //refactoring purposes
     //this function is extremely messy but it's purpose is to clean up the above landPlane() method

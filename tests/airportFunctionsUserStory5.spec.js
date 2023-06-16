@@ -13,15 +13,15 @@ const airport1 = new Airport;
 const plane1 = new Plane('test flight SE-2306-a');
 
 
-//Test 1: landingActor() returns false, meaning landPlanes is not called, due to a plane already have landed
-console.log('Test 1: landingActor() returns false, meaning landPlanes is not called, due to a plane already have landed');
+//Test 1: airportControl() does not land plane because it already exists, thus not calling landPlanes()
+console.log('Test 1: airportControl() does not land plane because it already exists, thus not calling landPlanes()');
 //Arrange
 input1 = plane1;
 airport1.capacityMutator(3);
-expectedOutput = true
+expectedOutput = 1
 //Act
-airport1.landingActor(input1);
-actualOutput = airport1.landingActor(input1);
+airport1.airportControl(input1, 'land');
+actualOutput = airport1.landedPlanes.length;
 //Assert
 result = assertEquals(expectedOutput, actualOutput);
 console.log(`-----> ${result ? 'PASS' : 'FAIL'} | Expected ${expectedOutput} : Received ${actualOutput} <----- \n`);
@@ -29,5 +29,5 @@ console.log(`-----> ${result ? 'PASS' : 'FAIL'} | Expected ${expectedOutput} : R
 expectedOutput, result, actualOutput, input = undefined;
 airport1.capacityMutator(1);
 
-//##############################################################################
+//##################################################################################################
 

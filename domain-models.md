@@ -66,9 +66,7 @@ Function: don't remove planes that are not in the array (redundant?) and not all
 
 Objects | Properties | Messages | Output
 --------|------------|----------|-------
-airport | landedPlanes @Array\[@Id\], toTakeOffPlanes @ Array\[@Id\]           | planeTakeOff() | @boolean
-plane   | Id            |          |
-
+airport | landedPlanes @Array\[@Id\]     | airportControl() | @void
 
 
 ## Extended Criteria 
@@ -95,6 +93,13 @@ I want to prevent landing when weather is stormy"
 
 Function: if stormy, don't add plane to array
 
+Objects | Properties | Messages | Output
+--------|------------|----------|-------
+airport |landedPlanes @Array\[@Id\], weather @String            | isStormy() | @boolean
+plane   | Id            |          |
+weather | currentWeather@String, validWeatherStates@Array\[@String\] | getWeather(), setCurrentWeather() | @string
+
+
 ### EC 3 
 
 "As an air traffic controller
@@ -102,3 +107,7 @@ To count planes easily
 Planes that have landed must be at an airport"
 
 Function: planes that land should be in an array (shouldn't this be the case)
+
+Objects | Properties | Messages | Output
+--------|------------|----------|-------
+plane   | Id, airportId @String            | getAirport(), setAiport()          | @string
