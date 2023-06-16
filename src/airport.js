@@ -71,6 +71,9 @@ class Airport {
         return !this?.isAirportFull() && plane?.inFlight && !this.checkPlaneAtAirport(plane)
     }
 
+    numberOfPlanesAtAirport() {
+        return this.getListOfPlanesAtAirport.length
+    }
 
 
 }
