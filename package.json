@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "node specRunner.js"
+    "test": "node --experimental-vm-modules specRunner.js"
   },
-  "author": "dearshrewdwit",
+  "author": "Mustak",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.22.0"
+    "@babel/eslint-parser": "^7.22.5",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.27.5",
+    "jasmine": "^5.0.1"
+  },
+  "directories": {
+    "test": "test"
   }
 }
