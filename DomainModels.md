@@ -89,7 +89,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 #### Tests
 1. `takeOff(@Plane)` should remove one plane from `airportPLaneList`
-2. `takeOff(@Plane)` should remove a given plane (check id) from `airportPLaneList`
+2. `takeOff(@Plane)` should remove a given plane (check id) from `airportPLaneList` (omit for now)
 3. `planeInAirport` should return true if that plane is in `airportPLaneList`
 4. `planeInAirport` should return false if that plane is not in `airportPlaneList`
 

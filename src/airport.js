@@ -23,6 +23,15 @@ class Airport {
         return this.airportPlaneList.length >= this.airportCapacity ? true : false;
     }
 
+    takeOff(plane) {
+        let planeIndex = this.airportPlaneList.indexOf(plane);
+        this.airportPlaneList.splice(planeIndex, 1);
+    }
+
+    planeInAirport(plane) {
+        if (this.airportPlaneList.includes(plane)) return true;
+    }
+
 
 }
 

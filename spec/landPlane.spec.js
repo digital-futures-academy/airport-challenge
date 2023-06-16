@@ -28,7 +28,6 @@ result = assertEquals(actual, expected);
 console.log(``);
 console.log(`Test 1.1: 1 plane added to airport: ${result}`);
 console.log(`Test 1.1: ${result ? `PASS` : `FAIL`}`);
-console.log(airport.airportPlaneList);
 console.log(``);
 console.log(``);
 
