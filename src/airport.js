@@ -6,7 +6,7 @@ class Airport {
 
 
     landPlane(plane) {
-        if (this.isAirportFull = false) {
+        if (this.isAirportFull() === false) {
             this.airportPlaneList.push(plane);
         } else {
             throw this.landingError;

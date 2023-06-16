@@ -85,7 +85,7 @@ try {
     airport.landPlane(plane2);
 }
 catch (error) {
-    console.log(`${landingError}`);
+    console.log(`landingError`);
 }
 expected = 1;
 
