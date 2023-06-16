@@ -18,10 +18,19 @@ require('./tests/airportFunctionsUserStory3.spec')
 console.log('Testing UserStory 4 functionality:\n==================================')
 require('./tests/airportFunctionsUserStory4.spec')
 
+//User story 5
+console.log('Testing UserStory 5 functionality:\n==================================')
+require('./tests/airportFunctionsUserStory5.spec')
+
 //Extended Criteria User story 1
 console.log('Extended Criteria User story 1 functionality:\n==================================')
 require('./tests/extendedCriteria1.spec');
 
-//Extended Criteria User story 1
-console.log('Extended Criteria User story 1 functionality:\n==================================')
+//Extended Criteria User story 2
+console.log('Extended Criteria User story 2 functionality:\n==================================')
 require('./tests/extendedCriteria2.spec');
+
+
+//Extended Criteria User story 3
+console.log('Extended Criteria User story 3 functionality:\n==================================')
+require('./tests/extendedCriteria3.spec');

@@ -4,6 +4,10 @@
 // To count planes easily
 // Planes that have landed must be at an airport
 
+//perhaps:
+//  -each plane has a id of the airport is has landed at, give each airport a unique id similar to the plane
+//  -planed has an airportID setter and the network class sees if each plane has landed at the corerct airport id
+
 const { assertEquals } = require('./test-framework');
 const Airport = require('../src/Airport');
 const Plane = require('../src/Plane');
@@ -12,14 +16,14 @@ const Weather = require('../src/Weather');
 let actualOutput, expectedOutput, result, input;
 const airport1 = new Airport;
 const plane1 = new Plane('test flight SE-2306-a')
-const weather = new Weather()
 
-//Test 1: Weather class returns the current weather
-console.log('Test 1: Weather class returns the current weather');
+//Test 1: Plane has landed
+console.log('Test 1: Plane has landed');
 //Arrange
-expectedOutput = undefined;
+expectedOutput = 1;
+airport1.landPlane(plane1);
 //Act
-actualOutput = weather.getWeather();
+actualOutput = airport1.landedPlanes.length;
 //Assert
 result = assertEquals(expectedOutput, actualOutput);
 console.log(`-----> ${result ? 'PASS' : 'FAIL'} | Expected ${expectedOutput} : Received ${actualOutput} <----- \n`);

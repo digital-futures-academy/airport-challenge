@@ -55,11 +55,12 @@ class Airport {
         return this.#currentWeather;
     };
 
+
     //refactoring purposes
     //this function is extremely messy but it's purpose is to clean up the above landPlane() method
     validLandState(plane) {
         let validToLand = false;
-        if (!this.isFull() && plane.getId() !== 'no id' && this.duplicateLandId(plane) === false && this.#currentWeather !== 'stormy') {
+        if (!this.isFull() && plane?.getId() !== 'no id' && this.duplicateLandId(plane) === false && this.#currentWeather !== 'stormy') {
             validToLand = true;
         };
         return validToLand;

@@ -33,3 +33,26 @@ console.log(`-----> ${result ? 'PASS' : 'FAIL'} | Expected ${expectedOutput} : R
 expectedOutput, result, actualOutput, input = undefined;
 
 //###################################################################################################
+
+//Test 2: only plane with correct id is removed
+console.log('Test 2: only plane with correct id is removed');
+//Arrange
+const plane2 = new Plane('taking off')
+input1 = plane1;
+input2 = plane2;
+airport1.capacityMutator(3);
+airport1.landPlane(input1);
+airport1.landPlane(input2);
+expectedOutput = 1
+//Act
+airport1.planeTakeOff(input2);
+actualOutput = airport1.landedPlanes.length;
+//Assert
+result = assertEquals(expectedOutput, actualOutput);
+console.log(`-----> ${result ? 'PASS' : 'FAIL'} | Expected ${expectedOutput} : Received ${actualOutput} <----- \n`);
+//Clean Up
+expectedOutput, result, actualOutput, input = undefined;
+airport1.capacityMutator(1);
+
+//##############################################################################
+
