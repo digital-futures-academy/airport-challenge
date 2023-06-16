@@ -153,7 +153,36 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Check plane with same ID can not be requested to land if a plane with same ID already exists in airport array. For simplicity, making airport capacity 3 
 
+//arrange
+
+expected = 1;
+plane1 = new Plane('A1', true);
+plane2 = new Plane('A1', true);
+plane3 = new Plane('B2', true);
+airport = new Airport();
+
+//act
+
+airport.airportMaxCapacity(3);
+airport.instructToLand(plane1);
+airport.instructToLand(plane2);
+airport.instructToLand(plane3);
+actual = airport.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 6 - Duplicate play IDs can not be added therefore array length should be 2 ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
 
 console.log('----------------------------------');
 

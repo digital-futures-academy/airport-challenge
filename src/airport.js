@@ -24,7 +24,7 @@ class Airport {
 
 
     instructToLand(plane) {
-        if (this.isAirportFull() === false && plane.inFlight === true) {
+        if (this?.isAirportFull() === false && plane?.inFlight === true) {
             //this.listOfPlanesAtAirport.push(plane);
             this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
             plane.setInFlight(false)
@@ -54,21 +54,29 @@ class Airport {
         this.listOfPlanesAtAirport = this.listOfPlanesAtAirport.filter(findPlanes);
 
         function findPlanes(foundPlane) {
-            if (foundPlane.getPlaneID() != plane.getPlaneID()) {
-                plane.setInFlight(true)
+            if (foundPlane?.getPlaneID() != plane?.getPlaneID()) {
                 return foundPlane
+            } else {
+                plane.setInFlight(true)
             }
+
         }
 
     }
 
     checkPlaneAtAirport(plane) {
-        return this.listOfPlanesAtAirport.some(planesInAirportList => planesInAirportList.planeID === plane.planeID);
+        return this.listOfPlanesAtAirport.some(planesInAirportList => planesInAirportList?.planeID === plane?.planeID);
+    }
+
+    preLandChecks(plane) {
+        plane.checkInputIsAPlaneObject()
     }
 
 
 
 }
+
+
 
 module.exports = {
     Airport,

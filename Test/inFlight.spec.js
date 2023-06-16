@@ -1,3 +1,4 @@
+const { Airport } = require(`../src/Airport.js`);
 const { assertEquals } = require(`./testingFramework`);
 const { Plane } = require(`../src/Plane.js`);
 
@@ -43,6 +44,62 @@ actual = plane.getInFlight();
 
 result = assertEquals(actual, expected);
 console.log(`Test 2 - Plane A1 is in flight -  true ?(setter use to change property) ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Check landing a plane changes in Flight status to false 
+
+//arrange
+
+expected = false;
+plane = new Plane('A1', true);
+airport = new Airport();
+
+//act
+
+airport.instructToLand(plane);
+actual = plane.getInFlight();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 3 - Plane A1 is grounded so in flight should be false ? ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Check take off plane changes in Flight status to true 
+
+//arrange
+
+expected = true;
+plane = new Plane('A1', true);
+airport = new Airport();
+
+//act
+
+airport.instructToLand(plane);
+airport.instructToTakeOff2(plane);
+actual = plane.getInFlight();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 4 - Plane A1 is in the air so in flight should be true ? ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
