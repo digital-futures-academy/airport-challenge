@@ -23,18 +23,18 @@ console.log(`Test 1: ${result ? "PASS" : "FAIL"}`);
 console.log("");
 
 
-// Test 2: Instructing the airport to let a plane take off from an empty airport
+// Test 2: Checking the airport is empty and no planes to takeoff
 console.log("Test 2: Instructing the airport to let a plane take off from an empty airport");
 
 // Arrange
-expectedOutput = "Plane take-off failed";
+expectedOutput = "Plane is not at the airport, cannot take off";
 
 // Act
 actualOutput = airport.takeOff(plane);
 
 // Assert
 result = assertEquals(actualOutput, expectedOutput);
-console.log(`Test 2: Instructing the airport to let a plane take off from an empty airport: ${result}`);
+console.log(`Test 2: Checking the airport is empty and no planes to takeoff: ${result}`);
 console.log(`Test 2: ${result ? "PASS" : "FAIL"}`);
 console.log("");
 
@@ -56,5 +56,6 @@ actualOutput = airport.listOfPlanes;
 result = assertEquals(JSON.stringify(actualOutput), JSON.stringify(expectedOutput));
 console.log("Expected Remaining Planes: ", expectedOutput);
 console.log("Actual Remaining Planes: ", actualOutput);
+console.log(`Test 3: Taking off a plane from an airport with multiple planes and checking correct plane is taken off : ${result}`);
 console.log(`Test: Correct plane is taken off: ${result ? "PASS" : "FAIL"}`);
 console.log("");

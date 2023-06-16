@@ -89,6 +89,14 @@ Domain Model
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+Domain Model
+
+| Objects   | Properties                 | Messages           | Outputs              |
+| --------- | -------------------------- | ------------------ | -------              |
+| Airport   |listOfPlanes@Array[@Planes] | isAtAirport(plane) |  @Boolean()          |
+| Plane     |  id@string                 |                    |  @String             |
+
 ```
 
 #### Extended Acceptance Criteria
