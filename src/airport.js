@@ -50,16 +50,19 @@ class Airport {
     // }
 
     instructToTakeOff2(plane) {
+        
+        if (!this.getWeatherSafeForAction) {
 
-        this.listOfPlanesAtAirport = this.listOfPlanesAtAirport.filter(findPlanes);
+            this.listOfPlanesAtAirport = this.listOfPlanesAtAirport.filter(findPlanes);
 
-        function findPlanes(foundPlane) {
-            if (foundPlane?.getPlaneID() != plane?.getPlaneID()) {
-                return foundPlane
-            } else {
-                plane.setInFlight(true)
+            function findPlanes(foundPlane) {
+                if (foundPlane?.getPlaneID() != plane?.getPlaneID()) {
+                    return foundPlane
+                } else {
+                    plane.setInFlight(true)
+                }
+
             }
-
         }
 
     }
