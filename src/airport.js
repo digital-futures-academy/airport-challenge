@@ -27,6 +27,7 @@ class Airport {
         if (this.isAirportFull() === false && plane.inFlight === true) {
             //this.listOfPlanesAtAirport.push(plane);
             this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
+            plane.setInFlight(false)
         }
 
     }

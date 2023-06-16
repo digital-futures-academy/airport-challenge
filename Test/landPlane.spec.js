@@ -147,6 +147,32 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Landing a grouded plane using instructToLand() method, does not increase list of planes at airport (array) by 1 (program should prevent request to land plane that is grouded). 
+
+//arrange
+
+expected = 0;
+plane = new Plane('A1', false);
+airport = new Airport();
+
+//act
+
+airport.instructToLand(plane);
+actual = airport.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 5 - Plane is grounded so cant be asked to land therefore array equals 0 ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 
 
 console.log('----------------------------------');
