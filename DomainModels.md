@@ -65,7 +65,7 @@ I want to prevent landing when the airport is full
 1. `isAirportFull` returns true if `airportPlaneList` amount is equal to `airportCapacity @number`
 2. `isAirportFull` returns false if `airportPlaneList` is less than `airportCapacity @number`
 3. If `isAirportFull` is true, then `landPlane(@Plane)` will not modify `airportPlaneList @Array`
-4. If `isAirportFull` is true and `landPlane(@Plane)` is called, then an error is thrown.
+4. If `isAirportFull` is true and `landPlane(@Plane)` is called, then an error is thrown. (I anticipate this will require refactoring of test 3)
 
 ### User Story 4
 
