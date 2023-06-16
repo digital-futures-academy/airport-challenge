@@ -30,7 +30,7 @@ class Airport {
     }
     isCapacityFormatError(newCapacity) {
         if (!(typeof newCapacity === "number" && Number.isInteger(newCapacity))) {
-            throw this.isCapacityFormatError;
+            throw this.capacityFormatError;
         }
     }
     isInAirportError(plane) {
