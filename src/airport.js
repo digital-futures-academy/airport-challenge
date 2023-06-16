@@ -18,6 +18,10 @@ class Airport {
     getCapacity() {
         return this.#capacity;
     }
+
+    setCapacity(newCapacity) {
+        this.#capacity = newCapacity;
+    }
 }
 
 export default Airport;
