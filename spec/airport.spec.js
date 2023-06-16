@@ -9,19 +9,26 @@ describe("Airport Class Tests", function () {
     plane = new Plane("A1234");
   });
 
-  afterEach(function () {
-    airport = undefined;
-    plane = undefined;
-  });
+  // afterEach(function () {
+  //   airport = undefined;
+  //   plane = undefined;
+  // });
 
-  describe("should land a plane", function () {
-    it("and add a plane in the list when landPlane is called", function () {
+  // describe("when constructing an airport", function () {
+  //   it("should be initialised with a default capacity.", () => { });
+  //   it("should be possible to override the default capacity.", () => { });
+  // });
+
+  describe("when landing a plane", function () {
+    it("should check if the object to be landed is actually a plane", () => {});
+    it("should check if there is space in the airport to accommodate the plane", () => {});
+    it("should add a plane in the list when landPlane is called", function () {
       airport.landPlane(plane);
 
       expect(airport.listOfPlanes.length).toBe(1);
     });
 
-    it("only if it is a plane", function () {
+    it("should only land if it is a plane", function () {
       const bird = {
         getId() {},
       };
@@ -33,25 +40,25 @@ describe("Airport Class Tests", function () {
 
   describe("should override the default airport capacity", function () {
     it("with the new capacity", function () {
-      airport.overrideCapacity(5);
+      airport.setCapacity(5);
 
       expect(airport.capacity).toBe(5);
     });
 
     it("provided it is an integer", function () {
-      airport.overrideCapacity(5.85);
+      airport.setCapacity(5.85);
 
       expect(airport.capacity).toBe(3);
     });
 
     it("provided it is a positive integer", function () {
-      airport.overrideCapacity(-5);
+      airport.setCapacity(-5);
 
       expect(airport.capacity).toBe(3);
     });
   });
 
-  it("should return true when airport is full", function () {
+  it("calling isFull() should return true when airport is full", function () {
     airport.landPlane(plane);
     airport.landPlane(plane);
     airport.landPlane(plane);

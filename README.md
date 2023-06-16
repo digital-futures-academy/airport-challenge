@@ -58,9 +58,9 @@ I would like a default airport capacity that can be overridden as appropriate
 <!-- what should the default capacity be? -->
 <!-- Check that it does not take negative/non-integer -->
 
-| Object  | Properties        | Message            | Output |
-| ------- | ----------------- | ------------------ | ------ |
-| Airport | capacity @integer | overrideCapacity() | @void  |
+| Object  | Properties        | Message       | Output |
+| ------- | ----------------- | ------------- | ------ |
+| Airport | capacity @integer | setCapacity() | @void  |
 
 
 As an air traffic controller
@@ -80,19 +80,21 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 <!-- Do I need the id? are we needing the specific plane id?  How to confirm? -->
 
-| Object  | Properties          | Message        | Output  |
-| ------- | ------------------- | -------------- | ------- |
-| Airport | listOfPlanes @array | takeOffPlane() |         |
-| Plane   | id @string          | getId()        | @string |
+| Object  | Properties                  | Message        | Output  |
+| ------- | --------------------------- | -------------- | ------- |
+| Airport | listOfPlanes @array[@Plane] | takeOffPlane() |         |
+| Plane   | id @string                  | getId()        | @string |
 
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-| Object  | Properties          | Message        | Output   |
-| ------- | ------------------- | -------------- | -------- |
-| Airport | listOfPlanes @array | isPlaneExist() | @boolean |
-| Plane   | id @string          | getId()        | @string  |
+| Object  | Properties                  | Message        | Output   |
+| ------- | --------------------------- | -------------- | -------- |
+| Airport | listOfPlanes @array[@Plane] | isPlaneExist() | @boolean |
+|         |                             | landPlane()    | @void    |
+|         |                             | takeOffPlane() | @void    |
+| Plane   | id @string                  | getId()        | @string  |
 
 ```
 
@@ -104,24 +106,49 @@ I want to prevent takeoff when weather is stormy
 
 <!-- Do i need airport/plane here?  -->
 
-| Object  | Properties             | Message          | Output   |
-| ------- | ---------------------- | ---------------- | -------- |
-| Weather | currentWeather @string | isStormy()       | @boolean |
-| Airport |                        | takeoffAllowed() | @boolean |
+| Object  | Properties             | Message      | Output   |
+| ------- | ---------------------- | ------------ | -------- |
+| Weather | currentWeather @string | isStormy()   | @boolean |
+| Airport |                        | canTakeOff() | @boolean |
 
 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
-| Object  | Properties             | Message          | Output   |
-| ------- | ---------------------- | ---------------- | -------- |
-| Weather | currentWeather @string | isStormy()       | @boolean |
-| Airport |                        | landingAllowed() | @boolean |
+| Object  | Properties             | Message    | Output   |
+| ------- | ---------------------- | ---------- | -------- |
+| Weather | currentWeather @string | isStormy() | @boolean |
+| Airport |                        | canLand()  | @boolean |
 
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+Plane.status = "LANDED" | "TAKEN_OFF"
+Plane.airportId = null (if .status == "TAKEN_OFF") or the Airport.id
+
+To take off a plane:
+
+1. Remove the plane from the airport's list of planes
+2. Set plane.status = "TAKEN_OFF"
+3. Set plane.airportId = null
+
+To land a plane:
+
+1. Add plane to airport's list of planes
+2. Set plane.status = "LANDED"
+3. Set plane.airportId = Airport.id
+
+const canLand = (weather) => !weather.isStormy()
+
+const landPlane = (plane, weather) => {
+      if !airport.canLand(weather) {
+            return
+      }
+      airport
+}
+
 
 | Object  | Properties          | Message                | Output   |
 | ------- | ------------------- | ---------------------- | -------- |

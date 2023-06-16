@@ -6,12 +6,56 @@ class Airport {
     this.capacity = capacity;
   }
 
+  // canTakeOff(plane, weather) {
+  //   if (this.id !== plane.airportId) {
+  //     return false;
+  //   }
+
+  //   if (!weather.allowTakeOff()) {
+  //     return false;
+  //   }
+
+  //   if (!plane.canTakeOff()) {
+  //     return false;
+  //   }
+  // }
+
+  // canLand(plane, weather) {
+  //   if (!plane.getId()) {
+  //     return false;
+  //   }
+
+  //   if (this.isFull()) {
+  //     return false;
+  //   }
+
+  //   if (!weather.allowLanding()) {
+  //     return false;
+  //   }
+
+  //   if (!plane.canLand()) {
+  //     return false;
+  //   }
+
+  //   return true;
+  // }
+
+  // landPlane(plane, weather) {
+  //   if (!this.canLand(plane, weather)) {
+  //     return;
+  //   }
+
+  //   plane.landAt(this);
+
+  //   this.listOfPlanes = [...this.listOfPlanes, plane];
+  // }
+
   landPlane(plane) {
     if (plane.getId() && !this.isFull())
       this.listOfPlanes = [...this.listOfPlanes, plane];
   }
 
-  overrideCapacity(newCapacity) {
+  setCapacity(newCapacity) {
     if (newCapacity > 0 && Number.isInteger(newCapacity))
       this.capacity = newCapacity;
   }
