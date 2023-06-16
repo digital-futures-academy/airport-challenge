@@ -29,9 +29,8 @@ Steps
 
 1. Fork this repo, and clone to your local machine
 2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+3. Tests can be run by using `npm test` or `node specRunner.js`
+4. The index.js file can be run using `node src/index.js.`
 
 Task
 -----
@@ -50,9 +49,8 @@ Domain Model
 | ---------- | ---------------------------- | --------------------------------  | -------- |
 |  Plane     | id @strong                   | getId()                           | @string  |
 |  Airport   | landedPlanes @Array[@Planes] | landPlane(@Plane)                 | @void    |
-|            | maxCapacity @int             | isAirportFull()                   | @boolean |
-|            | weather @Weather             | isWeatherStormy()                 | @boolean |
-|            |                              | checkPlaneAtAirport(@Plane.getId) | @boolean |
+|            | maxCapacity @int             | checkPlaneCanLand()               | @boolean |
+|            | weather @Weather             | checkPlaneAtAirport(@Plane.getId) | @boolean |
 |  Weather   | weatherConditions @String    | isWeatherStormy()                 | @boolean |
 
 As the system designer

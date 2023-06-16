@@ -26,10 +26,22 @@ class Airport {
         this.#landedPlanes = array;
     }
 
+    checkPlaneCanLand() {
+        return !this.isAirportFull() && !this.isWeatherStormy();
+    }
+    /* Not overly happy with how I implemented landPlane to include all the conditions before adding a plane to the array
+    Changed it from a single if statement:
+    if(planeToAdd?.getId() && !this.isAirportFull() && !this.isWeatherStormy() && !this.checkPLaneAtAirport(planeToAdd))
+    To a nested if statement which uses checkPlaneCanLand() to handle both capacity and weather conditions.
+    Feels it's still doing the same as before just not on one line.
+     */
+
     landPlane(planeToAdd) {
-        if (planeToAdd?.getId() && !this.isAirportFull() && !this.checkPlaneAtAirport(planeToAdd.getId()) && !this.isWeatherStormy()) {
-            this.#landedPlanes = [...this.#landedPlanes, planeToAdd];
-            planeToAdd.setLanded(true);
+        if (planeToAdd?.getId() && !this.checkPlaneAtAirport(planeToAdd.getId())) {
+            if (this.checkPlaneCanLand()) {
+                this.#landedPlanes = [...this.#landedPlanes, planeToAdd];
+                planeToAdd.setLanded(true);
+            }
         }
     }
 
@@ -42,6 +54,10 @@ class Airport {
     isAirportFull() {
         return this.#landedPlanes.length >= this.#maxAirportCapacity;
     }
+
+    /* Similar issue to landPlane, takeoffPlane has 3 chained conditions in a single if statement.
+    Could refactor like I did with with landPlane but feel I still feel there will be a smell about it.
+    */
 
     takeoffPlane(planeToRemove) {
         if (planeToRemove?.getId() && this.checkPlaneAtAirport(planeToRemove.getId()) && !this.isWeatherStormy()) {

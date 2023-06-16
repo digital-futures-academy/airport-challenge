@@ -9,3 +9,4 @@ require('./spec/airportTakeoffPlane.spec');
 require('./spec/airportCheckPlaneAtAirport.spec');
 require('./spec/airportIsWeatherStormy.spec');
 require('./spec/planeLanded.spec');
+require('./spec/airportCanLandPlane.spec');
