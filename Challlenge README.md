@@ -37,7 +37,9 @@ This file will contain the domain models for the user stories as well as any oth
 | Plane             | id @Number                    | getId()           | @Number       |
 
 **Tests**
-    1. Test to verify that when you create an airport object without specifying capacity, it uses the specified capacity.
+    1. Test to verify that when you create an airport object without specifying capacity, it uses the specified capacity. - Test Done
+    2. Test to override the default capacity - test where you create a new airport object and set a custom capacity. Assert that the airport will use that capacity instead of the default one.- Test Done
+    3. Test valid capacity values, for example the minimum capacity an airport should have to qualify as an airport is one plane, you should not have a number lower than this.
 
 
 ##### User Story 3:

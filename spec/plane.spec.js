@@ -2,11 +2,11 @@ import Plane from "../src/Plane.js";
 
 describe("Plane Tests: ", () => {
     it("Tests that plane has an id.", () => {
-        // Arrange
+        // Given that
         const plane = new Plane(1);
-        // Act
+        // When this happens
         const actual = plane.getId();
-        // Assert
+        // expect this
         expect(actual).toEqual(1);
     })
 })
