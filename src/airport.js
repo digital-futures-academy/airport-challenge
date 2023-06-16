@@ -4,6 +4,7 @@ class Airport {
         this.airportID = airportID;
         this.listOfPlanesAtAirport = [];
         this.airportMaxCapacity = 2;
+        this.weatherSafeForAction = true;
     }
 
     get getAirportID() {
@@ -73,6 +74,14 @@ class Airport {
 
     numberOfPlanesAtAirport() {
         return this.getListOfPlanesAtAirport.length
+    }
+
+    getWeatherSafeForAction() {
+        return this.weatherSafeForAction
+    }
+
+    setWeatherSafeForAction(boolInput) {
+        this.weatherSafeForAction = boolInput;
     }
 
 
