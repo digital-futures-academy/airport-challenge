@@ -41,6 +41,7 @@ Tests
 - changeAirportCapacity throws an error if a non number is used
 - //changeAirportCapacity only changes airportCapacity to an integer
 - changeAirportCapacity throws an error if a non integer is used
+
 ===========================================================================
 
 User Story 3
