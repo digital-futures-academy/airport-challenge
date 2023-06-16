@@ -10,7 +10,7 @@ class Airport {
     }
 
     addPlane(plane) {
-        if (plane !== undefined && !this.isAirportFull() && !this.isAtAirport()) {
+        if (plane !== undefined && !this.isAirportFull() && !this.isAtAirport() && this.stormy === false) {
             this.airportPlanes.push(plane);
         }
     }
@@ -24,7 +24,7 @@ class Airport {
         return this.airportCapacity === this.airportPlanes.length;
     }
     takeOff(plane) {
-        if (this.isAtAirport(plane)) {
+        if (this.isAtAirport(plane) && this.stormy === false) {
             let index = this.airportPlanes.indexOf(plane);
             if (index !== -1) {
                 this.airportPlanes.splice(index, 1);
@@ -42,8 +42,11 @@ class Airport {
     }
     isStormy() {
         let weather = Math.random();
-        if (weather < 0.5) {
-            this.stormy = true
+        if (weather < 0.2) {
+            this.stormy = true; return 'It is stormy, Do not land.';
+        }
+        else {
+            return 'The weather is clear, continue landing.';
         }
     }
 

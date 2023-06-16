@@ -4,7 +4,7 @@ import Plane from "../src/Plane.js";
 
 describe('isStormy tests', () => {
 
-    let plane, airport, actual, expected;
+    let plane, airport, actual, expected, noOfPlanes;
 
     // Set Up before every test
     beforeEach(() => {
@@ -14,6 +14,7 @@ describe('isStormy tests', () => {
         airport.addPlane('Plane - 2');
         airport.addPlane('Plane - 3');
         airport.addPlane('Plane - 4');
+        noOfPlanes = 4
 
     });
 
@@ -45,16 +46,49 @@ describe('isStormy tests', () => {
 
     //=====================TEST2====================\\
 
-    it('when isStorm is called does it return a boolean', () => {
+    it('when isStorm is called does it return true or false', () => {
 
         // Arrange
         airport.isStormy()
 
         // Act
-        const testFunction = airport.stormy;
 
         // Assert
-        expect(testFunction).toBeFalse;
+        expect(airport.stormy).toBeDefined
+
+    });
+
+
+    //=====================TEST3====================\\
+
+    it('a plane does not takeOff if isStormy is true', () => {
+
+        // Arrange
+        airport.stormy = true;
+
+        // Act
+        airport.takeOff('Plane-1');
+
+
+        // Assert
+        expect(airport.airportPlanes.length).toBe(noOfPlanes)
+
+    });
+
+
+    //=====================TEST3====================\\
+
+    it('a plane does not land if isStormy is true', () => {
+
+        // Arrange
+        airport.stormy = true;
+
+        // Act
+        airport.addPlane('stormy-plane');
+
+
+        // Assert
+        expect(airport.airportPlanes.length).toBe(noOfPlanes)
 
     });
 });

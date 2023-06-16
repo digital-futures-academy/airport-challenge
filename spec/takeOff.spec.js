@@ -57,6 +57,7 @@ describe('TakeOff Tests', () => {
         airport.addPlane('Plane - 3')
         airport.addPlane('Plane - 4')
         airport.addPlane('Plane - 5')
+
         airport.takeOff(airport.airportPlanes[2]);
 
         // Act
