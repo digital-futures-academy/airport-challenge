@@ -13,7 +13,9 @@ class Plane {
         return this.inFlight;
     }
 
-
+    setInFlight(status) {
+        this.inFlight = status;
+    }
 
 }
 

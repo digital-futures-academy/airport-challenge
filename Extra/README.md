@@ -175,7 +175,8 @@ As an air traffic controller
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 To avoid confusion
 
-I think splitting the user story into 2 parts helps with clarity and precise functionality. However both can be done with same Model
+I think splitting the user story into 2 parts helps with clarity and precise functionality. However both can be done with same Model.
+This however will require going back to land and takeoff tests since new property (inFlight) will determine if method calls are allowed
 
 User Story 5.1
 
