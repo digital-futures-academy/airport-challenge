@@ -3,6 +3,8 @@ const { assertEquals } = require(`./testingFramework`);
 const { Plane } = require(`../src/Plane.js`);
 
 console.log('Plane At Airport Tests');
+
+// In future could have an array of airports with different IDS and perform check on specific airports but thats outside of requirements
 console.log('----------------------------------');
 
 // Setup by adding plane initially to make airport list array. Then search for the plane by ID within the airport list. Plane exists so method will return true. 
