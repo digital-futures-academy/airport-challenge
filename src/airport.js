@@ -1,26 +1,29 @@
-const airportCapacity = 100;
 const airport = {
     planeLanded: [],
-    airportCapacity,
+    defaultAirportCapacity: 3,
 
     land: function (plane) {
-        return (this.isFull() || this.planeLanded.includes(plane) ? false : (this.planeLanded.push(plane), true));
+        if (this.planeLanded.length >= this.defaultAirportCapacity || this.planeLanded.includes(plane)) {
+            return false;
+        } else {
+            this.planeLanded.push(plane);
+            return true;
+        }
     },
-    setMax: function (capacity) {
-        this.airportCapacity = capacity;
-    },
-    isFull: function () {
-        return this.planeLanded.length === this.airportCapacity;
+    updateCapacity: function (newCapacity) {
+        this.defaultAirportCapacity = newCapacity;
+        return this.defaultAirportCapacity;
+
     },
     takeOff: function (plane) {
-        if (!this.planeLanded.includes(plane)) {
+        if (plane.isPlaneFlying() || !plane.isAtAirport()) {
             return false;
         }
         const index = this.planeLanded.indexOf(plane);
         if (index !== -1) {
             this.planeLanded.splice(index, 1);
             return true;
-        }
+        };
     },
 };
 
