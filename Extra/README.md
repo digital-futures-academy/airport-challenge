@@ -197,3 +197,41 @@ To avoid confusion
 
 
 
+Extended   
+
+User story 6
+
+As an air traffic controller
+I want to prevent takeoff when weather is stormy
+To ensure safety
+
+User Story 7 
+
+As an air traffic controller
+I want to prevent landing when weather is stormy
+To ensure safety
+
+I have made the decision that each airport would have its own weather monitoring equipment, therefore weather should be airport based. 
+Also both stories can be 
+
+-Objects;     -Properties;                            -Messages;                      -Output;
+
+-Airport      -weatherSafeForAction                   -weatherSafeForAction()         -@Boolean
+                                                      -weatherGenerator()             -@string  
+
+
+User Story 8
+
+As an air traffic controller
+Planes that have landed must be at an airport
+To count planes easily   
+
+Each plane will have a location - at airport or in sky. This means variable could be scaled to deal with in storage or maintenance in the future
+
+
+-Objects;     -Properties;                            -Messages;                      -Output;
+
+-Airport      -numberOfPlanesAtAirport                -numberOfPlanesAtAirport()      -@Number
+
+-Plane        -planeLocation                          -setPlaneLocation(@String)      -@void                                                     
+
