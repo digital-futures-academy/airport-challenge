@@ -34,8 +34,8 @@ class Airport {
     takeOff(plane) {
         const indexPlane = this.#airportPlanes.indexOf(plane);
         this.#airportPlanes.splice(indexPlane, 1);
-        if (!this.takeOffValidator()) {
-            throw new Error("You cannot take off a plane when the airport has 0 planes on land.");
+        if (!this.takeOffValidator() || !this.isPlaneAtAirport) {
+            throw new Error("You cannot take off a plane when the airport has 0 planes on land or the plane id is not at the airport.");
         }
     }
 
