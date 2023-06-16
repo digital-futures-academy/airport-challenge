@@ -59,5 +59,38 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Setup by adding 3 planes initially to make airport list array ( going to change max capacity to 3). Search for second plane to ensure method is comparing actual elements and not just returning first or last element
+
+//arrange
+
+expected = true;
+plane1 = new Plane('A1');
+plane2 = new Plane('B2');
+plane3 = new Plane('C3');
+airport = new Airport();
+
+//act
+
+airport.setAirportMaxCapacity(3);
+airport.instructToLand(plane1);
+airport.instructToLand(plane2);
+airport.instructToLand(plane3);
+actual = airport.checkPlaneAtAirport(plane2);
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 3 - Plane B2 is at the airport so check is true ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 
 console.log('----------------------------------');
