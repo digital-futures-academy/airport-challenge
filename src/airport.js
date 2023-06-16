@@ -1,7 +1,7 @@
 const airport = {
     landedPlanes: [],
     defaultAirportCapacity: 10,
-    // airportCapacity: 0,
+
 
     modifyAirportCapacity: function (amount)
     {
@@ -10,19 +10,21 @@ const airport = {
 
     },
 
-    isAirportFull: function ()
+
+
+    isAirportFull: function () 
     {
         return this.landedPlanes.length > this.defaultAirportCapacity
 
     },
 
-    // airportCapacity: this.isAirportFull,
     landPlanes: function (planes)
     {
-        // if (airportCapacity)
-        // {
-        //     return this.landedPlanes
-        // }
+        if (this.isAirportFull())
+        {
+            return `Airport at full capacity`
+        }
+
         this.landedPlanes = [...this.landedPlanes, planes]
 
     },
