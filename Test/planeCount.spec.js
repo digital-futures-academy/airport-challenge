@@ -78,25 +78,124 @@ result = undefined;
 
 
 // extended criteria:
-// Setup by adding 2 planes initially to 2 instances of airport list arrays.Call method that returns number of planes from each airport and add them. Expect 4
+// When created an instance of plane is created, it has default 'Location' value of 'In Flight'
+
+//arrange
+
+expected = 'In Flight';
+
+plane = new Plane('D4', true);
+
+//act
+
+actual = plane.getLocation();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 3 - Check 'Location' of plane is 'In Flight' during a flight/not grounded at airport ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// extended criteria:
+// Land plane to check 'Location' changes to 'At Airport'
 
 //arrange
 
 expected = 'At Airport';
 
 plane = new Plane('D4', true);
-airport = new Airport('Miami');
-
+airport = new Airport('Madrid');
 
 //act
 
 airport.instructToLand(plane);
-actual = plane.getLocation;
+actual = plane.getLocation();
 
 //assert
 
 result = assertEquals(actual, expected);
-console.log(`Test 3 - Check 'Location' of plane is changed to 'At airport' when grounded ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 4 - Check 'Location' of plane is 'At Airport' since grounded at airport ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// extended criteria:
+// Land plane then take off to check that 'Location' is being updated on take off too
+
+//arrange
+
+expected = 'In Flight';
+
+plane = new Plane('D4', true);
+airport = new Airport('Madrid');
+
+//act
+
+airport.instructToLand(plane);
+airport.instructToTakeOff2(plane);
+actual = plane.getLocation();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 5 - Check 'Location' of plane is 'In Flight' since it has left the airport ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// extended criteria:
+// To show possibilites - going to make 5 planes and add them to an array, then count number of 'At Airport'. Expect this to be 2 as they will have been giving land command
+
+//arrange
+
+expected = 2;
+
+plane1 = new Plane('A1', true);
+plane2 = new Plane('B2', true);
+plane3 = new Plane('C3', true);
+plane4 = new Plane('D4', true);
+plane5 = new Plane('E5', true);
+
+airport = new Airport('Madrid');
+
+planeArray = [plane1, plane2, plane3, plane4, plane5]
+
+//act
+
+airport.instructToLand(plane2);
+airport.instructToLand(plane4);
+
+count = 0;
+planeArray.forEach(planeInArray);
+
+function planeInArray(landedPlane) {
+
+    if (landedPlane.getLocation() === 'At Airport') {
+        count += 1
+    }
+}
+
+actual = count;
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(actual);
+console.log(`Test 6 - Only two of the created planes have landed therefore count should be 2 ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
@@ -104,8 +203,8 @@ plane1 = undefined;
 plane2 = undefined;
 plane3 = undefined;
 plane4 = undefined;
-airport1 = undefined;
-airport2 = undefined;
+plane5 = undefined;
+airport = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;

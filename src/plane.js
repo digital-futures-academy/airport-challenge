@@ -5,6 +5,7 @@ class Plane {
     constructor(planeID, inFlight) {
         this.planeID = planeID;
         this.inFlight = inFlight;
+        this.location = 'In Flight'
     }
 
     getPlaneID() {
@@ -17,11 +18,19 @@ class Plane {
 
     setInFlight(status) {
         this.inFlight = status;
+        (status) ? this.setLocation('In Flight') : this.setLocation('At Airport');
     }
 
     static checkInputIsAPlaneObject(input) {
         return input instanceof Plane
+    }
 
+    getLocation() {
+        return this.location;
+    }
+
+    setLocation(location) {
+        this.location = location;
     }
 
 }

@@ -216,7 +216,7 @@ Also both stories can be
 
 -Objects;     -Properties;                            -Messages;                      -Output;
 
--Airport      -weatherSafeForAction                   -weatherSafeForAction()         -@Boolean
+-Airport      -weatherSafeForAction @Boolean           -weatherSafeForAction()         -@Boolean
                                                       -weatherGenerator()             -@string  
 
 
@@ -232,8 +232,7 @@ Plane location will be changed on landing or takeoff to correct status
 
 
 -Objects;     -Properties;                            -Messages;                      -Output;
+-Airport      -numberOfPlanesAtAirport @number        -numberOfPlanesAtAirport()      -@Number
 
--Airport      -numberOfPlanesAtAirport                -numberOfPlanesAtAirport()      -@Number
-
--Plane        -planeLocation                          -setPlaneLocation(@String)      -@void                                                     
+-Plane        -location @string                       -setPlaneLocation(@String)      -@void                                                     
 
