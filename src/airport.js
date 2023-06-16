@@ -5,15 +5,22 @@ class Airport {
     constructor(plane) {
 
         if (typeof plane === 'string' && plane.trim().length > 0) {
-            // this.planesInAirport.push(plane);
+
             this._plane = plane     // new method 
         }
         else {
-            return 'plane ID must be a string'
+            'plane ID must be a string'
         }
 
         this.planesInAirport = [];
     }
+
+
+
+
+
+
+
 
     landPlane() {
 
@@ -26,6 +33,7 @@ class Airport {
         this.planesInAirport = [...this.planesInAirport, this._plane]
 
     }
+
 
     takeoffPlane(plane) {
         if (this.planesInAirport.includes(plane)) {
