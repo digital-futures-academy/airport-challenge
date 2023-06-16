@@ -5,12 +5,19 @@ class Airport {
     }
 
     add(plane) {
-        if (this.airport1.length < this.capacity)    
+        if(!this.confirm(plane))
         {
-            this.airport1.push(plane);
-            //console.log(this.airport1)
-            return this.airport1.length;
+            if (this.airport1.length <= this.capacity-1)    // -1 since index for length start from 0
+            {
+                this.airport1.push(plane);
+                //console.log(this.airport1)
+                return this.airport1.length;
+            }
+            {
+                return false
+            }
         }
+        else
         {
             return false
         }
@@ -24,6 +31,9 @@ class Airport {
             this.airport1.splice(index);
             //console.log(this.airport1)
             return this.airport1.length;
+        }
+        {
+            return false
         }
     }
 
