@@ -5,6 +5,8 @@ class Airport {
     notPlaneError = new Error("Object is not a plane");
     atCapacityError = new Error("The airport is at capacity");
     notAtAirportError = new Error("That plane is not at the airport")
+    capacityFormatError = new Error("Invalid capacity")
+    alreadyLandedPlaneError = new Error("Cannot land an already landed plane")
     constructor(initialListOfPlanes = [], initialCapacity = 3, initialWeather = "Sunny") {
         this.listOfPlanes = initialListOfPlanes;
         this.airportCapacity = initialCapacity;
@@ -20,9 +22,19 @@ class Airport {
             throw this.atCapacityError;
         }
     }
-    isAtAirportError(plane) {
+    isNotInAirportError(plane) {
         if (!this.isPlaneInAirport(plane)) {
             throw this.notAtAirportError;
+        }
+    }
+    isCapacityFormatError(newCapacity) {
+        if (!(typeof newCapacity === "number" && Number.isInteger(newCapacity))) {
+            throw this.isCapacityFormatError;
+        }
+    }
+    isInAirportError(plane) {
+        if (this.isPlaneInAirport(plane)) {
+            throw this.alreadyLandedPlaneError;
         }
     }
     getPlaneIndex(plane) {
@@ -31,23 +43,22 @@ class Airport {
     landPlane(plane) {
         this.isPlaneError(plane);
         this.isAtCapacityError();
-        if (!this.isAirportFull() && !this.isPlaneInAirport(plane) && !this.isItStormy()) {
+        this.isInAirportError(plane);
+        if (!this.isItStormy()) {
             this.listOfPlanes.push(plane);
         }
     };
     changeAirportCapacity(newCapacity) {
-        if (typeof newCapacity === "number" && Number.isInteger(newCapacity)) {
-            this.airportCapacity = newCapacity;
-            return;
-        }
-        throw new Error("Invalid capacity");
+        this.isCapacityFormatError(newCapacity);
+        this.airportCapacity = newCapacity;
+
     };
     isAirportFull() {
         return this.airportCapacity <= this.listOfPlanes.length;
     };
     takeOff(plane) {
         this.isPlaneError(plane);
-        this.isAtAirportError(plane);
+        this.isNotInAirportError(plane);
         if (!this.isItStormy()) {
             this.listOfPlanes.splice(this.getPlaneIndex(plane), 1);
         }

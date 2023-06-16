@@ -170,13 +170,18 @@ console.log(`------------------`);
 console.log(`Test 7: The same plane can't land twice`);
 
 //Arrange
-expected = 1;
+expected = "Cannot land an already landed plane";
 airport.listOfPlanes = [plane1];
 airport.airportCapacity = 3;
 
 //Act
-airport.landPlane(plane1);
-actual = airport.listOfPlanes.length;
+try {
+    airport.landPlane(plane1);
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 
 //Assert
 result = assertEquals(actual, expected);
