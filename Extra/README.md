@@ -212,7 +212,8 @@ I want to prevent landing when weather is stormy
 To ensure safety
 
 I have made the decision that each airport would have its own weather monitoring equipment, therefore weather should be airport based. 
-Also both stories can be 
+Not tying safe/non-safe strictly to sunny/stormy. Leaves room for other types such as windy, snow or ice, which then can be deemed true or false for being safe
+Also both stories can use same model. 
 
 -Objects;     -Properties;                            -Messages;                      -Output;
 

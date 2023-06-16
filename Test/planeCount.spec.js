@@ -3,6 +3,9 @@ const { assertEquals } = require(`./testingFramework`);
 const { Plane } = require(`../src/Plane.js`);
 
 
+console.log('Count Tests');
+console.log('----------------------------------');
+
 // extended criteria:
 // Setup by adding 3 planes initially to make airport list array(going to change max capacity to 5).Call method that returns number of planes
 
@@ -207,3 +210,6 @@ airport = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+console.log('----------------------------------');
