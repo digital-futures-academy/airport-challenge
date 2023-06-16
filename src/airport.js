@@ -4,6 +4,7 @@ class Airport {
     currentWeather;
     notPlaneError = new Error("Object is not a plane");
     atCapacityError = new Error("The airport is at capacity");
+    notAtAirportError = new Error("That plane is not at the airport")
     constructor(initialListOfPlanes = [], initialCapacity = 3, initialWeather = "Sunny") {
         this.listOfPlanes = initialListOfPlanes;
         this.airportCapacity = initialCapacity;
@@ -17,6 +18,11 @@ class Airport {
     isAtCapacityError() {
         if (this.isAirportFull()) {
             throw this.atCapacityError;
+        }
+    }
+    isAtAirportError(plane) {
+        if (!this.isPlaneInAirport(plane)) {
+            throw this.notAtAirportError;
         }
     }
     getPlaneIndex(plane) {
@@ -40,7 +46,9 @@ class Airport {
         return this.airportCapacity <= this.listOfPlanes.length;
     };
     takeOff(plane) {
-        if (this.isPlaneInAirport(plane) && !this.isItStormy()) {
+        this.isPlaneError(plane);
+        this.isAtAirportError(plane);
+        if (!this.isItStormy()) {
             this.listOfPlanes.splice(this.getPlaneIndex(plane), 1);
         }
     };

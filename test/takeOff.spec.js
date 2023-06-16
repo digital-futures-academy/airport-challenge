@@ -58,16 +58,20 @@ actual = undefined;
 console.log(`------------------`);
 
 //Test
-console.log(`Test 3: takeOff doesn't reduce the length of listOfPlanes if the plane isn't there`);
+console.log(`Test 3: takeOff can only be called if the plane is at the airport`);
 
 //Arrange
 airport.listOfPlanes = [plane1];
-expected = 1;
+expected = "That plane is not at the airport";
 
 //Act
-airport.takeOff(plane2);
-actual = airport.listOfPlanes.length;
-
+try {
+    airport.takeOff(plane2);
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 
@@ -82,16 +86,20 @@ actual = undefined;
 console.log(`------------------`);
 
 //Test
-console.log(`Test 4: takeOff doesn't reduce the length of listOfPlanes if the input isn't a plane`);
+console.log(`Test 4: takeOff can only take off planes`);
 
 //Arrange
 airport.listOfPlanes = [plane1, plane2];
-expected = 2;
+expected = "Object is not a plane";
 
 //Act
-airport.takeOff("Not a plane");
-actual = airport.listOfPlanes.length;
-
+try {
+    airport.takeOff("Not a plane");
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 
