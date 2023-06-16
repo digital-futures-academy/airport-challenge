@@ -5,7 +5,7 @@ const { Plane } = require(`../src/Plane.js`);
 console.log('Plane At Airport Tests');
 console.log('----------------------------------');
 
-// Setup by adding plane initially to make airport list array have length of 1. Then search for this plane by ID. Plane exists so method will return true. 
+// Setup by adding plane initially to make airport list array. Then search for the plane by ID within the airport list. Plane exists so method will return true. 
 
 //arrange
 
@@ -21,7 +21,7 @@ actual = airport.checkPlaneAtAirport(plane);
 //assert
 
 result = assertEquals(actual, expected);
-console.log(`Test 1 - Array size is 0 after plane has taken off ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 1 - Plane A1 is at the airport ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 

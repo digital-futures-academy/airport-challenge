@@ -60,6 +60,10 @@ class Airport {
 
     }
 
+    checkPlaneAtAirport(plane) {
+        return this.listOfPlanesAtAirport.some(planesInAirportList => planesInAirportList.planeID === plane.planeID);
+    }
+
 
 
 }
