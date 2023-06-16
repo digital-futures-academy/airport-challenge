@@ -280,7 +280,7 @@ airport.airportPlanes = [plane1, plane2];
 expected = 1;
 
 // Act
-airport.takeoffPlane(plane); 
+airport.takeoffPlane(plane1); 
 actual = airport.airportPlanes.length;
 
 // Assert
@@ -328,7 +328,68 @@ console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
 // Clean Up 
-plane = undefined;
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
 actual = undefined;
 expected = undefined;
 result = undefined;
+
+console.log('Test 3');
+console.log('================================================');
+console.log('');
+
+console.log('Removing planes that are not in the airportPlanes array returns an error.');
+
+// Arrange
+airport = new Airport();
+plane1 = { id: '0001' };
+plane2 = { id: '0002' };
+plane3 = { id: '0003' };
+airport.airportPlanes = [plane1, plane2];
+expected = Error('This plane is not at the airport');
+
+// Act
+actual = airport.takeoffPlane(plane3);
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 3: Check that removing planes that are not in the airportPlanes array returns an error.: ${result}`);
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+plane1 = undefined;
+plane2 = undefined;
+plane3 = undefined;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('Test 4');
+console.log('================================================');
+console.log('');
+
+console.log('Prevent removing null from the list.');
+
+// Arrange
+airport = new Airport();
+plane = null;
+expected = Error('This plane is not at the airport');
+
+// Act
+actual = airport.takeoffPlane(plane);
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 4: Check that null is not able to be removed numbers from the list.: ${result}`);
+console.log(`Test 4: ${result ? `PASS` : `FAIL`}`);
+console.log(``);

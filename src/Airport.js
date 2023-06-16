@@ -4,12 +4,6 @@ class Airport {
     airportPlanes = [];
     airportCapacity = 5;
 
-    // isAirportFull() { 
-    //     if (this.airportPlanes.length < this.airportCapacity) {
-    //         return new Error('Airport is full!');
-    //     }
-    // };
-
     landPlane(plane) { 
         if (this.airportPlanes.length >= this.airportCapacity) {
             return new Error('Airport is full!');
@@ -26,13 +20,15 @@ class Airport {
         if (index !== -1) {
             return this.airportPlanes.splice(index, 1);
         }
+        else if (this.airportPlanes.indexOf(plane === -1)) {
+            return new Error('This plane is not at the airport');
+        }
     }; 
 
     overrideCapacity(number) {
         if (number === null || (typeof number === 'string')) {
             return new Error('Please enter a number');
         }
-    
         return this.airportCapacity = number;
     };
 }

@@ -38,7 +38,7 @@ We have a request from a client to write the software to control the flow of pla
 
 ##### User Story: 1
 
-As an air traffic controller
+>As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
@@ -61,7 +61,7 @@ I want to instruct the airport to land a plane
 
 ##### User Story: 2
 
-As the system designer
+>As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
@@ -80,7 +80,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ##### User Story: 3
 
-As an air traffic controller
+>As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
@@ -90,12 +90,12 @@ I want to prevent landing when the airport is full
 | Objects  | Properties                    | Messages                 | Outputs  |
 | -------  | ----------------------------- | ------------------------ | -------- |
 | Airport  | airportCapacity @Integer      | isAirportFull()          | @boolean |
-
+```
 - [x] 1. Check that planes cannot land when the airportCapactiy is full.
 
 ##### User Story: 4
 
-As an air traffic controller
+>As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
@@ -111,14 +111,13 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 ##### Tests
 
 - [x] 1. After removing a plane from the airport planes list check that the array has decreased in length by 1.
-- [ ] 2. Test that plane passed to removePlane is actually removed from the airportPlanes array.
-- [ ] 3. Prevent removing planes that are not in the airportPlanes array.
-- [ ] 4. Prevent removing numbers from the list.
-- [ ] 5. Prevent removing null from the list.
+- [x] 2. Test that plane passed to removePlane is actually removed from the airportPlanes array.
+- [x] 3. Prevent removing planes that are not in the airportPlanes array.
+- [x] 4. Prevent removing null from the list.
 
 ##### User Story: 5
 
-As an air traffic controller
+>As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
@@ -140,8 +139,10 @@ Prevent Landing
 
 ##### Tests
 
-- [ ] 1. Ensure that planes can only be removed if they are in the airportPlanes array.
-- [ ] 2. Ensure that planes cannot be added if they are already in the airportPlanes array.
+- [x] Ensure that planes can only be removed if they are in the airportPlanes array. 
+ (Completed in user story 4 tests.)
+- [x] Ensure that planes cannot be added if they are already in the airportPlanes array.
+ (Completed in user story 1 tests.)
 
 such as inconsistent states of the system ensuring that planes can only take off from airports they are in;
 
@@ -149,7 +150,7 @@ such as inconsistent states of the system ensuring that planes can only take off
 
 ##### User Story: 6
 
-As an air traffic controller
+>As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
@@ -165,17 +166,16 @@ I want to prevent takeoff when weather is stormy
 ##### Tests
 
 _Core Functionality_
+- [ ] 1. Check that planes are unable to takeoff when the weather is 'stormy'.
+- [ ] 2. Check that the weather object produces a stormy outcome on occasion.
 
-_Extended Functionality_
-
-_Edge Cases_
 You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
 ##### User Story: 7
 
-As an air traffic controller
+>As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
@@ -193,17 +193,15 @@ _checkWeatherTakeOff turns into check Weather which prevents adding and removing
 ##### Tests
 
 _Core Functionality_
-
-_Extended Functionality_
-
-_Edge Cases_
+- [ ] 1. Check that planes are unable to land when the weather is 'stormy'.
+  
 You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
 ##### User Story: 8
 
-As an air traffic controller
+>As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 
