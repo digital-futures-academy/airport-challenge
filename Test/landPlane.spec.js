@@ -3,7 +3,7 @@ const { assertEquals } = require(`./testingFramework`);
 const { Plane } = require(`../src/Plane.js`);
 
 
-let input, expected, actual, result;
+let plane, plane1, plane2, airport, expected, actual, result;
 
 console.log('Land plane Tests');
 console.log('----------------------------------');
@@ -15,7 +15,6 @@ expected = 1;
 plane = new Plane('A1');
 airport = new Airport();
 
-
 //act
 
 airport.instructToLand(plane);
@@ -24,16 +23,15 @@ actual = airport.getListOfPlanesAtAirport.length;
 //assert
 
 result = assertEquals(actual, expected);
-
 console.log(`Test 1 - Array size is 1 after plane has been landed ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
-input = undefined;
+plane = undefined;
+airport = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
-
 
 // Check plane in airport list (array element 0) is the plane expected. 
 
@@ -43,7 +41,6 @@ expected = "A1";
 plane = new Plane("A1");
 airport = new Airport();
 
-
 //act
 
 airport.instructToLand(plane);
@@ -52,16 +49,15 @@ actual = airport.getListOfPlanesAtAirport[0].getPlaneID();
 //assert
 
 result = assertEquals(actual, expected);
-
 console.log(`Test 2 - Array element 0 has plane ID of A1 ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
-input = undefined;
+plane = undefined;
+airport = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
-
 
 // Land multiple planes and compare airport list to defined array.
 
@@ -69,20 +65,15 @@ result = undefined;
 
 plane1 = new Plane("A1");
 plane2 = new Plane("B2");
-
-
-expectedArray = [plane1, plane2]
-
-expected = JSON.stringify(expectedArray);
-
 airport = new Airport();
 
+expectedArray = [plane1, plane2]
+expected = JSON.stringify(expectedArray);
 
 //act
 
 airport.instructToLand(plane1);
 airport.instructToLand(plane2);
-
 
 actualArray = airport.getListOfPlanesAtAirport
 actual = JSON.stringify(actualArray);
@@ -90,13 +81,16 @@ actual = JSON.stringify(actualArray);
 //assert
 
 result = assertEquals(actual, expected);
-console.log(actual + "   " + expected)
 console.log(`Test 3 - Airport plane list is as expected list ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
-input = undefined;
+plane1 = undefined;
+plane2 = undefined;
+airport = undefined;
 expected = undefined;
+expectedArray = undefined;
+actualArray = undefined;
 actual = undefined;
 result = undefined;
 

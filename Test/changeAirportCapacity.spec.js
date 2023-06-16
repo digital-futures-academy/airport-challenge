@@ -14,18 +14,16 @@ expected = 3
 //act
 
 airport.setAirportMaxCapacity(3);
-
 actual = airport.getAirportMaxCapacity;
 
 //assert
 
 result = assertEquals(actual, expected);
-
 console.log(`Test 1 - Capacity of airport is now 3 ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
-input = undefined;
+airport = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;
@@ -54,18 +52,19 @@ function airportArray(airportInArray) {
     }
 }
 
-
 actual = airport2.getAirportMaxCapacity;
 
 //assert
 
 result = assertEquals(actual, expected);
-
 console.log(`Test 2 - Capacity of France airport is now 3 ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
-input = undefined;
+airport1 = undefined;
+airport2 = undefined;
+airport3 = undefined;
+arrayOfAirports = undefined;
 expected = undefined;
 actual = undefined;
 result = undefined;

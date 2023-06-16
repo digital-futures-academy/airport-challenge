@@ -35,24 +35,31 @@ class Airport {
         return this.airportMaxCapacity === this.listOfPlanesAtAirport.length
     }
 
-    instructToTakeOff(plane) {
+    // instructToTakeOff(plane) {
 
+    //     let arrayElement = this.listOfPlanesAtAirport.findIndex(findPlanes);
 
+    //     function findPlanes(foundPlane) {
+    //         return foundPlane.getPlaneID() === plane.getPlaneID()
+    //     }
 
+    //     this.listOfPlanesAtAirport.splice(arrayElement, 1)
 
-        let arrayElement = this.listOfPlanesAtAirport.findIndex(findPlanes)
+    //     //this.listOfPlanesAtAirport.pop();
+    // }
+
+    instructToTakeOff2(plane) {
+
+        this.listOfPlanesAtAirport = this.listOfPlanesAtAirport.filter(findPlanes);
 
         function findPlanes(foundPlane) {
-            return foundPlane.getPlaneID() === plane.getPlaneID()
+            if (foundPlane.getPlaneID() != plane.getPlaneID()) {
+                return foundPlane
+            }
         }
 
-
-
-        this.listOfPlanesAtAirport.splice(arrayElement, 1)
-
-
-        //this.listOfPlanesAtAirport.pop();
     }
+
 
 
 }
