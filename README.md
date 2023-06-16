@@ -87,19 +87,19 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 2. Created separate spec files for testing-framework, specRunner and objects 'airport' and 'plane'. Used require statements to import modules.
 3. Used assertEquals to compare two values to see if they are equal.
 4. Declared a planeLanded[] array(property of airport object) to represent the list of planes that have landed at the airport. 
-5. I created various functions to meet the user stories' requirements and edge cases such as a plane already flying cannot take off etc. : 
+5. I created various functions to meet the user stories' requirements and edge cases:
    - Test 1: 'Land' function is responsible for handling the landing of the plane. Takes the parameter 'plane' which represents the object that needs to land. 
    - Test 2: To make sure the default capacity could be overridden, I created an 'updateCapacity' function that takes a parameter of 'newCapacity' that should assign a new capacity value to the 'defaultAirportCapacity' property of the 'airport' object. 
    - Test3 : To allow an airport to instruct a plane to take off, I had the 'expected' value = true and 'actual' equal the airport.takeOff(plane) function. 
-   - Test4: To prevent landing a plane when the airport is full, I used the 'for' loop seen in the Airport Spec file for 'Test 4', which iterates 'airport.defaultAirportCapacity', and in each iteration of the loop it calls the 'land' function of the 'airport' object and passes 'plane' as an argument. It's meant to simulate the airport filling up to reach it's max capacity by continuously calling the 'land'function.
+   - Test4: To prevent landing a plane when the airport is full, I used the 'for' loop seen in the Airport Spec file for 'Test 4', which iterates 'airport.defaultAirportCapacity', and in each iteration of the loop it calls the 'land' function of the 'airport' object and passes 'plane' as an argument. It's meant to simulate the airport filling up to reach its max capacity by continuously calling the 'land'function.
    - Test 5: This test is meant to see if the airport prevents the plane from taking off when it is not at the airport. This test makes use of the 'airport.takeOff(plane)' function to represent the 'actual' result if the plane is able to take off/ isn't at the airport. 
    - Test 6: This test checks if the plane is or isn't at the airport. A property called 'location' was created to be used and updated depending on the location of the plane. It utilizes 'plane.isAtAirport' to determine if the plane is at the airport.
    - Test 7: This test prevents a flying plane from taking off. It uses 'plane.isPlaneFlying' to determine if the plane is flying or not which will determine if it can take off.
 6. I created an index, airport and plane src files for production code:
-   - The 'land' function checks two conditions; 'this.planeLanded.length' is greater than or equal to 'this.defaultAirportCapacity', if the airport is full, it returns 'false'. 'this.planeLanded.includes(plane) checks if the plane is already in the array, if so, it returns 'false'. If neither condition is true, then the plane can land using 'this.planeLanded.push(plane)' which returns 'true.'
-   - The 'takeOff' function checks two conditions if a plane is flying or if it's not at the airport, if neither condition is true, it means the plane can take off. The function looks for the index of 'plane' in 'this.planeLanded' using : 'this.planeLanded.indexOf(plane)'. If the 'plane' object isn't found, it returns -1. The condition 'index !== -1' checks if the value of 'index' is not equal to ' -1' If it's 'true', the code is executed. The function removes the plane from the array using the splice method. When removing the plane from the array, and returning 'true' it indicates a successful takeoff. 
-   - 'isAtAirport' checks if 'this.location' is equal to 'airport' for the plane object and if '!this.isPlaneFlying()' is true; this expression should return either 'true' or 'false'. Similarly, with 'isPlaneFlying' function checks if the location is equal to 'flying' and returns true or false. 
-   - Index.js file is meant to share information with the user via console.log statements about weather the airport can land a plane, how many planes there are, what the default capacity is and what it's been updated to, if another plane is flying and if the airport can instruct a plane at the airport to take off. If the code is run from here, it should output those results. Within the index.js file, 'const plane1 = Object.create(plane)' is meant to inherit the properties of the 'plane' object and created a new instance to further test the functionality of the 'airport' module and how it interacts with the 'plane' module.
+   - The 'land' function checks two conditions; 'this.planeLanded.length' is greater than or equal to 'this.defaultAirportCapacity' or if the plane is already present in the array it returns 'false'. If none of the conditions are met, it adds the 'plane' to the array with the 'push' method and returns 'true'.
+   - The 'takeOff' function checks two conditions: if a plane is flying or if it's not at the airport. If neither condition is true, the function looks for the index of 'plane' in 'this.planeLanded' using : 'this.planeLanded.indexOf(plane)'. If 'plane' is found, it is removed from the array using the splice method and returns true. If 'plane' is not found, it does not execute the code in the 'if' block and returns false.
+   - 'isAtAirport' checks if 'this.location' is equal to 'airport' for the 'plane' object and if '!this.isPlaneFlying()' is true; this expression should return either 'true' or 'false'. Similarly, with 'isPlaneFlying' function checks if the location is equal to 'flying' and returns true or false. 
+   - Index.js file is meant to share information with the user via console.log statements about a variety of operations such as; whether the airport can land a plane, how many planes there are, what the default capacity is and what it's been updated to, if another plane is flying and if the airport can instruct a plane at the airport to take off. If the code is run from index.js, it should output those results. Within the index.js file, 'const plane1 = Object.create(plane)' is meant to inherit the properties of the 'plane' object and create a new instance to further test the functionality of the 'airport' module and how it interacts with the 'plane' module.
 ```
 **How to install**
 ```
@@ -109,7 +109,7 @@ You should be able to use git clone and clone the challenge to your local machin
 **Tests**
 ```
 1. Test if airport was instructed to land the plane.
-2. Test airport capacity.
+2. Test if airport capacity can be overridden.
 3. Test to allow airport to instruct plane to take off.
 4. Test to prevent landing when airport is full.
 5. Test to prevent an airport from instructing a plane to take off if it's not at the airport.
