@@ -199,13 +199,18 @@ console.log(`------------------`);
 console.log(`Test 8: Planes can't land if the currentWeather is "Stormy"`);
 
 //Arrange
-expected = false;
+expected = "The weather is too bad to fly";
 airport.listOfPlanes = [plane1];
 airport.currentWeather = "Stormy";
 
 //Act
-airport.landPlane(plane2);
-actual = airport.isPlaneInAirport(plane2);
+try {
+    airport.landPlane(plane2);
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 
 //Assert
 result = assertEquals(actual, expected);

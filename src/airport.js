@@ -7,6 +7,7 @@ class Airport {
     notAtAirportError = new Error("That plane is not at the airport")
     capacityFormatError = new Error("Invalid capacity")
     alreadyLandedPlaneError = new Error("Cannot land an already landed plane")
+    tooStormyError = new Error("The weather is too bad to fly")
     constructor(initialListOfPlanes = [], initialCapacity = 3, initialWeather = "Sunny") {
         this.listOfPlanes = initialListOfPlanes;
         this.airportCapacity = initialCapacity;
@@ -37,6 +38,11 @@ class Airport {
             throw this.alreadyLandedPlaneError;
         }
     }
+    isItStormyError() {
+        if (this.isItStormy()) {
+            throw this.tooStormyError;
+        }
+    }
     getPlaneIndex(plane) {
         return this.listOfPlanes.findIndex(landedPlane => landedPlane.planeId === plane.planeId)
     };
@@ -44,9 +50,8 @@ class Airport {
         this.isPlaneError(plane);
         this.isAtCapacityError();
         this.isInAirportError(plane);
-        if (!this.isItStormy()) {
-            this.listOfPlanes.push(plane);
-        }
+        this.isItStormyError();
+        this.listOfPlanes.push(plane);
     };
     changeAirportCapacity(newCapacity) {
         this.isCapacityFormatError(newCapacity);
@@ -59,9 +64,8 @@ class Airport {
     takeOff(plane) {
         this.isPlaneError(plane);
         this.isNotInAirportError(plane);
-        if (!this.isItStormy()) {
-            this.listOfPlanes.splice(this.getPlaneIndex(plane), 1);
-        }
+        this.isItStormyError();
+        this.listOfPlanes.splice(this.getPlaneIndex(plane), 1);
     };
     isPlaneInAirport(plane) {
         this.isPlaneError(plane);

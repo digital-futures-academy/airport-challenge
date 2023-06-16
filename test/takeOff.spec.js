@@ -141,12 +141,16 @@ console.log(`Test 6: Planes can't take off if the currentWeather is "Stormy"`);
 //Arrange
 airport.currentWeather = "Stormy";
 airport.listOfPlanes = [plane1, plane2];
-expected = true;
+expected = "The weather is too bad to fly";
 
 //Act
-airport.takeOff(plane1);
-actual = airport.isPlaneInAirport(plane1);
-
+try {
+    airport.takeOff(plane1);
+    actual = undefined;
+}
+catch (error) {
+    actual = error.message;
+}
 //Assert
 result = assertEquals(actual, expected);
 
