@@ -12,7 +12,7 @@ console.log('----------------------------------');
 //arrange
 
 expected = 1;
-plane = new Plane('A1');
+plane = new Plane('A1', true);
 airport = new Airport();
 
 //act
@@ -38,7 +38,7 @@ result = undefined;
 //arrange
 
 expected = "A1";
-plane = new Plane("A1");
+plane = new Plane("A1", true);
 airport = new Airport();
 
 //act
@@ -63,8 +63,8 @@ result = undefined;
 
 //arrange
 
-plane1 = new Plane("A1");
-plane2 = new Plane("B2");
+plane1 = new Plane("A1", true);
+plane2 = new Plane("B2", true);
 airport = new Airport();
 
 expectedArray = [plane1, plane2]
@@ -94,6 +94,32 @@ actualArray = undefined;
 actual = undefined;
 result = undefined;
 
+
+// Landing an in flight plane using instructToLand() method, increases list of planes at airport (array) by 1. 
+
+//arrange
+
+expected = 1;
+plane = new Plane('A1', true);
+airport = new Airport();
+
+//act
+
+airport.instructToLand(plane);
+actual = airport.getListOfPlanesAtAirport.length;
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 4 - Plane is is flight so can be asked to land therefore array increases by 1 ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
 console.log('----------------------------------');
 
 
