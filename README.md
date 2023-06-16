@@ -3,7 +3,9 @@ This is my solution to the Digital Futures Airport Challenge
 
 ## Usage
 Clone this repo to your local machine and run `npm install`. `npm audit fix` may also help with any issues that arise.
-To run the tests you can use `npm test`.
+To run the tests use `npm test`.
+Running `index.js` with `node index.js` will give some example output from using the program.
+
 
 The code in /test is old and there is no guarantee that it will do anything meaningful anymore, but it is there to document that I wrote it as it shows up in Airport.spec.js in commented form as it gave a starting point for many of the unit tests in that spec.
 
