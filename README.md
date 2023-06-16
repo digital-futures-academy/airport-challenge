@@ -80,7 +80,7 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
-##Domain model
+Domain model
 -----
 
 **Object:**
@@ -112,11 +112,12 @@ String
 String 
 ***
 
-##Notes
+Notes
 ---
 The following program was developed following the principles of TDD, OOD, and Domain modelling where possible. 
 
 I have been very strict developing test before source code, except for my index file, which was developed to showcase the use of my classes and tested by console logging, as my unit testing would not have been enough.
 I believe it's highly maintainable and clean, and although I assume there are far more efficient ways to get the results, I have done it to the best of my ability.
 
-My last commit comes after finishing up the index file, cleaning up the test suite, and polishing the returns of my classes.
+I have refactored private properties and getters/setters for encapsulation.
+
