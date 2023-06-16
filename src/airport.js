@@ -1,7 +1,9 @@
 class Airport {
+    #capacity
     #planesList;
 
-    constructor() {
+    constructor(capacity = 5) {
+        this.#capacity = capacity;
         this.#planesList = [];
     }
 
@@ -11,6 +13,10 @@ class Airport {
 
     getPlanesList() {
         return this.#planesList
+    }
+
+    getCapacity() {
+        return this.#capacity;
     }
 }
 
