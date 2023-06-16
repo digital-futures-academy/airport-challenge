@@ -16,4 +16,15 @@ describe('Test plane landing', () => {
     const actual = airport.overrideCapacity(5);
     expect(actual).toBe(5);
     });
+    it('Prevent landing when airport is full', () => {
+        // Arrange
+        // Act
+        // Assert
+    const airport = new Airport();
+    airport.add('plane1');
+    airport.add('plane2');
+    airport.add('plane3');
+    const actual = airport.add('plane4');
+    expect(actual).toBe(false);
+    });
 });

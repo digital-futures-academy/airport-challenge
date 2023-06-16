@@ -5,11 +5,14 @@ class Airport {
     }
 
     add(plane) {
-        if (this.airport1.length < this.capacity)
+        if (this.airport1.length < this.capacity)    
         {
             this.airport1.push(plane);
             //console.log(this.airport1)
             return this.airport1.length;
+        }
+        {
+            return false
         }
     }
 
