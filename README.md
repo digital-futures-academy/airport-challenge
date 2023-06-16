@@ -150,8 +150,8 @@ Domain Model
 
 |  Objects   |  Properties            |   Messages                    |  Output  |
 | ---------- | ---------------------- | ----------------------------- | -------- |
-|  Plane     | landed @boolean        | getlanded()                   | @boolean |
-|            |                        | setlanded()                   | @boolean |
+|  Plane     | landed @boolean        | getLanded()                   | @boolean |
+|            |                        | setLanded()                   | @boolean |
 |  Airport   | planes @Array[@Planes] | planeExistsAtAirport(@Plane)  | @boolean |
 
 ```
