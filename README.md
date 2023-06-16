@@ -59,8 +59,8 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-```
 
+```
 #### Extended Acceptance Criteria
 ```
 As an air traffic controller
@@ -79,3 +79,45 @@ Planes that have landed must be at an airport
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+
+Domain model
+-----
+
+**Object:**
+Airport
+Plane
+***
+**Properties**
+A- planesStanding @array
+A- airportCapacity @int
+P- planeID @int
+***
+**Message**
+A- landplane(@plane)
+A- denyLanding(@plane)
+A- instructTakeOff(@plane)
+***
+**Context**
+Airport full (lp)
+Airport available(lp)
+Plane already in airport (lp)
+Plane already in airport (dl)
+Plane not in airport (ito)
+***
+**Output**
+Boolean
+Boolean
+String 
+String 
+String 
+***
+
+Notes
+---
+The following program was developed following the principles of TDD, OOD, and Domain modelling where possible. 
+
+I have been very strict developing test before source code, except for my index file, which was developed to showcase the use of my classes and tested by console logging, as my unit testing would not have been enough.
+I believe it's highly maintainable and clean, and although I assume there are far more efficient ways to get the results, I have done it to the best of my ability.
+
+I have refactored private properties and getters/setters for encapsulation.
+
