@@ -194,7 +194,6 @@ actual = count;
 //assert
 
 result = assertEquals(actual, expected);
-console.log(actual);
 console.log(`Test 6 - Only two of the created planes have landed therefore count should be 2 ${result ? `PASS` : `FAIL`}`);
 
 //cleanup

@@ -216,7 +216,7 @@ Also both stories can be
 
 -Objects;     -Properties;                            -Messages;                      -Output;
 
--Airport      -weatherSafeForAction @Boolean           -weatherSafeForAction()         -@Boolean
+-Airport      -weatherSafeForAction @Boolean          -weatherSafeForAction()         -@Boolean
                                                       -weatherGenerator()             -@string  
 
 
