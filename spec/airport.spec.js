@@ -22,4 +22,11 @@ describe('Airport Tests', () => {
     it('should assign a default capacity to a new instance of Airport', () => {
         expect(airport.getCapacity()).toBe(5);
     })
+
+    it('should be able to override the default airport capacity', () => {
+        // Act
+        airport.setCapacity(10);
+
+        expect(airport.getCapacity()).toBe(10);
+    })
 })
