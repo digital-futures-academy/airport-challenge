@@ -54,8 +54,8 @@ describe('Test removing a plane and confirm', () => {
     });
 });
 
-describe('Test adding existing plane and removing unexisting plane', () => {
-    it('Test unexisting plane to take-off and existing plane to land', () => {
+describe('Test adding existing plane and removing non-existing plane', () => {
+    it('Test non-existing plane to take-off and existing plane to land', () => {
         // Arrange
     const airport = new Airport();
     airport.add('plane1');
@@ -68,5 +68,48 @@ describe('Test adding existing plane and removing unexisting plane', () => {
     const actual2 = airport.remove('plane3');
         // Assert
     expect(actual2).toBe(false);
+    });
+});
+
+
+describe('Prevent take off when weather is stormy', () => {
+    it('Prevent take off when weather is stormy', () => {
+        // Arrange
+    const airport = new Airport();
+    airport.add('plane1');
+    airport.howsTheWeather('stormy');
+        // Act
+    const actual = airport.remove('plane1');
+        // Assert
+    expect(actual).toBe(false);
+    });
+});
+
+
+describe('Prevent landing when weather is stormy', () => {
+    it('Prevent landing when weather is stormy', () => {
+        // Arrange
+    const airport = new Airport();
+    
+    airport.howsTheWeather('stormy');
+        // Act
+    const actual = airport.add('plane1');
+        // Assert
+    expect(actual).toBe(false);
+    });
+});
+
+
+describe('Planes landed must be at an airport', () => {
+    it('Planes landed must be at an airport', () => {
+        // Arrange
+    const airport = new Airport();
+    airport.add('plane1');
+    airport.add('plane2');
+    
+        // Act
+    const actual = airport.noOfPlanesAtAirport();
+        // Assert
+    expect(actual).toBe(2);
     });
 });
