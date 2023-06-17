@@ -39,6 +39,10 @@ class Airport {
         return true;
     }
 
+    isAtAirport(plane) {
+        return this.getPlanesList().includes(plane.getId());
+    }
+
     validateLanding(plane) {
         if (this.isFull()) {
             throw new Error(`The airport is full. Cannot land the plane.`)

@@ -85,6 +85,6 @@ describe('Airport Tests', () => {
         // Act
         airport.takeOff(plane1);
 
-        expect(airport.isAtAirport(plane1).length).toBe(false);
+        expect(airport.isAtAirport(plane1)).toBe(false);
     })
 })
