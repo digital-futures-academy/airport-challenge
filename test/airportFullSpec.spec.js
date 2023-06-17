@@ -34,13 +34,6 @@ console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')
 
 
-
-
-
-
-
-
-
 console.log('Test 2')
 console.log("isAirportfull() should return false if airport is not full")
 console.log('  ')
@@ -88,5 +81,5 @@ result = assertEquals(actual, expected);
 
 
 
-console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')
