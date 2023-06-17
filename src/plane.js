@@ -19,10 +19,6 @@ class Plane {
         (status) ? this.setAtAirport(false) : this.setAtAirport(true);
     }
 
-    static checkInputIsAPlaneObject(input) {
-        return input instanceof Plane
-    }
-
     getAtAirport() {
         return this.atAirport;
     }
@@ -31,6 +27,9 @@ class Plane {
         this.atAirport = atAirport;
     }
 
+    static checkInputIsAPlaneObject(input) {
+        return input instanceof Plane
+    }
 
     static checkPlaneIDInput(input) {
         if (input?.planeID && typeof input.planeID === 'string') {

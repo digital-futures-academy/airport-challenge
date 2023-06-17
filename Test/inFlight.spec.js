@@ -125,8 +125,6 @@ actual = airport2.numberOfPlanesAtAirport();
 
 //assert
 
-console.log(airport1);
-console.log(airport2);
 result = assertEquals(actual, expected);
 console.log(`Test 5 - Plane is already at airport 1 so cant be asked to land at another - therefore number of planes at airport 2 is 0? ${result ? `PASS` : `FAIL`}`);
 
@@ -158,7 +156,6 @@ actual = airport.numberOfPlanesAtAirport();
 
 //assert
 
-console.log(airport)
 result = assertEquals(actual, expected);
 console.log(`Test 6 - Forced plane to be inflight true while grounded at airport, therefore it cant be asked to take off hence airport array is still 1? ${result ? `PASS` : `FAIL`}`);
 
@@ -187,7 +184,6 @@ actual = airport.numberOfPlanesAtAirport();
 
 //assert
 
-console.log(airport)
 result = assertEquals(actual, expected);
 console.log(`Test 7 - Forced plane to be inflight false while in air, therefore it cant be asked to land hence airport array is 0? ${result ? `PASS` : `FAIL`}`);
 

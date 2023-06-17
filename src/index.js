@@ -1,16 +1,7 @@
 const { Airport } = require(`../src/Airport.js`);
 const { Plane } = require(`../src/Plane.js`);
 
-class Helper {
 
-    static checkInputIsAPlaneObject(input) {
-        return input instanceof Plane
-        // if (input instanceof Plane) {
-        //     checkPlaneFlightInput(input)
-        // }
-    }
-
-}
 
 plane1 = new Plane();
 plane2 = 'hi'
@@ -19,20 +10,20 @@ plane4 = new Plane(null, true)
 plane5 = new Plane('B2', 2)
 
 
-console.log(checkInputIsAPlaneObject(plane1))
-console.log(checkInputIsAPlaneObject(plane2))
-console.log(checkInputIsAPlaneObject(plane3))
+console.log(Plane.checkInputIsAPlaneObject(plane1))
+console.log(Plane.checkInputIsAPlaneObject(plane2))
+console.log(Plane.checkInputIsAPlaneObject(plane3))
 console.log(Plane.checkInputIsAPlaneObject(plane4))
 console.log('-------------------')
-console.log(checkPlaneIDInput(plane1))
-console.log(checkPlaneIDInput(plane2))
-console.log(checkPlaneIDInput(plane3))
-console.log(checkPlaneIDInput(plane4))
+console.log(Plane.checkPlaneIDInput(plane1))
+console.log(Plane.checkPlaneIDInput(plane2))
+console.log(Plane.checkPlaneIDInput(plane3))
+console.log(Plane.checkPlaneIDInput(plane4))
 console.log('-------------------')
-console.log(checkPlaneFlightInput(plane1))
-console.log(checkPlaneFlightInput(plane2))
-console.log(checkPlaneFlightInput(plane3))
-console.log(checkPlaneFlightInput(plane4))
+console.log(Plane.checkPlaneFlightInput(plane1))
+console.log(Plane.checkPlaneFlightInput(plane2))
+console.log(Plane.checkPlaneFlightInput(plane3))
+console.log(Plane.checkPlaneFlightInput(plane4))
 
 
 airport = new Airport();
