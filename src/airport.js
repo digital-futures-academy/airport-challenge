@@ -39,7 +39,7 @@ class Airport {
 
     instructToTakeOff2(plane) {
 
-        if (this.getWeatherSafeForAction()) {
+        if (this.preTakeOffChecks(plane)) {
 
             this.listOfPlanesAtAirport = this.listOfPlanesAtAirport.filter(findPlanes);
 
@@ -61,6 +61,10 @@ class Airport {
 
     preLandChecks(plane) {
         return this.getWeatherSafeForAction && !this?.isAirportFull() && !this.checkPlaneAtAirport(plane) && plane?.inFlight
+    }
+
+    preTakeOffChecks(plane) {
+        return this.getWeatherSafeForAction() && !plane?.inFlight
     }
 
     numberOfPlanesAtAirport() {

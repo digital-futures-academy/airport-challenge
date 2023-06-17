@@ -40,24 +40,5 @@ airport = new Airport();
 airport.setWeatherSafeForAction(Airport.weatherGenerator())
 console.log(airport);
 
-function checkInputIsAPlaneObject(input) {
-    return input instanceof Plane
-    // if (input instanceof Plane) {
-    //     checkPlaneFlightInput(input)
-    // }
-}
-
-function checkPlaneIDInput(input) {
-    if (input?.planeID && typeof input.planeID === 'string') {
-        return true
-    }
-}
-
-function checkPlaneFlightInput(input) {
-    if (input?.inFlight && typeof input.inFlight === 'boolean') {
-        return true
-    }
 
 
-
-}

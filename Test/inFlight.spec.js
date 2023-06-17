@@ -108,5 +108,34 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
+// Try land a plane that for some reason has already landed i.e inFlight is false. Situation is being forced
+
+//arrange
+
+expected = 0;
+plane = new Plane('A1', false);
+airport1 = new Airport('Already Landed');
+airport2 = new Airport('Empty')
+
+//act
+
+airport1.instructToLand(plane);
+airport2.instructToLand(plane);
+actual = airport1.numberOfPlanesAtAirport();
+
+//assert
+
+result = assertEquals(actual, expected);
+console.log(`Test 5 - Plane is already at airport 1 so cant be asked to land at another - therefore number of planes at airport 2 is 0? ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport1 = undefined;
+airport2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 
 console.log('----------------------------------');

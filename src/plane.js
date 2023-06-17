@@ -31,6 +31,21 @@ class Plane {
         this.atAirport = atAirport;
     }
 
+
+    static checkPlaneIDInput(input) {
+        if (input?.planeID && typeof input.planeID === 'string') {
+            return true
+        }
+    }
+
+    static checkPlaneFlightInput(input) {
+        if (input?.inFlight && typeof input.inFlight === 'boolean') {
+            return true
+        }
+
+    }
+
+
 }
 
 

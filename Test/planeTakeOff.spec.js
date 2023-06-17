@@ -148,7 +148,6 @@ actual = JSON.stringify(actualArray);
 //assert
 
 result = assertEquals(actual, expected);
-//console.log(actual + "   " + expected);
 console.log(`Test 4 - Correct plane is removed (A1) and remaining plane (B2) is correct too (using IDs) ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
@@ -178,7 +177,7 @@ plane2 = new Plane("B2", true);
 arrayPlane1 = new Plane("A1", false);
 arrayPlane2 = new Plane("B2", false);
 
-// Required as constructor doesnt have 'Location' as its linked with inFlight property
+// Required as constructor doesnt have 'setAtAirport' as its linked with inFlight property
 arrayPlane1.setAtAirport(true);
 arrayPlane2.setAtAirport(true);
 
@@ -275,7 +274,6 @@ actual = airport2.getListOfPlanesAtAirport.length;
 //assert
 
 result = assertEquals(actual, expected);
-//console.log(expected + "    " +  actual)
 console.log(`Test 7 - Airports have independent arrays so 'Paris' airport should still be 0 after wrong takeoff request ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
