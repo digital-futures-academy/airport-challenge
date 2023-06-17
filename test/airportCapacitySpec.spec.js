@@ -98,5 +98,5 @@ result = biggerAirport.airportCapacity
 //assert
 
 result = assertEquals(result, expected)
-console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 4: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')
