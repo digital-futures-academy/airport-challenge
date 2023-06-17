@@ -75,4 +75,16 @@ describe('Airport Tests', () => {
 
         expect(airport.getPlanesList().length).toBe(1);
     })
+
+    it('should confirm removal of specified plane from the planes list when it takes off', () => {
+        let plane1 = new Plane(`a1`);
+        let plane2 = new Plane(`a2`);
+        airport.landPlane(plane1);
+        airport.landPlane(plane2);
+
+        // Act
+        airport.takeOff(plane1);
+
+        expect(airport.isAtAirport(plane1).length).toBe(false);
+    })
 })
