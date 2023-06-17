@@ -80,8 +80,8 @@ Test 10 - `remove(@Plane)` should return `true` when `idexOf` returns `false`
 
 Test Cases for DM 06
 
-Test 11 - remove() should return False when howsTheWeather reports Stormy
-Test 12 - remove() should return True when howsTheWeather reports Sunny
+Test 11 - `remove(@PlaneX)` should return `False` when `howsTheWeather` reports `Stormy`
+Test 12 - `remove(@PlaneX)` should return `True` when `howsTheWeather` reports `Sunny`
 
 ## Domain Model 07
 
