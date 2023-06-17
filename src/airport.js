@@ -28,23 +28,22 @@ const airport = {
         {
             return `Airport at full capacity`
         }
-        // if (planesExist())
-        // {
-
-        //     return "This plane is already at the airport"
-        // }
-
         return this.landedPlanes = [...this.landedPlanes, planes]
 
     },
 
     removePlanes: function (planes)
     {
-        if (this.planesExist(planes))
+        return this.landedPlanes.splice(planes, 1);
+    },
+
+    isPlaneAtAirport: function (planes)
+    {
+        if (this.planesExist())
         {
-            return this.landedPlanes.splice(planes, 1);
+            return "This plane is already at airport, It can not be landed.";
         }
-        return "This plane is not at the airport."
+        return "This plane is not at the airport.";
 
     },
 }

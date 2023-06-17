@@ -8,20 +8,20 @@ const plane2 = { id: `G-IPLY` };
 
 console.log(`User Story 5`);
 
-// Test 1 - Test that when a plane is not at landedPlanes array, removePlanes() returns an error stating that the plane is not at the airport.
+// Test 1 - Test that when a plane is not at landedPlanes array, isPlaneAtAirport() returns an error stating that the plane is not at the airport.
 
 console.log(`Test 1`);
 console.log(`============================================`);
 console.log(``);
 
-console.log(`removePlanes() returns error when a plane is no longer at the airport.`);
+console.log(`isPlaneAtAirport() returns error when a plane is no longer at the airport.`);
 
 // Arrange
 expected = "This plane is not at the airport.";
 
 // Act
 airport.planesExist()
-actual = airport.removePlanes();
+actual = airport.isPlaneAtAirport();
 
 
 
@@ -52,11 +52,11 @@ console.log(``);
 console.log(`landPlanes() returns error when a plane is no longer at the airport.`);
 
 // Arrange
-expected = "This plane is already at the airport.";
+expected = "This plane is already at the airport, It can not be landed.";
 airport.landedPlanes = [plane1]
 // Act
 airport.planesExist(plane1)
-actual = airport.landPlanes();
+actual = airport.isPlaneAtAirport();
 
 
 
