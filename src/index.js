@@ -48,30 +48,30 @@ console.log('Plane at airport count: ' + planeCount);
 console.log('------------------------');
 
 //Create airports
-airport1 = new Airport('Berlin');
-airport2 = new Airport('Rome');
-airport3 = new Airport('Stormy');
+berlin = new Airport('Berlin');
+rome = new Airport('Rome');
+stormy = new Airport('Stormy');
 
-airport3.setWeatherSafeForAction(false); // Makes it impossible to land as weather is stormy / unsafe
+stormy.setWeatherSafeForAction(false); // Makes it impossible to land as weather is stormy / unsafe
 
 // Add planes to airports
-airport1.instructToLand(realPlane1);
-airport1.instructToLand(realPlane2);
+berlin.instructToLand(realPlane1);
+berlin.instructToLand(realPlane2);
 
-airport2.instructToLand(realPlane3);
-airport2.instructToLand(realPlane4);
+rome.instructToLand(realPlane3);
+rome.instructToLand(realPlane4);
 
-airport3.instructToLand(realPlane5); // bad weather / unsafe
-airport3.instructToLand(realPlane6); // bad weather / unsafe
+stormy.instructToLand(realPlane5); // bad weather / unsafe
+stormy.instructToLand(realPlane6); // bad weather / unsafe
 
 // Display airport
-displayAirport(airport1);
-displayAirport(airport2);
-displayAirport(airport3);
+displayAirport(berlin);
+displayAirport(rome);
+displayAirport(stormy);
 console.log('------------------------');
 
-// Display airport1 (Berlin) plane list
-demoArray = airport1.getListOfPlanesAtAirport;
+// Display berlin (Berlin) plane list
+demoArray = berlin.getListOfPlanesAtAirport;
 console.log(`Berlin plane list:` + JSON.stringify(demoArray));
 console.log('------------------------');
 
@@ -86,46 +86,46 @@ console.log('Plane at airport count: ' + planeCount);
 console.log('------------------------');
 
 //Change Capacity of airports 
-airport1.setAirportMaxCapacity(4);
-airport2.setAirportMaxCapacity('four'); // not valid
-airport2.setAirportMaxCapacity(-2); // not valid
+berlin.setAirportMaxCapacity(4);
+rome.setAirportMaxCapacity('four'); // not valid
+rome.setAirportMaxCapacity(-2); // not valid
 
 // Display airport
-displayAirport(airport1);
-displayAirport(airport2);
+displayAirport(berlin);
+displayAirport(rome);
 console.log('------------------------');
 
 // Ask if airport is full
-console.log('Airport1 (Berlin) full? ' + airport1.isAirportFull())
-console.log('Airport2 (Rome) full? ' + airport2.isAirportFull())
+console.log('berlin full? ' + berlin.isAirportFull())
+console.log('rome full? ' + rome.isAirportFull())
 console.log('------------------------');
 
 //Land more planes
-airport1.instructToLand(realPlane1); // impossible - is already landed
-airport1.instructToLand(realPlane5);
-airport2.instructToLand(realPlane6); // impossible - capacity is 2 
+berlin.instructToLand(realPlane1); // impossible - is already landed
+berlin.instructToLand(realPlane5);
+rome.instructToLand(realPlane6); // impossible - capacity is 2 
 
 // display airports
-displayAirport(airport1);
-displayAirport(airport2);
+displayAirport(berlin);
+displayAirport(rome);
 console.log('------------------------');
 
 // Plane at airport checks
-console.log(`Is plane A1 at Berlin? ` + airport1.checkPlaneAtAirport(realPlane1)); // true
-console.log(`Is plane F6 at Berlin? ` + airport1.checkPlaneAtAirport(realPlane6)); // false
-console.log(`Is plane C3 at Rome? ` + airport2.checkPlaneAtAirport(realPlane3)); // true
+console.log(`Is plane A1 at Berlin? ` + berlin.checkPlaneAtAirport(realPlane1)); // true
+console.log(`Is plane F6 at Berlin? ` + berlin.checkPlaneAtAirport(realPlane6)); // false
+console.log(`Is plane C3 at Rome? ` + rome.checkPlaneAtAirport(realPlane3)); // true
 console.log('------------------------');
 
-airport2.setWeatherSafeForAction(false); // Makes it impossible to takeoff from airport2 (Rome) as weather is stormy / unsafe
+rome.setWeatherSafeForAction(false); // Makes it impossible to takeoff from rome (Rome) as weather is stormy / unsafe
 
 //Take off planes
-airport1.instructToTakeOff2(realPlane1);
-airport1.instructToTakeOff2(realPlane3); // impossible at other airport/ not at Berlin
-airport2.instructToTakeOff2(realPlane3); // impossible bad weather / unsafe
+berlin.instructToTakeOff2(realPlane1);
+berlin.instructToTakeOff2(realPlane3); // impossible at other airport/ not at Berlin
+rome.instructToTakeOff2(realPlane3); // impossible bad weather / unsafe
 
 // display airports
-displayAirport(airport1);
-displayAirport(airport2);
+displayAirport(berlin);
+displayAirport(rome);
 console.log('------------------------');
 
 // Show plane in flight cant take off
