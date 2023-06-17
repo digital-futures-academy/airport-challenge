@@ -20,6 +20,9 @@ class Airport {
     }
 
     setCapacity(newCapacity) {
+        if (newCapacity < 0) {
+            throw new Error(`Capacity cannot be set below 0.`);
+        }
         this.#capacity = newCapacity;
     }
 }
