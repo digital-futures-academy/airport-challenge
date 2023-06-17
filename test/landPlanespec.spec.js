@@ -47,8 +47,6 @@ actual = intAirport.planesInAirport.length
 //assert
 result = assertEquals(actual, expected)
 
-
-
 console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')
 
