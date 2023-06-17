@@ -35,6 +35,11 @@ console.log(checkPlaneFlightInput(plane3))
 console.log(checkPlaneFlightInput(plane4))
 
 
+airport = new Airport();
+
+airport.setWeatherSafeForAction(Airport.weatherGenerator())
+console.log(airport);
+
 function checkInputIsAPlaneObject(input) {
     return input instanceof Plane
     // if (input instanceof Plane) {

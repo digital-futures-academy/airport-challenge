@@ -25,9 +25,10 @@ class Airport {
 
 
     instructToLand(plane) {
+
         if (this.preLandChecks(plane)) {
             this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
-            plane.setInFlight(false)
+            plane.setInFlight(false);
         }
 
     }
@@ -35,19 +36,6 @@ class Airport {
     isAirportFull() {
         return this.airportMaxCapacity === this.listOfPlanesAtAirport.length
     }
-
-    // instructToTakeOff(plane) {
-
-    //     let arrayElement = this.listOfPlanesAtAirport.findIndex(findPlanes);
-
-    //     function findPlanes(foundPlane) {
-    //         return foundPlane.getPlaneID() === plane.getPlaneID()
-    //     }
-
-    //     this.listOfPlanesAtAirport.splice(arrayElement, 1)
-
-    //     //this.listOfPlanesAtAirport.pop();
-    // }
 
     instructToTakeOff2(plane) {
 
@@ -88,6 +76,14 @@ class Airport {
 
     setWeatherSafeForAction(boolInput) {
         this.weatherSafeForAction = boolInput;
+    }
+
+    // Over 2 is considered 'Sunny' for the scenario purposes. Keep values low so 'Stormy' / false could be returned a realistic amount to see during runtime
+
+    static weatherGenerator() {
+
+        return (Math.floor(Math.random() * 5) > 2) ? true : false;
+
     }
 
 

@@ -231,5 +231,5 @@ To count planes easily
 -Objects;     -Properties;                            -Messages;                      -Output;
 -Airport      -numberOfPlanesAtAirport @number        -numberOfPlanesAtAirport()      -@Number
 
--Plane        -atAirport @boolean                     -setPlaneAtAirport(@boolean)     -@void                                                     
+-Plane        -atAirport @boolean                     -setPlaneAtAirport(@boolean)    -@void                                                     
                                                       -gerPlaneAtAirport()            -@boolean
