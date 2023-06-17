@@ -33,4 +33,18 @@ describe('Airport Tests', () => {
     it('should prevent assigning a negative capacity', () => {
         expect(() => airport.setCapacity(-1)).toThrowError('Capacity cannot be set below 0.')
     })
+
+    it('should prevent landing when the airport reaches maximum capacity', () => {
+        // Arrange
+        let plane1 = new Plane(`a1`);
+        let plane2 = new Plane(`a2`);
+        let plane3 = new Plane(`a3`);
+
+        // Act
+        airport.setCapacity(2);
+        airport.landPlane(plane1);
+        airport.landPlane(plane2);
+
+        expect(() => airport.landPlane(plane3)).toThrowError('The airport is full. Cannot land the plane.');
+    })
 })
