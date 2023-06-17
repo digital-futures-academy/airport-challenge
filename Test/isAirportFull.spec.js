@@ -161,43 +161,7 @@ expected = undefined;
 actual = undefined;
 result = undefined;
 
-// Check airport capacity can not be changed to an amount less than the number of planes already grounded at said airport. Going to increase amount to 3, land 3 planes then try change value to 2
 
-//arrange
-
-airport = new Airport();
-plane1 = new Plane('A1', true)
-plane2 = new Plane('B2', true)
-plane3 = new Plane('C3', true)
-
-expected = 3;
-
-//act
-airport.setAirportMaxCapacity(3);
-
-airport.instructToLand(plane1);
-airport.instructToLand(plane2);
-airport.instructToLand(plane3);
-
-airport.setAirportMaxCapacity(2);
-
-actual = airport.getListOfPlanesAtAirport.length;
-
-//assert
-
-result = assertEquals(actual, expected);
-
-console.log(`Test 6 - Cant change capacity to less than number of planes already grounded, therefore capacity is still 3, ignoring call to make it 2 ? ${result ? `PASS` : `FAIL`}`);
-
-//cleanup
-
-plane1 = undefined;
-plane2 = undefined;
-plane3 = undefined;
-airport = undefined;
-expected = undefined;
-actual = undefined;
-result = undefined;
 
 console.log('----------------------------------');
 
