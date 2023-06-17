@@ -62,4 +62,17 @@ describe('Airport Tests', () => {
         expect(airport.getPlanesList()).toContain(plane1);
         expect(airport.getPlanesList()).toContain(plane1);
     })
+
+    it('should remove a plane from the planes list when it takes off', () => {
+        // Arrange
+        let plane1 = new Plane(`a1`);
+        let plane2 = new Plane(`a2`);
+        airport.landPlane(plane1);
+        airport.landPlane(plane2);
+
+        // Act
+        airport.takeOff(plane1);
+
+        expect(airport.getPlanesList().length).toBe(1);
+    })
 })
