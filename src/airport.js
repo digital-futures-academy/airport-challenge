@@ -24,9 +24,13 @@ class Airport {
     landPlane(plane) {
 
         // checks 'plane' is a non empty string
-        if (typeof plane === 'string' && plane.trim().length > 0) {
+        if (typeof plane === 'string' && plane.trim().length > 0 && this.planesInAirport.length < this.airportCapacity) {
             // this.planesInAirport.push(plane);
             this.planesInAirport = [...this.planesInAirport, plane]     // new method 
+        }
+
+        else {
+            return console.log('Airport is full or invalid Plane ID')
         }
 
 
@@ -41,6 +45,17 @@ class Airport {
     }
 
 
+
+
+
+
+    isAirportFull() {
+        if (this.planesInAirport.length < this.airportCapacity) {
+            return false
+        }
+        else { return true }
+
+    }
 
 
 
