@@ -17,11 +17,13 @@ console.log(`Take-off plane using removePlane and expect array (landedPlane) has
 
 // Arrange
 expected = 0;
-airport.landedPlanes = [plane1]
-airport.planesExist(plane1)
+airport.landedPlanes = [plane1];
+console.log(airport.landedPlanes);
+airport.planesExist(plane1);
+
 // Act
+
 airport.removePlanes(0);
-;
 actual = airport.landedPlanes.length;
 
 
@@ -34,6 +36,9 @@ console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 console.log(actual);
 console.log(airport.planesExist());
+console.log(airport.landedPlanes);
+console.log(airport.removePlanes());
+
 // Clean up
 airport.landedPlanes = [];
 result = undefined;
@@ -49,9 +54,8 @@ console.log(`Test that only the desired plane was removed from the landedPlanes 
 // Arrange
 expected = [plane2];
 airport.landedPlanes = [plane1, plane2]
-airport.planesExist(plane1);
-// Act
 
+// Act
 airport.removePlanes(0);
 actual = airport.landedPlanes;
 actual = JSON.stringify(actual);

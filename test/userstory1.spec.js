@@ -20,7 +20,7 @@ console.log(`Land plane in airport using landPlane and expect array (landedPlane
 expected = 1;
 
 // Act
-// airport.airportCapacity;
+
 airport.landPlanes(plane1);
 actual = airport.landedPlanes.length;
 

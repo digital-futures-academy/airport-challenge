@@ -1,4 +1,5 @@
 const airport = {
+
     landedPlanes: [],
     defaultAirportCapacity: 10,
 
@@ -9,8 +10,6 @@ const airport = {
         this.defaultAirportCapacity = amount;
 
     },
-
-
 
     isAirportFull: function () 
     {
@@ -29,18 +28,24 @@ const airport = {
         {
             return `Airport at full capacity`
         }
+        // if (planesExist())
+        // {
 
-        this.landedPlanes = [...this.landedPlanes, planes]
+        //     return "This plane is already at the airport"
+        // }
+
+        return this.landedPlanes = [...this.landedPlanes, planes]
 
     },
 
     removePlanes: function (planes)
     {
-        if (this.planesExist())
+        if (this.planesExist(planes))
         {
-            return this.landedPlanes.splice(planes, 1)
+            return this.landedPlanes.splice(planes, 1);
         }
         return "This plane is not at the airport."
+
     },
 }
 
