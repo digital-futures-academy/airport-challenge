@@ -23,13 +23,6 @@ testAirport.landPlane('testPlane');
 actual = testAirport.planesInAirport.length;
 
 //assert
-result = assertEquals(actual, expected);
-
-console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
-console.log('  ')
-
-
-
 
 console.log('Test 2')
 console.log("'planesInAirport should only accept string as an input")
@@ -83,7 +76,6 @@ actual = arrayAirport.planesInAirport;
 actual = JSON.stringify(actual)
 //assert
 result = assertEquals(actual, expected);
-
 
 console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')

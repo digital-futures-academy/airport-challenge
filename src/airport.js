@@ -1,24 +1,11 @@
 class Airport {
 
-    // let basketItem = [];
-
-
     constructor() {
-
-
 
         this.planesInAirport = [];
         this.airportCapacity = 10; // default 
 
-
-
-
-
-
     }
-
-
-
 
 
     landPlane(plane) {
@@ -31,8 +18,6 @@ class Airport {
 
         else if (this.planesInAirport.length >= this.airportCapacity) { return console.log('Airport is full') }
         else { return console.log('Invalid plane ID') }
-
-
 
     }
 
@@ -62,13 +47,13 @@ class Airport {
 
     takeoffPlane(plane) {
         if (this.planesInAirport.includes(plane)) {
-            let planeIndex = this.planesInAirport.indexOf(plane)
-            this.planesInAirport.splice(planeIndex, 1)
+            let planeIndex = this.planesInAirport.indexOf(plane) //finds position
+            return this.planesInAirport.splice(planeIndex, 1)
 
-            return this.planesInAirport
+            // return this.planesInAirport
 
-        } else {                                        // item doesn't exist in basket 
-            return 'Sorry, this one does not exist in basket'
+        } else {
+            return 'Plane does not exist in airport'
         }
 
     }
