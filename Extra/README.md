@@ -227,13 +227,9 @@ As an air traffic controller
 Planes that have landed must be at an airport
 To count planes easily   
 
-Each plane will have a location - at airport or in sky. This means variable could be scaled to deal with in storage or maintenance in the future.
-All planes could be in an array the the location property used to count them. That however is out of scope and count will only be a per airport basis.
-Plane location will be changed on landing or takeoff to correct status
-
 
 -Objects;     -Properties;                            -Messages;                      -Output;
 -Airport      -numberOfPlanesAtAirport @number        -numberOfPlanesAtAirport()      -@Number
 
--Plane        -location @string                       -setPlaneLocation(@String)      -@void                                                     
-
+-Plane        -atAirport @boolean                     -setPlaneAtAirport(@boolean)     -@void                                                     
+                                                      -gerPlaneAtAirport()            -@boolean

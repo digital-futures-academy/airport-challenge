@@ -1,11 +1,9 @@
 class Plane {
 
-    // decided setting inFlight at creation was quickest way to set property (does mean going through all tests again)
-
     constructor(planeID, inFlight) {
         this.planeID = planeID;
         this.inFlight = inFlight;
-        this.location = 'In Flight'
+        this.atAirport = false
     }
 
     getPlaneID() {
@@ -18,19 +16,19 @@ class Plane {
 
     setInFlight(status) {
         this.inFlight = status;
-        (status) ? this.setLocation('In Flight') : this.setLocation('At Airport');
+        (status) ? this.setAtAirport(false) : this.setAtAirport(true);
     }
 
     static checkInputIsAPlaneObject(input) {
         return input instanceof Plane
     }
 
-    getLocation() {
-        return this.location;
+    getAtAirport() {
+        return this.atAirport;
     }
 
-    setLocation(location) {
-        this.location = location;
+    setAtAirport(atAirport) {
+        this.atAirport = atAirport;
     }
 
 }

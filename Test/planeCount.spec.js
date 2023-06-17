@@ -85,18 +85,18 @@ result = undefined;
 
 //arrange
 
-expected = 'In Flight';
+expected = false;
 
 plane = new Plane('D4', true);
 
 //act
 
-actual = plane.getLocation();
+actual = plane.getAtAirport();
 
 //assert
 
 result = assertEquals(actual, expected);
-console.log(`Test 3 - Check 'Location' of plane is 'In Flight' during a flight/not grounded at airport ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 3 - Check 'AtAirport' of plane is false during a flight/not grounded at airport ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
@@ -110,7 +110,7 @@ result = undefined;
 
 //arrange
 
-expected = 'At Airport';
+expected = true;
 
 plane = new Plane('D4', true);
 airport = new Airport('Madrid');
@@ -118,12 +118,12 @@ airport = new Airport('Madrid');
 //act
 
 airport.instructToLand(plane);
-actual = plane.getLocation();
+actual = plane.getAtAirport();
 
 //assert
 
 result = assertEquals(actual, expected);
-console.log(`Test 4 - Check 'Location' of plane is 'At Airport' since grounded at airport ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 4 - Check 'AtAirport' of plane is true since grounded at airport ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
@@ -137,7 +137,7 @@ result = undefined;
 
 //arrange
 
-expected = 'In Flight';
+expected = false;
 
 plane = new Plane('D4', true);
 airport = new Airport('Madrid');
@@ -146,12 +146,12 @@ airport = new Airport('Madrid');
 
 airport.instructToLand(plane);
 airport.instructToTakeOff2(plane);
-actual = plane.getLocation();
+actual = plane.getAtAirport();
 
 //assert
 
 result = assertEquals(actual, expected);
-console.log(`Test 5 - Check 'Location' of plane is 'In Flight' since it has left the airport ${result ? `PASS` : `FAIL`}`);
+console.log(`Test 5 - Check 'AtAirport' of plane is 'false' since it has left the airport ${result ? `PASS` : `FAIL`}`);
 
 //cleanup
 
@@ -187,7 +187,7 @@ planeArray.forEach(planeInArray);
 
 function planeInArray(landedPlane) {
 
-    if (landedPlane.getLocation() === 'At Airport') {
+    if (landedPlane.getAtAirport() === true) {
         count += 1
     }
 }
