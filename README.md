@@ -1,81 +1,111 @@
-Airport Challenge
-=================
+**DF Airport Domain Models and Test Cases**
 
-```
-         ______
-        __\____\___
-=  = ==(____DFA____)
-           \_____\__________________,-~~~~~~~`-.._
-          /     o o o o o o o o o o o o o o o o  |\_
-          `~-.__       __..----..__                  )
-                `---~~\___________/------------`````
-                =  ===(_________)
+## Domain Model 01
 
-```
+| Objects | Properties                   | Messages          | Outputs |
+| ------- | ---------------------------- | ----------------- | ------- |
+| Airport | airport1@Array[planes]       | add(@plane)       | @void   |
+|         |                              |                   |         |
+| Plane   |                              |                   |         |
 
-Instructions
----------
+Test cases for DM 01
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must submit your challenge (on Noodle) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
+Test 1 - `airport1` length increases when `add(plane)` is called.
 
-Steps
--------
+## Domain Model 02
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+| Objects | Properties        | Messages                    | Outputs  |
+| ------- | ----------------- | -------------------------   | -------- |
+| Airport | capacity@integer  | overrideCapacity(@limit)    | @integer |
+|         |                   |                             |          |
+| Plane   |                   |                             |          |
 
-Task
------
+Test Cases for DM 02:
 
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+Test 2 - Test `Airport's` default `capacity`.
+Test 3 - `overrideCapacity` can be modified with a new value
+Test 4 - `airportCapacity` can only accept integers
 
-#### Acceptance Criteria
-```
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
+## Domain Model 03
 
-As the system designer
-So that the software can be used for many different airports
-I would like a default airport capacity that can be overridden as appropriate
+| Objects | Properties                   | Messages          | Outputs  |
+| ------- | ---------------------------- | ----------------- | -------- |
+| Airport | airport1 @Array[planes]      | add(@plane)       | @void    |
+|         | capacity @integer            | airport.length()  | @integer |
+| Plane   |                              |                   |          |
 
-As an air traffic controller
-To ensure safety
-I want to prevent landing when the airport is full
+Test Cases for DM 03:
 
-As an air traffic controller
-So I can get passengers on the way to their destination
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+Test 5 - `add(@plane)` should throw error when `airport.length` returns `capacity`
 
-As an air traffic controller
-To avoid confusion
-I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-```
+## Domain Model 04
 
-#### Extended Acceptance Criteria
-```
-As an air traffic controller
-To ensure safety
-I want to prevent takeoff when weather is stormy
+| Objects | Properties                   | Messages          | Outputs  |
+| ------- | ---------------------------- | ----------------- | -------- |
+| Airport | airport1 @Array[planes]      | remove(@plane)    | @boolean |
+|         | plane(x)                     | confirm(@plane)   | @boolean |
+| Plane   |                              |                   |          |
 
-As an air traffic controller
-To ensure safety
-I want to prevent landing when weather is stormy
+Test Cases for DM 04:
 
-As an air traffic controller
-To count planes easily
-Planes that have landed must be at an airport
-```
+Test 6 - `remove(@plane)` should return `true` when `plane(x)` is inside `airport1[]`
+Test 7 - `confirm(@plane)` should return `true` for `plane(x)`
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+## Domain Model 05
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+| Objects | Properties                  | Messages          | Outputs  |
+| ------- | ----------------------------| ----------------- | -------- |
+| Airport | remove(@PlaneX)             | indexOf(@planeX)  | @boolean |
+|         | add(@PlaneY)                | indexOf(@planeY)  | @boolean |
+| Plane   |                             |                   |          |
+
+Test Cases for DM 05
+
+Test 7 - `add(@plane)` should return `false` when `indexOf` returns `Plane(x)`
+Test 8 - `remove(plane)` should return `false` when `indexOf` returns `Plane(x)`
+Test 9 - `add(@Plane)` should return `true` when `indexOf` returns `false`
+Test 10 - `remove(@Plane)` should return `true` when `idexOf` returns `false`
+
+*Extended Acceptance Criteria*
+
+## Domain Model 06
+
+| Objects | Properties                   | Messages                     | Outputs  |
+| ------- | ---------------------------- | -----------------            | -------- |
+| Airport | howsTheWeather(weatherInput) | remove(@PlaneX)              | @boolean |
+|         |                              |                              |          |  
+| Weather | Stormy()                     | howsTheWeather(weatherInput) | @boolean |
+|         | Sunny                        | howsTheWeather(weatherInput) | @boolean |
+| Plane   |                              |                              |          |
+
+Test Cases for DM 06
+
+Test 11 - `remove(@PlaneX)` should return `False` when `howsTheWeather` reports `Stormy`
+Test 12 - `remove(@PlaneX)` should return `True` when `howsTheWeather` reports `Sunny`
+
+## Domain Model 07
+
+| Objects | Properties                   | Messages                     | Outputs  |
+| ------- | ---------------------------- | -----------------            | -------- |
+| Airport | howsTheWeather(weatherInput) | add(@PlaneX)                 | @boolean |
+|         |                              |                              |          | 
+| Weather | Stormy()                     | howsTheWeather(weatherInput) | @boolean |
+|         | Sunny                        | howsTheWeather(weatherInput) | @boolean |
+| Plane   |                              |                              |          |
+
+Test Cases for DM 08
+
+Test 13 - `add(@PlaneX)` should return `False` when `howsTheWeather` reports `Stormy`
+Test 14 - `add(@PlaneX)` should return `True` when `howsTheWeather` reports `Sunny`
+
+## Domain Model 08
+
+| Objects | Properties                   | Messages                     | Outputs  |
+| ------- | ---------------------------- | -----------------            | -------- |
+| Airport | airport1@Array[planes]       | add(@PlaneX)                 | @boolean |
+|         |                              | noOfPlanesAtAirport()        | @integer |
+| Plane   |                              |                              |          |
+
+Test Cases for DM 09
+
+Test 15 - `noOfPlanesAtAirport` should return `airport1.length`
