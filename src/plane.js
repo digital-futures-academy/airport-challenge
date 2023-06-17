@@ -28,19 +28,15 @@ class Plane {
     }
 
     static checkInputIsAPlaneObject(input) {
-        return input instanceof Plane
+        return input instanceof Plane;
     }
 
     static checkPlaneIDInput(input) {
-        if (input?.planeID && typeof input.planeID === 'string') {
-            return true
-        }
+        return (input?.planeID && typeof input.planeID === 'string');
     }
 
     static checkPlaneFlightInput(input) {
-        if (input?.inFlight && typeof input.inFlight === 'boolean') {
-            return true
-        }
+        return (input?.inFlight && typeof input.inFlight === 'boolean');
 
     }
 

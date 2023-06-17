@@ -20,7 +20,10 @@ class Airport {
     }
 
     setAirportMaxCapacity(newCapacity) {
-        this.airportMaxCapacity = newCapacity;
+        if (newCapacity >= this.numberOfPlanesAtAirport()) {
+            this.airportMaxCapacity = newCapacity
+        }
+
     }
 
 

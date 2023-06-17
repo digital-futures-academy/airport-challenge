@@ -2,34 +2,41 @@ const { Airport } = require(`../src/Airport.js`);
 const { Plane } = require(`../src/Plane.js`);
 
 
+checkPlane1 = new Plane();
+checkPlane2 = 'hi'
+checkPlane3 = new Plane('A1', true)
+checkPlane4 = new Plane(null, true)
+checkPlane5 = new Plane('B2', 2)
 
-plane1 = new Plane();
-plane2 = 'hi'
-plane3 = new Plane('A1', true)
-plane4 = new Plane(null, true)
-plane5 = new Plane('B2', 2)
+planeArray = [checkPlane1, checkPlane2, checkPlane3, checkPlane4, checkPlane5]
 
-
-console.log(Plane.checkInputIsAPlaneObject(plane1))
-console.log(Plane.checkInputIsAPlaneObject(plane2))
-console.log(Plane.checkInputIsAPlaneObject(plane3))
-console.log(Plane.checkInputIsAPlaneObject(plane4))
-console.log('-------------------')
-console.log(Plane.checkPlaneIDInput(plane1))
-console.log(Plane.checkPlaneIDInput(plane2))
-console.log(Plane.checkPlaneIDInput(plane3))
-console.log(Plane.checkPlaneIDInput(plane4))
-console.log('-------------------')
-console.log(Plane.checkPlaneFlightInput(plane1))
-console.log(Plane.checkPlaneFlightInput(plane2))
-console.log(Plane.checkPlaneFlightInput(plane3))
-console.log(Plane.checkPlaneFlightInput(plane4))
+planeArray.forEach(isThisAnInstanceOfPlane);
+console.log('------------------------');
+planeArray.forEach(constructorPlaneID);
+console.log('------------------------');
+planeArray.forEach(constructorInFlight);
+console.log('------------------------');
 
 
-airport = new Airport();
+realPlane1 = new Plane('A1', true)
+realPlane2 = new Plane(null, true)
+realPlane3 = new Plane('A1', true)
+realPlane4 = new Plane(null, true)
 
-airport.setWeatherSafeForAction(Airport.weatherGenerator())
-console.log(airport);
+// airport = new Airport();
+
+// airport.setWeatherSafeForAction(Airport.weatherGenerator())
+// console.log(airport);
 
 
+function isThisAnInstanceOfPlane(input) {
+    console.log('Input is a instance of Plane object: ' + Plane.checkInputIsAPlaneObject(input))
+}
 
+function constructorPlaneID(input) {
+    console.log('Input has a planeID property: ' + Plane.checkPlaneIDInput(input))
+}
+
+function constructorInFlight(input) {
+    console.log('Input has a inFlight property: ' + Plane.checkPlaneFlightInput(input))
+}
