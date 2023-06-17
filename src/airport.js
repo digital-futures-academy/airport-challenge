@@ -29,9 +29,8 @@ class Airport {
             this.planesInAirport = [...this.planesInAirport, plane]     // new method 
         }
 
-        else {
-            return console.log('Airport is full or invalid Plane ID')
-        }
+        else if (this.planesInAirport.length >= this.airportCapacity) { return console.log('Airport is full') }
+        else { return console.log('Invalid plane ID') }
 
 
 

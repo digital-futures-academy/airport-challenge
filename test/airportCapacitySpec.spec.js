@@ -51,10 +51,8 @@ result = biggerAirport.airportCapacity
 //assert
 
 
-
-
 result = assertEquals(result, expected)
-console.log(`Test 2: ${!result ? `PASS` : `FAIL`}`);
+console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')
 
 
@@ -68,7 +66,7 @@ expected = 15;
 
 //act
 // testPlane.adjustAirportCapacity(10)
-biggerAirport.adjustAirportCapacity('-5')
+biggerAirport.adjustAirportCapacity(-5)
 
 result = biggerAirport.airportCapacity
 
@@ -91,7 +89,7 @@ expected = 15;
 
 //act
 // testPlane.adjustAirportCapacity(10)
-biggerAirport.adjustAirportCapacity('4.7')
+biggerAirport.adjustAirportCapacity(4.7)
 
 result = biggerAirport.airportCapacity
 
