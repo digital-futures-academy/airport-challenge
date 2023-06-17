@@ -52,7 +52,7 @@ class Airport {
 
     howsTheWeather(weatherInput)
     {
-        let allowedWeather = ['sunny','stormy']
+        let allowedWeather = ['sunny','Stormy']
         if (allowedWeather.includes(weatherInput))
         {
             this.weather = weatherInput

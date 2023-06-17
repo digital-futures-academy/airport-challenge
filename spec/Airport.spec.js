@@ -72,12 +72,12 @@ describe('Test adding existing plane and removing non-existing plane', () => {
 });
 
 
-describe('Prevent take off when weather is stormy', () => {
-    it('Prevent take off when weather is stormy', () => {
+describe('Prevent Stormy take-off', () => {
+    it('Prevent take-off when weather is Stormy', () => {
         // Arrange
     const airport = new Airport();
     airport.add('plane1');
-    airport.howsTheWeather('stormy');
+    airport.howsTheWeather('Stormy');
         // Act
     const actual = airport.remove('plane1');
         // Assert
@@ -86,12 +86,12 @@ describe('Prevent take off when weather is stormy', () => {
 });
 
 
-describe('Prevent landing when weather is stormy', () => {
-    it('Prevent landing when weather is stormy', () => {
+describe('Prevent Stormy landing', () => {
+    it('Prevent landing when weather is Stormy', () => {
         // Arrange
     const airport = new Airport();
     
-    airport.howsTheWeather('stormy');
+    airport.howsTheWeather('Stormy');
         // Act
     const actual = airport.add('plane1');
         // Assert
@@ -100,8 +100,8 @@ describe('Prevent landing when weather is stormy', () => {
 });
 
 
-describe('Planes landed must be at an airport', () => {
-    it('Planes landed must be at an airport', () => {
+describe('Number of planes at the Airport', () => {
+    it('Planes landed must be at an Airport', () => {
         // Arrange
     const airport = new Airport();
     airport.add('plane1');
