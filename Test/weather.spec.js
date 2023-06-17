@@ -84,7 +84,7 @@ result = undefined;
 
 //arrange
 
-expected = 1;
+expected = 0;
 airport = new Airport('Stormy Airport');
 plane = new Plane('A1', true);
 

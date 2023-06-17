@@ -37,7 +37,7 @@ class Airport {
     }
 
     isAirportFull() {
-        return this.airportMaxCapacity === this.listOfPlanesAtAirport.length
+        return this.airportMaxCapacity === this.getListOfPlanesAtAirport.length;
     }
 
     instructToTakeOff2(plane) {
@@ -63,7 +63,7 @@ class Airport {
     }
 
     preLandChecks(plane) {
-        return this.getWeatherSafeForAction && !this?.isAirportFull() && !this.checkPlaneAtAirport(plane) && plane?.inFlight
+        return (this.getWeatherSafeForAction() && !this?.isAirportFull() && !this.checkPlaneAtAirport(plane) && plane?.inFlight)
     }
 
     preTakeOffChecks(plane) {

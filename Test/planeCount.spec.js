@@ -190,6 +190,7 @@ function planeInArray(landedPlane) {
     if (landedPlane.getAtAirport() === true) {
         count += 1
     }
+
 }
 
 actual = count;
