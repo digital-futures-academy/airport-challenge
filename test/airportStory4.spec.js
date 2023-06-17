@@ -14,14 +14,14 @@ Test = () => {
     console.log(``);
 
     //Arrange
-    expected = 1;
+    expected = true;
+
     airport = new Airport(2);
     airport.landPlane(new Plane(`Plane`));
     input = airport.getPlanesAtAirport()[0];
 
     //Act
-    airport.canTakeoff(input);
-    actual = airport.getPlanesAtAirport().length;
+    actual = airport.canTakeoff(input);
 
     //Assert
     result = assertStrictEqual(expected, actual);
@@ -68,7 +68,7 @@ Test2 = () => {
 
 }
 
-Test2 = () => {
+Test3 = () => {
 
     console.log(chalk.cyan(`User Story 4: Takeoff a plane and confirm it has left`))
     console.log(chalk.cyan(`User Story 4 Test 3: Takeoff a plane and confirm the plane that left`))

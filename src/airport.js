@@ -29,6 +29,10 @@ class Airport {
     return !this.checkFull() && !this.#stormy && !this.#planesAtAirport.includes(plane) && plane.getAirport() === undefined;
   }
 
+  canTakeoff(plane) {
+    return !this.#stormy && plane.getAirport() === this
+  }
+
   landPlane = (plane) => {
     if (this.canLand(plane)) {
       plane.setAirport(this);
@@ -37,7 +41,7 @@ class Airport {
   };
 
   takeoffPlane = (plane) => {
-    if (!this.#stormy && plane.getAirport() === this) {
+    if (this.canTakeoff(plane)) {
       this.#planesAtAirport.splice(this.#planesAtAirport.indexOf(plane), 1);
       plane.setAirport(undefined);
     }
