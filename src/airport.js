@@ -8,11 +8,12 @@ class Airport {
     }
 
     landPlane(plane) {
+        this.validateLanding(plane);
         this.#planesList.push(plane);
     }
 
     getPlanesList() {
-        return this.#planesList
+        return this.#planesList;
     }
 
     getCapacity() {
@@ -24,6 +25,19 @@ class Airport {
             throw new Error(`Capacity cannot be set below 0.`);
         }
         this.#capacity = newCapacity;
+    }
+
+    isFull() {
+        if (this.#planesList.length < this.#capacity) {
+            return false;
+        }
+        return true;
+    }
+
+    validateLanding(plane) {
+        if (this.isFull()) {
+            throw new Error(`The airport is full. Cannot land the plane.`)
+        }
     }
 }
 
