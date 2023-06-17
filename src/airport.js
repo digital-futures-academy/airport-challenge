@@ -12,6 +12,11 @@ class Airport {
         this.#planesList.push(plane);
     }
 
+    takeOff(plane) {
+        const planeId = plane.getId();
+        this.#planesList = this.#planesList.filter((p) => p.getId() !== planeId);
+    }
+
     getPlanesList() {
         return this.#planesList;
     }
