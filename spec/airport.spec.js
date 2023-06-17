@@ -47,4 +47,19 @@ describe('Airport Tests', () => {
 
         expect(() => airport.landPlane(plane3)).toThrowError('The airport is full. Cannot land the plane.');
     })
+
+    it('should not remove previously landed planes when modifying the capacity to a lower value', () => {
+        // Arrange
+        let plane1 = new Plane(`a1`);
+        let plane2 = new Plane(`a2`);
+
+        // Act
+        airport.landPlane(plane1);
+        airport.landPlane(plane2);
+        airport.setCapacity(1);
+
+        expect(airport.getCapacity()).toBe(1);
+        expect(airport.getPlanesList()).toContain(plane1);
+        expect(airport.getPlanesList()).toContain(plane1);
+    })
 })
