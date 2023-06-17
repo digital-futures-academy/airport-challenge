@@ -4,6 +4,7 @@ const Airport = require("../src/airport.js");
 console.log('User Story 1 - Testing')
 console.log('======================')
 console.log(' ')
+
 console.log('Test 1')
 console.log("Check that number of planes in 'planesInAirport'has increased by 1")
 console.log(' ')
@@ -11,18 +12,21 @@ console.log(' ')
 let input, expected, actual, result;
 
 //arrange
-const plane1 = new Airport('plane1');
+const testAirport = new Airport();
 
 expected = 1;
 
 
 //act
-plane1.landPlane();
+testAirport.landPlane('testPlane');
 
-actual = plane1.planesInAirport.length;
+actual = testAirport.planesInAirport.length;
 
 //assert
 result = assertEquals(actual, expected);
+
+
+console.log(testAirport.planesInAirport)
 
 console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')
@@ -36,24 +40,53 @@ console.log(' ')
 
 
 //arrange
-const numPlane = new Airport(1234);
-const emptyPlane = new Airport('    ')
+const intAirport = new Airport();
 
-
-expected = 1;
+expected = 0;
 
 
 
 //act
 
-numPlane.landPlane()
-emptyPlane.landPlane()
+intAirport.landPlane(123)
+intAirport.landPlane('     ')
 
-actual = numPlane.planesInAirport.length
+actual = intAirport.planesInAirport.length
 
 
 //assert
 result = assertEquals(actual, expected)
 
+
+
 console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
+console.log('  ')
+
+
+console.log('Test 3')
+console.log("Check to see if the ID of the planes are added to the array")
+console.log(' ')
+
+
+
+//arrange
+const arrayAirport = new Airport();
+
+expected = ['plane', 'plane2', 'plane3'];
+expected = JSON.stringify(expected)
+
+//act
+arrayAirport.landPlane('plane');
+arrayAirport.landPlane('plane2');
+arrayAirport.landPlane('plane3');
+
+
+
+actual = arrayAirport.planesInAirport;
+actual = JSON.stringify(actual)
+//assert
+result = assertEquals(actual, expected);
+
+
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
 console.log('  ')

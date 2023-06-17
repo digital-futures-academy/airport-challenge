@@ -2,37 +2,46 @@ class Airport {
 
     // let basketItem = [];
 
-    constructor(plane) {
 
-        if (typeof plane === 'string' && plane.trim().length > 0) {
+    constructor() {
 
-            this._plane = plane     // new method 
-        }
-        else {
-            'plane ID must be a string'
-        }
+
 
         this.planesInAirport = [];
+        this.airportCapacity = 10; // default 
+
+
+
+
+
+
     }
 
 
 
 
 
-
-
-
-    landPlane() {
+    landPlane(plane) {
 
         // checks 'plane' is a non empty string
-        // if (typeof plane === 'string' && plane.trim().length > 0) {
-        //     // this.planesInAirport.push(plane);
-        //     this.planesInAirport = [...this.planesInAirport, plane]     // new method 
-        // }
+        if (typeof plane === 'string' && plane.trim().length > 0) {
+            // this.planesInAirport.push(plane);
+            this.planesInAirport = [...this.planesInAirport, plane]     // new method 
+        }
 
-        this.planesInAirport = [...this.planesInAirport, this._plane]
+
 
     }
+
+    adjustAirportCapacity(capacity) {
+
+        this.airportCapacity = capacity;
+    }
+
+
+
+
+
 
 
     takeoffPlane(plane) {
