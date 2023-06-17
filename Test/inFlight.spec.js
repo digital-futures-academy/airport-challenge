@@ -113,7 +113,7 @@ result = undefined;
 //arrange
 
 expected = 0;
-plane = new Plane('A1', false);
+plane = new Plane('A1', true);
 airport1 = new Airport('Already Landed');
 airport2 = new Airport('Empty')
 
@@ -121,10 +121,12 @@ airport2 = new Airport('Empty')
 
 airport1.instructToLand(plane);
 airport2.instructToLand(plane);
-actual = airport1.numberOfPlanesAtAirport();
+actual = airport2.numberOfPlanesAtAirport();
 
 //assert
 
+console.log(airport1);
+console.log(airport2);
 result = assertEquals(actual, expected);
 console.log(`Test 5 - Plane is already at airport 1 so cant be asked to land at another - therefore number of planes at airport 2 is 0? ${result ? `PASS` : `FAIL`}`);
 
@@ -133,6 +135,67 @@ console.log(`Test 5 - Plane is already at airport 1 so cant be asked to land at 
 plane = undefined;
 airport1 = undefined;
 airport2 = undefined;
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Try takeoff a plane that for some reason has already took off i.e inFlight is true. Situation is being forced
+
+//arrange
+
+expected = 1;
+plane = new Plane('A1', true);
+airport = new Airport('Already left');
+
+
+//act
+
+airport.instructToLand(plane);
+plane.setInFlight(true);
+
+airport.instructToTakeOff2(plane);
+actual = airport.numberOfPlanesAtAirport();
+
+//assert
+
+console.log(airport)
+result = assertEquals(actual, expected);
+console.log(`Test 6 - Forced plane to be inflight true while grounded at airport, therefore it cant be asked to take off hence airport array is still 1? ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport = undefined;
+
+expected = undefined;
+actual = undefined;
+result = undefined;
+
+// Try land a plane that for some reason has already landed i.e inFlight is false. Situation is being forced
+
+//arrange
+
+expected = 0;
+plane = new Plane('A1', false);
+airport = new Airport('Cant Land');
+
+
+//act
+
+airport.instructToLand(plane);
+actual = airport.numberOfPlanesAtAirport();
+
+//assert
+
+console.log(airport)
+result = assertEquals(actual, expected);
+console.log(`Test 7 - Forced plane to be inflight false while in air, therefore it cant be asked to land hence airport array is 0? ${result ? `PASS` : `FAIL`}`);
+
+//cleanup
+
+plane = undefined;
+airport = undefined;
+
 expected = undefined;
 actual = undefined;
 result = undefined;
