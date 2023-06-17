@@ -34,8 +34,10 @@ class Airport {
     }
 
     adjustAirportCapacity(capacity) {
+        if (Number.isInteger(capacity) && capacity > 0) {
+            this.airportCapacity = capacity;
+        }
 
-        this.airportCapacity = capacity;
     }
 
 

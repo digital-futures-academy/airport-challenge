@@ -15,14 +15,14 @@ console.log(' ')
 
 
 //arrange
-const testPlane = new Airport('tester')
-expected = 15;
+const biggerAirport = new Airport()
+expected = 15;   //default capacity = 10 
 
 //act
 
-testPlane.adjustAirportCapacity(15)
+biggerAirport.adjustAirportCapacity(15)
 
-result = testPlane.airportCapacity
+result = biggerAirport.airportCapacity
 
 
 // console.log(result)
@@ -34,24 +34,71 @@ console.log('  ')
 
 
 console.log('Test 2')
-console.log("Check that only integers can be used in 'adjustAirportCapacity'")
+console.log("Check that'adjustAirportCapacity' will not accept strings")
 console.log(' ')
 
 //arrange
-expected = 10;
+expected = 15;
 
 //act
 // testPlane.adjustAirportCapacity(10)
-testPlane.adjustAirportCapacity('sdfsdf')
+biggerAirport.adjustAirportCapacity('sdfsdf')
 
-result = testPlane.airportCapacity
+result = biggerAirport.airportCapacity
 
 
-console.log(result)
-console.log(expected)
+
 //assert
+
+
+
 
 result = assertEquals(result, expected)
 console.log(`Test 2: ${!result ? `PASS` : `FAIL`}`);
 console.log('  ')
-console.log(testPlane.planesInAirport)
+
+
+
+console.log('Test 3')
+console.log("Check that only positive integers can be used in 'adjustAirportCapacity'")
+console.log(' ')
+
+//arrange
+expected = 15;
+
+//act
+// testPlane.adjustAirportCapacity(10)
+biggerAirport.adjustAirportCapacity('-5')
+
+result = biggerAirport.airportCapacity
+
+
+
+//assert
+
+result = assertEquals(result, expected)
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log('  ')
+
+
+
+console.log('Test 4')
+console.log("Check that only whole numbers can be used in 'adjustAirportCapacity'")
+console.log(' ')
+
+//arrange
+expected = 15;
+
+//act
+// testPlane.adjustAirportCapacity(10)
+biggerAirport.adjustAirportCapacity('4.7')
+
+result = biggerAirport.airportCapacity
+
+
+
+//assert
+
+result = assertEquals(result, expected)
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log('  ')
