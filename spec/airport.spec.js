@@ -29,4 +29,8 @@ describe('Airport Tests', () => {
 
         expect(airport.getCapacity()).toBe(10);
     })
+
+    it('should prevent assigning a negative capacity', () => {
+        expect(() => airport.setCapacity(-1)).toThrowError('Capacity cannot be set below 0.')
+    })
 })
