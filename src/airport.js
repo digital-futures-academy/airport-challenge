@@ -14,6 +14,10 @@ class Airport {
     return this.#planesAtAirport.length;
   }
 
+  getPlane(planeId) {
+    return this.#planesAtAirport.find(plane => plane.getId() === planeId);
+  }
+
 }
 
 module.exports = Airport;
