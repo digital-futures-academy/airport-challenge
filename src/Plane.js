@@ -1,6 +1,6 @@
 class Plane {
 
-    static lastId = 1;
+    static lastId = 0;
     id;
     
     constructor() {

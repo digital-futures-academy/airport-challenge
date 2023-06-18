@@ -1,8 +1,12 @@
 const Airport = require('../src/Airport.js');
 const { assertEquals } = require('./test-framework');
+const Plane = require('../src/Plane.js');
 const Weather = require('../src/Weather.js');
 
 let expected, actual, result;
+
+console.log('Airport Tests');
+console.log('================================================');
 
 console.log('User Story 1');
 console.log('================================================');
@@ -200,7 +204,7 @@ expected = JSON.stringify(expected);
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 2: OverrideCapacity function returns an error if the input is null.: ${result}`);
+console.log(`Test 2: OverrideCapacity function returns an error if the input is null: ${result}`);
 console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
@@ -223,7 +227,7 @@ expected = JSON.stringify(expected);
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 3: OverrideCapacity function returns an error if the input is a string.: ${result}`);
+console.log(`Test 3: OverrideCapacity function returns an error if the input is a string: ${result}`);
 console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
@@ -255,7 +259,7 @@ expected = JSON.stringify(expected);
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 1: Check that planes cannot land when the airportCapacity is full and return an error.: ${result}`);
+console.log(`Test 1: Check that planes cannot land when the airportCapacity is full and return an error: ${result}`);
 console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
@@ -288,7 +292,7 @@ actual = airport.airportPlanes.length;
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 1: Check that removing a plane from the airport planes list decreases the array length by 1.: ${result}`);
+console.log(`Test 1: Check that removing a plane from the airport planes list decreases the array length by 1: ${result}`);
 console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
@@ -324,7 +328,7 @@ expected = JSON.stringify(expected);
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 2: Check that the plane passed to takeoffPlane is actually removed from the airportPlanes array.: ${result}`);
+console.log(`Test 2: Check that the plane passed to takeoffPlane is actually removed from the airportPlanes array: ${result}`);
 console.log(`Test 2: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
@@ -359,7 +363,7 @@ expected = JSON.stringify(expected);
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 3: Check that removing planes that are not in the airportPlanes array returns an error.: ${result}`);
+console.log(`Test 3: Check that removing planes that are not in the airportPlanes array returns an error: ${result}`);
 console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 
@@ -391,6 +395,83 @@ expected = JSON.stringify(expected);
 result = (assertEquals(actual, expected));
 
 // Report
-console.log(`Test 4: Check that null is not able to be removed numbers from the list.: ${result}`);
+console.log(`Test 4: Check that null is not able to be removed numbers from the list: ${result}`);
 console.log(`Test 4: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
+
+// Clean Up 
+airport = undefined;
+plane = undefined;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+
+console.log('User Story 5');
+console.log('================================================');
+console.log('Test 1');
+console.log('================================================');
+console.log('');
+
+console.log('Check that planes are unable to takeoff when the weather is "Stormy".')
+
+// Arrange
+airport = new Airport();
+plane = { id: '0001' };
+airport.landPlane(plane);
+airport.setWeather('Stormy');
+expected = Error('There is a storm, planes are not permitted for take off or land.');
+
+// Act
+actual = airport.takeoffPlane(plane);
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 1: Check that planes are unable to takeoff when the weather is "Stormy": ${result}`);
+console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+airport = undefined;
+plane = undefined;
+actual = undefined;
+expected = undefined;
+result = undefined;
+
+console.log('User Story 6');
+console.log('================================================');
+console.log('Test 1');
+console.log('================================================');
+console.log('');
+
+console.log('Check that planes are unable to land when the weather is "Stormy".');
+
+// Arrange
+airport = new Airport();
+airport.setWeather('Stormy');
+plane = { id: '0001' };
+expected = Error('There is a storm, planes are not permitted for take off or land.');
+
+// Act
+actual = airport.landPlane(plane);
+actual = JSON.stringify(actual);
+expected = JSON.stringify(expected);
+
+// Assert
+result = (assertEquals(actual, expected));
+
+// Report
+console.log(`Test 3: Check that planes are unable to land when the weather is "Stormy": ${result}`);
+console.log(`Test 3: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+// Clean Up 
+airport = undefined;
+plane = undefined;
+actual = undefined;
+expected = undefined;
+result = undefined;

@@ -157,18 +157,18 @@ I want to prevent takeoff when weather is stormy
 ##### Domain Model
 
 ```
-| Objects  | Properties                    | Messages               | Outputs  |
-| -------  | ----------------------------- | ---------------------- | -------- |
-| Airport  | AirportPlanes @Array[@Planes] | planeTakeOff(@Weather) | @Boolean |
-| Weather  | CurrentWeather@Array[@String] | setWeather(@String)    | @Void    |
+| Objects  | Properties                    | Messages                 | Outputs  |
+| -------  | ----------------------------- | ------------------------ | -------- |
+| Airport  | AirportPlanes @Array[@Planes] | weatherChecker(@Weather) | @Boolean |
+| Weather  | CurrentWeather@Array[@String] | setWeather(@String)      | @Void    |
 ```
 
 ##### Tests
 Weather Tests
 - [x] 1. Check that the weather object can be set using setWeather().
-- [ ] 2. Check that the generateWeather() function works, occasionally producing a stormy output.
+- [x] 2. Check that the generateWeather() function works, occasionally producing a stormy output.
 Airport Tests
-- [ ] 1. Check that planes are unable to takeoff when the weather is 'stormy'.
+- [x] 1. Check that planes are unable to takeoff when the weather is 'stormy'.
 
 
 You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
@@ -184,17 +184,14 @@ I want to prevent landing when weather is stormy
 ##### Domain Model
 
 ```
-| Objects  | Properties                     | Messages               | Outputs  |
-| -------  | ------------------------------ | ---------------------- | -------- |
-| Airport  | AirportPlanes @Array[@Planes]  | checkWeather(@Weather) | @Boolean |
-| Weather  | PossibleWeather@Array[@String] | RANDOM? STUB?(@String) | @String  |
+| Objects  | Properties                     | Messages                 | Outputs  |
+| -------  | ------------------------------ | ------------------------ | -------- |
+| Airport  | AirportPlanes @Array[@Planes]  | checkWeather(@Weather)   | @Boolean |
+| Weather  | currentWeather [@String]       | generateWeather(@String) | @String  |
 ```
-
-_checkWeatherTakeOff turns into check Weather which prevents adding and removing from airportPlanes list if the weather is stormy_
 
 ##### Tests
 
-_Core Functionality_
 - [ ] 1. Check that planes are unable to land when the weather is 'stormy'.
   
 You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
