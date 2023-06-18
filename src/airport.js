@@ -26,9 +26,15 @@ class Airport {
   }
 
   changeAirportCapacity(capacity) {
-    return this.#airportCapacity += capacity;
-  }
+    const parsedCapacity = parseInt(capacity);
+    if (!isNaN(parsedCapacity)) {
+      return this.#airportCapacity += parsedCapacity;
+    } else {
+      return false;
+    }
 
+  }
 }
+
 
 module.exports = Airport;
