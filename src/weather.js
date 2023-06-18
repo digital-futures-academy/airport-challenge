@@ -10,7 +10,7 @@ class Weather {
   }
 
   set currentWeather(weather) {
-    this.#currentWeather = weather;
+    this.#currentWeather = weather.toUpperCase();
   }
 
   generateWeather() {

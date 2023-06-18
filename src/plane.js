@@ -3,10 +3,10 @@ class Plane {
   #status;
   #airportId;
 
-  constructor(id, status = "LANDED", airportId = "airport") {
+  constructor(id) {
     this.#id = id;
-    this.#status = status;
-    this.#airportId = airportId;
+    this.#status = "IN_FLIGHT";
+    this.#airportId = null;
   }
 
   getId() {

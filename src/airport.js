@@ -1,11 +1,41 @@
 class Airport {
   // Should i change the properties to be private?
+  #capacity;
+  #weather;
 
   constructor(capacity = 3, id = "KUL", weather) {
     this.listOfPlanes = [];
     this.capacity = capacity;
     this.id = id;
     this.weather = weather;
+  }
+
+  get capacity() {
+    return this.#capacity;
+  }
+
+  set capacity(newCapacity) {
+    if (newCapacity >= 0 && Number.isInteger(newCapacity)) {
+      this.#capacity = newCapacity;
+    }
+  }
+
+  get weather() {
+    return this.#weather;
+  }
+
+  set weather(newWeather) {
+    if (
+      typeof newWeather?.allowLanding !== "function" ||
+      typeof newWeather?.allowTakeOff !== "function"
+    ) {
+      throw Error("Invalid weather.");
+    }
+    this.#weather = newWeather;
+  }
+
+  isFull() {
+    return this.listOfPlanes.length === this.capacity;
   }
 
   canTakeOff(plane) {
@@ -45,19 +75,10 @@ class Airport {
     this.listOfPlanes = [...this.listOfPlanes, plane];
   }
 
-  setCapacity(newCapacity) {
-    if (newCapacity > 0 && Number.isInteger(newCapacity))
-      this.capacity = newCapacity;
-  }
-
-  isFull() {
-    return this.listOfPlanes.length === this.capacity;
-  }
-
   takeOffPlane(plane) {
     if (!this.canTakeOff(plane)) return;
     const planeIndex = this.listOfPlanes.indexOf(plane);
-    return this.listOfPlanes.splice(planeIndex, 1);
+    return this.listOfPlanes.splice(planeIndex, 1)[0];
   }
 
   hasPlane(planeToCheck) {

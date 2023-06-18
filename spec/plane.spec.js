@@ -13,21 +13,12 @@ describe("Plane Class Tests", function () {
       expect(plane.getId()).toEqual("A1234");
     });
 
-    it("should initialized as landed", function () {
-      expect(plane.hasLanded()).toBeTrue();
-    });
-
-    it("should check that the plane cannot land at an airport", function () {
-      expect(plane.hasLanded()).toBeTrue();
-      expect(plane.canLand()).toBeFalse();
+    it("should initialized as in flight", function () {
+      expect(plane.hasLanded()).toBeFalse();
     });
   });
 
   describe("when the plane is in flight", function () {
-    beforeEach(function () {
-      plane = new Plane("B0987", "IN_FLIGHT", null);
-    });
-
     it("should check that the plane can land at an airport", function () {
       expect(plane.canTakeOff()).toBeFalse();
       expect(plane.canLand()).toBeTrue();

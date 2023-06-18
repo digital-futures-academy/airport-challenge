@@ -54,9 +54,9 @@ As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-| Object  | Properties        | Message       | Output |
-| ------- | ----------------- | ------------- | ------ |
-| Airport | capacity @integer | setCapacity() | @void  |
+| Object  | Properties        | Message        | Output |
+| ------- | ----------------- | -------------- | ------ |
+| Airport | capacity @integer | set capacity() | @void  |
 
 
 As an air traffic controller
@@ -123,10 +123,11 @@ As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 
-| Object  | Properties | Message     | Output   |
-| ------- | ---------- | ----------- | -------- |
-| Plane   |            | hasLanded() | @boolean |
-| Airport | id @string |             | @void    |
+| Object  | Properties          | Message     | Output   |
+| ------- | ------------------- | ----------- | -------- |
+| Plane   | status @string      | hasLanded() | @boolean |
+|         | airportId @string   | hasLanded() | @boolean |
+| Airport | listOfPlanes @Array | hasPlane()  | @boolean |
 
 
 ```
