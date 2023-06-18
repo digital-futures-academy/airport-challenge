@@ -104,4 +104,20 @@ describe('Airport Tests', () => {
 
         expect(() => airport.landPlane(plane1)).toThrowError('The plane has already landed.');
     })
+
+    it('should successfully take off a plane when the weather is not stormy', () => {
+        // Arrange
+        let weather1 = new Weather(`sunny`);
+        let plane1 = new Plane(`a1`);
+        let plane2 = new Plane(`a2`);
+
+        // Act
+        airport.landPlane(plane1);
+        airport.landPlane(plane2);
+        airport.setWeather(weather1);
+        airport.takeOff(plane1)
+
+        expect(airport.getPlanesList().length).toBe(1);
+        expect(airport.isAtAirport(plane1)).toBe(false);
+    })
 })
