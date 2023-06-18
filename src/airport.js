@@ -48,6 +48,10 @@ class Airport {
         if (this.isFull()) {
             throw new Error(`The airport is full. Cannot land the plane.`)
         }
+
+        if (this.isAtAirport(plane)) {
+            throw new Error(`The plane has already landed.`);
+        }
     }
 
     validateTakeOff(plane) {
