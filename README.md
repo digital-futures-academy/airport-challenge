@@ -174,6 +174,17 @@ Planes that have landed must be at an airport
 
 
 
+//====//====//====//INSTALLATION NOTES\\====\\====\\====\\
+
+Required:
+Jasmine
+node.js
+
+
+
+
+
+
 
 
 
