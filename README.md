@@ -92,14 +92,16 @@ I want to instruct the airport to land a plane.
 
 | Objects | Properties                | Messages         | Output |
 | ------- | ------------------------- | ---------------- | ------ |
-| Airport | planeList @Array [@Plane] | landPlane(plane) | @void  |
+| Airport | planeIds @Array [@String] | landPlane(plane) | @void  |
 |         |                           |                  |        |
 | Plane   |                           |                  |        |
 |         |                           |                  |        |
 
 #### Test 1
 
-1. Test that `landPlane()` will land a `Plane` to the `planeList`, increasing its length by 1.
+1. Test that `landPlane()` will land a `Plane` to the `planeIds`, increasing its length by 1.
+2. Test that `Plane` with null is not added to `planeIds`.
+3. Test that `Plane` with undefined is not added to `planeIds`.
 
 ### User Story 2
 
@@ -111,14 +113,75 @@ I would like a default airport capacity that can be overridden as appropriate.
 
 #### Domain Model 2
 
-| Objects | Properties              | Messages           | Output |
-| ------- | ----------------------- | ------------------ | ------ |
-| Airport | defaultCapacity @Number | overrideCapacity() | @void  |
-|         |                         |                    |        |
+| Objects | Properties       | Messages           | Output  |
+| ------- | ---------------- | ------------------ | ------- |
+| Airport | capacity @Number | overrideCapacity() | @Number |
+|         |                  |                    |         |
 
 #### Test 2
 
-1. Test that every instance of `Airport` is initialized with a `defaultCapacity`.
-2. Test that `overrideCapacity()` will increase `defaultCapacity` when a positive number is passed to it.
-3. Test that `overrideCapacity()` will decrease `defaultCapacity` when a negative number is passed to it.
-4. Test that only `Number` types are passed into `overrideCapacity()`.
+1. Test that every instance of `Airport` is initialized with a `capacity`
+2. Test that `overrideCapacity()` will increase `capacity` when a positive number is passed to it.
+3. Test that `overrideCapacity()` will decrease `capacity` when a negative number is passed to it.
+4. Test that only `Number` and `Float` types are passed into `overrideCapacity()`.
+5. Test that `overrideCapacity` should throw an error if `Airport` is to be reduced to less than `0`.
+6. Test that `overrideCapacity` will do nothing when `0` is passed to it.
+
+### User Story 3
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+#### Domain Model 3
+
+| Objects | Properties       | Messages            | Output   |
+| ------- | ---------------- | ------------------- | -------- |
+| Airport | capacity @Number | prevent landPlane() | @Void    |
+|         |                  | isAirportFull()     | @Boolean |
+
+#### Test 3
+
+1. Test that `isAirportFull()` returns true if airport is full and false otherwise.
+2. Test that prevent `landPlane()` will disallow plane from landing in airport if airport is full.
+
+### User Story 4
+
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+
+#### Domain Model 4
+
+| Objects | Properties                | Messages           | Output   |
+| ------- | ------------------------- | ------------------ | -------- |
+| Airport | planeIds @Array[@Strings] | takeOff(plane)     | @Void    |
+|         |                           | isPlaneInAirport() | @Boolean |
+| Plane   | name @String              |                    |          |
+
+#### Test 4
+
+1. Test that `takeOff()` is able to take `Plane` off the `planeIds`, decreasing its length by 1
+2. Test that `isPlaneInAirport` returns true if plane is in airport and false otherwise
+
+### User Story 5
+
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed.
+
+#### Domain Model 5
+
+| Objects | Properties               | Messages                | Output   |
+| ------- | ------------------------ | ----------------------- | -------- |
+| Airport | planeIds @Array[@String] | preventTakeOff(plane)   | @Void    |
+|         |                          | preventLanding(plane)   | @Void    |
+|         |                          | isPlaneInAirport(plane) | @Boolean |
+| Plane   | name @String             |                         | @String  |
+
+#### Test 5
+
+1. Test that `takeoff()` throws error if plane not in airport.
+2. Test that `landPlane()` throws error if plane is already in airport
