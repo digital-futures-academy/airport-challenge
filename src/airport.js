@@ -1,10 +1,16 @@
+import weatherStatus from "./weatherStatus.js";
+
 class Airport {
     #airportPlanes = [];
     #defaultCapacity = 5;
+    #weather = 'Good';
 
     land(plane) {
         if (this.airportIsFull() || this.isPlaneAtAirport(plane)) {
             return this.#airportPlanes.length;
+        }
+        if (!this.weatherValidator()) {
+            throw new Error("You cannot land a plane when the weather is stormy.");
         }
         this.#airportPlanes.push(plane);
     }
@@ -25,18 +31,17 @@ class Airport {
     }
 
     airportIsFull() {
-        if (this.#airportPlanes.length < this.#defaultCapacity) {
-            return false;
-        }
-        return true;
+        return this.#defaultCapacity === this.#airportPlanes.length;
     }
 
     takeOff(plane) {
-        if (!this.takeOffValidator() || !this.isPlaneAtAirport) {
+        if (!this.isPlaneAtAirport(plane)) {
             throw new Error("You cannot take off a plane when the airport has 0 planes on land or the plane id is not at the airport.");
         }
-        const indexPlane = this.#airportPlanes.indexOf(plane);
-        this.#airportPlanes.splice(indexPlane, 1);
+        if (!this.weatherValidator()) {
+            throw new Error("You cannot take off a plane when the weather is stormy.");
+        }
+        this.#airportPlanes.splice(this.#airportPlanes.indexOf(plane), 1);
 
     }
 
@@ -44,11 +49,12 @@ class Airport {
         return this.#airportPlanes.includes(plane);
     }
 
-    takeOffValidator() {
-        if (this.#airportPlanes.length > 0) {
-            return true;
-        }
-        return false;
+    setWeather(status) {
+        this.#weather = status;
+    }
+
+    weatherValidator() {
+        return this.#weather === weatherStatus.goodWeather;
     }
 }
 

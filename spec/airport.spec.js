@@ -1,8 +1,8 @@
 import Plane from "../src/Plane.js";
 import Airport from "../src/airport.js";
+import weatherStatus from "../src/weatherStatus.js";
 
 describe('Airport Tests: ', () => {
-    //
     it('airportPlane array length should increase to 1 when we call land() method.', () => {
         // Given that
         const airport = new Airport()
@@ -138,4 +138,26 @@ describe('Airport Tests: ', () => {
         expect(actual).toEqual(1);
     });
 
+    it('Test that you cannot take-off a plane when weather is stormy/bad and as a result you get an error message.', () => {
+        // Given that
+        const airport = new Airport();
+        const plane = new Plane(2);
+        // When this happens
+        airport.land(plane);
+        airport.setWeather(weatherStatus.badWeather);
+        const actual = () => airport.takeOff(plane);
+        // Expect this
+        expect(actual).toThrow(new Error("You cannot take off a plane when the weather is stormy."));
+    });
+
+    it('Test that you cannot land a plane when weather is stormy/bad and as a result you get an error message.', () => {
+        // Given that
+        const airport = new Airport();
+        const plane = new Plane(2);
+        // When this happens
+        airport.setWeather(weatherStatus.badWeather);
+        const actual = () => airport.land(plane);
+        // Expect this
+        expect(actual).toThrow(new Error("You cannot land a plane when the weather is stormy."));
+    });
 })

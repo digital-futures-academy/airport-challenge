@@ -127,11 +127,11 @@ This file will contain the domain models for the user stories as well as any oth
 |                   |                               | takeOff(@Plane)                    | @Void         |
 |                   |                               | isPlaneAtAirport(@Plane)           | @Boolean      |
 | Plane             | id @Number                    | getId()                            | @Number       |
-|                   | weather @String               | isStormy(@weather)                 | @Boolean      |
+|                   | weather @String               | weatherStatus(@weather)            | @String       |
 
 **Tests**
 
-    1. Test if array stays the same if weather isStormy() method is true.
+    1. Test that you cannot take-off a plane when weather is stormy/bad and as a result you get an error message. - Test Done
 
 
 ##### User Story 7:
@@ -151,11 +151,11 @@ This file will contain the domain models for the user stories as well as any oth
 |                   |                               | isPlaneAtAirport(@Plane)           | @Boolean      |
 |                   |                               | prevent(@weather)                  | @Boolean      |
 | Plane             | id @Number                    | getId()                            | @Number       |
-|                   | weather @String               | isStormy(@weather)                 | @Boolean      |
+|                   | weather @String               | weatherStatus(@weather)            | @String       |
 
 **Tests**
 
-    1. Think about this
+    1. Test that you cannot land a plane when weather is stormy/bad and as a result you get an error message. - 
 
 
 ##### User Story 8:
