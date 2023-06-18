@@ -1,46 +1,41 @@
 class Airport {
-    #name;
-    #hangar;
-    #maxCapacity
+    hangar;
+    #maxCapacity;
 
-    constructor(name, planes = [], capacity = 3) {
-        this.#name = name;
-        this.#hangar = planes;
+    constructor(plane = [], capacity = 3) {
+        this.hangar = plane;
         this.#maxCapacity = capacity;
     }
 
-    getId() {
-        return this.#hangar.getId();
-    }
-
-    getHangar() {
-        this.#hangar;
-    }
-
-
     getPlaneNum() {
-        return this.#hangar.length;
+        return this.hangar.length;
     }
 
     getMaxCapacity() {
         return this.#maxCapacity;
     }
 
-    landNewPlane(planeName) {
+    landNewPlane(plane) {
         if (this.isAirportFull() === false) {
-            this.#hangar.push(planeName)
+            this.hangar.push(plane)
         };
+        { console.log(`Airport is at full capacity, please divert.`) }
     }
-    //think this should be a setter - will change if I have time 
-    changeCapacity(number) {
+
+    departPlane(plane) {
+        const index = this.hangar.indexOf(plane);
+        index === -1 ? console.log(`Plane not found, no departure scheduled.`) : (this.hangar.splice(index, 1),
+            console.log(`${plane.id} has departed. Runway clear for take off.`));
+    }
+
+    changeMaxCapacity(number) {
         if (typeof number === 'number') {
-            this.#maxCapacity = number
+            return this.#maxCapacity = number
         }
     }
 
     isAirportFull() {
-        return this.getMaxCapacity() === this.getPlaneNum();
-
+        return this.getMaxCapacity() === this.getPlaneNum()
     }
 };
 
