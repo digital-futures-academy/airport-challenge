@@ -5,7 +5,7 @@ const { assertEquals } = require("./testing-framework.js");
 let actual, result, expected, airport;
 
 airport = new Airport;
-plane1 = new Plane('pl1')
+plane1 = new Plane('pl1');
 
 console.log(`=================================================`);
 console.log(`User Story 6 & 7 - Test 1`);

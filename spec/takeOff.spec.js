@@ -1,5 +1,5 @@
-const Airport = require('../src/airport');
-const Plane = require('../src/plane');
+const Airport = require('../src/airport.js');
+const Plane = require('../src/plane.js');
 const { assertEquals } = require("./testing-framework.js");
 
 

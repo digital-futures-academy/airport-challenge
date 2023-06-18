@@ -20,15 +20,15 @@ console.log(`planeCount return the correct of planes in an airport`);
 airport.airportPlaneList = [plane1, plane2];
 expected = 2,
 
- // Act
-actual = airport.planeCounter()
+    // Act
+    actual = airport.planeCounter();
 
 //Assert
 result = assertEquals(actual, expected);
 
 // Report
 console.log(``);
-console.log(`Test 8.1: : ${result}`);
+console.log(`Test 8.1: planeCount returns correct number of planes in an airport: ${result}`);
 console.log(`Test 8.1: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 console.log(``);
