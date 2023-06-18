@@ -9,7 +9,10 @@ class Airport {
   }
 
   landPlane(plane) {
-    this.#planesAtAirport.push(plane);
+    if (plane instanceof Plane) {
+      this.#planesAtAirport.push(plane);
+    }
+
   }
 
   getPlanesLength() {
