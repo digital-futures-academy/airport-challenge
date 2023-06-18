@@ -88,9 +88,20 @@ describe('Airport Tests', () => {
         expect(airport.isAtAirport(plane1)).toBe(false);
     })
 
-    it('should prevent take off when the plane is not at the airport', () => {
+    it('should throw an error when attempting to take off a plane that is not at the airport', () => {
+        // Arrange
         let plane1 = new Plane(`a1`);
 
         expect(() => airport.takeOff(plane1)).toThrowError('The plane cannot take off as is not at the airport.');
+    })
+
+    it('should throw an error when landing a plane that has already landed', () => {
+        // Arrange
+        let plane1 = new Plane(`a1`);
+
+        // Act
+        airport.landPlane(plane1);
+
+        expect(() => airport.landPlane(plane1)).toThrowError('The plane has already landed.');
     })
 })
