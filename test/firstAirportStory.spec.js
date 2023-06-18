@@ -77,4 +77,33 @@ result = undefined;
 
 
 
+// Test that only instances of Plane is passed into the Array(#planesAtAirport)
+console.log(chalk.cyan('User Story 1:- Test 3: Test that only instances of Plane is passed into the Array and length of Array should be 0'));
+
+
+// Arrange
+const car = { id: 'ferrari' };
+plane = new Plane('FJ101');
+airport = new Airport(plane);
+expected = 0;
+
+// Act
+airport.landPlane(car);
+actual = airport.getPlanesLength();
+
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Report
+console.log(chalk.grey(`User Story 1:- Test 3  Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`));
+
+console.log(chalk.red(`=====================================================================================================`))
+console.log(``);
+
+//Cleanup
+expected = undefined;
+actual = undefined;
+result = undefined;
+
 
