@@ -1,5 +1,6 @@
-import Airport from "../src/Airport.js";
+import Airport from "../src/airport.js";
 import Plane from "../src/Plane.js";
+import Weather from "../src/Weather.js";
 
 describe('Airport Tests', () => {
     let airport;

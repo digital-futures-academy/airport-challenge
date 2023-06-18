@@ -1,10 +1,12 @@
 class Airport {
     #capacity
     #planesList;
+    #weather;
 
     constructor(capacity = 5) {
         this.#capacity = capacity;
         this.#planesList = [];
+        this.#weather;
     }
 
     landPlane(plane) {
@@ -58,6 +60,18 @@ class Airport {
         if (!this.isAtAirport(plane)) {
             throw new Error(`The plane cannot take off as is not at the airport.`);
         }
+
+        if (this.#weather && this.#weather.isStormy()) {
+            throw new Error(`The plane cannot take off due to the stormy weather.`);
+        }
+    }
+
+    setWeather(newWeatherCondition) {
+        this.#weather = newWeatherCondition;
+    }
+
+    getWeather() {
+        return this.#weather;
     }
 }
 
