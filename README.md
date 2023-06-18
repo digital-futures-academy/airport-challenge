@@ -148,7 +148,7 @@ such as inconsistent states of the system ensuring that planes can only take off
 
 #### Extended Acceptance Criteria
 
-##### User Story: 6
+##### User Story: 5 (was 6)
 
 >As an air traffic controller
 To ensure safety
@@ -157,23 +157,25 @@ I want to prevent takeoff when weather is stormy
 ##### Domain Model
 
 ```
-| Objects  | Properties                     | Messages                      | Outputs  |
-| -------  | ------------------------------ | ----------------------------- | -------- |
-| Airport  | AirportPlanes @Array[@Planes]  | checkWeatherTakeOff(@Weather) | @Boolean |
-| Weather  | PossibleWeather@Array[@String] | RANDOM? STUB?(@String)        | @String  |
+| Objects  | Properties                    | Messages               | Outputs  |
+| -------  | ----------------------------- | ---------------------- | -------- |
+| Airport  | AirportPlanes @Array[@Planes] | planeTakeOff(@Weather) | @Boolean |
+| Weather  | CurrentWeather@Array[@String] | setWeather(@String)    | @Void    |
 ```
 
 ##### Tests
-
-_Core Functionality_
+Weather Tests
+- [x] 1. Check that the weather object can be set using setWeather().
+- [ ] 2. Check that the generateWeather() function works, occasionally producing a stormy output.
+Airport Tests
 - [ ] 1. Check that planes are unable to takeoff when the weather is 'stormy'.
-- [ ] 2. Check that the weather object produces a stormy outcome on occasion.
+
 
 You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
-##### User Story: 7
+##### User Story: 6 (was 7)
 
 >As an air traffic controller
 To ensure safety

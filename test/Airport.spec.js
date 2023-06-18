@@ -1,5 +1,6 @@
 const Airport = require('../src/Airport.js');
 const { assertEquals } = require('./test-framework');
+const Weather = require('../src/Weather.js');
 
 let expected, actual, result;
 

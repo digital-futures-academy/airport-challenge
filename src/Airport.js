@@ -1,4 +1,3 @@
-
 class Airport {
 
     airportPlanes = [];
