@@ -12,16 +12,23 @@ Airport Challenge
                 =  ===(_________)
 
 ```
+This is a simple simulation of an air traffic control system, implemented in JavaScript. The system includes models for planes, airports, and weather conditions.
 
-Steps
 -------
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+#### Installation
+1. Clone this repository by running the following command in your terminal:
+  ```git clone https://github.com/ace18zz/airport-challenge.git```
 
+2. Navigate into the project directory:
+  ``` cd airport-challenge```
+3. Install the necessary dependencies:
+  ``` npm install```
+4. Install Jasmine globally if you haven't done so already:
+  ``` npm install -g jasmine ```
+#### Tests
+This project uses Jasmine for testing. You can run the tests with the following command:
+  ```jasmine```
 
 #### Domain Model
 ```
