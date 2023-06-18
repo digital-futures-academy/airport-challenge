@@ -32,6 +32,7 @@ And the testing framework, which is a crucial component in the testing process.
 It runs all the tests, reporting the results.
 
 #### User stories & Domain Models
+***
 ```
 1. As an air traffic controller
 So I can get passengers to a destination
@@ -116,6 +117,7 @@ Planes that have landed must be at an airport
 ```
 
 #### Output
+***
 ```
 Test 1:
 Land a plane at the airport using landPlane and expect airportPlanes array to increase in length to 1
