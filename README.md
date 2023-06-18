@@ -1,3 +1,7 @@
+To run the tests run specRunner.js
+For some examples of the system in use use \src\index.js
+The tests are divided by the main method they are testing
+
 ===========================================================================
 ```
 User Stories Domain Modeling
