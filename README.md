@@ -28,7 +28,7 @@ This is a simple simulation of an air traffic control system, implemented in Jav
   ``` npm install -g jasmine ```
 #### Tests
 This project uses Jasmine for testing. You can run the tests with the following command:
-  ```jasmine```
+  ```npm test```
 
 #### Domain Model
 ```
