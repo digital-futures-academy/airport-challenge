@@ -1,7 +1,7 @@
 const Airport = require('../src/airport');
 const { assertEquals } = require("./testing-framework.js");
 
-let actual, result, expected, airport
+let actual, result, expected, airport;
 
 
 console.log(`=================================================`);
@@ -38,7 +38,7 @@ console.log(`User Story 2 - Test 2`);
 console.log(`=================================================`);
 console.log(``);
 
-console.log(`modifyAirportCapacity changes airport capacity to 10`)
+console.log(`modifyAirportCapacity changes airport capacity to 10`);
 
 //Arrange
 expected = 10;
@@ -60,7 +60,7 @@ console.log(``);
 //Clean Up
 result = undefined;
 actual = undefined;
-airport.airportCapacity = 5
+airport.airportCapacity = 5;
 
 
 console.log(`=================================================`);
@@ -68,10 +68,10 @@ console.log(`User Story 2 - Test 3`);
 console.log(`=================================================`);
 console.log(``);
 
-console.log(`modifyAirportCapacity can only change airport capacity to an integer`)
+console.log(`modifyAirportCapacity can only change airport capacity to an integer`);
 
 //Arrange
-expected = 5
+expected = 5;
 
 //Act
 airport.modifyAirportCapacity(7.6);

@@ -89,7 +89,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 #### Tests
 1. `takeOff(@Plane)` should remove one plane from `airportPLaneList`
-2. `takeOff(@Plane)` should remove a given plane (check id) from `airportPLaneList` (omit for now)
+2. `takeOff(@Plane)` should remove a given plane (check id) from `airportPLaneList` - decided to omit
 3. `planeInAirport` should return true if that plane is in `airportPLaneList`
 4. `planeInAirport` should return false if that plane is not in `airportPlaneList`
 
@@ -119,3 +119,74 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 1. If `takeOff(@Plane)` is called but `planeInAirport(@Plane)` returns false, then an error is thrown
 2. If `landPlane(@Plane)` is called but `planeInAirport(@Plane)` returns true, then an error is thrown
+
+### Extended Criteria  - User Story 6 & 7
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+
+#### Domain Model
+| Objects     | Properties                     | Messages               | Output   |
+| ----------- | ------------------------------ | ---------------------- | -------- |
+| Airport     | airportPlaneList @Array[@Id]   | landPlane(@Plane)      | @Void    |
+|             |                                | takeOff(@Plane)        | @Void    |
+|             |                                | planeInAirport(@Plane) | @Boolean |
+|             | airportCapacity @number        | modifyAirportCapacity()| @Void    |
+|             |                                | isAirportFull()        | @Boolean |
+|             | weatherCondition               | isStormy()             | @Boolean |
+|             |                                | setWeather(@String)    | @Void    |
+|             |                                |                        |          |
+| Plane       | id @String                     | getId()                | @String  |
+|             |                                |                        |          |
+| Weather     | weatherStatus                  | weatherReport()        | @String  |
+
+#### Tests
+
+Thought process: `setWeather` will be used to ensure consistent behaviour for testing - random number generator will be implemented to `Weather` class for randomised weather conditions and used in index.js
+
+1. Check `setWeather` alters `weatherCondition`.
+2. Check `isStormy` returns true when `setWeather` has the parameters of 'stormy'. 
+3.. Plane does not take off if airport `isStormy` is true.
+4. Plane can take off if `isStormy` is false.
+5. Plane does not land if `isStormy` is true.
+6. Plane can land if `isStormy` is false.
+
+
+
+### Extended Criteria  - User Story 8
+
+```
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```
+
+#### Domain Model
+| Objects     | Properties                     | Messages               | Output   |
+| ----------- | ------------------------------ | ---------------------- | -------- |
+| Airport     | airportPlaneList @Array[@Id]   | landPlane(@Plane)      | @Void    |
+|             |                                | takeOff(@Plane)        | @Void    |
+|             |                                | planeInAirport(@Plane) | @Boolean |
+|             |                                | planeCount()           | @number  |
+|             | airportCapacity @number        | modifyAirportCapacity()| @Void    |
+|             |                                | isAirportFull()        | @Boolean |
+|             | weatherCondition               | isStormy()             | @Boolean |
+|             |                                | setWeather(@String)    | @Void    |
+|             |                                |                        |          |
+| Plane       | id @String                     | getId()                | @String  |
+|             |                                |                        |          |
+| Weather     | weatherStatus                  | weatherReport()        | @String  |
+
+#### Tests
+
+Thought process: Trying to land a plane without defining an airport or to an airport that does not exist will return an error. Functionality of landing and taking off planes has been tested above - so planes in an airport will be stored in [given airport].airportPlaneList. Therefore can then test and create function that counts the number of planes in a given airport for the air traffic controller.
+
+1. `planeCount()` will return the correct number of planes in an airport.

@@ -31,6 +31,17 @@ console.log(`Test 1.1: ${result ? `PASS` : `FAIL`}`);
 console.log(``);
 console.log(``);
 
+console.log(`=================================================`);
+console.log(`User Story 1 - Test 2`);
+console.log(`=================================================`);
+console.log(``);
+
+console.log(`Test 1.2: Confirm plane with id of 'pl1' has landed:`);
+console.log(`Planes in airport:`);
+console.log(airport.airportPlaneList);
+console.log(``);
+console.log(``);
+
 // Clean Up
 airport.airportPlaneList = [];
 result = undefined;

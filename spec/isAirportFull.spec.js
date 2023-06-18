@@ -2,7 +2,7 @@ const Airport = require('../src/airport');
 const Plane = require('../src/plane');
 const { assertEquals } = require("./testing-framework.js");
 
-let actual, result, expected, airport, plane
+let actual, result, expected, airport, plane1, plane2;
 
 airport = new Airport;
 plane1 = new Plane('pl1');
@@ -17,12 +17,12 @@ console.log(``);
 console.log(`isAirportFull return true if airportPlaneList is equal to airportCapacity`);
 
 //Arrange
-airport.modifyAirportCapacity(1)
+airport.modifyAirportCapacity(1);
 airport.airportPlaneList = [plane1];
 expected = true;
 
 //Act
-actual = airport.isAirportFull()
+actual = airport.isAirportFull();
 
 //Assert
 result = assertEquals(actual, expected);
@@ -53,7 +53,7 @@ airport.airportPlaneList = [plane1];
 expected = false;
 
 //Act
-actual = airport.isAirportFull()
+actual = airport.isAirportFull();
 
 //Assert
 result = assertEquals(actual, expected);
@@ -79,7 +79,7 @@ console.log(``);
 console.log(`If airport is at capacity then landPlane does not modify airportPlaneList`);
 
 //Arrange
-airport.modifyAirportCapacity(1)
+airport.modifyAirportCapacity(1);
 airport.airportPlaneList = [plane1];
 expected = Error;
 

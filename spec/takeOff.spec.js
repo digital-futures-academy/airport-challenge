@@ -3,7 +3,7 @@ const Plane = require('../src/plane');
 const { assertEquals } = require("./testing-framework.js");
 
 
-let actual, result, expected, airport, plane;
+let actual, result, expected, airport, plane1, plane2;
 
 plane1 = new Plane('pl1');
 plane2 = new Plane(`pl2`);
