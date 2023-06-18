@@ -36,10 +36,7 @@ class Airport {
     }
 
     isFull() {
-        if (this.#planesList.length < this.#capacity) {
-            return false;
-        }
-        return true;
+        return this.#planesList.length >= this.#capacity;
     }
 
     isAtAirport(plane) {
@@ -77,7 +74,6 @@ class Airport {
     getLandedPlanes() {
         return this.#planesList;
     }
-
 }
 
 export default Airport;
