@@ -44,21 +44,57 @@ As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
+| Object  | Properties                  | Message     | Output |
+| ------- | --------------------------- | ----------- | ------ |
+| Airport | listOfPlanes @array[@Plane] | landPlane() | @void  |
+| Plane   |                             |             |        |
+
+
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
+
+| Object  | Properties        | Message        | Output |
+| ------- | ----------------- | -------------- | ------ |
+| Airport | capacity @integer | set capacity() | @void  |
+
 
 As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
+| Object  | Properties        | Message     | Output   |
+| ------- | ----------------- | ----------- | -------- |
+| Airport | capacity @integer | isFull()    | @boolean |
+|         |                   | landPlane() | @void    |
+
+
 As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
+| Object  | Properties                  | Message        | Output   |
+| ------- | --------------------------- | -------------- | -------- |
+| Airport | listOfPlanes @array[@Plane] | takeOffPlane() | @void    |
+|         |                             | hasPlane()     | @boolean |
+| Plane   | id @string                  | getId()        | @string  |
+
+
 As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+
+| Object   | Properties         | Message       | Output    |
+| -------- | ------------------ | ------------- | --------- |
+| Airport  |                    | canLand()     | @boolean  |
+|          |                    | canTakeOff()  | @boolean  |
+| -------- | ------------------ | ------------- | --------- |
+| Plane    | id @string         | getId()       | @string   |
+|          | status @string     | hasLanded()   | @boolean  |
+|          | airportId @string  |               | @void     |
+|          |                    | canLand()     | @boolean  |
+|          |                    | canTakeOff()  | @boolean  |
+
 ```
 
 #### Extended Acceptance Criteria
@@ -67,13 +103,33 @@ As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
+| Object  | Properties             | Message        | Output   |
+| ------- | ---------------------- | -------------- | -------- |
+| Weather | currentWeather @string | allowTakeOff() | @boolean |
+| Airport |                        | canTakeOff()   | @boolean |
+
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+| Object  | Properties             | Message        | Output   |
+| ------- | ---------------------- | -------------- | -------- |
+| Weather | currentWeather @string | allowLanding() | @boolean |
+| Airport |                        | canLand()      | @boolean |
+
+
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+| Object  | Properties          | Message     | Output   |
+| ------- | ------------------- | ----------- | -------- |
+| Plane   | status @string      | hasLanded() | @boolean |
+|         | airportId @string   | hasLanded() | @boolean |
+| Airport | listOfPlanes @Array | hasPlane()  | @boolean |
+
+
 ```
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
