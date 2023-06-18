@@ -22,6 +22,10 @@ class Airport {
         return this.#airportPlanes.length;
     }
 
+    getPlanesList() {
+        return this.#airportPlanes;
+    }
+
     getCapacity() {
         return this.defaultCapacity;
     }
