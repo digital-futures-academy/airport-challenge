@@ -8,7 +8,7 @@ describe('User Story 1 Tests', () => {
             isLanded: () => true,
         }
         const mockAirport = {
-            landPlane: () => undefined,
+            landPlane: () => mockPlane.isLanded(),
         }
         beforeEach(() => {
             testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
