@@ -23,18 +23,25 @@ export default class Airport {
     return this.landedPlanes.includes(plane);
   }
 
-  planeChecks(plane) {
+  errorPlaneAlreadyAtAirport(plane) {
+    if (this.isPlaneAtTheAirport(plane)) {
+      throw new Error (`Plane with id ${plane.aircraftId} is already at the airport.`)
+    }
+  }
+
+  landPlaneChecks(plane) {
     return plane?.aircraftStatus && plane?.aircraftId && !this.isFull() && !this.isPlaneAtTheAirport(plane);
   }
 
   landPlane(plane) {
     try {
+      this.errorPlaneAlreadyAtAirport(plane);
       this.errorIfWrongIdType(plane);
       this.errorIfWrongStatusType(plane);
     } catch (error) {
       return error.message;
     }
-    if (this.planeChecks(plane)) {
+    if (this.landPlaneChecks(plane)) {
       this.landedPlanes = [...this.landedPlanes, plane];
       plane.aircraftStatus = "landed";
     }
@@ -49,15 +56,19 @@ export default class Airport {
   }
 
   findPlaneById(aircraftId) {
-    return this.landedPlanes.findIndex(
+    const planeToLandLocation = this.landedPlanes.findIndex(
       (plane) => plane.aircraftId === aircraftId
     );
+    return this.landedPlanes[planeToLandLocation]; 
   }
 
   planeTakeOff(aircraftId) {
-    const plane = this.landedPlanes[this.findPlaneById(aircraftId)];
-    this.landedPlanes.splice(this.findPlaneById(aircraftId), 1);
-    plane.aircraftStatus = "departed";
-    return `${aircraftId} took off from airport`;
+    const planeIndex = this.findPlaneById(aircraftId)
+    if (planeIndex === undefined) {
+      return 'Plane to depart must be at the airport';
+    }
+    const departedPlane = this.landedPlanes.splice(this.findPlaneById(aircraftId), 1);
+    departedPlane[0].aircraftStatus = "departed";
+    return `${departedPlane[0].aircraftId} took off from airport`;
   }
 }

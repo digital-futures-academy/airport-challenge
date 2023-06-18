@@ -142,7 +142,7 @@ describe("Airport", () => {
     expect(airport.isFull()).toEqual(false);
   });
 
-  it("informs if airport is full if there are 3 planes in the airport", () => {
+  it("informs if airport is full if airport is at max capacity", () => {
     //arrange
     //act
     airport.overrideAirportCapacity(-7);
@@ -174,24 +174,43 @@ describe("Airport", () => {
     expect(airport.landedPlanes).toEqual([plane2]);
   });
 
+  it("plane with id of G-XLEE is already at the airport", () => {
+    //arrange
+    //act
+    airport.landPlane(plane);
+    airport.landPlane(plane);
+    //assert
+    expect(() => { airport.errorPlaneAlreadyAtAirport(plane) }).toThrowError("Plane with id G-XLEE is already at the airport.");
+  });
+
   it("confirms plane with id of G-XLEE took off with message: `G-XLEE took off from airport` ", () => {
     //arrange
     //act
     airport.landPlane(plane);
     const message = airport.planeTakeOff("G-XLEE");
     //assert
-    expect(message).toBe(`G-XLEE took off from airport`);
+    expect(message).toBe("G-XLEE took off from airport");
   });
 
   it("checks that plane with id of G-XLEE is the plane that took off from the `airport", () => {
     //arrange
-    //act
     airport.landPlane(plane);
     airport.landPlane(plane2);
+    //act
     const airportPlanesBeforePlane2TakesOff = airport.landedPlanes;
     airport.planeTakeOff("G-XLEE");
     const airportPlanesAfterPlane2TookOff = airport.landedPlanes;
     //assert
     expect(airportPlanesAfterPlane2TookOff).not.toContain(plane);
+  });
+
+  it("does not allow plane to take off if plane is not at the airport", () => {
+    //arrange
+    airport.landPlane(plane);
+    airport.landPlane(plane2);
+    //act
+    const takeOffAttempt = airport.planeTakeOff("G-BETI");
+    //assert
+    expect(takeOffAttempt).toBe('Plane to depart must be at the airport');
   });
 });
