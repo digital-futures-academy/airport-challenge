@@ -3,7 +3,7 @@ const Plane = require(`./Plane`)
 class Airport {
 
   #planesAtAirport;
-
+  #airportCapacity;
 
   constructor() {
     this.#planesAtAirport = [];
@@ -25,7 +25,10 @@ class Airport {
     return this.#planesAtAirport.find(plane => plane.getId() === planeId);
   }
 
+  changeAirportCapacity(capacity) {
+    return this.#airportCapacity += capacity;
+  }
 
-  
+}
 
 module.exports = Airport;
