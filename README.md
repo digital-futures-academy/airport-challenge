@@ -20,7 +20,7 @@ As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-Story 5 (test 5 and test 6)
+Story 5 (test 5)
 As an air traffic controller
 To avoid confusion
 I want the airport to only give a takeoff clearance to airplanes that are at the airport
