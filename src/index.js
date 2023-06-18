@@ -21,3 +21,8 @@ airport3.departPlane(Milano);
 console.log(airport3.hangar);
 airport3.departPlane(Enterprise);
 
+const airport4 = new Airport([Voyager]);
+airport4.landNewPlane(Voyager);
+console.log(airport4.hangar);
+
+

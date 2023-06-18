@@ -16,10 +16,8 @@ class Airport {
     }
 
     landNewPlane(plane) {
-        if (this.isAirportFull() === false) {
-            this.hangar.push(plane)
-        };
-        { console.log(`Airport is at full capacity, please divert.`) }
+        this.hangar.includes(plane) ? console.log(`${plane.id} has already landed and is on standby for departure.`) :
+            this.isAirportFull() === false ? this.hangar.push(plane) : console.log(`Airport is at full capacity, please divert.`);
     }
 
     departPlane(plane) {
