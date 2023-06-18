@@ -108,14 +108,14 @@ describe('Airport Tests', () => {
 
     it('should successfully take off a plane when the weather is not stormy', () => {
         // Arrange
-        let weather1 = new Weather(`sunny`);
+        let weather = new Weather(`sunny`);
         let plane1 = new Plane(`a1`);
         let plane2 = new Plane(`a2`);
 
         // Act
         airport.landPlane(plane1);
         airport.landPlane(plane2);
-        airport.setWeather(weather1);
+        airport.setWeather(weather);
         airport.takeOff(plane1);
 
         expect(airport.getPlanesList().length).toBe(1);
@@ -124,14 +124,26 @@ describe('Airport Tests', () => {
 
     it('should throw an error when attempting to take off a plane in stormy weather conditions', () => {
         // Arrange
-        let weather1 = new Weather();
+        let weather = new Weather();
         let plane1 = new Plane(`a1`);
 
         // Act
         airport.landPlane(plane1);
-        weather1.setCondition(`stormy`);
-        airport.setWeather(weather1);
+        weather.setCondition(`stormy`);
+        airport.setWeather(weather);
 
         expect(() => airport.takeOff(plane1)).toThrowError('The plane cannot take off due to the stormy weather.');
+    })
+
+    it('should successfully land a plane when the weather is not stormy', () => {
+        // Arrange
+        let weather = new Weather();
+        let plane1 = new Plane(`a1`);
+
+        // Act
+        airport.setWeather(weather);
+        airport.landPlane(plane1);
+
+        expect(airport.getPlanesList()).toContain(plane1);
     })
 })
