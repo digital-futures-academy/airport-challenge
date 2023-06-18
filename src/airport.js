@@ -4,55 +4,41 @@ class Airport {
   constructor(capacity = 3) {
     this.listOfPlanes = [];
     this.capacity = capacity;
+    this.id = "KUL";
   }
 
-  // canTakeOff(plane, weather) {
-  //   if (this.id !== plane.airportId) {
-  //     return false;
-  //   }
+  canTakeOff(plane, weather) {
+    //   if (!weather.allowTakeOff()) {
+    //     return false;
+    //   }
+    if (!plane.canTakeOff(this)) {
+      return false;
+    }
 
-  //   if (!weather.allowTakeOff()) {
-  //     return false;
-  //   }
+    return true;
+  }
 
-  //   if (!plane.canTakeOff()) {
-  //     return false;
-  //   }
-  // }
+  canLand(plane, weather) {
+    if (!plane.getId()) {
+      return false;
+    }
 
-  // canLand(plane, weather) {
-  //   if (!plane.getId()) {
-  //     return false;
-  //   }
-
-  //   if (this.isFull()) {
-  //     return false;
-  //   }
-
-  //   if (!weather.allowLanding()) {
-  //     return false;
-  //   }
-
-  //   if (!plane.canLand()) {
-  //     return false;
-  //   }
-
-  //   return true;
-  // }
-
-  // landPlane(plane, weather) {
-  //   if (!this.canLand(plane, weather)) {
-  //     return;
-  //   }
-
-  //   plane.landAt(this);
-
-  //   this.listOfPlanes = [...this.listOfPlanes, plane];
-  // }
+    if (this.isFull()) {
+      return false;
+    }
+    //   if (!weather.allowLanding()) {
+    //     return false;
+    //   }
+    if (!plane.canLand()) {
+      return false;
+    }
+    return true;
+  }
 
   landPlane(plane) {
-    if (plane.getId() && !this.isFull())
-      this.listOfPlanes = [...this.listOfPlanes, plane];
+    if (!this.canLand(plane)) return;
+    plane.landAt(this);
+    this.listOfPlanes = [...this.listOfPlanes, plane];
   }
 
   setCapacity(newCapacity) {
@@ -65,7 +51,8 @@ class Airport {
   }
 
   takeOffPlane(plane) {
-    let planeIndex = this.listOfPlanes.indexOf(plane);
+    if (!this.canTakeOff(plane)) return;
+    const planeIndex = this.listOfPlanes.indexOf(plane);
     return this.listOfPlanes.splice(planeIndex, 1);
   }
 }

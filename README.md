@@ -89,12 +89,13 @@ As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
-| Object  | Properties                  | Message        | Output   |
-| ------- | --------------------------- | -------------- | -------- |
 | Airport | listOfPlanes @array[@Plane] | isPlaneExist() | @boolean |
-|         |                             | landPlane()    | @void    |
-|         |                             | takeOffPlane() | @void    |
-| Plane   | id @string                  | getId()        | @string  |
+
+| Object  | Properties | Message      | Output   |
+| ------- | ---------- | ------------ | -------- |
+| Airport |            | canLand()    | @boolean |
+|         |            | canTakeOff() | @boolean |
+| Plane   | id @string | getId()      | @string  |
 
 ```
 
