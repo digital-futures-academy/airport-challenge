@@ -116,9 +116,22 @@ describe('Airport Tests', () => {
         airport.landPlane(plane1);
         airport.landPlane(plane2);
         airport.setWeather(weather1);
-        airport.takeOff(plane1)
+        airport.takeOff(plane1);
 
         expect(airport.getPlanesList().length).toBe(1);
         expect(airport.isAtAirport(plane1)).toBe(false);
+    })
+
+    it('should throw an error when attempting to take off a plane in stormy weather conditions', () => {
+        // Arrange
+        let weather1 = new Weather();
+        let plane1 = new Plane(`a1`);
+
+        // Act
+        airport.landPlane(plane1);
+        weather1.setCondition(`stormy`);
+        airport.setWeather(weather1);
+
+        expect(() => airport.takeOff(plane1)).toThrowError('The plane cannot take off due to the stormy weather.');
     })
 })
