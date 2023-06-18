@@ -1,6 +1,7 @@
 import Plane from "../src/Plane.js";
 
 describe("Plane Tests: ", () => {
+    // User story 1 test 1.
     it("Tests that plane has an id.", () => {
         // Given that
         const plane = new Plane(1);
