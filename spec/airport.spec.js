@@ -146,4 +146,16 @@ describe('Airport Tests', () => {
 
         expect(airport.getPlanesList()).toContain(plane1);
     })
+
+    it('should throw an error when attempting to land a plane in stormy weather conditions', () => {
+        // Arrange
+        let weather = new Weather();
+        let plane1 = new Plane(`a1`);
+
+        // Act
+        weather.setCondition(`stormy`);
+        airport.setWeather(weather);
+
+        expect(() => airport.landPlane(plane1)).toThrowError('The plane cannot land due to the stormy weather.');
+    })
 })
