@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules specRunner.js"
+    "test": "jasmine"
   },
   "author": "Mustak",
   "license": "ISC",
@@ -13,9 +13,15 @@
     "@babel/eslint-parser": "^7.22.5",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.27.5",
-    "jasmine": "^5.0.1"
+    "jasmine": "^5.0.2"
   },
   "directories": {
     "test": "test"
+  },
+  "jasmine": {
+    "spec_dir": "spec",
+    "spec_files": [
+      "**/*[sS]pec.js"
+    ]
   }
 }
