@@ -1,19 +1,20 @@
 class Airport {
 
-  #airportPlane;
-  #planesAtAirport = [];
 
-  constructor(planeObject) {
-    this.#airportPlane = planeObject;
+  #planesAtAirport;
+
+  constructor() {
+    this.#planesAtAirport = [];
   }
 
-  landPlane() {
-    this.#planesAtAirport.push(this.#airportPlane);
+  landPlane(plane) {
+    this.#planesAtAirport.push(plane);
   }
 
   getPlanesLength() {
     return this.#planesAtAirport.length;
   }
+
 }
 
-module.exports = Airport; 
+module.exports = Airport;
