@@ -1,44 +1,68 @@
-Airport Challenge
-=================
+# README.md
+
+# Airport Challenge
+
+---
 
 ```
-         ______
-        __\____\___
-=  = ==(____DFA____)
-           \_____\__________________,-~~~~~~~`-.._
-          /     o o o o o o o o o o o o o o o o  |\_
-          `~-.__       __..----..__                  )
-                `---~~\___________/------------`````
-                =  ===(_________)
-
+  
+                            /\
+                           /  \
+   ,----------------------/    \__
+  / o o o o o o o o o o o o o     \__ 
+ (                 MARDElAIRWAYS  ___ } == =  =
+  \_______\     /________________/    
+      |    \___/      ||
+______|_______________||________
+ _ _ _O_ _ _ _ _ _ _ _OO_ _ _ _
+________________________________
 ```
 
-Instructions
----------
+The source code found in this repository has been written in Javascript and was built to meet the requirements outlined in the [Digital Futures Airport Challenge repository](https://github.com/digital-futures-academy/airport-challenge).
 
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must submit your challenge (on Noodle) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
+---
 
-Steps
--------
+# About the Airport Challenge
 
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
+---
 
-Task
------
+The Airport challenge is the first part of a series of challenges set by Digital Futures to test my working knowledge on the concepts learned so far on the Digital Futures Academy. In preparation for this challenge, some of the concepts learned include: Software Development Lifecycles, Test Driven Development, Testing Frameworks, Domain Modelling and Object Oriented Design & Testing.
 
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+# Built with
 
-#### Acceptance Criteria
+---
+
+The code that forms the solution for this challenge was written in Javascript, and tested using the Jasmine testing framework and custom spec files written myself, to satisfy the user stories provided.
+
+# Getting Started
+
+---
+
+## Prerequisites:
+
+- [Node.js](https://nodejs.org/en/download)
+    - Or install using [Homebrew](https://formulae.brew.sh/formula/node)
+- [npmjs](https://www.npmjs.com/)
+- [Jasmine](https://jasmine.github.io/)
+
+## Installation:
+
+- .
+- .
+
+## Project Structure:
+
+- .
+- .
+
+# Problem Statements
+
+---
+
+We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off. Here are the user stories that we worked out in collaboration with the client:
+
+### Acceptance Criteria
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -61,7 +85,8 @@ To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 ```
 
-#### Extended Acceptance Criteria
+### Extended Acceptance Criteria
+
 ```
 As an air traffic controller
 To ensure safety
@@ -76,6 +101,256 @@ To count planes easily
 Planes that have landed must be at an airport
 ```
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+---
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+### User Story 1
+
+```
+As an air traffic controller
+So I can get passengers to a destination
+I want to instruct the airport to land a plane
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string | landPlane() | @Void |
+|  | airport @Airport |  |  |
+|  | plane @Plane |  |  |
+|  |  |  |  |
+| Airport | name @string | landPlane(Plane) | @Void |
+|  | planes @array[@Plane] |  |  |
+|  |  |  |  |
+| Plane | flightNumber @string | isLanded() | @Boolean |
+|  | landed @boolean |  |  |
+- **Test 1a**: Instantiate a new `Instruction(code, airport, plane)` , call `Instruction.landPlane()`, expect `landPlane()` (a `spy` for `airport.landPlane()`) to have been called.
+- **Test 1b**:  Call `Instruction.landPlane()`, expect `isLanded()` (a `spy` for `plane.isLanded()`) to have been called.
+- **Test 1c**: Call `Instruction.landPlane()` , expect `Instruction.isLanded()` to be `true`.
+- **Test 1d**: Call `Instruction.landPlane()`, expect `airport.planes` array to contain the `plane` object.
+
+---
+
+### User Story 2
+
+```
+As the system designer
+So that the software can be used for many different airports
+I would like a default airport capacity that can be overridden as appropriate
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string | landPlane() | @Void |
+|  | airport @Airport | setAirportCapacity(@number) | @Void |
+|  | plane @Plane | getAirportCapacity() | @Number |
+|  |  |  |  |
+| Airport | name @string | landPlane(Plane) | @Void |
+|  | planes @array[@Plane] | setAirportCapacity(@number) | @Void |
+|  | capacity @number |  | @Error |
+|  |  | getAirportCapacity() | @Number |
+|  |  |  |  |
+| Plane | landed @boolean | isLanded() | @Boolean |
+- **Test 2a**: Instantiate a new `Instruction(code, airport)` , call `setAirportCapacity()`, expect `setAirportCapacity()` (a `spy` for `airport.setAirportCapacity()`) to have been called.
+- **Test 2b**: call `setAirportCapacity(-1)`, expect an `error` to be thrown.
+- **Test 2c**: call `setAirportCapacity(2)`, expect  `capacity` to be greater than zero.
+- **Test 2d**: Call `getAirportCapacity()`, expect 2 to be returned.
+
+---
+
+### User Story 3
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when the airport is full
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string | landPlane() | @Void |
+|  | airport @Airport | setAirportCapacity(@number) | @Void |
+|  | plane @Plane | getAirportCapacity() | @Number |
+|  |  | errorIfFull() | @Void |
+|  |  |  | @Error |
+|  |  |  |  |
+| Airport | name @string | landPlane(Plane) | @Void |
+|  | planes @array[@Plane] | setAirportCapacity(@number) | @Void |
+|  | capacity @number |  | @Error |
+|  |  | getAirportCapacity() | @Number |
+|  |  |  |  |
+| Plane | landed @boolean | isLanded() | @Boolean |
+- **Test 3a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.landPlane()`, expect `Instruction.errorIfFull()` to have been called.
+- **Test 3b**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
+
+---
+
+### User Story 4
+
+```
+As an air traffic controller
+So I can get passengers on the way to their destination
+I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string | landPlane() | @Void |
+|  | airport @Airport | takeOffPlane() | @Void |
+|  | plane @Plane | getAirportCapacity() | @Number |
+|  |  | errorIfFull() | @Void |
+|  |  |  | @Error |
+|  |  |  |  |
+| Airport | name @string | landPlane(Plane) | @Void |
+|  | planes @array[@Plane] |  | @Error |
+|  | capacity @number | takeOffPlane(Plane) | @Void |
+|  |  |  | @Error |
+|  |  | setAirportCapacity(@number) | @Void |
+|  |  |  | @Error |
+|  |  | getAirportCapacity() | @Number |
+|  |  |  |  |
+| Plane | landed @boolean | isLanded() | @Boolean |
+- **Test 4a**: Instantiate a new `Instruction(code, airport, plane)` , call `Instruction.takeOffPlane()`, expect `takeOffPlane()` (a `spy` for `airport.takeOffPlane()`) to have been called.
+- **Test 4b**:  Call `Instruction.takeOffPlane()`, expect `isLanded()` (a `spy` for `plane.isLanded()`) to have been called.
+- **Test 4c**: Call `Instruction.takeOffPlane()` , expect `Instruction.isLanded()` to be `false`.
+- **Test 4d**:  Call `Instruction.takeOffPlane()`, expect `airport.planes` array **not**to contain the specified `plane` object.
+
+---
+
+### User Story 5
+
+```
+As an air traffic controller
+To avoid confusion
+I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string | landPlane() | @Void |
+|  | airport @Airport | takeOffPlane() | @Void |
+|  | plane @Plane | getAirportCapacity() | @Void |
+|  |  | checkPlaneStatus() | @Void |
+|  |  |  |  |
+| Airport | name @string | landPlane(Plane) | @Void |
+|  | planes @array[@Plane] |  | @Error |
+|  | capacity @Number | takeOffPlane(Plane) | @Void |
+|  |  |  | @Error |
+|  |  | getAirportCapacity(@number) | @Void |
+|  |  |  |  |
+| Plane | landed @boolean | isLanded() | @Boolean |
+- **Test 5a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.landPlane()`, expect `checkPlanStatus()` to have been called.
+- **Test 5b**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
+- **Test 5c**: Call `Instruction.takeOffPlane()`, expect an `error` to be thrown.
+
+# Extended Acceptance Criteria
+
+---
+
+### User Story 6
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent takeoff when weather is stormy
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string | takeOffPlane() | @Void |
+|  | airport @Airport |  |  |
+|  | plane @Plane |  |  |
+|  |  |  |  |
+| Airport | name @string | weatherGenerator() | @String |
+|  | planes @array[@Plane] | checkWeather() | @String |
+|  |  | takeOffPlane(Plane) | @Void |
+|  |  |  | @Error |
+- **Test 6a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.takeOffPlane()`, expect `checkWeather()` (a `spy` for `airport.checkWeather()`) to be called.
+- **Test 6b**: Call `Instruction.takeOffPlane`, expect an `error` to be thrown.
+
+---
+
+### User Story 7
+
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string |  |  |
+|  | airport @Airport |  |  |
+|  | plane @Plane |  |  |
+|  |  |  |  |
+| Airport | name @string | weatherGenerator() | @String |
+|  | planes @array[@Plane] | checkWeather() | @String |
+|  |  | takeOffPlane(Plane) | @Void |
+|  |  |  | @Error |
+|  |  | landPlane(Plane) | @Void |
+|  |  |  | @Error |
+- **Test 7a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.landPlane()`, expect `checkWeather()` (a `spy` for `airport.checkWeather()`) to be called.
+- **Test 7b**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
+
+---
+
+### User Story 8
+
+```
+As an air traffic controller
+To count planes easily
+Planes that have landed must be at an airport
+```
+
+### Domain Model
+
+| Objects | Properties | Messages | Output |
+| --- | --- | --- | --- |
+| Instruction | code @string | isPlaneAtAirport() | @Boolean |
+|  | airport @Airport |  |  |
+|  | plane @Plane |  |  |
+|  |  |  |  |
+| Airport | name @string | weatherGenerator() | @String |
+|  | planes @array[@Plane] | checkWeather() | @String |
+|  |  | takeOffPlane(Plane) | @Void |
+|  |  |  | @Error |
+|  |  | landPlane(Plane) | @Void |
+|  |  |  | @Error |
+|  |  | isPlaneAtAirport(Plane) | @Boolean |
+- **Test 8a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.landPlane()`, expect `isPlaneAtAirport)` (a `spy` for `airport.isPlaneAtAirport()`) to be called.
+- **Test 8b**: Call `Instruction.landPlane()`, expect `isPlaneAtAirport` to be `true`.
+
+# Project Review
+
+---
+
+### What Went Well
+
+- .
+- .
+- .
+
+### Even Better If:
+
+- .
+- .
+- .
+
+### Goals:
+
+- .
+- .
+- .
