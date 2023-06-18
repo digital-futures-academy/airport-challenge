@@ -7,7 +7,7 @@ Airport Challenge
 =  = ==(____DFA____)
            \_____\__________________,-~~~~~~~`-.._
           /     o o o o o o o o o o o o o o o o  |\_
-          `~-.__       __..----..__                  )
+          `(~-.__       __..----..__                )
                 `---~~\___________/------------`````
                 =  ===(_________)
 
@@ -129,6 +129,10 @@ As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
 
+| Objects   | Properties                 | Messages             | Outputs    |
+| --------- | -------------------------- | ------------------   | -------    |
+| Airport   |listOfPlanes@Array[@Planes] | countLandedPlanes    |  @number   |
+| Plane     |                            |                      |            |
 
 ```
 

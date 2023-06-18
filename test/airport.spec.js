@@ -1,11 +1,11 @@
-const { assertEquals } = require("./testingFramework");
-const airport = require("../src/airport");
+const { assertEquals } = require('./testingFramework');
+const airport = require('../src/airport');
 let actualOutput, expectedOutput, result;
 let plane = { id: '9A06' };
 
 //Test 1
-console.log("--------User Story 1--------")
-console.log("");
+console.log('--------User Story 1--------');
+console.log('');
 console.log('Test 1: Landing the plane in the airport and no of planes in the airport increased to 1');
 
 // Arrange
@@ -20,14 +20,13 @@ actualOutput = airport.listOfPlanes.length;
 result = assertEquals(actualOutput, expectedOutput);
 
 console.log(`Test 1: Plane landed in the airport: ${result}`);
-console.log(`Test 1: ${result ? `PASS` : `FAIL`}`);
-console.log(``);
+console.log(`Test 1: ${result ? 'PASS' : 'FAIL'}`);
+console.log('');
 
 //Test 2
 console.log('Test 2 : Checking if there is enough space to land the plane');
 
 // Arrange
-const numOfPlanes = airport.listOfPlanes.length;
 const maxCapacity = 5;
 
 // Act
@@ -58,5 +57,11 @@ result = assertEquals(correctPlaneLanded, expectedOutput);
 console.log(`Test 3: Correct plane is landed: ${result}`);
 console.log(`Test 3: ${result ? 'PASS' : 'FAIL'}`);
 console.log('');
+
+//cleanup
+
+actualOutput = undefined;
+expectedOutput = undefined;
+result = undefined;
 
 

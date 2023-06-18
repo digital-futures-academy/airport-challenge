@@ -2,4 +2,4 @@ const assertEquals = (actualOutput, expectedOutput) => actualOutput === expected
 
 module.exports = {
     assertEquals,
-}
+};

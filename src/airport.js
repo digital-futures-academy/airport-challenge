@@ -7,15 +7,15 @@ const airport = {
     },
     landPlane: function (plane) {
         if (this.isAtAirport(plane)) {
-            return "Plane is already at the airport, cannot land again";
+            return 'Plane is already at the airport, cannot land again';
         } else {
             this.listOfPlanes.push(plane); // If the plane is not at the airport, add it to the list of planes and return a success message
-            return "Plane landed successfully";
+            return 'Plane landed successfully';
         }
     },
     defaultCapacity: function (newCapacity) {
         if (newCapacity > this.maxCapacity) { //Throws an error, If the new capacity exceeds the maximum capacity
-            throw new Error("Exceeded maximum capacity");
+            throw new Error('Exceeded maximum capacity');
         } else {
             this.capacity = newCapacity;
         }
@@ -27,35 +27,30 @@ const airport = {
         if (this.isAtAirport(plane)) {
             const index = this.listOfPlanes.indexOf(plane); // If the plane is at the airport, find its index in the list of planes
             this.listOfPlanes.splice(index, 1); // Remove the plane from the list by splicing it at the found index
-            return "Plane take-off confirmed";
+            return 'Plane take-off confirmed';
         } else {
-            return "Plane is not at the airport, cannot take off";
+            return 'Plane is not at the airport, cannot take off';
         }
     },
     isStormy: function () {
         const weatherBp = Math.random() * 2000;
 
-        if (weatherBp < 1009) {
-            return true; // stormy weather if the barometric pressure is below 1009
-        } else {
-            return false; // Otherwise,  it as sunny weather
-        }
+        return weatherBp < 1009; //Stormy if true and sunny if false
     },
     weatherTakeoff: function (plane) {
-        if (this.isStormy()) {
-            return "Plane take-off failed: Weather is stormy";
-        } else {
-            return this.takeOff(plane);
-        }
+        return this.isStormy() ? 'Plane take-off failed: Weather is stormy' : this.takeOff(plane);
+        // Calls the takeOff function if the weather is not stormy
     },
+
     weatherLand: function (plane) {
-        if (this.isStormy()) {
-            return "Plane Landing failed: Weather is stormy";
-        } else {
-            return this.landPlane(plane);
-        }
+        return this.isStormy() ? 'Plane Landing failed: Weather is stormy' : this.landPlane(plane);
+        // Calls the landPlane function if the weather is not stormy
+    },
+    countLandedPlanes: function () {
+        // Returns the number of planes currently landed at the airport
+        return this.listOfPlanes.length;
     }
 
-}
+};
 
 module.exports = airport;
