@@ -74,9 +74,10 @@ class Airport {
         this.#weather = newWeatherCondition;
     }
 
-    getWeather() {
-        return this.#weather;
+    getLandedPlanes() {
+        return this.#planesList;
     }
+
 }
 
 export default Airport;
