@@ -2,9 +2,8 @@ const { assertEquals } = require('../test/testing-frameworks');
 const Airport = require('../src/airport');
 const Plane = require('../src/plane');
 
-// Stub function for isStormy() method
 function stubIsStormy() {
-    return false; // Always return false for simplicity
+    return false;
 }
 
 // Test 1
@@ -28,6 +27,7 @@ const result = assertEquals(actual, expected);
 // Report
 console.log(`1 plane landed at the airport: ${result}`);
 console.log(`Result: ${result ? 'PASS' : 'FAIL'}`);
+
 // Clean Up
 airport.airportPlanes = [];
 console.log('');
@@ -77,16 +77,15 @@ console.log('A plane takes off, and it is confirmed that it is no longer in the 
 console.log('------------------------------------------------------------------------------------------------------');
 
 // Arrange
-const airport1 = new Airport(); // Rename the variable to airport1
+const airport1 = new Airport();
 const plane2 = new Plane('Plane B');
 airport1.landPlane(plane2);
 
-// Mock the isStormy() method to return false (non-stormy weather)
 airport1.isStormy = () => false;
 
 // Act
-airport1.takeOff(plane2); // Use plane2
-const actual4 = airport1.isInAirport(plane2); // Use plane2
+airport1.takeOff(plane2);
+const actual4 = airport1.isInAirport(plane2);
 const expected4 = false;
 
 // Assert
@@ -103,7 +102,7 @@ console.log('');
 // Test 5
 console.log('Test 5:');
 console.log('Prevent taking off a plane not in the airport and prevent landing a plane that is already in the airport');
-console.log('------------------------------------------------------------------------------------------------------');
+console.log('-------------------------------------------------------------------------------------------------------');
 
 // Arrange
 const airport5 = new Airport();
@@ -145,7 +144,6 @@ console.log('-------------------------------------------------------------------
 const plane6 = new Plane('Plane D');
 airport.landPlane(plane6);
 
-// Mock the isStormy() method to return true (stormy weather)
 airport.isStormy = () => true;
 
 // Act
@@ -177,7 +175,6 @@ console.log('-------------------------------------------------------------------
 const airport7 = new Airport();
 const plane7 = new Plane('Plane C');
 
-// Mock the isStormy() method to return true (stormy weather)
 airport7.isStormy = () => true;
 
 // Act
