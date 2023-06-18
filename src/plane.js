@@ -37,7 +37,6 @@ class Plane {
 
     static checkPlaneFlightInput(input) {
         return (input?.inFlight && typeof input.inFlight === 'boolean');
-
     }
 
 

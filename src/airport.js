@@ -23,17 +23,14 @@ class Airport {
         if (newCapacity >= this.numberOfPlanesAtAirport() && typeof newCapacity === 'number' && newCapacity >= 0) {
             this.airportMaxCapacity = newCapacity
         }
-
     }
 
 
     instructToLand(plane) {
-
         if (this.preLandChecks(plane)) {
             this.listOfPlanesAtAirport = [...this.listOfPlanesAtAirport, plane];
             plane.setInFlight(false);
         }
-
     }
 
     isAirportFull() {
@@ -63,11 +60,11 @@ class Airport {
     }
 
     preLandChecks(plane) {
-        return (this.getWeatherSafeForAction() && !this?.isAirportFull() && !this.checkPlaneAtAirport(plane) && plane?.inFlight)
+        return (this?.getWeatherSafeForAction() && !this?.isAirportFull() && !this?.checkPlaneAtAirport(plane) && plane?.inFlight)
     }
 
     preTakeOffChecks(plane) {
-        return this.getWeatherSafeForAction() && !plane?.inFlight
+        return this?.getWeatherSafeForAction() && !plane?.inFlight
     }
 
     numberOfPlanesAtAirport() {
@@ -88,9 +85,7 @@ class Airport {
     // Over 2 is considered 'Sunny' for the scenario purposes. Keep values low so 'Stormy' / false could be returned a realistic amount to see during runtime
 
     static weatherGenerator() {
-
         return (Math.floor(Math.random() * 5) > 2) ? true : false;
-
     }
 
 

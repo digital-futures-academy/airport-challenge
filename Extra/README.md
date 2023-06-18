@@ -164,7 +164,7 @@ So I can get passengers on the way to their destination
 
 -Plane        -planeID @String
                                    
--Airport      -listOfPlanesAtAirport @Array[Plane];   -checkPlaneAtAirport(@Plane)       -@Boolean  
+-Airport      -listOfPlanesAtAirport @Array[Plane];   -checkPlaneAtAirport(@Plane)     -@Boolean  
               -airportID @String    
 
 
@@ -232,4 +232,4 @@ To count planes easily
 -Airport      -numberOfPlanesAtAirport @number        -numberOfPlanesAtAirport()      -@Number
 
 -Plane        -atAirport @boolean                     -setPlaneAtAirport(@boolean)    -@void                                                     
-                                                      -gerPlaneAtAirport()            -@boolean
+                                                      -getPlaneAtAirport()            -@boolean
