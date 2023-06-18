@@ -18,8 +18,8 @@ class Airport {
     }
 
     setCapacity(newCapacity) {
-        if (newCapacity <= 0) {
-            throw new Error("This capacity is not valid. Airport capacity cannot be smaller than 1.");
+        if (newCapacity <= this.getAirportPlaneCount()) {
+            throw new Error("This capacity is not valid. Airport capacity cannot be smaller than the number of landed planes in this airport.");
         }
         this.#defaultCapacity = newCapacity;
     }
@@ -32,11 +32,12 @@ class Airport {
     }
 
     takeOff(plane) {
-        const indexPlane = this.#airportPlanes.indexOf(plane);
-        this.#airportPlanes.splice(indexPlane, 1);
         if (!this.takeOffValidator() || !this.isPlaneAtAirport) {
             throw new Error("You cannot take off a plane when the airport has 0 planes on land or the plane id is not at the airport.");
         }
+        const indexPlane = this.#airportPlanes.indexOf(plane);
+        this.#airportPlanes.splice(indexPlane, 1);
+
     }
 
     isPlaneAtAirport(plane) {

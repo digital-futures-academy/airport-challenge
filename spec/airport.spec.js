@@ -2,6 +2,7 @@ import Plane from "../src/Plane.js";
 import Airport from "../src/airport.js";
 
 describe('Airport Tests: ', () => {
+    //
     it('airportPlane array length should increase to 1 when we call land() method.', () => {
         // Given that
         const airport = new Airport()
@@ -41,7 +42,7 @@ describe('Airport Tests: ', () => {
         // When this happens
         const checkFunction = () => airport.setCapacity(wrongCapacity)
         // Expect this
-        expect(checkFunction).toThrow(new Error("This capacity is not valid. Airport capacity cannot be smaller than 1."));
+        expect(checkFunction).toThrow(new Error("This capacity is not valid. Airport capacity cannot be smaller than the number of landed planes in this airport."));
     });
 
     it('Test that airportPlanes array remains the same when you try to land one more plane over it\'s current capacity', () => {
@@ -135,6 +136,6 @@ describe('Airport Tests: ', () => {
         const actual = airport.getAirportPlaneCount();
         // Expect this
         expect(actual).toEqual(1);
-    })
+    });
 
 })

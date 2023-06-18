@@ -40,7 +40,7 @@ This file will contain the domain models for the user stories as well as any oth
 **Tests**
     1. Test to verify that when you create an airport object without specifying capacity, it uses the specified capacity. - Test Done
     2. Test to override the default capacity - test where you create a new airport object and set a custom capacity. Assert that the airport will use that capacity instead of the default one.- Test Done
-    3. Test valid capacity values, for example the minimum capacity an airport should have to qualify as an airport is one plane, you should not have a number lower than this. - Test done
+    3. Test valid capacity values, for example the minimum capacity an airport should have should be at least equal to number of landed planes. - Test done
 
 
 ##### User Story 3:
@@ -91,7 +91,7 @@ This file will contain the domain models for the user stories as well as any oth
 ##### User Story 5:
 
 > As an air traffic controller
-> I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+> I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed.
 > To avoid confusion
 
 ###### Domain Model User Story No. 5:
@@ -107,7 +107,8 @@ This file will contain the domain models for the user stories as well as any oth
 
 **Tests**
 
-    1. Think about this
+    1. Test that you cannot land a plane that's already landed. - This was dealt with previously in --user story 1, test 3--
+    2. Test that you cannot take-off a plane that's not in the airport anymore. - This was dealt with in --user story 4, test 4--
 
 
 ##### User Story 6:
@@ -131,7 +132,6 @@ This file will contain the domain models for the user stories as well as any oth
 **Tests**
 
     1. Test if array stays the same if weather isStormy() method is true.
-    2. 
 
 
 ##### User Story 7:
