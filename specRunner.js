@@ -1,7 +1,17 @@
+const Jasmine = require('jasmine');
+const jasmine = new Jasmine();
+
 console.log('RUNNING ALL TESTS');
 console.log('=================');
 console.log('');
 
-require('./spec/airportSpec');
-require('./spec/planeSpec');
-require('./spec/weatherSpec');
+jasmine.loadConfig({
+    spec_dir: 'spec',
+    spec_files: [
+        'airportSpec.js',
+        'planeSpec.js',
+        'weatherSpec.js'
+    ]
+});
+
+jasmine.execute();
