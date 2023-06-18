@@ -4,11 +4,11 @@ describe('User Story 1 Tests', () => {
     let testInstruction;
 
     describe('Instruction instantiation tests', () => {
-        const mockAirport = {
-            landPlane: () => undefined,
-        }
         const mockPlane = {
             isLanded: () => true,
+        }
+        const mockAirport = {
+            landPlane: () => undefined,
         }
         beforeEach(() => {
             testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
@@ -20,6 +20,14 @@ describe('User Story 1 Tests', () => {
             testInstruction.landPlane();
             // Assert
             expect(mockAirportSpy).toHaveBeenCalled();
+        })
+        it('should call the plane\'s isLanded method', () => {
+            // Arrange -> testInstruction done in beforeEach
+            const mockPlaneSpy = spyOn(mockPlane, 'isLanded');
+            // Act
+            testInstruction.landPlane();
+            // Assert
+            expect(mockPlaneSpy).toHaveBeenCalled();
         })
 
     })
