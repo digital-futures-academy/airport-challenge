@@ -157,4 +157,15 @@ describe('Airport Tests: ', () => {
         // Expect this
         expect(actual).toThrow(new Error("You cannot land a plane when the weather is stormy."));
     });
+
+    it('New instance of airport with custom capacity and weather in the constructor should use the values that were passed.', () => {
+        // Given that
+        const airport = new Airport(1, 'Bad');
+        // When this happens
+        const actualCapacity = airport.getCapacity();
+        const actualWeather = airport.getWeather();
+        // Expect this
+        expect(actualCapacity).toEqual(1);
+        expect(actualWeather).toEqual('Bad');
+    })
 })

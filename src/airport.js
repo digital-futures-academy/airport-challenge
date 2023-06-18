@@ -2,8 +2,11 @@ import weatherStatus from "./weatherStatus.js";
 
 class Airport {
     #airportPlanes = [];
-    #defaultCapacity = 5;
-    #weather = 'Good';
+
+    constructor(defaultCapacity = 5, weather = weatherStatus.goodWeather) {
+        this.defaultCapacity = defaultCapacity;
+        this.weather = weather;
+    }
 
     land(plane) {
         if (this.airportIsFull() || this.isPlaneAtAirport(plane)) {
@@ -20,18 +23,18 @@ class Airport {
     }
 
     getCapacity() {
-        return this.#defaultCapacity;
+        return this.defaultCapacity;
     }
 
     setCapacity(newCapacity) {
         if (newCapacity <= this.getAirportPlaneCount()) {
             throw new Error("This capacity is not valid. Airport capacity cannot be smaller than the number of landed planes in this airport.");
         }
-        this.#defaultCapacity = newCapacity;
+        this.defaultCapacity = newCapacity;
     }
 
     airportIsFull() {
-        return this.#defaultCapacity === this.#airportPlanes.length;
+        return this.defaultCapacity === this.#airportPlanes.length;
     }
 
     takeOff(plane) {
@@ -49,12 +52,15 @@ class Airport {
         return this.#airportPlanes.includes(plane);
     }
 
+    getWeather() {
+        return this.weather;
+    }
     setWeather(status) {
-        this.#weather = status;
+        this.weather = status;
     }
 
     weatherValidator() {
-        return this.#weather === weatherStatus.goodWeather;
+        return this.weather === weatherStatus.goodWeather;
     }
 }
 
