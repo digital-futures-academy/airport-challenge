@@ -106,6 +106,7 @@ describe('Airport Tests', () => {
         expect(() => airport.landPlane(plane1)).toThrowError('The plane has already landed.');
     })
 
+    // Extended Acceptance Criteria
     it('should successfully take off a plane when the weather is not stormy', () => {
         // Arrange
         let weather = new Weather(`sunny`);
@@ -157,5 +158,17 @@ describe('Airport Tests', () => {
         airport.setWeather(weather);
 
         expect(() => airport.landPlane(plane1)).toThrowError('The plane cannot land due to the stormy weather.');
+    })
+
+    it('should list the planes landed at the airport', () => {
+        // Arrange
+        let plane1 = new Plane(`a1`);
+        let plane2 = new Plane(`a2`);
+
+        // Act
+        airport.landPlane(plane1);
+        airport.landPlane(plane2);
+
+        expect(airport.getLandedPlanes()).toEqual([plane1, plane2]);
     })
 })
