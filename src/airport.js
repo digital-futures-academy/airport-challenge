@@ -13,6 +13,7 @@ class Airport {
     }
 
     takeOff(plane) {
+        this.validateTakeOff(plane);
         const planeId = plane.getId();
         this.#planesList = this.#planesList.filter((p) => p.getId() !== planeId);
     }
@@ -40,12 +41,18 @@ class Airport {
     }
 
     isAtAirport(plane) {
-        return this.getPlanesList().includes(plane.getId());
+        return this.getPlanesList().includes(plane);
     }
 
     validateLanding(plane) {
         if (this.isFull()) {
             throw new Error(`The airport is full. Cannot land the plane.`)
+        }
+    }
+
+    validateTakeOff(plane) {
+        if (!this.isAtAirport(plane)) {
+            throw new Error(`The plane cannot take off as is not at the airport.`);
         }
     }
 }
