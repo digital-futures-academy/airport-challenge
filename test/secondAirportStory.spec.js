@@ -27,3 +27,30 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+
+
+
+// Calling changeAirportCapacity increases airport capacity to 5
+console.log(chalk.cyan('User Story 2:- Test 2: Passing in a String "3" still increases airport capacity to 5 '));
+// Arrange
+plane = new Plane();
+airport = new Airport();
+expected = 5;
+
+// Act
+actual = airport.changeAirportCapacity('3');
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Report
+console.log(chalk.grey(`User Story 2:- Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`));
+
+console.log(chalk.red(`=====================================================================================================`))
+console.log(``);
+
+//Cleanup
+expected = undefined;
+actual = undefined;
+result = undefined;
