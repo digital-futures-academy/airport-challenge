@@ -35,7 +35,7 @@ class Airport {
     }
 
     landNewPlane(plane) {
-        this.hangar.includes(plane) ? console.log(`${plane.id} has already landed and is on standby for departure.`) :
+        this.hangar.includes(plane) ? console.log(`${plane.id} has already landed and is on standby for departure.`) : this.getWeather() === 'Stormy' ? console.log("Landing denied due to adverse weather conditions, please divert.") :
             this.isAirportFull() === false ? this.hangar.push(plane) : console.log(`Airport is at full capacity, please divert.`);
     }
 

@@ -131,3 +131,24 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
+
+console.log(`User Story 7 Test 1`)
+console.log(`A plane cannot land when weather is set to 'Stormy`);
+console.log(`----------------------------------------------------`);
+
+expected = 1
+
+airport1.changeWeather('Stormy');
+airport1.landNewPlane(Enterprise);
+actual = airport1.getPlaneNum();
+
+result = assertEquals(actual, expected);
+
+console.log(`Test 1 - array length does not increase: ${result}`);
+console.log(`Test 1 status - ${result ? `PASS` : `FAIL`}`);
+console.log(`-----------------------`);
+console.log(``);
+
+expected = undefined;
+actual = undefined;
+result = undefined;

@@ -116,6 +116,11 @@ As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+Objects      | Properties                  | Messages                   | Outputs            |
+-------------|-----------------------------|----------------------------|--------------------|
+airport      |weather @string              | isStormy()                 | @boolean           |
+             |hangar @array[@plane]        | landNewPlane(@plane)       |                    |
+
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
