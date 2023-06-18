@@ -50,7 +50,7 @@ Domain Model:
 Objects           | Properties                  | Messages              | Outputs            |
 ------------------|-----------------------------|-----------------------|--------------------|
 plane             |                             |                       |                    |
-airport           | landedPlanes @array[@plane] | landNewPlane(@plane)  | @void              |
+airport           | hangar       @array[@plane] | landNewPlane(@plane)  | @void              |
 
 -------------------------------------
 2.
@@ -84,7 +84,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 
 Objects           | Properties                  | Messages           | Outputs            |
 ------------------|-----------------------------|--------------------|--------------------|
-airport           | landedPlanes @array[@plane] | departPlane(@plane)| @void              |
+airport           | hangar       @array[@plane] | departPlane(@plane)| @void              |
                   |                             | isPlaneLanded()    | @boolean           |
 plane             | id @string                  |                    |                    |
 
@@ -96,7 +96,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 Objects           | Properties                  | Messages                   | Outputs            |
 ------------------|-----------------------------|----------------------------|--------------------|
-airport           | landedPlanes @array[@plane] | isPlaneLanded()            | @boolean           |
+airport           | hangar @array[@plane]       | isPlaneLanded()            | @boolean           |
                   |                             | landNewPlane(@plane)       |                    |
                   |                             | departLandedPlane(@plane)  |                    |
 ```
@@ -106,6 +106,11 @@ airport           | landedPlanes @array[@plane] | isPlaneLanded()            | @
 As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
+
+Objects      | Properties                  | Messages                   | Outputs            |
+-------------|-----------------------------|----------------------------|--------------------|
+airport      |weather @string              | isStormy()                 | @boolean           |
+             |hangar @array[@plane]        | departPlane(@plane)        |                    |
 
 As an air traffic controller
 To ensure safety

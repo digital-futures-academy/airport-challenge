@@ -30,7 +30,7 @@ console.log(``);
 
 expected = undefined;
 actual = undefined;
-result = undefined;;
+result = undefined;
 
 console.log(`US5 TEST 2`)
 console.log(`A plane that is not present cannot depart from the airport - hangar array length is unchanged`);

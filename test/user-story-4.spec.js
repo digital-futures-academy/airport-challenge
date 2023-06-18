@@ -28,7 +28,6 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
-airport = undefined;
 plane1 = undefined;
 
 console.log(`US4 Test 2`)
@@ -54,4 +53,4 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
-airport = undefined;
+airport1 = undefined;
