@@ -192,11 +192,7 @@ I want to prevent landing when weather is stormy
 
 ##### Tests
 
-- [ ] 1. Check that planes are unable to land when the weather is 'stormy'.
-  
-You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
-
-such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+- [x] 1. Check that planes are unable to land when the weather is 'stormy'.
 
 ##### User Story: 8
 
@@ -204,7 +200,7 @@ such as inconsistent states of the system ensuring that planes can only take off
 To count planes easily
 Planes that have landed must be at an airport
 
-##### Domain Model (TO DO)
+##### Domain Model
 
 ```
 | Objects  | Properties                    | Messages              | Outputs  |
@@ -212,15 +208,10 @@ Planes that have landed must be at an airport
 | Airport  | AirportPlanes @Array[@Planes] | checkPlaneId(@Plane)  | @Boolean |
 ```
 
-_Check Id after adding_
-
 ##### Tests
 
-_Core Functionality_
+I believe this has been completed through my other tests and through the use of classes. Ordinarily I would discuss this with the client to clarify.  
 
-_Extended Functionality_
-
-_Edge Cases_
 You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
 
 such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
