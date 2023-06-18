@@ -34,13 +34,9 @@ export default class Airport {
   }
 
   landPlane(plane) {
-    try {
       this.errorPlaneAlreadyAtAirport(plane);
       this.errorIfWrongIdType(plane);
       this.errorIfWrongStatusType(plane);
-    } catch (error) {
-      return error.message;
-    }
     if (this.landPlaneChecks(plane)) {
       this.landedPlanes = [...this.landedPlanes, plane];
       plane.aircraftStatus = "landed";

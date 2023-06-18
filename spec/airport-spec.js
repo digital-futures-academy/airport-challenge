@@ -89,7 +89,7 @@ describe("Airport", () => {
     plane.aircraftId = 23;
     //act
     //assert
-    expect(airport.landPlane(plane)).toBe('Unidentified plane id. Plane id must be a string.');
+    expect(() => { airport.landPlane(plane) }).toThrowError('Unidentified plane id. Plane id must be a string.');
   });
 
   it("returns error message when a plane of wrong status type attempts to land in the airport", () => {
@@ -97,7 +97,7 @@ describe("Airport", () => {
     plane.aircraftStatus = undefined;
     //act
     //assert
-    expect(airport.landPlane(plane)).toBe('Unidentified plane status. Plane status must be a string.');
+    expect(() => { airport.landPlane(plane) }).toThrowError('Unidentified plane status. Plane status must be a string.');
   });
 
   it("lands 3 planes with in the airport", () => {
@@ -168,16 +168,13 @@ describe("Airport", () => {
     //arrange
     plane.aircraftId = null;
     //act
-    airport.landPlane(plane);
-    airport.landPlane(plane2);
     //assert
-    expect(airport.landedPlanes).toEqual([plane2]);
+    expect(() => airport.landPlane(plane)).toThrowError('Unidentified plane id. Plane id must be a string.');
   });
 
   it("plane with id of G-XLEE is already at the airport", () => {
     //arrange
     //act
-    airport.landPlane(plane);
     airport.landPlane(plane);
     //assert
     expect(() => { airport.errorPlaneAlreadyAtAirport(plane) }).toThrowError("Plane with id G-XLEE is already at the airport.");
