@@ -1,4 +1,4 @@
-import Plane from "../src/Plane.js";
+import Plane from "../src/plane.js";
 import Airport from "../src/airport.js";
 import weatherStatus from "../src/weatherStatus.js";
 

@@ -1,4 +1,4 @@
-import Plane from "../src/Plane.js";
+import Plane from "../src/plane.js";
 
 describe("Plane Tests: ", () => {
     // User story 1 test 1.
