@@ -54,6 +54,10 @@ class Airport {
         if (this.isAtAirport(plane)) {
             throw new Error(`The plane has already landed.`);
         }
+
+        if (this.#weather && this.#weather.isStormy()) {
+            throw new Error(`The plane cannot land due to the stormy weather.`);
+        }
     }
 
     validateTakeOff(plane) {
