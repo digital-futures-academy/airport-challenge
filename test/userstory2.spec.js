@@ -42,7 +42,9 @@ console.log(`============================================`);
 console.log(``);
 
 console.log(`Check that using modifyAirportCapacity modifies default airport capacity.`);
+
 const airportCapacity1 = 30;
+
 // Arrange
 expected = 30;
 

@@ -16,11 +16,13 @@ const airport = {
         return this.landedPlanes.length < this.defaultAirportCapacity
 
     },
-
     planesExist: function (planes)
     {
-        return this.landedPlanes.includes(planes)
-
+        if (this.landedPlanes.includes(planes))
+        {
+            return "This plane is already at airport, It can not be landed.";
+        }
+        return "This plane is not at the airport. Therefore it can not take-off.";
     },
     landPlanes: function (planes)
     {
@@ -35,16 +37,6 @@ const airport = {
     removePlanes: function (planes)
     {
         return this.landedPlanes.splice(planes, 1);
-    },
-
-    isPlaneAtAirport: function (planes)
-    {
-        if (this.planesExist())
-        {
-            return "This plane is already at airport, It can not be landed.";
-        }
-        return "This plane is not at the airport.";
-
     },
 }
 
