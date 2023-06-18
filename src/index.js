@@ -1,6 +1,6 @@
-const Weather = require('../src/weather');
-const Airport = require('../src/airport.js');
-const Plane = require('../src/plane.js');
+const Weather = require('../src/weather.js');
+const Airport = require('../src/Airport.js');
+const Plane = require('../src/Plane.js');
 
 let airport, plane1, weather;
 

@@ -19,7 +19,7 @@ Airport Challenge (Outline can be found in AirportChallenge.md)
 
 ### How I approached the project
 - I converted each of the user stories into domain models, and planned out the tests I would write to enable TDD.
-- I then wrote each of the user stories tests to fail and created production code to create passing tests.
+- I created a new spec file for each method then wrote each of the user stories tests to fail and created production code to create passing tests.
 - I also created an index.js to run an instance of randomised weather for the functionality outlined in the extended criteria.
 
 ### Reflections
