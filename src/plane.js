@@ -14,7 +14,7 @@ class Plane {
   }
 
   hasLanded() {
-    return this.#status === "LANDED";
+    return this.#status === "LANDED" && this.#airportId !== null;
   }
 
   canTakeOff(airport) {

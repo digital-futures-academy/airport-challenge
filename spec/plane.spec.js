@@ -18,6 +18,7 @@ describe("Plane Class Tests", function () {
     });
 
     it("should check that the plane cannot land at an airport", function () {
+      expect(plane.hasLanded()).toBeTrue();
       expect(plane.canLand()).toBeFalse();
     });
   });
@@ -28,10 +29,12 @@ describe("Plane Class Tests", function () {
     });
 
     it("should check that the plane can land at an airport", function () {
+      expect(plane.canTakeOff()).toBeFalse();
       expect(plane.canLand()).toBeTrue();
     });
 
-    it('should assign the "LANDED" status to the plane after landing', function () {
+    it("should change the plane status after landing", function () {
+      expect(plane.hasLanded()).toBeFalse();
       plane.landAt(mockAirport);
 
       expect(plane.hasLanded()).toBeTrue();
@@ -39,12 +42,17 @@ describe("Plane Class Tests", function () {
   });
 
   describe("when plane is ready to take off", function () {
-    it("should check that the plane can takeoff at an airport", function () {
+    it("should check that the plane can takeoff at the airport", function () {
+      expect(plane.canTakeOff(mockAirport)).toBeFalse();
+
       plane.landAt(mockAirport);
+
       expect(plane.canTakeOff(mockAirport)).toBeTrue();
     });
 
-    it('should change the status of the plane to "IN_FLIGHT" when taking off from airport', function () {
+    it("should change the plane status after taking off", function () {
+      expect(plane.canTakeOff(mockAirport)).toBeFalse();
+
       plane.landAt(mockAirport);
       plane.takeOffFrom(mockAirport);
 
