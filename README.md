@@ -1,81 +1,175 @@
 Airport Challenge
-=================
-
-```
-         ______
-        __\____\___
-=  = ==(____DFA____)
-           \_____\__________________,-~~~~~~~`-.._
-          /     o o o o o o o o o o o o o o o o  |\_
-          `~-.__       __..----..__                  )
-                `---~~\___________/------------`````
-                =  ===(_________)
-
-```
-
-Instructions
----------
-
-* Feel free to use google, your notes, books, etc. but work on your own.
-* Keep it SIMPLE - it's not nearly as complicated as it first may look.
-* You must submit your challenge (on Noodle) by the deadline, wherever you get to.
-* Use your own test framework and evidence your test-driven development by committing on passing tests.
-* Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-* If you refer to the solution of another coach or student, please put a link to that in your README.
-* Please create separate files for every class, module, and spec.
-
-Steps
--------
-
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
-
-Task
 -----
-
 We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
 
-#### Acceptance Criteria
+#### Approach
+***
+The Airport Challenge is implemented in JavaScript using Node.js. 
+
+It consists of two main classes: Airport and Plain. 
+* The Airport class is responsible for landing and taking off planes, checking the airport's capacity and handling stormy weather conditions.
+* The Plane class is responsible for representing a plane and validating its ID, ensuring that the object has a valid ID.
+
+Using the framework, the tests cover various scenarios such as landing a plane, overriding the airport capacity, checking if the airport is full, taking off a plane, preventing unwanted actions, and handling stormy weather.
+
+The airport.spec.js file is responsible for running tests, ensuring that they are functioning correctly.
+
+And the testing framework, which is a crucial component in the testing process. 
+It runs all the tests, reporting the results.
+
+<details>
+<summary>#### User stories and Domain Models</summary>
 ```
-As an air traffic controller
+1. As an air traffic controller
 So I can get passengers to a destination
 I want to instruct the airport to land a plane
 
-As the system designer
+| Objects | Properties                    | Messages            | Outputs |
+| ------- | ----------------------------- | ------------------- | ------- |
+| Airport | airportPlanes @Array[@Plane]  | landPlane (@Plane)  | @Void   |
+|         |                               |                     |         |
+| Plane   | id @String                    |                     |         |
+
+2. As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
 
-As an air traffic controller
+| Objects   | Properties               | Messages                   | Outputs  |
+| --------- | ------------------------ | -------------------------- | -------- |
+| Airport   | airportCapacity @Integer | setCapacity(@Integer)      | @Void    |
+
+3. As an air traffic controller
 To ensure safety
 I want to prevent landing when the airport is full
 
-As an air traffic controller
+| Objects   | Properties                            | Messages               | Outputs    |
+| --------- | ------------------------------------- | ---------------------- | ---------- |
+| Airport   | airportCapacity @Integer              | isFull()               | @Boolean   |
+
+4. As an air traffic controller
 So I can get passengers on the way to their destination
 I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-As an air traffic controller
+| Objects   | Properties                            | Messages                               | Outputs  |
+| --------- | ------------------------------------- | -------------------------------------- | -------  |
+| Airport   | airportPlanes @Array[@Plane]          | takeOff(@Plane)                        | @Void    |
+|           |                                       | isInAirport()                          | @Boolean |
+|           |                                       |                                        |          |
+| Plane     | id @String                            |                                        |          |
+
+5. As an air traffic controller
 To avoid confusion
 I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
-```
 
-#### Extended Acceptance Criteria
+| Objects | Properties                   | Messages                           | Outputs       |
+| ------- | ---------------------------- | -----------------------------      | ------------- |
+| Airport | airportPlanes @Array[@Plane] | takeOff(@Plane), landPlane(@Plane) | @Void         |
+|         |                              | isInAirport(@Plane)                | @Boolean      |
+| Plane   | id @String                   |                                    |               |
 ```
-As an air traffic controller
+</details>
+
+#### Extended
+***
+```
+6. As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
-As an air traffic controller
+| Objects   | Properties            | Messages                      | Outputs  |
+| --------- | --------------------- | ----------------------------- | -------  |
+| Airport   | weather @String       | takeOff(@Plane)               | @Boolean |
+|           |                       | isStormy(@boolean)            |          |
+| Plane     | id @String            |                               |          |
+
+7. As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+
+| Objects   | Properties            | Messages                      | Outputs  |
+| --------- | --------------------- | ----------------------------- | -------  |
+| Airport   | weather @String       | landPlane(@Plane)             | @Boolean |
+|           |                       | isStormy(@boolean)            |          |
+| Plane     | id @String            |                               |          |
 
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+| Objects   | Properties                   | Messages                       | Outputs |
+| --------- | -------------------------    | ------------------------------ | ------- |
+| Airport   | airportPlanes: Array[@Plane] | landPlane(Plane)               | @Void   |
+|           |                              | confirmLanding(Plane)          |         |
+| Plane     | id: String                   |                                |         |
 ```
 
-Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
+#### Installation
+***
+* Clone the repository:
+git clone https://github.com/dariastnl/airport-challenge.git
 
-Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
+* Change into the project directory and test folder:
+cd ../Digital Futures/SE-2306-A-Demos/airport-challenge/test
+
+* Install the dependencies:
+npm install
+
+* Run:
+node.js airport.spec.js
+
+#### Output
+```
+Test 1:
+Land a plane at the airport using landPlane and expect airportPlanes array to increase in length to 1
+------------------------------------------------------------------------------------------------------
+1 plane landed at the airport: true
+Result: PASS
+
+Test 2
+Set airport capacity to 30 using setCapacity and expect airportCapacity to be updated
+------------------------------------------------------------------------------------------------------
+Test 2: Airport capacity set to 30: true
+Test 2: PASS
+
+Test 3
+Check if the airport is full using isFull and expect a boolean value
+------------------------------------------------------------------------------------------------------
+Test 3: Can a plane be landed?: true
+Test 3: PASS
+
+Test 4:
+A plane takes off, and it is confirmed that it is no longer in the airport
+------------------------------------------------------------------------------------------------------
+Plane is not in the airport after take off: true
+Result: PASS
+
+Test 5:
+Prevent taking off a plane not in the airport and prevent landing a plane that is already in the airport
+------------------------------------------------------------------------------------------------------
+Prevented taking off a plane not in the airport: true
+Prevented landing a plane already in the airport: true
+Result: PASS
+
+Test 6:
+Prevent taking off when weather is stormy
+------------------------------------------------------------------------------------------------------
+Prevented taking off when weather is stormy: true
+Result: PASS
+
+Test 7:
+Prevent landing when weather is stormy
+------------------------------------------------------------------------------------------------------
+Prevented landing when weather is stormy: true
+Result: PASS
+
+Test 8:
+Planes that have landed must be at an airport
+------------------------------------------------------------------------------------------------------
+Plane is confirmed to be at the airport after landing: true
+Result: PASS
+```
+
+#### Author
+***
+Daria Stanilevici
+If you have any questions, feel free to contact me at Discord: charmingyou
