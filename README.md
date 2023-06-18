@@ -1,6 +1,20 @@
 Airport Challenge
 -----
-We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+We have a request from a client to write the software to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client.
+
+#### Installation
+***
+* Clone the repository:
+git clone https://github.com/dariastnl/airport-challenge.git
+
+* Change into the project directory and test folder:
+cd ../Digital Futures/SE-2306-A-Demos/airport-challenge/test
+
+* Install the dependencies:
+npm install
+
+* Run:
+node.js airport.spec.js
 
 #### Approach
 ***
@@ -17,7 +31,7 @@ The airport.spec.js file is responsible for running tests, ensuring that they ar
 And the testing framework, which is a crucial component in the testing process. 
 It runs all the tests, reporting the results.
 
-#### User stories and Domain Models
+#### User stories & Domain Models
 ```
 1. As an air traffic controller
 So I can get passengers to a destination
@@ -100,20 +114,6 @@ Planes that have landed must be at an airport
 |           |                              | confirmLanding(Plane)          |         |
 | Plane     | id: String                   |                                |         |
 ```
-
-#### Installation
-***
-* Clone the repository:
-git clone https://github.com/dariastnl/airport-challenge.git
-
-* Change into the project directory and test folder:
-cd ../Digital Futures/SE-2306-A-Demos/airport-challenge/test
-
-* Install the dependencies:
-npm install
-
-* Run:
-node.js airport.spec.js
 
 #### Output
 ```
