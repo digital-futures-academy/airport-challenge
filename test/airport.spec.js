@@ -2,10 +2,13 @@ const { checkDifferent } = require("./testFramework.js");
 const { checkSame } = require("./testFramework.js");
 const Airport = require("../src/Airport.js");
 
-let actual, expected, result;
 
+let actual, expected, result;
 const airport = new Airport();
-const B737 = 'B737';
+let weather = false;
+
+
+//===================================================================================================================================================================
 
 
 console.log(`Test 1`);
@@ -19,11 +22,9 @@ console.log(`Land airplane at an airport with landAirplane and test that there i
 //Arrange
 expected = 1;
 
-
 //Act
-airport.landAirplane(B737);
+airport.landAirplane('A340', weather);
 actual = (airport.airplanesOnGround.length);
-
 //Assert
 result = checkSame(actual, expected);
 
@@ -35,7 +36,7 @@ console.log(``);
 //CleanUp
 actual = undefined;
 expected = undefined;
-
+airport.airplanesOnGround = [];
 
 //===================================================================================================================================================================
 
@@ -84,7 +85,7 @@ expected = airport.airplanesOnGround.length;
 
 //Act
 airport.changeCapacityTo(10);
-airport.landAirplane(B737);
+airport.landAirplane('B737', weather);
 actual = airport.airplanesOnGround.length;
 
 //Assert
@@ -98,7 +99,7 @@ console.log(``);
 //CleanUp
 actual = undefined;
 expected = undefined;
-airport.airplanesOnGround.length = 0;
+airport.airplanesOnGround = [];
 
 //===================================================================================================================================================================
 
@@ -111,11 +112,13 @@ console.log(`Description`);
 
 console.log(`instruct the airport to let an airplane take off, and check it is no longer at the airport after it took off`);
 //Arrange
-airport.landAirplane();
+weather = false;
+console.log(weather);
+airport.landAirplane('B637', weather);
 expected = 0;
 
 //Act
-airport.letAirplaneTakeOff();
+airport.letAirplaneTakeOff('B637', weather);
 actual = airport.airplanesOnGround.length;
 
 //Assert
@@ -145,7 +148,7 @@ airport.airplanesOnGround = ['B737', 'B777', 'A380', 'A340'];
 expected = airport.airplanesOnGround.length;
 
 //Act
-airport.letAirplaneTakeOff('B747');
+airport.letAirplaneTakeOff('B747', weather);
 actual = airport.airplanesOnGround.length;
 
 //Assert
@@ -176,7 +179,7 @@ airport.airplanesOnGround = ['B737', 'B777', 'A380', 'A340'];
 expected = airport.airplanesOnGround.length;
 
 //Act
-airport.landAirplane('A380');
+airport.landAirplane('A380', weather);
 actual = airport.airplanesOnGround.length;
 
 //Assert
@@ -191,3 +194,86 @@ console.log(``);
 actual = undefined;
 expected = undefined;
 airport.airplanesOnGround = [];
+
+//===================================================================================================================================================================
+
+console.log(`Test 7`);
+console.log(`==============================================`)
+console.log(`Description`);
+
+
+console.log(`stop airport from letting airplanes take off in stormy weather`);
+//Arrange
+weather = true;
+airport.landAirplane('B787');
+expected = true;
+let airplanesOnGroundBefore = airport.airplanesOnGround.length;
+
+//Act
+airport.letAirplaneTakeOff('B787', weather);
+actual = (airport.airplanesOnGround.length === airplanesOnGroundBefore);
+
+//Assert
+result = checkSame(actual, expected);
+
+//Report
+console.log(`Test 7: the airport did not let an airplane take of in stormy weather: ${result}`);
+console.log(`Test 7: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+//CleanUp
+actual = undefined;
+expected = undefined;
+
+//===================================================================================================================================================================
+
+console.log(`Test 8`);
+console.log(`==============================================`)
+console.log(`Description`);
+
+
+console.log(`stop airport from letting airplanes land in stormy weather`);
+//Arrange
+weather = true;
+expected = true;
+
+//Act
+airport.landAirplane('B787', weather);
+actual = (airport.airplanesOnGround.length === airplanesOnGroundBefore);
+
+//Assert
+result = checkSame(actual, expected);
+
+//Report
+console.log(`Test 8: the airport did not let an airplane take of in stormy weather: ${result}`);
+console.log(`Test 8: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+//CleanUp
+actual = undefined;
+expected = undefined;
+
+//===================================================================================================================================================================
+
+console.log(`Test 9`);
+console.log(`==============================================`)
+console.log(`Description`);
+
+
+console.log(`an airplane which has landed is at an airport`);
+//Arrange
+expected = true;
+
+//Act
+
+//Assert
+result = checkSame(actual, expected);
+
+//Report
+console.log(`Test 9: the landed airplane is at an airport: ${result}`);
+console.log(`Test 9: ${result ? `PASS` : `FAIL`}`);
+console.log(``);
+
+//CleanUp
+actual = undefined;
+expected = undefined;
