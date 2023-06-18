@@ -8,7 +8,7 @@ We have a request from a client to write the software to control the flow of pla
 git clone https://github.com/dariastnl/airport-challenge.git
 
 * Change into the project directory and test folder:
-cd ../Digital Futures/SE-2306-A-Demos/airport-challenge/test
+cd ../airport-challenge/test>
 
 * Install the dependencies:
 npm install
