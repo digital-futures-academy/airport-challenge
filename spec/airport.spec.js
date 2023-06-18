@@ -60,7 +60,7 @@ describe('Airport Tests', () => {
 
         expect(airport.getCapacity()).toBe(1);
         expect(airport.getPlanesList()).toContain(plane1);
-        expect(airport.getPlanesList()).toContain(plane1);
+        expect(airport.getPlanesList()).toContain(plane2);
     })
 
     it('should remove a plane from the planes list when it takes off', () => {
@@ -79,12 +79,18 @@ describe('Airport Tests', () => {
     it('should confirm removal of specified plane from the planes list when it takes off', () => {
         let plane1 = new Plane(`a1`);
         let plane2 = new Plane(`a2`);
-        airport.landPlane(plane1);
-        airport.landPlane(plane2);
 
         // Act
+        airport.landPlane(plane1);
+        airport.landPlane(plane2);
         airport.takeOff(plane1);
 
         expect(airport.isAtAirport(plane1)).toBe(false);
+    })
+
+    it('should prevent take off when the plane is not at the airport', () => {
+        let plane1 = new Plane(`a1`);
+
+        expect(() => airport.takeOff(plane1)).toThrowError('The plane cannot take off as is not at the airport.');
     })
 })
