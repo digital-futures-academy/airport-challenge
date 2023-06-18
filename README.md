@@ -28,12 +28,12 @@ Steps
 
 |  Objects   |  Properties                  |   Messages                        |  Output  |
 | ---------- | ---------------------------- | --------------------------------  | -------- |
-|  Plane     | @plane_id	              | land(@Airport), take_off(@Airport)| @void    |
-|            | @current_location		  |                                   |          |
+|  Plane     | @plane_id	            | land(@Airport), take_off(@Airport)| @void    |
+|            | @current_location	    |                                   |          |
 |            | @status (in_air/landed)      |                                   |          |
  -------------------------------- -------------------------------- -------------------------
 |  Airport   | @name	                    | land_plane(@Plane)                | @void    |
-|            | @airport_capacity	        | takeoff_plane(@Plane)             |          |
+|            | @airport_capacity	    | takeoff_plane(@Plane)             |          |
 |            | @current_planes[]            | is_full()                         |          |
  -------------------------------- -------------------------------- -------------------------
 |  Weather   | @weather_condition           | check_weather()                   | @String  |
