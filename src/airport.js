@@ -1,5 +1,4 @@
 class Airport {
-  // Should i change the properties to be private?
   #capacity;
   #weather;
 
