@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node specRunner.js"
   },
-  "author": "dearshrewdwit",
+  "author": "Marion Jung",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.22.0"
