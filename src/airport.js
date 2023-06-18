@@ -4,8 +4,10 @@ class Airport {
 
   #planesAtAirport;
 
+
   constructor() {
     this.#planesAtAirport = [];
+    this.#airportCapacity = 2;
   }
 
   landPlane(plane) {
@@ -23,6 +25,7 @@ class Airport {
     return this.#planesAtAirport.find(plane => plane.getId() === planeId);
   }
 
-}
+
+  
 
 module.exports = Airport;
