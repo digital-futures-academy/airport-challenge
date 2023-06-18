@@ -33,7 +33,6 @@ describe('isAtAirport tests', () => {
 
         // Arrange
 
-
         // Act
         const testFunction = airport.isAtAirport();
 
@@ -50,12 +49,11 @@ describe('isAtAirport tests', () => {
 
         // Arrange
 
-
         // Act
         const testFunction = airport.isAtAirport(airport.airportPlanes[0]);
 
         // Assert
-        expect(testFunction).toBeTrue()
+        expect(testFunction).toBeTrue();
 
     });
 
@@ -85,8 +83,7 @@ describe('isAtAirport tests', () => {
         let testFunction = airport.isAtAirport(airport.airportPlanes[9]);
 
         // Assert
-        expect(testFunction).toBeFalse()
+        expect(testFunction).toBeFalse();
 
     });
-
 });

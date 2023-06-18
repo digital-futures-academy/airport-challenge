@@ -23,17 +23,16 @@ describe('Airport Tests', () => {
 
 
 
-    //=====================TEST1====================\\
+    //=====================TEST1===============================\\
 
-    it('should add an airplane to the airport', () => {
+    it('Can addPlane add a plane to airportPlanes', () => {
 
         // Arrange
-        expected = 1
+        expected = 1;
 
         // Act
-        airport.addPlane(123)
+        airport.addPlane(123);
         actual = airport.airportPlanes.length;
-
 
         // Assert
         expect(actual).toBe(expected);
@@ -47,12 +46,11 @@ describe('Airport Tests', () => {
     it('addPlane adds a plane with the id: "Plane - 1"', () => {
 
         // Arrange
-        expected = "Plane - 1"
-
+        expected = "Plane - 1";
 
         // Act
-        airport.addPlane('Plane - 1')
-        actual = airport.airportPlanes[0]
+        airport.addPlane('Plane - 1');
+        actual = airport.airportPlanes[0];
 
 
         // Assert
@@ -63,27 +61,26 @@ describe('Airport Tests', () => {
 
     //==========================TEST3==========================\\
 
-    it('TEST 3: addPlane does not add a plane with an undefined id', () => {
+    it('addPlane does not add a plane with an undefined id', () => {
 
         // Arrange
-        expected = 0
+        expected = 0;
 
         // Act
-        airport.addPlane()
-        actual = airport.airportPlanes
-
+        airport.addPlane();
+        actual = airport.airportPlanes;
 
         // Assert
         expect(actual).toHaveSize(expected);
 
     });
 
-    //==================================TEST4=====================================\\    
+    //==========================TEST4==========================\\
 
-    it('TEST 4: multiple planes can be added to airportPlanes', () => {
+    it('Multiple planes can be added to airportPlanes', () => {
 
         // Arrange
-        expected = 5
+        expected = 5;
 
         // Act
         airport.addPlane(111);
@@ -91,8 +88,7 @@ describe('Airport Tests', () => {
         airport.addPlane(333);
         airport.addPlane(444);
         airport.addPlane(555);
-        actual = airport.airportPlanes
-
+        actual = airport.airportPlanes;
 
         // Assert
         expect(actual).toHaveSize(expected);

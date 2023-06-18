@@ -24,18 +24,17 @@ describe('Airport Tests', () => {
 
     //=====================TEST1====================\\
 
-    it('TEST 1:  does isAirportFull return a boolean when airport is full', () => {
+    it('does isAirportFull return a boolean when airport is full', () => {
 
         // Arrange
-        expected = 'boolean'
+        expected = 'boolean';
 
         // Act
-        airport.changeAirportSize(3)
-        airport.addPlane(1)
-        airport.addPlane(2)
-        airport.addPlane(3)
+        airport.changeAirportSize(3);
+        airport.addPlane(1);
+        airport.addPlane(2);
+        airport.addPlane(3);
         actual = typeof airport.isAirportFull();
-
 
         // Assert
         expect(actual).toBe(expected);
@@ -50,12 +49,11 @@ describe('Airport Tests', () => {
         expected = true
 
         // Act
-        airport.changeAirportSize(3)
-        airport.addPlane(1)
-        airport.addPlane(2)
-        airport.addPlane(3)
+        airport.changeAirportSize(3);
+        airport.addPlane(1);
+        airport.addPlane(2);
+        airport.addPlane(3);
         actual = airport.isAirportFull();
-
 
         // Assert
         expect(actual).toBe(expected);
@@ -64,16 +62,15 @@ describe('Airport Tests', () => {
 
 
 
-    //=====================TEST2====================\\
+    //=====================TEST3====================\\
 
     it('if airport is full planes are unable to land', () => {
 
         // Arrange
-        expected = 1
+        expected = 1;
 
         // Act
-
-        airport.addPlane(1)
+        airport.addPlane(1);
         actual = airport.airportPlanes.length;
 
         // Assert
@@ -82,29 +79,23 @@ describe('Airport Tests', () => {
     });
 
 
-    //=====================TEST2====================\\
+    //=====================TEST4====================\\
 
     it('if airport is not full planes are able to land', () => {
 
         // Arrange
-        expected = 3
-        airport.changeAirportSize(10)
-
+        expected = 3;
+        airport.changeAirportSize(10);
 
         // Act
-
-        airport.addPlane(1)
-        airport.addPlane(2)
-        airport.addPlane(3)
+        airport.addPlane(1);
+        airport.addPlane(2);
+        airport.addPlane(3);
         actual = airport.airportPlanes.length;
 
         // Assert
         expect(actual).toBe(expected);
 
     });
-
-
-
-
 });
 

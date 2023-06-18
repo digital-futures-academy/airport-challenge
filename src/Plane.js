@@ -9,4 +9,4 @@ class Plane {
     }
 }
 
-export default Plane
+export default Plane;

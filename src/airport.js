@@ -10,8 +10,12 @@ class Airport {
     }
 
     addPlane(plane) {
-        if (plane !== undefined && !this.isAirportFull() && !this.isAtAirport() && this.stormy === false) {
-            this.airportPlanes.push(plane);
+        if (this.isAtAirport(plane)) {
+            return "This Plane is already here.";
+        } else {
+            if (plane !== undefined && !this.isAirportFull(plane) && !this.isAtAirport(plane) && this.stormy === false) {
+                this.airportPlanes.push(plane);
+            }
         }
     }
 
@@ -24,11 +28,15 @@ class Airport {
         return this.airportCapacity === this.airportPlanes.length;
     }
     takeOff(plane) {
-        if (this.isAtAirport(plane) && this.stormy === false) {
-            let index = this.airportPlanes.indexOf(plane);
-            if (index !== -1) {
-                this.airportPlanes.splice(index, 1);
-                return plane;
+        if (!this.isAtAirport(plane)) {
+            return "This plane is not at the airport.";
+        } else {
+            if (this.isAtAirport(plane) && this.stormy === false) {
+                const index = this.airportPlanes.indexOf(plane);
+                if (index !== -1) {
+                    this.airportPlanes.splice(index, 1);
+                    return plane;
+                }
             }
         }
     }
@@ -44,15 +52,13 @@ class Airport {
         let weather = Math.random();
         if (weather < 0.2) {
             this.stormy = true; return 'It is stormy, Do not land.';
-        }
-        else {
+        } else {
             return 'The weather is clear, continue landing.';
         }
     }
-
 }
 
 
 
 
-export default Airport
+export default Airport;

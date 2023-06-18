@@ -29,16 +29,16 @@ describe('TakeOff Tests', () => {
     it('can a plane be selected from the list of planes at the airport', () => {
 
         // Arrange
-        airport.addPlane('Plane - 0')
-        airport.addPlane('Plane - 1')
-        airport.addPlane('Plane - 2')
-        airport.addPlane('Plane - 3')
-        airport.addPlane('Plane - 4')
-        airport.addPlane('Plane - 5')
-        expected = airport.airportPlanes[2]
+        airport.addPlane('Plane - 0');
+        airport.addPlane('Plane - 1');
+        airport.addPlane('Plane - 2');
+        airport.addPlane('Plane - 3');
+        airport.addPlane('Plane - 4');
+        airport.addPlane('Plane - 5');
+        expected = airport.airportPlanes[2];
 
         // Act
-        actual = airport.takeOff(airport.airportPlanes[2])
+        actual = airport.takeOff(airport.airportPlanes[2]);
 
         // Assert
         expect(actual).toBe(expected);
@@ -51,13 +51,12 @@ describe('TakeOff Tests', () => {
     it('does a plane remove one plane from the list after takeoff', () => {
 
         // Arrange
-        airport.addPlane('Plane - 0')
-        airport.addPlane('Plane - 1')
-        airport.addPlane('Plane - 2')
-        airport.addPlane('Plane - 3')
-        airport.addPlane('Plane - 4')
-        airport.addPlane('Plane - 5')
-
+        airport.addPlane('Plane - 0');
+        airport.addPlane('Plane - 1');
+        airport.addPlane('Plane - 2');
+        airport.addPlane('Plane - 3');
+        airport.addPlane('Plane - 4');
+        airport.addPlane('Plane - 5');
         airport.takeOff(airport.airportPlanes[2]);
 
         // Act
@@ -69,12 +68,12 @@ describe('TakeOff Tests', () => {
     });
 
 
-    //=====================TEST2====================\\
+    //=====================TEST3====================\\
 
     it('after takeoff does the plane appear in the airport list', () => {
 
         // Arrange
-        airport.addPlane('Plane - 0')
+        airport.addPlane('Plane - 0');
 
         // Act
         airport.takeOff(airport.airportPlanes[0]);

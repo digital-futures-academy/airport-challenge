@@ -14,7 +14,7 @@ describe('isStormy tests', () => {
         airport.addPlane('Plane - 2');
         airport.addPlane('Plane - 3');
         airport.addPlane('Plane - 4');
-        noOfPlanes = 4
+        noOfPlanes = 4;
 
     });
 
@@ -34,9 +34,8 @@ describe('isStormy tests', () => {
 
         // Arrange
 
-
         // Act
-        const testFunction = airport.isStormy()
+        const testFunction = airport.isStormy();
 
         // Assert
         expect(testFunction).toHaveBeenCalled;
@@ -46,15 +45,15 @@ describe('isStormy tests', () => {
 
     //=====================TEST2====================\\
 
-    it('when isStorm is called does it return true or false', () => {
+    it('when isStormy is called does it return true or false', () => {
 
         // Arrange
-        airport.isStormy()
+        airport.isStormy();
 
         // Act
 
         // Assert
-        expect(airport.stormy).toBeDefined
+        expect(airport.stormy).toBeDefined;
 
     });
 
@@ -69,14 +68,13 @@ describe('isStormy tests', () => {
         // Act
         airport.takeOff('Plane-1');
 
-
         // Assert
-        expect(airport.airportPlanes.length).toBe(noOfPlanes)
+        expect(airport.airportPlanes.length).toBe(noOfPlanes);
 
     });
 
 
-    //=====================TEST3====================\\
+    //=====================TEST4====================\\
 
     it('a plane does not land if isStormy is true', () => {
 
@@ -86,9 +84,8 @@ describe('isStormy tests', () => {
         // Act
         airport.addPlane('stormy-plane');
 
-
         // Assert
-        expect(airport.airportPlanes.length).toBe(noOfPlanes)
+        expect(airport.airportPlanes.length).toBe(noOfPlanes);
 
     });
 });
