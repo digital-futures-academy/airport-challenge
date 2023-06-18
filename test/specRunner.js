@@ -7,3 +7,5 @@ require(`./airportCapacity.spec`);
 require(`./preventLanding.spec`);
 require(`./takeOff.spec`);
 require(`./PreventLorToff.spec`);
+require(`./stormyTakeoff.spec`);
+require(`./stormyLanding.spec`);

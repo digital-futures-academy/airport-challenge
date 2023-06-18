@@ -31,6 +31,29 @@ const airport = {
         } else {
             return "Plane is not at the airport, cannot take off";
         }
+    },
+    isStormy: function () {
+        const weatherBp = Math.random() * 2000;
+
+        if (weatherBp < 1009) {
+            return true; // stormy weather if the barometric pressure is below 1009
+        } else {
+            return false; // Otherwise,  it as sunny weather
+        }
+    },
+    weatherTakeoff: function (plane) {
+        if (this.isStormy()) {
+            return "Plane take-off failed: Weather is stormy";
+        } else {
+            return this.takeOff(plane);
+        }
+    },
+    weatherLand: function (plane) {
+        if (this.isStormy()) {
+            return "Plane Landing failed: Weather is stormy";
+        } else {
+            return this.landPlane(plane);
+        }
     }
 
 }

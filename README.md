@@ -105,13 +105,31 @@ As an air traffic controller
 To ensure safety
 I want to prevent takeoff when weather is stormy
 
+Domain Model 
+
+| Objects   | Properties                 | Messages             | Outputs              |
+| --------- | -------------------------- | ------------------   | -------              |
+| Airport   |listOfPlanes@Array[@Planes] | isStormy()           |  boolean()           |
+|           |                            | weatherTakeoff(plane)|                      |
+| Plane     |                            |                      |                      |
+
+
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
 
+| Objects   | Properties                 | Messages             | Outputs              |
+| --------- | -------------------------- | ------------------   | -------              |
+| Airport   |listOfPlanes@Array[@Planes] | isStormy()           |  boolean()           |
+|           |                            | weatherLand(plane)   |                      |
+| Plane     |                            |                      |                      |
+
+
 As an air traffic controller
 To count planes easily
 Planes that have landed must be at an airport
+
+
 ```
 
 Your task is to test drive the creation of a set of classes/objects to satisfy all the above user stories. You will need to use a random number generator to set the weather (it is normally sunny but on rare occasions it may be stormy). In your tests, you'll need to stub random behaviour to ensure consistent test behaviour.
