@@ -17,8 +17,7 @@ The airport.spec.js file is responsible for running tests, ensuring that they ar
 And the testing framework, which is a crucial component in the testing process. 
 It runs all the tests, reporting the results.
 
-<details>
-<summary>#### User stories and Domain Models</summary>
+#### User stories and Domain Models
 ```
 1. As an air traffic controller
 So I can get passengers to a destination
@@ -67,7 +66,6 @@ I want to prevent asking the airport to let planes take-off which are not at the
 |         |                              | isInAirport(@Plane)                | @Boolean      |
 | Plane   | id @String                   |                                    |               |
 ```
-</details>
 
 #### Extended
 ***
