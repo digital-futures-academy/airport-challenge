@@ -81,12 +81,17 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
 
-# # # DOMAIN MODELS & TESTS
+# # # DOMAIN MODEL
 
-## Domain model - 1
+## Domain model
 | Objects | Properties                   | Messages          | Outputs |
 | ------- | ---------------------------- | ----------------- | ------- |
-| Airport | airport_@Array[planes]       | add(@plane)       | @void   |
+| Airport | capacity:number              | landPlane         | @void   |
+|         | airportPlane@[Array]         | takeOffPlane      | @void   |
+|         | weather:string               | setWeather        | @void   |
+|         |                              | airportFull       | @boolean|
+|         |                              | countPlanesAtAP   | @number |
+|         |                              |                   |         |
 |         |                              |                   |         |
 | Plane   |                              |                   |         |
 
