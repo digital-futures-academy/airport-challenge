@@ -39,7 +39,7 @@ class Airport {
     return this.#airportCapacity === this.getPlanesLength();
   }
 
-}
 
+}
 
 module.exports = Airport; 
