@@ -13,7 +13,7 @@ class Airport {
     }
 
     setAirportCapacity(newCapacity) {
-
+        this.capacity = newCapacity;
     }
 }
 export default Airport;
