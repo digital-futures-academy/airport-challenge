@@ -21,6 +21,9 @@ class Airport {
         return this.airportCapacity += capacity;
     }
 
+    isAirportFull() {
+        return this.planes.length === this.airportCapacity;
+    }
 }
 
 module.exports = Airport;
