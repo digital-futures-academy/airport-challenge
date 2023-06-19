@@ -136,3 +136,44 @@ describe('User Story 3 Test:', () => {
         })
     })
 })
+
+describe('User Story 4 Test:', () => {
+    let testInstruction;
+
+    describe('Instruction instantiation test:', () => {
+        const mockPlane = {
+            isLanded: () => false,
+        }
+        const mockAirport = {
+            planesAtAirport: 1,
+            landPlane: () => mockPlane.isLanded(),
+            getAirportCapacity() {
+                return 5
+            },
+        }
+        beforeEach(() => {
+            testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
+        })
+        afterEach(() => {
+            testInstruction = undefined;
+        })
+        it('4a. should call the airport\'s takeOffPlane method', () => {
+            // Arrange -> testInstruction done in beforeEach
+            const mockAirportSpy = spyOn(mockAirport, 'takeOffPlane');
+            // Act
+            testInstruction.takeOffPlane();
+            // Assert
+            expect(mockAirportSpy).toHaveBeenCalled();
+        })
+        it('4b. should call the plane\'s isLanded method', () => {
+            // Arrange -> testInstruction done in beforeEach
+            const mockPlaneSpy = spyOn(mockPlane, 'isLanded');
+            // Act
+            testInstruction.takeOffPlanePlane();
+            // Assert
+            expect(mockPlaneSpy).toHaveBeenCalled();
+        })
+
+    })
+
+})
