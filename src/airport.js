@@ -31,6 +31,13 @@ class Airport {
         this.planes.pop();
     }
 
+    landPlaneAgain(plane) {
+        if (this.planes.includes(plane)) {
+            return false;
+        } else {
+            this.landPlane(plane);
+        }
+    }
 
 }
 
