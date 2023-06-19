@@ -12,7 +12,12 @@ class Airport {
 
   landPlane(plane) {
     if (plane instanceof Plane && !this.isAirportFull()) {
-      this.#planesAtAirport.push(plane);
+      if (this.getPlane(plane.getId())) {
+        return false
+      } else {
+        this.#planesAtAirport.push(plane);
+      }
+
     }
 
   }
