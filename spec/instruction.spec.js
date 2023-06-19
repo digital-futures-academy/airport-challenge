@@ -146,7 +146,7 @@ describe('User Story 4 Test:', () => {
         }
         const mockAirport = {
             planesAtAirport: 1,
-            landPlane: () => mockPlane.isLanded(),
+            takeOffPlane: () => mockPlane.isLanded(),
             getAirportCapacity() {
                 return 5
             },
@@ -169,7 +169,7 @@ describe('User Story 4 Test:', () => {
             // Arrange -> testInstruction done in beforeEach
             const mockPlaneSpy = spyOn(mockPlane, 'isLanded');
             // Act
-            testInstruction.takeOffPlanePlane();
+            testInstruction.takeOffPlane();
             // Assert
             expect(mockPlaneSpy).toHaveBeenCalled();
         })

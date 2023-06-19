@@ -12,6 +12,15 @@ class Airport {
         plane.isLanded();
     }
 
+    takeOffPlane(plane) {
+        plane.landed = false;
+        this.planesAtAirport = this.planesAtAirport.filter(function (planes) {
+            return planes !== plane;
+        });
+        this.planesAtAirport.push(plane);
+        plane.isLanded();
+    }
+
     setAirportCapacity(newCapacity) {
         this.capacity = newCapacity;
     }

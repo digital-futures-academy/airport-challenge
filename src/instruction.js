@@ -17,6 +17,13 @@ class Instruction {
         this.#airport.landPlane(this.#plane);
     }
 
+    takeOffPlane() {
+        // if (this.#plane.isLanded() === false) {
+        //     throw this.#takeOffError;
+        // }
+        this.#airport.takeOffPlane(this.#plane);
+    }
+
     setAirportCapacity(newCapacity) {
         if (newCapacity <= 0) {
             throw this.#capacityError;
