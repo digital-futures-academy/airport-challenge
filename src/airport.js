@@ -39,6 +39,15 @@ class Airport {
         }
     }
 
+
+    PreventPlaneTakeOff(plane) {
+        if (!this.planes.includes(plane)) {
+            return true;
+        }
+        Index = this.planes.indexOf(plane);
+        this.planes.splice(Index, 0);
+    }
+
 }
 
 module.exports = Airport;
