@@ -79,37 +79,54 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
 #### Domain Modelling
+1.    As an air traffic controller
+      So I can get passengers to a destination
+      I want to instruct the airport to land a plane
 
-As an air traffic controller
-So I can get passengers to a destination
-I want to instruct the airport to land a plane
+      | Objects | Properties                          | Messages          | Outputs |
+      | ------- | ----------------------------------- | ----------------- | ------- |
+      | Airport | landedPlanes @Array[@Planes]        | landPlane(@Plane) | @Void   |
+      | Plane   | aircraftId, aircraftStatus @String  |                   |         |
 
-objects | airport | plane  
-properties | landedPlanes @Array [@Plane] | aircraftId @String
-messages | landPlane(@Plane) |
-output | void | void
+*** Tests ***
+- 
+      - Returns an empty array for an empty airport;
+      - Lands plane to airport using landPlane and expect array (landedPlanes) has increased in length by 1;
+      - Test that plane passed to landPlane is actually added to the landedPlanes;
+      - A plane without an id property does not land on the airport;
+      - A plane without a status property does not land on the airport;
+      - Throws an error when a plane with wrong status type attempts to land in the airport;
+      - Throws an error when a plane with id type attempts to land in the airport;
+      - You are able to land airplane on an airport with existing planes;
+      - You are not able to land a plane which is already at the airport;
+      - Plane with id of null is not landing on the airport;
+      - Plane status changes from `departed` to `landed` once the plane lands in the airport.
 
-As the system designer
-So that the software can be used for many different airports
-I would like a default airport capacity that can be overridden as appropriate
+2.    As the system designer
+      So that the software can be used for many different airports
+      I would like a default airport capacity that can be overridden as appropriate
 
-objects | airport |  
-properties | maxAirportCapacity |
-messages | overrideAirportCapacity(@Number) |
-output | void |
+      | Objects | Properties                          | Messages                            | Outputs |
+      | ------- | ----------------------------------- | ------------------------------------| ------- |
+      | Airport | maxAirportCapacity @Integer         | overrideAirportCapacityBy(@Integer) | @Void   |
 
-As an air traffic controller
-To ensure safety
-I want to prevent landing when the airport is full
+      *** Tests ***
+      - checks that maxAirportCapacity is 10 when the airport is first instantiated;
+      - You are able to override maxAirportCapacity from 10 to 1500;
+      - You are able to override maxAirportCapacity from 1500 to 1000;
 
-| Objects | Properties                          | Messages          | Outputs |
-| ------- | ----------------------------------- | ----------------- | ------- |
-| Airport | landedPlanes @Array[@Planes]        | landPlane(@Plane) | @Void   |
-| Plane   | aircraftId, aircraftStatus @String  |                   |         |
+3.    As an air traffic controller
+      To ensure safety
+      I want to prevent landing when the airport is full
 
-As an air traffic controller
-So I can get passengers on the way to their destination
-I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+      | Objects | Properties                          | Messages      | Outputs |
+      | ------- | ----------------------------------- | --------------| ------- |
+      | Airport | landedPlanes @Array[@Planes]        | isAirportFull | @Void   |
+
+
+      As an air traffic controller
+      So I can get passengers on the way to their destination
+      I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
 | Objects | Properties                                              | Messages                        | Outputs |
 | ------- | ------------------------------------------------------- | ------------------------------- | ------- |

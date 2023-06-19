@@ -30,24 +30,24 @@ export default class Airport {
   }
 
   landPlaneChecks(plane) {
-    return plane?.aircraftStatus && plane?.aircraftId && !this.isFull() && !this.isPlaneAtTheAirport(plane);
+    return plane?.aircraftStatus && plane?.aircraftId && !this.isAirportFull() && !this.isPlaneAtTheAirport(plane);
   }
 
   landPlane(plane) {
-      this.errorPlaneAlreadyAtAirport(plane);
-      this.errorIfWrongIdType(plane);
-      this.errorIfWrongStatusType(plane);
+    this.errorPlaneAlreadyAtAirport(plane);
+    this.errorIfWrongIdType(plane);
+    this.errorIfWrongStatusType(plane);
     if (this.landPlaneChecks(plane)) {
       this.landedPlanes = [...this.landedPlanes, plane];
       plane.aircraftStatus = "landed";
     }
   }
 
-  overrideAirportCapacity(override) {
+  overrideAirportCapacityBy(override) {
     this.maxAirportCapacity += override;
   }
 
-  isFull() {
+  isAirportFull() {
     return this.landedPlanes.length === this.maxAirportCapacity;
   }
 

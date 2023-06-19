@@ -33,7 +33,7 @@ describe("Airport", () => {
     expect(airport.landedPlanes).toEqual([]);
   });
 
-  it("lands one plane in the airport", () => {
+  it("lands one plane in the airport using landPlane and expect array (landedPlanes) has increased in length by 1", () => {
     //arrange
     //act
     airport.landPlane(plane);
@@ -84,7 +84,7 @@ describe("Airport", () => {
     expect(() => { airport.errorIfWrongIdType(plane) }).toThrowError('Unidentified plane id. Plane id must be a string.');
   });
 
-  it("returns error message when a plane of wrong id type attempts to land in the airport", () => {
+  it("returns error when a plane of wrong id type attempts to land in the airport", () => {
     //arrange
     plane.aircraftId = 23;
     //act
@@ -92,7 +92,7 @@ describe("Airport", () => {
     expect(() => { airport.landPlane(plane) }).toThrowError('Unidentified plane id. Plane id must be a string.');
   });
 
-  it("returns error message when a plane of wrong status type attempts to land in the airport", () => {
+  it("returns error when a plane of wrong status type attempts to land in the airport", () => {
     //arrange
     plane.aircraftStatus = undefined;
     //act
@@ -110,6 +110,22 @@ describe("Airport", () => {
     expect(airport.landedPlanes.length).toBe(3);
   });
 
+  it("plane with id of G-XLEE is already at the airport", () => {
+    //arrange
+    //act
+    airport.landPlane(plane);
+    //assert
+    expect(() => { airport.errorPlaneAlreadyAtAirport(plane) }).toThrowError("Plane with id G-XLEE is already at the airport.");
+  });
+  
+  it("plane with null is not landing on the airport", () => {
+    //arrange
+    plane.aircraftId = null;
+    //act
+    //assert
+    expect(() => airport.landPlane(plane)).toThrowError('Unidentified plane id. Plane id must be a string.');
+  });
+
   it("changes plane status from `departed` to `landed` once it lands in the airport", () => {
     //arrange
     //act
@@ -118,17 +134,24 @@ describe("Airport", () => {
     expect(airport.landedPlanes[0].aircraftStatus).toBe("landed");
   });
 
+  it("check that the initial airport capacity is 10", () => {
+    //arrange
+    //act
+    //assert
+    expect(airport.maxAirportCapacity).toEqual(10);
+  });
+  
   it("overrides airport capacity from 10 to 1500", () => {
     //act
-    airport.overrideAirportCapacity(1490);
+    airport.overrideAirportCapacityBy(1490);
     //assert
     expect(airport.maxAirportCapacity).toEqual(1500);
   });
 
-  it("overrides airport capacity from 1500 to 1000", () => {
+  it("c", () => {
     //act
-    airport.overrideAirportCapacity(1490);
-    airport.overrideAirportCapacity(-500);
+    airport.overrideAirportCapacityBy(1490);
+    airport.overrideAirportCapacityBy(-500);
 
     //assert
     expect(airport.maxAirportCapacity).toEqual(1000);
@@ -139,18 +162,18 @@ describe("Airport", () => {
     //act
     airport.landPlane(plane);
     //assert
-    expect(airport.isFull()).toEqual(false);
+    expect(airport.isAirportFull()).toEqual(false);
   });
 
   it("informs if airport is full if airport is at max capacity", () => {
     //arrange
     //act
-    airport.overrideAirportCapacity(-7);
+    airport.overrideAirportCapacityBy(-7);
     airport.landPlane(plane);
     airport.landPlane(plane2);
     airport.landPlane(plane3);
     //assert
-    expect(airport.isFull()).toEqual(true);
+    expect(airport.isAirportFull()).toEqual(true);
   });
 
     it("does not land plane if airplane is full", () => {
@@ -158,27 +181,11 @@ describe("Airport", () => {
     //act
     airport.landPlane(plane);
     airport.landPlane(plane2);
-    airport.overrideAirportCapacity(-8);
+    airport.overrideAirportCapacityBy(-8);
     airport.landPlane(plane3);
     //assert
     expect(airport.landedPlanes).toEqual([plane, plane2]);
     });
-  
-  it("plane with null is not landing on the airport", () => {
-    //arrange
-    plane.aircraftId = null;
-    //act
-    //assert
-    expect(() => airport.landPlane(plane)).toThrowError('Unidentified plane id. Plane id must be a string.');
-  });
-
-  it("plane with id of G-XLEE is already at the airport", () => {
-    //arrange
-    //act
-    airport.landPlane(plane);
-    //assert
-    expect(() => { airport.errorPlaneAlreadyAtAirport(plane) }).toThrowError("Plane with id G-XLEE is already at the airport.");
-  });
 
   it("confirms plane with id of G-XLEE took off with message: `G-XLEE took off from airport` ", () => {
     //arrange
