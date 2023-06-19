@@ -41,4 +41,37 @@ actual = undefined;
 result = undefined;
 plane = undefined;
 plane2 = undefined;
+plane3 = undefined;
 airport = undefined;
+
+
+
+
+// test that the planesAtAirport length shouldn't change after calling "landPlane" with 'plane3' twice
+console.log(chalk.cyan("User Story 6:- Test 2: test that the planesAtAirport length shouldn't change after calling landPlane."));
+
+
+// Arrange
+plane = new Plane('plane1');
+plane2 = new Plane('plane2');
+plane3 = new Plane('plane3');
+plane4 = new Plane('plane3');
+airport = new Airport();
+expected = 3;
+
+// Act
+airport.changeAirportCapacity(4);
+airport.landPlane(plane);
+airport.landPlane(plane2);
+airport.landPlane(plane3);
+airport.landPlane(plane4);
+actual = airport.getPlanesLength();
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Report
+console.log(chalk.grey(`User Story 6:- Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`));
+
+console.log(chalk.red(`=====================================================================================================`))
+console.log(``);
