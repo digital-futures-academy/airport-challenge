@@ -38,3 +38,29 @@ plane = undefined;
 plane2 = undefined;
 airport = undefined;
 
+
+// test that the planesAtAirport length shouldn't change after calling takeOffPlane.
+console.log(chalk.cyan("User Story 5:- Test 2: test that the planesAtAirport length shouldn't change after calling takeOffPlane."));
+
+
+// Arrange
+plane = new Plane('plane1');
+plane2 = new Plane('plane2');
+plane3 = new Plane('plane3');
+airport = new Airport();
+expected = 2;
+
+// Act
+airport.landPlane(plane);
+airport.landPlane(plane2);
+airport.takeOffPlane(plane3.getId());
+actual = airport.getPlanesLength();
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Report
+console.log(chalk.grey(`User Story 5:- Test 2 Result: ${result ? chalk.green(`PASS`) : chalk.red(`FAIL`)}`));
+
+console.log(chalk.red(`=====================================================================================================`))
+console.log(``);
