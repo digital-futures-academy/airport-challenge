@@ -1,3 +1,4 @@
+const plane = require(`../src/Plane`);
 class Airport {
 
     planes;
