@@ -45,3 +45,32 @@ describe('User Story 1 Test:', () => {
         })
     })
 })
+
+describe('User Story 4 Test:', () => {
+    let testAirport;
+    describe('Take-off plane test:', () => {
+        const mockPlane = {
+            flightNumber: 'testPlane',
+            landed: true,
+            isLanded() {
+                return this.landed;
+            },
+        }
+        beforeEach(() => {
+            testAirport = new Airport("testAirport");
+        })
+        afterEach(() => {
+            testAirport = undefined;
+        })
+        it('4c. isLanded method expected to return false', () => {
+            // Arrange -> done in beforeEach
+            // Act
+            testAirport.takeOffPlane(mockPlane);
+            // Assert
+            expect(mockPlane.isLanded()).toBe(false);
+        })
+
+    })
+
+
+})
