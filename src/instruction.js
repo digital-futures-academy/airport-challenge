@@ -2,7 +2,7 @@ class Instruction {
     #code;
     #airport;
     #plane;
-    #capacityError = new Error('Cannot have negative capacity.')
+    #capacityError = new Error('Cannot have negative or no capacity.')
     constructor(code, airport, plane) {
         this.#code = code;
         this.#airport = airport;
@@ -14,7 +14,7 @@ class Instruction {
     }
 
     setAirportCapacity(newCapacity) {
-        if (newCapacity < 0) {
+        if (newCapacity <= 0) {
             throw this.#capacityError;
         }
         this.#airport.setAirportCapacity(newCapacity);

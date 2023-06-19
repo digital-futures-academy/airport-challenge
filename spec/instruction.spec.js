@@ -62,7 +62,7 @@ describe('User Story 2 Test:', () => {
         const mockAirport = {
             capacity: 0,
             setAirportCapacity(newCapacity) {
-                this.capacity = newCapacity
+                this.capacity = newCapacity;
             }
         }
         beforeEach(() => {
@@ -75,7 +75,14 @@ describe('User Story 2 Test:', () => {
             // Arrange -> done in beforeEach
             // Act
             // Assert
-            expect(() => { testInstruction.setAirportCapacity(-1) }).toThrowError(`Cannot have negative capacity.`);
+            expect(() => { testInstruction.setAirportCapacity(-1) }).toThrowError(`Cannot have negative or no capacity.`);
+        })
+        it('2c. expect capacity to be greater than zero', () => {
+            // Arrange -> done in beforeEach
+            // Act
+            testInstruction.setAirportCapacity(2);
+            // Assert
+            expect(mockAirport.capacity).toBeGreaterThan(0);
         })
     })
 })
