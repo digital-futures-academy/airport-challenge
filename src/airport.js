@@ -1,8 +1,9 @@
 class Airport {
+
     constructor(name) {
         this.name = name;
+        this.weatherType = ['stormy', 'calm'];
         this.capacity = 5;
-        this.weatherType = ['stormy', 'calm']
         this.planesAtAirport = [];
     }
 
@@ -31,8 +32,11 @@ class Airport {
     }
 
     checkWeather() {
-        const randomNumber = Math.floor(Math.random() * 2);
-        return this.weatherType[randomNumber];
+        // const randomNumber = Math.floor(Math.random() * this.weatherType.length);
+        // return this.weatherType[randomNumber];
+        const randomWeather = this.weatherType[Math.floor(Math.random() * this.weatherType.length)];
+        return randomWeather;
+
     }
 
     isPlaneAtAirport(plane) {
