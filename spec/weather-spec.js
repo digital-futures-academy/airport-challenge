@@ -2,6 +2,7 @@ import Weather from "../src/weather.js";
 
 describe('Weather Tests', () => {
   class MockWeather {
+    randomNumber = () => 0;
     getCurrentWeather = () => 'stormy';
   }
   let weather = new MockWeather();
