@@ -170,11 +170,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       To ensure safety
       I want to prevent takeoff when weather is stormy_
       
-      | Objects | Properties                  | Messages                 | Outputs |
-      | ------- | ----------------------------|--------------------------|-------- |
-      | Airport |                             | isWeatherStormy(@Weather)| @Boolean|
-      | Airport |landedPlanes @Array [@Planes]| landPlane(@Plane)        | @Void   |
-      | Weather |                             | getCurrentWeather()      | @String |
+      | Objects | Properties                  | Messages                                 | Outputs           |
+      | ------- | ----------------------------|------------------------------------------|------------------ |
+      | Airport |                             | isWeatherStormy(currentWeather) @Weather | @Boolean or @Error|
+      | Airport |landedPlanes @Array [@Planes]| landPlane(@Plane)                        | @Void             |
+      | Weather |                             | getCurrentWeather()                      | @String           |
 
       ##### Tests
       - Planes are not able to land when the weather is stormy;
@@ -183,11 +183,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       To ensure safety
       I want to prevent landing when weather is stormy_
 
-      | Objects | Properties                  | Messages                 | Outputs |
-      | ------- | ----------------------------|--------------------------|-------- |
-      | Airport |                             | isWeatherStormy(@Weather)| @Boolean|
-      | Airport |landedPlanes @Array [@Planes]| planeTakeOff(aircraftId) | @String |
-      | Weather |                             | getCurrentWeather()      | @String |    
+      | Objects | Properties                  | Messages                                 | Outputs           |
+      | ------- | ----------------------------|------------------------------------------|------------------ |
+      | Airport |                             | isWeatherStormy(currentWeather) @Weather | @Boolean or @Error|
+      | Airport |landedPlanes @Array [@Planes]| planeTakeOff(aircraftId)                 | @String           |
+      | Weather |                             | getCurrentWeather()                      | @String           |    
       
       ##### Tests
 
