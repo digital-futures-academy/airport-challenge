@@ -170,11 +170,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       To ensure safety
       I want to prevent takeoff when weather is stormy_
       
-      | Objects | Properties                  | Messages                                 | Outputs           |
-      | ------- | ----------------------------|------------------------------------------|------------------ |
-      | Airport |                             | isWeatherStormy(currentWeather) @Weather | @Boolean or @Error|
-      | Airport |landedPlanes @Array [@Planes]| planeTakeOff(aircraftId)                 | @Void             |
-      | Weather |                             | getCurrentWeather()                      | @String           |
+      | Objects | Properties                  | Messages                                 | Outputs  |
+      | ------- | ----------------------------|------------------------------------------|----------|
+      | Airport |                             | isWeatherStormy(currentWeather) @Weather | @ Error  |
+      | Airport |landedPlanes @Array [@Planes]| planeTakeOff(aircraftId)                 | @Void    |
+      | Weather |                             | getCurrentWeather()                      | @String  |
 
       ##### Tests
       - Planes are not able to take off when the weather is stormy and expects length array of (landedPlanes) to be 1;
@@ -183,11 +183,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       To ensure safety
       I want to prevent landing when weather is stormy_
 
-      | Objects | Properties                  | Messages                                 | Outputs           |
-      | ------- | ----------------------------|------------------------------------------|------------------ |
-      | Airport |                             | isWeatherStormy(currentWeather) @Weather | @Boolean or @Error|
-      | Airport |landedPlanes @Array [@Planes]| landPlane(@Plane)                        | @String           |
-      | Weather |                             | getCurrentWeather()                      | @String           |    
+      | Objects | Properties                  | Messages                                 | Outputs |
+      | ------- | ----------------------------|------------------------------------------|---------|
+      | Airport |                             | isWeatherStormy(currentWeather) @Weather | @Error  |
+      | Airport |landedPlanes @Array [@Planes]| landPlane(@Plane)                        | @String |
+      | Weather |                             | getCurrentWeather()                      | @String |    
       
       ##### Tests
 
@@ -199,10 +199,10 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       To count planes easily
       Planes that have landed must be at an airport_
 
-      | Objects | Properties               | Messages       | Outputs |
-      | ------- | -------------------------|----------------|-------- |
-      | Airport |  airportName @String     |                |         |
-      | Plane   |  landedAt @Airport       |                |         |         
+      | Objects | Properties               | Messages         | Outputs |
+      | ------- | -------------------------|------------------|-------- |
+      | Airport |  airportName @String     | getAirportName() |              |
+      | Plane   |  landedAt @Airport       |                  |         |         
    
    ##### Tests
 

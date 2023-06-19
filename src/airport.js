@@ -1,14 +1,20 @@
 export default class Airport {
-  constructor() {
+  #airportName;
+
+  constructor(airportName = '') {
     this.landedPlanes = [];
     this.maxAirportCapacity = 10;
+    this.#airportName = airportName;
+  }
+  
+  getAirportName() {
+    return this.#airportName;
   }
   
   isWeatherStormy(currentWeather) {
     if (currentWeather === 'stormy') {
       throw new Error (`Plane cannot land or take off when weather is ${currentWeather}.`);
     } 
-    return currentWeather === 'stormy';
   }
 
   errorIfWrongStatusType(plane) {
