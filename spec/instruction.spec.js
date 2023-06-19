@@ -142,7 +142,7 @@ describe('User Story 4 Test:', () => {
 
     describe('Instruction instantiation test:', () => {
         const mockPlane = {
-            isLanded: () => false,
+            isLanded: () => true,
         }
         const mockAirport = {
             planesAtAirport: 1,
@@ -226,7 +226,7 @@ describe('User Story 5 Test:', () => {
         })
         it('5b. expect takeOffPlane to throw an error', () => {
             // Assert
-            expect(() => { testInstruction.landPlane() }).toThrowError('Plane is not at the airport, so cannot take off.');
+            expect(() => { testInstruction.takeOffPlane() }).toThrowError('Plane is not at the airport, so cannot take off.');
         })
     })
 })

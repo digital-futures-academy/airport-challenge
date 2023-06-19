@@ -5,6 +5,7 @@ class Instruction {
     #capacityError = new Error('Cannot have negative or no capacity.');
     #fullError = new Error('Airport is full');
     #landError = new Error('Plane already at airport.');
+    #takeOffError = new Error('Plane is not at the airport, so cannot take off.');
 
     constructor(code, airport, plane) {
         this.#code = code;
@@ -23,9 +24,9 @@ class Instruction {
     }
 
     takeOffPlane() {
-        // if (this.#plane.isLanded() === false) {
-        //     throw this.#takeOffError;
-        // }
+        if (this.#plane.isLanded() === false) {
+            throw this.#takeOffError;
+        }
         this.#airport.takeOffPlane(this.#plane);
     }
 
