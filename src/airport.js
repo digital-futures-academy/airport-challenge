@@ -39,7 +39,6 @@ class Airport {
         }
     }
 
-
     PreventPlaneTakeOff(plane) {
         if (!this.planes.includes(plane)) {
             return true;
