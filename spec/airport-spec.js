@@ -157,6 +157,14 @@ describe("Airport", () => {
     expect(airport.maxAirportCapacity).toEqual(1000);
   });
 
+  it("isAirportFull returns a boolean", () => {
+    //arrange
+    //act
+    airport.landPlane(plane);
+    //assert
+    expect(airport.isAirportFull()).toMatch(/true|false/);
+  });
+
   it("informs airport is NOT full when 1 plane lands in airport with max capacity of 10", () => {
     //arrange
     //act
@@ -165,7 +173,7 @@ describe("Airport", () => {
     expect(airport.isAirportFull()).toEqual(false);
   });
 
-  it("informs if airport is full if airport is at max capacity", () => {
+  it("is full when airport is at max capacity", () => {
     //arrange
     //act
     airport.overrideAirportCapacityBy(-7);
@@ -176,7 +184,7 @@ describe("Airport", () => {
     expect(airport.isAirportFull()).toEqual(true);
   });
 
-    it("does not land plane if airplane is full", () => {
+    it("does not land plane if airport is full", () => {
     //arrange
     //act
     airport.landPlane(plane);

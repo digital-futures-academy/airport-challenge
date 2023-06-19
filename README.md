@@ -111,19 +111,24 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       | Airport | maxAirportCapacity @Integer         | overrideAirportCapacityBy(@Integer) | @Void   |
 
       *** Tests ***
-      - checks that maxAirportCapacity is 10 when the airport is first instantiated;
+      - MaxAirportCapacity is 10 when the airport is first instantiated;
       - You are able to override maxAirportCapacity from 10 to 1500;
       - You are able to override maxAirportCapacity from 1500 to 1000;
+      - You are not able to land a plane if the airport is full.
 
 3.    As an air traffic controller
       To ensure safety
       I want to prevent landing when the airport is full
 
-      | Objects | Properties                          | Messages      | Outputs |
-      | ------- | ----------------------------------- | --------------| ------- |
-      | Airport | landedPlanes @Array[@Planes]        | isAirportFull | @Void   |
-
-
+      | Objects | Properties                          | Messages        | Outputs |
+      | ------- | ----------------------------------- | ----------------| ------- |
+      | Airport | landedPlanes @Array[@Planes]        | isAirportFull() | @Void   |
+                | maxAirportCapacity @Integer         |
+      *** Tests ***
+      - IsAirportFull returns a boolean;
+      - Informs airport is NOT full when 1 plane lands in airport with max capacity of 10;
+      - Airport is full when airport is at max capacity;
+      - 
       As an air traffic controller
       So I can get passengers on the way to their destination
       I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
