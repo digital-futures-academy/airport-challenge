@@ -177,7 +177,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       | Weather |                             | getCurrentWeather()                      | @String           |
 
       ##### Tests
-      - Planes are not able to take off when the weather is stormy;
+      - Planes are not able to take off when the weather is stormy and expects length array of (landedPlanes) to be 1;
 
   7.  _As an air traffic controller
       To ensure safety
@@ -191,7 +191,9 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       
       ##### Tests
 
-      - Planes are not able to land when the weather is stormy;
+      - Planes land when the weather is clear and expects array of (landedPlanes) to increased in length to 1;
+      - Planes are not allowed to land when the weather is stormy and expects length array of (landedPlanes) to be 0;
+      - Throws an error when plane attempts to land in stormy weather.
 
   8.  _As an air traffic controller
       To count planes easily

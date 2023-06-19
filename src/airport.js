@@ -6,7 +6,7 @@ export default class Airport {
   
   isWeatherStormy(currentWeather) {
     if (currentWeather === 'stormy') {
-      throw new Error (`Plane cannot land when weather is ${currentWeather}.`);
+      throw new Error (`Plane cannot land or take off when weather is ${currentWeather}.`);
     } 
     return currentWeather === 'stormy';
   }
