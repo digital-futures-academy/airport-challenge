@@ -5,19 +5,19 @@ export default class Airport {
   }
   
   errorIfWrongStatusType(plane) {
-    if (typeof(plane.aircraftStatus) === "string") {
+    if (typeof(plane.aircraftStatus) === 'string') {
       return true;
     } else {
-      throw new Error('Unidentified plane status. Plane status must be a string.')
+      throw new Error('Unidentified plane status. Plane status must be a string.');
     }
-  };
-   errorIfWrongIdType(plane) {
-    if (typeof(plane.aircraftId) === "string") {
+  }
+  errorIfWrongIdType(plane) {
+    if (typeof(plane.aircraftId) === 'string') {
       return true;
     } else {
-      throw new Error('Unidentified plane id. Plane id must be a string.')
+      throw new Error('Unidentified plane id. Plane id must be a string.');
     }
-  };
+  }
 
   isPlaneAtTheAirport(plane) {
     return this.landedPlanes.includes(plane);
@@ -25,7 +25,7 @@ export default class Airport {
 
   errorPlaneAlreadyAtAirport(plane) {
     if (this.isPlaneAtTheAirport(plane)) {
-      throw new Error (`Plane with id ${plane.aircraftId} is already at the airport.`)
+      throw new Error (`Plane with id ${plane.aircraftId} is already at the airport.`);
     }
   }
 
@@ -39,7 +39,7 @@ export default class Airport {
     this.errorIfWrongStatusType(plane);
     if (this.landPlaneChecks(plane)) {
       this.landedPlanes = [...this.landedPlanes, plane];
-      plane.aircraftStatus = "landed";
+      plane.aircraftStatus = 'landed';
     }
   }
 
@@ -68,7 +68,7 @@ export default class Airport {
   planeTakeOff(aircraftId) {
     this.takeOffChecks(aircraftId);
     const departedPlane = this.landedPlanes.splice(this.findPlaneById(aircraftId), 1);
-    departedPlane[0].aircraftStatus = "departed";
+    departedPlane[0].aircraftStatus = 'departed';
     return `${departedPlane[0].aircraftId} took off from airport`;
   }
 }
