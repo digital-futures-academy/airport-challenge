@@ -6,6 +6,6 @@ class Plane {
         this.landed = false;
     }
 
-    isLanded() { }
+    isLanded() { return this.landed }
 }
 export default Plane;

@@ -6,6 +6,7 @@ describe('User Story 1 Test', () => {
             // Arrange
             const testPlane = new Plane("testPlane")
             // Act
+            testPlane.landed = true; // force landing of testPlane
             testPlane.isLanded();
             // Assert
             expect(testPlane.isLanded()).toBe(true);
