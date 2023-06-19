@@ -41,13 +41,13 @@ describe('User Story 2 Test:', () => {
     let testInstruction;
     describe('Instruction Instantiation test:', () => {
         const mockAirport = {
-            setAirportCapacity: () => null,
+            setAirportCapacity: () => 2,
         }
         beforeEach(() => {
-            const testInstruction = new Instruction("testInstruction", mockAirport);
+            testInstruction = new Instruction("testInstruction", mockAirport);
         })
         afterEach(() => {
-            const testInstruction = undefined;
+            testInstruction = undefined;
         })
         it('2a. should call the airport\'s setAirportCapactiy method', () => {
             // Arrange

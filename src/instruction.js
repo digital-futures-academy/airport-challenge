@@ -7,8 +7,13 @@ class Instruction {
         this.#airport = airport;
         this.#plane = plane;
     }
+
     landPlane() {
         this.#airport.landPlane(this.#plane);
+    }
+
+    setAirportCapacity() {
+        this.#airport.setAirportCapacity();
     }
 }
 export default Instruction;
