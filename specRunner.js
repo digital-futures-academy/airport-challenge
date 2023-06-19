@@ -5,3 +5,5 @@ console.log(``);
 require(`./test/user-story1.spec`);
 
 require(`./test/user-story2.spec`);
+
+require(`./test/user-story3.spec`);

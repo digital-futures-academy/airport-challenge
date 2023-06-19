@@ -12,7 +12,7 @@ let airport = new Airport();
 let expected = 10;
 
 //Act
-actual = airport.increaseCapacity(5);
+actual = airport.increaseCapacity(9);
 
 //Assert
 result = assertEquals(actual, expected);

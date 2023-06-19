@@ -6,7 +6,7 @@ class Airport {
 
     constructor() {
         this.planes = [];
-        this.airportCapacity = 5;
+        this.airportCapacity = 1;
 
     }
     getNumberOfPlane() {
@@ -20,6 +20,7 @@ class Airport {
     increaseCapacity(capacity) {
         return this.airportCapacity += capacity;
     }
+
 }
 
 module.exports = Airport;
