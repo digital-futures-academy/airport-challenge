@@ -39,6 +39,10 @@ class Airport {
     return this.#airportCapacity === this.getPlanesLength();
   }
 
+  takeOffPlane() {
+    this.#planesAtAirport.pop();
+  }
+
 
 }
 
