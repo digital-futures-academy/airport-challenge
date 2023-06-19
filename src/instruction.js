@@ -19,5 +19,9 @@ class Instruction {
         }
         this.#airport.setAirportCapacity(newCapacity);
     }
+
+    getAirportCapacity() {
+        return this.#airport.getAirportCapacity();
+    }
 }
 export default Instruction;

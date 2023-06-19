@@ -63,7 +63,10 @@ describe('User Story 2 Test:', () => {
             capacity: 0,
             setAirportCapacity(newCapacity) {
                 this.capacity = newCapacity;
-            }
+            },
+            getAirportCapacity() {
+                return this.capacity;
+            },
         }
         beforeEach(() => {
             testInstruction = new Instruction("testInstruction", mockAirport);
@@ -86,9 +89,12 @@ describe('User Story 2 Test:', () => {
         })
         it('2d. expect getAirportCapacity to return 2', () => {
             // Arrange -> done in beforeEach
+            let actual;
             // Act
+            testInstruction.setAirportCapacity(2);
+            actual = testInstruction.getAirportCapacity();
             // Assert
-            expect(() => { testInstruction.getAirportCapacity() }).toBe(2);
+            expect(testInstruction.getAirportCapacity()).toBe(2);
         })
     })
 })
