@@ -3,7 +3,7 @@ const Airport = require(`../src/Airport`);
 const chalk = require("chalk"); // got the idea for the chalk stuff from Michael Keenan.
 const { assertEquals } = require(`./testing-framework`);
 
-let actual, expected, result, plane, airport;
+let actual, expected, result, plane, plane1, plane2, airport;
 
 
 console.log(chalk.blueBright(`Airport tests`));
@@ -33,6 +33,8 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
+plane = undefined;
+airport = undefined;
 
 
 
@@ -74,6 +76,9 @@ console.log(``);
 expected = undefined;
 actual = undefined;
 result = undefined;
+plane = undefined;
+airport = undefined;
+
 
 
 

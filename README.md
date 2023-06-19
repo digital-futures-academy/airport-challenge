@@ -152,8 +152,7 @@ I want to prevent landing when the airport is full
 
 ```
 #### Tests
-1. test that landPlane returns false if maximum airport capacity has been reached.
-2. test that airportCapacity doesn't change when landPlane is called.
+1. test that airportCapacity doesn't change when landPlane is called.
 
 ---
 ---
