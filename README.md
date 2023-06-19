@@ -246,9 +246,8 @@ I want to prevent asking the airport to let planes take-off which are not at the
 |  |  | getAirportCapacity(@number) | @Void |
 |  |  |  |  |
 | Plane | landed @boolean | isLanded() | @Boolean |
-- **Test 5a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.landPlane()`, expect `checkPlanStatus()` to have been called.
-- **Test 5b**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
-- **Test 5c**: Call `Instruction.takeOffPlane()`, expect an `error` to be thrown.
+- **Test 5a**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
+- **Test 5b**: Call `Instruction.takeOffPlane()`, expect an `error` to be thrown.
 
 # Extended Acceptance Criteria
 
