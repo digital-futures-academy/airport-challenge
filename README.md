@@ -173,11 +173,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       | Objects | Properties                  | Messages                                 | Outputs           |
       | ------- | ----------------------------|------------------------------------------|------------------ |
       | Airport |                             | isWeatherStormy(currentWeather) @Weather | @Boolean or @Error|
-      | Airport |landedPlanes @Array [@Planes]| landPlane(@Plane)                        | @Void             |
+      | Airport |landedPlanes @Array [@Planes]| planeTakeOff(aircraftId)                 | @Void             |
       | Weather |                             | getCurrentWeather()                      | @String           |
 
       ##### Tests
-      - Planes are not able to land when the weather is stormy;
+      - Planes are not able to take off when the weather is stormy;
 
   7.  _As an air traffic controller
       To ensure safety
@@ -186,12 +186,12 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       | Objects | Properties                  | Messages                                 | Outputs           |
       | ------- | ----------------------------|------------------------------------------|------------------ |
       | Airport |                             | isWeatherStormy(currentWeather) @Weather | @Boolean or @Error|
-      | Airport |landedPlanes @Array [@Planes]| planeTakeOff(aircraftId)                 | @String           |
+      | Airport |landedPlanes @Array [@Planes]| landPlane(@Plane)                        | @String           |
       | Weather |                             | getCurrentWeather()                      | @String           |    
       
       ##### Tests
 
-      - Planes are not able to take off when the weather is stormy;
+      - Planes are not able to land when the weather is stormy;
 
   8.  _As an air traffic controller
       To count planes easily
