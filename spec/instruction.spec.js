@@ -84,5 +84,11 @@ describe('User Story 2 Test:', () => {
             // Assert
             expect(mockAirport.capacity).toBeGreaterThan(0);
         })
+        it('2d. expect getAirportCapacity to return 2', () => {
+            // Arrange -> done in beforeEach
+            // Act
+            // Assert
+            expect(() => { testInstruction.getAirportCapacity() }).toBe(2);
+        })
     })
 })
