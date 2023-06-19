@@ -8,7 +8,7 @@ const plane2 = { id: `G-IPLY` };
 
 console.log(`User Story 4`);
 
-// Test 1 - 1)	Check that taking-off plane from an airport using removePlanes and expect array (landedPlanes) to decrease in length by 1.
+// Test 1 - Check that taking-off plane from an airport using removePlanes and expect array (landedPlanes) to decrease in length by 1.
 console.log(`Test 1`);
 console.log(`============================================`);
 console.log(``);
@@ -68,12 +68,12 @@ airport.landedPlanes = [];
 result = undefined;
 actual = undefined;
 
-// Test 3 - Test that planesExist returns an error message when a plane has been removed from the landedPlanes array.
+// Test 3 - Test that planesExist returns a message when a plane has been removed from the landedPlanes array.
 
 console.log(`============================================`);
 console.log(``);
 
-console.log(`Test that planesExist returns an error message when a plane has been removed from the landedPlanes array. `);
+console.log(`Test that planesExist returns a message when a plane has been removed from the landedPlanes array. `);
 
 // Arrange
 expected = "This plane is not at the airport. Therefore it can not take-off.";

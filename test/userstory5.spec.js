@@ -8,7 +8,7 @@ const plane2 = { id: `G-IPLY` };
 
 console.log(`User Story 5`);
 
-// Test 1 - planesExist() returns Message stating that when planes are no longer at airport, planes cannot take off.
+// Test 1 - planesExist() returns message stating that when planes are no longer at airport, planes cannot take off.
 
 console.log(`Test 1`);
 console.log(`============================================`);
