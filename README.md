@@ -47,13 +47,35 @@ The code that forms the solution for this challenge was written in Javascript, a
 
 ## Installation:
 
-- .
-- .
+- Clone the repository
+```
+git clone https://github.com/mardeldev/airport-challenge.git
+```
+- Enter directory
+```
+cd airport-challenge
+```
+- Setup Jasmine testing framework. Set entry point to `index.js` and the test command to `jamsmine` when prompted. Then open `package.json` and add a new key:value pair of `type : "module"`.
+```
+npm init
+npm i --save-dev jasmine
+npx jasmine init
+```
+- Enter the `src` directory
+```
+cd src/
+```
+- Run `index.js` from the terminal
+```
+node index.js
+```
+- To run the tests, run `npm test` from the terminal
 
 ## Project Structure:
 
-- .
-- .
+- The index file and classes are found in the `src` directory.
+- Spec/test files are found in the `spec` directory.
+
 
 # Problem Statements
 
