@@ -14,15 +14,6 @@
 
 ## Instructions
 
-- Feel free to use google, your notes, books, etc. but work on your own.
-- Keep it SIMPLE - it's not nearly as complicated as it first may look.
-- You must [submit your challenge](https://airtable.com/shrUGm2T8TYCFAmjN) by the deadline, wherever you get to.
-- Use your own test framework and evidence your test-driven development by committing on passing tests.
-- Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
-- If you refer to the solution of another coach or student, please put a link to that in your README.
-- Please create separate files for every class, module, and spec.
-## Instructions
-
 1. Fork this repository and then:
 ```sh
 $ git clone https://github.com/<YOUR GITHUB USERNAME>/airport-challenge.git && cd airport-challenge
@@ -43,14 +34,6 @@ To fix linting issues run;
 ```sh
 $ npm run lint:fix
 ```
-
-## Steps
-
-1. Fork this repo, and clone to your local machine
-2. `npm install` to install project dependencies
-3. Convert stories into a representative domain model and test-drive your work.
-4. Run your tests using `npm test` or `node specRunner.js`
-5. OPTIONAL: [Lint](https://eslint.org/docs/user-guide/getting-started) your source code using `npx eslint src`.
 
 ## Task
 
@@ -100,7 +83,7 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
-#### Domain Modelling and Tests
+## Domain Modelling and Tests
 
 1.    _As an air traffic controller
       So I can get passengers to a destination

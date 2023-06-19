@@ -4,6 +4,12 @@ export default class Airport {
     this.maxAirportCapacity = 10;
   }
   
+  isWeatherStormy(weather) {
+    if (weather === 'stormy') {
+      throw new Error (`Plane cannot land when weather is ${weather}.`);
+    } 
+  }
+
   errorIfWrongStatusType(plane) {
     if (typeof(plane.aircraftStatus) === 'string') {
       return true;
@@ -33,7 +39,8 @@ export default class Airport {
     return plane?.aircraftStatus && plane?.aircraftId && !this.isAirportFull() && !this.isPlaneAtTheAirport(plane);
   }
 
-  landPlane(plane) {
+  landPlane(plane, weather = 'clear') {
+    this.isWeatherStormy(weather);
     this.errorPlaneAlreadyAtAirport(plane);
     this.errorIfWrongIdType(plane);
     this.errorIfWrongStatusType(plane);
@@ -65,7 +72,8 @@ export default class Airport {
     }
   }
 
-  planeTakeOff(aircraftId) {
+  planeTakeOff(aircraftId, weather = 'clear') {
+    this.isWeatherStormy(weather);
     this.takeOffChecks(aircraftId);
     const departedPlane = this.landedPlanes.splice(this.findPlaneById(aircraftId), 1);
     departedPlane[0].aircraftStatus = 'departed';
