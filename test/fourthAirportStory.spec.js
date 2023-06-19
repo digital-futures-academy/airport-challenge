@@ -18,7 +18,7 @@ expected = 1;
 // Act
 airport.landPlane(plane);
 airport.landPlane(plane2);
-airport.takeOffPlane()
+airport.takeOffPlane(plane.getId())
 actual = airport.getPlanesLength();
 
 // Assert

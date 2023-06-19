@@ -42,7 +42,7 @@ class Airport {
   takeOffPlane(planeId) {
     const planeIndex = this.#planesAtAirport.findIndex(plane => plane.getId() === planeId);
     this.#planesAtAirport.splice(planeIndex, 1);
-    }
+  }
 }
 
 module.exports = Airport; 

@@ -201,7 +201,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 
 ```
 #### Tests  
-1. test that @Plane passed to takeOffPlane is not in the planesAtAirport array.
+1. test that takeOff plane returns false when trying to call takeOffPlane;
 2. test that the planesAtAirport length shouldn't change after calling takeOffPlane.
 
 ---
