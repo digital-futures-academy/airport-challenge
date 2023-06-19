@@ -11,7 +11,7 @@ class Airport {
   
     landPlane(plane) {
       if (this.isFull()) {
-        throw new Error('Cannot land plane, airport is full');
+        throw new Error('Cannot land plane');
       }
   
       this.currentPlanes.push(plane);
