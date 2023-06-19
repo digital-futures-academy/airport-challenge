@@ -1,10 +1,11 @@
 class Weather {
-    constructor(weatherCondition) {
-      this.weatherCondition = weatherCondition;
+    constructor() {
+      this.weatherConditions = ["sunny", "rainy", "stormy"];
     }
   
-    checkWeather() {
-      return this.weatherCondition;
+    randomWeather() {
+      const randomIndex = Math.floor(Math.random() * this.weatherConditions.length);
+      return this.weatherConditions[randomIndex];
     }
   }
   

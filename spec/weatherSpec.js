@@ -4,10 +4,11 @@ describe("Weather", function() {
   let weather;
 
   beforeEach(function() {
-    weather = new Weather('sunny');
+    weather = new Weather();
   });
 
-  it("should be able to check the weather", function() {
-    expect(weather.checkWeather()).toEqual('sunny');
+  it("should generate a random weather condition", function() {
+    const weatherCondition = weather.randomWeather();
+    expect(weather.weatherConditions).toContain(weatherCondition);
   });
 });
