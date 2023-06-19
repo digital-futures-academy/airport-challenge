@@ -5,7 +5,7 @@ describe('User Story 1 Test:', () => {
 
     describe('Instruction instantiation test:', () => {
         const mockPlane = {
-            isLanded: () => true,
+            isLanded: () => false,
         }
         const mockAirport = {
             planesAtAirport: 1,
