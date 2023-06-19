@@ -2,6 +2,7 @@ class Instruction {
     #code;
     #airport;
     #plane;
+    #capacityError = new Error('Error setting a new capacity.')
     constructor(code, airport, plane) {
         this.#code = code;
         this.#airport = airport;
@@ -12,8 +13,9 @@ class Instruction {
         this.#airport.landPlane(this.#plane);
     }
 
-    setAirportCapacity() {
-        this.#airport.setAirportCapacity();
+    setAirportCapacity(newCapacity) {
+        if ()
+            this.#airport.setAirportCapacity(newCapacity);
     }
 }
 export default Instruction;

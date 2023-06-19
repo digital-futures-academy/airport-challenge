@@ -58,4 +58,24 @@ describe('User Story 2 Test:', () => {
             expect(mockAirportSpy).toHaveBeenCalled();
         })
     })
+    describe('Airport Capacity Test:', () => {
+        const mockAirport = {
+            capacity: 0,
+            setAirportCapacity(newCapacity) {
+                this.capacity = newCapacity
+            }
+        }
+        beforeEach(() => {
+            testInstruction = new Instruction("testInstruction", mockAirport);
+        })
+        afterEach(() => {
+            testInstruction = undefined;
+        })
+        it('2b. should throw an error when setAirportCapacity is called with a negative value supplied', () => {
+            // Arrange -> done in beforeEach
+            // Act
+            // Assert
+            expect(() => { testInstruction.setAirportCapacity(-1) }).toThrowError(`Cannot have negative capacity.`);
+        })
+    })
 })
