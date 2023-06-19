@@ -17,7 +17,7 @@ describe('User Story 1 Test', () => {
             // Arrange -> testInstruction done in beforeEach
             const mockPlaneSpy = spyOn(mockPlane, 'isLanded');
             // Act
-            testAirport.landPlane();
+            testAirport.landPlane(mockPlane);
             // Assert
             expect(mockPlaneSpy).toHaveBeenCalled();
         })
