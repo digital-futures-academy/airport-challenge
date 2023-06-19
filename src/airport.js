@@ -2,6 +2,7 @@ class Airport {
     constructor(name) {
         this.name = name;
         this.capacity = 5;
+        this.weatherType = ['stormy', 'calm']
         this.planesAtAirport = [];
     }
 
@@ -27,6 +28,11 @@ class Airport {
 
     getAirportCapacity() {
         return this.capacity;
+    }
+
+    checkWeather() {
+        const randomNumber = Math.floor(Math.random() * 2);
+        return this.weatherType[randomNumber];
     }
 }
 export default Airport;

@@ -9,7 +9,9 @@ describe('User Story 1 Test:', () => {
         }
         const mockAirport = {
             planesAtAirport: 1,
+            weatherType: 'calm',
             landPlane: () => mockPlane.isLanded(),
+            checkWeather() { return this.weatherType },
             getAirportCapacity() {
                 return 5
             },
@@ -114,6 +116,7 @@ describe('User Story 3 Test:', () => {
         }
         const mockAirport = {
             capacity: 1,
+            weatherType: 'calm',
             planesAtAirport: [mockPlane1],
             landPlane(plane) {
                 this.planesAtAirport.push(plane);
@@ -146,7 +149,9 @@ describe('User Story 4 Test:', () => {
         }
         const mockAirport = {
             planesAtAirport: 1,
+            weatherType: 'calm',
             takeOffPlane: () => mockPlane.isLanded(),
+            checkWeather() { return this.weatherType },
             getAirportCapacity() {
                 return 5
             },
@@ -187,6 +192,7 @@ describe('User Story 5 Test:', () => {
         }
         const mockAirport = {
             planesAtAirport: 1,
+            weatherType: 'calm',
             landPlane: () => mockPlane.isLanded(),
             takeOffPlane: () => mockPlane.isLanded(),
             getAirportCapacity() {
@@ -211,6 +217,7 @@ describe('User Story 5 Test:', () => {
         }
         const mockAirport = {
             planesAtAirport: 1,
+            weatherType: 'calm',
             landPlane: () => mockPlane.isLanded(),
             takeOffPlane: () => mockPlane.isLanded(),
             getAirportCapacity() {
@@ -231,3 +238,33 @@ describe('User Story 5 Test:', () => {
     })
 })
 
+describe('User Story 6 Test:', () => {
+    let testInstruction;
+
+    describe('Weather error test:', () => {
+        const mockPlane = {
+            isLanded: () => false,
+        }
+        const mockAirport = {
+            planesAtAirport: 1,
+            weatherType: 'stormy',
+            landPlane: () => mockPlane.isLanded(),
+            takeOffPlane: () => mockPlane.isLanded(),
+            //checkWeather() { return this.weatherType },
+            getAirportCapacity() {
+                return 5
+            },
+
+        }
+        beforeEach(() => {
+            testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
+        })
+        afterEach(() => {
+            testInstruction = undefined;
+        })
+        it('6a. expect landPlane to throw an error', () => {
+            // Assert
+            expect(() => { testInstruction.landPlane() }).toThrowError('Too stormy to land / take-off');
+        })
+    })
+})

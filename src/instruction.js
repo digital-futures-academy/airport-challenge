@@ -6,6 +6,7 @@ class Instruction {
     #fullError = new Error('Airport is full');
     #landError = new Error('Plane already at airport.');
     #takeOffError = new Error('Plane is not at the airport, so cannot take off.');
+    #weatherError = new Error('Too stormy to land / take-off');
 
     constructor(code, airport, plane) {
         this.#code = code;
@@ -20,12 +21,18 @@ class Instruction {
         if (this.#plane.isLanded() === true) {
             throw this.#landError;
         }
+        if (this.#airport.checkWeather() === 'stormy') {
+            throw this.#weatherError;
+        }
         this.#airport.landPlane(this.#plane);
     }
 
     takeOffPlane() {
         if (this.#plane.isLanded() === false) {
             throw this.#takeOffError;
+        }
+        if (this.#airport.checkWeather() === 'stormy') {
+            throw this.#weatherError;
         }
         this.#airport.takeOffPlane(this.#plane);
     }
