@@ -267,4 +267,30 @@ describe('User Story 6 Test:', () => {
             expect(() => { testInstruction.landPlane() }).toThrowError('Too stormy to land / take-off');
         })
     })
+    describe('Weather error test:', () => {
+        const mockPlane = {
+            isLanded: () => true,
+        }
+        const mockAirport = {
+            planesAtAirport: 1,
+            weatherType: 'stormy',
+            landPlane: () => mockPlane.isLanded(),
+            takeOffPlane: () => mockPlane.isLanded(),
+            checkWeather() { return this.weatherType },
+            getAirportCapacity() {
+                return 5
+            },
+
+        }
+        beforeEach(() => {
+            testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
+        })
+        afterEach(() => {
+            testInstruction = undefined;
+        })
+        it('6a. expect landPlane to throw an error', () => {
+            // Assert
+            expect(() => { testInstruction.takeOffPlane() }).toThrowError('Too stormy to land / take-off');
+        })
+    })
 })
