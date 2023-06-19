@@ -254,7 +254,6 @@ describe("Airport Tests", () => {
     it('does not allow plane to land when the weather is stormy', () => {
       //arrange
       class MockWeather {
-        randomNumber = () => 1;
         getCurrentWeather = () => 'stormy';
       }
       const weather = new MockWeather();
@@ -262,6 +261,19 @@ describe("Airport Tests", () => {
       //act
       //assert
       expect(() => { airport.landPlane(plane, currentWeather) }).toThrowError('Plane cannot land when weather is stormy.');
+    })
+
+    it('plane lands when the weather is clear', () => {
+      //arrange
+      class MockWeather {
+        getCurrentWeather = () => 'clear';
+      }
+      const weather = new MockWeather();
+      const currentWeather = weather.getCurrentWeather();
+      //act
+      airport.landPlane(plane, currentWeather);
+      //assert
+      expect(airport.landedPlanes.length).toBe(1);
     })
   })
 });
