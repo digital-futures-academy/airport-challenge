@@ -36,3 +36,26 @@ describe('User Story 1 Test:', () => {
     })
 
 })
+
+describe('User Story 2 Test:', () => {
+    let testInstruction;
+    describe('Instruction Instantiation test:', () => {
+        const mockAirport = {
+            setAirportCapacity: () => null,
+        }
+        beforeEach(() => {
+            const testInstruction = new Instruction("testInstruction", mockAirport);
+        })
+        afterEach(() => {
+            const testInstruction = undefined;
+        })
+        it('2a. should call the airport\'s setAirportCapactiy method', () => {
+            // Arrange
+            const mockAirportSpy = spyOn(mockAirport, 'setAirportCapacity');
+            // Act
+            testInstruction.setAirportCapacity();
+            // Assert
+            expect(mockAirportSpy).toHaveBeenCalled();
+        })
+    })
+})
