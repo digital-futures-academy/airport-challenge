@@ -3,10 +3,12 @@ class Airport {
 
     planes;
     airportCapacity;
+    plane2;
 
     constructor() {
         this.planes = [];
         this.airportCapacity = 1;
+        this.plane2 = 2;
 
     }
     getNumberOfPlane() {
@@ -28,6 +30,7 @@ class Airport {
     instructPlaneTakeOff() {
         this.planes.pop();
     }
+
 
 }
 

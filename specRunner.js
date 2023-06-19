@@ -9,3 +9,5 @@ require(`./test/user-story2.spec`);
 require(`./test/user-story3.spec`);
 
 require(`./test/user-story4.spec`);
+
+require(`./test/user-story5.spec`);
