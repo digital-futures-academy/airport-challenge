@@ -34,6 +34,16 @@ $ npm test
 # or run jasmine directly
 $ ./node_modules/jasmine/bin/jasmine.js
 ```
+3. To lint you project run:
+```sh
+$ npm run lint
+```
+
+To fix linting issues run;
+```sh
+$ npm run lint:fix
+```
+
 ## Steps
 
 1. Fork this repo, and clone to your local machine
@@ -137,6 +147,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
                 | maxAirportCapacity @Integer         |
 
       *** Tests ***
+      
       - IsAirportFull returns a boolean;
       - Informs airport is NOT full when 1 plane lands in airport with max capacity of 10;
       - Airport is full when airport is at max capacity;
