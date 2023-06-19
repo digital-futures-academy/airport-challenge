@@ -41,6 +41,9 @@ class Airport {
 
   takeOffPlane(planeId) {
     const planeIndex = this.#planesAtAirport.findIndex(plane => plane.getId() === planeId);
+    if (planeIndex === -1) {
+      return false;
+    }
     this.#planesAtAirport.splice(planeIndex, 1);
   }
 }
