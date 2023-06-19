@@ -226,6 +226,8 @@ I want to prevent asking the airport to land a plane that's already landed
 ```
 #### Tests
 
-1. test that @Plane passed to the landPlane is not already in the planesAtAirport array.
+1. test that landPlane returns false when trying to add a plane that's already in the planesAtAirport array.
 2. test that the planesAtAirport length shouldn't change after calling landPlane.
+
+
 
