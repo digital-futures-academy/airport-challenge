@@ -57,12 +57,16 @@ export default class Airport {
     );
     return this.landedPlanes[planeToLandLocation]; 
   }
+  
+  takeOffChecks(aircraftId) {
+    const planeIndex = this.findPlaneById(aircraftId);
+    if (planeIndex === undefined) {
+      throw new Error('Plane to depart must be at the airport');
+    }
+  }
 
   planeTakeOff(aircraftId) {
-    const planeIndex = this.findPlaneById(aircraftId)
-    if (planeIndex === undefined) {
-      return 'Plane to depart must be at the airport';
-    }
+    this.takeOffChecks(aircraftId);
     const departedPlane = this.landedPlanes.splice(this.findPlaneById(aircraftId), 1);
     departedPlane[0].aircraftStatus = "departed";
     return `${departedPlane[0].aircraftId} took off from airport`;

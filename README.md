@@ -78,7 +78,8 @@ Your task is to test drive the creation of a set of classes/objects to satisfy a
 
 Your code should defend against [edge cases](http://programmers.stackexchange.com/questions/125587/what-are-the-difference-between-an-edge-case-a-corner-case-a-base-case-and-a-b) such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc.
 
-#### Domain Modelling
+#### Domain Modelling and Tests
+
 1.    As an air traffic controller
       So I can get passengers to a destination
       I want to instruct the airport to land a plane
@@ -88,7 +89,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       | Airport | landedPlanes @Array[@Planes]        | landPlane(@Plane) | @Void   |
       | Plane   | aircraftId, aircraftStatus @String  |                   |         |
 
-*** Tests ***
+      *** Tests ***
 - 
       - Returns an empty array for an empty airport;
       - Lands plane to airport using landPlane and expect array (landedPlanes) has increased in length by 1;
@@ -96,9 +97,8 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       - A plane without an id property does not land on the airport;
       - A plane without a status property does not land on the airport;
       - Throws an error when a plane with wrong status type attempts to land in the airport;
-      - Throws an error when a plane with id type attempts to land in the airport;
+      - Throws an error when a plane with wrong id type attempts to land in the airport;
       - You are able to land airplane on an airport with existing planes;
-      - You are not able to land a plane which is already at the airport;
       - Plane with id of null is not landing on the airport;
       - Plane status changes from `departed` to `landed` once the plane lands in the airport.
 
@@ -113,8 +113,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       *** Tests ***
       - MaxAirportCapacity is 10 when the airport is first instantiated;
       - You are able to override maxAirportCapacity from 10 to 1500;
-      - You are able to override maxAirportCapacity from 1500 to 1000;
-      - You are not able to land a plane if the airport is full.
+      - You are able to override maxAirportCapacity from 1500 to 1000.
 
 3.    As an air traffic controller
       To ensure safety
@@ -124,29 +123,46 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       | ------- | ----------------------------------- | ----------------| ------- |
       | Airport | landedPlanes @Array[@Planes]        | isAirportFull() | @Void   |
                 | maxAirportCapacity @Integer         |
+
       *** Tests ***
       - IsAirportFull returns a boolean;
       - Informs airport is NOT full when 1 plane lands in airport with max capacity of 10;
       - Airport is full when airport is at max capacity;
-      - 
-      As an air traffic controller
+      - You are not able to land a plane if the airport is full.
+
+4.    As an air traffic controller
       So I can get passengers on the way to their destination
       I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
 
-| Objects | Properties                                              | Messages                        | Outputs |
-| ------- | ------------------------------------------------------- | ------------------------------- | ------- |
-| Airport | maxAirportCapacity @Number,landedPlanes @Array [@Planes]|  planeTakeOff(@String)          | @String |
-| Plane   | aircraftId, aircraftStatus @String                      |                           
+      | Objects | Properties                         | Messages                                 | Outputs |
+      | ------- | -----------------------------------| -----------------------------------------| ------- |
+      | Airport | landedPlanes @Array [@Planes]      |  planeTakeOff(aircraftId @String) @Plane | @String |
+      | Plane   | aircraftId, aircraftStatus @String |                                          |
 
-As an air traffic controller
-To avoid confusion
-I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+      *** Tests ***
+      - Plane takes off using planeTakeOff and expect array (landedPlanes) has decreased in length by 1;
+      - Confirms that the plane with id of G-XLEE took off with message: "G-XLEE took off from airport";
+      - Tests that the plane that took off from the airport is the plane passed through planeTakeOff.
+
+5.    As an air traffic controller
+      To avoid confusion
+      I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
 
 
-| Objects | Properties                          | Messages          | Outputs |
-| ------- | ----------------------------------- | ----------------- | ------- |
-| Airport |                                     |                   |         |
-| Plane   |                                     |                   |         |
+      | Objects  | Properties                    | Messages                           | Outputs    |
+      | ---------| ----------------------------- | ---------------------------------- | ---------- |
+      | Airport  | landedPlanes @Array [@Planes] | takeOffChecks(aircraftId @String)  | @ @Integer |  
+                                                 | isPlaneAtTheAirport(@Plane)        | @ Boolean  |
+                                                 | landPlaneChecks(@Plane)            | @ Boolean  |
+      *** Tests ***
+      - You are not able to take off a plane which is not at the airport;
+      - You are not able to land a plane which is already at the airport;
+
+
+      | Objects | Properties                          | Messages          | Outputs |
+      | ------- | ----------------------------------- | ----------------- | ------- |
+      | Airport |                                     |                   |         |
+      | Plane   |                                     |                   |         |
 
 As an air traffic controller
 To ensure safety
