@@ -21,7 +21,19 @@
 - Please write your own README detailing how to install your project, how to run the tests, how you approached the problem and provide screenshots of interacting with your program.
 - If you refer to the solution of another coach or student, please put a link to that in your README.
 - Please create separate files for every class, module, and spec.
+## Instructions
 
+1. Fork this repository and then:
+```sh
+$ git clone https://github.com/<YOUR GITHUB USERNAME>/airport-challenge.git && cd airport-challenge
+$ npm install # installs dependencies listed in package.json
+```
+2. Run the tests from your project root directory. You can run your test suite in a few ways:
+```sh
+$ npm test
+# or run jasmine directly
+$ ./node_modules/jasmine/bin/jasmine.js
+```
 ## Steps
 
 1. Fork this repo, and clone to your local machine
@@ -151,28 +163,22 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
       | Objects  | Properties                    | Messages                           | Outputs    |
       | ---------| ----------------------------- | ---------------------------------- | ---------- |
-      | Airport  | landedPlanes @Array [@Planes] | takeOffChecks(aircraftId @String)  | @ @Integer |  
-                                                 | isPlaneAtTheAirport(@Plane)        | @ Boolean  |
+      | Airport  | landedPlanes @Array [@Planes] | takeOffChecks(aircraftId @String)  | @ Boolean  |  
                                                  | landPlaneChecks(@Plane)            | @ Boolean  |
       *** Tests ***
       - You are not able to take off a plane which is not at the airport;
       - You are not able to land a plane which is already at the airport;
 
 
+ 6.   As an air traffic controller
+      To ensure safety
+      I want to prevent takeoff when weather is stormy
+      
       | Objects | Properties                          | Messages          | Outputs |
       | ------- | ----------------------------------- | ----------------- | ------- |
       | Airport |                                     |                   |         |
       | Plane   |                                     |                   |         |
-
-As an air traffic controller
-To ensure safety
-I want to prevent takeoff when weather is stormy
-
-| Objects | Properties                          | Messages          | Outputs |
-| ------- | ----------------------------------- | ----------------- | ------- |
-| Airport |                                     |                   |         |
-| Plane   |                                     |                   |         |
-| Weather |                                     |                   |         |
+      | Weather |                                     |                   |         |
 
 As an air traffic controller
 To ensure safety
