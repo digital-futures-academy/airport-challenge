@@ -8,7 +8,11 @@ describe('User Story 1 Test:', () => {
             isLanded: () => true,
         }
         const mockAirport = {
+            planesAtAirport: 1,
             landPlane: () => mockPlane.isLanded(),
+            getAirportCapacity() {
+                return 5
+            },
         }
         beforeEach(() => {
             testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
@@ -78,7 +82,7 @@ describe('User Story 2 Test:', () => {
             // Arrange -> done in beforeEach
             // Act
             // Assert
-            expect(() => { testInstruction.setAirportCapacity(-1) }).toThrowError(`Cannot have negative or no capacity.`);
+            expect(() => { testInstruction.setAirportCapacity(-1) }).toThrowError('Cannot have negative or no capacity.');
         })
         it('2c. expect capacity to be greater than zero', () => {
             // Arrange -> done in beforeEach
@@ -113,15 +117,22 @@ describe('User Story 3 Test:', () => {
             planesAtAirport: [mockPlane1],
             landPlane(plane) {
                 this.planesAtAirport.push(plane);
-            }
+            },
+            getAirportCapacity() {
+                return this.capacity
+            },
         }
-        it('3a. expect landPlane to throw an error', () => {
-            // Arrange -> done above
+        beforeEach(() => {
+            // Arrange
             testInstruction = new Instruction("testInstruction", mockAirport, mockPlane2);
-            // Act
-            testInstruction.landPlane();
+        });
+
+        afterEach(() => {
+            testInstruction = undefined;
+        });
+        it('3a. expect landPlane to throw an error', () => {
             // Assert
-            expect(() => { testInstruction.landPlane() }).toThrowError('Error. Airport is Full.')
+            expect(() => { testInstruction.landPlane() }).toThrowError('Airport is full');
         })
     })
 })
