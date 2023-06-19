@@ -35,32 +35,4 @@ describe('User Story 1 Test', () => {
 
     })
 
-    describe('Land plane test', () => {
-        const mockPlane = {
-            landed: false,
-            isLanded() {
-                this.landed = true
-                return this.landed;
-            }
-        }
-        const mockAirport = {
-            landPlane: (mockPlane) => mockPlane.isLanded(),
-        }
-        beforeEach(() => {
-            testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
-        })
-        afterEach(() => {
-            testInstruction = undefined;
-        })
-        it('1c. returns true when isLanded method is called from the Plane', () => {
-            // Arrange -> done in beforeEach
-            // Act
-            testInstruction.landPlane();
-            // Assert
-            expect(mockPlane.isLanded()).toBe(true);
-        })
-
-    })
-
-
 })

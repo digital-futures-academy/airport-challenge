@@ -23,4 +23,24 @@ describe('User Story 1 Test', () => {
         })
 
     })
+
+    describe('Land plane test', () => {
+        const mockPlane = {
+            flightNumber: 'testPlane',
+            landed: true
+        }
+        beforeEach(() => {
+            testAirport = new Airport("testAirport");
+        })
+        afterEach(() => {
+            testAirport = undefined;
+        })
+        it('1d. the planes array in the airport object should contain the plane object', () => {
+            // Arrange -> done in beforeEach
+            // Act
+            testAirport.landPlane(mockPlane);
+            // Assert
+            expect(testAirport.planes).toContain(mockPlane);
+        })
+    })
 })
