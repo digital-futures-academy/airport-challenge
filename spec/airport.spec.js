@@ -69,6 +69,14 @@ describe('User Story 4 Test:', () => {
             // Assert
             expect(mockPlane.isLanded()).toBe(false);
         })
+        it('4d. planesAtAirport array expected not to contain Plane object', () => {
+            // Arrange -> done in beforeEach
+            // Act
+            testAirport.landPlane(mockPlane);
+            testAirport.takeOffPlane(mockPlane);
+            // Assert
+            expect(Airport.planesAtAirport).not.toContain(mockPlane);
+        })
 
     })
 

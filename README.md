@@ -218,7 +218,7 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 - **Test 4a**: Instantiate a new `Instruction(code, airport, plane)` , call `Instruction.takeOffPlane()`, expect `takeOffPlane()` (a `spy` for `airport.takeOffPlane()`) to have been called.
 - **Test 4b**:  Call `Instruction.takeOffPlane()`, expect `isLanded()` (a `spy` for `plane.isLanded()`) to have been called.
 - **Test 4c**: Call `Instruction.takeOffPlane()` , expect `Instruction.isLanded()` to be `false`.
-- **Test 4d**:  Call `Instruction.takeOffPlane()`, expect `airport.planes` array **not**to contain the specified `plane` object.
+- **Test 4d**:  Call `Instruction.takeOffPlane()`, expect `airport.planes` array **not** to contain the specified `plane` object.
 
 ---
 
