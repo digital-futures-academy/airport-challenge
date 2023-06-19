@@ -300,12 +300,16 @@ describe('User Story 8 Test:', () => {
 
     describe('Instruction instantiation test:', () => {
         const mockPlane = {
+            landed: true,
             isLanded: () => true,
         }
         const mockAirport = {
-            planesAtAirport: 1,
-            weatherType: 'calm',
-            isPlaneAtAirport() { return true },
+            planesAtAirport: [mockPlane],
+            isPlaneAtAirport(plane) {
+                if (plane.landed === true && this.planesAtAirport.includes(plane)) {
+                    return true;
+                }
+            },
         }
         beforeEach(() => {
             testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
@@ -314,12 +318,18 @@ describe('User Story 8 Test:', () => {
             testInstruction = undefined;
         })
         it('8a. should call the airport\'s isPlaneAtAirport method', () => {
-            // Arrange -> testInstruction done in beforeEach
             const mockAirportSpy = spyOn(mockAirport, 'isPlaneAtAirport');
             // Act
             testInstruction.isPlaneAtAirport();
             // Assert
             expect(mockAirportSpy).toHaveBeenCalled();
+        })
+        it('8b. expect isPlaneAtAirport to return true', () => {
+            // Arrange -> testInstruction done in beforeEach
+            // Act
+            testInstruction.isPlaneAtAirport();
+            // Assert
+            expect(testInstruction.isPlaneAtAirport()).toBe(true);
         })
     })
 })
