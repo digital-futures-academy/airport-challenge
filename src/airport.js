@@ -25,6 +25,10 @@ class Airport {
         return this.planes.length === this.airportCapacity;
     }
 
+    instructPlaneTakeOff() {
+        this.planes.pop();
+    }
+
 }
 
 module.exports = Airport;
