@@ -34,5 +34,11 @@ class Airport {
         const randomNumber = Math.floor(Math.random() * 2);
         return this.weatherType[randomNumber];
     }
+
+    isPlaneAtAirport(plane) {
+        if (plane.landed === true && this.planesAtAirport.includes(plane)) {
+            return true;
+        } else { return false };
+    }
 }
 export default Airport;

@@ -47,5 +47,9 @@ class Instruction {
     getAirportCapacity() {
         return this.#airport.getAirportCapacity();
     }
+
+    isPlaneAtAirport() {
+        return this.#airport.isPlaneAtAirport(this.#plane);
+    }
 }
 export default Instruction;
