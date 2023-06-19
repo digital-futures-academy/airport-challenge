@@ -303,5 +303,21 @@ describe("Airport Tests", () => {
       //assert
       expect(() => { airport.planeTakeOff(plane, currentWeather) }).toThrowError('Plane cannot land or take off when weather is stormy.');
     })
+
+    it('does not allow plane to take off when the weather is stormy and expects array of landedPlanes to remain 1', () => {
+      //arrange
+      airport.landPlane(plane);
+      class MockWeather {
+        getCurrentWeather = () => 'stormy';
+      }
+      const weather = new MockWeather();
+      const currentWeather = weather.getCurrentWeather();
+      //act
+      try {
+        airport.planeTakeOff(plane, currentWeather)
+      } catch {}
+      //assert
+      expect(airport.landedPlanes.length).toBe(1);
+    })
   })
 });
