@@ -41,9 +41,9 @@ class Airport {
 
   takeOffPlane() {
     this.#planesAtAirport.pop();
+
+
   }
-
-
 }
 
 module.exports = Airport; 
