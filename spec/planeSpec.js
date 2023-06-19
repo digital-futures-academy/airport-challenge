@@ -7,7 +7,7 @@ describe("Plane", function() {
 
   beforeEach(function() {
     plane = new Plane("Plane1");
-    airport = new Airport("TestAirport");
+    airport = new Airport("Manchester");
   });
 
   it("should be able to land ", function() {
@@ -15,7 +15,7 @@ describe("Plane", function() {
 
     expect(airport.currentPlanes).toContain(plane);
     expect(plane.status).toEqual('landed');
-    expect(plane.currentLocation).toEqual('TestAirport');
+    expect(plane.currentLocation).toEqual('Manchester');
   });
 
   it("should be able to take off ", function() {

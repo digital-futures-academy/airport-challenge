@@ -5,7 +5,7 @@ describe("Airport", function() {
   let airport;
 
   beforeEach(function() {
-    airport = new Airport("TestAirport", 2);
+    airport = new Airport("Manchester", 2);
   });
 
   it("should be able to land a plane", function() {
@@ -18,7 +18,7 @@ describe("Airport", function() {
 
     expect(airport.currentPlanes).toContain(plane1);
     expect(plane1.setStatus).toHaveBeenCalledWith("landed");
-    expect(plane1.setCurrentLocation).toHaveBeenCalledWith("TestAirport");
+    expect(plane1.setCurrentLocation).toHaveBeenCalledWith("Manchester");
   });
 
   it("should throw an error when trying to land a plane at a full airport", function() {
