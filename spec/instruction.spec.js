@@ -250,7 +250,7 @@ describe('User Story 6 Test:', () => {
             weatherType: 'stormy',
             landPlane: () => mockPlane.isLanded(),
             takeOffPlane: () => mockPlane.isLanded(),
-            //checkWeather() { return this.weatherType },
+            checkWeather() { return this.weatherType },
             getAirportCapacity() {
                 return 5
             },
