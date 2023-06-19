@@ -11,7 +11,7 @@ class Airport {
   }
 
   landPlane(plane) {
-    if (plane instanceof Plane) {
+    if (plane instanceof Plane && !this.isAirportFull()) {
       this.#planesAtAirport.push(plane);
     }
 
@@ -33,6 +33,10 @@ class Airport {
       return false;
     }
 
+  }
+
+  isAirportFull() {
+    return this.#airportCapacity === this.getPlanesLength();
   }
 
 }
