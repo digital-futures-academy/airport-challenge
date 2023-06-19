@@ -273,8 +273,7 @@ I want to prevent takeoff when weather is stormy
 |  | planes @array[@Plane] | checkWeather() | @String |
 |  |  | takeOffPlane(Plane) | @Void |
 |  |  |  | @Error |
-- **Test 6a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.takeOffPlane()`, expect `checkWeather()` (a `spy` for `airport.checkWeather()`) to be called.
-- **Test 6b**: Call `Instruction.takeOffPlane`, expect an `error` to be thrown.
+- **Test 6a**: Call `Instruction.takeOffPlane`, expect an `error` to be thrown.
 
 ---
 
@@ -300,8 +299,7 @@ I want to prevent landing when weather is stormy
 |  |  |  | @Error |
 |  |  | landPlane(Plane) | @Void |
 |  |  |  | @Error |
-- **Test 7a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.landPlane()`, expect `checkWeather()` (a `spy` for `airport.checkWeather()`) to be called.
-- **Test 7b**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
+- **Test 7a**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
 
 ---
 

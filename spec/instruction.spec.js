@@ -288,7 +288,7 @@ describe('User Story 6 Test:', () => {
         afterEach(() => {
             testInstruction = undefined;
         })
-        it('6a. expect landPlane to throw an error', () => {
+        it('7a. expect landPlane to throw an error', () => {
             // Assert
             expect(() => { testInstruction.takeOffPlane() }).toThrowError('Too stormy to land / take-off');
         })
