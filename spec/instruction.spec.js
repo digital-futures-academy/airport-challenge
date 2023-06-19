@@ -98,3 +98,30 @@ describe('User Story 2 Test:', () => {
         })
     })
 })
+
+describe('User Story 3 Test:', () => {
+    let testInstruction;
+    describe('Instruction Instantiation test:', () => {
+        const mockPlane1 = {
+            flightNumber: "1"
+        }
+        const mockPlane2 = {
+            flightNumber: "2"
+        }
+        const mockAirport = {
+            capacity: 1,
+            planesAtAirport: [mockPlane1],
+            landPlane(plane) {
+                this.planesAtAirport.push(plane);
+            }
+        }
+        it('3a. expect landPlane to throw an error', () => {
+            // Arrange -> done above
+            testInstruction = new Instruction("testInstruction", mockAirport, mockPlane2);
+            // Act
+            testInstruction.landPlane();
+            // Assert
+            expect(() => { testInstruction.landPlane() }).toThrowError('Error. Airport is Full.')
+        })
+    })
+})

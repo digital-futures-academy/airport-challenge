@@ -184,8 +184,7 @@ I want to prevent landing when the airport is full
 |  |  | getAirportCapacity() | @Number |
 |  |  |  |  |
 | Plane | landed @boolean | isLanded() | @Boolean |
-- **Test 3a**: Instantiate a new `Instruction(code, airport, plane)`, call `Instruction.landPlane()`, expect `Instruction.errorIfFull()` to have been called.
-- **Test 3b**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
+- **Test 3a**: Call `Instruction.landPlane()`, expect an `error` to be thrown.
 
 ---
 

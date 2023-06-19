@@ -3,6 +3,7 @@ class Instruction {
     #airport;
     #plane;
     #capacityError = new Error('Cannot have negative or no capacity.')
+    #fullError = new Error('Error.Airport is Full.')
     constructor(code, airport, plane) {
         this.#code = code;
         this.#airport = airport;
@@ -10,6 +11,9 @@ class Instruction {
     }
 
     landPlane() {
+        // if (this.getAirportCapacity() <= this.#airport.planesAtAirport.length) {
+        //     throw this.#fullError;
+        // }
         this.#airport.landPlane(this.#plane);
     }
 

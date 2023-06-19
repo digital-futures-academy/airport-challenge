@@ -41,7 +41,7 @@ describe('User Story 1 Test:', () => {
             // Act
             testAirport.landPlane(mockPlane);
             // Assert
-            expect(testAirport.planes).toContain(mockPlane);
+            expect(testAirport.planesAtAirport).toContain(mockPlane);
         })
     })
 })
