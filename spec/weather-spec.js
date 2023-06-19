@@ -2,14 +2,16 @@ import Weather from "../src/weather.js";
 
 describe('Weather Tests', () => {
   class MockWeather {
-    randomNumber = () => 0;
+    randomNumber = () => 1;
     getCurrentWeather = () => 'stormy';
   }
-  let weather = new MockWeather();
-    it('should return the current weather when calling getCurrentWether', () => {
+  let mockWeather = new MockWeather();
+    
+    it('should return stormy when calling getCurrentWether', () => {
       //arrange
       //act
       //assert
-      expect(weather.getCurrentWeather()).toBe('stormy');
+      expect(mockWeather.getCurrentWeather()).toBe('stormy');
     });
+  
 });

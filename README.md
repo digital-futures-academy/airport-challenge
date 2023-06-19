@@ -102,17 +102,17 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
 
 #### Domain Modelling and Tests
 
-1.    As an air traffic controller
+1.    _As an air traffic controller
       So I can get passengers to a destination
-      I want to instruct the airport to land a plane
+      I want to instruct the airport to land a plane_
 
       | Objects | Properties                          | Messages          | Outputs |
       | ------- | ----------------------------------- | ----------------- | ------- |
       | Airport | landedPlanes @Array[@Planes]        | landPlane(@Plane) | @Void   |
       | Plane   | aircraftId, aircraftStatus @String  |                   |         |
 
-      *** Tests ***
-- 
+      ##### Tests
+      
       - Returns an empty array for an empty airport;
       - Lands plane to airport using landPlane and expect array (landedPlanes) has increased in length by 1;
       - Test that plane passed to landPlane is actually added to the landedPlanes;
@@ -124,88 +124,101 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       - Plane with id of null is not landing on the airport;
       - Plane status changes from `departed` to `landed` once the plane lands in the airport.
 
-2.    As the system designer
+2.    _As the system designer
       So that the software can be used for many different airports
-      I would like a default airport capacity that can be overridden as appropriate
+      I would like a default airport capacity that can be overridden as appropriate_
 
       | Objects | Properties                          | Messages                            | Outputs |
       | ------- | ----------------------------------- | ------------------------------------| ------- |
       | Airport | maxAirportCapacity @Integer         | overrideAirportCapacityBy(@Integer) | @Void   |
 
-      *** Tests ***
+      ##### Tests
+      
       - MaxAirportCapacity is 10 when the airport is first instantiated;
       - You are able to override maxAirportCapacity from 10 to 1500;
       - You are able to override maxAirportCapacity from 1500 to 1000.
 
-3.    As an air traffic controller
+3.    _As an air traffic controller
       To ensure safety
-      I want to prevent landing when the airport is full
+      I want to prevent landing when the airport is full_
 
       | Objects | Properties                          | Messages        | Outputs |
       | ------- | ----------------------------------- | ----------------| ------- |
       | Airport | landedPlanes @Array[@Planes]        | isAirportFull() | @Void   |
-                | maxAirportCapacity @Integer         |
+      |         | maxAirportCapacity @Integer          |                 |         |
 
-      *** Tests ***
+      ##### Tests
       
       - IsAirportFull returns a boolean;
       - Informs airport is NOT full when 1 plane lands in airport with max capacity of 10;
       - Airport is full when airport is at max capacity;
       - You are not able to land a plane if the airport is full.
 
-4.    As an air traffic controller
+4.    _As an air traffic controller
       So I can get passengers on the way to their destination
-      I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport
+      I want to instruct the airport to let a plane take off and confirm that it is no longer in the airport_
 
       | Objects | Properties                         | Messages                                 | Outputs |
       | ------- | -----------------------------------| -----------------------------------------| ------- |
       | Airport | landedPlanes @Array [@Planes]      |  planeTakeOff(aircraftId @String) @Plane | @String |
       | Plane   | aircraftId, aircraftStatus @String |                                          |
 
-      *** Tests ***
+      ##### Tests
+      
       - Plane takes off using planeTakeOff and expect array (landedPlanes) has decreased in length by 1;
       - Confirms that the plane with id of G-XLEE took off with message: "G-XLEE took off from airport";
       - Tests that the plane that took off from the airport is the plane passed through planeTakeOff.
 
-5.    As an air traffic controller
+5.    _As an air traffic controller
       To avoid confusion
-      I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed
+      I want to prevent asking the airport to let planes take-off which are not at the airport, or land a plane that's already landed_
 
+      | Objects  | Properties                         | Messages                                          | Outputs  |
+      | -------- | -----------------------------------| --------------------------------------------------| -------- |
+      | Airport  | landedPlanes @Array [@Planes]      | takeOffChecks(aircraftId), landPlaneChecks(@Plane)| @ Boolean
+      
+      ##### Tests
 
-      | Objects  | Properties                    | Messages                           | Outputs    |
-      | ---------| ----------------------------- | ---------------------------------- | ---------- |
-      | Airport  | landedPlanes @Array [@Planes] | takeOffChecks(aircraftId @String)  | @ Boolean  |  
-                                                 | landPlaneChecks(@Plane)            | @ Boolean  |
-      *** Tests ***
       - You are not able to take off a plane which is not at the airport;
       - You are not able to land a plane which is already at the airport;
 
 
- 6.   As an air traffic controller
+ 6.   _As an air traffic controller
       To ensure safety
-      I want to prevent takeoff when weather is stormy
+      I want to prevent takeoff when weather is stormy_
       
-      | Objects | Properties                          | Messages          | Outputs |
-      | ------- | ----------------------------------- | ----------------- | ------- |
-      | Airport |                                     |                   |         |
-      | Plane   |                                     |                   |         |
-      | Weather |                                     |                   |         |
+      | Objects | Properties                  | Messages                 | Outputs |
+      | ------- | ----------------------------|--------------------------|-------- |
+      | Airport |                             | isWeatherStormy(@Weather)| @Boolean|
+      | Airport |landedPlanes @Array [@Planes]| landPlane(@Plane)        | @Void   |
+      | Weather |                             | getCurrentWeather()      | @String |
 
-As an air traffic controller
-To ensure safety
-I want to prevent landing when weather is stormy
+      ##### Tests
+      - Planes are not able to land when the weather is stormy;
 
-| Objects | Properties                          | Messages          | Outputs |
-| ------- | ----------------------------------- | ----------------- | ------- |
-| Airport |                                     |                   |         |
-| Plane   |                                     |                   |         |
-| Weather |                                     |                   |         |
+  7.  _As an air traffic controller
+      To ensure safety
+      I want to prevent landing when weather is stormy_
 
-As an air traffic controller
-To count planes easily
-Planes that have landed must be at an airport
+      | Objects | Properties                  | Messages                 | Outputs |
+      | ------- | ----------------------------|--------------------------|-------- |
+      | Airport |                             | isWeatherStormy(@Weather)| @Boolean|
+      | Airport |landedPlanes @Array [@Planes]| planeTakeOff(aircraftId) | @String |
+      | Weather |                             | getCurrentWeather()      | @String |    
+      
+      ##### Tests
 
-| Objects | Properties                          | Messages          | Outputs |
-| ------- | ----------------------------------- | ----------------- | ------- |
-| Airport |                                     |                   |         |
-| Plane   |   airport @String                   | getAirport()?     | @String |
+      - Planes are not able to take off when the weather is stormy;
+
+  8.  _As an air traffic controller
+      To count planes easily
+      Planes that have landed must be at an airport_
+
+      | Objects | Properties               | Messages       | Outputs |
+      | ------- | -------------------------|----------------|-------- |
+      | Airport |  airportName @String     |                |         |
+      | Plane   |  landedAt @Airport       |                |         |         
+   
+   ##### Tests
+
+      - Planes that have a landed status are at an airport;

@@ -1,14 +1,12 @@
 export default class Weather {
  
   randomNumber() {
-    const randomNumber = Math.floor(Math.random() * 10);    
+    const randomNumber = Math.floor(Math.random() * 10) + 1;    
     return randomNumber;
   }
   getCurrentWeather() {
-    if (this.randomNumber >= 1) {
-      return 'clear';
-    } else {
-      return 'stormy';
-    }
+    let currentWeather;
+    (this.randomNumber() === 1) ? currentWeather = 'stormy' : currentWeather = 'clear';
+    return currentWeather;
   }
 }
