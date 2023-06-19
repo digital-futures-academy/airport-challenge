@@ -10,6 +10,10 @@ class Airport {
         return this.planes.length;
     }
 
+    landPlane(planeToAdd) {
+        this.planes.push(planeToAdd);
+    }
+
 }
 
 module.exports = Airport;
