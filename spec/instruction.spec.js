@@ -1,9 +1,9 @@
 import Instruction from '../src/Instruction.js';
 
-describe('User Story 1 Test', () => {
+describe('User Story 1 Test:', () => {
     let testInstruction;
 
-    describe('Instruction instantiation tests', () => {
+    describe('Instruction instantiation test:', () => {
         const mockPlane = {
             isLanded: () => true,
         }

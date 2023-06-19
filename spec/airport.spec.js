@@ -1,9 +1,9 @@
 import Airport from '../src/airport.js';
 
-describe('User Story 1 Test', () => {
+describe('User Story 1 Test:', () => {
     let testAirport;
 
-    describe('Airport instantiation tests', () => {
+    describe('Airport instantiation test:', () => {
         const mockPlane = {
             isLanded: () => true,
         }
@@ -24,10 +24,11 @@ describe('User Story 1 Test', () => {
 
     })
 
-    describe('Land plane test', () => {
+    describe('Land plane test:', () => {
         const mockPlane = {
             flightNumber: 'testPlane',
-            landed: true
+            landed: true,
+            isLanded: () => true,
         }
         beforeEach(() => {
             testAirport = new Airport("testAirport");
