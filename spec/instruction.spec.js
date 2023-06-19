@@ -205,5 +205,29 @@ describe('User Story 5 Test:', () => {
             expect(() => { testInstruction.landPlane() }).toThrowError('Plane already at airport.');
         })
     })
+    describe('Take-off error test:', () => {
+        const mockPlane = {
+            isLanded: () => false,
+        }
+        const mockAirport = {
+            planesAtAirport: 1,
+            landPlane: () => mockPlane.isLanded(),
+            takeOffPlane: () => mockPlane.isLanded(),
+            getAirportCapacity() {
+                return 5
+            },
+
+        }
+        beforeEach(() => {
+            testInstruction = new Instruction("testInstruction", mockAirport, mockPlane);
+        })
+        afterEach(() => {
+            testInstruction = undefined;
+        })
+        it('5b. expect takeOffPlane to throw an error', () => {
+            // Assert
+            expect(() => { testInstruction.landPlane() }).toThrowError('Plane is not at the airport, so cannot take off.');
+        })
+    })
 })
 
