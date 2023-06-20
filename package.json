@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A TDD Challenge for Digital Futures",
   "type": "module",
-  "main": "index.cjs",
+  "main": "index.js",
   "scripts": {
     "test": "jasmine",
     "lint": "npx eslint src",

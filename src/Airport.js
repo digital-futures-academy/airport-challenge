@@ -1,4 +1,4 @@
-class Airport {
+export default class Airport {
 
   constructor(airportId = '') {
     this.landedPlanes = [];
@@ -48,7 +48,7 @@ class Airport {
     this.errorPlaneAlreadyAtAirport(plane);
     this.errorIfWrongIdType(plane);
     this.errorIfWrongStatusType(plane);
-    this.errorPlaneAlreadyAtAnAirport(plane)
+    this.errorPlaneAlreadyAtAnAirport(plane);
     return plane?.aircraftStatus && plane?.aircraftId && !this.isAirportFull() && !this.isPlaneAtTheAirport(plane) && plane.aircraftStatus !== 'landed';
   }
 
@@ -103,4 +103,3 @@ class Airport {
     return this.landedPlanes;
   }
 }
-module.exports = Airport;

@@ -133,7 +133,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       | Objects | Properties                          | Messages        | Outputs |
       | ------- | ----------------------------------- | ----------------| ------- |
       | Airport | landedPlanes @Array[@Planes]        | isAirportFull() | @Void   |
-      |         | maxAirportCapacity @Integer          |                 |         |
+      |         | maxAirportCapacity @Integer         |                 |         |
 
       ##### Tests
       

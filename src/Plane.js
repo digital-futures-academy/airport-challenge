@@ -1,4 +1,4 @@
-class Plane {
+export default class Plane {
   constructor(aircraftId = '', aircraftStatus = '', currentAirportId = '') {
     this.aircraftId = aircraftId;
     this.aircraftStatus = aircraftStatus;
@@ -6,6 +6,5 @@ class Plane {
   }
 }
 
-module.exports = Plane;
 
 

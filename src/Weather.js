@@ -1,4 +1,4 @@
-class Weather {
+export default class Weather {
  
   randomNumber() {
     const randomNumber = Math.floor(Math.random() * 10) + 1;    
@@ -10,4 +10,3 @@ class Weather {
     return currentWeather;
   }
 }
-module.exports = Weather;

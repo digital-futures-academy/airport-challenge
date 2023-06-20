@@ -1,4 +1,4 @@
-const Airport = require(`../src/Airport.cjs`);
+import Airport from '../src/Airport.js';
 
 describe("Airport Tests", () => {
 

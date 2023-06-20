@@ -1,4 +1,4 @@
-const Weather = require(`../src/Weather.cjs`);
+import Weather from '../src/Weather.js';
 
 describe('Weather Tests', () => {
   class MockWeather {
