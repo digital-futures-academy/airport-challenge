@@ -36,7 +36,7 @@ airport.landPlane(plane3);
 console.log(`${airport.landedPlanes.length} planes have landed at the ${airport.airportId} airport.`);
 
 
-console.log('\n5. Check if airport is at maximum capacity.');
+console.log('\n5. Check if airport is at maximum capacity and report:');
 airport = new Airport('LHR');
 plane1 = new Plane('G-XLEE', 'departed');
 plane2 = new Plane('YR-ATC', 'departed');
@@ -56,19 +56,19 @@ airport.landPlane(plane1);
 airport.landPlane(plane2);
 console.log(`Is ${plane2.aircraftId} at the airport? ${airport.isAirportFull()? `No, the airport is full so ${plane2.aircraftId} did not land` : `Yes, the airport is not full so ${plane2.aircraftId} landed`}.`);
 
-console.log('\n7. Make an airport with name LHR, land a plane with id G-XLEE if weather is clear and report');
+console.log('\n7. Make an airport with name LHR, land a plane with id G-XLEE if weather is clear and report:');
 airport = new Airport('LHR');
 plane1 = new Plane('G-XLEE', 'departed');
 weather = new Weather();
 currentWeather = weather.getCurrentWeather();
-console.log(`At present the weather is ${currentWeather}, therefore plane ${plane1.aircraftId} ${currentWeather === 'clear' ? 'can land' : 'cannot land'}`);
+console.log(`At present the weather is ${currentWeather}, therefore plane ${plane1.aircraftId} ${currentWeather === 'clear' ? 'can land' : 'cannot land'}.`);
 try {
   airport.landPlane(plane1, currentWeather);
 } catch (error) {
   console.log(error.message);
 }
 
-console.log('\n8. Plane takes off if weather is clear');
+console.log('\n8. Plane takes off only if weather is clear:');
 airport = new Airport('LHR');
 plane1 = new Plane('G-XLEE', 'departed');
 plane2 = new Plane('YR-ATC', 'departed');
@@ -76,18 +76,7 @@ airport.landPlane(plane1);
 airport.landPlane(plane2);
 weather = new Weather();
 currentWeather = weather.getCurrentWeather();
-console.log(`At present the weather is ${currentWeather}, therefore plane ${plane1.aircraftId} ${currentWeather === 'clear' ? 'can take off' : 'cannot take off'}`);
-airport.planeTakeOff('YR-ATC', currentWeather);
-
-console.log('\n9. Plane takes off if weather is clear');
-airport = new Airport('LHR');
-plane1 = new Plane('G-XLEE', 'departed');
-plane2 = new Plane('YR-ATC', 'departed');
-airport.landPlane(plane1);
-airport.landPlane(plane2);
-weather = new Weather();
-currentWeather = weather.getCurrentWeather();
-console.log(`At present the weather is ${currentWeather}, therefore plane ${plane1.aircraftId} ${currentWeather === 'clear' ? 'can take off' : 'cannot take off'}`);
+console.log(`At present the weather is ${currentWeather}, therefore plane ${plane1.aircraftId} ${currentWeather === 'clear' ? 'can take off' : 'cannot take off'}.`);
 try {
   airport.planeTakeOff('YR-ATC', currentWeather);
 } catch (error) {
