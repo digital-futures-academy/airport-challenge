@@ -1,13 +1,9 @@
 class Airport {
 
-  constructor(airportName = '') {
+  constructor(airportId = '') {
     this.landedPlanes = [];
     this.maxAirportCapacity = 10;
-    this.airportName = airportName;
-  }
-  
-  getAirportName() {
-    return this.airportName;
+    this.airportId = airportId;
   }
 
   isWeatherStormy(currentWeather) {
@@ -41,19 +37,26 @@ class Airport {
     }
   }
 
-  landPlaneChecks(plane) {
-    return plane?.aircraftStatus && plane?.aircraftId && !this.isAirportFull() && !this.isPlaneAtTheAirport(plane);
+  errorPlaneAlreadyAtAnAirport(plane) {
+    if (plane.aircraftStatus === 'landed') {
+      throw new Error (`Cannot land plane with id ${plane.aircraftId}. It has landed at a different airport.`);
+    }
   }
 
-  landPlane(plane, currentWeather = 'clear') {
+  landPlaneChecks(plane, currentWeather = 'clear') {
     this.isWeatherStormy(currentWeather);
     this.errorPlaneAlreadyAtAirport(plane);
     this.errorIfWrongIdType(plane);
     this.errorIfWrongStatusType(plane);
-    if (this.landPlaneChecks(plane)) {
+    this.errorPlaneAlreadyAtAnAirport(plane)
+    return plane?.aircraftStatus && plane?.aircraftId && !this.isAirportFull() && !this.isPlaneAtTheAirport(plane) && plane.aircraftStatus !== 'landed';
+  }
+
+  landPlane(plane, currentWeather = 'clear') {
+    if (this.landPlaneChecks(plane, currentWeather)) {
       this.landedPlanes = [...this.landedPlanes, plane];
       plane.aircraftStatus = 'landed';
-      plane.landedAtAirport = this.getAirportName(); 
+      plane.currentAirportId = this.airportId; 
     }
   }
 
@@ -89,7 +92,7 @@ class Airport {
 
   landedPlanesChecks() {
     this.landedPlanes.map(plane => {
-      if ( plane.landedAtAirport != this.airportName) {
+      if ( plane.currentAirportId !== this.airportId) {
         throw new Error('Landed planes must be at an airport!');
       }
     });

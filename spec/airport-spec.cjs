@@ -228,6 +228,14 @@ describe("Airport Tests", () => {
       expect(() => { airport.errorPlaneAlreadyAtAirport(plane) }).toThrowError("Plane with id G-XLEE is already at the airport.");
     });
 
+    it('does not allow plane with status landed to land', () => {
+      //arrange
+      plane.aircraftStatus = 'landed';
+      //act
+      //assert
+      expect(() => { airport.landPlane(plane) }).toThrowError('Cannot land plane with id G-XLEE. It has landed at a different airport.');
+    })
+
     it("does not allow plane to take off if plane is not at the airport", () => {
       //arrange
       //act
@@ -334,19 +342,19 @@ describe("Airport Tests", () => {
       airport = undefined;
     });
 
-    it('should set the airportName on the plane after plane landed', () => {
+    it('should set the currentAirportId on the plane after plane landed', () => {
       //arrange
       //act
       airport.landPlane(plane);
       //assert
-      expect(plane.landedAtAirport).toBe('LHR');
+      expect(plane.currentAirportId).toBe('LHR');
     })
 
     it('should report if plane that has landed is not at an airport', () => {
       //arrange
       //act
       airport.landPlane(plane);
-      plane.landedAtAirport = '';
+      plane.currentAirportId = '';
       //assert
       expect(() => { airport.getLandedPlanes() } ).toThrowError('Landed planes must be at an airport!');
     })

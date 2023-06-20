@@ -1,8 +1,8 @@
 class Plane {
-  constructor(aircraftId = '', aircraftStatus = '', landedAtAirport = '') {
+  constructor(aircraftId = '', aircraftStatus = '', currentAirportId = '') {
     this.aircraftId = aircraftId;
     this.aircraftStatus = aircraftStatus;
-    this.landedAtAirport = landedAtAirport;
+    this.currentAirportId = currentAirportId;
   }
 }
 

@@ -25,7 +25,11 @@ $ npm test
 # or run jasmine directly
 $ ./node_modules/jasmine/bin/jasmine.js
 ```
-3. To lint you project run:
+3. To see the project in action run:
+```sh
+$ node index.cjs
+```
+4. To lint you project run:
 ```sh
 $ npm run lint
 ```
