@@ -27,7 +27,8 @@ $ ./node_modules/jasmine/bin/jasmine.js
 ```
 3. To see the project in action run:
 ```sh
-$ node index.cjs
+$ cd src
+$ node index.js
 ```
 4. To lint you project run:
 ```sh
