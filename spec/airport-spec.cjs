@@ -1,4 +1,4 @@
-import Airport from "../src/airport.js";
+const Airport = require(`../src/Airport.cjs`);
 
 describe("Airport Tests", () => {
 
@@ -342,13 +342,13 @@ describe("Airport Tests", () => {
       expect(plane.landedAtAirport).toBe('LHR');
     })
 
-    it('should report if plane that has landed is not at an airport ', () => {
+    it('should report if plane that has landed is not at an airport', () => {
       //arrange
       //act
       airport.landPlane(plane);
       plane.landedAtAirport = '';
       //assert
-      expect(() => { airport.landedPlanesChecks() } ).toThrowError('Landed planes must be at an airport!');
+      expect(() => { airport.getLandedPlanes() } ).toThrowError('Landed planes must be at an airport!');
     })
   })
 });
