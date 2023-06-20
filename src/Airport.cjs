@@ -1,13 +1,13 @@
-export default class Airport {
-  #airportName;
+class Airport {
+
   constructor(airportName = '') {
     this.landedPlanes = [];
     this.maxAirportCapacity = 10;
-    this.#airportName = airportName;
+    this.airportName = airportName;
   }
   
   getAirportName() {
-    return this.#airportName;
+    return this.airportName;
   }
 
   isWeatherStormy(currentWeather) {
@@ -57,14 +57,6 @@ export default class Airport {
     }
   }
 
-  landedPlanesChecks() {
-    this.landedPlanes.map(plane => {
-      if ( plane.landedAtAirport != this.#airportName) {
-        throw new Error('Landed planes must be at an airport!');
-      }
-    })
-  }
-
   overrideAirportCapacityBy(override) {
     this.maxAirportCapacity += override;
   }
@@ -94,4 +86,18 @@ export default class Airport {
     departedPlane[0].aircraftStatus = 'departed';
     return `${departedPlane[0].aircraftId} took off from airport`;
   }
+
+  landedPlanesChecks() {
+    this.landedPlanes.map(plane => {
+      if ( plane.landedAtAirport != this.airportName) {
+        throw new Error('Landed planes must be at an airport!');
+      }
+    });
+  }
+  
+  getLandedPlanes() {
+    this.landedPlanesChecks();
+    return this.landedPlanes;
+  }
 }
+module.exports = Airport;
