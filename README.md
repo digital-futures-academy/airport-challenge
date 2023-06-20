@@ -96,7 +96,9 @@ I want to instruct the airport to land a plane
 |  Objects   |  Properties                   |  Messages                 |  Output  |
 | ---------- | ----------------------------  | --------------------------| -------- |
 | Airport    | planesAtAirport @Array[@Plane]| landPlane(@Plane)         | @Void    |
-| Plane      |                               |                           |          |
+|            |                               | getPlanesLength()         | @Number  |
+|            |                               | getPlane()                | @Plane   |
+| Plane      | Id @String                    | getId()                   | @String  |
 
 ```
 #### Tests
@@ -128,7 +130,7 @@ I would like a default airport capacity that can be overridden as appropriate
 
 1. test that calling changeAirportCapacity increases airport capacity to 5.
 2. test that passing in a capacity which is still a number as a string increase airport capacity.
-3. test that passing in an actual String of words doesn't increase airport capacity.  
+  
 
 ---
 ---
@@ -146,8 +148,8 @@ I want to prevent landing when the airport is full
 ```
 |  Objects   |  Properties                    |   Messages              |  Output     |
 | ---------- | -------------------------------|-----------------------  | ----------- |
-| Airport    | airportCapacity @Integer       | isAirportFull(@Integer) | @Boolean    |
-|            | planesAtAirport @Array[@Plane] | landPlane(@Plane)       |             |
+| Airport    | airportCapacity @Integer       | isAirportFull()         | @Boolean    |
+|            | planesAtAirport @Array[@Plane] | landPlane(@Plane)       | @Void       |
 | Plane      | id @String                     |                         |             |
 
 ```
@@ -170,8 +172,8 @@ I want to instruct the airport to let a plane take off and confirm that it is no
 ```
 |  Objects   |  Properties                    |   Messages                      |  Output  |
 | ---------- | ------------------------------ | ------------------------------- | -------- |
-| Airport    | planesAtAirport @Array[@Plane] |   takeOffPlane(@Plane)          | @String  |
-|            |                                |   isPlaneAtAirport(@Plane)      | @Boolean |
+| Airport    | planesAtAirport @Array[@Plane] |   takeOffPlane(@Plane)          | @Void    |
+|            |                                |                                 |          |
 | Plane      | id @String                     |                                 |          |
 
 ```
@@ -195,7 +197,7 @@ I want to prevent asking the airport to let planes take-off which are not at the
 ```
 |  Objects   |  Properties                    |   Messages                    |  Output  |
 | ---------- | ------------------------------ | ----------------------------- | -------- |
-| Airport    | planesAtAirport @Array[@Plane] | isPlaneAtAirport(@Plane)      | @Boolean |
+| Airport    | planesAtAirport @Array[@Plane] | takeOffPlane(@Plane)          | @Void    |
 | Plane      | id @String                     |                               |          |
 |            |                                |                               |          |
 
@@ -217,11 +219,11 @@ I want to prevent asking the airport to land a plane that's already landed
 
 #### Domain Model
 ```
-|  Objects   |  Properties                   |   Messages                    |  Output  |
-| ---------- | ----------------------------- | ----------------------------- | -------- |
-| Airport    | planesAtAirport @Array[@Plane]|  landPlane(@Plane)            | @Void    |
-|            |                               |  isPlaneAtAirport(@Plane)     | @Boolean |
-| Plane      | id @String                    |  isPlaneLanded()              | @Boolean |
+|  Objects   |  Properties                   |   Messages         |  Output  |
+| ---------- | ----------------------------- | ------------------ | -------- |
+| Airport    | planesAtAirport @Array[@Plane]|  landPlane(@Plane) | @Void    |
+|            |                               |                    |          |
+| Plane      | id @String                    |                    |          |
 
 ```
 #### Tests
