@@ -1,6 +1,5 @@
 export default class Airport {
   #airportName;
-
   constructor(airportName = '') {
     this.landedPlanes = [];
     this.maxAirportCapacity = 10;
@@ -10,7 +9,7 @@ export default class Airport {
   getAirportName() {
     return this.#airportName;
   }
-  
+
   isWeatherStormy(currentWeather) {
     if (currentWeather === 'stormy') {
       throw new Error (`Plane cannot land or take off when weather is ${currentWeather}.`);
@@ -54,7 +53,16 @@ export default class Airport {
     if (this.landPlaneChecks(plane)) {
       this.landedPlanes = [...this.landedPlanes, plane];
       plane.aircraftStatus = 'landed';
+      plane.landedAtAirport = this.getAirportName(); 
     }
+  }
+
+  landedPlanesChecks() {
+    this.landedPlanes.map(plane => {
+      if ( plane.landedAtAirport != this.#airportName) {
+        throw new Error('Landed planes must be at an airport!');
+      }
+    })
   }
 
   overrideAirportCapacityBy(override) {

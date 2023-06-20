@@ -320,4 +320,35 @@ describe("Airport Tests", () => {
       expect(airport.landedPlanes.length).toBe(1);
     })
   })
+
+  describe('Plane landed at airport tests', () => {
+    beforeEach(() => {
+      plane = new MockPlane();
+      airport = new Airport('LHR');
+      plane.aircraftId = "G-XLEE";
+      plane.aircraftStatus = "departed";
+    });
+
+    afterEach(() => {
+      plane = undefined;
+      airport = undefined;
+    });
+
+    it('should set the airportName on the plane after plane landed', () => {
+      //arrange
+      //act
+      airport.landPlane(plane);
+      //assert
+      expect(plane.landedAtAirport).toBe('LHR');
+    })
+
+    it('should report if plane that has landed is not at an airport ', () => {
+      //arrange
+      //act
+      airport.landPlane(plane);
+      plane.landedAtAirport = '';
+      //assert
+      expect(() => { airport.landedPlanesChecks() } ).toThrowError('Landed planes must be at an airport!');
+    })
+  })
 });

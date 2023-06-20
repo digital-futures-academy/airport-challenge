@@ -1,15 +1,15 @@
 export default class Plane {
-  #landedAtAirport;
-  constructor(aircraftId = '', aircraftStatus = '') {
+  constructor(aircraftId = '', aircraftStatus = '', landedAtAirport = '') {
     this.aircraftId = aircraftId;
     this.aircraftStatus = aircraftStatus;
+    this.landedAtAirport = landedAtAirport;
   }
 
-  getAirportName() {
-    return this.#landedAtAirport.getAirportName();
-  }
+  // getAirportName() {
+  //   return this.#landedAtAirport.getAirportName();
+  // }
 
-  setLandedAtAirport(airport) {
-    return this.#landedAtAirport = airport;
-  }
+  // setLandedAtAirport(airport) {
+  //   return this.#landedAtAirport = airport;
+  // }
 }

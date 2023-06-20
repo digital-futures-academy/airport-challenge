@@ -199,11 +199,11 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       To count planes easily
       Planes that have landed must be at an airport_
 
-      | Objects | Properties               | Messages         | Outputs |
-      | ------- | -------------------------|------------------|-------- |
-      | Airport |  airportName @String     | getAirportName() |              |
-      | Plane   |  landedAt @Airport       |                  |         |         
-   
+      | Objects | Properties               | Messages                      | Outputs |
+      | ------- | -------------------------|-------------------------------|-------- |
+      | Airport |  airportName @String     | getAirportName()              |@String  |
+      | Plane   |  landedAt @Airport       | getAirportName()              |@String  |         
+      | Plane   |  landedAt @Airport       | setLandedAtAirport(@Airport)  |@Airport | 
    ##### Tests
 
       - Planes that have a landed status are at an airport;

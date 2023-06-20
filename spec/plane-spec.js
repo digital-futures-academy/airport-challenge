@@ -1,19 +1,18 @@
-import Plane from "../src/plane.js";
+// import Plane from "../src/plane.js";
 
-describe('Plane instantiation tests', () => {
+// describe('Plane instantiation tests', () => {
 
-  let plane = new Plane();
+//   let plane = new Plane();
     
-    it('should set landed airport to be LHR on the plane object', () => {
-      //arrange
-      class MockAirport {
-        getAirportName = () => 'LHR'
-      }
-      const airport = new MockAirport();
-      //act
-      plane.setLandedAtAirport(airport);
-      //assert
-      expect(plane.getAirportName()).toBe('LHR');
-    });
-  
-});
+//     it('should call getAirportName on the airport object when getAirportName is called on the plane', () => {
+//       //arrange
+//       class MockAirport {
+//         getAirportName = () => 'LHR'
+//       }
+//       const airport = new MockAirport();
+//       //act
+//       plane.setLandedAtAirport(airport);
+//       //assert
+//       expect(plane.getAirportName()).toBe('LHR');
+//     });
+// });
