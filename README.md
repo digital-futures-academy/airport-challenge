@@ -105,6 +105,7 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
       - Test that plane passed to landPlane is actually added to the landedPlanes;
       - A plane without an id property does not land on the airport;
       - A plane without a status property does not land on the airport;
+      - A plane with landed status cannot land;
       - Throws an error when a plane with wrong status type attempts to land in the airport;
       - Throws an error when a plane with wrong id type attempts to land in the airport;
       - You are able to land airplane on an airport with existing planes;
@@ -210,4 +211,5 @@ Your code should defend against [edge cases](http://programmers.stackexchange.co
    
    ##### Tests
 
-      - Planes that have a landed status are at an airport;
+      - A plane that has landed is at an airport;
+      - A plane current airport id changes to the airport id once it lands in the airport.

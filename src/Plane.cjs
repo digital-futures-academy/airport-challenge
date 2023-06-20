@@ -8,11 +8,4 @@ class Plane {
 
 module.exports = Plane;
 
-  // getAirportName() {
-  //   return this.#landedAtAirport.getAirportName();
-  // }
-
-  // setLandedAtAirport(airport) {
-  //   return this.#landedAtAirport = airport;
-  // }
 
