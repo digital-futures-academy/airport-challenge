@@ -14,7 +14,7 @@ class Airport{
 
     overrideCapacity(number) {
         if (typeof number === 'number') {
-            if (!(number < -this.capacity)) { return this.capacity += number };
+            if (number > -this.capacity) { return this.capacity += number };
             throw Error('Airport capacity cannot be reduced to less than 0')
         };
         throw Error('Not a number');
