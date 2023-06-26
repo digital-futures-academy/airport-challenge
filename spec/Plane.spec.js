@@ -1,5 +1,5 @@
 const Plane = require('../src/plane');
-const { describe, it, expect, beforeEach } = require('jasmine');
+// const { describe, it, expect, beforeEach } = require('jasmine');
 
 describe('Plane', () => {
     let plane;
@@ -21,5 +21,5 @@ describe('Plane', () => {
         plane.land();
         plane.takeOff();
         expect(plane.isLanded).toBe(false);
-    });
+    }); 
 });

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A TDD Challenge for Digital Futures",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "jasmine"
   },
@@ -14,14 +14,5 @@
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.27.5",
     "jasmine": "^5.0.2"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "jasmine": {
-    "spec_dir": "spec",
-    "spec_files": [
-      "**/*[sS]pec.js"
-    ]
   }
 }

@@ -7,20 +7,32 @@ class Airport {
     land(plane) {
         // Land the plane at the airport
         if (this.isFull()) {
-            throw new Error('Airport is full');
+            throw new Error ('Airport is full');
         }
 
         if (plane.isLanded) {
-            throw new Error('Plane already landed');
+            throw new Error ('Plane is already landed');
         }
+
+        // Land the plane at the airport
+        plane.land();
+        this.planes.push(plane);
         
     }
 
     takeOff(plane) {
         // Allow the plane to take off from the airport
+        
         if (!plane.isLanded) {
-            throw new Error('Plane not landed');
+            throw new Error ('Plane is not landed');
         }
+        
+        if(!this.planes.includes(plane)) {
+            throw new Error('Plane is not at the airport');
+        }
+        
+        plane.takeOff();
+        this.planes = this.planes.filter((p) => p !== plane);
     }
 
     isFull() {
