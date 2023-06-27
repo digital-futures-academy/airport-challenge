@@ -90,7 +90,7 @@ User story 1: I want to instruct the airport to land a plane
 
 | Objects | Properties                 | Messages          | Outputs |
 | ------- | -------------------------- | ----------------- | ------- |
-| airport | capacity @int              | land(@string)     |@boolean |
+| airport | capacity @int              | land()            |@boolean |
 | plane   | isLanded                   |                   |         |
 
 User story 2: I would like a default airport capacity that can be overridden as appropriate
@@ -122,3 +122,19 @@ User story 5: I want to prevent asking the airport to let planes take-off which 
 | ------- | -------------------------- | ----------------- | ------- |
 | airport |  planes(@array)            | takeOff()         |@boolean |
 | plane   |  isLanded(@string)         |                   |         |
+
+
+
+User story 6 and 7: I want to prevent takeoff when weather is stormy and prevent landing when weather is stormy
+
+| Objects | Properties                 | Messages          | Outputs |
+| ------- | -------------------------- | ----------------- | ------- |
+| weather |  weather(@string)          | isStormy()        |@boolean |
+
+
+
+User story 8: Planes that have landed must be at an airport
+
+| Objects | Properties                 | Messages          | Outputs |
+| ------- | -------------------------- | ----------------- | ------- |
+| airport |  planes(@array)            | land()            |@boolean |
