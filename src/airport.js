@@ -39,6 +39,10 @@ class Airport {
         // If airport is full
         return this.planes.length >= this.capacity;
     }
+
+    setCapacity(newCapacity) {
+        this.capacity = newCapacity;
+    }
 }
 
 module.exports = Airport;  

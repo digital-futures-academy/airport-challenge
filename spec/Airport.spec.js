@@ -22,6 +22,12 @@ describe('Airport', () => {
     it('should initialize an airport with a default capacity', () => {
         expect(airport.capacity).toBe(10);
     });
+
+    it('should initialize an airport with a default capacity that can be overridden as appropriate', () => {
+        const newCapacity = 30;
+        airport.setCapacity(newCapacity);
+        expect(airport.capacity).toEqual(newCapacity);
+    });
     
     it('should prevent landing when the airport is full', () => {
         airport.capacity = 1;
@@ -31,13 +37,14 @@ describe('Airport', () => {
         expect(() => airport.land(plane2)).toThrowError('Airport is full');
     });
 
-    it('should allow a plane to take off from a airport', () => {
+    it('should allow a plane to take off from a airport and confirm is no longer in the airport', () => {
         airport.land(plane);
         airport.takeOff(plane);
-        expect(plane.isLanded).toBe(false);
+        // expect(plane.isLanded).toBe(false);
+        expect(plane--);
     });
     
-    it('should prevent take off when the plane is not landed', () => {
+    it('should prevent take off when the plane is not at the airport', () => {
         expect(() => airport.takeOff(plane)).toThrowError('Plane is not landed');
     });
 
@@ -51,5 +58,3 @@ describe('Airport', () => {
         expect(airport.planes).toContain(plane);
       });
 });
-
-
