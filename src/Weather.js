@@ -18,12 +18,4 @@ class Weather {
 }
 
 module.exports = Weather;
-
-
-// class Weather {
-//     isStormy() {
-//         return Math.random() > 0.5; // 50% chance of stormy weather
-//     }
-// }
-
-// module.exports = Weather; 
+ 
